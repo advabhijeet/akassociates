@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>AK Associates</title>
+  <rect width="64" height="64" rx="6" fill="#1c1a14"/>
+  <path d="M14 48 28 15h8l14 33h-8l-3-8H25l-3 8h-8Zm13-15h10l-5-13-5 13Z" fill="#f7f5f0"/>
+  <path d="M17 52h30" stroke="#8a6c3a" stroke-width="3" stroke-linecap="round"/>
+</svg>
