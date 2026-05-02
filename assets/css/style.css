@@ -118,6 +118,20 @@ body {
   color: #fff;
 }
 
+.s a {
+  color: #b08a2e;
+  text-decoration: none;
+}
+
+.s a:hover {
+  color: #8c6b1f;
+}
+
+.s a:focus-visible {
+  outline: 1px solid #b08a2e;
+  outline-offset: 3px;
+}
+
 .menu-toggle,
 .menu-backdrop {
   display: none;
@@ -707,6 +721,10 @@ body {
 
 .foot-links a:hover {
   color: #d1a947;
+}
+
+.foot-links a:focus-visible {
+  outline-color: #d1a947;
 }
 
 @media (max-width: 760px) {
