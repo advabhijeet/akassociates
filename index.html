@@ -10,56 +10,93 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="s">
 
 <nav class="nav">
-  <div class="nav-brand">AK Associates</div>
+  <div class="nav-brand">
+    <div class="nav-firm">AK <span>Associates</span></div>
+    <div class="nav-sub">Chambers of Abhijeet Kumar, Advocate</div>
+  </div>
   <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
     <li><a href="#practice">Practice</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#updates">Updates</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <a class="nav-cta" href="https://wa.me/919471214118">Contact</a>
 </nav>
 
-<!-- HERO -->
-<section id="home" class="hero">
-  <h1>AK Associates</h1>
-  <p>Chambers of Abhijeet Kumar, Advocate</p>
-  <a href="https://wa.me/919471214118" class="btn">Consult on WhatsApp</a>
-</section>
+<div class="hero" id="home">
+  <div class="hero-eyebrow">Chambers of Abhijeet Kumar, Advocate</div>
+  <div class="hero-firm">AK <span>Associates</span></div>
+  <div class="hero-chambers">Patna · Delhi · Uttar Pradesh</div>
+  <div class="hero-rule"></div>
+  <p class="hero-tagline">Practising at Patna High Court and before the MSME Facilitation Council & Bihar RERA — focused on business disputes, commercial recovery, arbitration, and property matters.</p>
 
-<!-- PRACTICE -->
-<section id="practice" class="section">
-  <h2>Practice Areas</h2>
-  <div class="grid">
-    <div>Cheque Bounce (Sec 138)</div>
-    <div>MSME Disputes</div>
-    <div>Commercial Suits</div>
-    <div>RERA Matters</div>
-    <div>Arbitration</div>
-    <div>Property Disputes</div>
+  <div class="hero-meta">
+    <div class="meta-item"><strong>Abhijeet Kumar</strong><span>Advocate, Bar Council of Bihar</span></div>
+    <div class="meta-item"><strong>Amity University, Noida</strong><span>LLB</span></div>
+    <div class="meta-item"><strong>Based in</strong><span>Patna, Bihar</span></div>
   </div>
-</section>
 
-<!-- ABOUT -->
-<section id="about" class="section">
-  <h2>About</h2>
-  <p>
-    AK Associates is the chambers of Advocate Abhijeet Kumar, practising in Patna,
-    Delhi and Uttar Pradesh. Focused on dispute resolution, arbitration and commercial recovery.
+  <div class="hero-actions">
+    <a class="btn-gold" href="https://wa.me/919471214118">WhatsApp Consultation</a>
+    <a class="btn-outline" href="mailto:kadvocateabhijeet@gmail.com">Send an Email</a>
+  </div>
+</div>
+
+<div class="sec" id="practice">
+  <div class="sec-label">Practice Areas</div>
+  <div class="practice-grid">
+    <div class="practice-item">
+      <div class="practice-title">Cheque Bounce — Section 138</div>
+      <div class="practice-desc">Filing and defence of dishonour complaints.</div>
+    </div>
+    <div class="practice-item">
+      <div class="practice-title">MSME Disputes</div>
+      <div class="practice-desc">Payment recovery and council proceedings.</div>
+    </div>
+    <div class="practice-item">
+      <div class="practice-title">Commercial Suits</div>
+      <div class="practice-desc">Recovery suits and contractual disputes.</div>
+    </div>
+    <div class="practice-item">
+      <div class="practice-title">RERA</div>
+      <div class="practice-desc">Builder complaints and refund claims.</div>
+    </div>
+  </div>
+</div>
+
+<div class="sec" id="about">
+  <div class="sec-label">About</div>
+  <p class="about-body">
+    AK Associates is the chambers of Abhijeet Kumar, an advocate based in Patna.
+    The practice focuses on dispute resolution, arbitration, MSME recovery, and property matters.
   </p>
-</section>
+</div>
 
-<!-- CONTACT -->
-<section id="contact" class="section">
-  <h2>Contact</h2>
+<div class="sec" id="updates">
+  <div class="sec-label">Legal Updates</div>
+  <div class="updates-grid">
+    <div class="update-item">
+      <div class="update-title">Cheque bounce? What to do in 30 days</div>
+      <div class="update-date">Coming soon</div>
+    </div>
+    <div class="update-item">
+      <div class="update-title">MSME delayed payments guide</div>
+      <div class="update-date">Coming soon</div>
+    </div>
+  </div>
+</div>
+
+<div class="sec" id="contact">
+  <div class="sec-label">Contact</div>
   <p>📞 +91 94712 14118</p>
   <p>📧 kadvocateabhijeet@gmail.com</p>
-</section>
+</div>
 
-<footer>
-  <p>© 2026 AK Associates</p>
+<footer class="foot">
+  <div>© 2026 AK Associates</div>
 </footer>
 
 <script src="script.js"></script>
