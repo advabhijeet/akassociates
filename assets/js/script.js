@@ -21,16 +21,14 @@ if (sections.length === 0) {
     return new URL(link.href).pathname === window.location.pathname;
   });
 
-  if (!hasExactPageLink) {
-    return;
+  if (hasExactPageLink) {
+    pageLinks.forEach((link) => {
+      const linkPath = new URL(link.href).pathname;
+      const currentPath = window.location.pathname;
+
+      link.classList.toggle('active', linkPath === currentPath);
+    });
   }
-
-  pageLinks.forEach((link) => {
-    const linkPath = new URL(link.href).pathname;
-    const currentPath = window.location.pathname;
-
-    link.classList.toggle('active', linkPath === currentPath);
-  });
 }
 
 window.addEventListener('scroll', () => {

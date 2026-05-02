@@ -132,9 +132,9 @@ body {
   max-width: 720px;
   color: #1c1a14;
   font-family: 'Playfair Display', serif;
-  font-size: clamp(38px, 6vw, 64px);
+  font-size: 64px;
   font-weight: 700;
-  letter-spacing: -1px;
+  letter-spacing: 0;
   line-height: 1;
 }
 
@@ -183,9 +183,9 @@ body {
 .hero-firm {
   color: #1c1a14;
   font-family: 'Playfair Display', serif;
-  font-size: clamp(42px, 7vw, 74px);
+  font-size: 74px;
   font-weight: 700;
-  letter-spacing: -1px;
+  letter-spacing: 0;
   line-height: 1;
 }
 
@@ -197,7 +197,7 @@ body {
   margin-top: 0.4rem;
   color: rgba(28, 26, 20, 0.45);
   font-family: 'Playfair Display', serif;
-  font-size: clamp(15px, 2.5vw, 20px);
+  font-size: 20px;
   font-style: italic;
   font-weight: 400;
 }
@@ -534,7 +534,8 @@ body {
   text-decoration: none;
 }
 
-.practice-item-link:focus-visible {
+.practice-item-link:focus-visible,
+.update-item-link:focus-visible {
   outline: 1px solid #8a6c3a;
   outline-offset: 3px;
 }
@@ -710,8 +711,30 @@ body {
     font-size: 120px;
   }
 
+  .hero-firm {
+    font-size: 48px;
+  }
+
+  .hero-chambers {
+    font-size: 16px;
+  }
+
+  .page-hero h1 {
+    font-size: 40px;
+  }
+
   .about-grid,
   .updates-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-firm {
+    font-size: 42px;
+  }
+
+  .page-hero h1 {
+    font-size: 34px;
   }
 }
