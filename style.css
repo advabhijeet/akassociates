@@ -1,7 +1,106 @@
-html {
-  scroll-behavior: smooth;
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Mulish:wght@300;400;500&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Mulish', sans-serif;
+  background: #f7f5f0;
+  color: #1c1a14;
+}
+
+.nav {
+  display:flex;
+  justify-content:space-between;
+  padding:1rem 2rem;
+  border-bottom:1px solid #ddd;
+  position:sticky;
+  top:0;
+  background:#f7f5f0;
+  z-index:10;
+}
+
+.nav-links {
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
+
+.nav-links a {
+  text-decoration:none;
+  color:#1c1a14;
 }
 
 .nav-links a.active {
-  color: #8a6c3a;
+  color:#8a6c3a;
+}
+
+.hero {
+  padding:100px 20px;
+  text-align:left;
+}
+
+.hero-firm {
+  font-family:'Playfair Display';
+  font-size:60px;
+}
+
+.hero-rule {
+  width:50px;
+  height:2px;
+  background:#8a6c3a;
+  margin:20px 0;
+}
+
+.btn-gold {
+  background:#8a6c3a;
+  color:#fff;
+  padding:10px 20px;
+  text-decoration:none;
+}
+
+.btn-outline {
+  border:1px solid #333;
+  padding:10px 20px;
+  text-decoration:none;
+}
+
+.sec {
+  padding:60px 20px;
+}
+
+.practice-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
+
+.practice-item {
+  padding:20px;
+  border:1px solid #ddd;
+  transition:0.3s;
+}
+
+.practice-item:hover {
+  transform:translateY(-5px);
+}
+
+.courts-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:10px;
+}
+
+.update-item {
+  padding:20px;
+  border:1px solid #ddd;
+}
+
+.contact-row {
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+footer {
+  text-align:center;
+  padding:20px;
 }
