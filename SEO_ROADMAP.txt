@@ -33,6 +33,7 @@ Status: In progress. Website-side service-area signals and Google Business check
 
 Phase 3 - High-Intent Practice Pages
 Priority: Very high.
+Status: In progress. Cheque bounce page expanded on May 3, 2026. MSME delayed payment page expanded on May 3, 2026.
 - Expand each practice page into a strong informational landing page.
 - Target search intent such as:
   - cheque bounce lawyer in Patna
