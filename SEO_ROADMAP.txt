@@ -22,6 +22,7 @@ Status: Mostly implemented.
 
 Phase 2 - Local Search And Google Business
 Priority: Very high.
+Status: In progress. Website-side service-area signals and Google Business checklist added on May 3, 2026.
 - Create or optimize Google Business Profile for AK Associates.
 - Use consistent NAP details: name, address/service area, phone and email.
 - Add practice categories relevant to advocate/legal services where available.

@@ -1,0 +1,65 @@
+AK ASSOCIATES - GOOGLE BUSINESS PROFILE CHECKLIST
+Roadmap Step 2: Local Search And Google Business Readiness
+Last updated: May 3, 2026
+
+Purpose:
+Use this checklist while creating or improving the Google Business Profile for AK Associates. Keep the profile details consistent with the website so Google and potential clients receive the same business signals.
+
+Core Profile Details:
+- Business name: AK Associates - Chambers of Abhijeet Kumar, Advocate
+- Primary person: Abhijeet Kumar, Advocate
+- Phone: +91 94712 14118
+- Email: kadvocateabhijeet@gmail.com
+- Website: https://advabhijeet.github.io/akassociates/
+- Homebase: Patna, Bihar
+- Service areas: Bihar, UP, Delhi NCR
+- Languages: Hindi, English
+
+Profile Setup Steps:
+1. Sign in with the Google account that should own the profile.
+2. Search Google for the business name and city, or search "my business" while signed in.
+3. If the profile exists, claim it. If it does not exist, add it.
+4. Add the business name exactly as listed above.
+5. Add the phone, email and website exactly as listed above.
+6. Add Patna, Bihar as the homebase.
+7. Add service areas as Bihar, UP and Delhi NCR where available and appropriate.
+8. Add business hours only if they are accurate and can be maintained.
+9. Complete Google's available verification method.
+10. After verification, keep profile information consistent with the website.
+
+Content To Add After Verification:
+- Short business description focused on dispute resolution, commercial recovery, cheque bounce, MSME disputes, RERA and builder disputes, arbitration, property and civil matters.
+- Services aligned with the website practice pages.
+- Professional photos only if appropriate and accurate.
+- Website link to the homepage.
+- Enquiry link to the contact or case enquiry page.
+
+Suggested Business Description Draft:
+AK Associates is the chambers of Abhijeet Kumar, Advocate, based in Patna. The chambers handles dispute resolution, cheque bounce, MSME payment recovery, commercial recovery, RERA and builder disputes, arbitration, and property or civil matters across Bihar, UP and Delhi NCR, depending on jurisdiction, forum and documents.
+
+Suggested Service List:
+- Cheque Bounce - Section 138
+- MSME Delayed Payment Disputes
+- Commercial Recovery
+- RERA And Builder Disputes
+- Arbitration
+- Property And Civil Suits
+- Case Enquiry And Document Review
+
+Ongoing Maintenance:
+- Check profile accuracy monthly.
+- Post useful, informational updates connected to website legal updates.
+- Keep phone, email and website links current.
+- Review Google Search Console and Analytics performance after profile traffic begins.
+- Add the public Google Business Profile URL to the website structured data as sameAs once the profile URL is available.
+
+Compliance Notes:
+- Do not promise outcomes.
+- Do not use misleading locations or virtual offices.
+- Do not list an address publicly unless it is accurate and suitable under Google profile guidance.
+- Keep all content informational and consistent with professional obligations.
+
+Official Google References:
+- Verify your business: https://support.google.com/business/answer/7107242
+- Manage address and service-area settings: https://support.google.com/business/answer/2853879
+- Business representation guidelines: https://support.google.com/business/answer/3038177

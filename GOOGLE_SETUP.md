@@ -20,9 +20,17 @@ Use consistent business details:
 - Phone: +91 94712 14118
 - Email: kadvocateabhijeet@gmail.com
 - Location: Patna, Bihar
-- Service areas: Bihar, Delhi, Uttar Pradesh
+- Service areas: Bihar, UP, Delhi NCR
+- Website: https://advabhijeet.github.io/akassociates/
+- Languages: Hindi, English
 
 After the Google Business Profile is live, add its public profile URL to the website structured data as `sameAs`.
+
+Profile setup reference:
+
+- Google verification: https://support.google.com/business/answer/7107242
+- Address and service-area guidance: https://support.google.com/business/answer/2853879
+- Business representation guidelines: https://support.google.com/business/answer/3038177
 
 ## Google AdSense
 
