@@ -1,0 +1,126 @@
+AK ASSOCIATES - SEARCH VISIBILITY AND CLIENT ACQUISITION ROADMAP
+Last updated: May 3, 2026
+
+Goal:
+Improve discoverability for high-intent legal searches while keeping the website compliant, useful, and conversion-focused. The site should help potential clients quickly understand practice areas, jurisdiction fit, required documents, and how to make a clean enquiry.
+
+Current Positioning:
+- Chambers of Abhijeet Kumar, Advocate.
+- Homebase: Patna, Bihar.
+- Core regions for online positioning: Bihar, UP and Delhi NCR.
+- Core matter types: cheque bounce, MSME delayed payment disputes, commercial recovery, arbitration, RERA and builder disputes, property and civil suits.
+
+Phase 1 - Technical Foundation
+Status: Mostly implemented.
+- Keep Google Analytics active with Measurement ID G-DCP7MK6V0V.
+- Keep AdSense publisher script active with pub-6935574990807827.
+- Maintain robots.txt and sitemap.xml at the live GitHub Pages root.
+- Keep canonical URLs consistent with https://advabhijeet.github.io/akassociates/.
+- Use clean page titles and meta descriptions for every page.
+- Keep mobile layout fast, readable and free from horizontal overflow.
+- Review Search Console after sitemap processing and request indexing for important pages.
+
+Phase 2 - Local Search And Google Business
+Priority: Very high.
+- Create or optimize Google Business Profile for AK Associates.
+- Use consistent NAP details: name, address/service area, phone and email.
+- Add practice categories relevant to advocate/legal services where available.
+- Add service areas: Patna, Bihar, UP and Delhi NCR, as applicable.
+- Add website, WhatsApp/contact links and business hours.
+- Add professional office/chambers photos if available.
+- Publish periodic Google Business updates connected to legal information pages.
+
+Phase 3 - High-Intent Practice Pages
+Priority: Very high.
+- Expand each practice page into a strong informational landing page.
+- Target search intent such as:
+  - cheque bounce lawyer in Patna
+  - Section 138 cheque bounce advocate
+  - MSME payment recovery lawyer
+  - commercial recovery advocate
+  - RERA lawyer for builder dispute
+  - property dispute lawyer in Patna
+  - arbitration advocate in Bihar
+- Add sections for common issues, documents required, forum options, timelines and first enquiry checklist.
+- Avoid promises of outcome and keep content informational.
+
+Phase 4 - RERA Positioning
+Priority: High.
+- Position RERA and builder-dispute work across Bihar, UP and Delhi NCR.
+- Keep Bihar as the homebase, not the only RERA region.
+- Build supporting content for:
+  - delayed possession
+  - refund claims
+  - interest claims
+  - cancellation and allotment disputes
+  - incomplete amenities
+  - choosing the correct RERA authority based on project location
+- Consider adding separate informational pages later for Bihar, UP and Delhi NCR if content depth becomes sufficient.
+
+Phase 5 - Content Cluster For Legal Updates
+Priority: High.
+- Publish short, practical articles for recurring client problems.
+- Recommended first cluster:
+  - cheque bounce notice timeline
+  - what to do after receiving a cheque bounce notice
+  - MSME delayed payment documents
+  - RERA delayed possession checklist
+  - commercial recovery before filing suit
+  - arbitration clause basics
+  - property injunction checklist
+- Each article should link back to the relevant practice page and case enquiry page.
+
+Phase 6 - Conversion Improvements
+Priority: High.
+- Keep WhatsApp Enquiry and Email Chambers visible on the homepage.
+- Keep Case Enquiry in the navbar.
+- Add clear enquiry prompts on practice pages.
+- Add short document checklists to reduce back-and-forth.
+- Track clicks on WhatsApp, email and contact links in Google Analytics later.
+- Add testimonials or representative non-confidential experience only if compliant and appropriate.
+
+Phase 7 - Trust Signals
+Priority: Medium.
+- Maintain About page with professional background, enrollment details and jurisdictions.
+- Keep disclaimer, privacy policy and terms linked only in the footer.
+- Add Bar Council of India wording where relevant.
+- Add clear "informational only, not solicitation" language across legal updates.
+- Add structured data only where accurate.
+
+Phase 8 - Performance And UX
+Priority: Medium.
+- Keep CSS and JavaScript minimal.
+- Avoid heavy images unless they add real trust or identity.
+- Continue checking mobile views at 360px, 390px, 430px and desktop around 1366px.
+- Maintain strong contrast: black and white theme with gold accents.
+- Keep buttons readable on desktop and mobile.
+
+Phase 9 - Measurement Rhythm
+Priority: Ongoing.
+- Weekly: check Search Console indexing status, sitemap status and page errors.
+- Weekly: check Analytics traffic, device mix and top pages.
+- Monthly: identify pages with impressions but low clicks and improve titles/descriptions.
+- Monthly: add one or two useful legal updates.
+- Quarterly: review practice-page rankings and expand content where search demand exists.
+
+30-Day Action Plan:
+Week 1:
+- Confirm sitemap is readable in Search Console.
+- Request indexing for homepage, practice page, case enquiry, contact and core practice pages.
+- Set up or update Google Business Profile.
+
+Week 2:
+- Strengthen cheque bounce, MSME, RERA and property pages with better FAQs and document sections.
+- Add internal links from legal updates to practice pages.
+
+Week 3:
+- Publish two new legal updates focused on high-intent questions.
+- Add GA event tracking for WhatsApp and email clicks.
+
+Week 4:
+- Review Search Console impressions and indexing.
+- Improve titles/meta for pages that are appearing but not getting clicks.
+- Plan the next content cluster based on actual search performance.
+
+Important Note:
+SEO takes time. The best route is not keyword stuffing. The site should answer real client questions clearly, load well on mobile, and keep each page focused on a specific legal problem, location or forum.
