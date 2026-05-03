@@ -10,7 +10,9 @@ The site is prepared for Google Search Console, Google Analytics, Google Busines
 
 ## Google Analytics
 
-GA4 is active with Measurement ID `G-DCP7MK6V0V`.
+GA4 is managed through Google Tag Manager with Measurement ID `G-DCP7MK6V0V`.
+
+The old direct GA4 `gtag.js` website snippet has been removed from the HTML pages to avoid duplicate page views.
 
 ## Google Tag Manager
 
@@ -18,7 +20,7 @@ Google Tag Manager is active with container ID `GTM-5GMHQTJJ`.
 
 The GTM script has been added high in the `<head>` of every public HTML page, and the GTM noscript iframe has been added immediately after each opening `<body>` tag.
 
-Important: GA4 is still installed directly with Measurement ID `G-DCP7MK6V0V`. If the same GA4 tag is also configured inside Google Tag Manager, remove one implementation to avoid duplicate page views.
+Important: The GTM container must be published after creating or editing the GA4 Google tag inside GTM. Otherwise the site will load GTM, but the GA4 tag will not fire.
 
 ## Google Business Profile
 
