@@ -876,11 +876,17 @@ body {
     text-align: center;
   }
 
-  .s .drawer-cta,
-  .s .drawer-cta:hover {
+  .s .nav-links .drawer-cta,
+  .s .nav-links .drawer-cta:hover {
+    display: flex;
+    min-height: 42px;
+    align-items: center;
+    justify-content: center;
     border-color: #111111;
     background: #111111;
     color: #ffffff;
+    font-weight: 500;
+    padding: 0.82rem 1rem;
   }
 
   .menu-toggle {
@@ -954,11 +960,13 @@ body {
   }
 
   .hero-actions {
-    gap: 0.75rem;
+    gap: 0.62rem;
   }
 
   .hero-actions a {
-    flex: 1 1 180px;
+    flex: 0 1 auto;
+    min-height: 40px;
+    padding: 9px 16px;
   }
 
   .hero::after {
@@ -1037,6 +1045,7 @@ body {
   }
 
   .hero-actions a {
+    flex: 0 0 auto;
     width: 100%;
   }
 }
