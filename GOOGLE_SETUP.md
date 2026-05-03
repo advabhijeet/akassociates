@@ -5,14 +5,19 @@ The site is prepared for Google Search Console, Google Analytics, Google Busines
 ## Search Console
 
 - Verification file present: `google3164979181871a1d.html`
-- Sitemap URL: `https://advabhijeet.github.io/akassociates/sitemap.xml`
-- Robots URL: `https://advabhijeet.github.io/akassociates/robots.txt`
+- Sitemap URL: `https://chambersofak.in/sitemap.xml`
+- Robots URL: `https://chambersofak.in/robots.txt`
+- Custom domain: `https://chambersofak.in/`
+
+After the domain change, add and verify `https://chambersofak.in/` in Google Search Console, then submit the new sitemap URL above. The old GitHub Pages URL-prefix property cannot be changed into the new domain property inside this repository.
 
 ## Google Analytics
 
 GA4 is managed through Google Tag Manager with Measurement ID `G-DCP7MK6V0V`.
 
 The old direct GA4 `gtag.js` website snippet has been removed from the HTML pages to avoid duplicate page views.
+
+Update the GA4 web data stream URL in Analytics Admin to `https://chambersofak.in/` so reports show the current website address.
 
 ## Google Tag Manager
 
@@ -21,6 +26,8 @@ Google Tag Manager is active with container ID `GTM-5GMHQTJJ`.
 The GTM script has been added high in the `<head>` of every public HTML page, and the GTM noscript iframe has been added immediately after each opening `<body>` tag.
 
 Important: The GTM container must be published after creating or editing the GA4 Google tag inside GTM. Otherwise the site will load GTM, but the GA4 tag will not fire.
+
+Optional: rename the GTM container/workspace display name to `chambersofak.in` for clarity. The installed container ID does not need to change.
 
 ## Google Business Profile
 
@@ -31,7 +38,7 @@ Use consistent business details:
 - Email: kadvocateabhijeet@gmail.com
 - Location: Patna, Bihar
 - Service areas: Bihar, UP, Delhi NCR
-- Website: https://advabhijeet.github.io/akassociates/
+- Website: https://chambersofak.in/
 - Languages: Hindi, English
 
 After the Google Business Profile is live, add its public profile URL to the website structured data as `sameAs`.

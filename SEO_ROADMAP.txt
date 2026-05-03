@@ -15,7 +15,7 @@ Status: Mostly implemented.
 - Keep Google Analytics active through Google Tag Manager with Measurement ID G-DCP7MK6V0V.
 - Keep AdSense publisher script active with pub-6935574990807827.
 - Maintain robots.txt and sitemap.xml at the live GitHub Pages root.
-- Keep canonical URLs consistent with https://advabhijeet.github.io/akassociates/.
+- Keep canonical URLs consistent with https://chambersofak.in/.
 - Use clean page titles and meta descriptions for every page.
 - Keep mobile layout fast, readable and free from horizontal overflow.
 - Review Search Console after sitemap processing and request indexing for important pages.

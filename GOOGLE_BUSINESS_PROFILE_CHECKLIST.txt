@@ -1,6 +1,6 @@
 AK ASSOCIATES - GOOGLE BUSINESS PROFILE CHECKLIST
 Roadmap Step 2: Local Search And Google Business Readiness
-Last updated: May 3, 2026
+Last updated: May 4, 2026
 
 Purpose:
 Use this checklist while creating or improving the Google Business Profile for AK Associates. Keep the profile details consistent with the website so Google and potential clients receive the same business signals.
@@ -10,7 +10,7 @@ Core Profile Details:
 - Primary person: Abhijeet Kumar, Advocate
 - Phone: +91 94712 14118
 - Email: kadvocateabhijeet@gmail.com
-- Website: https://advabhijeet.github.io/akassociates/
+- Website: https://chambersofak.in/
 - Homebase: Patna, Bihar
 - Service areas: Bihar, UP, Delhi NCR
 - Languages: Hindi, English

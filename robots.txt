@@ -7,4 +7,4 @@ Allow: /
 User-agent: AdsBot-Google
 Allow: /
 
-Sitemap: https://advabhijeet.github.io/akassociates/sitemap.xml
+Sitemap: https://chambersofak.in/sitemap.xml
