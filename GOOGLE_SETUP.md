@@ -10,9 +10,7 @@ The site is prepared for Google Search Console, Google Analytics, Google Busines
 
 ## Google Analytics
 
-Add the GA4 Measurement ID when available, for example `G-XXXXXXXXXX`.
-
-The site should not include a fake GA4 ID because it creates invalid tracking data.
+GA4 is active with Measurement ID `G-DCP7MK6V0V`.
 
 ## Google Business Profile
 
@@ -28,10 +26,6 @@ After the Google Business Profile is live, add its public profile URL to the web
 
 ## Google AdSense
 
-The `ads.txt` file is present with a commented placeholder.
+AdSense is active with publisher ID `pub-6935574990807827`.
 
-After AdSense approval, replace the placeholder with the exact publisher line from AdSense, usually:
-
-```txt
-google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
-```
+The `ads.txt` file contains the matching Google authorization line.
