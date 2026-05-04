@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Mulish:wght@300;400;500&display=swap');
+:root {
+  --font-display: Georgia, 'Times New Roman', Times, serif;
+  --font-body: 'Segoe UI', Roboto, Arial, sans-serif;
+}
 
 * {
   box-sizing: border-box;
@@ -30,9 +33,11 @@ body {
     transparent;
   background-size: 42px 42px;
   color: #111111;
-  font-family: 'Mulish', sans-serif;
+  font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 .nav {
@@ -45,9 +50,7 @@ body {
   gap: 1.5rem;
   padding: 1.1rem 2.5rem;
   border-bottom: 1px solid rgba(17, 17, 17, 0.12);
-  background: rgba(255, 255, 255, 0.96);
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
+  background: #ffffff;
 }
 
 .nav-brand {
@@ -57,7 +60,7 @@ body {
 
 .nav-firm {
   color: #111111;
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-display);
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.01em;
@@ -182,7 +185,7 @@ body {
   top: 50%;
   right: -8px;
   color: rgba(17, 17, 17, 0.025);
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-display);
   font-size: 170px;
   font-weight: 700;
   line-height: 1;
@@ -193,7 +196,7 @@ body {
 .page-hero h1 {
   max-width: 720px;
   color: #111111;
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-display);
   font-size: 64px;
   font-weight: 700;
   letter-spacing: 0;
@@ -215,7 +218,7 @@ body {
   top: 50%;
   right: -10px;
   color: rgba(17, 17, 17, 0.03);
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-display);
   font-size: 220px;
   font-weight: 700;
   line-height: 1;
@@ -244,7 +247,7 @@ body {
 
 .hero-firm {
   color: #111111;
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-display);
   font-size: 74px;
   font-weight: 700;
   letter-spacing: 0;
@@ -258,7 +261,7 @@ body {
 .hero-chambers {
   margin-top: 0.4rem;
   color: rgba(17, 17, 17, 0.72);
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-display);
   font-size: 20px;
   font-style: italic;
   font-weight: 400;
@@ -424,7 +427,7 @@ body {
 .practice-num {
   margin-bottom: 0.8rem;
   color: rgba(176, 138, 46, 0.78);
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-display);
   font-size: 11px;
   letter-spacing: 0.1em;
 }
@@ -432,7 +435,7 @@ body {
 .practice-title {
   margin-bottom: 0.5rem;
   color: #111111;
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-display);
   font-size: 17px;
   font-weight: 500;
   line-height: 1.25;
@@ -556,7 +559,7 @@ body {
 .info-item h3 {
   margin-bottom: 0.6rem;
   color: #111111;
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-display);
   font-size: 17px;
   font-weight: 500;
   line-height: 1.3;
@@ -588,7 +591,7 @@ body {
 .article-body h2 {
   margin: 2rem 0 0.7rem;
   color: #111111;
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-display);
   font-size: 24px;
   font-weight: 500;
   line-height: 1.25;
@@ -682,7 +685,7 @@ body {
 .update-title {
   margin-bottom: 0.5rem;
   color: #111111;
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-display);
   font-size: 16px;
   font-weight: 500;
   line-height: 1.35;
@@ -781,6 +784,24 @@ body {
   outline-color: #d1a947;
 }
 
+@supports (content-visibility: auto) {
+  .sec {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 560px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
 @media (max-width: 760px) {
   body.menu-open {
     overflow: hidden;
@@ -792,8 +813,6 @@ body {
     overflow: visible;
     padding: 1rem 1.25rem;
     background: #ffffff;
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
   }
 
   .nav-brand {
@@ -963,6 +982,12 @@ body {
     gap: 0.62rem;
   }
 
+  .hero-meta {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
   .hero-actions a {
     flex: 0 1 auto;
     min-height: 40px;
@@ -1012,6 +1037,10 @@ body {
   }
 
   .about-grid,
+  .practice-grid,
+  .courts-grid,
+  .contact-row,
+  .info-grid,
   .updates-grid {
     grid-template-columns: 1fr;
   }
@@ -1031,12 +1060,12 @@ body {
     max-width: 230px;
   }
 
-  .hero-firm {
-    font-size: 42px;
-  }
-
   .page-hero h1 {
     font-size: 34px;
+  }
+
+  .hero-firm {
+    font-size: 39px;
   }
 
   .hero-actions {

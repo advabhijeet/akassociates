@@ -3,14 +3,17 @@ const nav = document.querySelector('.nav');
 if (nav) {
   const navLinksList = nav.querySelector('.nav-links');
   const navCta = nav.querySelector('.nav-cta');
-  const menuButton = document.createElement('button');
-  const backdrop = document.createElement('button');
+  const menuButton = nav.querySelector('.menu-toggle') || document.createElement('button');
+  const backdrop = document.querySelector('.menu-backdrop') || document.createElement('button');
 
   menuButton.className = 'menu-toggle';
   menuButton.type = 'button';
   menuButton.setAttribute('aria-label', 'Open menu');
   menuButton.setAttribute('aria-expanded', 'false');
-  menuButton.innerHTML = '<span></span><span></span><span></span>';
+
+  if (!menuButton.querySelector('span')) {
+    menuButton.innerHTML = '<span></span><span></span><span></span>';
+  }
 
   backdrop.className = 'menu-backdrop';
   backdrop.type = 'button';
@@ -27,8 +30,13 @@ if (nav) {
     navLinksList.appendChild(contactItem);
   }
 
-  nav.appendChild(menuButton);
-  document.body.appendChild(backdrop);
+  if (!menuButton.parentNode) {
+    nav.appendChild(menuButton);
+  }
+
+  if (!backdrop.parentNode) {
+    document.body.appendChild(backdrop);
+  }
 
   const closeMenu = () => {
     document.body.classList.remove('menu-open');
@@ -68,7 +76,8 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     }
 
     event.preventDefault();
-    target.scrollIntoView({ behavior: 'smooth' });
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
   });
 });
 
@@ -89,29 +98,41 @@ if (sections.length === 0) {
       link.classList.toggle('active', linkPath === currentPath);
     });
   }
-}
+} else {
+  let ticking = false;
 
-window.addEventListener('scroll', () => {
-  if (sections.length === 0) {
-    return;
-  }
+  const updateActiveNav = () => {
+    let current = '';
 
-  let current = '';
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 120;
 
-  sections.forEach((section) => {
-    const sectionTop = section.offsetTop - 120;
+      if (window.scrollY >= sectionTop) {
+        current = section.getAttribute('id');
+      }
+    });
 
-    if (window.scrollY >= sectionTop) {
-      current = section.getAttribute('id');
+    navLinks.forEach((link) => {
+      const linkUrl = new URL(link.href);
+      const isSamePage = linkUrl.pathname === window.location.pathname;
+      const isCurrentSection = linkUrl.hash === `#${current}`;
+      const isHomeAtTop = !linkUrl.hash && current === 'home';
+
+      link.classList.toggle('active', isSamePage && (isCurrentSection || isHomeAtTop));
+    });
+  };
+
+  updateActiveNav();
+
+  window.addEventListener('scroll', () => {
+    if (ticking) {
+      return;
     }
-  });
 
-  navLinks.forEach((link) => {
-    const linkUrl = new URL(link.href);
-    const isSamePage = linkUrl.pathname === window.location.pathname;
-    const isCurrentSection = linkUrl.hash === `#${current}`;
-    const isHomeAtTop = !linkUrl.hash && current === 'home';
-
-    link.classList.toggle('active', isSamePage && (isCurrentSection || isHomeAtTop));
-  });
-});
+    ticking = true;
+    window.requestAnimationFrame(() => {
+      updateActiveNav();
+      ticking = false;
+    });
+  }, { passive: true });
+}
