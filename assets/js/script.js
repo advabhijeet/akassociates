@@ -136,3 +136,74 @@ if (sections.length === 0) {
     });
   }, { passive: true });
 }
+
+const conversionEventNames = {
+  whatsapp: 'whatsapp_click',
+  phone: 'phone_click',
+  email: 'email_click',
+  case_enquiry: 'case_enquiry_click',
+  contact: 'contact_click',
+};
+
+const getConversionPayload = (link) => {
+  const rawHref = link.getAttribute('href') || '';
+  const label = link.textContent.trim().replace(/\s+/g, ' ').slice(0, 80) || 'Link click';
+
+  if (rawHref.startsWith('https://wa.me/') || rawHref.startsWith('https://api.whatsapp.com/')) {
+    return { type: 'whatsapp', label, target: 'whatsapp' };
+  }
+
+  if (rawHref.startsWith('tel:')) {
+    return { type: 'phone', label, target: 'phone' };
+  }
+
+  if (rawHref.startsWith('mailto:')) {
+    return { type: 'email', label, target: 'email' };
+  }
+
+  try {
+    const url = new URL(rawHref, window.location.href);
+    const page = url.pathname.split('/').pop();
+
+    if (page === 'case-enquiry.html') {
+      return { type: 'case_enquiry', label, target: url.pathname };
+    }
+
+    if (page === 'contact.html') {
+      return { type: 'contact', label, target: url.pathname };
+    }
+  } catch (error) {
+    return null;
+  }
+
+  return null;
+};
+
+document.addEventListener('click', (event) => {
+  if (!(event.target instanceof Element)) {
+    return;
+  }
+
+  const link = event.target.closest('a[href]');
+
+  if (!link) {
+    return;
+  }
+
+  const conversion = getConversionPayload(link);
+
+  if (!conversion) {
+    return;
+  }
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'ak_conversion_click',
+    ga_event_name: conversionEventNames[conversion.type],
+    conversion_type: conversion.type,
+    conversion_label: conversion.label,
+    conversion_target: conversion.target,
+    conversion_page_path: window.location.pathname,
+    conversion_page_title: document.title,
+  });
+});

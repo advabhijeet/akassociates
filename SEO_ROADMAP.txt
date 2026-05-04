@@ -83,11 +83,12 @@ Status: First supporting article batch added on May 4, 2026.
 
 Phase 6 - Conversion Improvements
 Priority: High.
+Status: Website-side conversion data layer events added on May 4, 2026.
 - Keep WhatsApp Enquiry and Email Chambers visible on the homepage.
 - Keep Case Enquiry in the navbar.
 - Add clear enquiry prompts on practice pages.
 - Add short document checklists to reduce back-and-forth.
-- Track clicks on WhatsApp, email and contact links in Google Analytics later.
+- Track clicks on WhatsApp, phone, email, case enquiry and contact links through GTM event `ak_conversion_click`.
 - Add testimonials or representative non-confidential experience only if compliant and appropriate.
 
 Phase 7 - Trust Signals
