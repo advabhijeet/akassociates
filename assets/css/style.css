@@ -65,56 +65,13 @@ body {
 .nav-brand {
   display: flex;
   align-items: center;
-  gap: 0.9rem;
   text-decoration: none;
 }
 
-.nav-firm {
-  position: relative;
-  color: #111111;
-  font-family: var(--font-display);
-  font-size: 34px;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 0.85;
-  text-transform: uppercase;
-}
-
-.nav-firm span {
-  color: var(--gold);
-}
-
-.nav-firm::after {
-  content: '';
-  position: absolute;
-  right: 0.18em;
-  top: 0.04em;
-  width: 0.52em;
-  height: 0.08em;
-  background: var(--gold);
-  transform: rotate(-45deg);
-  transform-origin: center;
-}
-
-.nav-sub {
-  position: relative;
-  color: rgba(17, 17, 17, 0.82);
-  font-family: var(--font-display);
-  font-size: 14px;
-  letter-spacing: 0.18em;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-.nav-sub::before {
-  content: '';
-  position: absolute;
-  left: -0.75rem;
-  top: 50%;
-  width: 1px;
-  height: 2.5rem;
-  background: var(--gold-line);
-  transform: translateY(-50%);
+.nav-logo {
+  display: block;
+  width: auto;
+  height: clamp(54px, 5.2vw, 74px);
 }
 
 .nav-links {
@@ -270,17 +227,7 @@ body {
 }
 
 .hero::after {
-  content: 'AK';
-  position: absolute;
-  top: 50%;
-  right: -10px;
-  color: rgba(17, 17, 17, 0.03);
-  font-family: var(--font-display);
-  font-size: 220px;
-  font-weight: 700;
-  line-height: 1;
-  pointer-events: none;
-  transform: translateY(-50%);
+  display: none;
 }
 
 .hero-eyebrow {
@@ -302,67 +249,11 @@ body {
   background: var(--gold);
 }
 
-.hero-firm {
-  position: relative;
-  display: inline-block;
-  color: #111111;
-  font-family: var(--font-display);
-  font-size: 118px;
-  font-weight: 700;
-  letter-spacing: -0.045em;
-  line-height: 0.88;
-  text-transform: uppercase;
-}
-
-.hero-firm span {
-  display: inline-block;
-  color: var(--gold);
-}
-
-.hero-firm::before {
-  content: '';
-  position: absolute;
-  right: 0.2em;
-  top: 0.06em;
-  width: 0.5em;
-  height: 0.075em;
-  background: var(--gold);
-  transform: rotate(-45deg);
-  transform-origin: center;
-}
-
-.hero-firm::after {
-  content: 'Chambers of AK';
+.hero-logo {
   display: block;
-  margin-top: 0.65rem;
-  color: #111111;
-  font-size: 24px;
-  font-weight: 500;
-  letter-spacing: 0.42em;
-  line-height: 1;
-  text-align: center;
-  white-space: nowrap;
-}
-
-.hero-chambers {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.95rem;
-  margin-top: 1.05rem;
-  color: var(--gold-dark);
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.hero-chambers::before,
-.hero-chambers::after {
-  content: '';
-  width: 34px;
-  height: 1px;
-  background: var(--gold);
+  width: min(520px, 100%);
+  height: auto;
+  margin: 0 0 1.2rem 0;
 }
 
 .hero-rule {
@@ -980,18 +871,11 @@ body {
     flex: 1 1 auto;
     min-width: 0;
     max-width: calc(100% - 58px);
-    gap: 0.72rem;
   }
 
-  .nav-firm {
-    font-size: 31px;
-  }
-
-  .nav-sub {
-    max-width: 178px;
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    line-height: 1.25;
+  .nav-logo {
+    max-width: 100%;
+    height: 54px;
   }
 
   .nav-links {
@@ -1165,36 +1049,15 @@ body {
     padding: 9px 16px;
   }
 
-  .hero::after {
-    right: -20px;
-    color: rgba(17, 17, 17, 0.035);
-    font-size: 132px;
-  }
-
   .page-hero::after {
     right: -18px;
     color: rgba(17, 17, 17, 0.035);
     font-size: 112px;
   }
 
-  .hero-firm {
-    font-size: 82px;
-  }
-
-  .hero-firm::after {
-    font-size: 17px;
-    letter-spacing: 0.25em;
-  }
-
-  .hero-chambers {
-    gap: 0.65rem;
-    font-size: 11px;
-    letter-spacing: 0.11em;
-  }
-
-  .hero-chambers::before,
-  .hero-chambers::after {
-    width: 22px;
+  .hero-logo {
+    width: min(340px, 100%);
+    margin-left: 0;
   }
 
   .hero-tagline,
@@ -1235,41 +1098,16 @@ body {
     padding-right: 1rem;
   }
 
-  .nav-firm {
-    font-size: 28px;
-  }
-
-  .nav-sub {
-    max-width: 150px;
-    font-size: 10px;
+  .nav-logo {
+    height: 48px;
   }
 
   .page-hero h1 {
     font-size: 34px;
   }
 
-  .hero-firm {
-    font-size: 68px;
-  }
-
-  .hero-firm::after {
-    font-size: 14px;
-    letter-spacing: 0.18em;
-  }
-
-  .hero-chambers {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 0.45rem;
-  }
-
-  .hero-chambers::before,
-  .hero-chambers::after {
-    width: 34px;
-  }
-
-  .hero-chambers::after {
-    display: none;
+  .hero-logo {
+    width: 100%;
   }
 
   .hero-actions {

@@ -251,8 +251,7 @@ const setupHomeReveals = () => {
 
   const revealSelectors = [
     '.hero-kicker',
-    '.hero-firm',
-    '.hero-chambers',
+    '.hero-logo',
     '.hero-divider',
     '.hero-tagline',
     '.hero-meta > *',
@@ -274,7 +273,7 @@ const setupHomeReveals = () => {
 
   revealTargets.forEach((target, index) => {
     target.classList.add('home-reveal');
-    target.classList.toggle('home-reveal-soft', !target.classList.contains('hero-firm'));
+    target.classList.toggle('home-reveal-soft', !target.classList.contains('hero-logo'));
     target.style.setProperty('--reveal-delay', `${Math.min((index % 5) * 70, 280)}ms`);
   });
 
