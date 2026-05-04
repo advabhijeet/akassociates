@@ -1,6 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
-  <title>AK Associates</title>
-  <rect width="64" height="64" rx="6" fill="#1c1a14"/>
-  <path d="M14 48 28 15h8l14 33h-8l-3-8H25l-3 8h-8Zm13-15h10l-5-13-5 13Z" fill="#f7f5f0"/>
-  <path d="M17 52h30" stroke="#8a6c3a" stroke-width="3" stroke-linecap="round"/>
+  <title>Chambers of AK</title>
+  <defs>
+    <linearGradient id="gold" x1="16" y1="48" x2="50" y2="12" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9c7620"/>
+      <stop offset="0.48" stop-color="#d4af37"/>
+      <stop offset="1" stop-color="#f0d777"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="10" fill="#000000"/>
+  <path d="M11.2 49.5h4.2l4.1-10.6h15.1l4.2 10.6h4.8L27.9 11.8h-4.1L11.2 49.5Zm9.8-14.8 6-15.6 6.1 15.6H21Z" fill="#ffffff"/>
+  <path d="M34.2 34.2 50.8 13.7h-5.1L31.3 31.6l16.2 17.9h5.6L37 31.7l-2.8 2.5Z" fill="#ffffff"/>
+  <path d="M35.1 29.8 48.5 13.7h4.1L38 31.4l-2.9-1.6Z" fill="url(#gold)"/>
 </svg>
