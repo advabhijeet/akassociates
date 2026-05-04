@@ -241,6 +241,67 @@ document.addEventListener('click', (event) => {
   });
 });
 
+const setupHomeReveals = () => {
+  const path = window.location.pathname;
+  const isHomePage = path.endsWith('/') || path.endsWith('/index.html') || path.endsWith('index.html');
+
+  if (!isHomePage) {
+    return;
+  }
+
+  const revealSelectors = [
+    '.hero-kicker',
+    '.hero-firm',
+    '.hero-chambers',
+    '.hero-divider',
+    '.hero-tagline',
+    '.hero-meta > *',
+    '.hero-actions > *',
+    '#practice .sec-label',
+    '#practice .practice-item',
+    '#updates .sec-label',
+    '#updates .update-item',
+    '#contact .sec-label',
+    '#contact .contact-item',
+  ];
+  const revealTargets = Array.from(document.querySelectorAll(revealSelectors.join(',')));
+
+  if (revealTargets.length === 0) {
+    return;
+  }
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  revealTargets.forEach((target, index) => {
+    target.classList.add('home-reveal');
+    target.classList.toggle('home-reveal-soft', !target.classList.contains('hero-firm'));
+    target.style.setProperty('--reveal-delay', `${Math.min((index % 5) * 70, 280)}ms`);
+  });
+
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    revealTargets.forEach((target) => target.classList.add('is-visible'));
+    return;
+  }
+
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        return;
+      }
+
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    });
+  }, {
+    rootMargin: '0px 0px -12% 0px',
+    threshold: 0.12,
+  });
+
+  revealTargets.forEach((target) => revealObserver.observe(target));
+};
+
+setupHomeReveals();
+
 const loadAdsense = () => {
   if (window.akAdsenseLoaded) {
     return;
