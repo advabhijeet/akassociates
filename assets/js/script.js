@@ -99,19 +99,7 @@ if (sections.length === 0) {
     });
   }
 } else {
-  let ticking = false;
-
-  const updateActiveNav = () => {
-    let current = '';
-
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop - 120;
-
-      if (window.scrollY >= sectionTop) {
-        current = section.getAttribute('id');
-      }
-    });
-
+  const setActiveNav = (current) => {
     navLinks.forEach((link) => {
       const linkUrl = new URL(link.href);
       const isSamePage = linkUrl.pathname === window.location.pathname;
@@ -122,19 +110,64 @@ if (sections.length === 0) {
     });
   };
 
-  updateActiveNav();
+  let activeSection = window.location.hash ? window.location.hash.slice(1) : sections[0].id;
 
-  window.addEventListener('scroll', () => {
-    if (ticking) {
-      return;
-    }
+  setActiveNav(activeSection);
 
-    ticking = true;
-    window.requestAnimationFrame(() => {
-      updateActiveNav();
-      ticking = false;
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      const visibleEntries = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((first, second) => {
+          return second.intersectionRatio - first.intersectionRatio
+            || first.boundingClientRect.top - second.boundingClientRect.top;
+        });
+
+      if (visibleEntries.length === 0) {
+        return;
+      }
+
+      const nextSection = visibleEntries[0].target.getAttribute('id');
+
+      if (nextSection && nextSection !== activeSection) {
+        activeSection = nextSection;
+        setActiveNav(activeSection);
+      }
+    }, {
+      rootMargin: '-22% 0px -62% 0px',
+      threshold: [0, 0.2, 0.45, 0.7],
     });
-  }, { passive: true });
+
+    sections.forEach((section) => observer.observe(section));
+  } else {
+    let ticking = false;
+
+    const updateActiveNav = () => {
+      let current = '';
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 120;
+
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      setActiveNav(current);
+    };
+
+    window.addEventListener('scroll', () => {
+      if (ticking) {
+        return;
+      }
+
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        updateActiveNav();
+        ticking = false;
+      });
+    }, { passive: true });
+  }
 }
 
 const conversionEventNames = {
