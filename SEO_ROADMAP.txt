@@ -69,14 +69,15 @@ Priority: High.
 
 Phase 5 - Content Cluster For Legal Updates
 Priority: High.
+Status: First supporting article batch added on May 4, 2026.
 - Publish short, practical articles for recurring client problems.
 - Recommended first cluster:
-  - cheque bounce notice timeline
+  - cheque bounce notice timeline - added
+  - MSME delayed payment documents checklist - added
+  - RERA delayed possession refund vs interest - added
+  - commercial recovery before filing suit - added
+  - arbitration clause checklist before dispute - added
   - what to do after receiving a cheque bounce notice
-  - MSME delayed payment documents
-  - RERA delayed possession checklist
-  - commercial recovery before filing suit
-  - arbitration clause basics
   - property injunction checklist
 - Each article should link back to the relevant practice page and case enquiry page.
 
