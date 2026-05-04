@@ -639,6 +639,10 @@ body {
   text-decoration: none;
 }
 
+.s .update-item-link {
+  color: #111111;
+}
+
 .practice-item-link:focus-visible,
 .update-item-link:focus-visible {
   outline: 1px solid var(--gold);
@@ -705,7 +709,7 @@ body {
 
 .update-date {
   margin-top: 1rem;
-  color: rgba(17, 17, 17, 0.5);
+  color: rgba(17, 17, 17, 0.72);
   font-size: 10px;
   letter-spacing: 0.06em;
 }

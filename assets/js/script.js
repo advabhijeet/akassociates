@@ -240,3 +240,47 @@ document.addEventListener('click', (event) => {
     conversion_page_title: document.title,
   });
 });
+
+const loadAdsense = () => {
+  if (window.akAdsenseLoaded) {
+    return;
+  }
+
+  window.akAdsenseLoaded = true;
+
+  const adsenseScript = document.createElement('script');
+  adsenseScript.async = true;
+  adsenseScript.crossOrigin = 'anonymous';
+  adsenseScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6935574990807827';
+
+  document.head.appendChild(adsenseScript);
+};
+
+const scheduleAdsense = () => {
+  if (!document.body) {
+    return;
+  }
+
+  const interactionEvents = ['pointerdown', 'keydown', 'scroll', 'touchstart'];
+
+  const removeInteractionListeners = () => {
+    interactionEvents.forEach((eventName) => {
+      window.removeEventListener(eventName, loadAfterInteraction);
+    });
+  };
+
+  const loadAfterInteraction = () => {
+    removeInteractionListeners();
+    loadAdsense();
+  };
+
+  interactionEvents.forEach((eventName) => {
+    window.addEventListener(eventName, loadAfterInteraction, { once: true, passive: true });
+  });
+
+  window.addEventListener('load', () => {
+    window.setTimeout(loadAdsense, 12000);
+  }, { once: true });
+};
+
+scheduleAdsense();
