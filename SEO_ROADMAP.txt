@@ -34,7 +34,7 @@ Status: In progress. Website-side service-area signals and Google Business check
 
 Phase 3 - High-Intent Practice Pages
 Priority: Very high.
-Status: In progress. Cheque bounce page expanded on May 3, 2026. MSME delayed payment page expanded on May 3, 2026.
+Status: In progress. Cheque bounce page expanded on May 3, 2026. MSME delayed payment page expanded on May 3, 2026. First high-intent landing page batch added on May 4, 2026.
 - Expand each practice page into a strong informational landing page.
 - Target search intent such as:
   - cheque bounce lawyer in Patna
@@ -44,6 +44,12 @@ Status: In progress. Cheque bounce page expanded on May 3, 2026. MSME delayed pa
   - RERA lawyer for builder dispute
   - property dispute lawyer in Patna
   - arbitration advocate in Bihar
+- Keep focused landing pages available under /services/ and internally linked from the Practice page:
+  - /services/cheque-bounce-lawyer-patna.html
+  - /services/msme-recovery-lawyer-bihar.html
+  - /services/rera-lawyer-bihar-up-delhi-ncr.html
+  - /services/commercial-recovery-lawyer-patna.html
+  - /services/arbitration-lawyer-bihar.html
 - Add sections for common issues, documents required, forum options, timelines and first enquiry checklist.
 - Avoid promises of outcome and keep content informational.
 
