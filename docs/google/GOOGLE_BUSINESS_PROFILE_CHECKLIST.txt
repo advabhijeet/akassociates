@@ -3,10 +3,10 @@ Roadmap Step 2: Local Search And Google Business Readiness
 Last updated: May 4, 2026
 
 Purpose:
-Use this checklist while creating or improving the Google Business Profile for AK Associates. Keep the profile details consistent with the website so Google and potential clients receive the same business signals.
+Use this checklist while creating or improving the Google Business Profile for Chambers of AK. Keep the profile details consistent with the website so Google and potential clients receive the same business signals.
 
 Core Profile Details:
-- Business name: AK Associates - Chambers of Abhijeet Kumar, Advocate
+- Business name: Chambers of AK - Advocates & Legal Consultants
 - Primary person: Abhijeet Kumar, Advocate
 - Phone: +91 94712 14118
 - Email: kadvocateabhijeet@gmail.com
@@ -35,7 +35,7 @@ Content To Add After Verification:
 - Enquiry link to the contact or case enquiry page.
 
 Suggested Business Description Draft:
-AK Associates is the chambers of Abhijeet Kumar, Advocate, based in Patna. The chambers handles dispute resolution, cheque bounce, MSME payment recovery, commercial recovery, RERA and builder disputes, arbitration, and property or civil matters across Bihar, UP and Delhi NCR, depending on jurisdiction, forum and documents.
+Chambers of AK is the chambers of Abhijeet Kumar, Advocate, based in Patna. The chambers handles dispute resolution, cheque bounce, MSME payment recovery, commercial recovery, RERA and builder disputes, arbitration, and property or civil matters across Bihar, UP and Delhi NCR, depending on jurisdiction, forum and documents.
 
 Suggested Service List:
 - Cheque Bounce - Section 138

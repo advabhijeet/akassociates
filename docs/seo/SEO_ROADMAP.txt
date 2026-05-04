@@ -5,7 +5,7 @@ Goal:
 Improve discoverability for high-intent legal searches while keeping the website compliant, useful, and conversion-focused. The site should help potential clients quickly understand practice areas, jurisdiction fit, required documents, and how to make a clean enquiry.
 
 Current Positioning:
-- Chambers of Abhijeet Kumar, Advocate.
+- Advocates & Legal Consultants.
 - Homebase: Patna, Bihar.
 - Core regions for online positioning: Bihar, UP and Delhi NCR.
 - Core matter types: cheque bounce, MSME delayed payment disputes, commercial recovery, arbitration, RERA and builder disputes, property and civil suits.
@@ -24,7 +24,7 @@ Status: Mostly implemented. External domain setup completed on May 4, 2026.
 Phase 2 - Local Search And Google Business
 Priority: Very high.
 Status: In progress. Website-side service-area signals and Google Business checklist added on May 3, 2026.
-- Create or optimize Google Business Profile for AK Associates.
+- Create or optimize Google Business Profile for Chambers of AK.
 - Use consistent NAP details: name, address/service area, phone and email.
 - Add practice categories relevant to advocate/legal services where available.
 - Add service areas: Patna, Bihar, UP and Delhi NCR, as applicable.

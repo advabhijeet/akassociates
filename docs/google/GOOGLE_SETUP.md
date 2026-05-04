@@ -44,7 +44,7 @@ In GTM, create a Custom Event trigger for `ak_conversion_click`, then create a G
 
 Use consistent business details:
 
-- Name: AK Associates - Chambers of Abhijeet Kumar, Advocate
+- Name: Chambers of AK - Advocates & Legal Consultants
 - Phone: +91 94712 14118
 - Email: kadvocateabhijeet@gmail.com
 - Location: Patna, Bihar
