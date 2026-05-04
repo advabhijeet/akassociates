@@ -70,8 +70,8 @@ body {
 
 .nav-logo {
   display: block;
-  width: auto;
-  height: clamp(54px, 5.2vw, 74px);
+  width: clamp(240px, 30vw, 430px);
+  height: auto;
 }
 
 .nav-links {
@@ -868,14 +868,16 @@ body {
   }
 
   .nav-brand {
+    grid-column: 1;
     flex: 1 1 auto;
     min-width: 0;
     max-width: calc(100% - 58px);
   }
 
   .nav-logo {
+    width: min(250px, 100%);
     max-width: 100%;
-    height: 54px;
+    height: auto;
   }
 
   .nav-links {
@@ -965,8 +967,10 @@ body {
   .menu-toggle {
     position: relative;
     z-index: 40;
+    grid-column: 2;
     display: flex;
     margin-left: auto;
+    justify-self: end;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -1099,7 +1103,7 @@ body {
   }
 
   .nav-logo {
-    height: 48px;
+    width: min(220px, 100%);
   }
 
   .page-hero h1 {
