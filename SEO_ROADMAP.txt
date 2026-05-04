@@ -1,5 +1,5 @@
 AK ASSOCIATES - SEARCH VISIBILITY AND CLIENT ACQUISITION ROADMAP
-Last updated: May 3, 2026
+Last updated: May 4, 2026
 
 Goal:
 Improve discoverability for high-intent legal searches while keeping the website compliant, useful, and conversion-focused. The site should help potential clients quickly understand practice areas, jurisdiction fit, required documents, and how to make a clean enquiry.
@@ -11,11 +11,12 @@ Current Positioning:
 - Core matter types: cheque bounce, MSME delayed payment disputes, commercial recovery, arbitration, RERA and builder disputes, property and civil suits.
 
 Phase 1 - Technical Foundation
-Status: Mostly implemented.
+Status: Mostly implemented. External domain setup completed on May 4, 2026.
 - Keep Google Analytics active through Google Tag Manager with Measurement ID G-DCP7MK6V0V.
 - Keep AdSense publisher script active with pub-6935574990807827.
 - Maintain robots.txt and sitemap.xml at the live GitHub Pages root.
 - Keep canonical URLs consistent with https://chambersofak.in/.
+- Keep Search Console, GA4, Google Business Profile and AdSense aligned with https://chambersofak.in/.
 - Use clean page titles and meta descriptions for every page.
 - Keep mobile layout fast, readable and free from horizontal overflow.
 - Review Search Console after sitemap processing and request indexing for important pages.
@@ -89,13 +90,19 @@ Priority: Medium.
 - Add clear "informational only, not solicitation" language across legal updates.
 - Add structured data only where accurate.
 
-Phase 8 - Performance And UX
-Priority: Medium.
+Phase 8 - Performance, Core Web Vitals And UX
+Priority: High.
+Status: PageSpeed issue added on May 4, 2026.
+- Track PageSpeed reports:
+  - Mobile: https://pagespeed.web.dev/analysis/https-chambersofak-in/2flm581i44?hl=en&form_factor=mobile
+  - Desktop: https://pagespeed.web.dev/analysis/https-chambersofak-in/2flm581i44?hl=en&form_factor=desktop
+- Improve Lighthouse and Core Web Vitals items in this order: LCP, render-blocking CSS/JS, unused CSS/JS, font loading, image sizing/compression, CLS and tap targets.
 - Keep CSS and JavaScript minimal.
 - Avoid heavy images unless they add real trust or identity.
 - Continue checking mobile views at 360px, 390px, 430px and desktop around 1366px.
 - Maintain strong contrast: black and white theme with gold accents.
 - Keep buttons readable on desktop and mobile.
+- Re-test both mobile and desktop PageSpeed after each performance batch.
 
 Phase 9 - Measurement Rhythm
 Priority: Ongoing.
@@ -110,6 +117,7 @@ Week 1:
 - Confirm sitemap is readable in Search Console.
 - Request indexing for homepage, practice page, case enquiry, contact and core practice pages.
 - Set up or update Google Business Profile.
+- Record PageSpeed mobile and desktop baseline, then fix the highest-impact performance issue first.
 
 Week 2:
 - Strengthen cheque bounce, MSME, RERA and property pages with better FAQs and document sections.
