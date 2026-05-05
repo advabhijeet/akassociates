@@ -250,12 +250,13 @@ const setupHomeReveals = () => {
   }
 
   const revealSelectors = [
-    '.hero-kicker',
+    '.hero-eyebrow',
     '.hero-logo',
-    '.hero-divider',
+    '.hero-rule',
     '.hero-tagline',
     '.hero-meta > *',
     '.hero-actions > *',
+    '.hero-portrait',
     '#practice .sec-label',
     '#practice .practice-item',
     '#updates .sec-label',
