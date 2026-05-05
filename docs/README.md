@@ -7,6 +7,7 @@ This folder keeps internal planning and setup material separate from the public 
 - `google/` - Google Analytics, Tag Manager, Search Console, AdSense, and Business Profile setup notes.
 - `seo/` - SEO roadmap and search-growth planning documents.
 - `LEGAL_DOCUMENTATION_MAINTENANCE.md` - Checklist for keeping public legal pages and project documentation aligned with site changes.
+- `CODEX_WIKI_WORKFLOW.md` - Consolidated Codex wiki workflow for website structure, deployment, SEO, analytics, legal review, maintenance, and validation.
 
 ## Root Files That Should Stay At The Site Root
 
