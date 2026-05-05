@@ -14,17 +14,24 @@ Primary clusters covered in this batch:
 - Section 138 cheque bounce limitation.
 - RERA delayed possession and builder disputes in Bihar / Patna.
 - Commercial recovery in Bihar.
-- Arbitration notice and claim preparation.
+- Arbitration notice, award challenge and claim preparation.
+- Courts, tribunals and legal forum entity signals.
 
 ## Public Pages Added Or Upgraded
 
-### Upgraded Existing Page
+### Upgraded Existing Pages
 
 - `case-enquiry.html`
   - Upgraded into a structured enquiry hub.
   - Added matter-specific enquiry formats for cheque bounce, MSME recovery, RERA, arbitration, commercial recovery, property and civil suits.
   - Added FAQ JSON-LD.
   - Preserved confidentiality and no advocate-client relationship caution.
+
+- `courts.html`
+  - Expanded into a stronger courts, tribunals and legal forums entity page.
+  - Refined public heading to `Courts, Tribunals & Legal Forums`.
+  - Added/strengthened coverage for Patna High Court, District Courts in Bihar, Commercial Courts, MSME Facilitation Council, Bihar RERA, UP RERA / Delhi NCR forums, Arbitral Tribunals, and execution/enforcement forums.
+  - Added WebPage JSON-LD and internal links to practice pages, case enquiry and document checklists.
 
 ### New Service Pages
 
@@ -40,6 +47,8 @@ Primary clusters covered in this batch:
 - `updates/rera-delayed-possession-bihar.html`
 - `updates/commercial-suit-documents-checklist.html`
 - `updates/arbitration-notice-before-claim.html`
+- `updates/property-injunction-suit-documents.html`
+- `updates/section-34-arbitration-award-challenge.html`
 
 ## Sitemap Updates
 
@@ -56,6 +65,8 @@ New sitemap URLs added:
 - `https://chambersofak.in/updates/rera-delayed-possession-bihar.html`
 - `https://chambersofak.in/updates/commercial-suit-documents-checklist.html`
 - `https://chambersofak.in/updates/arbitration-notice-before-claim.html`
+- `https://chambersofak.in/updates/property-injunction-suit-documents.html`
+- `https://chambersofak.in/updates/section-34-arbitration-award-challenge.html`
 
 ## Commits In This Batch
 
@@ -78,6 +89,12 @@ New sitemap URLs added:
 - `f5d783a1ece6176b0c9d2b49f0f589112ef2beab` - Add commercial suit checklist article to sitemap.
 - `35bd14212d8c99ed7170dcdb88a8ff86565894d6` - Add arbitration notice before claim article.
 - `d934cd8e940f21e3523695668a4855eea2d923b0` - Add arbitration notice article to sitemap.
+- `af97ece7e913d057f6c616a36a62af5d26f5bf8a` - Add property injunction documents article.
+- `df1e689e29774784589546fe9fe8b2f5c85de246` - Add property injunction article to sitemap.
+- `9a9488740fc7ff7865d0eb1f2a9c49a7ee9c3272` - Expand courts and forums entity page.
+- `ac0ae22e282d94a84226d627d780af46d2d949de` - Refine courts page heading.
+- `3f3659aa4d0b92bb723fc69315d12f964bf7d9cc` - Add Section 34 arbitration award challenge article.
+- `1c2911f2b1777fb88c383bb6bb37b3a874be140c` - Add Section 34 arbitration article to sitemap.
 
 ## Pending Internal-Link Work
 
@@ -95,6 +112,7 @@ Important pending internal links:
 - Add new articles to `legal-updates.html` under Latest Articles.
 - Fix homepage `Property & Civil Suits` practice-card link if it still points to the RERA page.
 - Add contextual links from relevant practice pages to the new service pages and articles.
+- Add `services/civil-litigation-lawyer-patna.html` through Codex/local patch if still required, because a direct connector write was blocked.
 
 ## Post-Deployment Checklist
 
@@ -106,7 +124,8 @@ After GitHub Pages deployment completes:
 - [ ] Confirm mobile navigation works.
 - [ ] Confirm WhatsApp, email, phone and case-enquiry CTAs work.
 - [ ] Confirm `https://chambersofak.in/sitemap.xml` includes the new URLs.
-- [ ] Request indexing in Google Search Console for the new and upgraded URLs.
+- [ ] Refresh/submit sitemap in Google Search Console.
+- [ ] Manually request indexing only for priority URLs if needed.
 - [ ] Monitor Search Console for impressions, indexed status and low-CTR pages.
 
 ## Next SEO Tasks
@@ -114,8 +133,7 @@ After GitHub Pages deployment completes:
 Recommended next content and structure tasks:
 
 1. Update internal links through Codex/local patch edits.
-2. Expand `courts.html` into a stronger courts/forums/entity page.
-3. Add `services/civil-litigation-lawyer-patna.html`.
-4. Add `updates/property-injunction-suit-documents.html`.
-5. Add `updates/section-34-arbitration-award-challenge.html`.
-6. Strengthen the six practice pages with evergreen sections listed in `docs/SEO_GROWTH_AGENDA.md`.
+2. Add `services/civil-litigation-lawyer-patna.html` through Codex/local patch or retry later in a smaller connector-safe form.
+3. Strengthen the six practice pages with evergreen sections listed in `docs/SEO_GROWTH_AGENDA.md`.
+4. Add further city/practice service pages only after internal linking and deployment checks are complete.
+5. Review Search Console data after indexing to decide the next batch.
