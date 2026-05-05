@@ -5,16 +5,6 @@ const socialLinks = [
     icon: 'linkedin',
   },
   {
-    label: 'Abhijeet Kumar LinkedIn',
-    href: 'https://www.linkedin.com/in/abhijeetk03/',
-    icon: 'linkedin',
-  },
-  {
-    label: 'WhatsApp Business',
-    href: 'https://wa.me/919471214118',
-    icon: 'whatsapp',
-  },
-  {
     label: 'WhatsApp Channel',
     href: 'https://whatsapp.com/channel/0029VbCmf6M9sBIHqiTPIz33',
     icon: 'whatsapp',
@@ -107,12 +97,12 @@ if (nav) {
     socialItem.className = 'drawer-social';
     socialItem.innerHTML = `
       <div class="drawer-social-panel">
-        <div class="drawer-time-label">Live Time</div>
-        <time class="drawer-time" data-ak-clock></time>
+        <div class="drawer-time-label">Social Links</div>
         <div class="ak-social" aria-label="Social links">${createSocialLinksMarkup()}</div>
+        <time class="drawer-time" data-ak-clock></time>
       </div>
     `;
-    navLinksList.appendChild(socialItem);
+    navLinksList.insertBefore(socialItem, navLinksList.firstElementChild);
   }
 
   if (!menuButton.parentNode) {
