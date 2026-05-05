@@ -755,6 +755,20 @@ body {
   line-height: 1.86;
 }
 
+.content-panel h2 {
+  margin: 1.5rem 0 0.45rem;
+  color: #111111;
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.content-panel h2:first-child,
+.content-panel p:first-child + h2 {
+  margin-top: 0;
+}
+
 .content-panel p + p {
   margin-top: 1rem;
 }

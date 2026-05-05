@@ -182,7 +182,7 @@ http://localhost:8000/
 HTML pages reference CSS and JavaScript with version query strings, for example:
 
 ```html
-assets/css/style.css?v=socialbar-2
+assets/css/style.css?v=legal-1
 assets/js/script.js?v=socialbar-2
 ```
 
@@ -291,6 +291,19 @@ Avoid force-pushing or resetting public history unless there is a very specific 
 - Re-check mobile navigation after header, social, or menu changes.
 - Re-test important click events in GTM Preview after contact CTA changes.
 - Update `sitemap.xml` whenever adding or removing indexed pages.
+
+## Documentation Update Policy
+
+Documentation and legal-policy pages should be reviewed as part of every meaningful website change. In practice:
+
+- Update `README.md` when site structure, deployment, tracking IDs, cache-busting versions, domains, branding, or maintenance workflow changes.
+- Update `docs/` when SEO, Google, analytics, business profile, or operational setup changes.
+- Review `disclaimer.html`, `privacy-policy.html`, and `terms.html` when contact methods, enquiry flows, analytics/tracking, AdSense/advertising, social links, third-party tools, branding, or professional positioning changes.
+- Update `sitemap.xml` when public indexed pages are added, removed, renamed, or moved.
+- Keep policy-page changes in the same commit as the website feature that requires them whenever possible.
+
+The detailed maintenance checklist is in `docs/LEGAL_DOCUMENTATION_MAINTENANCE.md`.
+A monthly Codex app review automation is also active under `monthly-legal-and-documentation-review`.
 
 ## License and Rights
 

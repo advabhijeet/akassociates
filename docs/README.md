@@ -6,6 +6,7 @@ This folder keeps internal planning and setup material separate from the public 
 
 - `google/` - Google Analytics, Tag Manager, Search Console, AdSense, and Business Profile setup notes.
 - `seo/` - SEO roadmap and search-growth planning documents.
+- `LEGAL_DOCUMENTATION_MAINTENANCE.md` - Checklist for keeping public legal pages and project documentation aligned with site changes.
 
 ## Root Files That Should Stay At The Site Root
 
@@ -14,3 +15,5 @@ This folder keeps internal planning and setup material separate from the public 
 - `assets/`, `practice/`, `services/`, and `updates/` are public website folders.
 
 When adding future internal notes, place them in `docs/`. When adding public pages, place them in the appropriate public folder and update `sitemap.xml`.
+
+When changing website structure, tracking, contact methods, social links, branding, or enquiry flows, also review the root `README.md`, `disclaimer.html`, `privacy-policy.html`, `terms.html`, and this folder's maintenance checklist.
