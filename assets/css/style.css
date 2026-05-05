@@ -69,6 +69,12 @@ body {
   padding: 1.1rem 2.5rem;
   border-bottom: 1px solid rgba(17, 17, 17, 0.12);
   background: #ffffff;
+  box-shadow: 0 0 0 rgba(17, 17, 17, 0);
+  transition:
+    padding 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease,
+    background-color 0.28s ease;
 }
 
 .nav-brand {
@@ -81,6 +87,7 @@ body {
   display: block;
   width: clamp(240px, 30vw, 430px);
   height: auto;
+  transition: width 0.28s ease, transform 0.28s ease;
 }
 
 .nav-links {
@@ -88,6 +95,7 @@ body {
   flex-wrap: wrap;
   gap: 2rem;
   list-style: none;
+  transition: gap 0.28s ease;
 }
 
 .nav-links a {
@@ -113,7 +121,31 @@ body {
   padding: 7px 16px;
   text-decoration: none;
   text-transform: uppercase;
-  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    color 0.2s,
+    padding 0.28s ease;
+}
+
+.nav.is-scrolled {
+  padding-top: 0.68rem;
+  padding-bottom: 0.68rem;
+  border-bottom-color: rgba(17, 17, 17, 0.18);
+  box-shadow: 0 12px 28px rgba(17, 17, 17, 0.08);
+}
+
+.nav.is-scrolled .nav-logo {
+  width: clamp(200px, 24vw, 330px);
+}
+
+.nav.is-scrolled .nav-links {
+  gap: 1.45rem;
+}
+
+.nav.is-scrolled .nav-cta {
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .nav-cta:hover {
@@ -947,6 +979,12 @@ body {
     background: #ffffff;
   }
 
+  .nav.is-scrolled {
+    padding-top: 0.62rem;
+    padding-bottom: 0.62rem;
+    box-shadow: 0 10px 24px rgba(17, 17, 17, 0.1);
+  }
+
   .nav-brand {
     grid-column: 1;
     flex: 1 1 auto;
@@ -958,6 +996,10 @@ body {
     width: min(250px, 100%);
     max-width: 100%;
     height: auto;
+  }
+
+  .nav.is-scrolled .nav-logo {
+    width: min(212px, 100%);
   }
 
   .nav-links {
@@ -1062,6 +1104,16 @@ body {
     border-radius: 2px;
     background: #ffffff;
     cursor: pointer;
+    transition:
+      width 0.28s ease,
+      height 0.28s ease,
+      border-color 0.2s ease;
+  }
+
+  .nav.is-scrolled .menu-toggle {
+    width: 38px;
+    height: 38px;
+    flex-basis: 38px;
   }
 
   .menu-toggle span {

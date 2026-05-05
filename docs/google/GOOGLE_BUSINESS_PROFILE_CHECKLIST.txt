@@ -1,4 +1,4 @@
-AK ASSOCIATES - GOOGLE BUSINESS PROFILE CHECKLIST
+CHAMBERS OF AK - GOOGLE BUSINESS PROFILE CHECKLIST
 Roadmap Step 2: Local Search And Google Business Readiness
 Last updated: May 4, 2026
 
@@ -9,11 +9,16 @@ Core Profile Details:
 - Business name: Chambers of AK - Advocates & Legal Consultants
 - Primary person: Abhijeet Kumar, Advocate
 - Phone: +91 94712 14118
-- Email: kadvocateabhijeet@gmail.com
+- Email: chambersofakadmin@gmail.com
 - Website: https://chambersofak.in/
 - Homebase: Patna, Bihar
 - Service areas: Bihar, UP, Delhi NCR
 - Languages: Hindi, English
+- Administrative Gmail: chambersofakadmin@gmail.com
+- Google Business Profile status: In review
+- LinkedIn page status: Ready, public URL pending for website schema
+- WhatsApp Business Profile status: Ready
+- WhatsApp Channel status: Ready, public URL pending for website schema
 
 Profile Setup Steps:
 1. Sign in with the Google account that should own the profile.
@@ -51,7 +56,7 @@ Ongoing Maintenance:
 - Post useful, informational updates connected to website legal updates.
 - Keep phone, email and website links current.
 - Review Google Search Console and Analytics performance after profile traffic begins.
-- Add the public Google Business Profile URL to the website structured data as sameAs once the profile URL is available.
+- Add the public Google Business Profile, LinkedIn page and WhatsApp Channel URLs to the website structured data as sameAs once the profile URLs are available.
 
 Compliance Notes:
 - Do not promise outcomes.

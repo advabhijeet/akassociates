@@ -1,4 +1,4 @@
-AK ASSOCIATES - SEARCH VISIBILITY AND CLIENT ACQUISITION ROADMAP
+CHAMBERS OF AK - SEARCH VISIBILITY AND CLIENT ACQUISITION ROADMAP
 Last updated: May 4, 2026
 
 Goal:
@@ -23,7 +23,7 @@ Status: Mostly implemented. External domain setup completed on May 4, 2026.
 
 Phase 2 - Local Search And Google Business
 Priority: Very high.
-Status: In progress. Website-side service-area signals and Google Business checklist added on May 3, 2026.
+Status: In progress. Website-side service-area signals and Google Business checklist added on May 3, 2026. Google Business Profile is in review as of May 5, 2026. LinkedIn page, WhatsApp Business Profile, WhatsApp Channel and administrative Gmail are ready.
 - Create or optimize Google Business Profile for Chambers of AK.
 - Use consistent NAP details: name, address/service area, phone and email.
 - Add practice categories relevant to advocate/legal services where available.
@@ -31,6 +31,7 @@ Status: In progress. Website-side service-area signals and Google Business check
 - Add website, WhatsApp/contact links and business hours.
 - Add professional office/chambers photos if available.
 - Publish periodic Google Business updates connected to legal information pages.
+- Add the public GBP, LinkedIn and WhatsApp Channel URLs to website structured data after they are available.
 
 Phase 3 - High-Intent Practice Pages
 Priority: Very high.

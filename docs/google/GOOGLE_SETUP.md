@@ -46,11 +46,19 @@ Use consistent business details:
 
 - Name: Chambers of AK - Advocates & Legal Consultants
 - Phone: +91 94712 14118
-- Email: kadvocateabhijeet@gmail.com
+- Email: chambersofakadmin@gmail.com
 - Location: Patna, Bihar
 - Service areas: Bihar, UP, Delhi NCR
 - Website: https://chambersofak.in/
 - Languages: Hindi, English
+
+Current external profile status:
+
+- Google Business Profile: in review.
+- LinkedIn page: ready; add the public page URL to website schema once available.
+- WhatsApp Business Profile: ready and linked through `https://wa.me/919471214118`.
+- WhatsApp Channel: ready; add the public channel URL to website schema once available.
+- Administrative Gmail: chambersofakadmin@gmail.com
 
 After the Google Business Profile is live, add its public profile URL to the website structured data as `sameAs`.
 

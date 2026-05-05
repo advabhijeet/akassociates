@@ -38,6 +38,26 @@ if (nav) {
     document.body.appendChild(backdrop);
   }
 
+  const updateNavScrollState = () => {
+    nav.classList.toggle('is-scrolled', window.scrollY > 18);
+  };
+
+  let navScrollTicking = false;
+
+  updateNavScrollState();
+
+  window.addEventListener('scroll', () => {
+    if (navScrollTicking) {
+      return;
+    }
+
+    navScrollTicking = true;
+    window.requestAnimationFrame(() => {
+      updateNavScrollState();
+      navScrollTicking = false;
+    });
+  }, { passive: true });
+
   const closeMenu = () => {
     document.body.classList.remove('menu-open');
     menuButton.setAttribute('aria-expanded', 'false');
