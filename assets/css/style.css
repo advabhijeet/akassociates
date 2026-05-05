@@ -7,6 +7,8 @@
   --gold-dark: #9c7620;
   --gold-soft: rgba(212, 175, 55, 0.14);
   --gold-line: rgba(212, 175, 55, 0.42);
+  --page-gutter: clamp(8px, 1.15vw, 18px);
+  --nav-space: 108px;
 }
 
 * {
@@ -23,7 +25,7 @@ body {
 }
 
 body {
-  padding-inline: clamp(8px, 1.15vw, 18px);
+  padding-inline: var(--page-gutter);
   background:
     radial-gradient(circle at top left, rgba(140, 107, 31, 0.1), transparent 28rem),
     linear-gradient(135deg, #ffffff 0%, #f7f7f7 54%, #eeeeee 100%);
@@ -34,6 +36,7 @@ body {
   max-width: 100%;
   min-height: 100vh;
   margin-inline: auto;
+  padding-top: var(--nav-space);
   border-inline: 1px solid rgba(17, 17, 17, 0.08);
   overflow-x: hidden;
   background:
@@ -59,9 +62,11 @@ body {
 }
 
 .nav {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 50;
+  left: var(--page-gutter);
+  right: var(--page-gutter);
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -75,6 +80,11 @@ body {
     box-shadow 0.28s ease,
     border-color 0.28s ease,
     background-color 0.28s ease;
+}
+
+.nav.is-measuring,
+.nav.is-measuring * {
+  transition: none !important;
 }
 
 .nav-brand {
@@ -974,6 +984,8 @@ body {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 42px;
     gap: 0.75rem;
+    left: 0;
+    right: 0;
     overflow: visible;
     padding: 1rem 1.25rem;
     background: #ffffff;

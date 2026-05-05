@@ -42,9 +42,25 @@ if (nav) {
     nav.classList.toggle('is-scrolled', window.scrollY > 18);
   };
 
+  const updateNavSpace = () => {
+    const wasScrolled = nav.classList.contains('is-scrolled');
+
+    nav.classList.add('is-measuring');
+    nav.classList.remove('is-scrolled');
+
+    const navHeight = Math.ceil(nav.getBoundingClientRect().height);
+
+    document.documentElement.style.setProperty('--nav-space', `${navHeight}px`);
+
+    nav.classList.toggle('is-scrolled', wasScrolled);
+    nav.classList.remove('is-measuring');
+  };
+
   let navScrollTicking = false;
+  let navResizeTicking = false;
 
   updateNavScrollState();
+  updateNavSpace();
 
   window.addEventListener('scroll', () => {
     if (navScrollTicking) {
@@ -57,6 +73,23 @@ if (nav) {
       navScrollTicking = false;
     });
   }, { passive: true });
+
+  window.addEventListener('resize', () => {
+    if (navResizeTicking) {
+      return;
+    }
+
+    navResizeTicking = true;
+    window.requestAnimationFrame(() => {
+      updateNavSpace();
+      updateNavScrollState();
+      navResizeTicking = false;
+    });
+  }, { passive: true });
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(updateNavSpace).catch(() => {});
+  }
 
   const closeMenu = () => {
     document.body.classList.remove('menu-open');

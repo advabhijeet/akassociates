@@ -55,9 +55,10 @@ Use consistent business details:
 Current external profile status:
 
 - Google Business Profile: in review.
-- LinkedIn page: ready; add the public page URL to website schema once available.
+- LinkedIn page: https://www.linkedin.com/company/chambersofak
+- Personal LinkedIn profile: https://www.linkedin.com/in/abhijeetk03/
 - WhatsApp Business Profile: ready and linked through `https://wa.me/919471214118`.
-- WhatsApp Channel: ready; add the public channel URL to website schema once available.
+- WhatsApp Channel: https://whatsapp.com/channel/0029VbCmf6M9sBIHqiTPIz33
 - Administrative Gmail: chambersofakadmin@gmail.com
 
 After the Google Business Profile is live, add its public profile URL to the website structured data as `sameAs`.
