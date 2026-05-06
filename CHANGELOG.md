@@ -4,6 +4,43 @@ All meaningful website, repository and documentation changes should be recorded 
 
 Time zone: Asia/Kolkata (IST) unless otherwise stated.
 
+## 2026-05-06 22:20 IST - Documentation sync, audit record and cleanup
+
+Files changed:
+
+- `CHANGELOG.md`
+- `docs/README.md`
+- `docs/CODEX_HANDOFF.md`
+- `docs/CODEX_PROMPT_RULE.md`
+- `docs/CODEX_WIKI_WORKFLOW.md`
+- `docs/LEGAL_DOCUMENTATION_MAINTENANCE.md`
+- `docs/WEBSITE_REPOSITORY_AUDIT_2026-05-06.md`
+- removed `docs/seo/SEO_BATCH_2_PLAN.md`
+
+Summary:
+
+- Added a formal website and repository audit document.
+- Updated docs README with the current documentation map and wiki-sync status.
+- Refreshed Codex handoff and prompt guidance for the next validation stage.
+- Updated the in-repository wiki mirror with current firm/team positioning, changelog rule, documentation workflow and SEO focus.
+- Updated the legal/documentation maintenance checklist to make changelog updates mandatory.
+- Removed the obsolete Batch 2 planning file because Batch 2 service-page work is complete and the roadmap/changelog supersede it.
+
+Notes:
+
+- Direct GitHub Wiki access was not available through the connector; `docs/CODEX_WIKI_WORKFLOW.md` remains the repository wiki mirror.
+- Local code validation was not run in this connector-only documentation pass; next recommended step is Codex/local validation.
+
+Commits:
+
+- `598dfade6f4a86758da62475002d5dca21cd53d0` - Add website and repository audit.
+- `6c33ab9749130ed98bc8beb6020f67a2cfbd9b54` - Update docs README after audit.
+- `f18f4c39defae700364bda597ca0ac704166a970` - Refresh Codex handoff after repository audit.
+- `6587ffc43f48e41a872b69f544d08797eada63fd` - Update Codex prompt rule after audit.
+- `27468ea2aaa176c713b558b53f2a87663653f080` - Sync wiki workflow after audit.
+- `a840b5c5280b4b339a12242f5d3a8ddf1005b32c` - Add changelog rule to legal documentation maintenance.
+- `930f157b634cb44a892c70b8cb8dad8355af6bf5` - Remove obsolete Batch 2 planning doc.
+
 ## 2026-05-06 21:54 IST - Repository audit documentation pass
 
 Files changed:
@@ -19,7 +56,7 @@ Summary:
 - Documented current public page groups, service clusters, legal update clusters, SEO rules, quality checks, deployment process, rollback process and maintenance rules.
 - Created this changelog as the primary chronological record for future changes.
 
-Validation / notes:
+Notes:
 
 - GitHub connector access confirmed for main repository files.
 - GitHub wiki repository fetch attempts returned `Not Found`; wiki content could not be directly edited through the current connector state.
@@ -27,7 +64,7 @@ Validation / notes:
 Commits:
 
 - `7f95336f27286516074f078ce9cff07c443535de` - Update README after repository audit.
-- Pending - Create changelog.
+- `358e307b5fb8927a0496d6c1f8f0d07493a0bdd9` - Create changelog.
 
 ## 2026-05-06 - Firm/team positioning update
 
