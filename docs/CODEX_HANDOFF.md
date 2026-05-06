@@ -47,30 +47,58 @@ Status: Done
 
 - Expanded `updates/cheque-bounce-notice-limitation.html` from a short informational note into a fuller article with date-chart guidance, demand notice records, accused-side preparation, complaint-readiness questions, internal links, case enquiry CTA, and updated metadata/JSON-LD modified date.
 
-### 2026-05-06 Codex pre-Batch 2 cleanup
+### 2026-05-06 Responsive social/topbar cleanup
 
 Status: Done
 
-- Fixed shared mobile social icon rendering in `assets/js/script.js` and `assets/css/style.css`.
-- Replaced the social SVGs with stable `viewBox="0 0 24 24"` icons while preserving `aria-label`, `target="_blank"` and `rel="noopener"`.
-- Kept the Chambers of AK black / white / gold styling and made mobile icon sizing stable in the topbar, drawer and footer.
-- Kept social icons visible on mobile topbar and hid only the live clock on very small screens.
-- Audited the update pages listed in this handoff and expanded the four thin legacy pages most in need of standardization:
+- Fixed shared social icon rendering in `assets/js/script.js` and `assets/css/style.css`.
+- Restored actual inline SVG icons for LinkedIn and WhatsApp Channel instead of text-only labels.
+- Kept icons centered inside circular buttons in the mobile drawer and footer.
+- Preserved `aria-label`, `target="_blank"` and `rel="noopener"` on external social links.
+- Restored desktop topbar behavior while removing the topbar from mobile view.
+- Bumped shared CSS/JS cache-busting references across HTML pages after changing `assets/css/style.css` and `assets/js/script.js`.
+
+Validation / verification:
+
+- User manually committed and pushed the final responsive fix after Codex hit a Git usage limit.
+- User confirmed the desktop topbar, mobile topbar removal, mobile menu icons and footer icons were fixed on the live website.
+
+### 2026-05-06 Pre-Batch 2 legacy article audit
+
+Status: Done
+
+- Audited the update pages listed in the previous handoff and expanded the four thin legacy pages most in need of standardization:
   - `updates/msme-documents-checklist.html`
   - `updates/rera-refund-interest-delayed-possession.html`
   - `updates/commercial-recovery-before-suit.html`
   - `updates/arbitration-clause-checklist.html`
 - Added richer document-checklist content, first-enquiry guidance, related internal links, updated metadata and CTA blocks to those pages.
-- Bumped shared asset cache-busting references across HTML pages after changing `assets/css/style.css` and `assets/js/script.js`.
+- Standardized the pages around practical preparation sections, non-solicitation language and internal content-cluster links.
 
-Validation completed in the working tree before commit:
+Validation completed during the cleanup flow:
 
-- `node --check assets\js\script.js`
-- `git diff --check`
-- internal href/src reference check
-- JSON-LD parse check
-- `legal-updates.html` article-link check
+- `git diff --check` where available.
+- internal href/src reference review.
+- JSON-LD structure review.
+- `legal-updates.html` article-link review.
 
-Validation note:
+### 2026-05-06 Homepage refresh and mobile slider correction
 
-- The in-app browser runtime and headless Edge/Chrome screenshot fallback were both blocked in this environment, so mobile 360px / 390px screenshot verification could not be completed through Codex on this run.
+Status: Done
+
+- Updated homepage Legal Insights to show newer article cards.
+- Added a homepage script that pulls the first six cards from `legal-updates.html`, so future new articles listed at the top of the Insights hub can refresh the homepage section.
+- Converted homepage Practice Areas into a horizontal slider with a `View More` button to `practice.html`.
+- Fixed the mobile version of the practice slider after the first implementation squeezed card widths and caused poor text wrapping.
+- User confirmed the mobile practice slider is now fixed on the live website.
+
+## Next Planned Work
+
+Proceed to SEO Batch 2 only after one final live verification pass of:
+
+- homepage desktop and mobile;
+- practice slider and `View More` link;
+- latest insights section and `View All Insights` link;
+- `legal-updates.html` article cards;
+- the four expanded legacy article pages;
+- mobile drawer and footer social icons.
