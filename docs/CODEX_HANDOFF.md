@@ -92,13 +92,20 @@ Status: Done
 - Fixed the mobile version of the practice slider after the first implementation squeezed card widths and caused poor text wrapping.
 - User confirmed the mobile practice slider is now fixed on the live website.
 
+### 2026-05-06 Mobile drawer scroll-lock fix
+
+Status: Done
+
+- Updated `assets/js/script.js` so opening the mobile menu drawer locks background page scrolling.
+- Preserved the user's scroll position and restored it when the drawer closes.
+- Replaced the drawer toggle-only behavior with explicit `openMenu()` and `closeMenu()` paths to reduce menu expansion/jump behavior.
+- Added viewport-change safety so the drawer state is cleared and scroll is unlocked if the screen is resized to desktop while the menu is open.
+- User confirmed the recently changed UI items were checked after the fix.
+
 ## Next Planned Work
 
-Proceed to SEO Batch 2 only after one final live verification pass of:
+Proceed to SEO Batch 2 after Search Console indexing/verification items are handled.
 
-- homepage desktop and mobile;
-- practice slider and `View More` link;
-- latest insights section and `View All Insights` link;
-- `legal-updates.html` article cards;
-- the four expanded legacy article pages;
-- mobile drawer and footer social icons.
+Suggested next page:
+
+- `services/cheque-bounce-lawyer-bihar.html`
