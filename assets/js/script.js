@@ -55,6 +55,8 @@ if (nav) {
   const backdrop = document.querySelector('.menu-backdrop') || document.createElement('button');
   let topBar = document.querySelector('.site-topbar');
   const desktopMedia = window.matchMedia('(min-width: 769px)');
+  let lockedScrollY = 0;
+  let isPageScrollLocked = false;
 
   const ensureTopBar = () => {
     if (!desktopMedia.matches) {
@@ -80,6 +82,38 @@ if (nav) {
       </div>
     `;
     nav.parentNode.insertBefore(topBar, nav);
+  };
+
+  const lockPageScroll = () => {
+    if (isPageScrollLocked) return;
+
+    lockedScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+    isPageScrollLocked = true;
+
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${lockedScrollY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
+  };
+
+  const unlockPageScroll = () => {
+    if (!isPageScrollLocked) return;
+
+    const scrollTarget = lockedScrollY;
+    isPageScrollLocked = false;
+
+    document.documentElement.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    document.body.style.overflow = '';
+
+    window.scrollTo(0, scrollTarget);
   };
 
   ensureTopBar();
@@ -158,7 +192,7 @@ if (nav) {
   updateNavSpace();
 
   window.addEventListener('scroll', () => {
-    if (navScrollTicking) return;
+    if (navScrollTicking || isPageScrollLocked) return;
 
     navScrollTicking = true;
     window.requestAnimationFrame(() => {
@@ -181,26 +215,49 @@ if (nav) {
   window.addEventListener('resize', onViewportChange, { passive: true });
 
   if (desktopMedia.addEventListener) {
-    desktopMedia.addEventListener('change', onViewportChange);
+    desktopMedia.addEventListener('change', () => {
+      if (desktopMedia.matches) {
+        unlockPageScroll();
+        document.body.classList.remove('menu-open');
+      }
+
+      onViewportChange();
+    });
   } else if (desktopMedia.addListener) {
-    desktopMedia.addListener(onViewportChange);
+    desktopMedia.addListener(() => {
+      if (desktopMedia.matches) {
+        unlockPageScroll();
+        document.body.classList.remove('menu-open');
+      }
+
+      onViewportChange();
+    });
   }
 
   if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(updateNavSpace).catch(() => {});
   }
 
+  const openMenu = () => {
+    document.body.classList.add('menu-open');
+    lockPageScroll();
+    menuButton.setAttribute('aria-expanded', 'true');
+    menuButton.setAttribute('aria-label', 'Close menu');
+  };
+
   const closeMenu = () => {
     document.body.classList.remove('menu-open');
+    unlockPageScroll();
     menuButton.setAttribute('aria-expanded', 'false');
     menuButton.setAttribute('aria-label', 'Open menu');
   };
 
   menuButton.addEventListener('click', () => {
-    const isOpen = document.body.classList.toggle('menu-open');
-
-    menuButton.setAttribute('aria-expanded', String(isOpen));
-    menuButton.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    if (document.body.classList.contains('menu-open')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   });
 
   backdrop.addEventListener('click', closeMenu);
