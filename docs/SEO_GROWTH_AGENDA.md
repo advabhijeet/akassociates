@@ -92,7 +92,7 @@ Priority service pages:
 - [x] `services/msme-recovery-lawyer-delhi-ncr.html`
 - [x] `services/rera-lawyer-patna.html`
 - [x] `services/rera-lawyer-noida.html`
-- [ ] `services/rera-lawyer-gurugram.html`
+- [x] `services/rera-lawyer-gurugram.html`
 - [x] `services/commercial-recovery-lawyer-bihar.html`
 - [x] `services/property-dispute-lawyer-bihar.html`
 - [x] `services/property-dispute-lawyer-patna.html`
@@ -106,6 +106,7 @@ Suggested Batch 2 starting order:
 3. [x] `services/civil-litigation-lawyer-bihar.html`
 4. [x] `services/msme-recovery-lawyer-delhi-ncr.html`
 5. [x] `services/rera-lawyer-noida.html`
+6. [x] `services/rera-lawyer-gurugram.html`
 
 ## Phase 3 - Legal Update Content Clusters
 
@@ -271,8 +272,9 @@ Use this exact order unless there is a strategic reason to change it:
 13. [x] Continue SEO Batch 2: `services/civil-litigation-lawyer-bihar.html` created, linked, and added to sitemap.
 14. [x] Continue SEO Batch 2: `services/msme-recovery-lawyer-delhi-ncr.html` created, linked, and added to sitemap.
 15. [x] Continue SEO Batch 2: `services/rera-lawyer-noida.html` created, linked, and added to sitemap.
-16. [ ] Request indexing in Google Search Console.
-17. [ ] Continue SEO Batch 2 with `services/rera-lawyer-gurugram.html`.
+16. [x] Continue SEO Batch 2: `services/rera-lawyer-gurugram.html` created, linked, and added to sitemap.
+17. [ ] Request indexing in Google Search Console.
+18. [ ] Decide next Batch 2 expansion target or begin indexing/verification routine.
 
 ## Progress Log
 
@@ -291,3 +293,4 @@ Use this section to mark progress regularly.
 | 2026-05-06 | Batch 2 civil litigation Bihar service page completed. | Done | Created `services/civil-litigation-lawyer-bihar.html`, added it to sitemap, and linked it from `practice.html` and `practice/property-civil-suits.html`. |
 | 2026-05-06 | Batch 2 MSME Delhi NCR service page completed. | Done | Created `services/msme-recovery-lawyer-delhi-ncr.html`, added it to sitemap, and linked it from `practice.html` and `practice/msme-disputes.html`. |
 | 2026-05-06 | Batch 2 RERA Noida service page completed. | Done | Created `services/rera-lawyer-noida.html`, added it to sitemap, and linked it from `practice.html` and `practice/rera-property.html`. |
+| 2026-05-06 | Batch 2 RERA Gurugram service page completed. | Done | Created `services/rera-lawyer-gurugram.html`, added it to sitemap, and linked it from `practice.html` and `practice/rera-property.html`. |
