@@ -1,24 +1,32 @@
 # Chambers of AK Website
 
-Official static website for **Chambers of AK - Advocates & Legal Consultants**.
+Official static website repository for **Chambers of AK - Advocates & Legal Consultants**.
 
 Live site: [https://chambersofak.in](https://chambersofak.in)  
 Repository: [advabhijeet/akassociates](https://github.com/advabhijeet/akassociates)
 
-## Overview
+## Current Status
 
-This repository contains the public website for Chambers of AK, a law practice focused on business disputes, commercial recovery, MSME delayed-payment matters, cheque bounce litigation, arbitration, RERA/property disputes, and civil-commercial work across Bihar, Uttar Pradesh, and Delhi NCR.
+The website is a static, multi-page GitHub Pages site for Chambers of AK. It is currently positioned as a **firm/team-focused legal website**, not an individual portfolio page.
 
-The website is built as a static multi-page site using plain HTML, CSS, and JavaScript. It is designed for GitHub Pages deployment with a custom domain.
+Recent positioning updates:
+
+- Homepage hero is firm-focused and no longer displays the founder portrait.
+- Homepage includes a firm-level About section.
+- `about.html` is firm/team-focused, with founder details retained as institutional context.
+- `practice.html` now works as the main **Expertise & Practice Areas** page.
+- Broader expertise now includes civil litigation, property due diligence, title search, DRT, SARFAESI, MSME, RERA, arbitration, cheque bounce, commercial contracts, private documentation, land-acquisition-linked disputes, taxation-aware review and trademark/IP advisory.
+- Future `team.html` page is planned, but should only be added when team-member details are ready.
 
 ## Technology
 
-- HTML5 static pages
-- CSS3 custom styling in `assets/css/style.css`
-- Vanilla JavaScript in `assets/js/script.js`
-- GitHub Pages hosting
-- Google Tag Manager for analytics and event tracking
-- SEO metadata, sitemap, robots.txt, Open Graph, and JSON-LD structured data
+- Static HTML5 pages.
+- CSS3 custom styling in `assets/css/style.css`.
+- Vanilla JavaScript in `assets/js/script.js`.
+- GitHub Pages hosting from the `main` branch.
+- Custom domain through `CNAME`.
+- Google Tag Manager for analytics and lead-event tracking.
+- SEO metadata, sitemap, robots.txt, Open Graph, Twitter cards and JSON-LD structured data.
 
 There is no build step and no package manager requirement for normal edits.
 
@@ -33,6 +41,7 @@ There is no build step and no package manager requirement for normal edits.
 |-- case-enquiry.html
 |-- courts.html
 |-- legal-updates.html
+|-- document-checklists.html
 |-- faq.html
 |-- process.html
 |-- privacy-policy.html
@@ -47,7 +56,7 @@ There is no build step and no package manager requirement for normal edits.
 |       |-- logo-navbar.png
 |       |-- primary-logo.png
 |       |-- social-preview.png
-|       `-- profile/favicon assets
+|       `-- favicon/profile/brand assets
 |-- practice/
 |   `-- detailed practice-area pages
 |-- services/
@@ -55,11 +64,13 @@ There is no build step and no package manager requirement for normal edits.
 |-- updates/
 |   `-- legal update and guide articles
 |-- docs/
-|   `-- internal planning, SEO, and Google setup notes
+|   `-- internal planning, SEO, handoff and maintenance notes
+|-- CHANGELOG.md
 |-- CNAME
 |-- robots.txt
 |-- sitemap.xml
 |-- ads.txt
+|-- google3164979181871a1d.html
 `-- site.webmanifest
 ```
 
@@ -67,29 +78,59 @@ There is no build step and no package manager requirement for normal edits.
 
 | Page | Purpose |
 | --- | --- |
-| `index.html` | Homepage and primary brand landing page |
-| `about.html` | Advocate/firm profile and credentials |
-| `practice.html` | Overview of practice areas |
-| `case-enquiry.html` | Case enquiry and consultation preparation |
-| `contact.html` | Contact, WhatsApp, email, and profile links |
+| `index.html` | Homepage and primary firm landing page |
+| `about.html` | Firm profile, team-level expertise and institutional background |
+| `practice.html` | Main expertise and practice-area overview |
+| `case-enquiry.html` | Structured case enquiry and consultation preparation |
+| `contact.html` | Contact, WhatsApp, email and profile links |
 | `legal-updates.html` | Index of legal update articles |
-| `courts.html` | Courts and forums handled |
+| `document-checklists.html` | Document preparation guidance |
+| `courts.html` | Courts, tribunals and forums information |
 | `faq.html` | Frequently asked questions |
-| `privacy-policy.html` | Mandatory privacy policy |
-| `terms.html` | Mandatory terms and conditions |
+| `process.html` | Matter-handling process overview |
+| `privacy-policy.html` | Privacy policy |
+| `terms.html` | Website terms and conditions |
 | `disclaimer.html` | Legal website disclaimer |
+
+## Main Content Groups
+
+### Practice / Expertise Pages
+
+Detailed practice pages live under `practice/` and support the main expertise page:
+
+- Cheque bounce / Section 138 NI Act.
+- MSME delayed payment disputes.
+- Commercial recovery and business dues.
+- RERA and builder-buyer disputes.
+- Arbitration.
+- Property and civil suits.
+
+### Service Landing Pages
+
+High-intent landing pages live under `services/`. These pages should be specific, document-led and non-duplicative. Current clusters include:
+
+- Cheque bounce: Bihar, Patna, Delhi NCR.
+- MSME recovery: Bihar, Patna, Delhi NCR.
+- RERA: Patna, Noida, Gurugram, Bihar/UP/Delhi NCR.
+- Commercial recovery: Bihar, Patna.
+- Property disputes and civil litigation: Bihar and Patna.
+- Arbitration: Bihar.
+
+### Legal Updates
+
+Legal updates and guides live under `updates/`. They should be informational, non-promissory and internally linked to related practice pages, service pages, checklists and the enquiry page.
 
 ## Important Root Files
 
-These files must stay in the repository root because external services look for them there:
+These files must remain at the repository root because external services look for them there:
 
-- `CNAME` - custom domain configuration for GitHub Pages: `chambersofak.in`
-- `robots.txt` - crawler rules and sitemap reference
-- `sitemap.xml` - submitted to Google Search Console
-- `ads.txt` - Google AdSense publisher declaration
-- `google3164979181871a1d.html` - Google site verification file
-- `favicon.ico`, `favicon-16.png`, `favicon-32.png`, `favicon-48.png` - browser favicon discovery
-- `site.webmanifest` - PWA/browser metadata
+- `CNAME` - GitHub Pages custom domain: `chambersofak.in`.
+- `robots.txt` - crawler rules and sitemap reference.
+- `sitemap.xml` - submitted to Google Search Console.
+- `ads.txt` - AdSense publisher declaration.
+- `google3164979181871a1d.html` - Google site verification file.
+- `favicon.ico`, `favicon-16.png`, `favicon-32.png`, `favicon-48.png` - browser favicon discovery.
+- `site.webmanifest` - browser/PWA metadata.
 
 ## Branding
 
@@ -113,32 +154,37 @@ White: #ffffff
 Gold accent: #d4af37
 ```
 
-Logo assets are stored in `assets/img/`.
+Design direction: modern boutique legal brand, black/white base, gold accent, serif monogram/logotype, premium but restrained.
+
+Logo and brand assets are stored in `assets/img/`.
 
 ## SEO Setup
 
 The website includes:
 
-- Unique titles and meta descriptions
-- Canonical URLs
-- Open Graph and Twitter preview metadata
-- Logo-based social preview image
-- JSON-LD structured data
-- Sitemap submitted through Google Search Console
-- Search-focused landing pages under `services/`
-- Informational practice pages under `practice/`
-- Article/update pages under `updates/`
+- Unique page titles and meta descriptions where updated.
+- Canonical URLs using `https://chambersofak.in/...`.
+- Open Graph and Twitter preview metadata.
+- Logo-based social preview image.
+- JSON-LD structured data where appropriate.
+- `robots.txt` pointing to `sitemap.xml`.
+- Sitemap submitted through Google Search Console.
+- Search-focused landing pages under `services/`.
+- Informational practice pages under `practice/`.
+- Legal update pages under `updates/`.
 
-When adding a new public page:
+When adding a public page:
 
-1. Add the HTML page in the correct folder.
+1. Add the HTML file in the correct folder.
 2. Add a unique `<title>` and meta description.
 3. Add a canonical URL using `https://chambersofak.in/...`.
-4. Add Open Graph metadata.
-5. Add relevant JSON-LD structured data where appropriate.
-6. Link to the page from a relevant index or section.
+4. Add Open Graph/Twitter metadata.
+5. Add JSON-LD structured data where useful.
+6. Link the page from a relevant index, practice page or hub.
 7. Add the URL to `sitemap.xml`.
-8. Request indexing in Google Search Console after deployment.
+8. Update `CHANGELOG.md` with date, time, files and summary.
+9. Update relevant documentation in `README.md`, `docs/` and wiki/mirror docs.
+10. Request indexing in Google Search Console after deployment if the page is important.
 
 ## Analytics and Marketing Setup
 
@@ -152,7 +198,7 @@ AdSense Publisher ID: pub-6935574990807827
 
 GA4 should be controlled through GTM to avoid duplicate page-view tracking.
 
-Tracked interaction events include important lead actions such as WhatsApp clicks, email clicks, phone clicks, and case enquiry actions.
+Tracked interaction events include important lead actions such as WhatsApp clicks, email clicks, phone clicks and case enquiry actions.
 
 ## Social Profiles
 
@@ -161,7 +207,33 @@ Current official public social links:
 - Firm LinkedIn Page: [https://www.linkedin.com/company/chambersofak](https://www.linkedin.com/company/chambersofak)
 - WhatsApp Channel: [https://whatsapp.com/channel/0029VbCmf6M9sBIHqiTPIz33](https://whatsapp.com/channel/0029VbCmf6M9sBIHqiTPIz33)
 
-The generated social icons in the header, mobile drawer, and footer are controlled from `assets/js/script.js`.
+Generated social icons in the desktop topbar, mobile drawer and footer are controlled from `assets/js/script.js`.
+
+## Change Tracking Policy
+
+`CHANGELOG.md` is now the primary chronological record for repository changes.
+
+Every meaningful modification must update the changelog with:
+
+- date;
+- time and timezone where known;
+- changed files;
+- summary;
+- validation or follow-up notes;
+- commit hash after commit, if available.
+
+For future work, update the changelog in the same work cycle as the website/documentation change. If several small commits belong to one task, one grouped changelog entry is acceptable, but list all affected files and commit hashes.
+
+## Documentation Map
+
+| File | Purpose |
+| --- | --- |
+| `README.md` | Repository overview and operating rules |
+| `CHANGELOG.md` | Date/time change tracking |
+| `docs/SEO_GROWTH_AGENDA.md` | SEO roadmap and pending work |
+| `docs/CODEX_HANDOFF.md` | Codex handoff and connector-limit notes |
+| `docs/LEGAL_DOCUMENTATION_MAINTENANCE.md` | Legal/documentation maintenance checklist |
+| `docs/seo/SEO_CONTENT_BATCH_2026-05-05.md` | Historical Batch 1 SEO content record |
 
 ## Local Preview
 
@@ -182,8 +254,8 @@ http://localhost:8000/
 HTML pages reference CSS and JavaScript with version query strings, for example:
 
 ```html
-assets/css/style.css?v=legal-1
-assets/js/script.js?v=socialbar-2
+assets/css/style.css?v=legal-3
+assets/js/script.js?v=socialbar-4
 ```
 
 When changing shared CSS or JavaScript, update the query string across HTML pages so browsers and mobile devices fetch the latest files.
@@ -261,7 +333,7 @@ After pushing, GitHub Pages may take a short time to redeploy. If the live websi
 1. The latest commit exists on GitHub.
 2. GitHub Pages deployment status.
 3. Browser cache or CDN cache.
-4. Whether the live HTML references the latest CSS/JS cache-busting version.
+4. Whether live HTML references the latest CSS/JS cache-busting version.
 
 ## Rollback
 
@@ -280,31 +352,33 @@ git revert <commit-hash>
 git push origin main
 ```
 
-Avoid force-pushing or resetting public history unless there is a very specific reason.
+Avoid force-pushing or resetting public history unless there is a specific reason.
 
-## Maintenance Notes
+## Maintenance Rules
 
-- Keep public website files at the root or in public folders such as `practice/`, `services/`, and `updates/`.
+- Keep public website files at the root or in public folders such as `practice/`, `services/` and `updates/`.
 - Keep internal planning notes inside `docs/`.
-- Keep legal disclaimer, privacy policy, and terms linked from the footer.
+- Keep legal disclaimer, privacy policy and terms linked from the footer.
 - Keep social preview image as a logo/brand image, not a personal profile photo.
-- Re-check mobile navigation after header, social, or menu changes.
+- Keep the homepage firm-focused.
+- Move detailed individual profiles to the future `team.html` page.
+- Re-check mobile navigation after header, social or menu changes.
 - Re-test important click events in GTM Preview after contact CTA changes.
-- Update `sitemap.xml` whenever adding or removing indexed pages.
+- Update `sitemap.xml` whenever adding, removing, renaming or moving indexed pages.
+- Update `CHANGELOG.md` after every meaningful modification.
 
 ## Documentation Update Policy
 
-Documentation and legal-policy pages should be reviewed as part of every meaningful website change. In practice:
+Documentation and legal-policy pages should be reviewed as part of every meaningful website change.
 
-- Update `README.md` when site structure, deployment, tracking IDs, cache-busting versions, domains, branding, or maintenance workflow changes.
-- Update `docs/` when SEO, Google, analytics, business profile, or operational setup changes.
-- Review `disclaimer.html`, `privacy-policy.html`, and `terms.html` when contact methods, enquiry flows, analytics/tracking, AdSense/advertising, social links, third-party tools, branding, or professional positioning changes.
-- Update `sitemap.xml` when public indexed pages are added, removed, renamed, or moved.
-- Keep policy-page changes in the same commit as the website feature that requires them whenever possible.
+- Update `README.md` when site structure, deployment, tracking IDs, cache-busting versions, domains, branding, positioning or maintenance workflow changes.
+- Update `docs/` when SEO, Google, analytics, business profile, operational setup or handoff state changes.
+- Review `disclaimer.html`, `privacy-policy.html` and `terms.html` when contact methods, enquiry flows, analytics/tracking, AdSense/advertising, social links, third-party tools, branding or professional positioning changes.
+- Update `sitemap.xml` when public indexed pages are added, removed, renamed or moved.
+- Update `CHANGELOG.md` for every meaningful change.
 
 The detailed maintenance checklist is in `docs/LEGAL_DOCUMENTATION_MAINTENANCE.md`.
-A monthly Codex app review automation is also active under `monthly-legal-and-documentation-review`.
 
 ## License and Rights
 
-This repository contains brand assets, copy, images, and website materials for Chambers of AK. Do not reuse the branding, legal copy, photographs, or website assets without permission from the owner.
+This repository contains brand assets, copy, images and website materials for Chambers of AK. Do not reuse the branding, legal copy, photographs or website assets without permission from the owner.
