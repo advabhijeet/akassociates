@@ -1,6 +1,6 @@
 # Codex Wiki Workflow
 
-This document mirrors the local Codex wiki notes used for the Chambers of AK website. It is kept inside `docs/` so maintainers, Codex, and ChatGPT can follow the same workflow even when the GitHub Wiki is unavailable through repository tools.
+This document mirrors the practical GitHub Wiki notes for the Chambers of AK website. It is kept inside `docs/` so maintainers, Codex, and ChatGPT can follow the same workflow even when the GitHub Wiki is unavailable through repository tools.
 
 ## Project Reference
 
@@ -8,30 +8,44 @@ This document mirrors the local Codex wiki notes used for the Chambers of AK web
 - Main repository: `https://github.com/advabhijeet/akassociates`
 - Brand name: `Chambers of AK`
 - Tagline: `Advocates & Legal Consultants`
+- Change log: `CHANGELOG.md`
+- Latest audit: `docs/WEBSITE_REPOSITORY_AUDIT_2026-05-06.md`
 
 ## Website Purpose
 
-The website presents Chambers of AK - Advocates & Legal Consultants as a static multi-page law firm website for public information, client approach, Google discovery, and structured enquiry routing.
+The website presents Chambers of AK - Advocates & Legal Consultants as a static multi-page law firm website for public information, structured case-enquiry routing, Google discovery and professional credibility.
+
+Current positioning:
+
+- Firm/team-focused, not founder-portfolio focused.
+- Homepage should remain firm-focused and should not use the founder portrait in the hero section.
+- About page should describe the firm and the team’s expertise.
+- Individual profiles should be placed on a future `team.html` page when team details are ready.
+- Public copy must remain informational and non-solicitation oriented.
 
 Core focus areas include:
 
-- Cheque bounce and NI Act matters
-- MSME delayed-payment disputes
-- RERA and property disputes across Bihar, Uttar Pradesh, and Delhi NCR
-- Commercial recovery
-- Arbitration
-- Civil-commercial suits
+- Cheque bounce and NI Act matters.
+- MSME delayed-payment disputes.
+- RERA and builder-buyer disputes across Bihar, Uttar Pradesh and Delhi NCR.
+- Commercial recovery.
+- Arbitration.
+- Civil and property litigation.
+- Real estate due diligence and title search.
+- Banking recovery, DRT and SARFAESI-linked matters.
+- Commercial contracts and private documentation.
+- Trademark/IP advisory.
 
 ## Current Stack
 
-- Static HTML pages
-- CSS in `assets/css/style.css`
-- JavaScript in `assets/js/script.js`
-- GitHub Pages hosting from the `main` branch
-- Custom domain: `chambersofak.in`
-- Google Tag Manager: `GTM-5GMHQTJJ`
-- GA4 Measurement ID: `G-DCP7MK6V0V`
-- AdSense publisher: `pub-6935574990807827`
+- Static HTML pages.
+- CSS in `assets/css/style.css`.
+- JavaScript in `assets/js/script.js`.
+- GitHub Pages hosting from the `main` branch.
+- Custom domain: `chambersofak.in`.
+- Google Tag Manager: `GTM-5GMHQTJJ`.
+- GA4 Measurement ID: `G-DCP7MK6V0V`.
+- AdSense publisher: `pub-6935574990807827`.
 
 There is no build step and no package manager requirement for normal edits.
 
@@ -39,23 +53,23 @@ There is no build step and no package manager requirement for normal edits.
 
 ### Root Public Pages
 
-- `index.html` - homepage
-- `about.html` - advocate and firm profile
-- `practice.html` - practice area overview
-- `case-enquiry.html` - case enquiry flow
-- `contact.html` - contact details and lead actions
-- `courts.html` - courts and forums handled
-- `legal-updates.html` - update/article index
-- `faq.html` - frequently asked questions
-- `process.html` - working process
-- `document-checklists.html` - document preparation guidance
-- `disclaimer.html` - professional disclaimer
-- `privacy-policy.html` - privacy policy
-- `terms.html` - terms and conditions
+- `index.html` - homepage and primary firm landing page.
+- `about.html` - firm profile and team-level expertise.
+- `practice.html` - Expertise & Practice Areas overview.
+- `case-enquiry.html` - structured case enquiry flow.
+- `contact.html` - contact details and lead actions.
+- `courts.html` - courts, tribunals and forums information.
+- `legal-updates.html` - update/article index.
+- `faq.html` - frequently asked questions.
+- `process.html` - working process.
+- `document-checklists.html` - document preparation guidance.
+- `disclaimer.html` - professional disclaimer.
+- `privacy-policy.html` - privacy policy.
+- `terms.html` - terms and conditions.
 
 ### Public Folders
 
-- `assets/` - CSS, JavaScript, logos, favicon assets, social preview images, and profile image assets.
+- `assets/` - CSS, JavaScript, logos, favicon assets, social preview images and profile/brand assets.
 - `practice/` - informational practice-area pages.
 - `services/` - high-intent SEO landing pages.
 - `updates/` - legal update and guide articles.
@@ -63,7 +77,8 @@ There is no build step and no package manager requirement for normal edits.
 ### Internal Documentation
 
 - `README.md` - main repository documentation.
-- `docs/` - internal setup notes, Google setup, SEO roadmap, legal documentation maintenance, and this workflow file.
+- `CHANGELOG.md` - chronological change record.
+- `docs/` - internal setup notes, SEO roadmap, legal documentation maintenance, Codex handoff and this workflow file.
 
 ### Root Files That Must Stay At Root
 
@@ -81,6 +96,7 @@ These files must remain at repository root because external services expect fixe
 
 Every meaningful website change should be checked against:
 
+- `CHANGELOG.md`
 - `README.md` and `docs/`
 - `sitemap.xml`
 - `disclaimer.html`
@@ -90,7 +106,22 @@ Every meaningful website change should be checked against:
 - Tracking and event setup
 - Mobile navigation
 
-A change is meaningful when it affects website structure, contact methods, enquiry flows, analytics, SEO, branding, domains, social links, third-party services, public page content, legal positioning, or shared CSS/JavaScript.
+A change is meaningful when it affects website structure, contact methods, enquiry flows, analytics, SEO, branding, domains, social links, third-party services, public page content, legal positioning, shared CSS/JavaScript, or documentation workflow.
+
+## Changelog Rule
+
+`CHANGELOG.md` must be updated after every meaningful modification.
+
+Each entry should include:
+
+- date;
+- time and timezone where known;
+- changed files;
+- summary;
+- validation or follow-up notes;
+- commit hash after commit, where available.
+
+If the changelog entry is created before the commit hash exists, add the hash in the next documentation pass or final handoff note.
 
 ## Adding A New Public Page
 
@@ -103,12 +134,13 @@ When adding a page:
 5. Add relevant structured data where appropriate.
 6. Link it from an index page, navigation element, footer, or relevant existing section.
 7. Add it to `sitemap.xml`.
-8. Consider whether legal pages, `README.md`, or `docs/` need updates.
-9. Request indexing in Google Search Console after deployment.
+8. Update `CHANGELOG.md`.
+9. Consider whether legal pages, `README.md`, or `docs/` need updates.
+10. Request indexing in Google Search Console after deployment if the page is important.
 
 ## SEO and Analytics Workflow
 
-The website is optimized for Google discovery, local credibility, and high-intent legal queries.
+The website is optimized for Google discovery, local credibility and high-intent legal queries.
 
 ### SEO Assets
 
@@ -124,21 +156,23 @@ The website is optimized for Google discovery, local credibility, and high-inten
 
 ### Current Search Focus
 
-- Cheque bounce lawyer Patna
-- MSME recovery lawyer Bihar
-- RERA lawyer Bihar, Uttar Pradesh, and Delhi NCR
-- Commercial recovery lawyer Patna
-- Arbitration lawyer Bihar
+- Cheque bounce lawyer Patna/Bihar/Delhi NCR.
+- MSME recovery lawyer Bihar/Patna/Delhi NCR.
+- RERA lawyer Bihar, Uttar Pradesh, Delhi NCR, Noida and Gurugram.
+- Commercial recovery lawyer Patna/Bihar.
+- Arbitration lawyer Bihar.
+- Civil litigation and property dispute lawyer Patna/Bihar.
+- Future clusters: DRT, SARFAESI, real estate due diligence, title search, commercial contracts, trademark/IP advisory.
 
 ### Event Tracking
 
 Important lead interactions should be tracked through GTM/GA4, including:
 
-- WhatsApp clicks
-- Email clicks
-- Phone clicks
-- Case enquiry clicks
-- Contact page actions
+- WhatsApp clicks.
+- Email clicks.
+- Phone clicks.
+- Case enquiry clicks.
+- Contact page actions.
 
 Avoid installing GA4 both directly and through GTM at the same time, because that can double-count page views.
 
@@ -179,16 +213,17 @@ The privacy policy should mention:
 
 - Information voluntarily shared through contact methods.
 - Case enquiry and consultation preparation information.
-- WhatsApp, email, phone, and LinkedIn communication.
+- WhatsApp, email, phone and LinkedIn communication.
 - GTM/GA4 analytics and event tracking.
 - AdSense readiness or advertising tools if enabled.
 - Third-party platform policies.
-- Retention, security, and privacy requests.
+- Retention, security and privacy requests.
 
 ### Documentation Rule
 
 When the website changes, review whether these need updates:
 
+- `CHANGELOG.md`
 - `README.md`
 - `docs/`
 - `sitemap.xml`
@@ -218,8 +253,8 @@ GitHub Pages may take a short time to redeploy after a push.
 Shared CSS and JavaScript files are referenced with query-string versions, for example:
 
 ```html
-assets/css/style.css?v=legal-1
-assets/js/script.js?v=socialbar-2
+assets/css/style.css?v=legal-3
+assets/js/script.js?v=socialbar-4
 ```
 
 When changing shared CSS or JavaScript, bump the version string across all HTML pages.
@@ -233,7 +268,7 @@ After pushing:
 3. Check the live homepage.
 4. Confirm CSS and JS cache versions are current.
 5. Check desktop and mobile navigation.
-6. Check important lead buttons: WhatsApp, email, phone, and case enquiry.
+6. Check important lead buttons: WhatsApp, email, phone and case enquiry.
 
 ### Rollback
 
@@ -264,7 +299,7 @@ Each meaningful change should have its own commit so rollback stays simple.
 - WhatsApp links work.
 - Email links work.
 - Navbar logo links to homepage.
-- Footer links include disclaimer, privacy policy, and terms.
+- Footer links include disclaimer, privacy policy and terms.
 
 ### SEO
 
@@ -295,6 +330,7 @@ Each meaningful change should have its own commit so rollback stays simple.
 
 Review these whenever relevant:
 
+- `CHANGELOG.md`
 - `disclaimer.html`
 - `privacy-policy.html`
 - `terms.html`
