@@ -12,15 +12,16 @@ const socialLinks = [
   },
 ];
 
-const socialIconSvg = {
-  linkedin: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.6 8.7V19H3.2V8.7h3.4zm.2-3.2c0 1-.7 1.7-1.9 1.7-1.1 0-1.8-.7-1.8-1.7 0-1 .7-1.8 1.9-1.8 1.1 0 1.8.7 1.8 1.8zM20.8 12.7V19h-3.4v-5.9c0-1.5-.5-2.5-1.8-2.5-1 0-1.5.6-1.8 1.3-.1.2-.1.6-.1.9V19h-3.4V8.7h3.4v1.5c.4-.7 1.3-1.8 3.2-1.8 2.4 0 4 1.5 4 4.3z"/></svg>',
-  whatsapp: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.5 14.3c-.2-.1-1.2-.6-1.3-.7-.2-.1-.3-.1-.4.1-.1.2-.5.7-.6.8-.1.1-.2.2-.4.1-.2-.1-.8-.3-1.5-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4l.3-.3.2-.3c.1-.1.1-.2 0-.4-.1-.1-.4-1-.6-1.4-.1-.3-.3-.3-.4-.3h-.4c-.1 0-.3 0-.5.2-.2.2-.7.6-.7 1.6s.7 1.9.8 2.1c.1.1 1.4 2.2 3.5 3 .5.2.9.3 1.2.4.5.1.9.1 1.2.1.4-.1 1.2-.5 1.3-.9.2-.5.2-.9.1-.9 0-.1-.2-.1-.4-.2z"/><path d="M12 2.2a9.7 9.7 0 0 0-8.2 14.8L2.3 21.8l4.9-1.3a9.8 9.8 0 1 0 4.8-18.3zm0 17.5c-1.5 0-2.9-.4-4.2-1.2l-.3-.2-2.9.8.8-2.8-.2-.3A7.7 7.7 0 1 1 12 19.7z"/></svg>',
+const socialGlyphs = {
+  linkedin: '<span class="ak-social-glyph" aria-hidden="true">in</span>',
+  whatsapp: '<span class="ak-social-glyph" aria-hidden="true">wa</span>',
 };
 
 const createSocialLinksMarkup = () => socialLinks.map((link) => {
   const modifier = link.modifier ? ` ${link.modifier}` : '';
+  const glyph = socialGlyphs[link.icon] || '';
 
-  return `<a class="ak-social-icon${modifier}" href="${link.href}" target="_blank" rel="noopener" aria-label="${link.label}" title="${link.label}">${socialIconSvg[link.icon]}<span class="sr-only">${link.label}</span></a>`;
+  return `<a class="ak-social-icon${modifier}" href="${link.href}" target="_blank" rel="noopener" aria-label="${link.label}" title="${link.label}">${glyph}<span class="sr-only">${link.label}</span></a>`;
 }).join('');
 
 const clockFormatter = new Intl.DateTimeFormat('en-IN', {
@@ -52,20 +53,15 @@ if (nav) {
   const navCta = nav.querySelector('.nav-cta');
   const menuButton = nav.querySelector('.menu-toggle') || document.createElement('button');
   const backdrop = document.querySelector('.menu-backdrop') || document.createElement('button');
-  let topBar = document.querySelector('.site-topbar');
+  const existingTopBar = document.querySelector('.site-topbar');
 
-  if (!topBar) {
-    topBar = document.createElement('div');
-    topBar.className = 'site-topbar';
-    topBar.innerHTML = `
-      <div class="topbar-label">Chambers of AK</div>
-      <div class="topbar-actions">
-        <div class="ak-social topbar-social" aria-label="Social links">${createSocialLinksMarkup()}</div>
-        <time class="live-clock" data-ak-clock></time>
-      </div>
-    `;
-    nav.parentNode.insertBefore(topBar, nav);
+  // Mobile does not need the extra black top bar. Remove any injected topbar
+  // from earlier versions and keep social links only inside drawer/footer.
+  if (existingTopBar) {
+    existingTopBar.remove();
   }
+
+  document.documentElement.style.setProperty('--topbar-space', '0px');
 
   menuButton.className = 'menu-toggle';
   menuButton.type = 'button';
@@ -123,11 +119,10 @@ if (nav) {
     nav.classList.add('is-measuring');
     nav.classList.remove('is-scrolled');
 
-    const topBarHeight = topBar ? Math.ceil(topBar.getBoundingClientRect().height) : 0;
     const navHeight = Math.ceil(nav.getBoundingClientRect().height);
 
-    document.documentElement.style.setProperty('--topbar-space', `${topBarHeight}px`);
-    document.documentElement.style.setProperty('--nav-space', `${topBarHeight + navHeight}px`);
+    document.documentElement.style.setProperty('--topbar-space', '0px');
+    document.documentElement.style.setProperty('--nav-space', `${navHeight}px`);
 
     nav.classList.toggle('is-scrolled', wasScrolled);
     nav.classList.remove('is-measuring');
@@ -140,9 +135,7 @@ if (nav) {
   updateNavSpace();
 
   window.addEventListener('scroll', () => {
-    if (navScrollTicking) {
-      return;
-    }
+    if (navScrollTicking) return;
 
     navScrollTicking = true;
     window.requestAnimationFrame(() => {
@@ -152,9 +145,7 @@ if (nav) {
   }, { passive: true });
 
   window.addEventListener('resize', () => {
-    if (navResizeTicking) {
-      return;
-    }
+    if (navResizeTicking) return;
 
     navResizeTicking = true;
     window.requestAnimationFrame(() => {
@@ -197,9 +188,7 @@ if (nav) {
 }
 
 document.querySelectorAll('.foot').forEach((footer) => {
-  if (footer.querySelector('.foot-social')) {
-    return;
-  }
+  if (footer.querySelector('.foot-social')) return;
 
   const socialRow = document.createElement('div');
   const disclaimer = footer.querySelector('.foot-disc');
@@ -225,9 +214,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     const targetId = anchor.getAttribute('href');
     const target = targetId.length > 1 ? document.querySelector(targetId) : null;
 
-    if (!target) {
-      return;
-    }
+    if (!target) return;
 
     event.preventDefault();
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -240,15 +227,12 @@ const navLinks = document.querySelectorAll('.nav-links a');
 
 if (sections.length === 0) {
   const pageLinks = document.querySelectorAll('.nav-links a[href]');
-  const hasExactPageLink = Array.from(pageLinks).some((link) => {
-    return new URL(link.href).pathname === window.location.pathname;
-  });
+  const hasExactPageLink = Array.from(pageLinks).some((link) => new URL(link.href).pathname === window.location.pathname);
 
   if (hasExactPageLink) {
     pageLinks.forEach((link) => {
       const linkPath = new URL(link.href).pathname;
       const currentPath = window.location.pathname;
-
       link.classList.toggle('active', linkPath === currentPath);
     });
   }
@@ -259,30 +243,22 @@ if (sections.length === 0) {
       const isSamePage = linkUrl.pathname === window.location.pathname;
       const isCurrentSection = linkUrl.hash === `#${current}`;
       const isHomeAtTop = !linkUrl.hash && current === 'home';
-
       link.classList.toggle('active', isSamePage && (isCurrentSection || isHomeAtTop));
     });
   };
 
   let activeSection = window.location.hash ? window.location.hash.slice(1) : sections[0].id;
-
   setActiveNav(activeSection);
 
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
       const visibleEntries = entries
         .filter((entry) => entry.isIntersecting)
-        .sort((first, second) => {
-          return second.intersectionRatio - first.intersectionRatio
-            || first.boundingClientRect.top - second.boundingClientRect.top;
-        });
+        .sort((first, second) => second.intersectionRatio - first.intersectionRatio || first.boundingClientRect.top - second.boundingClientRect.top);
 
-      if (visibleEntries.length === 0) {
-        return;
-      }
+      if (visibleEntries.length === 0) return;
 
       const nextSection = visibleEntries[0].target.getAttribute('id');
-
       if (nextSection && nextSection !== activeSection) {
         activeSection = nextSection;
         setActiveNav(activeSection);
@@ -293,34 +269,6 @@ if (sections.length === 0) {
     });
 
     sections.forEach((section) => observer.observe(section));
-  } else {
-    let ticking = false;
-
-    const updateActiveNav = () => {
-      let current = '';
-
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 120;
-
-        if (window.scrollY >= sectionTop) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      setActiveNav(current);
-    };
-
-    window.addEventListener('scroll', () => {
-      if (ticking) {
-        return;
-      }
-
-      ticking = true;
-      window.requestAnimationFrame(() => {
-        updateActiveNav();
-        ticking = false;
-      });
-    }, { passive: true });
   }
 }
 
@@ -334,31 +282,21 @@ const conversionEventNames = {
 
 const getConversionPayload = (link) => {
   const rawHref = link.getAttribute('href') || '';
-  const label = link.textContent.trim().replace(/\s+/g, ' ').slice(0, 80) || 'Link click';
+  const label = link.textContent.trim().replace(/\s+/g, ' ').slice(0, 80) || link.getAttribute('aria-label') || 'Link click';
 
   if (rawHref.startsWith('https://wa.me/') || rawHref.startsWith('https://api.whatsapp.com/')) {
     return { type: 'whatsapp', label, target: 'whatsapp' };
   }
 
-  if (rawHref.startsWith('tel:')) {
-    return { type: 'phone', label, target: 'phone' };
-  }
-
-  if (rawHref.startsWith('mailto:')) {
-    return { type: 'email', label, target: 'email' };
-  }
+  if (rawHref.startsWith('tel:')) return { type: 'phone', label, target: 'phone' };
+  if (rawHref.startsWith('mailto:')) return { type: 'email', label, target: 'email' };
 
   try {
     const url = new URL(rawHref, window.location.href);
     const page = url.pathname.split('/').pop();
 
-    if (page === 'case-enquiry.html') {
-      return { type: 'case_enquiry', label, target: url.pathname };
-    }
-
-    if (page === 'contact.html') {
-      return { type: 'contact', label, target: url.pathname };
-    }
+    if (page === 'case-enquiry.html') return { type: 'case_enquiry', label, target: url.pathname };
+    if (page === 'contact.html') return { type: 'contact', label, target: url.pathname };
   } catch (error) {
     return null;
   }
@@ -367,135 +305,37 @@ const getConversionPayload = (link) => {
 };
 
 document.addEventListener('click', (event) => {
-  if (!(event.target instanceof Element)) {
-    return;
-  }
+  if (!(event.target instanceof Element)) return;
 
   const link = event.target.closest('a[href]');
-
-  if (!link) {
-    return;
-  }
+  if (!link) return;
 
   const conversion = getConversionPayload(link);
+  if (!conversion || !window.dataLayer) return;
 
-  if (!conversion) {
-    return;
-  }
-
-  window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
-    event: 'ak_conversion_click',
-    ga_event_name: conversionEventNames[conversion.type],
-    conversion_type: conversion.type,
-    conversion_label: conversion.label,
-    conversion_target: conversion.target,
-    conversion_page_path: window.location.pathname,
-    conversion_page_title: document.title,
+    event: conversionEventNames[conversion.type],
+    link_text: conversion.label,
+    link_target: conversion.target,
+    page_path: window.location.pathname,
   });
 });
 
-const setupHomeReveals = () => {
-  const path = window.location.pathname;
-  const isHomePage = path.endsWith('/') || path.endsWith('/index.html') || path.endsWith('index.html');
+const revealItems = document.querySelectorAll('.home-reveal');
 
-  if (!isHomePage) {
-    return;
+if (revealItems.length) {
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16 });
+
+    revealItems.forEach((item) => revealObserver.observe(item));
+  } else {
+    revealItems.forEach((item) => item.classList.add('is-visible'));
   }
-
-  const revealSelectors = [
-    '.hero-eyebrow',
-    '.hero-logo',
-    '.hero-rule',
-    '.hero-tagline',
-    '.hero-meta > *',
-    '.hero-actions > *',
-    '.hero-portrait',
-    '#practice .sec-label',
-    '#practice .practice-item',
-    '#updates .sec-label',
-    '#updates .update-item',
-    '#contact .sec-label',
-    '#contact .contact-item',
-  ];
-  const revealTargets = Array.from(document.querySelectorAll(revealSelectors.join(',')));
-
-  if (revealTargets.length === 0) {
-    return;
-  }
-
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  revealTargets.forEach((target, index) => {
-    target.classList.add('home-reveal');
-    target.classList.toggle('home-reveal-soft', !target.classList.contains('hero-logo'));
-    target.style.setProperty('--reveal-delay', `${Math.min((index % 5) * 70, 280)}ms`);
-  });
-
-  if (reduceMotion || !('IntersectionObserver' in window)) {
-    revealTargets.forEach((target) => target.classList.add('is-visible'));
-    return;
-  }
-
-  const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) {
-        return;
-      }
-
-      entry.target.classList.add('is-visible');
-      observer.unobserve(entry.target);
-    });
-  }, {
-    rootMargin: '0px 0px -12% 0px',
-    threshold: 0.12,
-  });
-
-  revealTargets.forEach((target) => revealObserver.observe(target));
-};
-
-setupHomeReveals();
-
-const loadAdsense = () => {
-  if (window.akAdsenseLoaded) {
-    return;
-  }
-
-  window.akAdsenseLoaded = true;
-
-  const adsenseScript = document.createElement('script');
-  adsenseScript.async = true;
-  adsenseScript.crossOrigin = 'anonymous';
-  adsenseScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6935574990807827';
-
-  document.head.appendChild(adsenseScript);
-};
-
-const scheduleAdsense = () => {
-  if (!document.body) {
-    return;
-  }
-
-  const interactionEvents = ['pointerdown', 'keydown', 'scroll', 'touchstart'];
-
-  const removeInteractionListeners = () => {
-    interactionEvents.forEach((eventName) => {
-      window.removeEventListener(eventName, loadAfterInteraction);
-    });
-  };
-
-  const loadAfterInteraction = () => {
-    removeInteractionListeners();
-    loadAdsense();
-  };
-
-  interactionEvents.forEach((eventName) => {
-    window.addEventListener(eventName, loadAfterInteraction, { once: true, passive: true });
-  });
-
-  window.addEventListener('load', () => {
-    window.setTimeout(loadAdsense, 12000);
-  }, { once: true });
-};
-
-scheduleAdsense();
+}
