@@ -1,203 +1,116 @@
 # Codex Prompt Rule
 
-This guide records the standing rule for all future ChatGPT-to-Codex handoffs in the Chambers of AK website repository.
+This guide records the standing rule for future ChatGPT-to-Codex handoffs in the Chambers of AK website repository.
 
-## Rule Of Thumb
+## Standing Rule
 
 Whenever ChatGPT creates or updates `docs/CODEX_HANDOFF.md`, ChatGPT should also provide a ready-to-paste Codex prompt in the chat response.
 
-The purpose is convenience: the user should be able to copy one prompt into Codex and have Codex continue exactly from where ChatGPT stopped.
+Every prompt should tell Codex to read these first:
 
-## Required Prompt Contents
+- `README.md`
+- `CHANGELOG.md`
+- `docs/README.md`
+- `docs/CODEX_HANDOFF.md`
+- `docs/CODEX_WIKI_WORKFLOW.md`
+- `docs/SEO_GROWTH_AGENDA.md`
+- `docs/LEGAL_DOCUMENTATION_MAINTENANCE.md`
+- `docs/WEBSITE_REPOSITORY_AUDIT_2026-05-06.md`
 
-Every Codex prompt should include:
+## Required Rules For Codex
 
-1. Repository and branch:
+- Work on repository `advabhijeet/akassociates`.
+- Work on branch `main` unless the user says otherwise.
+- Sync with the latest `main` before editing.
+- Preserve the Chambers of AK black/white/gold premium legal branding.
+- Preserve informational and non-solicitation language.
+- Keep the homepage firm-focused.
+- Keep individual profile details for the future Team page, not the homepage.
+- Update `CHANGELOG.md` after every meaningful modification.
+- Do not commit `.wiki-work/` or `.wiki-clone/`.
+- Keep changes focused and patch-based where possible.
 
-```text
-repo: advabhijeet/akassociates
-branch: main
-```
+## Standard Validation
 
-2. Sync instruction:
+Run where possible:
 
-```text
-Before making changes, sync with the latest main branch.
-```
-
-3. Read-first files:
-
-```text
-README.md
-docs/README.md
-docs/CODEX_WIKI_WORKFLOW.md
-docs/CODEX_HANDOFF.md
-docs/SEO_GROWTH_AGENDA.md
-relevant files in docs/seo/
-```
-
-4. Main action:
-
-```text
-Complete the active handoff items in docs/CODEX_HANDOFF.md in order.
-```
-
-5. Validation commands:
-
-```text
+```powershell
 node --check assets\js\script.js
 git diff --check
 ```
 
-6. Additional validation where relevant:
+Also validate where relevant:
+
+- internal href/src references;
+- JSON-LD parsing;
+- sitemap XML syntax;
+- desktop and mobile layout;
+- footer legal links;
+- WhatsApp, email, phone and case-enquiry CTAs.
+
+## Standard Handoff Prompt
 
 ```text
-Check internal href/src references.
-Check JSON-LD blocks parse correctly.
-Check sitemap XML if sitemap.xml was changed.
-Check mobile layout if CSS/nav/menu/social icons were changed.
-```
+You are working on the GitHub repository advabhijeet/akassociates on branch main.
 
-7. Commit and reporting instruction:
+Before making changes, sync with the latest main branch and read:
+- README.md
+- CHANGELOG.md
+- docs/README.md
+- docs/CODEX_HANDOFF.md
+- docs/CODEX_WIKI_WORKFLOW.md
+- docs/SEO_GROWTH_AGENDA.md
+- docs/LEGAL_DOCUMENTATION_MAINTENANCE.md
+- docs/WEBSITE_REPOSITORY_AUDIT_2026-05-06.md
 
-```text
-Commit with clear messages. Do not commit .wiki-work/ or .wiki-clone/.
-After committing, report files changed, commits made, checks run, and remaining issues.
-```
+Complete the active handoff items in docs/CODEX_HANDOFF.md. If there are no active handoff items, perform only the specific task requested by the user.
 
-## Standard Prompt Template
-
-Use this as the default prompt whenever a Codex handoff is needed:
-
-```text
-You are working on the GitHub repository:
-
-advabhijeet/akassociates
-
-Branch:
-main
-
-This is the Chambers of AK - Advocates & Legal Consultants website repository.
-
-Before making changes:
-1. Sync with the latest main branch.
-2. Confirm the remote is the correct repo: advabhijeet/akassociates.
-3. Read these files:
-   - README.md
-   - docs/README.md
-   - docs/CODEX_WIKI_WORKFLOW.md
-   - docs/CODEX_HANDOFF.md
-   - docs/SEO_GROWTH_AGENDA.md
-   - relevant files in docs/seo/
-
-Main task:
-Complete the active handoff items listed in docs/CODEX_HANDOFF.md, in order.
-
-Important rules:
+Rules:
 - Preserve the Chambers of AK black/white/gold premium legal branding.
 - Preserve informational/non-solicitation language.
-- Do not create unnecessary temporary files.
+- Keep the homepage firm-focused.
+- Update CHANGELOG.md after every meaningful modification.
 - Do not commit .wiki-work/ or .wiki-clone/.
 - Keep changes focused and patch-based where possible.
 
 Validation:
-After making changes, run:
-node --check assets\js\script.js
-git diff --check
+- Run node --check assets\js\script.js where Node is available.
+- Run git diff --check.
+- Check internal links, JSON-LD, sitemap XML, mobile layout and CTAs where relevant.
 
-Also validate where relevant:
-- internal href/src references;
-- JSON-LD parsing;
-- sitemap XML syntax if sitemap.xml changed;
-- desktop and mobile layout if CSS, nav, menu or social icons changed.
-
-Commit instructions:
-- Make clear commits.
-- Push to origin/main only after checks pass.
-- Report:
-  - files changed;
-  - commits made;
-  - final pushed commit SHA;
-  - checks run;
-  - any remaining issues.
+Commit with clear messages, push to origin/main only after checks pass, and report files changed, commits made, checks run and remaining issues.
 ```
 
-## Current Active Handoff Prompt
+## Current Validation Prompt
 
-As of the latest pre-Batch 2 cleanup, use this prompt for Codex:
+Use this for the next local validation pass before new content work:
 
 ```text
-You are working on the GitHub repository:
+You are working on advabhijeet/akassociates on branch main.
 
-advabhijeet/akassociates
+Sync with latest main, then run a technical validation and SEO hygiene audit before the next content stage.
 
-Branch:
-main
+Read first:
+- README.md
+- CHANGELOG.md
+- docs/README.md
+- docs/CODEX_HANDOFF.md
+- docs/CODEX_WIKI_WORKFLOW.md
+- docs/LEGAL_DOCUMENTATION_MAINTENANCE.md
+- docs/WEBSITE_REPOSITORY_AUDIT_2026-05-06.md
+- docs/SEO_GROWTH_AGENDA.md
 
-This is the Chambers of AK - Advocates & Legal Consultants website repository.
+Audit:
+1. Check JavaScript syntax.
+2. Run git diff --check.
+3. Check internal href/src references.
+4. Check JSON-LD parsing.
+5. Check sitemap XML.
+6. Review titles, meta descriptions and canonicals across public HTML files.
+7. Check footer legal links and important CTAs.
+8. Smoke-test homepage, About, Expertise, mobile drawer and footer icons on desktop/mobile.
 
-Before making changes:
-1. Sync with the latest main branch.
-2. Confirm the remote is the correct repo: advabhijeet/akassociates.
-3. Read these files:
-   - README.md
-   - docs/README.md
-   - docs/CODEX_WIKI_WORKFLOW.md
-   - docs/CODEX_HANDOFF.md
-   - docs/SEO_GROWTH_AGENDA.md
-   - docs/seo/SEO_CONTENT_BATCH_2026-05-05.md
-   - docs/seo/SEO_BATCH_2_PLAN.md
-
-Main task:
-Complete the active pre-Batch 2 cleanup items in docs/CODEX_HANDOFF.md, in order.
-
-Specifically:
-
-1. Fix mobile social icon rendering.
-   - Inspect assets/js/script.js and assets/css/style.css.
-   - Check socialLinks, socialIconSvg, createSocialLinksMarkup(), topbar social injection, drawer social injection and footer social injection.
-   - Ensure LinkedIn and WhatsApp Channel icons render correctly on mobile topbar, drawer menu and footer.
-   - Ensure icons are not broken boxes, invisible icons, oversized shapes, or misaligned circles.
-   - Preserve aria-labels, target="_blank" and rel="noopener".
-   - Preserve Chambers of AK black/white/gold branding.
-
-2. Audit and complete older article pages.
-   Review all article pages listed in docs/CODEX_HANDOFF.md.
-   Priority pages likely needing expansion:
-   - updates/msme-documents-checklist.html
-   - updates/rera-refund-interest-delayed-possession.html
-   - updates/commercial-recovery-before-suit.html
-   - updates/arbitration-clause-checklist.html
-
-   Each article should have:
-   - unique SEO title and meta description;
-   - canonical URL;
-   - Open Graph/Twitter metadata;
-   - Article or BlogPosting JSON-LD;
-   - clear hero heading;
-   - useful content sections;
-   - practical document checklist;
-   - first enquiry or preparation section;
-   - internal links to relevant practice, service, update and enquiry pages;
-   - informational/non-solicitation note;
-   - no promises, guarantees, or solicitation language.
-
-Validation:
-After making changes, run:
-node --check assets\js\script.js
-git diff --check
-
-Also validate:
-- internal href/src references;
-- JSON-LD blocks parse correctly;
-- legal-updates.html article links still work;
-- no broken relative paths from update pages;
-- mobile social icons at 360px and 390px widths;
-- desktop layout remains stable.
-
-Commit instructions:
-- Make clear commits.
-- Do not commit .wiki-work/ or .wiki-clone/.
-- Push to origin/main only after checks pass.
-- After pushing, report files changed, commits made, final pushed commit SHA, checks run and remaining issues.
+Do not create new public pages during this validation pass unless specifically instructed.
+Update CHANGELOG.md for any meaningful change.
+Report issues found, issues fixed, commits, checks run and remaining follow-up items.
 ```
