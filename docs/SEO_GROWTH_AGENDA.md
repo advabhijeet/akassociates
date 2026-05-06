@@ -25,6 +25,7 @@ The website already has a strong base:
 - GA4 intended to be controlled through GTM to avoid duplicate page views.
 - Homepage now has a refreshed Latest Legal Insights section that can pull cards from `legal-updates.html`.
 - Homepage Practice Areas now use a mobile-friendly horizontal slider with a `View More` link to `practice.html`.
+- Mobile menu drawer now locks background page scrolling while open.
 
 ## Core Search Focus
 
@@ -75,6 +76,7 @@ Tasks:
 - [x] Fix responsive topbar behavior: desktop topbar visible, mobile topbar removed.
 - [x] Fix mobile drawer/footer social icon rendering.
 - [x] Fix homepage practice slider mobile layout.
+- [x] Lock background page scroll when mobile drawer is open.
 
 ## Phase 2 - New High-Intent Service Landing Pages
 
@@ -202,8 +204,8 @@ After each public page batch:
 
 - [x] Update `sitemap.xml`.
 - [x] Push to `main`.
-- [ ] Verify GitHub Pages deployment.
-- [ ] Check live homepage and affected pages.
+- [x] Verify GitHub Pages deployment for recently changed UI items.
+- [x] Check live homepage and affected UI sections.
 - [x] Confirm CSS and JS cache versions if shared assets changed.
 - [x] Check desktop and mobile navigation.
 - [ ] Check important lead buttons: WhatsApp, email, phone, case enquiry.
@@ -244,6 +246,7 @@ Add five legal update articles:
 - [x] Strengthen internal linking across homepage, practice pages, service pages, updates, document checklists, and enquiry page.
 - [x] Refresh homepage legal insights section.
 - [x] Add and fix homepage practice slider.
+- [x] Fix mobile drawer scroll-lock behavior.
 - [ ] Submit updated sitemap.
 - [ ] Request indexing for new and changed URLs.
 
@@ -260,7 +263,7 @@ Use this exact order unless there is a strategic reason to change it:
 7. [x] Expand `courts.html` for stronger local entity SEO.
 8. [x] Update `sitemap.xml`.
 9. [x] Complete pre-Batch 2 cleanup: social icons, topbar, legacy articles, homepage insights and practice slider.
-10. [ ] Final live verification pass.
+10. [x] Final live verification pass for recent UI changes.
 11. [ ] Request indexing in Google Search Console.
 12. [ ] Start SEO Batch 2 service pages.
 
@@ -275,3 +278,4 @@ Use this section to mark progress regularly.
 | 2026-05-06 | Codex handoff internal-link cleanup and civil litigation page completed. | Done | Added index links, practice-page contextual links, `services/civil-litigation-lawyer-patna.html`, and sitemap entry. |
 | 2026-05-06 | Pre-Batch 2 cleanup: social icons and legacy article upgrades. | Done | Fixed responsive topbar/social icon rendering and expanded five older update articles including the four priority thin pages. |
 | 2026-05-06 | Homepage refresh and mobile slider correction. | Done | Latest insights now refresh from the Insights hub; homepage Practice Areas now use a mobile-friendly slider with `View More`. |
+| 2026-05-06 | Mobile drawer scroll-lock fix verified. | Done | Opening the mobile drawer now locks background page scrolling and avoids the previous menu expansion/jump behavior. |
