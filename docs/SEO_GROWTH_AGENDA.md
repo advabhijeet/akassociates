@@ -80,14 +80,14 @@ Tasks:
 
 ## Phase 2 - New High-Intent Service Landing Pages
 
-Status: In Progress
+Status: Complete for current Batch 2 set
 
 Create service pages that are not thin duplicates. Each page should include local intent, forum/jurisdiction notes, document checklist, procedural overview, limitation/date issues, FAQ schema where useful, and links to the relevant practice page, update article, document checklist, and enquiry page.
 
 Priority service pages:
 
 - [x] `services/cheque-bounce-lawyer-bihar.html`
-- [ ] `services/cheque-bounce-lawyer-delhi-ncr.html`
+- [x] `services/cheque-bounce-lawyer-delhi-ncr.html`
 - [x] `services/msme-recovery-lawyer-patna.html`
 - [x] `services/msme-recovery-lawyer-delhi-ncr.html`
 - [x] `services/rera-lawyer-patna.html`
@@ -107,6 +107,7 @@ Suggested Batch 2 starting order:
 4. [x] `services/msme-recovery-lawyer-delhi-ncr.html`
 5. [x] `services/rera-lawyer-noida.html`
 6. [x] `services/rera-lawyer-gurugram.html`
+7. [x] `services/cheque-bounce-lawyer-delhi-ncr.html`
 
 ## Phase 3 - Legal Update Content Clusters
 
@@ -273,8 +274,9 @@ Use this exact order unless there is a strategic reason to change it:
 14. [x] Continue SEO Batch 2: `services/msme-recovery-lawyer-delhi-ncr.html` created, linked, and added to sitemap.
 15. [x] Continue SEO Batch 2: `services/rera-lawyer-noida.html` created, linked, and added to sitemap.
 16. [x] Continue SEO Batch 2: `services/rera-lawyer-gurugram.html` created, linked, and added to sitemap.
-17. [ ] Request indexing in Google Search Console.
-18. [ ] Decide next Batch 2 expansion target or begin indexing/verification routine.
+17. [x] Optional Batch 2: `services/cheque-bounce-lawyer-delhi-ncr.html` created, linked, and added to sitemap.
+18. [ ] Request indexing in Google Search Console.
+19. [ ] Decide next expansion target after live verification and Search Console review.
 
 ## Progress Log
 
@@ -294,3 +296,4 @@ Use this section to mark progress regularly.
 | 2026-05-06 | Batch 2 MSME Delhi NCR service page completed. | Done | Created `services/msme-recovery-lawyer-delhi-ncr.html`, added it to sitemap, and linked it from `practice.html` and `practice/msme-disputes.html`. |
 | 2026-05-06 | Batch 2 RERA Noida service page completed. | Done | Created `services/rera-lawyer-noida.html`, added it to sitemap, and linked it from `practice.html` and `practice/rera-property.html`. |
 | 2026-05-06 | Batch 2 RERA Gurugram service page completed. | Done | Created `services/rera-lawyer-gurugram.html`, added it to sitemap, and linked it from `practice.html` and `practice/rera-property.html`. |
+| 2026-05-06 | Optional Batch 2 cheque bounce Delhi NCR service page completed. | Done | Created `services/cheque-bounce-lawyer-delhi-ncr.html`, added it to sitemap, and linked it from `practice.html` and `practice/cheque-bounce.html`. |
