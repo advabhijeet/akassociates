@@ -80,13 +80,13 @@ Tasks:
 
 ## Phase 2 - New High-Intent Service Landing Pages
 
-Status: Pending
+Status: In Progress
 
 Create service pages that are not thin duplicates. Each page should include local intent, forum/jurisdiction notes, document checklist, procedural overview, limitation/date issues, FAQ schema where useful, and links to the relevant practice page, update article, document checklist, and enquiry page.
 
 Priority service pages:
 
-- [ ] `services/cheque-bounce-lawyer-bihar.html`
+- [x] `services/cheque-bounce-lawyer-bihar.html`
 - [ ] `services/cheque-bounce-lawyer-delhi-ncr.html`
 - [x] `services/msme-recovery-lawyer-patna.html`
 - [ ] `services/msme-recovery-lawyer-delhi-ncr.html`
@@ -99,11 +99,11 @@ Priority service pages:
 
 Suggested Batch 2 starting order:
 
-1. `services/cheque-bounce-lawyer-bihar.html`
-2. `services/property-dispute-lawyer-bihar.html`
-3. `services/civil-litigation-lawyer-bihar.html`
-4. `services/msme-recovery-lawyer-delhi-ncr.html`
-5. `services/rera-lawyer-noida.html`
+1. [x] `services/cheque-bounce-lawyer-bihar.html`
+2. [ ] `services/property-dispute-lawyer-bihar.html`
+3. [ ] `services/civil-litigation-lawyer-bihar.html`
+4. [ ] `services/msme-recovery-lawyer-delhi-ncr.html`
+5. [ ] `services/rera-lawyer-noida.html`
 
 ## Phase 3 - Legal Update Content Clusters
 
@@ -225,9 +225,9 @@ After each public page batch:
 
 Add five service landing pages:
 
-- [ ] Cheque bounce lawyer Bihar.
+- [x] Cheque bounce lawyer Bihar.
 - [x] MSME recovery lawyer Patna.
-- [ ] RERA lawyer Patna.
+- [x] RERA lawyer Patna.
 - [x] Commercial recovery lawyer Bihar.
 - [x] Property dispute lawyer Patna.
 
@@ -264,8 +264,9 @@ Use this exact order unless there is a strategic reason to change it:
 8. [x] Update `sitemap.xml`.
 9. [x] Complete pre-Batch 2 cleanup: social icons, topbar, legacy articles, homepage insights and practice slider.
 10. [x] Final live verification pass for recent UI changes.
-11. [ ] Request indexing in Google Search Console.
-12. [ ] Start SEO Batch 2 service pages.
+11. [x] Start SEO Batch 2: `services/cheque-bounce-lawyer-bihar.html` created, linked, and added to sitemap.
+12. [ ] Request indexing in Google Search Console.
+13. [ ] Continue SEO Batch 2 with `services/property-dispute-lawyer-bihar.html`.
 
 ## Progress Log
 
@@ -279,3 +280,4 @@ Use this section to mark progress regularly.
 | 2026-05-06 | Pre-Batch 2 cleanup: social icons and legacy article upgrades. | Done | Fixed responsive topbar/social icon rendering and expanded five older update articles including the four priority thin pages. |
 | 2026-05-06 | Homepage refresh and mobile slider correction. | Done | Latest insights now refresh from the Insights hub; homepage Practice Areas now use a mobile-friendly slider with `View More`. |
 | 2026-05-06 | Mobile drawer scroll-lock fix verified. | Done | Opening the mobile drawer now locks background page scrolling and avoids the previous menu expansion/jump behavior. |
+| 2026-05-06 | Batch 2 started with cheque bounce Bihar service page. | Done | Created `services/cheque-bounce-lawyer-bihar.html`, added it to sitemap, and linked it from `practice.html` and `practice/cheque-bounce.html`. |
