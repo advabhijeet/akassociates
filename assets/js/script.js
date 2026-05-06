@@ -53,15 +53,30 @@ if (nav) {
   const navCta = nav.querySelector('.nav-cta');
   const menuButton = nav.querySelector('.menu-toggle') || document.createElement('button');
   const backdrop = document.querySelector('.menu-backdrop') || document.createElement('button');
-  const existingTopBar = document.querySelector('.site-topbar');
+  let topBar = document.querySelector('.site-topbar');
+  const desktopMedia = window.matchMedia('(min-width: 769px)');
 
-  // Mobile does not need the extra black top bar. Remove any injected topbar
-  // from earlier versions and keep social links only inside drawer/footer.
-  if (existingTopBar) {
-    existingTopBar.remove();
+  if (!topBar) {
+    topBar = document.createElement('div');
+    topBar.className = 'site-topbar';
+    topBar.innerHTML = `
+      <div class="topbar-label">Chambers of AK</div>
+      <div class="topbar-actions">
+        <div class="ak-social topbar-social" aria-label="Social links">${createSocialLinksMarkup()}</div>
+        <time class="live-clock" data-ak-clock></time>
+      </div>
+    `;
+    nav.parentNode.insertBefore(topBar, nav);
   }
 
-  document.documentElement.style.setProperty('--topbar-space', '0px');
+  const syncTopBarVisibility = () => {
+    if (!topBar) return;
+
+    topBar.hidden = !desktopMedia.matches;
+    topBar.setAttribute('aria-hidden', String(!desktopMedia.matches));
+  };
+
+  syncTopBarVisibility();
 
   menuButton.className = 'menu-toggle';
   menuButton.type = 'button';
@@ -118,11 +133,13 @@ if (nav) {
 
     nav.classList.add('is-measuring');
     nav.classList.remove('is-scrolled');
+    syncTopBarVisibility();
 
+    const topBarHeight = topBar && !topBar.hidden ? Math.ceil(topBar.getBoundingClientRect().height) : 0;
     const navHeight = Math.ceil(nav.getBoundingClientRect().height);
 
-    document.documentElement.style.setProperty('--topbar-space', '0px');
-    document.documentElement.style.setProperty('--nav-space', `${navHeight}px`);
+    document.documentElement.style.setProperty('--topbar-space', `${topBarHeight}px`);
+    document.documentElement.style.setProperty('--nav-space', `${topBarHeight + navHeight}px`);
 
     nav.classList.toggle('is-scrolled', wasScrolled);
     nav.classList.remove('is-measuring');
@@ -144,16 +161,25 @@ if (nav) {
     });
   }, { passive: true });
 
-  window.addEventListener('resize', () => {
+  const onViewportChange = () => {
     if (navResizeTicking) return;
 
     navResizeTicking = true;
     window.requestAnimationFrame(() => {
+      syncTopBarVisibility();
       updateNavSpace();
       updateNavScrollState();
       navResizeTicking = false;
     });
-  }, { passive: true });
+  };
+
+  window.addEventListener('resize', onViewportChange, { passive: true });
+
+  if (desktopMedia.addEventListener) {
+    desktopMedia.addEventListener('change', onViewportChange);
+  } else if (desktopMedia.addListener) {
+    desktopMedia.addListener(onViewportChange);
+  }
 
   if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(updateNavSpace).catch(() => {});
