@@ -202,7 +202,7 @@ Avoid language that promises representation, outcome, or availability in every f
 
 ## Phase 7 - Search Console And Tracking Routine
 
-Status: Pending
+Status: In Progress
 
 After each public page batch:
 
@@ -213,7 +213,7 @@ After each public page batch:
 - [x] Confirm CSS and JS cache versions if shared assets changed.
 - [x] Check desktop and mobile navigation.
 - [ ] Check important lead buttons: WhatsApp, email, phone, case enquiry.
-- [ ] Request indexing in Google Search Console.
+- [x] Request indexing in Google Search Console.
 - [ ] Monitor indexed pages, impressions, queries, CTR, and pages with impressions but low clicks.
 
 ## 30-Day Roadmap
@@ -251,8 +251,8 @@ Add five legal update articles:
 - [x] Refresh homepage legal insights section.
 - [x] Add and fix homepage practice slider.
 - [x] Fix mobile drawer scroll-lock behavior.
-- [ ] Submit updated sitemap.
-- [ ] Request indexing for new and changed URLs.
+- [x] Submit updated sitemap.
+- [x] Request indexing for new and changed URLs.
 
 ## Immediate Priority Order
 
@@ -275,8 +275,9 @@ Use this exact order unless there is a strategic reason to change it:
 15. [x] Continue SEO Batch 2: `services/rera-lawyer-noida.html` created, linked, and added to sitemap.
 16. [x] Continue SEO Batch 2: `services/rera-lawyer-gurugram.html` created, linked, and added to sitemap.
 17. [x] Optional Batch 2: `services/cheque-bounce-lawyer-delhi-ncr.html` created, linked, and added to sitemap.
-18. [ ] Request indexing in Google Search Console.
-19. [ ] Decide next expansion target after live verification and Search Console review.
+18. [x] Request indexing in Google Search Console for Batch 2 URLs.
+19. [ ] Monitor indexing status, impressions, queries, CTR, and pages with impressions but low clicks.
+20. [ ] Decide next expansion target after Search Console review.
 
 ## Progress Log
 
@@ -297,3 +298,4 @@ Use this section to mark progress regularly.
 | 2026-05-06 | Batch 2 RERA Noida service page completed. | Done | Created `services/rera-lawyer-noida.html`, added it to sitemap, and linked it from `practice.html` and `practice/rera-property.html`. |
 | 2026-05-06 | Batch 2 RERA Gurugram service page completed. | Done | Created `services/rera-lawyer-gurugram.html`, added it to sitemap, and linked it from `practice.html` and `practice/rera-property.html`. |
 | 2026-05-06 | Optional Batch 2 cheque bounce Delhi NCR service page completed. | Done | Created `services/cheque-bounce-lawyer-delhi-ncr.html`, added it to sitemap, and linked it from `practice.html` and `practice/cheque-bounce.html`. |
+| 2026-05-06 | Search Console indexing requested for Batch 2 URLs. | Done | Updated sitemap submitted/re-submitted and indexing requested for the newly added Batch 2 service pages. |
