@@ -2,7 +2,22 @@
 
 This checklist keeps the website's public policies and internal documentation aligned with site changes.
 
-Use it whenever a meaningful change is made to the website, especially changes involving contact methods, enquiry flows, analytics, SEO, branding, domains, social links, or third-party services.
+Use it whenever a meaningful change is made to the website, especially changes involving contact methods, enquiry flows, analytics, SEO, branding, domains, social links, third-party services, public page structure, professional positioning or shared CSS/JavaScript.
+
+## Mandatory Changelog Rule
+
+`CHANGELOG.md` must be updated after every meaningful modification.
+
+Each entry should include:
+
+- date;
+- time and timezone where known;
+- changed files;
+- summary of the change;
+- validation performed or pending;
+- commit hash after commit, if available.
+
+If the changelog entry is created before the final commit hash exists, add the hash in the next documentation pass or final handoff note.
 
 ## Public Legal Pages
 
@@ -16,15 +31,16 @@ Review these files when a change affects how visitors understand or use the webs
 
 Update or review `disclaimer.html` when:
 
-- Practice descriptions, legal update content, FAQs, or checklists are added or materially changed.
+- Practice descriptions, legal update content, FAQs, checklists or service pages are added or materially changed.
 - The site wording becomes more promotional or risks sounding like advertising or solicitation.
-- New contact, enquiry, consultation, or lead-generation flows are added.
+- New contact, enquiry, consultation or lead-generation flows are added.
 - Branding or professional positioning changes.
+- Team/founder/profile presentation changes.
 - Bar Council of India or professional conduct requirements materially change.
 
 Key points to preserve:
 
-- No advertisement, solicitation, invitation, or inducement.
+- No advertisement, solicitation, invitation or inducement.
 - No advocate-client relationship from browsing or contacting.
 - No legal advice without formal consultation.
 - No guarantee of outcomes.
@@ -34,11 +50,11 @@ Key points to preserve:
 
 Update or review `privacy-policy.html` when:
 
-- Contact forms, WhatsApp links, email links, phone links, LinkedIn links, or enquiry tools change.
-- Google Tag Manager, Google Analytics, AdSense, pixels, cookies, or other tracking tools are added, removed, or materially reconfigured.
+- Contact forms, WhatsApp links, email links, phone links, LinkedIn links or enquiry tools change.
+- Google Tag Manager, Google Analytics, AdSense, pixels, cookies or other tracking tools are added, removed or materially reconfigured.
 - The website starts collecting new categories of information.
 - A third-party platform is added to the visitor journey.
-- Retention, communication, or privacy request handling changes.
+- Retention, communication or privacy request handling changes.
 - Applicable Indian data protection requirements materially change.
 
 Key points to preserve:
@@ -55,9 +71,9 @@ Key points to preserve:
 Update or review `terms.html` when:
 
 - Website functionality changes.
-- New downloadable resources, checklists, articles, or user flows are added.
+- New downloadable resources, checklists, articles or user flows are added.
 - External platforms or embedded tools are added.
-- Branding, copyright, or reuse permissions change.
+- Branding, copyright or reuse permissions change.
 - The website's permitted use or limitation language needs adjustment.
 
 Key points to preserve:
@@ -79,18 +95,33 @@ Update `README.md` when:
 
 - File structure changes.
 - Public page groups change.
-- Domain, deployment, or GitHub Pages setup changes.
-- GTM, GA4, AdSense, Search Console, or social links change.
-- Branding, logo assets, or cache-busting versions change.
+- Domain, deployment or GitHub Pages setup changes.
+- GTM, GA4, AdSense, Search Console or social links change.
+- Branding, positioning, logo assets or cache-busting versions change.
 - Quality checks or maintenance workflows change.
+- Changelog or documentation policy changes.
+
+### CHANGELOG.md
+
+Update `CHANGELOG.md` after every meaningful modification, including:
+
+- page additions/removals;
+- SEO updates;
+- content rewrites;
+- design or navigation changes;
+- tracking changes;
+- documentation changes;
+- legal-policy review changes;
+- sitemap updates.
 
 ### docs/
 
 Update `docs/` when:
 
-- Google Search Console, Google Business Profile, GTM, GA4, AdSense, or SEO setup changes.
-- A new roadmap, audit, or operational checklist is created.
+- Google Search Console, Google Business Profile, GTM, GA4, AdSense or SEO setup changes.
+- A new roadmap, audit or operational checklist is created.
 - A recurring maintenance process is changed.
+- A Codex handoff, prompt rule or wiki mirror changes.
 
 ### sitemap.xml
 
@@ -103,14 +134,15 @@ Update `sitemap.xml` when:
 
 ## Standard Change Workflow
 
-1. Make the website change.
+1. Make the website or documentation change.
 2. Review whether legal pages or documentation are affected.
-3. Update affected files in the same commit where practical.
-4. Bump CSS/JS cache keys if shared assets changed.
-5. Run validation checks.
-6. Commit with a clear message.
-7. Push to `main`.
-8. If public URLs changed, update Search Console indexing and sitemap submission as needed.
+3. Update `CHANGELOG.md`.
+4. Update affected documentation files in the same commit where practical.
+5. Bump CSS/JS cache keys if shared assets changed.
+6. Run validation checks.
+7. Commit with a clear message.
+8. Push to `main`.
+9. If public URLs changed, update Search Console indexing and sitemap submission as needed.
 
 ## Minimum Validation
 
@@ -125,13 +157,13 @@ For larger changes, also run the internal href/src check and JSON-LD parse check
 
 ## Review Frequency
 
-In addition to change-based review, check these pages periodically for legal, privacy, tracking, and professional-conduct updates.
+In addition to change-based review, check these pages periodically for legal, privacy, tracking and professional-conduct updates.
 
 Recommended cadence:
 
 - Quick review after every meaningful website change.
 - Full review monthly while the site is actively changing.
-- Full review immediately after any material change in Bar Council of India rules, data protection requirements, Google tracking setup, or AdSense setup.
+- Full review immediately after any material change in Bar Council of India rules, data protection requirements, Google tracking setup or AdSense setup.
 
 ## Active Automation
 
@@ -143,4 +175,4 @@ Schedule: Monthly on the 1st day at 10:00 AM
 Scope: Legal pages, README, docs, sitemap, robots.txt, ads.txt, social links, tracking notes, branding, and public website setup.
 ```
 
-This automation is a periodic review helper. It does not replace the change-based checklist above; when a website feature changes, the related legal pages and documentation should still be reviewed in the same work cycle.
+This automation is a periodic review helper. It does not replace the change-based checklist above; when a website feature changes, the related legal pages, documentation and changelog should still be reviewed in the same work cycle.
