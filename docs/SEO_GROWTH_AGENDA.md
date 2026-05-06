@@ -60,7 +60,7 @@ Status: Pending
 
 Tasks:
 
-- [ ] Fix homepage `Property & Civil Suits` card link so it points to `practice/property-civil-suits.html`.
+- [x] Fix homepage `Property & Civil Suits` card link so it points to `practice/property-civil-suits.html`.
 - [ ] Check existing pages for unique titles and meta descriptions.
 - [ ] Check canonical URLs.
 - [ ] Check JSON-LD validity.
@@ -81,14 +81,14 @@ Priority service pages:
 
 - [ ] `services/cheque-bounce-lawyer-bihar.html`
 - [ ] `services/cheque-bounce-lawyer-delhi-ncr.html`
-- [ ] `services/msme-recovery-lawyer-patna.html`
+- [x] `services/msme-recovery-lawyer-patna.html`
 - [ ] `services/msme-recovery-lawyer-delhi-ncr.html`
-- [ ] `services/rera-lawyer-patna.html`
+- [x] `services/rera-lawyer-patna.html`
 - [ ] `services/rera-lawyer-noida.html`
 - [ ] `services/rera-lawyer-gurugram.html`
-- [ ] `services/commercial-recovery-lawyer-bihar.html`
-- [ ] `services/property-dispute-lawyer-patna.html`
-- [ ] `services/civil-litigation-lawyer-patna.html`
+- [x] `services/commercial-recovery-lawyer-bihar.html`
+- [x] `services/property-dispute-lawyer-patna.html`
+- [x] `services/civil-litigation-lawyer-patna.html`
 
 ## Phase 3 - Legal Update Content Clusters
 
@@ -98,16 +98,16 @@ Each update should internally link to one relevant `practice/` page, one relevan
 
 Priority update articles:
 
-- [ ] `updates/section-138-cheque-bounce-limitation.html`
+- [x] `updates/section-138-cheque-bounce-limitation.html`
 - [ ] `updates/cheque-bounce-defence-after-summons.html`
-- [ ] `updates/msme-45-days-payment-rule.html`
+- [x] `updates/msme-45-days-payment-rule.html`
 - [ ] `updates/msme-facilitation-council-process.html`
-- [ ] `updates/rera-delayed-possession-bihar.html`
+- [x] `updates/rera-delayed-possession-bihar.html`
 - [ ] `updates/rera-refund-vs-possession.html`
-- [ ] `updates/commercial-suit-documents-checklist.html`
-- [ ] `updates/arbitration-notice-before-claim.html`
-- [ ] `updates/section-34-arbitration-award-challenge.html`
-- [ ] `updates/property-injunction-suit-documents.html`
+- [x] `updates/commercial-suit-documents-checklist.html`
+- [x] `updates/arbitration-notice-before-claim.html`
+- [x] `updates/section-34-arbitration-award-challenge.html`
+- [x] `updates/property-injunction-suit-documents.html`
 
 ## Phase 4 - Strengthen Practice Pages
 
@@ -135,7 +135,7 @@ Relevant practice pages:
 
 ## Phase 5 - Upgrade Case Enquiry Page
 
-Status: Pending
+Status: Done
 
 Suggested title direction:
 
@@ -145,31 +145,31 @@ Case Enquiry for Legal Matters in Patna & Bihar | Chambers of AK
 
 Add matter-specific enquiry formats:
 
-- [ ] Cheque bounce enquiry format.
-- [ ] MSME recovery enquiry format.
-- [ ] RERA/builder dispute enquiry format.
-- [ ] Arbitration enquiry format.
-- [ ] Commercial recovery enquiry format.
-- [ ] Property/civil suit enquiry format.
-- [ ] What not to send before formal engagement.
-- [ ] WhatsApp, email, and phone CTA section.
+- [x] Cheque bounce enquiry format.
+- [x] MSME recovery enquiry format.
+- [x] RERA/builder dispute enquiry format.
+- [x] Arbitration enquiry format.
+- [x] Commercial recovery enquiry format.
+- [x] Property/civil suit enquiry format.
+- [x] What not to send before formal engagement.
+- [x] WhatsApp, email, and phone CTA section.
 
 Preserve this principle: initial communication through website, email, phone, or WhatsApp does not create an advocate-client relationship.
 
 ## Phase 6 - Local Trust And Entity Pages
 
-Status: Pending
+Status: Done
 
 Strengthen `courts.html` as a local/entity page. Cover courts/forums in an informational, matter-dependent way:
 
-- [ ] Patna High Court.
-- [ ] District Courts in Bihar.
-- [ ] MSME Facilitation Council.
-- [ ] Bihar RERA.
-- [ ] UP RERA.
-- [ ] Delhi RERA.
-- [ ] Commercial courts.
-- [ ] Arbitral tribunals.
+- [x] Patna High Court.
+- [x] District Courts in Bihar.
+- [x] MSME Facilitation Council.
+- [x] Bihar RERA.
+- [x] UP RERA.
+- [x] Delhi RERA.
+- [x] Commercial courts.
+- [x] Arbitral tribunals.
 
 Avoid language that promises representation, outcome, or availability in every forum. Keep wording informational and matter-dependent.
 
@@ -179,7 +179,7 @@ Status: Pending
 
 After each public page batch:
 
-- [ ] Update `sitemap.xml`.
+- [x] Update `sitemap.xml`.
 - [ ] Push to `main`.
 - [ ] Verify GitHub Pages deployment.
 - [ ] Check live homepage and affected pages.
@@ -196,31 +196,31 @@ After each public page batch:
 - [ ] Fix internal-link issues.
 - [ ] Audit metadata.
 - [ ] Validate JSON-LD.
-- [ ] Improve `case-enquiry.html`.
+- [x] Improve `case-enquiry.html`.
 
 ### Week 2
 
 Add five service landing pages:
 
 - [ ] Cheque bounce lawyer Bihar.
-- [ ] MSME recovery lawyer Patna.
+- [x] MSME recovery lawyer Patna.
 - [ ] RERA lawyer Patna.
-- [ ] Commercial recovery lawyer Bihar.
-- [ ] Property dispute lawyer Patna.
+- [x] Commercial recovery lawyer Bihar.
+- [x] Property dispute lawyer Patna.
 
 ### Week 3
 
 Add five legal update articles:
 
-- [ ] Cheque bounce limitation.
-- [ ] MSME 45-day rule.
-- [ ] RERA delayed possession.
-- [ ] Commercial suit documents.
-- [ ] Arbitration notice.
+- [x] Cheque bounce limitation.
+- [x] MSME 45-day rule.
+- [x] RERA delayed possession.
+- [x] Commercial suit documents.
+- [x] Arbitration notice.
 
 ### Week 4
 
-- [ ] Strengthen internal linking across homepage, practice pages, service pages, updates, document checklists, and enquiry page.
+- [x] Strengthen internal linking across homepage, practice pages, service pages, updates, document checklists, and enquiry page.
 - [ ] Submit updated sitemap.
 - [ ] Request indexing for new and changed URLs.
 
@@ -228,14 +228,14 @@ Add five legal update articles:
 
 Use this exact order unless there is a strategic reason to change it:
 
-1. [ ] Fix homepage property/civil link.
-2. [ ] Upgrade `case-enquiry.html`.
-3. [ ] Add `services/property-dispute-lawyer-patna.html`.
-4. [ ] Add `services/msme-recovery-lawyer-patna.html`.
-5. [ ] Add `updates/msme-45-days-payment-rule.html`.
-6. [ ] Add `updates/section-138-cheque-bounce-limitation.html`.
-7. [ ] Expand `courts.html` for stronger local entity SEO.
-8. [ ] Update `sitemap.xml`.
+1. [x] Fix homepage property/civil link.
+2. [x] Upgrade `case-enquiry.html`.
+3. [x] Add `services/property-dispute-lawyer-patna.html`.
+4. [x] Add `services/msme-recovery-lawyer-patna.html`.
+5. [x] Add `updates/msme-45-days-payment-rule.html`.
+6. [x] Add `updates/section-138-cheque-bounce-limitation.html`.
+7. [x] Expand `courts.html` for stronger local entity SEO.
+8. [x] Update `sitemap.xml`.
 9. [ ] Run validation.
 10. [ ] Request indexing in Google Search Console.
 
@@ -246,3 +246,5 @@ Use this section to mark progress regularly.
 | Date | Change | Status | Notes |
 | --- | --- | --- | --- |
 | 2026-05-05 | SEO growth agenda created in `docs/SEO_GROWTH_AGENDA.md`. | Done | Initial agenda saved for Codex and ChatGPT reference. |
+| 2026-05-05 | Batch 1 SEO pages and updates created. | Done | See `docs/seo/SEO_CONTENT_BATCH_2026-05-05.md` for created service pages, legal updates, courts expansion and sitemap entries. |
+| 2026-05-06 | Codex handoff internal-link cleanup and civil litigation page completed. | Done | Added index links, practice-page contextual links, `services/civil-litigation-lawyer-patna.html`, and sitemap entry. |
