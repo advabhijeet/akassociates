@@ -94,13 +94,14 @@ Priority service pages:
 - [ ] `services/rera-lawyer-noida.html`
 - [ ] `services/rera-lawyer-gurugram.html`
 - [x] `services/commercial-recovery-lawyer-bihar.html`
+- [x] `services/property-dispute-lawyer-bihar.html`
 - [x] `services/property-dispute-lawyer-patna.html`
 - [x] `services/civil-litigation-lawyer-patna.html`
 
 Suggested Batch 2 starting order:
 
 1. [x] `services/cheque-bounce-lawyer-bihar.html`
-2. [ ] `services/property-dispute-lawyer-bihar.html`
+2. [x] `services/property-dispute-lawyer-bihar.html`
 3. [ ] `services/civil-litigation-lawyer-bihar.html`
 4. [ ] `services/msme-recovery-lawyer-delhi-ncr.html`
 5. [ ] `services/rera-lawyer-noida.html`
@@ -265,8 +266,9 @@ Use this exact order unless there is a strategic reason to change it:
 9. [x] Complete pre-Batch 2 cleanup: social icons, topbar, legacy articles, homepage insights and practice slider.
 10. [x] Final live verification pass for recent UI changes.
 11. [x] Start SEO Batch 2: `services/cheque-bounce-lawyer-bihar.html` created, linked, and added to sitemap.
-12. [ ] Request indexing in Google Search Console.
-13. [ ] Continue SEO Batch 2 with `services/property-dispute-lawyer-bihar.html`.
+12. [x] Continue SEO Batch 2: `services/property-dispute-lawyer-bihar.html` created, linked, and added to sitemap.
+13. [ ] Request indexing in Google Search Console.
+14. [ ] Continue SEO Batch 2 with `services/civil-litigation-lawyer-bihar.html`.
 
 ## Progress Log
 
@@ -281,3 +283,4 @@ Use this section to mark progress regularly.
 | 2026-05-06 | Homepage refresh and mobile slider correction. | Done | Latest insights now refresh from the Insights hub; homepage Practice Areas now use a mobile-friendly slider with `View More`. |
 | 2026-05-06 | Mobile drawer scroll-lock fix verified. | Done | Opening the mobile drawer now locks background page scrolling and avoids the previous menu expansion/jump behavior. |
 | 2026-05-06 | Batch 2 started with cheque bounce Bihar service page. | Done | Created `services/cheque-bounce-lawyer-bihar.html`, added it to sitemap, and linked it from `practice.html` and `practice/cheque-bounce.html`. |
+| 2026-05-06 | Batch 2 property dispute Bihar service page completed. | Done | Created `services/property-dispute-lawyer-bihar.html`, added it to sitemap, and linked it from `practice.html` and `practice/property-civil-suits.html`. |
