@@ -56,7 +56,20 @@ if (nav) {
   let topBar = document.querySelector('.site-topbar');
   const desktopMedia = window.matchMedia('(min-width: 769px)');
 
-  if (!topBar) {
+  const ensureTopBar = () => {
+    if (!desktopMedia.matches) {
+      if (topBar && topBar.parentNode) {
+        topBar.parentNode.removeChild(topBar);
+      }
+
+      topBar = null;
+      return;
+    }
+
+    if (topBar && topBar.parentNode) {
+      return;
+    }
+
     topBar = document.createElement('div');
     topBar.className = 'site-topbar';
     topBar.innerHTML = `
@@ -67,16 +80,9 @@ if (nav) {
       </div>
     `;
     nav.parentNode.insertBefore(topBar, nav);
-  }
-
-  const syncTopBarVisibility = () => {
-    if (!topBar) return;
-
-    topBar.hidden = !desktopMedia.matches;
-    topBar.setAttribute('aria-hidden', String(!desktopMedia.matches));
   };
 
-  syncTopBarVisibility();
+  ensureTopBar();
 
   menuButton.className = 'menu-toggle';
   menuButton.type = 'button';
@@ -133,9 +139,9 @@ if (nav) {
 
     nav.classList.add('is-measuring');
     nav.classList.remove('is-scrolled');
-    syncTopBarVisibility();
+    ensureTopBar();
 
-    const topBarHeight = topBar && !topBar.hidden ? Math.ceil(topBar.getBoundingClientRect().height) : 0;
+    const topBarHeight = topBar ? Math.ceil(topBar.getBoundingClientRect().height) : 0;
     const navHeight = Math.ceil(nav.getBoundingClientRect().height);
 
     document.documentElement.style.setProperty('--topbar-space', `${topBarHeight}px`);
@@ -166,7 +172,6 @@ if (nav) {
 
     navResizeTicking = true;
     window.requestAnimationFrame(() => {
-      syncTopBarVisibility();
       updateNavSpace();
       updateNavScrollState();
       navResizeTicking = false;
