@@ -16,170 +16,7 @@ When Codex completes an item:
 
 ## Active Handoff Items
 
-### 1. Fix mobile social icons
-
-Status: Pending
-
-Issue reported by user:
-
-Mobile social icons are not loading/displaying correctly.
-
-Likely areas to inspect:
-
-- `assets/js/script.js`
-  - `socialLinks`
-  - `socialIconSvg`
-  - `createSocialLinksMarkup()`
-  - topbar social injection
-  - drawer social injection
-  - footer social injection
-
-- `assets/css/style.css`
-  - `.ak-social`
-  - `.ak-social-icon`
-  - `.ak-social-icon svg`
-  - `.topbar-social`
-  - `.drawer-social`
-  - `.foot-social`
-  - mobile media rules for `.site-topbar`, `.topbar-actions`, `.drawer-social-panel`, `.nav-links`, `.menu-open`
-
-Required result:
-
-- LinkedIn icon should render correctly on mobile topbar, drawer menu, and footer.
-- WhatsApp Channel icon should render correctly on mobile topbar, drawer menu, and footer.
-- Icons should not appear as broken boxes, missing SVGs, oversized shapes, invisible icons, or misaligned circles.
-- Social links should remain keyboard accessible and retain `aria-label` text.
-- External links should retain `target="_blank"` and `rel="noopener"`.
-
-Recommended implementation:
-
-- If SVG path scaling is the problem, replace the inline SVGs in `socialIconSvg` with simpler, stable `viewBox="0 0 24 24"` icons.
-- If mobile CSS is the problem, add mobile-specific rules so `.ak-social-icon` has fixed dimensions, centered SVG, stable color, and no overflow.
-- If topbar crowding is the problem, hide only the live clock on very small screens, not the social icons.
-- Preserve the black / white / gold Chambers of AK brand style.
-
-Validation:
-
-- Test desktop width.
-- Test mobile width around 360px and 390px.
-- Open menu and check drawer social icons.
-- Check footer social icons.
-- Run:
-
-```text
-node --check assets\js\script.js
-git diff --check
-```
-
-Suggested commit message:
-
-```text
-Fix mobile social icon rendering
-```
-
-### 2. Audit and complete older article pages
-
-Status: Pending
-
-Issue reported by user:
-
-Some articles feel incomplete or thin. Before Batch 2, review all existing article pages and expand any that are too short, underlinked, or inconsistent with the newer article format.
-
-Article pages to audit:
-
-- `updates/cheque-bounce-30-days.html`
-- `updates/msme-delayed-payment.html`
-- `updates/bihar-rera-complaint.html`
-- `updates/cheque-bounce-notice-limitation.html`
-- `updates/msme-documents-checklist.html`
-- `updates/rera-refund-interest-delayed-possession.html`
-- `updates/commercial-recovery-before-suit.html`
-- `updates/arbitration-clause-checklist.html`
-- `updates/msme-45-days-payment-rule.html`
-- `updates/section-138-cheque-bounce-limitation.html`
-- `updates/rera-delayed-possession-bihar.html`
-- `updates/commercial-suit-documents-checklist.html`
-- `updates/arbitration-notice-before-claim.html`
-- `updates/property-injunction-suit-documents.html`
-- `updates/section-34-arbitration-award-challenge.html`
-
-Known update already completed by ChatGPT:
-
-- `updates/cheque-bounce-notice-limitation.html` was expanded on 2026-05-06.
-
-Priority pages likely needing expansion:
-
-- `updates/msme-documents-checklist.html`
-- `updates/rera-refund-interest-delayed-possession.html`
-- `updates/commercial-recovery-before-suit.html`
-- `updates/arbitration-clause-checklist.html`
-
-Minimum article standard:
-
-Each article should have:
-
-- unique SEO title and meta description;
-- canonical URL;
-- Open Graph/Twitter metadata;
-- Article or BlogPosting JSON-LD;
-- clear hero heading;
-- at least 4 to 6 useful content sections where appropriate;
-- practical document checklist;
-- first enquiry format or preparation section;
-- related internal links to:
-  - relevant practice page;
-  - relevant service page;
-  - at least one related update article;
-  - `../case-enquiry.html`;
-  - `../document-checklists.html`, where relevant;
-- WhatsApp or case-enquiry CTA where stylistically consistent;
-- informational / non-solicitation note;
-- no promises, guarantees, or solicitation language.
-
-Suggested content improvements:
-
-1. `updates/msme-documents-checklist.html`
-   - Add invoice-wise table guidance.
-   - Add supplier-status section.
-   - Add buyer-objection section.
-   - Link to `msme-45-days-payment-rule.html`, `../services/msme-recovery-lawyer-patna.html`, and `../case-enquiry.html`.
-
-2. `updates/rera-refund-interest-delayed-possession.html`
-   - Add refund vs possession decision factors.
-   - Add project timeline checklist.
-   - Add payment/possession document checklist.
-   - Link to `rera-delayed-possession-bihar.html`, `../services/rera-lawyer-patna.html`, and `../case-enquiry.html`.
-
-3. `updates/commercial-recovery-before-suit.html`
-   - Add pre-suit document checklist.
-   - Add limitation and acknowledgement section.
-   - Add arbitration/jurisdiction clause section.
-   - Link to `commercial-suit-documents-checklist.html`, `../services/commercial-recovery-lawyer-bihar.html`, and `../case-enquiry.html`.
-
-4. `updates/arbitration-clause-checklist.html`
-   - Add seat/venue/appointment distinction.
-   - Add notice and interim relief section.
-   - Add post-award/enforcement link section.
-   - Link to `arbitration-notice-before-claim.html`, `section-34-arbitration-award-challenge.html`, and `../services/arbitration-lawyer-bihar.html`.
-
-Validation:
-
-- Run JSON-LD parse check for all article pages.
-- Run internal href/src reference validation.
-- Confirm `legal-updates.html` article links still work.
-- Confirm no article contains broken relative paths.
-- Run:
-
-```text
-node --check assets\js\script.js
-git diff --check
-```
-
-Suggested commit message:
-
-```text
-Complete and standardize legal update articles
-```
+No active pre-Batch 2 handoff items remain after the 2026-05-06 cleanup pass. Add new Codex-only items here if later connector or validation limits create another blocked task.
 
 ## Completed Handoff Items
 
@@ -209,3 +46,31 @@ Validation completed in the working tree before commit:
 Status: Done
 
 - Expanded `updates/cheque-bounce-notice-limitation.html` from a short informational note into a fuller article with date-chart guidance, demand notice records, accused-side preparation, complaint-readiness questions, internal links, case enquiry CTA, and updated metadata/JSON-LD modified date.
+
+### 2026-05-06 Codex pre-Batch 2 cleanup
+
+Status: Done
+
+- Fixed shared mobile social icon rendering in `assets/js/script.js` and `assets/css/style.css`.
+- Replaced the social SVGs with stable `viewBox="0 0 24 24"` icons while preserving `aria-label`, `target="_blank"` and `rel="noopener"`.
+- Kept the Chambers of AK black / white / gold styling and made mobile icon sizing stable in the topbar, drawer and footer.
+- Kept social icons visible on mobile topbar and hid only the live clock on very small screens.
+- Audited the update pages listed in this handoff and expanded the four thin legacy pages most in need of standardization:
+  - `updates/msme-documents-checklist.html`
+  - `updates/rera-refund-interest-delayed-possession.html`
+  - `updates/commercial-recovery-before-suit.html`
+  - `updates/arbitration-clause-checklist.html`
+- Added richer document-checklist content, first-enquiry guidance, related internal links, updated metadata and CTA blocks to those pages.
+- Bumped shared asset cache-busting references across HTML pages after changing `assets/css/style.css` and `assets/js/script.js`.
+
+Validation completed in the working tree before commit:
+
+- `node --check assets\js\script.js`
+- `git diff --check`
+- internal href/src reference check
+- JSON-LD parse check
+- `legal-updates.html` article-link check
+
+Validation note:
+
+- The in-app browser runtime and headless Edge/Chrome screenshot fallback were both blocked in this environment, so mobile 360px / 390px screenshot verification could not be completed through Codex on this run.

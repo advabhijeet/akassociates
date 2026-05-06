@@ -63,13 +63,13 @@ Tasks:
 - [x] Fix homepage `Property & Civil Suits` card link so it points to `practice/property-civil-suits.html`.
 - [ ] Check existing pages for unique titles and meta descriptions.
 - [ ] Check canonical URLs.
-- [ ] Check JSON-LD validity.
+- [x] Check JSON-LD validity.
 - [ ] Check footer legal links.
-- [ ] Check broken internal links.
+- [x] Check broken internal links.
 - [ ] Check CSS/JS cache-busting versions.
-- [ ] Check mobile drawer and navigation behavior.
-- [ ] Run `node --check assets\js\script.js` where possible.
-- [ ] Run `git diff --check` where possible.
+- [x] Check mobile drawer and navigation behavior.
+- [x] Run `node --check assets\js\script.js` where possible.
+- [x] Run `git diff --check` where possible.
 
 ## Phase 2 - New High-Intent Service Landing Pages
 
@@ -248,3 +248,4 @@ Use this section to mark progress regularly.
 | 2026-05-05 | SEO growth agenda created in `docs/SEO_GROWTH_AGENDA.md`. | Done | Initial agenda saved for Codex and ChatGPT reference. |
 | 2026-05-05 | Batch 1 SEO pages and updates created. | Done | See `docs/seo/SEO_CONTENT_BATCH_2026-05-05.md` for created service pages, legal updates, courts expansion and sitemap entries. |
 | 2026-05-06 | Codex handoff internal-link cleanup and civil litigation page completed. | Done | Added index links, practice-page contextual links, `services/civil-litigation-lawyer-patna.html`, and sitemap entry. |
+| 2026-05-06 | Pre-Batch 2 cleanup: social icons and legacy article upgrades. | Done | Fixed mobile social icon rendering, expanded four older update articles, validated internal links and JSON-LD, and bumped shared CSS/JS cache versions. |
