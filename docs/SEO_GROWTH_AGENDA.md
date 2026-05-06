@@ -23,6 +23,8 @@ The website already has a strong base:
 - `sitemap.xml` listing current public pages.
 - Google Tag Manager installed with lead-event tracking support.
 - GA4 intended to be controlled through GTM to avoid duplicate page views.
+- Homepage now has a refreshed Latest Legal Insights section that can pull cards from `legal-updates.html`.
+- Homepage Practice Areas now use a mobile-friendly horizontal slider with a `View More` link to `practice.html`.
 
 ## Core Search Focus
 
@@ -56,7 +58,7 @@ Primary geography clusters:
 
 ## Phase 1 - Technical SEO Cleanup
 
-Status: Pending
+Status: Substantially Complete
 
 Tasks:
 
@@ -66,10 +68,13 @@ Tasks:
 - [x] Check JSON-LD validity.
 - [ ] Check footer legal links.
 - [x] Check broken internal links.
-- [ ] Check CSS/JS cache-busting versions.
+- [x] Check CSS/JS cache-busting versions.
 - [x] Check mobile drawer and navigation behavior.
 - [x] Run `node --check assets\js\script.js` where possible.
 - [x] Run `git diff --check` where possible.
+- [x] Fix responsive topbar behavior: desktop topbar visible, mobile topbar removed.
+- [x] Fix mobile drawer/footer social icon rendering.
+- [x] Fix homepage practice slider mobile layout.
 
 ## Phase 2 - New High-Intent Service Landing Pages
 
@@ -90,9 +95,17 @@ Priority service pages:
 - [x] `services/property-dispute-lawyer-patna.html`
 - [x] `services/civil-litigation-lawyer-patna.html`
 
+Suggested Batch 2 starting order:
+
+1. `services/cheque-bounce-lawyer-bihar.html`
+2. `services/property-dispute-lawyer-bihar.html`
+3. `services/civil-litigation-lawyer-bihar.html`
+4. `services/msme-recovery-lawyer-delhi-ncr.html`
+5. `services/rera-lawyer-noida.html`
+
 ## Phase 3 - Legal Update Content Clusters
 
-Status: Pending
+Status: In Progress
 
 Each update should internally link to one relevant `practice/` page, one relevant `services/` page, `case-enquiry.html`, `document-checklists.html`, and at least one related article.
 
@@ -103,11 +116,19 @@ Priority update articles:
 - [x] `updates/msme-45-days-payment-rule.html`
 - [ ] `updates/msme-facilitation-council-process.html`
 - [x] `updates/rera-delayed-possession-bihar.html`
-- [ ] `updates/rera-refund-vs-possession.html`
+- [x] `updates/rera-refund-interest-delayed-possession.html`
 - [x] `updates/commercial-suit-documents-checklist.html`
 - [x] `updates/arbitration-notice-before-claim.html`
 - [x] `updates/section-34-arbitration-award-challenge.html`
 - [x] `updates/property-injunction-suit-documents.html`
+
+Legacy update audit completed before Batch 2:
+
+- [x] `updates/cheque-bounce-notice-limitation.html`
+- [x] `updates/msme-documents-checklist.html`
+- [x] `updates/rera-refund-interest-delayed-possession.html`
+- [x] `updates/commercial-recovery-before-suit.html`
+- [x] `updates/arbitration-clause-checklist.html`
 
 ## Phase 4 - Strengthen Practice Pages
 
@@ -180,11 +201,11 @@ Status: Pending
 After each public page batch:
 
 - [x] Update `sitemap.xml`.
-- [ ] Push to `main`.
+- [x] Push to `main`.
 - [ ] Verify GitHub Pages deployment.
 - [ ] Check live homepage and affected pages.
-- [ ] Confirm CSS and JS cache versions if shared assets changed.
-- [ ] Check desktop and mobile navigation.
+- [x] Confirm CSS and JS cache versions if shared assets changed.
+- [x] Check desktop and mobile navigation.
 - [ ] Check important lead buttons: WhatsApp, email, phone, case enquiry.
 - [ ] Request indexing in Google Search Console.
 - [ ] Monitor indexed pages, impressions, queries, CTR, and pages with impressions but low clicks.
@@ -193,9 +214,9 @@ After each public page batch:
 
 ### Week 1
 
-- [ ] Fix internal-link issues.
+- [x] Fix internal-link issues.
 - [ ] Audit metadata.
-- [ ] Validate JSON-LD.
+- [x] Validate JSON-LD where touched.
 - [x] Improve `case-enquiry.html`.
 
 ### Week 2
@@ -221,6 +242,8 @@ Add five legal update articles:
 ### Week 4
 
 - [x] Strengthen internal linking across homepage, practice pages, service pages, updates, document checklists, and enquiry page.
+- [x] Refresh homepage legal insights section.
+- [x] Add and fix homepage practice slider.
 - [ ] Submit updated sitemap.
 - [ ] Request indexing for new and changed URLs.
 
@@ -236,8 +259,10 @@ Use this exact order unless there is a strategic reason to change it:
 6. [x] Add `updates/section-138-cheque-bounce-limitation.html`.
 7. [x] Expand `courts.html` for stronger local entity SEO.
 8. [x] Update `sitemap.xml`.
-9. [ ] Run validation.
-10. [ ] Request indexing in Google Search Console.
+9. [x] Complete pre-Batch 2 cleanup: social icons, topbar, legacy articles, homepage insights and practice slider.
+10. [ ] Final live verification pass.
+11. [ ] Request indexing in Google Search Console.
+12. [ ] Start SEO Batch 2 service pages.
 
 ## Progress Log
 
@@ -248,4 +273,5 @@ Use this section to mark progress regularly.
 | 2026-05-05 | SEO growth agenda created in `docs/SEO_GROWTH_AGENDA.md`. | Done | Initial agenda saved for Codex and ChatGPT reference. |
 | 2026-05-05 | Batch 1 SEO pages and updates created. | Done | See `docs/seo/SEO_CONTENT_BATCH_2026-05-05.md` for created service pages, legal updates, courts expansion and sitemap entries. |
 | 2026-05-06 | Codex handoff internal-link cleanup and civil litigation page completed. | Done | Added index links, practice-page contextual links, `services/civil-litigation-lawyer-patna.html`, and sitemap entry. |
-| 2026-05-06 | Pre-Batch 2 cleanup: social icons and legacy article upgrades. | Done | Fixed mobile social icon rendering, expanded four older update articles, validated internal links and JSON-LD, and bumped shared CSS/JS cache versions. |
+| 2026-05-06 | Pre-Batch 2 cleanup: social icons and legacy article upgrades. | Done | Fixed responsive topbar/social icon rendering and expanded five older update articles including the four priority thin pages. |
+| 2026-05-06 | Homepage refresh and mobile slider correction. | Done | Latest insights now refresh from the Insights hub; homepage Practice Areas now use a mobile-friendly slider with `View More`. |
