@@ -89,7 +89,7 @@ Priority service pages:
 - [x] `services/cheque-bounce-lawyer-bihar.html`
 - [ ] `services/cheque-bounce-lawyer-delhi-ncr.html`
 - [x] `services/msme-recovery-lawyer-patna.html`
-- [ ] `services/msme-recovery-lawyer-delhi-ncr.html`
+- [x] `services/msme-recovery-lawyer-delhi-ncr.html`
 - [x] `services/rera-lawyer-patna.html`
 - [ ] `services/rera-lawyer-noida.html`
 - [ ] `services/rera-lawyer-gurugram.html`
@@ -104,7 +104,7 @@ Suggested Batch 2 starting order:
 1. [x] `services/cheque-bounce-lawyer-bihar.html`
 2. [x] `services/property-dispute-lawyer-bihar.html`
 3. [x] `services/civil-litigation-lawyer-bihar.html`
-4. [ ] `services/msme-recovery-lawyer-delhi-ncr.html`
+4. [x] `services/msme-recovery-lawyer-delhi-ncr.html`
 5. [ ] `services/rera-lawyer-noida.html`
 
 ## Phase 3 - Legal Update Content Clusters
@@ -269,8 +269,9 @@ Use this exact order unless there is a strategic reason to change it:
 11. [x] Start SEO Batch 2: `services/cheque-bounce-lawyer-bihar.html` created, linked, and added to sitemap.
 12. [x] Continue SEO Batch 2: `services/property-dispute-lawyer-bihar.html` created, linked, and added to sitemap.
 13. [x] Continue SEO Batch 2: `services/civil-litigation-lawyer-bihar.html` created, linked, and added to sitemap.
-14. [ ] Request indexing in Google Search Console.
-15. [ ] Continue SEO Batch 2 with `services/msme-recovery-lawyer-delhi-ncr.html`.
+14. [x] Continue SEO Batch 2: `services/msme-recovery-lawyer-delhi-ncr.html` created, linked, and added to sitemap.
+15. [ ] Request indexing in Google Search Console.
+16. [ ] Continue SEO Batch 2 with `services/rera-lawyer-noida.html`.
 
 ## Progress Log
 
@@ -287,3 +288,4 @@ Use this section to mark progress regularly.
 | 2026-05-06 | Batch 2 started with cheque bounce Bihar service page. | Done | Created `services/cheque-bounce-lawyer-bihar.html`, added it to sitemap, and linked it from `practice.html` and `practice/cheque-bounce.html`. |
 | 2026-05-06 | Batch 2 property dispute Bihar service page completed. | Done | Created `services/property-dispute-lawyer-bihar.html`, added it to sitemap, and linked it from `practice.html` and `practice/property-civil-suits.html`. |
 | 2026-05-06 | Batch 2 civil litigation Bihar service page completed. | Done | Created `services/civil-litigation-lawyer-bihar.html`, added it to sitemap, and linked it from `practice.html` and `practice/property-civil-suits.html`. |
+| 2026-05-06 | Batch 2 MSME Delhi NCR service page completed. | Done | Created `services/msme-recovery-lawyer-delhi-ncr.html`, added it to sitemap, and linked it from `practice.html` and `practice/msme-disputes.html`. |
