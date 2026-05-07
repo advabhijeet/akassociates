@@ -8,3 +8,4 @@ User-agent: AdsBot-Google
 Allow: /
 
 Sitemap: https://chambersofak.in/sitemap.xml
+Feed: https://chambersofak.in/feed.xml
