@@ -7,15 +7,15 @@ Repository: [advabhijeet/akassociates](https://github.com/advabhijeet/akassociat
 
 ## Current Status
 
-The website is a static, multi-page GitHub Pages site for Chambers of AK. It is currently positioned as a **firm/team-focused legal website**, not an individual portfolio page.
+The website is a static, multi-page GitHub Pages site for Chambers of AK. It is positioned as a **firm/team-focused legal website**, not an individual portfolio page.
 
-Recent positioning updates:
+Current positioning:
 
 - Homepage hero is firm-focused and no longer displays the founder portrait.
 - Homepage includes a firm-level About section.
-- `about.html` is firm/team-focused, with founder details retained as institutional context.
-- `practice.html` now works as the main **Expertise & Practice Areas** page.
-- Broader expertise now includes civil litigation, property due diligence, title search, DRT, SARFAESI, MSME, RERA, arbitration, cheque bounce, commercial contracts, private documentation, land-acquisition-linked disputes, taxation-aware review and trademark/IP advisory.
+- `about.html` is firm/team-focused, with founder details retained only as institutional context.
+- `practice.html` works as the main **Expertise & Practice Areas** page.
+- Broader expertise includes civil litigation, property due diligence, title search, DRT, SARFAESI, MSME, RERA, arbitration, cheque bounce, commercial contracts, private documentation, land-acquisition-linked disputes, taxation-aware review and trademark/IP advisory.
 - Future `team.html` page is planned, but should only be added when team-member details are ready.
 
 ## Technology
@@ -48,23 +48,22 @@ There is no build step and no package manager requirement for normal edits.
 |-- terms.html
 |-- disclaimer.html
 |-- assets/
-|   |-- css/
-|   |   `-- style.css
-|   |-- js/
-|   |   `-- script.js
+|   |-- css/style.css
+|   |-- js/script.js
 |   `-- img/
-|       |-- logo-navbar.png
-|       |-- primary-logo.png
-|       |-- social-preview.png
-|       `-- favicon/profile/brand assets
 |-- practice/
-|   `-- detailed practice-area pages
 |-- services/
-|   `-- high-intent SEO landing pages
 |-- updates/
-|   `-- legal update and guide articles
 |-- docs/
-|   `-- internal planning, SEO, handoff and maintenance notes
+|   |-- README.md
+|   |-- REPOSITORY_ORGANIZATION.md
+|   |-- audits/
+|   |-- codex/
+|   |-- google/
+|   |-- maintenance/
+|   |-- planning/
+|   |-- seo/
+|   `-- wiki/
 |-- CHANGELOG.md
 |-- CNAME
 |-- robots.txt
@@ -129,7 +128,7 @@ These files must remain at the repository root because external services look fo
 - `sitemap.xml` - submitted to Google Search Console.
 - `ads.txt` - AdSense publisher declaration.
 - `google3164979181871a1d.html` - Google site verification file.
-- `favicon.ico`, `favicon-16.png`, `favicon-32.png`, `favicon-48.png` - browser favicon discovery.
+- favicon files - browser favicon discovery.
 - `site.webmanifest` - browser/PWA metadata.
 
 ## Branding
@@ -211,7 +210,7 @@ Generated social icons in the desktop topbar, mobile drawer and footer are contr
 
 ## Change Tracking Policy
 
-`CHANGELOG.md` is now the primary chronological record for repository changes.
+`CHANGELOG.md` is the primary chronological record for repository changes.
 
 Every meaningful modification must update the changelog with:
 
@@ -222,18 +221,23 @@ Every meaningful modification must update the changelog with:
 - validation or follow-up notes;
 - commit hash after commit, if available.
 
-For future work, update the changelog in the same work cycle as the website/documentation change. If several small commits belong to one task, one grouped changelog entry is acceptable, but list all affected files and commit hashes.
-
 ## Documentation Map
 
 | File | Purpose |
 | --- | --- |
 | `README.md` | Repository overview and operating rules |
 | `CHANGELOG.md` | Date/time change tracking |
-| `docs/SEO_GROWTH_AGENDA.md` | SEO roadmap and pending work |
-| `docs/CODEX_HANDOFF.md` | Codex handoff and connector-limit notes |
-| `docs/LEGAL_DOCUMENTATION_MAINTENANCE.md` | Legal/documentation maintenance checklist |
+| `docs/README.md` | Documentation index |
+| `docs/REPOSITORY_ORGANIZATION.md` | Repository/documentation structure rules |
+| `docs/audits/WEBSITE_REPOSITORY_AUDIT_2026-05-06.md` | Current repository and website audit |
+| `docs/codex/HANDOFF.md` | Codex handoff and connector-limit notes |
+| `docs/codex/PROMPT_RULE.md` | Codex prompt template and handoff rule |
+| `docs/google/GOOGLE_SETUP.md` | Google Search Console, GTM, GA4, GBP and AdSense notes |
+| `docs/maintenance/LEGAL_DOCUMENTATION_MAINTENANCE.md` | Legal/documentation maintenance checklist |
+| `docs/planning/SEO_GROWTH_AGENDA.md` | SEO roadmap and pending work |
+| `docs/planning/TEAM_PAGE_AGENDA.md` | Future Team page plan |
 | `docs/seo/SEO_CONTENT_BATCH_2026-05-05.md` | Historical Batch 1 SEO content record |
+| `docs/wiki/WORKFLOW.md` | In-repository wiki/workflow mirror |
 
 ## Local Preview
 
@@ -328,12 +332,7 @@ git commit -m "Describe the change"
 git push origin main
 ```
 
-After pushing, GitHub Pages may take a short time to redeploy. If the live website still shows the previous version, check:
-
-1. The latest commit exists on GitHub.
-2. GitHub Pages deployment status.
-3. Browser cache or CDN cache.
-4. Whether live HTML references the latest CSS/JS cache-busting version.
+After pushing, GitHub Pages may take a short time to redeploy.
 
 ## Rollback
 
@@ -357,7 +356,7 @@ Avoid force-pushing or resetting public history unless there is a specific reaso
 ## Maintenance Rules
 
 - Keep public website files at the root or in public folders such as `practice/`, `services/` and `updates/`.
-- Keep internal planning notes inside `docs/`.
+- Keep internal planning notes inside the correct `docs/` subfolder.
 - Keep legal disclaimer, privacy policy and terms linked from the footer.
 - Keep social preview image as a logo/brand image, not a personal profile photo.
 - Keep the homepage firm-focused.
@@ -377,7 +376,7 @@ Documentation and legal-policy pages should be reviewed as part of every meaning
 - Update `sitemap.xml` when public indexed pages are added, removed, renamed or moved.
 - Update `CHANGELOG.md` for every meaningful change.
 
-The detailed maintenance checklist is in `docs/LEGAL_DOCUMENTATION_MAINTENANCE.md`.
+The detailed maintenance checklist is in `docs/maintenance/LEGAL_DOCUMENTATION_MAINTENANCE.md`.
 
 ## License and Rights
 
