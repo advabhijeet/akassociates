@@ -120,6 +120,49 @@ Completed current Batch 2 set:
 
 Search Console indexing was requested for Batch 2 URLs.
 
+### Practice Page Strengthening - Phase 4
+
+Completed on 2026-05-07:
+
+- `practice/cheque-bounce.html`
+- `practice/msme-disputes.html`
+- `practice/rera-property.html`
+- `practice/commercial-recovery.html`
+- `practice/arbitration.html`
+- `practice/property-civil-suits.html`
+
+Summary of work:
+
+- Added or improved matter-introduction sections explaining when each dispute usually arises.
+- Added document-led preparation sections.
+- Added limitation/date-sensitivity sections where relevant.
+- Added forum/court/procedure route sections.
+- Added common-mistake sections.
+- Added related service-page links and related legal-update links.
+- Added structured enquiry formats.
+- Strengthened informational/non-solicitation notes.
+- Refreshed metadata and FAQ JSON-LD for the strengthened pages.
+
+Commits:
+
+- `b2e81ba26e82604aacfb823d8756c97d38351886` - Strengthen cheque bounce practice page.
+- `3c021faf0aea36087d762e190663a842cccaed88` - Update sitemap date for cheque bounce practice page.
+- `d0ad7d4d61538275060daf3773442ae90ffa7df6` - Strengthen MSME disputes practice page.
+- `18f9ab3721e520a85a12f45ec948accc8328f9a3` - Strengthen RERA and property practice page.
+- `ab772de5b90da4007d450483ddeddc979db36b27` - Strengthen commercial recovery practice page.
+- `01a96f26cb3c9a8804ba2a743a91a549a7484c5d` - Strengthen arbitration practice page.
+- `b92c87309e2ebec8d04149fb874c16e2c0209536` - Strengthen property and civil suits practice page.
+
+Pending local/Codex cleanup after Phase 4:
+
+- Update `sitemap.xml` lastmod dates for the remaining strengthened practice pages.
+- Run local `node --check assets\js\script.js`.
+- Run `git diff --check`.
+- Run XML sitemap parse.
+- Run JSON-LD parsing across public HTML files.
+- Run internal href/src reference check.
+- Run browser/mobile smoke test.
+
 ## Remaining Technical SEO Cleanup
 
 Before adding more public pages, run or complete:
@@ -131,6 +174,7 @@ Before adding more public pages, run or complete:
 - [x] JSON-LD parsing check.
 - [x] Sitemap XML syntax check.
 - [ ] Desktop/mobile smoke test for homepage, About, Expertise, mobile drawer and footer icons.
+- [ ] Post-Phase-4 local validation and sitemap lastmod cleanup.
 
 ## Pending Legal Update Articles
 
@@ -149,26 +193,26 @@ Future content clusters to consider after technical audit:
 
 ## Practice Page Strengthening
 
-Add or improve these evergreen sections on each practice page:
+Completed strengthened pages:
 
-- [ ] When this matter usually arises.
-- [ ] Documents to keep ready.
-- [ ] Forum/court route.
-- [ ] Limitation/date sensitivity.
-- [ ] Common mistakes.
-- [ ] Related service pages.
-- [ ] Related legal updates.
-- [ ] Enquiry format.
-- [ ] Informational/non-solicitation note.
+- [x] `practice/cheque-bounce.html`
+- [x] `practice/msme-disputes.html`
+- [x] `practice/rera-property.html`
+- [x] `practice/commercial-recovery.html`
+- [x] `practice/arbitration.html`
+- [x] `practice/property-civil-suits.html`
 
-Relevant practice pages:
+Strengthened elements:
 
-- [ ] `practice/cheque-bounce.html`
-- [ ] `practice/msme-disputes.html`
-- [ ] `practice/rera-property.html`
-- [ ] `practice/commercial-recovery.html`
-- [ ] `practice/arbitration.html`
-- [ ] `practice/property-civil-suits.html`
+- [x] When this matter usually arises.
+- [x] Documents to keep ready.
+- [x] Forum/court route.
+- [x] Limitation/date sensitivity.
+- [x] Common mistakes.
+- [x] Related service pages.
+- [x] Related legal updates.
+- [x] Enquiry format.
+- [x] Informational/non-solicitation note.
 
 ## Insights Distribution / Newsletter Workflow
 
@@ -244,8 +288,9 @@ After each public page batch:
 4. [x] Create changelog and documentation workflow.
 5. [x] Reorganize documentation structure.
 6. [x] Run manual technical validation checks: JavaScript syntax, git diff, sitemap XML, JSON-LD and internal href/src references.
-7. [ ] Run live desktop/mobile smoke test and review titles/meta/canonicals/footer/CTAs.
-8. [ ] Inspect `.wiki-clone/` and `.wiki-work/` when Codex is available.
-9. [ ] Strengthen six practice pages.
-10. [ ] Create pending legal update articles with distribution drafts.
-11. [ ] Monitor Search Console data.
+7. [x] Strengthen six practice pages.
+8. [ ] Run post-Phase-4 local validation and sitemap lastmod cleanup.
+9. [ ] Run live desktop/mobile smoke test and review titles/meta/canonicals/footer/CTAs.
+10. [ ] Inspect `.wiki-clone/` and `.wiki-work/` when Codex is available.
+11. [ ] Create pending legal update articles with distribution drafts.
+12. [ ] Monitor Search Console data.
