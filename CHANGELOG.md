@@ -4,6 +4,72 @@ All meaningful website, repository and documentation changes should be recorded 
 
 Time zone: Asia/Kolkata (IST) unless otherwise stated.
 
+## 2026-05-06 23:05 IST - Documentation structure reorganization
+
+Files created/moved:
+
+- `docs/REPOSITORY_ORGANIZATION.md`
+- `docs/audits/WEBSITE_REPOSITORY_AUDIT_2026-05-06.md`
+- `docs/codex/HANDOFF.md`
+- `docs/codex/PROMPT_RULE.md`
+- `docs/maintenance/LEGAL_DOCUMENTATION_MAINTENANCE.md`
+- `docs/planning/SEO_GROWTH_AGENDA.md`
+- `docs/planning/TEAM_PAGE_AGENDA.md`
+- `docs/wiki/WORKFLOW.md`
+
+Files updated:
+
+- `README.md`
+- `docs/README.md`
+- `docs/seo/SEO_CONTENT_BATCH_2026-05-05.md`
+- `CHANGELOG.md`
+
+Old files removed after relocation:
+
+- `docs/WEBSITE_REPOSITORY_AUDIT_2026-05-06.md`
+- `docs/CODEX_HANDOFF.md`
+- `docs/CODEX_PROMPT_RULE.md`
+- `docs/CODEX_WIKI_WORKFLOW.md`
+- `docs/LEGAL_DOCUMENTATION_MAINTENANCE.md`
+- `docs/SEO_GROWTH_AGENDA.md`
+- `docs/TEAM_PAGE_AGENDA.md`
+
+Summary:
+
+- Reorganized internal documentation into clear subfolders: `audits`, `codex`, `google`, `maintenance`, `planning`, `seo` and `wiki`.
+- Preserved all public website files and URL-bearing folders in place.
+- Updated README and docs index to reflect the new documentation map.
+- Added a repository organization guide to document file-placement and cleanup rules.
+- Updated historical SEO batch record so its forward references point to the new Codex and planning paths.
+- Recorded Codex unavailability due to usage limit and kept local validation as a follow-up.
+
+Validation / notes:
+
+- Public website files were not moved.
+- Local code validation was not run in this connector-only pass.
+- Next recommended step remains local/Codex validation when available: JavaScript syntax, internal links, JSON-LD, sitemap XML, footer links and CTA checks.
+
+Commits:
+
+- `7b16206ddd7d5fb677bf04007f0570c2cd7d873f` - Move repository audit into docs/audits.
+- `90d2c5c3f9209cfceef2e3318491a730d2210bd0` - Move Codex handoff into docs/codex.
+- `5af7da9b3b80c7e0a2036cae6a8a389a67526b32` - Move Codex prompt rule into docs/codex.
+- `87b78a24250a0d6bf5c1c6964989190cd4d85afc` - Move wiki workflow into docs/wiki.
+- `c80749343cf442132c6a6b3e81310bf93de8206d` - Move legal documentation maintenance into docs/maintenance.
+- `187389bf5a5621d4d3e0e176a4d1f3882d7de08a` - Move Team page agenda into docs/planning.
+- `72ba76d4cdbd0074ac13f303f4e6b0007aa722f0` - Move SEO growth agenda into docs/planning.
+- `635533da77d7c425be548b38e50a5aa55eadfe7b` - Add repository organization guide.
+- `d9ac363ea9d4e7e9e8ec0281bfb5ab622d1769d8` - Remove old audit doc after move.
+- `539ab5adbfacc6a08786f908ed366149a3848534` - Remove old Codex handoff after move.
+- `94166194f3d2f96446c0e0c048fc9d814e77530b` - Remove old Codex prompt rule after move.
+- `55e1b0b304a924664e15d262fe61fe7d481515bd` - Remove old wiki workflow after move.
+- `02c1dc8ae3809f24f4c45334a294f978d2024b26` - Remove old maintenance doc after move.
+- `3e0eb2b8372e0a454e3991cbe1233cb24fe4b7d9` - Remove old SEO growth agenda after move.
+- `d38b3b298158e488474cf2233df2a8a1098e012a` - Remove old planning note after relocation.
+- `0612c3864df6bcdd13bc2c4265aaade718b85acf` - Update docs README after documentation reorganization.
+- `b13a7e3d1ddbc8efecff92463b9174ae7a90c7eb` - Update README paths after documentation reorganization.
+- `90b4265c727c60e37c59f17fdbcdfe5d262bebec` - Update SEO batch record paths after docs reorganization.
+
 ## 2026-05-06 22:20 IST - Documentation sync, audit record and cleanup
 
 Files changed:
