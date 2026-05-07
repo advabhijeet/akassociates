@@ -1,3 +1,22 @@
+/* Canonical host redirect: GitHub Pages duplicate to custom domain */
+(function () {
+  var duplicateHost = 'advabhijeet.github.io';
+  var projectPath = '/akassociates';
+  var canonicalOrigin = 'https://chambersofak.in';
+
+  if (window.location.hostname !== duplicateHost) {
+    return;
+  }
+
+  var path = window.location.pathname || '/';
+  if (path.indexOf(projectPath) === 0) {
+    path = path.slice(projectPath.length) || '/';
+  }
+
+  var target = canonicalOrigin + path + window.location.search + window.location.hash;
+  window.location.replace(target);
+})();
+
 const socialLinks = [
   {
     label: 'Firm LinkedIn',
