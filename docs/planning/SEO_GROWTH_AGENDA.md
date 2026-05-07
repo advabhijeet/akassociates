@@ -8,6 +8,14 @@ Increase search visibility for high-intent legal queries while preserving inform
 
 The agenda should be reviewed and updated after each meaningful website change. `CHANGELOG.md` remains the primary chronological record.
 
+Detailed next-stage execution order now lives in:
+
+```text
+docs/planning/NEXT_WEBSITE_UPGRADE_AGENDA.md
+```
+
+Use that document as the operating agenda for validation closure, practice-page strengthening, pending legal update articles, Insights distribution/newsletter workflow, future service pages and Team page restrictions.
+
 ## Current SEO Foundation
 
 - Static HTML pages hosted through GitHub Pages.
@@ -63,6 +71,29 @@ Primary geography clusters:
 - Homepage founder portrait removed.
 - Changelog and documentation-maintenance rules established.
 - Documentation reorganized under `docs/audits/`, `docs/codex/`, `docs/google/`, `docs/maintenance/`, `docs/planning/`, `docs/seo/` and `docs/wiki/`.
+- Next website upgrade agenda created at `docs/planning/NEXT_WEBSITE_UPGRADE_AGENDA.md`.
+
+### Manual Validation Completed
+
+Manual validation was completed by the user on 2026-05-07 from the local Codex repository folder.
+
+Reported results:
+
+- `git pull origin main`: already up to date.
+- `node --check assets\js\script.js`: passed with no output.
+- `git diff --check`: passed with no output.
+- `sitemap.xml`: parsed successfully.
+- JSON-LD parsing: passed; 44 blocks parsed.
+- Internal `href`/`src` reference check: passed.
+- `.wiki-clone/` and `.wiki-work/` remain untracked and preserved for Codex continuation.
+
+Remaining validation follow-up:
+
+- live desktop/mobile smoke test;
+- full title/meta/canonical review across public HTML files;
+- footer legal-link review across representative root, practice, service and update pages;
+- important CTA review for WhatsApp, email, phone and case enquiry;
+- Codex/local inspection of `.wiki-clone/` and `.wiki-work/` for unfinished wiki work.
 
 ### Batch 1 Content
 
@@ -96,9 +127,9 @@ Before adding more public pages, run or complete:
 - [ ] Full title/meta/canonical audit across public HTML files.
 - [ ] Footer legal-link check across representative root, practice, service and update pages.
 - [ ] Important lead button check: WhatsApp, email, phone and case enquiry.
-- [ ] Internal href/src reference check.
-- [ ] JSON-LD parsing check.
-- [ ] Sitemap XML syntax check.
+- [x] Internal href/src reference check.
+- [x] JSON-LD parsing check.
+- [x] Sitemap XML syntax check.
 - [ ] Desktop/mobile smoke test for homepage, About, Expertise, mobile drawer and footer icons.
 
 ## Pending Legal Update Articles
@@ -128,6 +159,7 @@ Add or improve these evergreen sections on each practice page:
 - [ ] Related service pages.
 - [ ] Related legal updates.
 - [ ] Enquiry format.
+- [ ] Informational/non-solicitation note.
 
 Relevant practice pages:
 
@@ -138,14 +170,47 @@ Relevant practice pages:
 - [ ] `practice/arbitration.html`
 - [ ] `practice/property-civil-suits.html`
 
+## Insights Distribution / Newsletter Workflow
+
+For each new article under `updates/`, prepare a controlled distribution bundle for official Chambers of AK channels.
+
+Current official channels:
+
+- Firm LinkedIn Page.
+- WhatsApp Channel.
+
+First-stage workflow:
+
+- [ ] LinkedIn Page post draft.
+- [ ] WhatsApp Channel post draft.
+- [ ] Newsletter/email subject.
+- [ ] Newsletter/email body.
+- [ ] Short social/meta summary.
+- [ ] Informational disclaimer line.
+
+Tone rules:
+
+- informational only;
+- no direct solicitation;
+- no guaranteed-outcome language;
+- no claims such as "best", "top" or "guaranteed result";
+- include: "For general information only. Not legal advice or solicitation."
+
+Later-stage options:
+
+- [ ] `feed.xml` or `updates.xml` for article discovery.
+- [ ] Approved LinkedIn Page scheduling/API workflow.
+- [ ] WhatsApp Channel posting only through safe, approved and account-compliant methods.
+- [ ] Newsletter subscription only after privacy-policy review.
+
 ## Future Expertise / Service Pages To Consider
 
-Create only after validation and Search Console review:
+Create only after practice pages are strengthened and Search Console review is complete:
 
-- [ ] `services/drt-lawyer-patna.html`
-- [ ] `services/sarfaesi-lawyer-bihar.html`
 - [ ] `services/property-title-search-bihar.html`
 - [ ] `services/real-estate-due-diligence-bihar.html`
+- [ ] `services/drt-lawyer-patna.html`
+- [ ] `services/sarfaesi-lawyer-bihar.html`
 - [ ] `services/commercial-contract-lawyer-patna.html`
 - [ ] `services/trademark-lawyer-patna.html`
 
@@ -178,6 +243,9 @@ After each public page batch:
 3. [x] Reposition homepage/About/Expertise pages to firm/team-focused language.
 4. [x] Create changelog and documentation workflow.
 5. [x] Reorganize documentation structure.
-6. [ ] Run technical validation and SEO hygiene audit.
-7. [ ] Monitor Search Console data.
-8. [ ] Decide whether the next stage should be pending legal updates or practice-page strengthening.
+6. [x] Run manual technical validation checks: JavaScript syntax, git diff, sitemap XML, JSON-LD and internal href/src references.
+7. [ ] Run live desktop/mobile smoke test and review titles/meta/canonicals/footer/CTAs.
+8. [ ] Inspect `.wiki-clone/` and `.wiki-work/` when Codex is available.
+9. [ ] Strengthen six practice pages.
+10. [ ] Create pending legal update articles with distribution drafts.
+11. [ ] Monitor Search Console data.
