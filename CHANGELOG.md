@@ -4,6 +4,40 @@ All meaningful website, repository and documentation changes should be recorded 
 
 Time zone: Asia/Kolkata (IST) unless otherwise stated.
 
+## 2026-05-07 - Next website upgrade agenda and validation status
+
+Files created:
+
+- `docs/planning/NEXT_WEBSITE_UPGRADE_AGENDA.md`
+
+Files updated:
+
+- `docs/README.md`
+- `docs/planning/SEO_GROWTH_AGENDA.md`
+- `docs/codex/HANDOFF.md`
+- `CHANGELOG.md`
+
+Summary:
+
+- Added a dedicated next-stage website upgrade agenda for Chambers of AK.
+- Recorded the manual validation results completed from the local Codex repository folder.
+- Added the ordered plan for Codex/wiki sync, live smoke testing, practice-page strengthening, pending legal update articles, Insights distribution/newsletter workflow, case-enquiry improvements, trust/entity improvements, future service pages and future Team page restrictions.
+- Updated the docs index and SEO growth agenda to reference the new upgrade agenda.
+- Updated Codex handoff with active items for `.wiki-clone/` / `.wiki-work/` inspection and browser/mobile validation.
+
+Validation / notes:
+
+- Public website files were not modified.
+- GitHub connector-only documentation update; local browser/mobile smoke testing remains pending.
+- User-reported manual validation already passed: JavaScript syntax, git diff whitespace check, sitemap XML, JSON-LD parsing with 44 blocks, and internal href/src references.
+
+Commits:
+
+- `0d938ce928f6c350b676c3d63675a6da8212c541` - Add next website upgrade agenda.
+- `5c219fd5cd64a5df7f286a3c30f7c2c95e20f561` - Update docs index with upgrade agenda.
+- `3f341dda522d41261696c082daf36b3be40f31d5` - Update SEO agenda with validation and upgrade plan.
+- `5e8f447f7f724471c83209c6feb909950928d748` - Update Codex handoff with agenda and validation status.
+
 ## 2026-05-06 23:05 IST - Documentation structure reorganization
 
 Files created/moved:
