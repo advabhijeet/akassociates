@@ -23,6 +23,35 @@ When Codex completes an item:
 
 ## Active Handoff Items
 
+### Post-Phase-4 sitemap and local validation cleanup
+
+Status: Pending local/Codex access
+
+Context:
+
+ChatGPT strengthened all six public practice pages on 2026-05-07. One sitemap update was completed for `practice/cheque-bounce.html`, but later full sitemap replacement attempts were blocked by connector safety checks.
+
+Required sitemap lastmod updates:
+
+```xml
+<url><loc>https://chambersofak.in/practice/msme-disputes.html</loc><lastmod>2026-05-07</lastmod></url>
+<url><loc>https://chambersofak.in/practice/rera-property.html</loc><lastmod>2026-05-07</lastmod></url>
+<url><loc>https://chambersofak.in/practice/commercial-recovery.html</loc><lastmod>2026-05-07</lastmod></url>
+<url><loc>https://chambersofak.in/practice/arbitration.html</loc><lastmod>2026-05-07</lastmod></url>
+<url><loc>https://chambersofak.in/practice/property-civil-suits.html</loc><lastmod>2026-05-07</lastmod></url>
+```
+
+Post-update checks:
+
+- `node --check assets\js\script.js`
+- `git diff --check`
+- sitemap XML parse
+- JSON-LD parsing across public HTML files
+- internal `href`/`src` reference check
+- browser/mobile smoke test for the strengthened pages
+
+Do not alter page positioning or public URLs during this cleanup.
+
 ### Inspect local wiki working folders
 
 Status: Pending Codex/local access
@@ -57,7 +86,7 @@ Instructions:
 
 Status: Pending browser/local review
 
-Manual terminal validation was completed by the user on 2026-05-07:
+Manual terminal validation was completed by the user on 2026-05-07 before Phase 4:
 
 - `git pull origin main`: already up to date.
 - `node --check assets\js\script.js`: passed with no output.
@@ -66,10 +95,11 @@ Manual terminal validation was completed by the user on 2026-05-07:
 - JSON-LD parsing: passed; 44 blocks parsed.
 - Internal `href`/`src` reference check: passed.
 
-Still pending:
+Still pending after Phase 4:
 
 - live desktop/mobile smoke test;
 - homepage, About, Expertise, Contact, Case Enquiry and Legal Updates review;
+- the six strengthened practice pages;
 - mobile drawer behavior;
 - footer legal links;
 - LinkedIn and WhatsApp Channel icons;
@@ -91,9 +121,45 @@ As of 2026-05-07:
 - `docs/audits/WEBSITE_REPOSITORY_AUDIT_2026-05-06.md` records the current audit.
 - Documentation has been reorganized into `docs/audits/`, `docs/codex/`, `docs/google/`, `docs/maintenance/`, `docs/planning/`, `docs/seo/`, and `docs/wiki/`.
 - Next-stage upgrade plan is recorded in `docs/planning/NEXT_WEBSITE_UPGRADE_AGENDA.md`.
-- Manual validation checks passed for JavaScript syntax, git diff, sitemap XML, JSON-LD and internal href/src references.
+- Manual validation checks passed for JavaScript syntax, git diff, sitemap XML, JSON-LD and internal href/src references before Phase 4.
+- Phase 4 practice-page strengthening is complete.
 
 ## Completed Handoff Items
+
+### 2026-05-07 Phase 4 practice page strengthening
+
+Status: Done through ChatGPT/GitHub connector
+
+Pages strengthened:
+
+- `practice/cheque-bounce.html`
+- `practice/msme-disputes.html`
+- `practice/rera-property.html`
+- `practice/commercial-recovery.html`
+- `practice/arbitration.html`
+- `practice/property-civil-suits.html`
+
+Summary:
+
+- Added or improved matter-introduction sections.
+- Added document-led preparation sections.
+- Added limitation/date-sensitivity sections where relevant.
+- Added forum/court/procedure route sections.
+- Added common-mistake sections.
+- Added related service-page links and legal-update links.
+- Added structured enquiry formats.
+- Strengthened non-solicitation notes.
+- Refreshed metadata and FAQ JSON-LD.
+
+Commits:
+
+- `b2e81ba26e82604aacfb823d8756c97d38351886` - Strengthen cheque bounce practice page.
+- `3c021faf0aea36087d762e190663a842cccaed88` - Update sitemap date for cheque bounce practice page.
+- `d0ad7d4d61538275060daf3773442ae90ffa7df6` - Strengthen MSME disputes practice page.
+- `18f9ab3721e520a85a12f45ec948accc8328f9a3` - Strengthen RERA and property practice page.
+- `ab772de5b90da4007d450483ddeddc979db36b27` - Strengthen commercial recovery practice page.
+- `01a96f26cb3c9a8804ba2a743a91a549a7484c5d` - Strengthen arbitration practice page.
+- `b92c87309e2ebec8d04149fb874c16e2c0209536` - Strengthen property and civil suits practice page.
 
 ### 2026-05-07 Manual terminal validation
 
@@ -206,11 +272,11 @@ Status: Done
 
 Recommended order:
 
-1. Codex/local inspection of `.wiki-clone/` and `.wiki-work/`.
-2. Live desktop/mobile smoke validation.
-3. Review titles, meta descriptions, canonicals, footer links and CTAs.
-4. Strengthen the six practice pages.
+1. Complete post-Phase-4 sitemap lastmod cleanup and local validation.
+2. Codex/local inspection of `.wiki-clone/` and `.wiki-work/`.
+3. Live desktop/mobile smoke validation.
+4. Review titles, meta descriptions, canonicals, footer links and CTAs.
 5. Create the two pending legal update articles.
 6. Prepare social/newsletter distribution copy for each new article.
 7. Improve Case Enquiry flow.
-8. Consider future service pages only after practice pages and Search Console review.
+8. Consider future service pages only after Search Console review.
