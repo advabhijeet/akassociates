@@ -23,22 +23,62 @@ When Codex completes an item:
 
 ## Active Handoff Items
 
-No active Codex handoff items are open at this moment.
+### Inspect local wiki working folders
 
-Codex is currently unavailable due to usage limits until 2026-05-13 07:56 AM, as reported by the user. Until then, ChatGPT should make connector-safe edits directly and reserve local/browser validation for Codex/manual terminal later.
+Status: Pending Codex/local access
 
-Recommended local validation pass before new content work:
+Context:
 
-- `node --check assets\js\script.js`
-- `git diff --check`
-- internal href/src reference check from `README.md`
-- JSON-LD parsing check from `README.md`
-- sitemap XML syntax check
-- live desktop/mobile smoke check for homepage, About, Expertise, menu drawer, footer links and lead CTAs
+- User's local Codex folder is:
+
+```text
+C:\Users\abhik\Documents\Codex\2026-05-02\https-github-com-advabhijeet-akassociates-can
+```
+
+- Local `git status` showed untracked folders:
+
+```text
+.wiki-clone/
+.wiki-work/
+```
+
+Instructions:
+
+1. Sync the local workspace with latest `origin/main`.
+2. Do not delete, overwrite, ignore, add or commit `.wiki-clone/` or `.wiki-work/` before inspection.
+3. Inspect those folders to determine whether unfinished GitHub Wiki work exists from the interrupted Codex session.
+4. Compare any unfinished wiki work with `docs/wiki/WORKFLOW.md`, `README.md`, `CHANGELOG.md`, `docs/planning/SEO_GROWTH_AGENDA.md` and `docs/planning/NEXT_WEBSITE_UPGRADE_AGENDA.md`.
+5. Complete only the required wiki/documentation sync.
+6. Do not modify public website files unless necessary.
+7. Do not commit `.wiki-clone/` or `.wiki-work/`.
+8. Update `CHANGELOG.md` if any tracked files are changed.
+
+### Complete browser/mobile smoke validation
+
+Status: Pending browser/local review
+
+Manual terminal validation was completed by the user on 2026-05-07:
+
+- `git pull origin main`: already up to date.
+- `node --check assets\js\script.js`: passed with no output.
+- `git diff --check`: passed with no output.
+- `sitemap.xml`: parsed successfully.
+- JSON-LD parsing: passed; 44 blocks parsed.
+- Internal `href`/`src` reference check: passed.
+
+Still pending:
+
+- live desktop/mobile smoke test;
+- homepage, About, Expertise, Contact, Case Enquiry and Legal Updates review;
+- mobile drawer behavior;
+- footer legal links;
+- LinkedIn and WhatsApp Channel icons;
+- WhatsApp, email, phone and case-enquiry CTAs;
+- title/meta/canonical review across representative public HTML files.
 
 ## Current Repository State
 
-As of 2026-05-06:
+As of 2026-05-07:
 
 - Batch 1 SEO pages and article upgrades are complete.
 - Batch 2 service-page buildout is complete.
@@ -50,8 +90,30 @@ As of 2026-05-06:
 - `CHANGELOG.md` exists and must be updated after every meaningful modification.
 - `docs/audits/WEBSITE_REPOSITORY_AUDIT_2026-05-06.md` records the current audit.
 - Documentation has been reorganized into `docs/audits/`, `docs/codex/`, `docs/google/`, `docs/maintenance/`, `docs/planning/`, `docs/seo/`, and `docs/wiki/`.
+- Next-stage upgrade plan is recorded in `docs/planning/NEXT_WEBSITE_UPGRADE_AGENDA.md`.
+- Manual validation checks passed for JavaScript syntax, git diff, sitemap XML, JSON-LD and internal href/src references.
 
 ## Completed Handoff Items
+
+### 2026-05-07 Manual terminal validation
+
+Status: Done by user, recorded for Codex
+
+- Confirmed local repository branch `main` was up to date with `origin/main`.
+- Confirmed `node --check assets\js\script.js` passed.
+- Confirmed `git diff --check` passed.
+- Confirmed `sitemap.xml` parsed successfully.
+- Confirmed JSON-LD parsing passed with 44 parsed blocks.
+- Confirmed internal `href`/`src` reference check passed.
+- Preserved `.wiki-clone/` and `.wiki-work/` for future Codex inspection.
+
+### 2026-05-07 Next website upgrade agenda
+
+Status: Done
+
+- Added `docs/planning/NEXT_WEBSITE_UPGRADE_AGENDA.md`.
+- Recorded ordered phases for wiki sync, validation closure, live smoke testing, practice-page strengthening, pending legal updates, Insights distribution/newsletter workflow, case enquiry improvements, trust/entity improvements, future service pages and future Team page restrictions.
+- Updated `docs/planning/SEO_GROWTH_AGENDA.md` and `docs/README.md` to reference the new upgrade agenda.
 
 ### 2026-05-06 Documentation reorganization
 
@@ -142,9 +204,13 @@ Status: Done
 
 ## Next Planned Work
 
-Recommended order before adding more pages:
+Recommended order:
 
-1. Run technical SEO audit: titles, meta descriptions, canonicals and footer legal links.
-2. Run local validation checks listed above.
-3. Monitor Search Console indexing and performance for Batch 2 pages.
-4. Then create the two pending legal update articles or strengthen practice pages.
+1. Codex/local inspection of `.wiki-clone/` and `.wiki-work/`.
+2. Live desktop/mobile smoke validation.
+3. Review titles, meta descriptions, canonicals, footer links and CTAs.
+4. Strengthen the six practice pages.
+5. Create the two pending legal update articles.
+6. Prepare social/newsletter distribution copy for each new article.
+7. Improve Case Enquiry flow.
+8. Consider future service pages only after practice pages and Search Console review.
