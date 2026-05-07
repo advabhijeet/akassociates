@@ -1,6 +1,6 @@
 # SEO Content Batch - 2026-05-05
 
-This note records the first Google Search visibility content batch for Chambers of AK. It keeps Codex, ChatGPT, and future maintainers synced with the new public URLs added after `docs/SEO_GROWTH_AGENDA.md` was created.
+This note records the first Google Search visibility content batch for Chambers of AK. It is a historical batch record kept for ChatGPT, Codex and future maintainers.
 
 ## Batch Purpose
 
@@ -96,23 +96,14 @@ New sitemap URLs added:
 - `3f3659aa4d0b92bb723fc69315d12f964bf7d9cc` - Add Section 34 arbitration award challenge article.
 - `1c2911f2b1777fb88c383bb6bb37b3a874be140c` - Add Section 34 arbitration article to sitemap.
 
-## Pending Internal-Link Work
+## Historical Internal-Link Note
 
-Some existing HTML pages still need internal-link updates. Because large full-file replacements can be blocked through the GitHub connector, Codex should apply these as local patch edits where needed.
-
-Track Codex-only or blocked items in:
+The original version of this record contained pending internal-link work. That work was later completed through Codex/local edits and is now tracked in:
 
 ```text
-/docs/CODEX_HANDOFF.md
+docs/codex/HANDOFF.md
+CHANGELOG.md
 ```
-
-Important pending internal links:
-
-- Add new service pages to `practice.html` under Focused Search Pages.
-- Add new articles to `legal-updates.html` under Latest Articles.
-- Fix homepage `Property & Civil Suits` practice-card link if it still points to the RERA page.
-- Add contextual links from relevant practice pages to the new service pages and articles.
-- Add `services/civil-litigation-lawyer-patna.html` through Codex/local patch if still required, because a direct connector write was blocked.
 
 ## Post-Deployment Checklist
 
@@ -130,10 +121,8 @@ After GitHub Pages deployment completes:
 
 ## Next SEO Tasks
 
-Recommended next content and structure tasks:
+The forward-looking roadmap now lives at:
 
-1. Update internal links through Codex/local patch edits.
-2. Add `services/civil-litigation-lawyer-patna.html` through Codex/local patch or retry later in a smaller connector-safe form.
-3. Strengthen the six practice pages with evergreen sections listed in `docs/SEO_GROWTH_AGENDA.md`.
-4. Add further city/practice service pages only after internal linking and deployment checks are complete.
-5. Review Search Console data after indexing to decide the next batch.
+```text
+docs/planning/SEO_GROWTH_AGENDA.md
+```
