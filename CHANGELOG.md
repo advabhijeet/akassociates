@@ -15,6 +15,7 @@ Summary:
 - Recorded that this repository should prefer the `advabhijeet` GitHub account for local commits and pushes unless instructed otherwise.
 - Added a reusable PowerShell 7 setup block using `git config user.name`, `credential.https://github.com.useHttpPath true` and `gh auth switch --hostname github.com --user advabhijeet`.
 - Clarified that this is local Git/GitHub authentication and does not require ChatGPT GitHub App write access.
+- Recorded the repository GitHub noreply email `281193757+advabhijeet@users.noreply.github.com` to avoid private-email push rejection.
 
 Validation / notes:
 

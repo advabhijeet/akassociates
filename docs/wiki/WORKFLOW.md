@@ -252,12 +252,13 @@ GitHub Pages may take a short time to redeploy after a push.
 
 ### GitHub Account Selection For Local Pushes
 
-For this repository, local patch scripts should prefer the GitHub account `advabhijeet`.
+For this repository, local patch scripts should prefer the GitHub account `advabhijeet` and the GitHub noreply email `281193757+advabhijeet@users.noreply.github.com`.
 
 Recommended setup before local patch pushes:
 
 ```powershell
 git config user.name "advabhijeet"
+git config user.email "281193757+advabhijeet@users.noreply.github.com"
 git config --global credential.https://github.com.useHttpPath true
 
 if (Get-Command gh -ErrorAction SilentlyContinue) {

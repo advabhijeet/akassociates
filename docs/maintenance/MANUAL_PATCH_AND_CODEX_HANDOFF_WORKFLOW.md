@@ -117,6 +117,7 @@ Patch scripts and local validation guides may include this optional pre-push set
 
 ```powershell
 git config user.name "advabhijeet"
+git config user.email "281193757+advabhijeet@users.noreply.github.com"
 git config --global credential.https://github.com.useHttpPath true
 
 if (Get-Command gh -ErrorAction SilentlyContinue) {
@@ -131,7 +132,9 @@ git remote -v
 
 Purpose:
 
-- `git config user.name "advabhijeet"` sets the commit identity for this repository.
+- Use `281193757+advabhijeet@users.noreply.github.com` as the GitHub noreply email for this repository to avoid GitHub private-email push rejection.
+
+- `git config user.name "advabhijeet"` and `git config user.email "281193757+advabhijeet@users.noreply.github.com"` set the repository commit identity without exposing a private email address.
 - `credential.https://github.com.useHttpPath true` helps Git Credential Manager keep HTTPS credentials scoped by repository path instead of only by host.
 - `gh auth switch --hostname github.com --user advabhijeet` selects the active GitHub CLI account where multiple GitHub accounts are authenticated.
 - If `gh` is unavailable, the user should choose `advabhijeet` if a credential prompt appears during `git push`.

@@ -326,12 +326,13 @@ Get-ChildItem -Recurse -Filter *.html | Where-Object { $_.FullName -notlike '*\.
 
 ### Local GitHub Account Selection
 
-When applying manual patch packages from a local machine with multiple GitHub accounts connected, use the `advabhijeet` account for this repository.
+When applying manual patch packages from a local machine with multiple GitHub accounts connected, use the `advabhijeet` account and GitHub noreply email `281193757+advabhijeet@users.noreply.github.com` for this repository.
 
 Recommended local setup:
 
 ```powershell
 git config user.name "advabhijeet"
+git config user.email "281193757+advabhijeet@users.noreply.github.com"
 git config --global credential.https://github.com.useHttpPath true
 gh auth switch --hostname github.com --user advabhijeet
 gh auth status --active --hostname github.com
