@@ -1,5 +1,29 @@
 # Changelog
 
+## 2026-05-08 23:41 IST - Manual patch diff output policy
+
+Files changed:
+
+- `docs/maintenance/MANUAL_PATCH_AND_CODEX_HANDOFF_WORKFLOW.md`
+- `docs/wiki/WORKFLOW.md`
+- `CHANGELOG.md`
+
+Summary:
+
+- Added a terminal diff output policy for future manual patch packages.
+- Set `git diff --stat` and `git diff --name-only` as the default terminal output style.
+- Documented that full diffs should be saved to a temporary diff log or shown only through an explicit verbose switch.
+- Reduced the risk of long terminal output when shared files such as `assets/js/script.js` or `legal-updates.html` are changed.
+
+Validation / notes:
+
+- `git diff --check` passed.
+- Documentation-only workflow update.
+- No public website files were modified.
+
+Commits:
+
+- Commit hash to be recorded after push.
 ## 2026-05-08 23:38 IST - Homepage and Insights structure fixes
 
 Files changed:

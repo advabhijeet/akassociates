@@ -212,6 +212,45 @@ If backup files were created and are no longer needed, remove them before commit
 Remove-Item .\sitemap.xml.bak, .\legal-updates.html.bak -ErrorAction SilentlyContinue
 ```
 
+
+## Terminal Diff Output Policy
+
+Patch scripts should avoid printing large full diffs to the terminal by default.
+
+Preferred terminal output:
+
+```powershell
+git diff --stat
+git diff --name-only
+```
+
+If a full diff is useful, save it to a temporary log file and print the path:
+
+```powershell
+$diffLog = Join-Path $env:TEMP "chambers-ak-patch-diff-$(Get-Date -Format 'yyyyMMdd-HHmmss').diff"
+git diff -- <INTENDED-FILES> | Set-Content -LiteralPath $diffLog -Encoding UTF8
+Write-Host "Full diff saved to: $diffLog"
+```
+
+If a future script needs verbose output, expose an explicit switch such as:
+
+```powershell
+param([switch]$ShowFullDiff)
+if ($ShowFullDiff) {
+  git diff -- <INTENDED-FILES>
+} else {
+  git diff --stat -- <INTENDED-FILES>
+  git diff --name-only -- <INTENDED-FILES>
+}
+```
+
+Rules:
+
+- Do not print full diffs automatically for large shared files such as `assets/js/script.js`, `assets/css/style.css`, `legal-updates.html`, `sitemap.xml`, `feed.xml`, or `CHANGELOG.md`.
+- Default output should be readable enough for the user to confirm changed files and scope.
+- Full diffs may be saved to `$env:TEMP` or shown only after the user asks for verbose output.
+- Keep validation output concise unless an error needs diagnosis.
+
 ## Manual Patch Safety Rules
 
 - Do not move public website files unless explicitly instructed.

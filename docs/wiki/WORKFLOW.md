@@ -295,6 +295,18 @@ git push origin main
 
 Each meaningful change should have its own commit so rollback stays simple.
 
+
+### Terminal Diff Output Policy
+
+Manual patch scripts should keep terminal output readable. Use summary diff output by default:
+
+```powershell
+git diff --stat
+git diff --name-only
+```
+
+Do not print full diffs for large shared files unless the user requests verbose output. If needed, save the full diff to a temporary `.diff` file and print the path.
+
 ## Pre-Push Maintenance Checklist
 
 ### Content
