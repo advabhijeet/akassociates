@@ -1,5 +1,30 @@
 # Changelog
 
+## 2026-05-08 23:34 IST - PowerShell 7 manual patch workflow guide
+
+Files changed:
+
+- `docs/maintenance/MANUAL_PATCH_AND_CODEX_HANDOFF_WORKFLOW.md`
+- `docs/wiki/WORKFLOW.md`
+- `CHANGELOG.md`
+
+Summary:
+
+- Added a universal PowerShell 7 manual patch command pattern.
+- Documented that downloadable patch ZIP files should be assumed to be in the user's default Downloads folder unless another path is given.
+- Documented that the command should extract the ZIP into the repository root before running the patch package apply script.
+- Reconfirmed that package apply scripts should back up files, validate, stage only intended files, commit and push.
+- Reconfirmed that `.wiki-clone/` and `.wiki-work/` must not be committed through broad staging.
+
+Validation / notes:
+
+- `git diff --check` passed.
+- Documentation-only workflow update.
+- No public website files were modified.
+
+Commits:
+
+- Commit hash to be recorded after push.
 All meaningful website, repository and documentation changes should be recorded here.
 
 Time zone: Asia/Kolkata (IST) unless otherwise stated.

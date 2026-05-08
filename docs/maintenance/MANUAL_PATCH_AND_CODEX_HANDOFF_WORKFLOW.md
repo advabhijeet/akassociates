@@ -107,6 +107,28 @@ The user should be able to copy the contents of `files/` into the local reposito
 8. push command;
 9. rollback command if needed.
 
+
+## Universal PowerShell 7 Patch Command Pattern
+
+Future downloadable patch packages should include a short one-command apply instruction that assumes the ZIP is in the user's default Downloads folder and extracts it through PowerShell 7 before running the package apply script.
+
+Use this pattern and adjust only the ZIP name, repository path, extracted package folder, and apply script name:
+
+```powershell
+pwsh -NoProfile -ExecutionPolicy Bypass -Command "& { `$RepoPath='C:\Users\abhik\Documents\Codex\2026-05-02\https-github-com-advabhijeet-akassociates-can'; `$ZipPath=Join-Path `$env:USERPROFILE 'Downloads\<PATCH-ZIP-NAME>.zip'; Expand-Archive -LiteralPath `$ZipPath -DestinationPath `$RepoPath -Force; Set-Location `$RepoPath; pwsh -NoProfile -ExecutionPolicy Bypass -File '.\<EXTRACTED-PATCH-FOLDER>\patch-package\scripts\<APPLY-SCRIPT-NAME>.ps1' -RepoPath `$RepoPath }"
+```
+
+Rules for this command style:
+
+- Prefer `pwsh`, not legacy `powershell.exe`.
+- Assume the patch ZIP is in the user's default Downloads folder unless the user gives a different path.
+- The command must perform the extraction step itself.
+- The command must extract into the repository root.
+- The command must then run the package's own apply script.
+- The package apply script should create backups, validate, stage only intended files, commit, and push.
+- Do not use `git add -A` where `.wiki-clone/`, `.wiki-work/`, backups, or unrelated local files may exist.
+- If the command changes shared CSS or JavaScript, the patch must handle cache-busting and validation.
+
 ## Standard Manual PowerShell Guide
 
 Use this template and adjust paths/files as needed.

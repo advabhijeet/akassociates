@@ -248,6 +248,19 @@ git push origin main
 
 GitHub Pages may take a short time to redeploy after a push.
 
+
+### Universal PowerShell 7 Patch Package Command
+
+For downloadable manual patch packages, use a short PowerShell 7 command that extracts the ZIP from the default Downloads folder into the repository root, then runs the package apply script.
+
+Pattern:
+
+```powershell
+pwsh -NoProfile -ExecutionPolicy Bypass -Command "& { `$RepoPath='C:\Users\abhik\Documents\Codex\2026-05-02\https-github-com-advabhijeet-akassociates-can'; `$ZipPath=Join-Path `$env:USERPROFILE 'Downloads\<PATCH-ZIP-NAME>.zip'; Expand-Archive -LiteralPath `$ZipPath -DestinationPath `$RepoPath -Force; Set-Location `$RepoPath; pwsh -NoProfile -ExecutionPolicy Bypass -File '.\<EXTRACTED-PATCH-FOLDER>\patch-package\scripts\<APPLY-SCRIPT-NAME>.ps1' -RepoPath `$RepoPath }"
+```
+
+The patch package's internal apply script should handle backups, validation, intended-file staging, commits and push. Preserve `.wiki-clone/` and `.wiki-work/`.
+
 ### Cache Busting
 
 Shared CSS and JavaScript files are referenced with query-string versions, for example:
