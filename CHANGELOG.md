@@ -1,5 +1,34 @@
 # Changelog
 
+## 2026-05-09 02:26 IST - Footer and internal-link polish pass
+
+Files changed:
+
+- Public HTML files containing the site footer
+- `assets/css/style.css`
+- `sitemap.xml`
+- `CHANGELOG.md`
+
+Summary:
+
+- Replaced flat footer links with grouped footer navigation across public pages.
+- Added footer groups: Main, Resources and Legal.
+- Added contextual links on Contact, FAQ, Process and Courts pages.
+- Updated sitemap `lastmod` dates for changed public HTML pages already listed in the sitemap.
+- Preserved the existing top navigation and non-solicitation footer note.
+- Changed HTML files count: 56.
+
+Validation / notes:
+
+- `node --check assets\js\script.js` passed.
+- `git diff --check` passed.
+- `sitemap.xml` and `feed.xml` parsed successfully.
+- JSON-LD parsing and internal href/src validation completed during the patch run.
+- Manual browser check remains recommended after GitHub Pages redeploy.
+
+Commits:
+
+- Commit hash to be recorded after push.
 ## 2026-05-09 02:20 IST - Planning documentation sync
 
 Files changed:

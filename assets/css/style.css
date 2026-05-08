@@ -2517,3 +2517,40 @@ body.insights-list-active .insights-category-section {
     justify-content: center;
   }
 }
+
+/* Grouped footer navigation polish */
+.foot-links-grouped {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(160px, 1fr));
+  gap: 1.4rem 2rem;
+  align-items: start;
+  width: min(100%, 900px);
+  margin: 1.2rem auto 0;
+}
+
+.foot-link-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  align-items: center;
+  text-align: center;
+}
+
+.foot-link-heading {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.foot .foot-link-group a {
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+@media (max-width: 720px) {
+  .foot-links-grouped {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+}
