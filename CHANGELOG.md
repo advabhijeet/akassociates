@@ -1,5 +1,32 @@
 # Changelog
 
+## 2026-05-09 02:39 IST - Footer visual normalization
+
+Files changed:
+
+- `assets/css/style.css`
+- Public HTML files using `assets/css/style.css`
+- `CHANGELOG.md`
+
+Summary:
+
+- Normalized footer CSS so grouped footer headings and links render consistently across public pages.
+- Refined `Main`, `Resources` and `Legal` headings with gold serif styling and a subtle separator line.
+- Bumped all public page stylesheet references to `style.css?v=footer-normalize-1` to avoid mixed cached footer CSS across pages.
+- Kept footer structure and top navigation unchanged.
+- Public HTML files with stylesheet cache updates: 56.
+
+Validation / notes:
+
+- `node --check assets\js\script.js` passed.
+- `git diff --check` passed.
+- `sitemap.xml` and `feed.xml` parsed successfully.
+- JSON-LD parsing and internal href/src validation completed during the patch run.
+- Manual cross-page footer check remains recommended after GitHub Pages redeploy.
+
+Commits:
+
+- Commit hash to be recorded after push.
 ## 2026-05-09 02:32 IST - Footer heading visual refinement
 
 Files changed:
