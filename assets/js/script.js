@@ -541,3 +541,167 @@ if (revealItems.length) {
     applyFilter(initialTag, false);
   }
 })();
+
+// Advanced Insights category tag search module
+(function () {
+  const panel = document.querySelector('.insights-filter-panel');
+  const categoryInput = document.querySelector('#insight-category-filter');
+  const tagInput = document.querySelector('#insight-tag-filter');
+  const searchInput = document.querySelector('#insight-search-filter');
+  const clearButton = document.querySelector('.insights-clear-filter');
+  const status = document.querySelector('.insights-filter-status');
+  const resultsSection = document.querySelector('.insights-results-section');
+  const resultsList = document.querySelector('.insights-results-list');
+  const cards = Array.from(document.querySelectorAll('.update-item.update-item-link'));
+
+  if (!panel || !categoryInput || !tagInput || !searchInput || !clearButton || !resultsSection || !resultsList || !cards.length) return;
+
+  const normalize = (value) => (value || '').toLowerCase().replace(/\s+/g, ' ').trim();
+
+  const uniqueByHref = (items) => {
+    const seen = new Set();
+    return items.filter((item) => {
+      const href = item.getAttribute('href');
+      if (!href || seen.has(href)) return false;
+      seen.add(href);
+      return true;
+    });
+  };
+
+  const getCardData = (card, index) => {
+    const tagBadge = card.querySelector('.update-tag');
+    const title = card.querySelector('.update-title');
+    const excerpt = card.querySelector('.update-excerpt');
+    const date = card.querySelector('.update-date');
+    return {
+      href: card.getAttribute('href'),
+      category: (card.dataset.category || (tagBadge ? tagBadge.textContent : '')).trim(),
+      tags: (card.dataset.tags || (tagBadge ? tagBadge.textContent : '')).trim(),
+      title: title ? title.textContent.trim() : '',
+      excerpt: excerpt ? excerpt.textContent.trim() : '',
+      date: date ? date.textContent.trim() : '',
+      index
+    };
+  };
+
+  const allItems = uniqueByHref(cards).map(getCardData);
+
+  const renderResults = (items) => {
+    resultsList.innerHTML = '';
+
+    if (!items.length) {
+      const empty = document.createElement('p');
+      empty.className = 'insights-filter-status';
+      empty.textContent = 'No matching insights found. Clear filters or try a broader search.';
+      resultsList.appendChild(empty);
+      return;
+    }
+
+    items.forEach((item) => {
+      const link = document.createElement('a');
+      link.className = 'insights-result-item';
+      link.href = item.href;
+
+      const badge = document.createElement('span');
+      badge.className = 'update-tag tag-case-brief';
+      badge.textContent = item.category || 'Insight';
+
+      const title = document.createElement('div');
+      title.className = 'insights-result-title';
+      title.textContent = item.title;
+
+      const excerpt = document.createElement('div');
+      excerpt.className = 'insights-result-excerpt';
+      excerpt.textContent = item.excerpt;
+
+      const meta = document.createElement('div');
+      meta.className = 'insights-result-meta';
+
+      const date = document.createElement('span');
+      date.textContent = item.date || 'May 2026';
+
+      const tags = document.createElement('span');
+      tags.className = 'insights-result-tags';
+      tags.textContent = item.tags ? 'Tags: ' + item.tags : '';
+
+      meta.appendChild(date);
+      meta.appendChild(tags);
+
+      link.appendChild(badge);
+      link.appendChild(title);
+      link.appendChild(excerpt);
+      link.appendChild(meta);
+
+      resultsList.appendChild(link);
+    });
+  };
+
+  const applyFilters = () => {
+    const category = normalize(categoryInput.value);
+    const tag = normalize(tagInput.value);
+    const search = normalize(searchInput.value);
+    const isActive = Boolean(category || tag || search);
+
+    const matches = allItems.filter((item) => {
+      const categoryText = normalize(item.category);
+      const tagsText = normalize(item.tags);
+      const searchable = normalize(`${item.title} ${item.excerpt} ${item.category} ${item.tags}`);
+      return (!category || categoryText.includes(category)) &&
+             (!tag || tagsText.includes(tag)) &&
+             (!search || searchable.includes(search));
+    });
+
+    document.body.classList.toggle('insights-filter-active', isActive);
+    resultsSection.hidden = !isActive;
+
+    if (isActive) {
+      renderResults(matches);
+      const parts = [];
+      if (category) parts.push(`category: ${categoryInput.value}`);
+      if (tag) parts.push(`tag: ${tagInput.value}`);
+      if (search) parts.push(`search: ${searchInput.value}`);
+      status.textContent = `Showing ${matches.length} matching insight${matches.length === 1 ? '' : 's'} for ${parts.join(', ')}.`;
+    } else {
+      resultsList.innerHTML = '';
+      status.textContent = 'Showing default editorial view.';
+    }
+  };
+
+  const clearFilters = () => {
+    categoryInput.value = '';
+    tagInput.value = '';
+    searchInput.value = '';
+    applyFilters();
+    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  [categoryInput, tagInput, searchInput].forEach((input) => {
+    input.addEventListener('input', applyFilters);
+    input.addEventListener('change', applyFilters);
+  });
+
+  clearButton.addEventListener('click', clearFilters);
+
+  cards.forEach((card) => {
+    const badge = card.querySelector('.update-tag');
+    if (!badge) return;
+    badge.setAttribute('role', 'button');
+    badge.setAttribute('tabindex', '0');
+    badge.setAttribute('title', `Filter by ${badge.textContent.trim()}`);
+    const trigger = (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      categoryInput.value = badge.textContent.trim();
+      tagInput.value = '';
+      searchInput.value = '';
+      applyFilters();
+      panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    badge.addEventListener('click', trigger);
+    badge.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') trigger(event);
+    });
+  });
+
+  applyFilters();
+})();

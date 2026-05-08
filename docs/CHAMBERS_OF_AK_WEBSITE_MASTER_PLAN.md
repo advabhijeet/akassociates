@@ -186,7 +186,7 @@ trademark / IP advisory
 
 The Insights section should evolve into a legal-publication style section.
 
-Do not treat all content as one undifferentiated â€œLegal Updatesâ€ list.
+Do not treat all content as one undifferentiated Ã¢â‚¬Å“Legal UpdatesÃ¢â‚¬Â list.
 
 Recommended editorial groups:
 
@@ -740,4 +740,52 @@ The mobile drawer/menu must not print.
 Cards should avoid breaking across pages.
 The header should not overlap content on later pages.
 Backgrounds should be simplified for professional PDF output.
+```
+
+## Advanced Insights Sorting Rule
+
+The Insights page should use three controls:
+
+```text
+Sort by category
+Under tags
+Search insights
+```
+
+Category means article type:
+
+```text
+Case Brief
+Legal Update
+Practical Guide
+Checklist
+Procedure Note
+```
+
+Tags mean the law, forum, statute or topic covered:
+
+```text
+NI Act
+MSME
+RERA
+Arbitration
+SARFAESI
+DRT
+Commercial Courts
+CPC
+Property
+Supreme Court
+High Court
+Online Publication
+Judgment Reporting
+```
+
+Rules:
+
+```text
+One article may have one primary category and multiple legal tags.
+Latest Articles should show only one row in default view.
+When filter/search is active, hide Latest Articles and category blocks.
+Filtered results should appear as a vertical latest-first list.
+Clear Filter should restore the default editorial view.
 ```

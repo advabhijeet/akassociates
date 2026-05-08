@@ -102,122 +102,167 @@
           </div>
         </div>
       </section>
-      <!-- Insights tag filter panel -->
+            <!-- Insights advanced filter panel -->
       <section class="sec insights-filter-panel" aria-labelledby="insights-filter-title">
-        <div class="sec-label">Browse By Tag</div>
+        <div class="sec-label">Sort / Filter</div>
         <div class="insights-section-head">
-          <h2 id="insights-filter-title">Filter Insights</h2>
-          <p>Select a tag to view matching articles across Case Briefs, Practical Guides, Checklists and Practice-Area Updates.</p>
+          <h2 id="insights-filter-title">Find Insights</h2>
+          <p>Filter by content category, legal tag, or keyword. Category describes the article type; tags describe the law, forum or subject covered.</p>
         </div>
-        <div class="insights-filter-bar" role="toolbar" aria-label="Filter insights by tag">
-          <button class="insights-filter is-active" type="button" data-insight-filter="all">All</button>
-          <button class="insights-filter" type="button" data-insight-filter="case brief">Case Brief</button>
-          <button class="insights-filter" type="button" data-insight-filter="practical guide">Practical Guide</button>
-          <button class="insights-filter" type="button" data-insight-filter="checklist">Checklist</button>
-          <button class="insights-filter" type="button" data-insight-filter="procedure note">Procedure Note</button>
-          <button class="insights-filter" type="button" data-insight-filter="ni act">NI Act</button>
-          <button class="insights-filter" type="button" data-insight-filter="msme">MSME</button>
-          <button class="insights-filter" type="button" data-insight-filter="rera">RERA</button>
-          <button class="insights-filter" type="button" data-insight-filter="commercial">Commercial</button>
-          <button class="insights-filter" type="button" data-insight-filter="arbitration">Arbitration</button>
-          <button class="insights-filter" type="button" data-insight-filter="property">Property</button>
+
+        <div class="insights-control-grid">
+          <label class="insights-control">
+            <span>Sort by category</span>
+            <input list="insight-category-options" id="insight-category-filter" class="insights-filter-input" placeholder="Search or select category">
+            <datalist id="insight-category-options">
+              <option value="Case Brief"></option>
+              <option value="Legal Update"></option>
+              <option value="Practical Guide"></option>
+              <option value="Checklist"></option>
+              <option value="Procedure Note"></option>
+            </datalist>
+          </label>
+
+          <label class="insights-control">
+            <span>Under tags</span>
+            <input list="insight-tag-options" id="insight-tag-filter" class="insights-filter-input" placeholder="Search or select tag">
+            <datalist id="insight-tag-options">
+              <option value="NI Act"></option>
+              <option value="Cheque Bounce"></option>
+              <option value="MSME"></option>
+              <option value="MSEFC"></option>
+              <option value="RERA"></option>
+              <option value="Arbitration"></option>
+              <option value="Commercial Courts"></option>
+              <option value="CPC"></option>
+              <option value="SARFAESI"></option>
+              <option value="DRT"></option>
+              <option value="Banking Recovery"></option>
+              <option value="Property"></option>
+              <option value="Supreme Court"></option>
+              <option value="High Court"></option>
+              <option value="Online Publication"></option>
+              <option value="Judgment Reporting"></option>
+            </datalist>
+          </label>
+
+          <label class="insights-control insights-control-search">
+            <span>Search insights</span>
+            <input id="insight-search-filter" class="insights-filter-input" type="search" placeholder="Search title, issue, law, forum">
+          </label>
+
+          <div class="insights-control insights-control-action">
+            <span>Reset</span>
+            <button class="insights-clear-filter" type="button">Clear Filter</button>
+          </div>
         </div>
-        <p class="insights-filter-status" aria-live="polite">Showing all insights.</p>
+
+        <p class="insights-filter-status" aria-live="polite">Showing default editorial view.</p>
+      </section>
+
+      <section class="sec insights-results-section" hidden>
+        <div class="sec-label">Filtered Results</div>
+        <div class="insights-section-head">
+          <h2>Matching Insights</h2>
+          <p>Results are shown in latest-first order and filtered by selected category, tag and search terms.</p>
+        </div>
+        <div class="insights-results-list"></div>
       </section>
 
 
-      <section class="sec">
+
+      <section class="sec latest-insights-section">
         <div class="sec-label">Latest Articles</div>
         <div class="updates-grid">
-          <a class="update-item update-item-link" href="updates/non-reportable-judgments-online-publication-case-brief.html">
+          <a class="update-item update-item-link" href="updates/non-reportable-judgments-online-publication-case-brief.html" data-category="Case Brief" data-tags="High Court, Gujarat High Court, Online Publication, Judgment Reporting, Court Records, Article 226">
             <span class="update-tag tag-case-brief">Case Brief</span>
             <div class="update-title">Can non-reportable judgments be published online?</div>
             <div class="update-excerpt">Gujarat High Court case brief on non-reportable judgments, online publication, public court records and the distinction between online availability and law reporting.</div>
             <div class="update-date">May 2026</div>
           </a>
-          <a class="update-item update-item-link" href="updates/sarfaesi-auction-sale-challenge-documents.html">
+          <a class="update-item update-item-link" href="updates/sarfaesi-auction-sale-challenge-documents.html" data-category="Case Brief" data-tags="SARFAESI, DRT, Banking Recovery, Auction Sale, Supreme Court, Rule 9(4)">
             <span class="update-tag tag-case-brief">Case Brief</span>
             <div class="update-title">SARFAESI auction sale challenge: documents and Rule 9(4) timeline</div>
             <div class="update-excerpt">Demand notice, possession notice, auction terms, balance consideration, sale certificate, redemption record and DRT/DRAT preparation.</div>
             <div class="update-date">May 2026</div>
           </a>
-                              <a class="update-item update-item-link" href="updates/summary-judgment-commercial-suits-order-xiii-a.html">
+                              <a class="update-item update-item-link" href="updates/summary-judgment-commercial-suits-order-xiii-a.html" data-category="Case Brief" data-tags="Commercial Courts, CPC, Order XIII-A, Summary Judgment, Supreme Court, Commercial Recovery">
             <span class="update-tag tag-case-brief">Case Brief</span>
             <div class="update-title">Summary judgment in commercial suits under Order XIII-A CPC</div>
             <div class="update-excerpt">Document preparation, pleadings, real prospect test, mini-trial caution and commercial recovery checklist after the Supreme Court's Order XIII-A guidance.</div>
             <div class="update-date">May 2026</div>
-          </a><a class="update-item update-item-link" href="updates/msme-facilitation-council-process.html">
+          </a><a class="update-item update-item-link" href="updates/msme-facilitation-council-process.html" data-category="Procedure Note" data-tags="MSME, MSEFC, Delayed Payment, Conciliation, Arbitration">
             <span class="update-tag tag-msme">MSME</span>
             <div class="update-title">MSME Facilitation Council process for delayed payments</div>
             <div class="update-excerpt">Udyam records, invoices, 45-day payment issue, conciliation, arbitration, interest, buyer response and enforcement preparation.</div>
             <div class="update-date">May 2026</div>
-          </a><a class="update-item update-item-link" href="updates/cheque-bounce-defence-after-summons.html">
+          </a><a class="update-item update-item-link" href="updates/cheque-bounce-defence-after-summons.html" data-category="Practical Guide" data-tags="NI Act, Cheque Bounce, Summons, Defence Preparation, Section 138">
             <span class="update-tag tag-ni">NI Act</span>
             <div class="update-title">Cheque bounce case after summons: defence preparation</div>
             <div class="update-excerpt">A document-first guide on complaint papers, summons, notice proof, liability review, settlement and court-stage preparation in Section 138 matters.</div>
             <div class="update-date">May 2026</div>
           </a>
-          <a class="update-item update-item-link" href="updates/cheque-bounce-30-days.html">
+          <a class="update-item update-item-link" href="updates/cheque-bounce-30-days.html" data-category="Practical Guide" data-tags="NI Act, Cheque Bounce, Demand Notice, Limitation, Section 138">
             <span class="update-tag tag-ni">NI Act</span>
             <div class="update-title">Cheque bounce after dishonour: first 30 days, notice and records</div>
             <div class="update-excerpt">Detailed guide to return memo, demand notice, delivery proof, limitation risk, replies, settlement records, and internal links for Section 138 matters.</div>
             <div class="update-date">May 2026</div>
           </a>
-          <a class="update-item update-item-link" href="updates/msme-delayed-payment.html">
+          <a class="update-item update-item-link" href="updates/msme-delayed-payment.html" data-category="Practical Guide" data-tags="MSME, Delayed Payment, MSEFC, Udyam">
             <span class="update-tag tag-msme">MSME</span>
             <div class="update-title">MSME delayed payment: documents, 45-day issue and MSEFC route</div>
             <div class="update-excerpt">A business-owner focused article on Udyam records, invoice proof, purchase orders, ledger summaries, buyer objections and Facilitation Council readiness.</div>
             <div class="update-date">May 2026</div>
           </a>
-          <a class="update-item update-item-link" href="updates/bihar-rera-complaint.html">
+          <a class="update-item update-item-link" href="updates/bihar-rera-complaint.html" data-category="Practical Guide" data-tags="RERA, Builder Dispute, Delayed Possession, Refund">
             <span class="update-tag tag-rera">RERA</span>
             <div class="update-title">RERA builder dispute: possession delay, refund and forum planning</div>
             <div class="update-excerpt">A detailed article for builder-buyer disputes across Bihar, UP and Delhi NCR covering allotment papers, payment trail, project location and relief choice.</div>
             <div class="update-date">May 2026</div>
           </a>
-          <a class="update-item update-item-link" href="updates/cheque-bounce-notice-limitation.html">
+          <a class="update-item update-item-link" href="updates/cheque-bounce-notice-limitation.html" data-category="Procedure Note" data-tags="NI Act, Cheque Bounce, Notice, Limitation, Section 138">
             <span class="update-tag tag-ni">NI Act</span>
             <div class="update-title">Cheque bounce notice timeline: dates to preserve</div>
             <div class="update-excerpt">A document-first note on notice dates, delivery proof, replies, and complaint-readiness in Section 138 matters.</div>
             <div class="update-date">May 2026</div>
           </a>
-          <a class="update-item update-item-link" href="updates/msme-documents-checklist.html">
+          <a class="update-item update-item-link" href="updates/msme-documents-checklist.html" data-category="Checklist" data-tags="MSME, MSEFC, Documents, Delayed Payment, Udyam">
             <span class="update-tag tag-msme">MSME</span>
             <div class="update-title">MSME delayed payment documents checklist</div>
             <div class="update-excerpt">Udyam records, invoice-wise summaries, purchase orders, delivery proof, ledgers, and buyer communications.</div>
             <div class="update-date">May 2026</div>
           </a>
-          <a class="update-item update-item-link" href="updates/rera-refund-interest-delayed-possession.html">
+          <a class="update-item update-item-link" href="updates/rera-refund-interest-delayed-possession.html" data-category="Practical Guide" data-tags="RERA, Delayed Possession, Refund, Interest, Builder Dispute">
             <span class="update-tag tag-rera">RERA</span>
             <div class="update-title">Delayed possession: refund or interest?</div>
             <div class="update-excerpt">A practical note on relief selection, project documents, possession timelines, and forum location in RERA disputes.</div>
             <div class="update-date">May 2026</div>
           </a>
-          <a class="update-item update-item-link" href="updates/commercial-recovery-before-suit.html">
+          <a class="update-item update-item-link" href="updates/commercial-recovery-before-suit.html" data-category="Practical Guide" data-tags="Commercial Recovery, Contracts, Invoices, Limitation, Commercial Courts">
             <span class="update-tag tag-commercial">Commercial</span>
             <div class="update-title">Before filing a commercial recovery suit</div>
             <div class="update-excerpt">Contract clauses, invoice ledgers, limitation, pre-filing issues, and dispute records for business recovery matters.</div>
             <div class="update-date">May 2026</div>
           </a>
-          <a class="update-item update-item-link" href="updates/arbitration-clause-checklist.html">
+          <a class="update-item update-item-link" href="updates/arbitration-clause-checklist.html" data-category="Checklist" data-tags="Arbitration, Contract, Seat, Venue, Interim Relief">
             <span class="update-tag tag-arbitration">Arbitration</span>
             <div class="update-title">Arbitration clause checklist before a dispute</div>
             <div class="update-excerpt">Seat, venue, appointment, notice, interim relief, enforcement, and the papers to preserve before arbitration begins.</div>
             <div class="update-date">May 2026</div>
           </a>
-          <a class="update-item update-item-link" href="updates/msme-45-days-payment-rule.html">
+          <a class="update-item update-item-link" href="updates/msme-45-days-payment-rule.html" data-category="Legal Update" data-tags="MSME, Delayed Payment, 45-Day Rule, Income Tax, Udyam">
             <span class="update-tag tag-msme">MSME</span>
             <div class="update-title">MSME 45-Day Payment Rule</div>
             <div class="update-excerpt">Documents, due dates, buyer objections and MSEFC-readiness points for MSME delayed-payment disputes.</div>
             <div class="update-date">May 2026</div>
           </a>
-          <a class="update-item update-item-link" href="updates/section-138-cheque-bounce-limitation.html">
+          <a class="update-item update-item-link" href="updates/section-138-cheque-bounce-limitation.html" data-category="Procedure Note" data-tags="NI Act, Cheque Bounce, Limitation, Demand Notice, Section 138">
             <span class="update-tag tag-ni">NI Act</span>
             <div class="update-title">Section 138 Cheque Bounce Limitation</div>
             <div class="update-excerpt">Cheque date, return memo, demand notice, delivery proof and filing-date preparation for NI Act matters.</div>
             <div class="update-date">May 2026</div>
           </a>
-          <a class="update-item update-item-link" href="updates/rera-delayed-possession-bihar.html">
+          <a class="update-item update-item-link" href="updates/rera-delayed-possession-bihar.html" data-category="Practical Guide" data-tags="RERA, Bihar, Delayed Possession, Refund, Interest">
             <span class="update-tag tag-rera">RERA</span>
             <div class="update-title">RERA Delayed Possession in Bihar</div>
             <div class="update-excerpt">Project timeline, allotment papers, payment proof and refund/interest preparation for delayed possession disputes.</div>
@@ -229,19 +274,19 @@
             <div class="update-excerpt">Contracts, invoices, ledger records, notices, admissions, limitation and forum-preparation checklist for business recovery.</div>
             <div class="update-date">May 2026</div>
           </a>
-          <a class="update-item update-item-link" href="updates/arbitration-notice-before-claim.html">
+          <a class="update-item update-item-link" href="updates/arbitration-notice-before-claim.html" data-category="Procedure Note" data-tags="Arbitration, Notice, Limitation, Claim Preparation">
             <span class="update-tag tag-arbitration">Arbitration</span>
             <div class="update-title">Arbitration Notice Before Claim</div>
             <div class="update-excerpt">Arbitration clause, invocation notice, appointment procedure, limitation and claim-preparation checklist.</div>
             <div class="update-date">May 2026</div>
           </a>
-          <a class="update-item update-item-link" href="updates/property-injunction-suit-documents.html">
+          <a class="update-item update-item-link" href="updates/property-injunction-suit-documents.html" data-category="Checklist" data-tags="Property, Injunction, Civil Suit, Documents, Possession">
             <span class="update-tag tag-rera">Property</span>
             <div class="update-title">Property Injunction Suit Documents</div>
             <div class="update-excerpt">Title papers, possession proof, threat records, photographs and urgent relief preparation for property disputes.</div>
             <div class="update-date">May 2026</div>
           </a>
-          <a class="update-item update-item-link" href="updates/section-34-arbitration-award-challenge.html">
+          <a class="update-item update-item-link" href="updates/section-34-arbitration-award-challenge.html" data-category="Procedure Note" data-tags="Arbitration, Section 34, Award Challenge, Limitation">
             <span class="update-tag tag-arbitration">Arbitration</span>
             <div class="update-title">Section 34 Arbitration Award Challenge</div>
             <div class="update-excerpt">Award copy, receipt date, arbitration record, grounds, limitation and post-award document checklist.</div>
@@ -257,19 +302,19 @@
           <p>Source-based briefs of selected judgments and orders, with case metadata, practical takeaways and judgment download links where available.</p>
         </div>
         <div class="updates-grid insights-compact-grid">
-          <a class="update-item update-item-link" href="updates/non-reportable-judgments-online-publication-case-brief.html">
+          <a class="update-item update-item-link" href="updates/non-reportable-judgments-online-publication-case-brief.html" data-category="Case Brief" data-tags="High Court, Gujarat High Court, Online Publication, Judgment Reporting, Court Records, Article 226">
             <span class="update-tag tag-case-brief">Case Brief</span>
             <div class="update-title">Can non-reportable judgments be published online?</div>
             <div class="update-excerpt">Gujarat High Court case brief on non-reportable judgments, online publication and public court records.</div>
             <div class="update-date">May 2026</div>
           </a>
-          <a class="update-item update-item-link" href="updates/sarfaesi-auction-sale-challenge-documents.html">
+          <a class="update-item update-item-link" href="updates/sarfaesi-auction-sale-challenge-documents.html" data-category="Case Brief" data-tags="SARFAESI, DRT, Banking Recovery, Auction Sale, Supreme Court, Rule 9(4)">
             <span class="update-tag tag-case-brief">Case Brief</span>
             <div class="update-title">SARFAESI auction sale challenge and Rule 9(4)</div>
             <div class="update-excerpt">Supreme Court case brief on auction-sale finality, balance consideration, redemption and DRT/DRAT records.</div>
             <div class="update-date">May 2026</div>
           </a>
-          <a class="update-item update-item-link" href="updates/summary-judgment-commercial-suits-order-xiii-a.html">
+          <a class="update-item update-item-link" href="updates/summary-judgment-commercial-suits-order-xiii-a.html" data-category="Case Brief" data-tags="Commercial Courts, CPC, Order XIII-A, Summary Judgment, Supreme Court, Commercial Recovery">
             <span class="update-tag tag-case-brief">Case Brief</span>
             <div class="update-title">Summary judgment in commercial suits under Order XIII-A CPC</div>
             <div class="update-excerpt">Supreme Court case brief on pleadings, documents, real prospect test and mini-trial caution.</div>
@@ -285,19 +330,19 @@
           <p>Practical explainers and checklists focused on dates, notices, pleadings, invoices, contracts and first-review readiness.</p>
         </div>
         <div class="updates-grid insights-compact-grid">
-          <a class="update-item update-item-link" href="updates/cheque-bounce-defence-after-summons.html">
+          <a class="update-item update-item-link" href="updates/cheque-bounce-defence-after-summons.html" data-category="Practical Guide" data-tags="NI Act, Cheque Bounce, Summons, Defence Preparation, Section 138">
             <span class="update-tag tag-guide">Practical Guide</span>
             <div class="update-title">Cheque bounce case after summons: defence preparation</div>
             <div class="update-excerpt">Complaint papers, summons, notice proof, liability review, settlement and court-stage preparation.</div>
             <div class="update-date">May 2026</div>
           </a>
-          <a class="update-item update-item-link" href="updates/msme-documents-checklist.html">
+          <a class="update-item update-item-link" href="updates/msme-documents-checklist.html" data-category="Checklist" data-tags="MSME, MSEFC, Documents, Delayed Payment, Udyam">
             <span class="update-tag tag-checklist">Checklist</span>
             <div class="update-title">MSME delayed payment documents checklist</div>
             <div class="update-excerpt">Udyam records, invoice-wise summaries, purchase orders, delivery proof, ledgers and communications.</div>
             <div class="update-date">May 2026</div>
           </a>
-          <a class="update-item update-item-link" href="updates/commercial-recovery-before-suit.html">
+          <a class="update-item update-item-link" href="updates/commercial-recovery-before-suit.html" data-category="Practical Guide" data-tags="Commercial Recovery, Contracts, Invoices, Limitation, Commercial Courts">
             <span class="update-tag tag-guide">Practical Guide</span>
             <div class="update-title">Before filing a commercial recovery suit</div>
             <div class="update-excerpt">Contract clauses, invoice ledgers, limitation, pre-filing issues and dispute records.</div>
@@ -313,19 +358,19 @@
           <p>Practice-area notes covering NI Act, MSME, RERA, arbitration, commercial recovery and related procedural issues.</p>
         </div>
         <div class="updates-grid insights-compact-grid">
-          <a class="update-item update-item-link" href="updates/msme-facilitation-council-process.html">
+          <a class="update-item update-item-link" href="updates/msme-facilitation-council-process.html" data-category="Procedure Note" data-tags="MSME, MSEFC, Delayed Payment, Conciliation, Arbitration">
             <span class="update-tag tag-procedure">Procedure Note</span>
             <div class="update-title">MSME Facilitation Council process for delayed payments</div>
             <div class="update-excerpt">Udyam records, invoices, 45-day issue, conciliation, arbitration, interest and enforcement preparation.</div>
             <div class="update-date">May 2026</div>
           </a>
-          <a class="update-item update-item-link" href="updates/rera-refund-interest-delayed-possession.html">
+          <a class="update-item update-item-link" href="updates/rera-refund-interest-delayed-possession.html" data-category="Practical Guide" data-tags="RERA, Delayed Possession, Refund, Interest, Builder Dispute">
             <span class="update-tag tag-rera">RERA</span>
             <div class="update-title">Delayed possession: refund or interest?</div>
             <div class="update-excerpt">Relief selection, project documents, possession timelines and forum location in RERA disputes.</div>
             <div class="update-date">May 2026</div>
           </a>
-          <a class="update-item update-item-link" href="updates/arbitration-clause-checklist.html">
+          <a class="update-item update-item-link" href="updates/arbitration-clause-checklist.html" data-category="Checklist" data-tags="Arbitration, Contract, Seat, Venue, Interim Relief">
             <span class="update-tag tag-arbitration">Arbitration</span>
             <div class="update-title">Arbitration clause checklist before a dispute</div>
             <div class="update-excerpt">Seat, venue, appointment, notice, interim relief, enforcement and papers to preserve.</div>
