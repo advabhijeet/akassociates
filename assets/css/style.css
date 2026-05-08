@@ -1498,3 +1498,37 @@ body {
 .s .content-panel .hero-actions {
   margin-top: 1.35rem;
 }
+
+/* Mobile drawer spacing stability fix */
+@media (max-width: 768px) {
+  body.menu-open .nav .nav-links,
+  body.menu-open .nav.is-scrolled .nav-links {
+    align-content: flex-start;
+    justify-content: flex-start;
+    gap: 0 !important;
+  }
+
+  body.menu-open .nav .nav-links > li {
+    flex: 0 0 auto;
+  }
+
+  body.menu-open .nav .nav-links > li:not(.drawer-social):not(.drawer-contact) {
+    margin: 0;
+  }
+
+  body.menu-open .nav .nav-links a {
+    display: flex;
+    min-height: 52px;
+    align-items: center;
+    padding-top: 1.05rem;
+    padding-bottom: 1.05rem;
+  }
+
+  body.menu-open .nav .drawer-social {
+    margin-bottom: 1.15rem;
+  }
+
+  body.menu-open .nav .drawer-contact {
+    margin-top: 1.15rem;
+  }
+}
