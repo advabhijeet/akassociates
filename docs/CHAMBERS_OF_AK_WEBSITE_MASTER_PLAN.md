@@ -186,7 +186,7 @@ trademark / IP advisory
 
 The Insights section should evolve into a legal-publication style section.
 
-Do not treat all content as one undifferentiated ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“Legal UpdatesÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â list.
+Do not treat all content as one undifferentiated ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œLegal UpdatesÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â list.
 
 Recommended editorial groups:
 
@@ -818,4 +818,25 @@ If tag is active and the user selects/types a category outside that tag, automat
 If category and tag are compatible, keep both active.
 Search should refine the active category/tag but should not prevent direct switching.
 Clear Filter should reset the page only when the user wants to return to the default editorial view.
+```
+
+## Homepage Latest Insights Rule
+
+The homepage Latest Legal Insights strip should not be manually stale.
+
+Rule:
+
+```text
+The homepage should keep a static fallback of the latest three insight cards for SEO/no-JS.
+The homepage JavaScript should then load `feed.xml` and replace the fallback cards with the newest feed items.
+`feed.xml` remains the source of truth for homepage latest insights.
+Whenever a new article is published, update `feed.xml`; the homepage will then pull the newest items automatically.
+```
+
+Validation:
+
+```text
+Check homepage latest strip after every article publication.
+Check that cards open correctly.
+Check that homepage still shows fallback cards if JavaScript/feed loading fails.
 ```

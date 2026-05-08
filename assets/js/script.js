@@ -680,11 +680,11 @@ if (revealItems.length) {
     setDatalist(categoryList, availableCategories);
 
     tagInput.placeholder = category
-      ? `Tags available under ${categoryInput.value} â€” or type another tag to switch`
+      ? `Tags available under ${categoryInput.value} Ã¢â‚¬â€ or type another tag to switch`
       : 'Search or select tag';
 
     categoryInput.placeholder = tag
-      ? `Categories available under ${tagInput.value} â€” or type another category to switch`
+      ? `Categories available under ${tagInput.value} Ã¢â‚¬â€ or type another category to switch`
       : 'Search or select category';
   };
 
@@ -831,4 +831,100 @@ if (revealItems.length) {
   setDatalist(categoryList, allCategories);
   setDatalist(tagList, allTags);
   applyFilters();
+})();
+
+// Homepage latest insights feed loader
+(function () {
+  const grid = document.querySelector('[data-home-insights-feed]');
+  if (!grid || !window.fetch || !window.DOMParser) return;
+
+  const feedUrl = grid.getAttribute('data-home-insights-feed') || 'feed.xml';
+  const limit = Number.parseInt(grid.getAttribute('data-home-insights-limit') || '3', 10);
+
+  const normalizeRelativeUrl = (url) => {
+    try {
+      const parsed = new URL(url, window.location.href);
+      return parsed.origin === window.location.origin
+        ? parsed.pathname.replace(/^\//, '')
+        : parsed.href;
+    } catch (error) {
+      return url;
+    }
+  };
+
+  const getCategoryClass = (category) => {
+    const normalized = (category || '').toLowerCase();
+    if (normalized.includes('case')) return 'tag-case-brief';
+    if (normalized.includes('msme')) return 'tag-msme';
+    if (normalized.includes('rera')) return 'tag-rera';
+    if (normalized.includes('ni') || normalized.includes('cheque')) return 'tag-ni';
+    if (normalized.includes('arbitration')) return 'tag-arbitration';
+    if (normalized.includes('commercial')) return 'tag-commercial';
+    if (normalized.includes('checklist')) return 'tag-checklist';
+    if (normalized.includes('procedure')) return 'tag-procedure';
+    return 'tag-legal-update';
+  };
+
+  const getMonthYear = (dateText) => {
+    const date = new Date(dateText);
+    if (Number.isNaN(date.getTime())) return 'Latest';
+    return date.toLocaleDateString('en-IN', { month: 'short', year: 'numeric' });
+  };
+
+  const textFrom = (node, selector) => {
+    const found = node.querySelector(selector);
+    return found ? found.textContent.trim() : '';
+  };
+
+  const buildCard = (item) => {
+    const title = textFrom(item, 'title');
+    const link = normalizeRelativeUrl(textFrom(item, 'link'));
+    const description = textFrom(item, 'description');
+    const category = textFrom(item, 'category') || 'Legal Update';
+    const pubDate = textFrom(item, 'pubDate');
+
+    const card = document.createElement('a');
+    card.className = 'update-item update-item-link';
+    card.href = link;
+
+    const badge = document.createElement('span');
+    badge.className = `update-tag ${getCategoryClass(category)}`;
+    badge.textContent = category;
+
+    const titleEl = document.createElement('div');
+    titleEl.className = 'update-title';
+    titleEl.textContent = title;
+
+    const excerpt = document.createElement('div');
+    excerpt.className = 'update-excerpt';
+    excerpt.textContent = description;
+
+    const date = document.createElement('div');
+    date.className = 'update-date';
+    date.textContent = getMonthYear(pubDate);
+
+    card.appendChild(badge);
+    card.appendChild(titleEl);
+    card.appendChild(excerpt);
+    card.appendChild(date);
+
+    return card;
+  };
+
+  fetch(feedUrl, { cache: 'no-store' })
+    .then((response) => {
+      if (!response.ok) throw new Error('Feed request failed');
+      return response.text();
+    })
+    .then((xmlText) => {
+      const xml = new DOMParser().parseFromString(xmlText, 'application/xml');
+      const items = Array.from(xml.querySelectorAll('item')).slice(0, Math.max(1, limit || 3));
+      if (!items.length) return;
+
+      grid.innerHTML = '';
+      items.forEach((item) => grid.appendChild(buildCard(item)));
+    })
+    .catch(() => {
+      // Keep static fallback cards if feed cannot be loaded.
+    });
 })();
