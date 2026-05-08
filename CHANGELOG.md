@@ -1,5 +1,34 @@
 # Changelog
 
+## 2026-05-09 02:01 IST - Trust and entity improvement pass
+
+Files changed:
+
+- `courts.html`
+- `process.html`
+- `faq.html`
+- `sitemap.xml`
+- `CHANGELOG.md`
+
+Summary:
+
+- Strengthened the Courts page with working-region context, forum boundaries and a forum-route checklist.
+- Strengthened the Process page with conflict/scope checks, confidentiality caution, no-outcome assurance, document indexing and limitation screening.
+- Strengthened the FAQ page with trust-oriented answers on engagement, confidentiality, fees/scope, forums, urgency and location feasibility.
+- Updated sitemap `lastmod` dates for the changed trust/entity pages.
+- Preserved informational, non-solicitation language and avoided comparative/promotional claims.
+
+Validation / notes:
+
+- `node --check assets\js\script.js` passed.
+- `git diff --check` passed.
+- `sitemap.xml` and `feed.xml` parsed successfully.
+- JSON-LD parsing and internal href/src validation completed during the patch run.
+- Manual browser check remains recommended after GitHub Pages redeploy.
+
+Commits:
+
+- Commit hash to be recorded after push.
 ## 2026-05-09 01:34 IST - Sitewide breadcrumb structured data pass
 
 Files changed:
