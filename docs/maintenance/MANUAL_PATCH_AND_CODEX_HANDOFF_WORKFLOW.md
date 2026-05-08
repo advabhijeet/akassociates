@@ -108,6 +108,40 @@ The user should be able to copy the contents of `files/` into the local reposito
 9. rollback command if needed.
 
 
+
+## GitHub Account Selection For Local Patch Pushes
+
+This repository should use the GitHub account/user `advabhijeet` for local commits and pushes unless the user gives a different instruction.
+
+Patch scripts and local validation guides may include this optional pre-push setup block:
+
+```powershell
+git config user.name "advabhijeet"
+git config --global credential.https://github.com.useHttpPath true
+
+if (Get-Command gh -ErrorAction SilentlyContinue) {
+  gh auth switch --hostname github.com --user advabhijeet
+  gh auth status --active --hostname github.com
+} else {
+  Write-Host "GitHub CLI not found. If Git prompts during push, choose the advabhijeet account."
+}
+
+git remote -v
+```
+
+Purpose:
+
+- `git config user.name "advabhijeet"` sets the commit identity for this repository.
+- `credential.https://github.com.useHttpPath true` helps Git Credential Manager keep HTTPS credentials scoped by repository path instead of only by host.
+- `gh auth switch --hostname github.com --user advabhijeet` selects the active GitHub CLI account where multiple GitHub accounts are authenticated.
+- If `gh` is unavailable, the user should choose `advabhijeet` if a credential prompt appears during `git push`.
+
+Notes:
+
+- This account-selection block does not replace normal validation.
+- It should run before `git push origin main` in local manual patch scripts when the repo may have multiple GitHub accounts available.
+- It should not expose or request tokens in chat or documentation.
+
 ## Universal PowerShell 7 Patch Command Pattern
 
 Future downloadable patch packages should include a short one-command apply instruction that assumes the ZIP is in the user's default Downloads folder and extracts it through PowerShell 7 before running the package apply script.

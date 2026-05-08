@@ -249,6 +249,29 @@ git push origin main
 GitHub Pages may take a short time to redeploy after a push.
 
 
+
+### GitHub Account Selection For Local Pushes
+
+For this repository, local patch scripts should prefer the GitHub account `advabhijeet`.
+
+Recommended setup before local patch pushes:
+
+```powershell
+git config user.name "advabhijeet"
+git config --global credential.https://github.com.useHttpPath true
+
+if (Get-Command gh -ErrorAction SilentlyContinue) {
+  gh auth switch --hostname github.com --user advabhijeet
+  gh auth status --active --hostname github.com
+} else {
+  Write-Host "GitHub CLI not found. If Git prompts during push, choose the advabhijeet account."
+}
+
+git remote -v
+```
+
+This is intended for local Git/GitHub authentication where more than one GitHub account is connected. It does not require ChatGPT GitHub App write access.
+
 ### Universal PowerShell 7 Patch Package Command
 
 For downloadable manual patch packages, use a short PowerShell 7 command that extracts the ZIP from the default Downloads folder into the repository root, then runs the package apply script.

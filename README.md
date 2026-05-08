@@ -323,6 +323,22 @@ Get-ChildItem -Recurse -Filter *.html | Where-Object { $_.FullName -notlike '*\.
 "JSON-LD blocks parsed: $count"
 ```
 
+
+### Local GitHub Account Selection
+
+When applying manual patch packages from a local machine with multiple GitHub accounts connected, use the `advabhijeet` account for this repository.
+
+Recommended local setup:
+
+```powershell
+git config user.name "advabhijeet"
+git config --global credential.https://github.com.useHttpPath true
+gh auth switch --hostname github.com --user advabhijeet
+gh auth status --active --hostname github.com
+```
+
+If GitHub CLI is not available, choose the `advabhijeet` account if Git Credential Manager prompts during `git push`.
+
 ## Deployment
 
 Deployment is handled by GitHub Pages from the `main` branch.

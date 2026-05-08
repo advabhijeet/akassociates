@@ -1,5 +1,30 @@
 # Changelog
 
+## 2026-05-08 23:50 IST - Local GitHub account selection workflow
+
+Files changed:
+
+- `README.md`
+- `docs/maintenance/MANUAL_PATCH_AND_CODEX_HANDOFF_WORKFLOW.md`
+- `docs/wiki/WORKFLOW.md`
+- `CHANGELOG.md`
+
+Summary:
+
+- Added local GitHub account-selection guidance for manual patch workflows.
+- Recorded that this repository should prefer the `advabhijeet` GitHub account for local commits and pushes unless instructed otherwise.
+- Added a reusable PowerShell 7 setup block using `git config user.name`, `credential.https://github.com.useHttpPath true` and `gh auth switch --hostname github.com --user advabhijeet`.
+- Clarified that this is local Git/GitHub authentication and does not require ChatGPT GitHub App write access.
+
+Validation / notes:
+
+- `git diff --check` passed.
+- Documentation-only workflow update.
+- No public website files were modified.
+
+Commits:
+
+- Commit hash to be recorded after push.
 ## 2026-05-08 23:41 IST - Manual patch diff output policy
 
 Files changed:
