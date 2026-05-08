@@ -1532,3 +1532,10 @@ body {
     margin-top: 1.15rem;
   }
 }
+
+/* Case Brief tag style */
+.update-tag.tag-case-brief {
+  border-color: rgba(212, 175, 55, 0.42);
+  color: #111111;
+  background: rgba(212, 175, 55, 0.12);
+}
