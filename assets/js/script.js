@@ -1100,7 +1100,7 @@ window.ChambersInsightCards = (function () {
   const article = document.querySelector('.article-body');
   if (!article || !window.ChambersInsightCards || !window.chambersInsightsRegistry) return;
 
-  const path = window.location.pathname.replace(/^//, '');
+  const path = window.location.pathname.replace(/^\//, '');
   const items = window.chambersInsightsRegistry;
   const currentIndex = items.findIndex((item) => item.href === path);
   if (currentIndex === -1) return;
