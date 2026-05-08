@@ -1375,3 +1375,57 @@ window.ChambersInsightCards = (function () {
 
   article.appendChild(footer);
 })();
+
+// Case enquiry copy-to-clipboard templates
+(function () {
+  const copyButtons = document.querySelectorAll('[data-copy-target]');
+
+  if (!copyButtons.length) {
+    return;
+  }
+
+  const fallbackCopy = (text) => {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'fixed';
+    textarea.style.top = '-999px';
+    textarea.style.left = '-999px';
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+  };
+
+  const copyText = async (text) => {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+
+    fallbackCopy(text);
+  };
+
+  copyButtons.forEach((button) => {
+    button.addEventListener('click', async () => {
+      const target = document.getElementById(button.dataset.copyTarget || '');
+      if (!target) return;
+
+      const originalText = button.textContent;
+      const text = target.textContent.trim();
+
+      try {
+        await copyText(text);
+        button.textContent = 'Copied';
+        button.classList.add('is-copied');
+      } catch (error) {
+        button.textContent = 'Copy failed';
+      }
+
+      window.setTimeout(() => {
+        button.textContent = originalText;
+        button.classList.remove('is-copied');
+      }, 1600);
+    });
+  });
+})();

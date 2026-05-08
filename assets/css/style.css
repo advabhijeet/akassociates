@@ -2464,3 +2464,56 @@ body.insights-list-active .insights-category-section {
     width: 100%;
   }
 }
+
+/* Case enquiry copy templates */
+.enquiry-template-grid {
+  align-items: stretch;
+}
+
+.copy-template-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.copy-template-text {
+  min-height: 220px;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  background: rgba(255, 255, 255, 0.72);
+  color: rgba(17, 17, 17, 0.76);
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 1.65;
+  overflow-x: auto;
+  padding: 1rem;
+  white-space: pre-wrap;
+}
+
+.copy-template-button {
+  align-self: flex-start;
+  min-height: 40px;
+  border: 1px solid var(--gold-line);
+  border-radius: 2px;
+  background: #ffffff;
+  color: var(--gold);
+  cursor: pointer;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  padding: 0.7rem 1rem;
+  text-transform: uppercase;
+}
+
+.copy-template-button:hover,
+.copy-template-button:focus-visible,
+.copy-template-button.is-copied {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: #111111;
+}
+
+@media (max-width: 640px) {
+  .copy-template-button {
+    width: 100%;
+    justify-content: center;
+  }
+}

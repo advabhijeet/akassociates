@@ -1,5 +1,33 @@
 # Changelog
 
+## 2026-05-09 00:59 IST - Case enquiry copy-template improvement
+
+Files changed:
+
+- `case-enquiry.html`
+- `assets/js/script.js`
+- `assets/css/style.css`
+- `CHANGELOG.md`
+
+Summary:
+
+- Added copy-ready matter-specific enquiry templates for cheque bounce, MSME, RERA, arbitration, commercial recovery and property/civil suit matters.
+- Added copy-to-clipboard buttons with fallback behaviour.
+- Added lightweight styling for enquiry template cards.
+- Preserved confidentiality warning and non-solicitation language.
+- Bumped `case-enquiry.html` CSS/JS cache strings.
+
+Validation / notes:
+
+- `node --check assets\js\script.js` passed.
+- `git diff --check` passed.
+- `sitemap.xml` and `feed.xml` parsed successfully.
+- JSON-LD parsing and internal href/src validation completed during the patch run.
+- Manual browser check remains recommended after GitHub Pages redeploy.
+
+Commits:
+
+- Commit hash to be recorded after push.
 ## 2026-05-09 00:46 IST - Practice hub strengthening pass
 
 Files changed:
