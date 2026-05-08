@@ -542,21 +542,33 @@ if (revealItems.length) {
   }
 })();
 
-// Advanced Insights category tag search module
+// Advanced Insights dependent category tag search module v3
 (function () {
   const panel = document.querySelector('.insights-filter-panel');
   const categoryInput = document.querySelector('#insight-category-filter');
   const tagInput = document.querySelector('#insight-tag-filter');
   const searchInput = document.querySelector('#insight-search-filter');
+  const categoryList = document.querySelector('#insight-category-options');
+  const tagList = document.querySelector('#insight-tag-options');
   const clearButton = document.querySelector('.insights-clear-filter');
   const status = document.querySelector('.insights-filter-status');
   const resultsSection = document.querySelector('.insights-results-section');
   const resultsList = document.querySelector('.insights-results-list');
   const cards = Array.from(document.querySelectorAll('.update-item.update-item-link'));
 
-  if (!panel || !categoryInput || !tagInput || !searchInput || !clearButton || !resultsSection || !resultsList || !cards.length) return;
+  if (!panel || !categoryInput || !tagInput || !searchInput || !categoryList || !tagList || !clearButton || !resultsSection || !resultsList || !cards.length) {
+    return;
+  }
 
   const normalize = (value) => (value || '').toLowerCase().replace(/\s+/g, ' ').trim();
+
+  const splitTags = (value) => (value || '')
+    .split(',')
+    .map((tag) => tag.trim())
+    .filter(Boolean);
+
+  const uniqueSorted = (values) => Array.from(new Set(values.filter(Boolean)))
+    .sort((a, b) => a.localeCompare(b, 'en-IN', { sensitivity: 'base' }));
 
   const uniqueByHref = (items) => {
     const seen = new Set();
@@ -573,6 +585,7 @@ if (revealItems.length) {
     const title = card.querySelector('.update-title');
     const excerpt = card.querySelector('.update-excerpt');
     const date = card.querySelector('.update-date');
+
     return {
       href: card.getAttribute('href'),
       category: (card.dataset.category || (tagBadge ? tagBadge.textContent : '')).trim(),
@@ -585,6 +598,53 @@ if (revealItems.length) {
   };
 
   const allItems = uniqueByHref(cards).map(getCardData);
+
+  const setDatalist = (list, values) => {
+    list.innerHTML = '';
+    values.forEach((value) => {
+      const option = document.createElement('option');
+      option.value = value;
+      list.appendChild(option);
+    });
+  };
+
+  const itemMatches = (item, category, tag, search, options = {}) => {
+    const categoryText = normalize(item.category);
+    const tagsText = normalize(item.tags);
+    const searchable = normalize(`${item.title} ${item.excerpt} ${item.category} ${item.tags}`);
+
+    const categoryMatch = !category || categoryText.includes(category);
+    const tagMatch = !tag || tagsText.includes(tag);
+    const searchMatch = !search || searchable.includes(search);
+
+    if (options.ignoreCategory) return tagMatch && searchMatch;
+    if (options.ignoreTag) return categoryMatch && searchMatch;
+
+    return categoryMatch && tagMatch && searchMatch;
+  };
+
+  const updateDependentOptions = () => {
+    const category = normalize(categoryInput.value);
+    const tag = normalize(tagInput.value);
+    const search = normalize(searchInput.value);
+
+    const tagScope = allItems.filter((item) => itemMatches(item, category, '', search, { ignoreTag: true }));
+    const categoryScope = allItems.filter((item) => itemMatches(item, '', tag, search, { ignoreCategory: true }));
+
+    const availableTags = uniqueSorted(tagScope.flatMap((item) => splitTags(item.tags)));
+    const availableCategories = uniqueSorted(categoryScope.map((item) => item.category));
+
+    setDatalist(tagList, availableTags);
+    setDatalist(categoryList, availableCategories);
+
+    tagInput.placeholder = category
+      ? `Tags available under ${categoryInput.value}`
+      : 'Search or select tag';
+
+    categoryInput.placeholder = tag
+      ? `Categories available under ${tagInput.value}`
+      : 'Search or select category';
+  };
 
   const renderResults = (items) => {
     resultsList.innerHTML = '';
@@ -642,14 +702,9 @@ if (revealItems.length) {
     const search = normalize(searchInput.value);
     const isActive = Boolean(category || tag || search);
 
-    const matches = allItems.filter((item) => {
-      const categoryText = normalize(item.category);
-      const tagsText = normalize(item.tags);
-      const searchable = normalize(`${item.title} ${item.excerpt} ${item.category} ${item.tags}`);
-      return (!category || categoryText.includes(category)) &&
-             (!tag || tagsText.includes(tag)) &&
-             (!search || searchable.includes(search));
-    });
+    updateDependentOptions();
+
+    const matches = allItems.filter((item) => itemMatches(item, category, tag, search));
 
     document.body.classList.toggle('insights-filter-active', isActive);
     resultsSection.hidden = !isActive;
@@ -660,7 +715,7 @@ if (revealItems.length) {
       if (category) parts.push(`category: ${categoryInput.value}`);
       if (tag) parts.push(`tag: ${tagInput.value}`);
       if (search) parts.push(`search: ${searchInput.value}`);
-      status.textContent = `Showing ${matches.length} matching insight${matches.length === 1 ? '' : 's'} for ${parts.join(', ')}.`;
+      status.textContent = `Showing ${matches.length} matching insight${matches.length === 1 ? '' : 's'} for ${parts.join(', ')}. Scroll the results panel to see more.`;
     } else {
       resultsList.innerHTML = '';
       status.textContent = 'Showing default editorial view.';
@@ -685,9 +740,11 @@ if (revealItems.length) {
   cards.forEach((card) => {
     const badge = card.querySelector('.update-tag');
     if (!badge) return;
+
     badge.setAttribute('role', 'button');
     badge.setAttribute('tabindex', '0');
     badge.setAttribute('title', `Filter by ${badge.textContent.trim()}`);
+
     const trigger = (event) => {
       event.preventDefault();
       event.stopPropagation();
@@ -697,11 +754,13 @@ if (revealItems.length) {
       applyFilters();
       panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
+
     badge.addEventListener('click', trigger);
     badge.addEventListener('keydown', (event) => {
       if (event.key === 'Enter' || event.key === ' ') trigger(event);
     });
   });
 
+  updateDependentOptions();
   applyFilters();
 })();

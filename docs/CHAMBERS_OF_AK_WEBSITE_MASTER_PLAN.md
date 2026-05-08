@@ -186,7 +186,7 @@ trademark / IP advisory
 
 The Insights section should evolve into a legal-publication style section.
 
-Do not treat all content as one undifferentiated Ã¢â‚¬Å“Legal UpdatesÃ¢â‚¬Â list.
+Do not treat all content as one undifferentiated ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œLegal UpdatesÃƒÂ¢Ã¢â€šÂ¬Ã‚Â list.
 
 Recommended editorial groups:
 
@@ -788,4 +788,20 @@ Latest Articles should show only one row in default view.
 When filter/search is active, hide Latest Articles and category blocks.
 Filtered results should appear as a vertical latest-first list.
 Clear Filter should restore the default editorial view.
+```
+
+## Advanced Insights Dependent Filtering Rule
+
+The Insights sorting module should support dependent filtering.
+
+Rules:
+
+```text
+If a user selects a category, the tag input should suggest only tags available under that category.
+If a user selects a tag, the category input should suggest only categories that contain that tag.
+Users must be able to change category, tag or search directly without pressing Clear Filter first.
+Clear Filter should only be required to reset the page to the default editorial view.
+Filtered results should be shown in a vertical list with internal scrolling so long result sets do not make the page look awkward.
+The visible result panel should show about five items at a time on desktop, with internal scrolling for additional results.
+Mobile view must remain stacked, readable and free from horizontal overflow.
 ```

@@ -2066,3 +2066,94 @@ body.insights-filter-active .insights-category-section {
     display: none;
   }
 }
+
+/* Advanced Insights sorting v3 refinements */
+.insights-control-grid {
+  align-items: start;
+}
+
+.insights-filter-input {
+  max-width: 100%;
+}
+
+.insights-results-section {
+  scroll-margin-top: calc(var(--nav-space) + 12px);
+}
+
+.insights-results-list {
+  max-height: 620px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+
+.insights-results-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.insights-results-list::-webkit-scrollbar-track {
+  background: rgba(17, 17, 17, 0.05);
+}
+
+.insights-results-list::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.55);
+  border-radius: 999px;
+}
+
+.insights-filter-hint {
+  margin-top: 0.65rem;
+  color: rgba(17, 17, 17, 0.58);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.insights-result-item {
+  min-height: 112px;
+}
+
+body.insights-filter-active .insights-results-section {
+  display: block;
+}
+
+@media (max-width: 980px) {
+  .insights-results-list {
+    max-height: 560px;
+  }
+}
+
+@media (max-width: 640px) {
+  .insights-control-grid {
+    gap: 0.9rem;
+  }
+
+  .insights-results-list {
+    max-height: 480px;
+    padding-right: 0.25rem;
+  }
+
+  .insights-result-item {
+    padding: 1rem;
+  }
+
+  .insights-result-title {
+    font-size: 18px;
+  }
+
+  .insights-result-meta {
+    display: block;
+  }
+
+  .insights-result-tags {
+    display: block;
+    margin-top: 0.35rem;
+  }
+}
+
+@media print {
+  .insights-results-list {
+    max-height: none !important;
+    overflow: visible !important;
+    padding-right: 0 !important;
+  }
+}
