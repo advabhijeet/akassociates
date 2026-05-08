@@ -1,5 +1,30 @@
 # Changelog
 
+## 2026-05-09 00:07 IST - Non-fast-forward patch recovery workflow
+
+Files changed:
+
+- `docs/maintenance/MANUAL_PATCH_AND_CODEX_HANDOFF_WORKFLOW.md`
+- `docs/wiki/WORKFLOW.md`
+- `CHANGELOG.md`
+
+Summary:
+
+- Documented the non-fast-forward issue that can occur when a local patch commit is amended after `origin/main` has advanced.
+- Added the safe recovery pattern: `git reset --soft origin/main`, recommit, then push.
+- Clarified that reusable patch scripts should set the `advabhijeet` noreply identity before creating commits.
+- Clarified that scripts should avoid `git commit --amend` unless they first confirm the target commit has not been pushed and the local branch is not behind `origin/main`.
+- Reconfirmed that force-push should not be used by default.
+
+Validation / notes:
+
+- `git diff --check` passed.
+- Documentation-only workflow update.
+- No public website files were modified.
+
+Commits:
+
+- Commit hash to be recorded after push.
 ## 2026-05-08 23:50 IST - Local GitHub account selection workflow
 
 Files changed:

@@ -250,6 +250,54 @@ Remove-Item .\sitemap.xml.bak, .\legal-updates.html.bak -ErrorAction SilentlyCon
 ```
 
 
+
+## Non-Fast-Forward And Amended Commit Recovery
+
+If a local patch commit is amended after the remote branch has moved, `git push origin main` may fail with a non-fast-forward rejection.
+
+Typical status:
+
+```powershell
+git fetch origin
+git status -sb
+git log --oneline --decorate --graph --left-right --cherry-pick origin/main...HEAD
+```
+
+Example state:
+
+```text
+## main...origin/main [ahead 1, behind 1]
+> <local-amended-commit>
+< <remote-commit>
+```
+
+Safe recovery rule:
+
+- Do not force-push.
+- Prefer creating a new forward commit on top of `origin/main`.
+
+Recovery command:
+
+```powershell
+git fetch origin
+git reset --soft origin/main
+git status -sb
+git diff --cached --stat
+git commit -m "<clear forward-fix message>"
+git push origin main
+```
+
+Script-design rule:
+
+- Set the correct Git identity before creating commits:
+  - `git config user.name "advabhijeet"`
+  - `git config user.email "281193757+advabhijeet@users.noreply.github.com"`
+- Avoid `git commit --amend` in reusable patch scripts unless the script first confirms that the target commit has not been pushed and the branch is not behind `origin/main`.
+- Before pushing, scripts should run:
+  - `git fetch origin`
+  - `git status -sb`
+- If the branch is both ahead and behind, stop and print the safe recovery command instead of force-pushing.
+
 ## Terminal Diff Output Policy
 
 Patch scripts should avoid printing large full diffs to the terminal by default.

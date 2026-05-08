@@ -320,6 +320,26 @@ git push origin main
 Each meaningful change should have its own commit so rollback stays simple.
 
 
+
+### Non-Fast-Forward Recovery For Local Patch Commits
+
+If a local patch commit is amended after `origin/main` has advanced, the push may be rejected as non-fast-forward.
+
+Do not force-push by default.
+
+Safe recovery:
+
+```powershell
+git fetch origin
+git reset --soft origin/main
+git status -sb
+git diff --cached --stat
+git commit -m "<clear forward-fix message>"
+git push origin main
+```
+
+Reusable patch scripts should set the Git noreply identity before committing and should avoid `git commit --amend` unless the branch is not behind `origin/main`.
+
 ### Terminal Diff Output Policy
 
 Manual patch scripts should keep terminal output readable. Use summary diff output by default:
