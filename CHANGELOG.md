@@ -1,5 +1,32 @@
 # Changelog
 
+## 2026-05-09 01:34 IST - Sitewide breadcrumb structured data pass
+
+Files changed:
+
+- Public HTML pages missing `BreadcrumbList` structured data
+- `sitemap.xml`
+- `CHANGELOG.md`
+
+Summary:
+
+- Added sitewide breadcrumb JSON-LD to meaningful public HTML pages that were missing it.
+- Skipped non-content verification files and avoided duplicating existing breadcrumbs.
+- Used hierarchy: Home, Practice, Services, Insights and article/service/page titles.
+- Updated sitemap `lastmod` dates for changed public HTML pages already listed in the sitemap.
+- Changed HTML files count: 54.
+
+Validation / notes:
+
+- `node --check assets\js\script.js` passed.
+- `git diff --check` passed.
+- `sitemap.xml` and `feed.xml` parsed successfully.
+- JSON-LD parsing and internal href/src validation completed during the patch run.
+- Manual Google Search Console inspection remains a follow-up after GitHub Pages redeploy.
+
+Commits:
+
+- Commit hash to be recorded after push.
 ## 2026-05-09 01:14 IST - Technical SEO and sitemap freshness pass
 
 Files changed:
