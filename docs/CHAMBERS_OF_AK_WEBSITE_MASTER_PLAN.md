@@ -910,3 +910,16 @@ Latest-list mode should show all articles latest-first in a paginated result lis
 Each page should show no more than 10 articles.
 Category/tag/search filters should use the same paginated result list structure.
 ```
+
+
+## Homepage Structure Rule
+
+Rules:
+
+```text
+Homepage must have exactly one Latest Legal Insights section.
+Homepage Latest Legal Insights must appear before Case Enquiry.
+Case Enquiry must appear near the bottom, after Latest Legal Insights.
+Homepage cards must use the standard tagged card style.
+When homepage structure changes, bump homepage CSS/JS cache query strings.
+```
