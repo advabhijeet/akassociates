@@ -1,5 +1,28 @@
 # Changelog
 
+## 2026-05-09 02:32 IST - Footer heading visual refinement
+
+Files changed:
+
+- `assets/css/style.css`
+- `CHANGELOG.md`
+
+Summary:
+
+- Refined grouped footer headings so `Main`, `Resources` and `Legal` read as distinct premium footer section labels.
+- Added serif/gold styling with a subtle separator line under each footer group heading.
+- Kept footer structure, links, sitemap and HTML unchanged.
+
+Validation / notes:
+
+- `node --check assets\js\script.js` passed.
+- `git diff --check` passed.
+- CSS-only public website refinement.
+- Manual footer check recommended after GitHub Pages redeploy.
+
+Commits:
+
+- Commit hash to be recorded after push.
 ## 2026-05-09 02:26 IST - Footer and internal-link polish pass
 
 Files changed:
