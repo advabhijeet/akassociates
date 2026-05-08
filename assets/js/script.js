@@ -446,3 +446,98 @@ if (revealItems.length) {
     revealItems.forEach((item) => item.classList.add('is-visible'));
   }
 }
+
+// Insights tag filter system
+(function () {
+  const filterPanel = document.querySelector('.insights-filter-panel');
+  const filterButtons = Array.from(document.querySelectorAll('.insights-filter'));
+  const insightCards = Array.from(document.querySelectorAll('.updates-grid .update-item'));
+  const status = document.querySelector('.insights-filter-status');
+
+  if (!filterPanel || !filterButtons.length || !insightCards.length) {
+    return;
+  }
+
+  const normalize = (value) => (value || '').toLowerCase().replace(/\s+/g, ' ').trim();
+
+  const getCardTag = (card) => {
+    const tag = card.querySelector('.update-tag');
+    return normalize(tag ? tag.textContent : '');
+  };
+
+  const setActive = (filter) => {
+    filterButtons.forEach((button) => {
+      const isActive = normalize(button.dataset.insightFilter) === filter;
+      button.classList.toggle('is-active', isActive);
+      button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+  };
+
+  const applyFilter = (filter, shouldScroll) => {
+    const normalizedFilter = normalize(filter || 'all');
+    let visibleCount = 0;
+
+    insightCards.forEach((card) => {
+      const tag = getCardTag(card);
+      const shouldShow = normalizedFilter === 'all' || tag === normalizedFilter;
+      card.classList.toggle('is-filter-hidden', !shouldShow);
+      if (shouldShow) visibleCount += 1;
+    });
+
+    setActive(normalizedFilter);
+
+    if (status) {
+      status.textContent = normalizedFilter === 'all'
+        ? `Showing all insights.`
+        : `Showing ${visibleCount} insight${visibleCount === 1 ? '' : 's'} tagged ${normalizedFilter}.`;
+    }
+
+    if (shouldScroll) {
+      filterPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    if (window.history && window.history.replaceState) {
+      const url = new URL(window.location.href);
+      if (normalizedFilter === 'all') {
+        url.searchParams.delete('tag');
+      } else {
+        url.searchParams.set('tag', normalizedFilter);
+      }
+      window.history.replaceState({}, '', url);
+    }
+  };
+
+  filterButtons.forEach((button) => {
+    button.setAttribute('aria-pressed', button.classList.contains('is-active') ? 'true' : 'false');
+    button.addEventListener('click', () => {
+      applyFilter(button.dataset.insightFilter || 'all', false);
+    });
+  });
+
+  insightCards.forEach((card) => {
+    const tag = card.querySelector('.update-tag');
+    if (!tag) return;
+
+    tag.setAttribute('role', 'button');
+    tag.setAttribute('tabindex', '0');
+    tag.setAttribute('title', `Show all ${tag.textContent.trim()} articles`);
+
+    const trigger = (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      applyFilter(tag.textContent, true);
+    };
+
+    tag.addEventListener('click', trigger);
+    tag.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        trigger(event);
+      }
+    });
+  });
+
+  const initialTag = new URLSearchParams(window.location.search).get('tag');
+  if (initialTag) {
+    applyFilter(initialTag, false);
+  }
+})();

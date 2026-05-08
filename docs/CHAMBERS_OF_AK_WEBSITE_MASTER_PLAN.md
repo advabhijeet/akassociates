@@ -186,7 +186,7 @@ trademark / IP advisory
 
 The Insights section should evolve into a legal-publication style section.
 
-Do not treat all content as one undifferentiated “Legal Updates” list.
+Do not treat all content as one undifferentiated â€œLegal Updatesâ€ list.
 
 Recommended editorial groups:
 
@@ -704,4 +704,40 @@ preserve non-solicitation language
 run validation
 live-check after deployment
 record status if meaningful
+```
+
+## Insights Tag And Print Rules
+
+The Insights page must support both visual category browsing and tag-based filtering.
+
+Rules:
+
+```text
+Every article card should have a visible `.update-tag`.
+Tags should use a specific class wherever possible, such as:
+- tag-case-brief
+- tag-guide
+- tag-checklist
+- tag-procedure
+- tag-ni
+- tag-msme
+- tag-rera
+- tag-commercial
+- tag-arbitration
+- tag-property
+- tag-sarfaesi
+```
+
+The Insights page should include a Browse By Tag / Filter Insights panel.
+
+Clicking a tag badge inside an article card should filter the page to show all matching articles under that tag.
+
+Print/PDF export must be stabilized:
+
+```text
+Fixed navigation must become static in print.
+The mobile drawer/menu must not print.
+Cards should avoid breaking across pages.
+The header should not overlap content on later pages.
+Backgrounds should be simplified for professional PDF output.
 ```
