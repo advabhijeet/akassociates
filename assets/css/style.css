@@ -1539,3 +1539,134 @@ body {
   color: #111111;
   background: rgba(212, 175, 55, 0.12);
 }
+
+/* Insights editorial category system */
+.insights-section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.65rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.32);
+}
+
+.insights-section-head h2 {
+  color: #111111;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.05;
+}
+
+.insights-section-head p {
+  max-width: 540px;
+  color: rgba(17, 17, 17, 0.68);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.update-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: 26px;
+  margin-bottom: 0.85rem;
+  padding: 0.34rem 0.72rem;
+  border: 1px solid rgba(17, 17, 17, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: rgba(17, 17, 17, 0.76);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.update-tag.tag-case-brief {
+  border-color: rgba(212, 175, 55, 0.62);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.18), rgba(255, 255, 255, 0.78));
+  color: #111111;
+}
+
+.update-tag.tag-legal-update,
+.update-tag.tag-procedure {
+  border-color: rgba(17, 17, 17, 0.26);
+  background: rgba(17, 17, 17, 0.06);
+  color: #111111;
+}
+
+.update-tag.tag-guide,
+.update-tag.tag-checklist {
+  border-color: rgba(156, 118, 32, 0.38);
+  background: rgba(212, 175, 55, 0.1);
+  color: #6f5418;
+}
+
+.update-tag.tag-sarfaesi,
+.update-tag.tag-drt,
+.update-tag.tag-banking {
+  border-color: rgba(99, 71, 24, 0.36);
+  background: rgba(99, 71, 24, 0.08);
+  color: #5f4314;
+}
+
+.update-tag.tag-commercial {
+  border-color: rgba(17, 17, 17, 0.22);
+  background: rgba(17, 17, 17, 0.055);
+  color: #111111;
+}
+
+.update-tag.tag-msme {
+  border-color: rgba(44, 92, 71, 0.34);
+  background: rgba(44, 92, 71, 0.08);
+  color: #244f3d;
+}
+
+.update-tag.tag-rera,
+.update-tag.tag-property {
+  border-color: rgba(93, 74, 122, 0.34);
+  background: rgba(93, 74, 122, 0.08);
+  color: #4b3865;
+}
+
+.update-tag.tag-ni {
+  border-color: rgba(128, 58, 58, 0.34);
+  background: rgba(128, 58, 58, 0.08);
+  color: #703131;
+}
+
+.update-tag.tag-arbitration {
+  border-color: rgba(48, 82, 122, 0.34);
+  background: rgba(48, 82, 122, 0.08);
+  color: #294a70;
+}
+
+.updates-grid.insights-compact-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.insights-category-section .update-item {
+  min-height: 100%;
+}
+
+@media (max-width: 980px) {
+  .insights-section-head {
+    display: block;
+  }
+
+  .insights-section-head p {
+    margin-top: 0.75rem;
+  }
+
+  .updates-grid.insights-compact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .updates-grid.insights-compact-grid {
+    grid-template-columns: 1fr;
+  }
+}
