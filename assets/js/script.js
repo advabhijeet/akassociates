@@ -900,7 +900,7 @@ window.ChambersInsightCards = (function () {
     .forEach((item) => grid.appendChild(window.ChambersInsightCards.buildCard(item, { tagLinks: false })));
 })();
 
-// Advanced Insights paginated list/filter module v8
+// Advanced Insights paginated list/filter module v9
 (function () {
   const panel = document.querySelector('.insights-filter-panel');
   const categoryInput = document.querySelector('#insight-category-filter');
@@ -912,15 +912,16 @@ window.ChambersInsightCards = (function () {
   const status = document.querySelector('.insights-filter-status');
   const resultsSection = document.querySelector('.insights-results-section');
   const resultsList = document.querySelector('.insights-results-list');
-  const latestAllButton = document.querySelector('[data-latest-all-trigger]');
 
   if (!panel || !categoryInput || !tagInput || !searchInput || !categoryList || !tagList || !clearButton || !status || !resultsSection || !resultsList) {
     return;
   }
 
   const pageSize = 10;
+  const defaultBlockLimit = 3;
   let currentPage = 1;
   let latestListMode = false;
+  let sectionListMode = null;
 
   const defaultSections = Array.from(document.querySelectorAll('main > section.sec'))
     .filter((section) => section !== panel && section !== resultsSection && Boolean(panel.compareDocumentPosition(section) & Node.DOCUMENT_POSITION_FOLLOWING));
@@ -935,7 +936,12 @@ window.ChambersInsightCards = (function () {
 
   const normalize = (value) => String(value || '').trim().toLowerCase();
 
-  const extractStaticCards = () => Array.from(document.querySelectorAll('.latest-insights-section .update-item-link')).map((card) => {
+  const getSectionTitle = (section) => {
+    const heading = section.querySelector('.insights-section-head h2, h2, .sec-label');
+    return heading ? heading.textContent.trim() : 'Insights';
+  };
+
+  const extractCardsFrom = (scope) => Array.from(scope.querySelectorAll('.update-item-link')).map((card) => {
     const tagsFromData = (card.dataset.tags || '')
       .split(',')
       .map((tag) => tag.trim())
@@ -954,6 +960,8 @@ window.ChambersInsightCards = (function () {
       tags: tagsFromData.length ? tagsFromData : tagsFromMarkup,
     };
   });
+
+  const extractStaticCards = () => extractCardsFrom(document);
 
   const registryItems = Array.isArray(window.chambersInsightsRegistry) ? window.chambersInsightsRegistry : [];
   const allItems = registryItems.length ? registryItems : extractStaticCards();
@@ -1052,20 +1060,92 @@ window.ChambersInsightCards = (function () {
     return categoryMatch && tagMatch && searchMatch;
   };
 
+  const ensureSectionButton = (section, cards, sectionItems) => {
+    let button = section.querySelector('[data-section-all-trigger]');
+    const legacyButton = section.querySelector('[data-latest-all-trigger]');
+
+    if (!button && legacyButton) {
+      button = legacyButton;
+      button.setAttribute('data-section-all-trigger', '');
+    }
+
+    if (!button) {
+      button = document.createElement('button');
+      button.className = 'insights-view-all-latest insights-view-section-all';
+      button.type = 'button';
+      button.setAttribute('data-section-all-trigger', '');
+
+      const head = section.querySelector('.insights-section-head') || section.querySelector('.sec-label');
+      if (head && head.parentNode) {
+        head.parentNode.insertBefore(button, head.nextSibling);
+      } else {
+        section.insertBefore(button, section.firstChild);
+      }
+    }
+
+    button.textContent = cards.length > defaultBlockLimit ? 'View All' : 'View All';
+    button.hidden = cards.length <= defaultBlockLimit;
+    button.setAttribute('aria-controls', 'insights-results-list');
+
+    if (!button.dataset.sectionTriggerBound) {
+      button.dataset.sectionTriggerBound = 'true';
+      button.addEventListener('click', () => {
+        categoryInput.value = '';
+        tagInput.value = '';
+        searchInput.value = '';
+        latestListMode = false;
+        sectionListMode = {
+          title: getSectionTitle(section),
+          items: extractCardsFrom(section),
+        };
+        currentPage = 1;
+        renderCurrentView();
+        resultsSection.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+      });
+    }
+  };
+
+  const applyDefaultSectionLimits = () => {
+    defaultSections.forEach((section) => {
+      const cards = Array.from(section.querySelectorAll('.update-item-link'));
+      if (!cards.length) return;
+
+      cards.forEach((card, index) => {
+        card.hidden = index >= defaultBlockLimit;
+      });
+
+      ensureSectionButton(section, cards, extractCardsFrom(section));
+    });
+  };
+
+  const restoreDefaultSectionCards = () => {
+    defaultSections.forEach((section) => {
+      section.querySelectorAll('.update-item-link').forEach((card, index) => {
+        card.hidden = index >= defaultBlockLimit;
+      });
+    });
+  };
+
   const setEditorialVisibility = (isResultsMode) => {
     document.body.classList.toggle('is-insights-filter-active', isResultsMode);
     defaultSections.forEach((section) => {
       section.hidden = isResultsMode;
     });
+
+    if (!isResultsMode) {
+      restoreDefaultSectionCards();
+    }
   };
 
   const setDefaultView = () => {
     latestListMode = false;
+    sectionListMode = null;
     resultsSection.hidden = true;
     resultsList.innerHTML = '';
     pagination.innerHTML = '';
     setEditorialVisibility(false);
-    status.textContent = 'Showing default editorial view.';
+    applyDefaultSectionLimits();
+    status.textContent = 'Showing default editorial view. Each section shows the latest 3 articles.';
   };
 
   const renderPagination = (totalItems, totalPages, modeLabel) => {
@@ -1137,6 +1217,11 @@ window.ChambersInsightCards = (function () {
   function renderCurrentView() {
     const filters = getFilters();
 
+    if (sectionListMode && !hasActiveFilters()) {
+      renderList(sectionListMode.items, sectionListMode.title || 'Section insights');
+      return;
+    }
+
     if (latestListMode) {
       renderList(allItems, 'Latest articles');
       return;
@@ -1147,11 +1232,14 @@ window.ChambersInsightCards = (function () {
       return;
     }
 
+    sectionListMode = null;
+    latestListMode = false;
     renderList(allItems.filter((item) => itemMatchesFilters(item, filters)), 'Filtered results');
   }
 
   const activateFilters = () => {
     latestListMode = false;
+    sectionListMode = null;
     currentPage = 1;
     renderCurrentView();
   };
@@ -1170,17 +1258,25 @@ window.ChambersInsightCards = (function () {
     categoryInput.focus();
   });
 
-  if (latestAllButton) {
-    latestAllButton.addEventListener('click', () => {
+  document.querySelectorAll('[data-latest-all-trigger]').forEach((button) => {
+    if (button.dataset.sectionTriggerBound) return;
+    button.dataset.sectionTriggerBound = 'true';
+    button.setAttribute('data-section-all-trigger', '');
+    button.addEventListener('click', () => {
       categoryInput.value = '';
       tagInput.value = '';
       searchInput.value = '';
-      latestListMode = true;
+      latestListMode = false;
+      const section = button.closest('section');
+      sectionListMode = {
+        title: section ? getSectionTitle(section) : 'Latest articles',
+        items: section ? extractCardsFrom(section) : allItems,
+      };
       currentPage = 1;
       renderCurrentView();
       resultsSection.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
     });
-  }
+  });
 
   const params = new URLSearchParams(window.location.search);
   if (params.get('category')) categoryInput.value = params.get('category');
@@ -1189,6 +1285,8 @@ window.ChambersInsightCards = (function () {
 
   setDatalist(categoryList, uniqueSorted(allItems.map((item) => item.category)));
   setDatalist(tagList, uniqueSorted(allItems.flatMap((item) => item.tags || [])));
+
+  applyDefaultSectionLimits();
 
   if (hasActiveFilters()) {
     renderCurrentView();

@@ -2420,3 +2420,47 @@ body.insights-list-active .insights-category-section {
     white-space: nowrap;
   }
 }
+
+/* Insights default block preview and View All controls */
+.insights-page .update-item-link[hidden] {
+  display: none !important;
+}
+
+.insights-page .insights-view-section-all,
+.insights-page .insights-view-all-latest {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  margin: 0.35rem 0 1.1rem;
+  border: 1px solid var(--gold-line);
+  border-radius: 2px;
+  background: #ffffff;
+  color: var(--gold);
+  cursor: pointer;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  padding: 0.7rem 1rem;
+  text-transform: uppercase;
+}
+
+.insights-page .insights-view-section-all:hover,
+.insights-page .insights-view-section-all:focus-visible,
+.insights-page .insights-view-all-latest:hover,
+.insights-page .insights-view-all-latest:focus-visible {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: #111111;
+}
+
+.insights-page .insights-view-section-all[hidden],
+.insights-page .insights-view-all-latest[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 640px) {
+  .insights-page .insights-view-section-all,
+  .insights-page .insights-view-all-latest {
+    width: 100%;
+  }
+}

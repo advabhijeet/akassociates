@@ -1,5 +1,33 @@
 # Changelog
 
+## 2026-05-09 00:27 IST - Insights default section previews and View All pagination
+
+Files changed:
+
+- `assets/js/script.js`
+- `assets/css/style.css`
+- `legal-updates.html`
+- `CHANGELOG.md`
+
+Summary:
+
+- Updated the Insights page default/no-filter mode so each editorial article block shows only its first 3 article cards.
+- Added section-level View All behaviour so each block can open its own paginated Matching Insights list.
+- Kept category, tag and search filters in the paginated Matching Insights format.
+- Preserved natural browser scrolling and max 10 cards per page.
+- Bumped `legal-updates.html` CSS/JS cache strings for the revised Insights block-preview behaviour.
+
+Validation / notes:
+
+- `node --check assets\js\script.js` passed.
+- `git diff --check` passed.
+- `sitemap.xml` and `feed.xml` parsed successfully.
+- JSON-LD parsing and internal href/src validation completed during the patch run.
+- Manual browser check remains recommended after GitHub Pages redeploy.
+
+Commits:
+
+- Commit hash to be recorded after push.
 ## 2026-05-09 00:18 IST - Insights filter results list UI fix
 
 Files changed:
