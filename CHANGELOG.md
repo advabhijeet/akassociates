@@ -1,5 +1,33 @@
 # Changelog
 
+## 2026-05-09 01:14 IST - Technical SEO and sitemap freshness pass
+
+Files changed:
+
+- `practice.html`
+- `case-enquiry.html`
+- `sitemap.xml`
+- `CHANGELOG.md`
+
+Summary:
+
+- Added structured data to the Practice hub page using a `CollectionPage` schema with breadcrumb information.
+- Added breadcrumb JSON-LD to the Case Enquiry page while preserving the existing FAQPage schema.
+- Updated sitemap `lastmod` dates for recently changed hub pages: home, Practice, Insights and Case Enquiry.
+- Left `robots.txt` unchanged because it already allows crawling and references the sitemap/feed.
+- Left `feed.xml` unchanged because no new article was published in this pass.
+
+Validation / notes:
+
+- `node --check assets\js\script.js` passed.
+- `git diff --check` passed.
+- `sitemap.xml` and `feed.xml` parsed successfully.
+- JSON-LD parsing and internal href/src validation completed during the patch run.
+- Manual Search Console inspection remains a follow-up after GitHub Pages redeploy.
+
+Commits:
+
+- Commit hash to be recorded after push.
 ## 2026-05-09 00:59 IST - Case enquiry copy-template improvement
 
 Files changed:
