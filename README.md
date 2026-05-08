@@ -239,6 +239,10 @@ Every meaningful modification must update the changelog with:
 | `docs/seo/SEO_CONTENT_BATCH_2026-05-05.md` | Historical Batch 1 SEO content record |
 | `docs/wiki/WORKFLOW.md` | In-repository wiki/workflow mirror |
 
+## PowerShell 7 Manual Patch Environment
+
+Preferred shell for local manual patching and validation is PowerShell 7 (`pwsh`). Run patch and validation scripts from the repository root unless a patch package README states otherwise. Avoid staging untracked `.wiki-clone/` or `.wiki-work/` folders during manual patch work.
+
 ## Local Preview
 
 Because this is a static site, pages can be opened directly in a browser. For a cleaner local preview, run a small local server from the repository root:

@@ -1,5 +1,42 @@
 # Changelog
 
+## 2026-05-08 23:38 IST - Homepage and Insights structure fixes
+
+Files changed:
+
+- `index.html`
+- `legal-updates.html`
+- `assets/js/script.js`
+- `assets/css/style.css`
+- `README.md`
+- `docs/maintenance/MANUAL_PATCH_AND_CODEX_HANDOFF_WORKFLOW.md`
+- `docs/wiki/WORKFLOW.md`
+- `CHANGELOG.md`
+
+Summary:
+
+- Recorded Fix 1 homepage structure correction from commit `ebb1aad`.
+- Fix 1 removed the duplicate homepage Latest Legal Insights section and duplicate older Case Enquiry section.
+- Repaired the Insights page filter behaviour so category, tag and search inputs render matching insight cards in a dedicated results section.
+- Repaired the `View All Latest Articles` CTA so it opens a latest-first paginated list.
+- Limited Insights result pagination to maximum 10 articles per page.
+- Added lightweight pagination styling for the Insights results section.
+- Updated cache-busting query strings on `legal-updates.html` for the repaired CSS and JS.
+- Updated manual workflow documentation to record PowerShell 7 / `pwsh` as the preferred shell for local patch and validation work.
+
+Validation / notes:
+
+- `node --check assets\js\script.js` passed.
+- `git diff --check` passed.
+- `sitemap.xml` and `feed.xml` parsed successfully.
+- JSON-LD parsing completed during the patch run.
+- Internal href/src reference validation completed during the patch run.
+- Browser/mobile live smoke testing remains a manual follow-up after GitHub Pages redeploys.
+
+Commits:
+
+- `ebb1aad` - Fix homepage insights structure.
+- `8374976` - Fix insights filters and latest pagination.
 ## 2026-05-08 23:34 IST - PowerShell 7 manual patch workflow guide
 
 Files changed:
