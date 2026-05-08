@@ -1,6 +1,145 @@
 # Next Website Upgrade Agenda
 
+Last synced: 2026-05-09
+
 This document records the next planned upgrade sequence for the Chambers of AK website. It is intended for ChatGPT, Codex and future maintainers so that website improvements remain ordered, documented and consistent with the firm's professional positioning.
+
+## Current Stable Checkpoint
+
+Accepted checkpoint:
+
+```text
+ef11809 Strengthen trust and forum guidance
+```
+
+Recently completed:
+
+```text
+Homepage duplicate Insights issue fixed.
+Insights page filters, list layout, natural browser scroll and pagination accepted.
+Practice hub strengthened.
+Case Enquiry copy templates added and verified.
+Technical SEO freshness pass completed.
+Sitewide BreadcrumbList JSON-LD added and live inspection completed.
+Trust / Entity pages strengthened.
+ads.txt confirmed working.
+```
+
+Current public-flow status:
+
+```text
+Homepage -> Practice / Enquiry / Courts / Insights
+Practice -> Practice pages / Related insights / Enquiry
+Insights -> Filtered articles / Paginated results
+Enquiry -> Copy templates / Contact options
+Footer -> FAQ / Process / Policies / Contact
+```
+
+## Immediate Next Plan Of Action
+
+### Phase A - Live Stability Review
+
+Review the major public routes on desktop and mobile:
+
+```text
+/
+practice.html
+legal-updates.html
+case-enquiry.html
+courts.html
+faq.html
+process.html
+contact.html
+```
+
+Check for:
+
+```text
+spacing
+mobile readability
+duplicate content
+broken card layout
+footer consistency
+CTA behaviour
+unexpected internal scroll
+```
+
+### Phase B - Footer + Internal-Link Polish Pass
+
+Goal:
+
+```text
+Make supporting pages easier to discover without overloading the top navigation.
+```
+
+Preferred footer grouping:
+
+```text
+Main:
+About
+Practice
+Case Enquiry
+Contact
+
+Resources:
+Insights
+Document Checklists
+FAQ
+Process
+
+Legal:
+Disclaimer
+Privacy Policy
+Terms
+```
+
+Suggested contextual links:
+
+```text
+FAQ -> Process / Enquiry / Document Checklists
+Process -> Practice / Enquiry / Contact
+Courts -> Practice / Case Enquiry / Document Checklists
+Contact -> Case Enquiry / WhatsApp / Email
+```
+
+### Phase C - Contact Page Improvement
+
+Review and strengthen `contact.html` after footer/internal-link polish.
+
+Contact page should clearly show:
+
+```text
+WhatsApp
+Email
+Phone
+Office/base location
+Working regions
+No advocate-client relationship from initial communication
+Link to case enquiry before sending detailed facts
+```
+
+### Phase D - Search Console Follow-Up
+
+After recrawl:
+
+```text
+Check Breadcrumb enhancement.
+Check indexed / not indexed pages.
+Inspect recently changed hub pages.
+Submit sitemap again only if useful.
+Request indexing for meaningful changed hub pages.
+```
+
+### Phase E - Future Content Expansion
+
+Only after stability:
+
+```text
+Add 1-2 high-quality legal insights.
+Add supporting service pages only if genuinely useful.
+Avoid thin SEO pages.
+Preserve non-solicitation language.
+```
 
 ## Operating Principles
 
@@ -12,201 +151,70 @@ This document records the next planned upgrade sequence for the Chambers of AK w
 - Update `CHANGELOG.md` after every meaningful modification.
 - Reserve `.wiki-clone/` and `.wiki-work/` for Codex/local wiki continuation; do not commit those folders.
 
-## Current Manual Validation Status
+## Long-Term Backlog
 
-Manual validation was completed by the user on 2026-05-07 from the local Codex repository folder:
+### Article / Insights Expansion
 
-```text
-C:\Users\abhik\Documents\Codex\2026-05-02\https-github-com-advabhijeet-akassociates-can
-```
+Future article work should remain quality-led and document-led.
 
-Reported results:
-
-- `git pull origin main`: already up to date.
-- `node --check assets\js\script.js`: passed with no output.
-- `git diff --check`: passed with no output.
-- `sitemap.xml`: parsed successfully.
-- JSON-LD parsing: passed; 44 blocks parsed.
-- Internal `href`/`src` reference check: passed.
-- `.wiki-clone/` and `.wiki-work/` remain untracked and should be preserved for Codex continuation.
-
-Browser/mobile smoke testing and any unfinished GitHub Wiki synchronization should still be completed later through Codex or manual review.
-
-## Phase 1 - Codex / Wiki / Documentation Sync
-
-When Codex becomes available:
-
-1. Sync the local workspace with latest `origin/main`.
-2. Inspect `.wiki-clone/` and `.wiki-work/` before deleting, ignoring or modifying them.
-3. Determine whether unfinished GitHub Wiki work exists.
-4. Compare any wiki work with `docs/wiki/WORKFLOW.md` and the current repository documentation.
-5. Complete only the required wiki/documentation sync.
-6. Do not commit `.wiki-clone/` or `.wiki-work/`.
-7. Update `CHANGELOG.md` if any tracked files are changed.
-
-## Phase 2 - Record And Close Validation Follow-Up
-
-Record the completed manual validation in the relevant maintenance/planning documents, while keeping browser/mobile smoke testing as a separate follow-up if not yet completed.
-
-Relevant files to review when closing this phase:
-
-- `CHANGELOG.md`
-- `docs/codex/HANDOFF.md`
-- `docs/planning/SEO_GROWTH_AGENDA.md`
-- `docs/audits/WEBSITE_REPOSITORY_AUDIT_2026-05-06.md`
-
-## Phase 3 - Live Website Smoke Test And UI Polish
-
-Review the live website and local preview for:
-
-- homepage;
-- About page;
-- Expertise / Practice page;
-- Contact page;
-- Case Enquiry page;
-- Legal Updates page;
-- mobile drawer;
-- footer legal links;
-- LinkedIn and WhatsApp Channel icons;
-- WhatsApp, email, phone and case-enquiry CTAs.
-
-Only fix actual issues discovered during review. Do not use this phase to redesign the website or create new content.
-
-## Phase 4 - Strengthen The Six Practice Pages
-
-Priority pages:
-
-- `practice/cheque-bounce.html`
-- `practice/msme-disputes.html`
-- `practice/rera-property.html`
-- `practice/commercial-recovery.html`
-- `practice/arbitration.html`
-- `practice/property-civil-suits.html`
-
-Each page should be strengthened with evergreen, document-led sections:
-
-- when the matter usually arises;
-- documents to keep ready;
-- forum/court route;
-- limitation/date sensitivity;
-- common mistakes;
-- related service pages;
-- related legal updates;
-- enquiry format;
-- informational/non-solicitation note.
-
-## Phase 5 - Add Pending Legal Update Articles
-
-Priority article pages:
-
-- `updates/cheque-bounce-defence-after-summons.html`
-- `updates/msme-facilitation-council-process.html`
-
-For each article:
-
-1. Create the article page under `updates/`.
-2. Use informational, non-promissory language.
-3. Add unique title, meta description, canonical, Open Graph/Twitter metadata and JSON-LD where appropriate.
-4. Add an article card to `legal-updates.html`.
-5. Add internal links from relevant practice and service pages.
-6. Add the URL to `sitemap.xml`.
-7. Update `CHANGELOG.md` and `docs/planning/SEO_GROWTH_AGENDA.md`.
-8. Prepare social/newsletter distribution copy under Phase 6.
-
-## Phase 6 - Insights Distribution / Newsletter Workflow
-
-Goal: whenever a new Insights article is published under `updates/` and listed on the Insights page, prepare a controlled notification/distribution bundle for official Chambers of AK channels.
-
-Current official channels:
-
-- Firm LinkedIn Page.
-- WhatsApp Channel.
-
-First-stage implementation should be manual and compliance-safe. For every new article, prepare:
-
-- LinkedIn Page post draft;
-- WhatsApp Channel post draft;
-- newsletter/email subject;
-- newsletter/email body;
-- short social/meta summary;
-- informational disclaimer line.
-
-Standard tone rules:
-
-- informational only;
-- no direct solicitation;
-- no guarantee or outcome language;
-- no claims such as "best", "top" or "guaranteed result";
-- include: "For general information only. Not legal advice or solicitation."
-
-Later-stage implementation may include:
-
-- `feed.xml` or `updates.xml` for article discovery;
-- approved LinkedIn Page scheduling/API workflow;
-- WhatsApp Channel posting only through safe, approved and account-compliant methods;
-- newsletter subscription only after privacy-policy review.
-
-## Phase 7 - Improve Case Enquiry Flow
-
-Improve the Case Enquiry page after practice pages and article priorities are stable.
-
-Potential upgrades:
-
-- matter-type sections;
-- document checklist blocks;
-- confidentiality warning before formal engagement;
-- clearer WhatsApp/email CTA;
-- copyable enquiry format.
-
-Suggested enquiry format:
+Possible future topics:
 
 ```text
-Matter type:
-Location:
-Opposite party:
-Important dates:
-Current stage:
-Documents available:
-Relief sought:
-Urgency:
+property title search / due diligence
+DRT and SARFAESI practical guides
+commercial contract drafting / review
+trademark and IP advisory explainers
+fresh judgment-based case briefs with source PDFs
 ```
 
-## Phase 8 - Trust / Entity Improvements
+Rules:
 
-Potential upgrades:
+```text
+Do not create thin SEO pages.
+Do not move already-indexed article URLs without redirect/canonical planning.
+Update sitemap/feed/Insights cards for new articles.
+Prepare social distribution copy only after article publication.
+```
 
-- strengthen Courts & Forums page;
-- refine working regions section;
-- strengthen document-first approach messaging;
-- improve FAQ and Process pages;
-- polish footer microcopy.
+### Future Service Pages
 
-Avoid promotional or comparative claims. Prefer document-led and forum-assessment language.
+Create only after Search Console data and user approval:
 
-## Phase 9 - Future Service Pages
+```text
+services/property-title-search-bihar.html
+services/real-estate-due-diligence-bihar.html
+services/drt-lawyer-patna.html
+services/sarfaesi-lawyer-bihar.html
+services/commercial-contract-lawyer-patna.html
+services/trademark-lawyer-patna.html
+```
 
-Create only after practice pages are strengthened and Search Console data is reviewed:
-
-- `services/property-title-search-bihar.html`
-- `services/real-estate-due-diligence-bihar.html`
-- `services/drt-lawyer-patna.html`
-- `services/sarfaesi-lawyer-bihar.html`
-- `services/commercial-contract-lawyer-patna.html`
-- `services/trademark-lawyer-patna.html`
-
-## Phase 10 - Future Team Page
+### Future Team Page
 
 Do not create `team.html` yet.
 
-Create it only after team-member details are ready and approved, including:
+Create it only after team-member details are ready and approved:
 
-- name;
-- designation;
-- enrollment details;
-- education;
-- practice focus;
-- photo permission;
-- profile text;
-- profile/social link, if any.
+```text
+name
+designation
+enrollment details
+education
+practice focus
+photo permission
+profile text
+profile/social link, if any
+```
 
 Do not add Team to navigation, footer or sitemap before approval.
+
+## Documentation Rule
+
+Before any new website feature patch:
+
+```text
+Check docs/CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md.
+Check this upgrade agenda.
+Confirm current stable checkpoint.
+Update CHANGELOG.md after meaningful modifications.
+```

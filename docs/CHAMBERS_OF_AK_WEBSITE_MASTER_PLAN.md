@@ -1,6 +1,6 @@
 # Chambers of AK Website Master Plan
 
-Last updated: 2026-05-08
+Last updated: 2026-05-09
 
 This document is the primary working source of truth for the Chambers of AK website repository.
 
@@ -144,8 +144,11 @@ individual detailed profiles reserved for future Team page
 Practice page positioning:
 
 ```text
-main Expertise & Practice Areas page
-expanded with CV-based expertise
+main Expertise & Practice Areas hub
+document-first practice readiness content added
+related Insights links by practice cluster added
+structured enquiry-preparation section added
+six individual practice pages remain under practice/ and follow document-led patterns
 ```
 
 Future Team page:
@@ -153,6 +156,59 @@ Future Team page:
 ```text
 planned but not yet created
 should not be created until team-member details are ready and approved
+```
+
+
+## Current Stable Checkpoint - 2026-05-09
+
+Accepted repository checkpoint:
+
+```text
+ef11809 Strengthen trust and forum guidance
+```
+
+Current verified website state:
+
+```text
+Homepage structure stable
+Insights page filters, pagination, list layout and default 3-card block previews stable
+Practice hub strengthened
+Six individual practice pages already follow document-led pattern
+Case Enquiry page includes matter-specific copy templates
+Technical SEO freshness pass completed
+Sitewide BreadcrumbList JSON-LD added
+Trust / Entity pages strengthened
+ads.txt confirmed working at root /ads.txt
+Search Console live inspection completed after breadcrumb pass
+```
+
+Recent accepted commits:
+
+```text
+ebb1aad Fix homepage insights structure
+8374976 Fix insights filters and latest pagination
+6131096 Refine insights filter results layout
+f61b326 Limit insights default blocks and add section pagination
+193a8c6 Strengthen practice hub content
+4aecf5e Add case enquiry copy templates
+3f7ed57 Add sitewide breadcrumb structured data
+ef11809 Strengthen trust and forum guidance
+```
+
+Current next plan:
+
+```text
+1. Live stability review of major public routes.
+2. Footer + internal-link polish pass.
+3. Contact page improvement.
+4. Search Console follow-up for breadcrumbs, coverage and changed hub pages.
+5. Future content expansion only after stability, avoiding thin SEO pages.
+```
+
+Documentation rule:
+
+```text
+Before the next feature patch, confirm this master plan and docs/planning/NEXT_WEBSITE_UPGRADE_AGENDA.md are synced with the latest accepted checkpoint.
 ```
 
 ## 6. Practice / Expertise Areas
@@ -198,6 +254,20 @@ Practical Guides
 Document Checklists
 Procedure Notes
 Practice-Area Updates
+```
+
+
+Current Insights implementation status:
+
+```text
+Homepage now has exactly one Latest Legal Insights block.
+Case Enquiry appears below homepage Latest Legal Insights.
+Insights page default/no-filter mode keeps grouped editorial blocks visible.
+Each grouped block shows a 3-card preview by default.
+Filter/search/category/tag modes show Matching Insights in paginated list format.
+Matching Insights uses natural browser scroll, not internal scroll.
+Cards use list-style layout on Insights page to avoid grid gaps.
+View All Latest Articles / section pagination behaviour is accepted as stable.
 ```
 
 ## 8. Article Categories
@@ -472,6 +542,45 @@ Standard local path:
 C:\Users\abhik\Documents\Codex\2026-05-02\https-github-com-advabhijeet-akassociates-can
 ```
 
+
+## Local Workflow / Git Identity Status - 2026-05-09
+
+Manual patch workflow current standard:
+
+```text
+Use PowerShell 7.
+Patch ZIP is downloaded to the user's default Downloads folder.
+One command extracts ZIP to a temp folder and runs the patch script.
+Patch scripts set repo-local Git identity before committing.
+Patch scripts preserve .wiki-clone/ and .wiki-work/.
+Patch scripts avoid force-push by default.
+```
+
+Repository Git identity:
+
+```powershell
+git config user.name "advabhijeet"
+git config user.email "281193757+advabhijeet@users.noreply.github.com"
+git config --global credential.https://github.com.useHttpPath true
+```
+
+Preferred GitHub account:
+
+```text
+advabhijeet
+```
+
+Safe non-fast-forward recovery:
+
+```powershell
+git fetch origin
+git reset --soft origin/main
+git status -sb
+git diff --cached --stat
+git commit -m "<clear forward-fix message>"
+git push origin main
+```
+
 ## 12. Validation Workflow
 
 After meaningful changes, run:
@@ -493,6 +602,31 @@ footer legal link check
 CTA check: WhatsApp, email, phone, case enquiry
 live check after push
 Search Console indexing request where applicable
+```
+
+
+## Technical SEO / Indexing Status - 2026-05-09
+
+Current SEO state:
+
+```text
+robots.txt allows crawling and references sitemap/feed.
+ads.txt exists at root and is confirmed working.
+sitemap.xml parses successfully.
+feed.xml parses successfully.
+JSON-LD validation passes across public HTML files.
+Sitewide BreadcrumbList JSON-LD added to meaningful public pages.
+Search Console live inspection completed after breadcrumb pass.
+FAQ rich-result display should not be chased; breadcrumbs are the preferred enhancement focus.
+```
+
+Search Console follow-up:
+
+```text
+Monitor Breadcrumb enhancement detection.
+Inspect recently changed hub pages after recrawl.
+Re-submit sitemap if required.
+Request indexing only for meaningful updated public pages.
 ```
 
 ## 13. Search Console Workflow
