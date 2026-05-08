@@ -542,7 +542,221 @@ if (revealItems.length) {
   }
 })();
 
-// Advanced Insights free-switching dependent filter module v4
+
+
+
+
+
+// Chambers Insights article metadata registry
+window.chambersInsightsRegistry = [
+  {
+    "href": "updates/non-reportable-judgments-online-publication-case-brief.html",
+    "category": "Case Brief",
+    "title": "Can non-reportable judgments be published online?",
+    "excerpt": "Gujarat High Court case brief on non-reportable judgments, online publication and public court records.",
+    "date": "May 2026",
+    "tags": [
+      "High Court",
+      "Gujarat High Court",
+      "Online Publication",
+      "Judgment Reporting",
+      "Court Records",
+      "Article 226"
+    ]
+  },
+  {
+    "href": "updates/sarfaesi-auction-sale-challenge-documents.html",
+    "category": "Case Brief",
+    "title": "SARFAESI auction sale challenge: documents and Rule 9(4) timeline",
+    "excerpt": "Supreme Court case brief on auction-sale finality, balance consideration, redemption and DRT/DRAT records.",
+    "date": "May 2026",
+    "tags": [
+      "SARFAESI",
+      "DRT",
+      "Banking Recovery",
+      "Auction Sale",
+      "Supreme Court",
+      "Rule 9(4)"
+    ]
+  },
+  {
+    "href": "updates/summary-judgment-commercial-suits-order-xiii-a.html",
+    "category": "Case Brief",
+    "title": "Summary judgment in commercial suits under Order XIII-A CPC",
+    "excerpt": "Supreme Court case brief on pleadings, documents, real prospect test and mini-trial caution.",
+    "date": "May 2026",
+    "tags": [
+      "Commercial Courts",
+      "CPC",
+      "Order XIII-A",
+      "Summary Judgment",
+      "Supreme Court",
+      "Commercial Recovery"
+    ]
+  },
+  {
+    "href": "updates/msme-facilitation-council-process.html",
+    "category": "Procedure Note",
+    "title": "MSME Facilitation Council process for delayed payments",
+    "excerpt": "Udyam records, invoices, 45-day issue, conciliation, arbitration, interest and enforcement preparation.",
+    "date": "May 2026",
+    "tags": [
+      "MSME",
+      "MSEFC",
+      "Delayed Payment",
+      "Conciliation",
+      "Arbitration"
+    ]
+  },
+  {
+    "href": "updates/cheque-bounce-defence-after-summons.html",
+    "category": "Practical Guide",
+    "title": "Cheque bounce case after summons: defence preparation",
+    "excerpt": "Complaint papers, summons, notice proof, liability review, settlement and court-stage preparation.",
+    "date": "May 2026",
+    "tags": [
+      "NI Act",
+      "Cheque Bounce",
+      "Summons",
+      "Defence Preparation",
+      "Section 138"
+    ]
+  },
+  {
+    "href": "updates/msme-documents-checklist.html",
+    "category": "Checklist",
+    "title": "MSME delayed payment documents checklist",
+    "excerpt": "Udyam records, invoice-wise summaries, purchase orders, delivery proof, ledgers and communications.",
+    "date": "May 2026",
+    "tags": [
+      "MSME",
+      "MSEFC",
+      "Documents",
+      "Delayed Payment",
+      "Udyam"
+    ]
+  },
+  {
+    "href": "updates/commercial-recovery-before-suit.html",
+    "category": "Practical Guide",
+    "title": "Before filing a commercial recovery suit",
+    "excerpt": "Contract clauses, invoice ledgers, limitation, pre-filing issues and dispute records.",
+    "date": "May 2026",
+    "tags": [
+      "Commercial Recovery",
+      "Contracts",
+      "Invoices",
+      "Limitation",
+      "Commercial Courts"
+    ]
+  },
+  {
+    "href": "updates/rera-refund-interest-delayed-possession.html",
+    "category": "Practical Guide",
+    "title": "Delayed possession: refund or interest?",
+    "excerpt": "Relief selection, project documents, possession timelines and forum location in RERA disputes.",
+    "date": "May 2026",
+    "tags": [
+      "RERA",
+      "Delayed Possession",
+      "Refund",
+      "Interest",
+      "Builder Dispute"
+    ]
+  },
+  {
+    "href": "updates/arbitration-clause-checklist.html",
+    "category": "Checklist",
+    "title": "Arbitration clause checklist before a dispute",
+    "excerpt": "Seat, venue, appointment, notice, interim relief, enforcement and papers to preserve.",
+    "date": "May 2026",
+    "tags": [
+      "Arbitration",
+      "Contract",
+      "Seat",
+      "Venue",
+      "Interim Relief"
+    ]
+  }
+];
+
+// Shared Insights card rendering helpers
+window.ChambersInsightCards = (function () {
+  const normalize = (value) => (value || '').toLowerCase().replace(/\s+/g, ' ').trim();
+
+  const categoryClass = (category) => {
+    const normalized = normalize(category);
+    if (normalized.includes('case')) return 'tag-case-brief';
+    if (normalized.includes('checklist')) return 'tag-checklist';
+    if (normalized.includes('procedure')) return 'tag-procedure';
+    if (normalized.includes('guide')) return 'tag-guide';
+    return 'tag-legal-update';
+  };
+
+  const tagUrl = (tag) => `legal-updates.html?tag=${encodeURIComponent(tag)}`;
+
+  const buildTagList = (tags, linked) => {
+    const wrap = document.createElement('div');
+    wrap.className = 'insight-card-tags';
+    wrap.setAttribute('aria-label', 'Article tags');
+
+    (tags || []).slice(0, 5).forEach((tag) => {
+      const el = linked ? document.createElement('a') : document.createElement('span');
+      el.textContent = tag;
+      if (linked) el.href = tagUrl(tag);
+      wrap.appendChild(el);
+    });
+
+    return wrap;
+  };
+
+  const buildCard = (item, options = {}) => {
+    const card = document.createElement('a');
+    card.className = options.result ? 'update-item update-item-link insights-result-item' : 'update-item update-item-link';
+    card.href = item.href;
+    card.dataset.category = item.category || '';
+    card.dataset.tags = (item.tags || []).join(', ');
+
+    const badge = document.createElement('span');
+    badge.className = `update-tag ${categoryClass(item.category)}`;
+    badge.textContent = item.category || 'Insight';
+
+    const title = document.createElement('div');
+    title.className = 'update-title';
+    title.textContent = item.title || '';
+
+    const excerpt = document.createElement('div');
+    excerpt.className = 'update-excerpt';
+    excerpt.textContent = item.excerpt || '';
+
+    const date = document.createElement('div');
+    date.className = 'update-date';
+    date.textContent = item.date || 'May 2026';
+
+    card.appendChild(badge);
+    card.appendChild(title);
+    card.appendChild(excerpt);
+    card.appendChild(date);
+    card.appendChild(buildTagList(item.tags || [], Boolean(options.tagLinks)));
+
+    return card;
+  };
+
+  return { buildCard, normalize, categoryClass, buildTagList };
+})();
+
+// Homepage latest insights feed loader
+(function () {
+  const grid = document.querySelector('[data-home-insights-limit]');
+  if (!grid || !window.ChambersInsightCards || !window.chambersInsightsRegistry) return;
+
+  grid.innerHTML = '';
+  window.chambersInsightsRegistry
+    .slice(0, 3)
+    .forEach((item) => grid.appendChild(window.ChambersInsightCards.buildCard(item, { tagLinks: false })));
+})();
+
+// Advanced Insights free-switching dependent filter module v5
 (function () {
   const panel = document.querySelector('.insights-filter-panel');
   const categoryInput = document.querySelector('#insight-category-filter');
@@ -554,55 +768,15 @@ if (revealItems.length) {
   const status = document.querySelector('.insights-filter-status');
   const resultsSection = document.querySelector('.insights-results-section');
   const resultsList = document.querySelector('.insights-results-list');
-  const cards = Array.from(document.querySelectorAll('.update-item.update-item-link'));
 
-  if (!panel || !categoryInput || !tagInput || !searchInput || !categoryList || !tagList || !clearButton || !resultsSection || !resultsList || !cards.length) {
-    return;
-  }
+  if (!panel || !categoryInput || !tagInput || !searchInput || !categoryList || !tagList || !clearButton || !resultsSection || !resultsList) return;
 
   let activeInput = null;
-
-  const normalize = (value) => (value || '').toLowerCase().replace(/\s+/g, ' ').trim();
-
-  const splitTags = (value) => (value || '')
-    .split(',')
-    .map((tag) => tag.trim())
-    .filter(Boolean);
+  const normalize = window.ChambersInsightCards.normalize;
+  const allItems = window.chambersInsightsRegistry || [];
 
   const uniqueSorted = (values) => Array.from(new Set(values.filter(Boolean)))
     .sort((a, b) => a.localeCompare(b, 'en-IN', { sensitivity: 'base' }));
-
-  const uniqueByHref = (items) => {
-    const seen = new Set();
-    return items.filter((item) => {
-      const href = item.getAttribute('href');
-      if (!href || seen.has(href)) return false;
-      seen.add(href);
-      return true;
-    });
-  };
-
-  const getCardData = (card, index) => {
-    const tagBadge = card.querySelector('.update-tag');
-    const title = card.querySelector('.update-title');
-    const excerpt = card.querySelector('.update-excerpt');
-    const date = card.querySelector('.update-date');
-
-    return {
-      href: card.getAttribute('href'),
-      category: (card.dataset.category || (tagBadge ? tagBadge.textContent : '')).trim(),
-      tags: (card.dataset.tags || (tagBadge ? tagBadge.textContent : '')).trim(),
-      title: title ? title.textContent.trim() : '',
-      excerpt: excerpt ? excerpt.textContent.trim() : '',
-      date: date ? date.textContent.trim() : '',
-      index
-    };
-  };
-
-  const allItems = uniqueByHref(cards).map(getCardData);
-
-  const allCategories = uniqueSorted(allItems.map((item) => item.category));
-  const allTags = uniqueSorted(allItems.flatMap((item) => splitTags(item.tags)));
 
   const setDatalist = (list, values) => {
     list.innerHTML = '';
@@ -615,12 +789,11 @@ if (revealItems.length) {
 
   const itemMatches = (item, category, tag, search) => {
     const categoryText = normalize(item.category);
-    const tagsText = normalize(item.tags);
-    const searchable = normalize(`${item.title} ${item.excerpt} ${item.category} ${item.tags}`);
-
+    const tagsText = normalize((item.tags || []).join(', '));
+    const searchable = normalize(`${item.title} ${item.excerpt} ${item.category} ${(item.tags || []).join(' ')}`);
     return (!category || categoryText.includes(category)) &&
-           (!tag || tagsText.includes(tag)) &&
-           (!search || searchable.includes(search));
+      (!tag || tagsText.includes(tag)) &&
+      (!search || searchable.includes(search));
   };
 
   const hasAnyMatch = (category, tag, search) => allItems.some((item) => itemMatches(item, category, tag, search));
@@ -629,27 +802,11 @@ if (revealItems.length) {
     const category = normalize(categoryInput.value);
     const tag = normalize(tagInput.value);
     const search = normalize(searchInput.value);
-
     if (!category || !tag) return;
-
-    const combinedWorks = hasAnyMatch(category, tag, search);
-    if (combinedWorks) return;
-
-    // Free-switching rule:
-    // If user is changing tag and selected tag conflicts with current category, clear category.
-    // If user is changing category and selected category conflicts with current tag, clear tag.
-    if (activeInput === 'tag') {
-      categoryInput.value = '';
-      return;
-    }
-
-    if (activeInput === 'category') {
-      tagInput.value = '';
-      return;
-    }
-
-    // Fallback: prefer the most recently meaningful field by keeping tag and clearing category.
-    categoryInput.value = '';
+    if (hasAnyMatch(category, tag, search)) return;
+    if (activeInput === 'tag') categoryInput.value = '';
+    else if (activeInput === 'category') tagInput.value = '';
+    else categoryInput.value = '';
   };
 
   const updateDependentOptions = () => {
@@ -657,40 +814,15 @@ if (revealItems.length) {
     const tag = normalize(tagInput.value);
     const search = normalize(searchInput.value);
 
-    let availableTags = allTags;
-    let availableCategories = allCategories;
+    const tagScope = category ? allItems.filter((item) => itemMatches(item, category, '', search)) : allItems;
+    const categoryScope = tag ? allItems.filter((item) => itemMatches(item, '', tag, search)) : allItems;
 
-    if (category) {
-      availableTags = uniqueSorted(
-        allItems
-          .filter((item) => itemMatches(item, category, '', search))
-          .flatMap((item) => splitTags(item.tags))
-      );
-    }
-
-    if (tag) {
-      availableCategories = uniqueSorted(
-        allItems
-          .filter((item) => itemMatches(item, '', tag, search))
-          .map((item) => item.category)
-      );
-    }
-
-    setDatalist(tagList, availableTags);
-    setDatalist(categoryList, availableCategories);
-
-    tagInput.placeholder = category
-      ? `Tags available under ${categoryInput.value} Ã¢â‚¬â€ or type another tag to switch`
-      : 'Search or select tag';
-
-    categoryInput.placeholder = tag
-      ? `Categories available under ${tagInput.value} Ã¢â‚¬â€ or type another category to switch`
-      : 'Search or select category';
+    setDatalist(tagList, uniqueSorted(tagScope.flatMap((item) => item.tags || [])));
+    setDatalist(categoryList, uniqueSorted(categoryScope.map((item) => item.category)));
   };
 
   const renderResults = (items) => {
     resultsList.innerHTML = '';
-
     if (!items.length) {
       const empty = document.createElement('p');
       empty.className = 'insights-filter-status';
@@ -698,44 +830,7 @@ if (revealItems.length) {
       resultsList.appendChild(empty);
       return;
     }
-
-    items.forEach((item) => {
-      const link = document.createElement('a');
-      link.className = 'insights-result-item';
-      link.href = item.href;
-
-      const badge = document.createElement('span');
-      badge.className = 'update-tag tag-case-brief';
-      badge.textContent = item.category || 'Insight';
-
-      const title = document.createElement('div');
-      title.className = 'insights-result-title';
-      title.textContent = item.title;
-
-      const excerpt = document.createElement('div');
-      excerpt.className = 'insights-result-excerpt';
-      excerpt.textContent = item.excerpt;
-
-      const meta = document.createElement('div');
-      meta.className = 'insights-result-meta';
-
-      const date = document.createElement('span');
-      date.textContent = item.date || 'May 2026';
-
-      const tags = document.createElement('span');
-      tags.className = 'insights-result-tags';
-      tags.textContent = item.tags ? 'Tags: ' + item.tags : '';
-
-      meta.appendChild(date);
-      meta.appendChild(tags);
-
-      link.appendChild(badge);
-      link.appendChild(title);
-      link.appendChild(excerpt);
-      link.appendChild(meta);
-
-      resultsList.appendChild(link);
-    });
+    items.forEach((item) => resultsList.appendChild(window.ChambersInsightCards.buildCard(item, { result: true, tagLinks: false })));
   };
 
   const applyFilters = () => {
@@ -746,7 +841,6 @@ if (revealItems.length) {
     const tag = normalize(tagInput.value);
     const search = normalize(searchInput.value);
     const isActive = Boolean(category || tag || search);
-
     const matches = allItems.filter((item) => itemMatches(item, category, tag, search));
 
     document.body.classList.toggle('insights-filter-active', isActive);
@@ -758,173 +852,116 @@ if (revealItems.length) {
       if (category) parts.push(`category: ${categoryInput.value}`);
       if (tag) parts.push(`tag: ${tagInput.value}`);
       if (search) parts.push(`search: ${searchInput.value}`);
-      status.textContent = `Showing ${matches.length} matching insight${matches.length === 1 ? '' : 's'} for ${parts.join(', ')}. Scroll the results panel to see more.`;
+      status.textContent = `Showing ${matches.length} matching insight${matches.length === 1 ? '' : 's'} for ${parts.join(', ')}.`;
     } else {
       resultsList.innerHTML = '';
       status.textContent = 'Showing default editorial view.';
     }
   };
 
-  const clearFilters = () => {
+  categoryInput.addEventListener('input', () => { activeInput = 'category'; applyFilters(); });
+  categoryInput.addEventListener('change', () => { activeInput = 'category'; applyFilters(); });
+  tagInput.addEventListener('input', () => { activeInput = 'tag'; applyFilters(); });
+  tagInput.addEventListener('change', () => { activeInput = 'tag'; applyFilters(); });
+  searchInput.addEventListener('input', () => { activeInput = 'search'; applyFilters(); });
+  searchInput.addEventListener('change', () => { activeInput = 'search'; applyFilters(); });
+
+  clearButton.addEventListener('click', () => {
     activeInput = null;
     categoryInput.value = '';
     tagInput.value = '';
     searchInput.value = '';
     applyFilters();
     panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-
-  categoryInput.addEventListener('input', () => {
-    activeInput = 'category';
-    applyFilters();
-  });
-  categoryInput.addEventListener('change', () => {
-    activeInput = 'category';
-    applyFilters();
   });
 
-  tagInput.addEventListener('input', () => {
-    activeInput = 'tag';
-    applyFilters();
-  });
-  tagInput.addEventListener('change', () => {
-    activeInput = 'tag';
-    applyFilters();
-  });
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('category')) categoryInput.value = params.get('category');
+  if (params.get('tag')) tagInput.value = params.get('tag');
+  if (params.get('q')) searchInput.value = params.get('q');
 
-  searchInput.addEventListener('input', () => {
-    activeInput = 'search';
-    applyFilters();
-  });
-  searchInput.addEventListener('change', () => {
-    activeInput = 'search';
-    applyFilters();
-  });
-
-  clearButton.addEventListener('click', clearFilters);
-
-  cards.forEach((card) => {
-    const badge = card.querySelector('.update-tag');
-    if (!badge) return;
-
-    badge.setAttribute('role', 'button');
-    badge.setAttribute('tabindex', '0');
-    badge.setAttribute('title', `Filter by ${badge.textContent.trim()}`);
-
-    const trigger = (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      activeInput = 'category';
-      categoryInput.value = badge.textContent.trim();
-      tagInput.value = '';
-      searchInput.value = '';
-      applyFilters();
-      panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    };
-
-    badge.addEventListener('click', trigger);
-    badge.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter' || event.key === ' ') trigger(event);
-    });
-  });
-
-  setDatalist(categoryList, allCategories);
-  setDatalist(tagList, allTags);
+  setDatalist(categoryList, uniqueSorted(allItems.map((item) => item.category)));
+  setDatalist(tagList, uniqueSorted(allItems.flatMap((item) => item.tags || [])));
   applyFilters();
 })();
 
-// Homepage latest insights feed loader
+// Article footer: tags, previous/next and recommended reads
 (function () {
-  const grid = document.querySelector('[data-home-insights-feed]');
-  if (!grid || !window.fetch || !window.DOMParser) return;
+  const article = document.querySelector('.article-body');
+  if (!article || !window.ChambersInsightCards || !window.chambersInsightsRegistry) return;
 
-  const feedUrl = grid.getAttribute('data-home-insights-feed') || 'feed.xml';
-  const limit = Number.parseInt(grid.getAttribute('data-home-insights-limit') || '3', 10);
+  const path = window.location.pathname.replace(/^\//, '');
+  const items = window.chambersInsightsRegistry;
+  const currentIndex = items.findIndex((item) => item.href === path);
+  if (currentIndex === -1) return;
 
-  const normalizeRelativeUrl = (url) => {
-    try {
-      const parsed = new URL(url, window.location.href);
-      return parsed.origin === window.location.origin
-        ? parsed.pathname.replace(/^\//, '')
-        : parsed.href;
-    } catch (error) {
-      return url;
+  const current = items[currentIndex];
+  const previous = items[currentIndex + 1];
+  const next = items[currentIndex - 1];
+
+  const related = items
+    .filter((item, index) => index !== currentIndex && (item.category === current.category || item.tags.some((tag) => current.tags.includes(tag))))
+    .slice(0, 3);
+
+  const footer = document.createElement('section');
+  footer.className = 'article-standard-footer';
+
+  const tagsTitle = document.createElement('h2');
+  tagsTitle.textContent = 'Tags';
+
+  const tags = document.createElement('div');
+  tags.className = 'article-tag-list';
+  current.tags.forEach((tag) => {
+    const link = document.createElement('a');
+    link.href = `../legal-updates.html?tag=${encodeURIComponent(tag)}`;
+    link.textContent = tag;
+    tags.appendChild(link);
+  });
+
+  footer.appendChild(tagsTitle);
+  footer.appendChild(tags);
+
+  if (previous || next) {
+    const nav = document.createElement('div');
+    nav.className = 'article-nav-row';
+
+    if (previous) {
+      const prevLink = document.createElement('a');
+      prevLink.className = 'article-nav-button';
+      prevLink.href = '../' + previous.href;
+      prevLink.innerHTML = `<span>Previous Article</span>${previous.title}`;
+      nav.appendChild(prevLink);
     }
-  };
 
-  const getCategoryClass = (category) => {
-    const normalized = (category || '').toLowerCase();
-    if (normalized.includes('case')) return 'tag-case-brief';
-    if (normalized.includes('msme')) return 'tag-msme';
-    if (normalized.includes('rera')) return 'tag-rera';
-    if (normalized.includes('ni') || normalized.includes('cheque')) return 'tag-ni';
-    if (normalized.includes('arbitration')) return 'tag-arbitration';
-    if (normalized.includes('commercial')) return 'tag-commercial';
-    if (normalized.includes('checklist')) return 'tag-checklist';
-    if (normalized.includes('procedure')) return 'tag-procedure';
-    return 'tag-legal-update';
-  };
+    if (next) {
+      const nextLink = document.createElement('a');
+      nextLink.className = 'article-nav-button';
+      nextLink.href = '../' + next.href;
+      nextLink.innerHTML = `<span>Next Article</span>${next.title}`;
+      nav.appendChild(nextLink);
+    }
 
-  const getMonthYear = (dateText) => {
-    const date = new Date(dateText);
-    if (Number.isNaN(date.getTime())) return 'Latest';
-    return date.toLocaleDateString('en-IN', { month: 'short', year: 'numeric' });
-  };
+    footer.appendChild(nav);
+  }
 
-  const textFrom = (node, selector) => {
-    const found = node.querySelector(selector);
-    return found ? found.textContent.trim() : '';
-  };
+  if (related.length) {
+    const recTitle = document.createElement('h2');
+    recTitle.textContent = 'Recommended Reads';
+    footer.appendChild(recTitle);
 
-  const buildCard = (item) => {
-    const title = textFrom(item, 'title');
-    const link = normalizeRelativeUrl(textFrom(item, 'link'));
-    const description = textFrom(item, 'description');
-    const category = textFrom(item, 'category') || 'Legal Update';
-    const pubDate = textFrom(item, 'pubDate');
+    const grid = document.createElement('div');
+    grid.className = 'article-recommended-grid';
 
-    const card = document.createElement('a');
-    card.className = 'update-item update-item-link';
-    card.href = link;
-
-    const badge = document.createElement('span');
-    badge.className = `update-tag ${getCategoryClass(category)}`;
-    badge.textContent = category;
-
-    const titleEl = document.createElement('div');
-    titleEl.className = 'update-title';
-    titleEl.textContent = title;
-
-    const excerpt = document.createElement('div');
-    excerpt.className = 'update-excerpt';
-    excerpt.textContent = description;
-
-    const date = document.createElement('div');
-    date.className = 'update-date';
-    date.textContent = getMonthYear(pubDate);
-
-    card.appendChild(badge);
-    card.appendChild(titleEl);
-    card.appendChild(excerpt);
-    card.appendChild(date);
-
-    return card;
-  };
-
-  fetch(feedUrl, { cache: 'no-store' })
-    .then((response) => {
-      if (!response.ok) throw new Error('Feed request failed');
-      return response.text();
-    })
-    .then((xmlText) => {
-      const xml = new DOMParser().parseFromString(xmlText, 'application/xml');
-      const items = Array.from(xml.querySelectorAll('item')).slice(0, Math.max(1, limit || 3));
-      if (!items.length) return;
-
-      grid.innerHTML = '';
-      items.forEach((item) => grid.appendChild(buildCard(item)));
-    })
-    .catch(() => {
-      // Keep static fallback cards if feed cannot be loaded.
+    related.forEach((item) => {
+      const card = document.createElement('a');
+      card.className = 'article-recommended-card';
+      card.href = '../' + item.href;
+      card.innerHTML = `<strong>${item.title}</strong><small>${item.category}</small>`;
+      grid.appendChild(card);
     });
+
+    footer.appendChild(grid);
+  }
+
+  article.appendChild(footer);
 })();

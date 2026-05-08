@@ -868,3 +868,29 @@ Open the homepage with a temporary query string, e.g. /?v=cache-test.
 Hard refresh browser cache.
 Verify index.html and script.js versions on GitHub.
 ```
+
+
+## Insights Card And Article Footer Standard
+
+All insight cards should use one standard structure across homepage, default Insights blocks and filtered results:
+
+```text
+Primary Category Badge
+Title
+Excerpt
+Date
+Tags
+```
+
+Rules:
+
+```text
+Category is the article type.
+Tags are legal subjects, statutes, forums or topic labels.
+Homepage cards, Insights default cards and filtered results must show visible tags.
+Filtered result cards should use the same visible structure as standard cards.
+Article pages should show tags at the bottom.
+Article tags should link back to the Insights page filtered by that tag.
+Article pages should include Previous Article / Next Article buttons where available.
+Article pages should include a Recommended Reads block.
+```
