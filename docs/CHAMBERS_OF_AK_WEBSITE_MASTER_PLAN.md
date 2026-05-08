@@ -894,3 +894,19 @@ Article tags should link back to the Insights page filtered by that tag.
 Article pages should include Previous Article / Next Article buttons where available.
 Article pages should include a Recommended Reads block.
 ```
+
+
+## Homepage And Insights List Standard
+
+Rules:
+
+```text
+Homepage must have only one Latest Legal Insights section.
+Case Enquiry should appear after the homepage Latest Legal Insights section.
+Homepage Latest Legal Insights should use the standard tagged card structure.
+Insights page Latest Articles should show one row by default.
+A View All Latest Articles button should activate latest-list mode.
+Latest-list mode should show all articles latest-first in a paginated result list.
+Each page should show no more than 10 articles.
+Category/tag/search filters should use the same paginated result list structure.
+```

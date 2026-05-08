@@ -547,6 +547,15 @@ if (revealItems.length) {
 
 
 
+
+
+
+
+
+
+
+
+
 // Chambers Insights article metadata registry
 window.chambersInsightsRegistry = [
   {
@@ -677,12 +686,149 @@ window.chambersInsightsRegistry = [
       "Venue",
       "Interim Relief"
     ]
+  },
+  {
+    "href": "updates/cheque-bounce-30-days.html",
+    "category": "Practical Guide",
+    "title": "Cheque bounce: 30-day notice timeline",
+    "excerpt": "A practical date-chart approach for cheque dishonour notices, limitation and complaint preparation.",
+    "date": "May 2026",
+    "tags": [
+      "NI Act",
+      "Cheque Bounce",
+      "Demand Notice",
+      "Limitation",
+      "Section 138"
+    ]
+  },
+  {
+    "href": "updates/msme-delayed-payment.html",
+    "category": "Practical Guide",
+    "title": "MSME delayed payment claims: first review",
+    "excerpt": "How to organize invoices, Udyam records, delivery proof and buyer communications for MSME delayed payment claims.",
+    "date": "May 2026",
+    "tags": [
+      "MSME",
+      "Delayed Payment",
+      "MSEFC",
+      "Udyam"
+    ]
+  },
+  {
+    "href": "updates/bihar-rera-complaint.html",
+    "category": "Practical Guide",
+    "title": "Bihar RERA complaint preparation",
+    "excerpt": "A document-first approach to delayed possession, refund, interest and builder dispute complaints.",
+    "date": "May 2026",
+    "tags": [
+      "RERA",
+      "Bihar",
+      "Builder Dispute",
+      "Delayed Possession",
+      "Refund"
+    ]
+  },
+  {
+    "href": "updates/cheque-bounce-notice-limitation.html",
+    "category": "Procedure Note",
+    "title": "Cheque bounce notice and limitation",
+    "excerpt": "Key dates to track before filing or defending a Section 138 cheque bounce complaint.",
+    "date": "May 2026",
+    "tags": [
+      "NI Act",
+      "Cheque Bounce",
+      "Notice",
+      "Limitation",
+      "Section 138"
+    ]
+  },
+  {
+    "href": "updates/msme-45-days-payment-rule.html",
+    "category": "Legal Update",
+    "title": "MSME 45-day payment rule",
+    "excerpt": "Document and date preparation for MSME delayed payment claims and buyer responses.",
+    "date": "May 2026",
+    "tags": [
+      "MSME",
+      "Delayed Payment",
+      "45-Day Rule",
+      "Income Tax",
+      "Udyam"
+    ]
+  },
+  {
+    "href": "updates/section-138-cheque-bounce-limitation.html",
+    "category": "Procedure Note",
+    "title": "Section 138 cheque bounce limitation",
+    "excerpt": "Limitation, demand notice and complaint timelines in cheque dishonour matters.",
+    "date": "May 2026",
+    "tags": [
+      "NI Act",
+      "Cheque Bounce",
+      "Limitation",
+      "Demand Notice",
+      "Section 138"
+    ]
+  },
+  {
+    "href": "updates/rera-delayed-possession-bihar.html",
+    "category": "Practical Guide",
+    "title": "RERA delayed possession in Bihar",
+    "excerpt": "Refund, interest and possession relief considerations in delayed possession matters.",
+    "date": "May 2026",
+    "tags": [
+      "RERA",
+      "Bihar",
+      "Delayed Possession",
+      "Refund",
+      "Interest"
+    ]
+  },
+  {
+    "href": "updates/arbitration-notice-before-claim.html",
+    "category": "Procedure Note",
+    "title": "Arbitration notice before claim",
+    "excerpt": "Notice, limitation, contract documents and claim preparation before arbitration begins.",
+    "date": "May 2026",
+    "tags": [
+      "Arbitration",
+      "Notice",
+      "Limitation",
+      "Claim Preparation"
+    ]
+  },
+  {
+    "href": "updates/property-injunction-suit-documents.html",
+    "category": "Checklist",
+    "title": "Property injunction suit documents",
+    "excerpt": "Possession, title, site photographs, notices and urgent-court preparation in property injunction suits.",
+    "date": "May 2026",
+    "tags": [
+      "Property",
+      "Injunction",
+      "Civil Suit",
+      "Documents",
+      "Possession"
+    ]
+  },
+  {
+    "href": "updates/section-34-arbitration-award-challenge.html",
+    "category": "Procedure Note",
+    "title": "Section 34 arbitration award challenge",
+    "excerpt": "Limitation, grounds, record preparation and court-stage considerations for award challenges.",
+    "date": "May 2026",
+    "tags": [
+      "Arbitration",
+      "Section 34",
+      "Award Challenge",
+      "Limitation"
+    ]
   }
 ];
 
 // Shared Insights card rendering helpers
 window.ChambersInsightCards = (function () {
-  const normalize = (value) => (value || '').toLowerCase().replace(/\s+/g, ' ').trim();
+  const normalize = (value) => (value || '').toLowerCase().replace(/s+/g, ' ').trim();
 
   const categoryClass = (category) => {
     const normalized = normalize(category);
@@ -693,8 +839,6 @@ window.ChambersInsightCards = (function () {
     return 'tag-legal-update';
   };
 
-  const tagUrl = (tag) => `legal-updates.html?tag=${encodeURIComponent(tag)}`;
-
   const buildTagList = (tags, linked) => {
     const wrap = document.createElement('div');
     wrap.className = 'insight-card-tags';
@@ -703,7 +847,7 @@ window.ChambersInsightCards = (function () {
     (tags || []).slice(0, 5).forEach((tag) => {
       const el = linked ? document.createElement('a') : document.createElement('span');
       el.textContent = tag;
-      if (linked) el.href = tagUrl(tag);
+      if (linked) el.href = `legal-updates.html?tag=${encodeURIComponent(tag)}`;
       wrap.appendChild(el);
     });
 
@@ -745,7 +889,7 @@ window.ChambersInsightCards = (function () {
   return { buildCard, normalize, categoryClass, buildTagList };
 })();
 
-// Homepage latest insights feed loader
+// Homepage latest insights strip renderer
 (function () {
   const grid = document.querySelector('[data-home-insights-limit]');
   if (!grid || !window.ChambersInsightCards || !window.chambersInsightsRegistry) return;
@@ -756,7 +900,7 @@ window.ChambersInsightCards = (function () {
     .forEach((item) => grid.appendChild(window.ChambersInsightCards.buildCard(item, { tagLinks: false })));
 })();
 
-// Advanced Insights free-switching dependent filter module v5
+// Advanced Insights paginated list/filter module v6
 (function () {
   const panel = document.querySelector('.insights-filter-panel');
   const categoryInput = document.querySelector('#insight-category-filter');
@@ -768,10 +912,14 @@ window.ChambersInsightCards = (function () {
   const status = document.querySelector('.insights-filter-status');
   const resultsSection = document.querySelector('.insights-results-section');
   const resultsList = document.querySelector('.insights-results-list');
+  const latestAllButton = document.querySelector('[data-latest-all-trigger]');
 
   if (!panel || !categoryInput || !tagInput || !searchInput || !categoryList || !tagList || !clearButton || !resultsSection || !resultsList) return;
 
   let activeInput = null;
+  let currentPage = 1;
+  let latestListMode = false;
+  const pageSize = 10;
   const normalize = window.ChambersInsightCards.normalize;
   const allItems = window.chambersInsightsRegistry || [];
 
@@ -821,53 +969,115 @@ window.ChambersInsightCards = (function () {
     setDatalist(categoryList, uniqueSorted(categoryScope.map((item) => item.category)));
   };
 
+  const pagination = document.createElement('div');
+  pagination.className = 'insights-pagination';
+
+  const renderPagination = (totalItems) => {
+    pagination.innerHTML = '';
+    const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
+    if (totalPages <= 1) {
+      if (pagination.parentNode) pagination.remove();
+      return;
+    }
+
+    for (let page = 1; page <= totalPages; page += 1) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'insights-page-button';
+      button.textContent = String(page);
+      button.classList.toggle('is-active', page === currentPage);
+      button.addEventListener('click', () => {
+        currentPage = page;
+        applyFilters(false);
+        resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      pagination.appendChild(button);
+    }
+
+    resultsList.after(pagination);
+  };
+
   const renderResults = (items) => {
     resultsList.innerHTML = '';
+
     if (!items.length) {
       const empty = document.createElement('p');
       empty.className = 'insights-filter-status';
       empty.textContent = 'No matching insights found. Clear filters or try a broader search.';
       resultsList.appendChild(empty);
+      renderPagination(0);
       return;
     }
-    items.forEach((item) => resultsList.appendChild(window.ChambersInsightCards.buildCard(item, { result: true, tagLinks: false })));
+
+    const totalPages = Math.max(1, Math.ceil(items.length / pageSize));
+    if (currentPage > totalPages) currentPage = totalPages;
+
+    const start = (currentPage - 1) * pageSize;
+    const visible = items.slice(start, start + pageSize);
+
+    visible.forEach((item) => resultsList.appendChild(window.ChambersInsightCards.buildCard(item, { result: true, tagLinks: false })));
+    renderPagination(items.length);
   };
 
-  const applyFilters = () => {
+  const applyFilters = (resetPage = true) => {
+    if (resetPage) currentPage = 1;
     resolveConflicts();
     updateDependentOptions();
 
     const category = normalize(categoryInput.value);
     const tag = normalize(tagInput.value);
     const search = normalize(searchInput.value);
-    const isActive = Boolean(category || tag || search);
-    const matches = allItems.filter((item) => itemMatches(item, category, tag, search));
+    const isFilterActive = Boolean(category || tag || search);
+    const isActive = latestListMode || isFilterActive;
+
+    const matches = latestListMode && !isFilterActive
+      ? allItems
+      : allItems.filter((item) => itemMatches(item, category, tag, search));
 
     document.body.classList.toggle('insights-filter-active', isActive);
+    document.body.classList.toggle('insights-list-active', latestListMode);
     resultsSection.hidden = !isActive;
 
     if (isActive) {
       renderResults(matches);
-      const parts = [];
-      if (category) parts.push(`category: ${categoryInput.value}`);
-      if (tag) parts.push(`tag: ${tagInput.value}`);
-      if (search) parts.push(`search: ${searchInput.value}`);
-      status.textContent = `Showing ${matches.length} matching insight${matches.length === 1 ? '' : 's'} for ${parts.join(', ')}.`;
+      if (latestListMode && !isFilterActive) {
+        status.textContent = `Showing all latest insights, newest first. Page ${currentPage} of ${Math.max(1, Math.ceil(matches.length / pageSize))}.`;
+      } else {
+        const parts = [];
+        if (category) parts.push(`category: ${categoryInput.value}`);
+        if (tag) parts.push(`tag: ${tagInput.value}`);
+        if (search) parts.push(`search: ${searchInput.value}`);
+        status.textContent = `Showing ${matches.length} matching insight${matches.length === 1 ? '' : 's'} for ${parts.join(', ')}.`;
+      }
     } else {
       resultsList.innerHTML = '';
+      renderPagination(0);
       status.textContent = 'Showing default editorial view.';
     }
   };
 
-  categoryInput.addEventListener('input', () => { activeInput = 'category'; applyFilters(); });
-  categoryInput.addEventListener('change', () => { activeInput = 'category'; applyFilters(); });
-  tagInput.addEventListener('input', () => { activeInput = 'tag'; applyFilters(); });
-  tagInput.addEventListener('change', () => { activeInput = 'tag'; applyFilters(); });
-  searchInput.addEventListener('input', () => { activeInput = 'search'; applyFilters(); });
-  searchInput.addEventListener('change', () => { activeInput = 'search'; applyFilters(); });
+  categoryInput.addEventListener('input', () => { activeInput = 'category'; latestListMode = false; applyFilters(); });
+  categoryInput.addEventListener('change', () => { activeInput = 'category'; latestListMode = false; applyFilters(); });
+  tagInput.addEventListener('input', () => { activeInput = 'tag'; latestListMode = false; applyFilters(); });
+  tagInput.addEventListener('change', () => { activeInput = 'tag'; latestListMode = false; applyFilters(); });
+  searchInput.addEventListener('input', () => { activeInput = 'search'; latestListMode = false; applyFilters(); });
+  searchInput.addEventListener('change', () => { activeInput = 'search'; latestListMode = false; applyFilters(); });
+
+  if (latestAllButton) {
+    latestAllButton.addEventListener('click', () => {
+      activeInput = 'latest';
+      latestListMode = true;
+      categoryInput.value = '';
+      tagInput.value = '';
+      searchInput.value = '';
+      applyFilters();
+      resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
 
   clearButton.addEventListener('click', () => {
     activeInput = null;
+    latestListMode = false;
     categoryInput.value = '';
     tagInput.value = '';
     searchInput.value = '';
@@ -890,7 +1100,7 @@ window.ChambersInsightCards = (function () {
   const article = document.querySelector('.article-body');
   if (!article || !window.ChambersInsightCards || !window.chambersInsightsRegistry) return;
 
-  const path = window.location.pathname.replace(/^\//, '');
+  const path = window.location.pathname.replace(/^//, '');
   const items = window.chambersInsightsRegistry;
   const currentIndex = items.findIndex((item) => item.href === path);
   if (currentIndex === -1) return;
