@@ -186,7 +186,7 @@ trademark / IP advisory
 
 The Insights section should evolve into a legal-publication style section.
 
-Do not treat all content as one undifferentiated ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œLegal UpdatesÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â list.
+Do not treat all content as one undifferentiated ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“Legal UpdatesÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â list.
 
 Recommended editorial groups:
 
@@ -839,4 +839,32 @@ Validation:
 Check homepage latest strip after every article publication.
 Check that cards open correctly.
 Check that homepage still shows fallback cards if JavaScript/feed loading fails.
+```
+
+## Homepage Cache-Busting Rule
+
+When homepage-visible content or homepage JavaScript changes, update cache-busting query strings.
+
+Rules:
+
+```text
+Bump homepage CSS version if homepage styling changes.
+Bump homepage JS version if homepage feed/loading behavior changes.
+Keep homepage static fallback cards synced with the latest three feed items.
+Use the feed loader as enhancement, not as the only source of latest cards.
+```
+
+Example:
+
+```html
+<link rel="stylesheet" href="assets/css/style.css?v=legal-4">
+<script src="assets/js/script.js?v=homefeed-2"></script>
+```
+
+If the homepage still shows older insight cards after deployment:
+
+```text
+Open the homepage with a temporary query string, e.g. /?v=cache-test.
+Hard refresh browser cache.
+Verify index.html and script.js versions on GitHub.
 ```
