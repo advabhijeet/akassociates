@@ -542,7 +542,7 @@ if (revealItems.length) {
   }
 })();
 
-// Advanced Insights dependent category tag search module v3
+// Advanced Insights free-switching dependent filter module v4
 (function () {
   const panel = document.querySelector('.insights-filter-panel');
   const categoryInput = document.querySelector('#insight-category-filter');
@@ -559,6 +559,8 @@ if (revealItems.length) {
   if (!panel || !categoryInput || !tagInput || !searchInput || !categoryList || !tagList || !clearButton || !resultsSection || !resultsList || !cards.length) {
     return;
   }
+
+  let activeInput = null;
 
   const normalize = (value) => (value || '').toLowerCase().replace(/\s+/g, ' ').trim();
 
@@ -599,6 +601,9 @@ if (revealItems.length) {
 
   const allItems = uniqueByHref(cards).map(getCardData);
 
+  const allCategories = uniqueSorted(allItems.map((item) => item.category));
+  const allTags = uniqueSorted(allItems.flatMap((item) => splitTags(item.tags)));
+
   const setDatalist = (list, values) => {
     list.innerHTML = '';
     values.forEach((value) => {
@@ -608,19 +613,43 @@ if (revealItems.length) {
     });
   };
 
-  const itemMatches = (item, category, tag, search, options = {}) => {
+  const itemMatches = (item, category, tag, search) => {
     const categoryText = normalize(item.category);
     const tagsText = normalize(item.tags);
     const searchable = normalize(`${item.title} ${item.excerpt} ${item.category} ${item.tags}`);
 
-    const categoryMatch = !category || categoryText.includes(category);
-    const tagMatch = !tag || tagsText.includes(tag);
-    const searchMatch = !search || searchable.includes(search);
+    return (!category || categoryText.includes(category)) &&
+           (!tag || tagsText.includes(tag)) &&
+           (!search || searchable.includes(search));
+  };
 
-    if (options.ignoreCategory) return tagMatch && searchMatch;
-    if (options.ignoreTag) return categoryMatch && searchMatch;
+  const hasAnyMatch = (category, tag, search) => allItems.some((item) => itemMatches(item, category, tag, search));
 
-    return categoryMatch && tagMatch && searchMatch;
+  const resolveConflicts = () => {
+    const category = normalize(categoryInput.value);
+    const tag = normalize(tagInput.value);
+    const search = normalize(searchInput.value);
+
+    if (!category || !tag) return;
+
+    const combinedWorks = hasAnyMatch(category, tag, search);
+    if (combinedWorks) return;
+
+    // Free-switching rule:
+    // If user is changing tag and selected tag conflicts with current category, clear category.
+    // If user is changing category and selected category conflicts with current tag, clear tag.
+    if (activeInput === 'tag') {
+      categoryInput.value = '';
+      return;
+    }
+
+    if (activeInput === 'category') {
+      tagInput.value = '';
+      return;
+    }
+
+    // Fallback: prefer the most recently meaningful field by keeping tag and clearing category.
+    categoryInput.value = '';
   };
 
   const updateDependentOptions = () => {
@@ -628,21 +657,34 @@ if (revealItems.length) {
     const tag = normalize(tagInput.value);
     const search = normalize(searchInput.value);
 
-    const tagScope = allItems.filter((item) => itemMatches(item, category, '', search, { ignoreTag: true }));
-    const categoryScope = allItems.filter((item) => itemMatches(item, '', tag, search, { ignoreCategory: true }));
+    let availableTags = allTags;
+    let availableCategories = allCategories;
 
-    const availableTags = uniqueSorted(tagScope.flatMap((item) => splitTags(item.tags)));
-    const availableCategories = uniqueSorted(categoryScope.map((item) => item.category));
+    if (category) {
+      availableTags = uniqueSorted(
+        allItems
+          .filter((item) => itemMatches(item, category, '', search))
+          .flatMap((item) => splitTags(item.tags))
+      );
+    }
+
+    if (tag) {
+      availableCategories = uniqueSorted(
+        allItems
+          .filter((item) => itemMatches(item, '', tag, search))
+          .map((item) => item.category)
+      );
+    }
 
     setDatalist(tagList, availableTags);
     setDatalist(categoryList, availableCategories);
 
     tagInput.placeholder = category
-      ? `Tags available under ${categoryInput.value}`
+      ? `Tags available under ${categoryInput.value} â€” or type another tag to switch`
       : 'Search or select tag';
 
     categoryInput.placeholder = tag
-      ? `Categories available under ${tagInput.value}`
+      ? `Categories available under ${tagInput.value} â€” or type another category to switch`
       : 'Search or select category';
   };
 
@@ -697,12 +739,13 @@ if (revealItems.length) {
   };
 
   const applyFilters = () => {
+    resolveConflicts();
+    updateDependentOptions();
+
     const category = normalize(categoryInput.value);
     const tag = normalize(tagInput.value);
     const search = normalize(searchInput.value);
     const isActive = Boolean(category || tag || search);
-
-    updateDependentOptions();
 
     const matches = allItems.filter((item) => itemMatches(item, category, tag, search));
 
@@ -723,6 +766,7 @@ if (revealItems.length) {
   };
 
   const clearFilters = () => {
+    activeInput = null;
     categoryInput.value = '';
     tagInput.value = '';
     searchInput.value = '';
@@ -730,9 +774,31 @@ if (revealItems.length) {
     panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
-  [categoryInput, tagInput, searchInput].forEach((input) => {
-    input.addEventListener('input', applyFilters);
-    input.addEventListener('change', applyFilters);
+  categoryInput.addEventListener('input', () => {
+    activeInput = 'category';
+    applyFilters();
+  });
+  categoryInput.addEventListener('change', () => {
+    activeInput = 'category';
+    applyFilters();
+  });
+
+  tagInput.addEventListener('input', () => {
+    activeInput = 'tag';
+    applyFilters();
+  });
+  tagInput.addEventListener('change', () => {
+    activeInput = 'tag';
+    applyFilters();
+  });
+
+  searchInput.addEventListener('input', () => {
+    activeInput = 'search';
+    applyFilters();
+  });
+  searchInput.addEventListener('change', () => {
+    activeInput = 'search';
+    applyFilters();
   });
 
   clearButton.addEventListener('click', clearFilters);
@@ -748,6 +814,7 @@ if (revealItems.length) {
     const trigger = (event) => {
       event.preventDefault();
       event.stopPropagation();
+      activeInput = 'category';
       categoryInput.value = badge.textContent.trim();
       tagInput.value = '';
       searchInput.value = '';
@@ -761,6 +828,7 @@ if (revealItems.length) {
     });
   });
 
-  updateDependentOptions();
+  setDatalist(categoryList, allCategories);
+  setDatalist(tagList, allTags);
   applyFilters();
 })();

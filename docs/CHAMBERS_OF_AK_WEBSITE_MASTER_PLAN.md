@@ -186,7 +186,7 @@ trademark / IP advisory
 
 The Insights section should evolve into a legal-publication style section.
 
-Do not treat all content as one undifferentiated ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œLegal UpdatesÃƒÂ¢Ã¢â€šÂ¬Ã‚Â list.
+Do not treat all content as one undifferentiated ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“Legal UpdatesÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â list.
 
 Recommended editorial groups:
 
@@ -804,4 +804,18 @@ Clear Filter should only be required to reset the page to the default editorial 
 Filtered results should be shown in a vertical list with internal scrolling so long result sets do not make the page look awkward.
 The visible result panel should show about five items at a time on desktop, with internal scrolling for additional results.
 Mobile view must remain stacked, readable and free from horizontal overflow.
+```
+
+## Advanced Insights Free-Switching Filter Rule
+
+The Insights filter module must allow direct switching without forcing the user to press Clear Filter.
+
+Rules:
+
+```text
+If category is active and the user selects/types a tag outside that category, automatically clear category and apply the new tag.
+If tag is active and the user selects/types a category outside that tag, automatically clear tag and apply the new category.
+If category and tag are compatible, keep both active.
+Search should refine the active category/tag but should not prevent direct switching.
+Clear Filter should reset the page only when the user wants to return to the default editorial view.
 ```
