@@ -1,5 +1,31 @@
 # Changelog
 
+## 2026-05-09 00:46 IST - Practice hub strengthening pass
+
+Files changed:
+
+- `practice.html`
+- `CHANGELOG.md`
+
+Summary:
+
+- Strengthened the main Expertise & Practice Areas hub with document-led practice readiness content.
+- Added related Insights links by practice cluster for cheque bounce, MSME, commercial recovery, RERA, arbitration and property/civil suit matters.
+- Added structured enquiry-preparation guidance to connect the Practice page with Case Enquiry and Document Checklists.
+- Preserved informational, non-solicitation language and public file locations.
+- Did not modify the six individual practice pages in this pass.
+
+Validation / notes:
+
+- `node --check assets\js\script.js` passed.
+- `git diff --check` passed.
+- `sitemap.xml` and `feed.xml` parsed successfully.
+- JSON-LD parsing and internal href/src validation completed during the patch run.
+- Manual browser check remains recommended after GitHub Pages redeploy.
+
+Commits:
+
+- Commit hash to be recorded after push.
 ## 2026-05-09 00:27 IST - Insights default section previews and View All pagination
 
 Files changed:
