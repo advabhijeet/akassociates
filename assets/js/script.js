@@ -900,7 +900,7 @@ window.ChambersInsightCards = (function () {
     .forEach((item) => grid.appendChild(window.ChambersInsightCards.buildCard(item, { tagLinks: false })));
 })();
 
-// Advanced Insights paginated list/filter module v7
+// Advanced Insights paginated list/filter module v8
 (function () {
   const panel = document.querySelector('.insights-filter-panel');
   const categoryInput = document.querySelector('#insight-category-filter');
@@ -912,7 +912,6 @@ window.ChambersInsightCards = (function () {
   const status = document.querySelector('.insights-filter-status');
   const resultsSection = document.querySelector('.insights-results-section');
   const resultsList = document.querySelector('.insights-results-list');
-  const latestSection = document.querySelector('.latest-insights-section');
   const latestAllButton = document.querySelector('[data-latest-all-trigger]');
 
   if (!panel || !categoryInput || !tagInput || !searchInput || !categoryList || !tagList || !clearButton || !status || !resultsSection || !resultsList) {
@@ -922,6 +921,9 @@ window.ChambersInsightCards = (function () {
   const pageSize = 10;
   let currentPage = 1;
   let latestListMode = false;
+
+  const defaultSections = Array.from(document.querySelectorAll('main > section.sec'))
+    .filter((section) => section !== panel && section !== resultsSection && Boolean(panel.compareDocumentPosition(section) & Node.DOCUMENT_POSITION_FOLLOWING));
 
   let pagination = resultsSection.querySelector('.insights-pagination');
   if (!pagination) {
@@ -958,7 +960,7 @@ window.ChambersInsightCards = (function () {
 
   const buildFallbackCard = (item) => {
     const card = document.createElement('a');
-    card.className = 'update-item update-item-link insights-result-item';
+    card.className = 'update-item update-item-link insights-result-item insights-list-card';
     card.href = item.href || '#';
     card.dataset.category = item.category || '';
     card.dataset.tags = (item.tags || []).join(', ');
@@ -982,7 +984,6 @@ window.ChambersInsightCards = (function () {
     const tags = document.createElement('div');
     tags.className = 'insight-card-tags';
     tags.setAttribute('aria-label', 'Article tags');
-
     (item.tags || []).slice(0, 4).forEach((tag) => {
       const tagEl = document.createElement('span');
       tagEl.textContent = tag;
@@ -999,11 +1000,15 @@ window.ChambersInsightCards = (function () {
   };
 
   const buildCard = (item) => {
+    let card;
     if (window.ChambersInsightCards && typeof window.ChambersInsightCards.buildCard === 'function') {
-      return window.ChambersInsightCards.buildCard(item, { result: true, tagLinks: true });
+      card = window.ChambersInsightCards.buildCard(item, { result: true, tagLinks: true });
+    } else {
+      card = buildFallbackCard(item);
     }
 
-    return buildFallbackCard(item);
+    card.classList.add('insights-list-card', 'insights-result-item');
+    return card;
   };
 
   const uniqueSorted = (values) => Array.from(new Set(values.filter(Boolean)))
@@ -1047,11 +1052,19 @@ window.ChambersInsightCards = (function () {
     return categoryMatch && tagMatch && searchMatch;
   };
 
+  const setEditorialVisibility = (isResultsMode) => {
+    document.body.classList.toggle('is-insights-filter-active', isResultsMode);
+    defaultSections.forEach((section) => {
+      section.hidden = isResultsMode;
+    });
+  };
+
   const setDefaultView = () => {
+    latestListMode = false;
     resultsSection.hidden = true;
     resultsList.innerHTML = '';
     pagination.innerHTML = '';
-    if (latestSection) latestSection.hidden = false;
+    setEditorialVisibility(false);
     status.textContent = 'Showing default editorial view.';
   };
 
@@ -1098,9 +1111,8 @@ window.ChambersInsightCards = (function () {
     const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
     currentPage = Math.min(Math.max(1, currentPage), totalPages);
 
+    setEditorialVisibility(true);
     resultsSection.hidden = false;
-    if (latestSection) latestSection.hidden = true;
-
     resultsList.innerHTML = '';
 
     if (!totalItems) {
@@ -1153,7 +1165,6 @@ window.ChambersInsightCards = (function () {
     categoryInput.value = '';
     tagInput.value = '';
     searchInput.value = '';
-    latestListMode = false;
     currentPage = 1;
     setDefaultView();
     categoryInput.focus();
@@ -1167,10 +1178,7 @@ window.ChambersInsightCards = (function () {
       latestListMode = true;
       currentPage = 1;
       renderCurrentView();
-      resultsSection.scrollIntoView({
-        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
-        block: 'start',
-      });
+      resultsSection.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
     });
   }
 

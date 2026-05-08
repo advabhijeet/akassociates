@@ -1,5 +1,34 @@
 # Changelog
 
+## 2026-05-09 00:18 IST - Insights filter results list UI fix
+
+Files changed:
+
+- `legal-updates.html`
+- `assets/js/script.js`
+- `assets/css/style.css`
+- `CHANGELOG.md`
+
+Summary:
+
+- Updated the Insights page filter behaviour so grouped editorial sections remain visible only in the inactive/default view.
+- When category, tag, search, or View All Latest Articles is active, the page now shows the Matching Insights block and hides the other grouped article blocks below the filter panel.
+- Removed internal scrolling from the Matching Insights results list so the page uses normal browser scrolling.
+- Converted Insights page cards to a list-style layout to reduce empty grid spaces at changing screen widths.
+- Kept pagination at a maximum of 10 article cards per page.
+- Bumped `legal-updates.html` CSS/JS cache strings for the revised Insights UI.
+
+Validation / notes:
+
+- `node --check assets\js\script.js` passed.
+- `git diff --check` passed.
+- `sitemap.xml` and `feed.xml` parsed successfully.
+- JSON-LD parsing and internal href/src validation completed during the patch run.
+- Manual browser check remains recommended after GitHub Pages redeploy.
+
+Commits:
+
+- Commit hash to be recorded after push.
 ## 2026-05-09 00:07 IST - Non-fast-forward patch recovery workflow
 
 Files changed:
