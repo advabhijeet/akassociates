@@ -900,7 +900,7 @@ window.ChambersInsightCards = (function () {
     .forEach((item) => grid.appendChild(window.ChambersInsightCards.buildCard(item, { tagLinks: false })));
 })();
 
-// Advanced Insights paginated list/filter module v6
+// Advanced Insights paginated list/filter module v7
 (function () {
   const panel = document.querySelector('.insights-filter-panel');
   const categoryInput = document.querySelector('#insight-category-filter');
@@ -912,19 +912,102 @@ window.ChambersInsightCards = (function () {
   const status = document.querySelector('.insights-filter-status');
   const resultsSection = document.querySelector('.insights-results-section');
   const resultsList = document.querySelector('.insights-results-list');
+  const latestSection = document.querySelector('.latest-insights-section');
   const latestAllButton = document.querySelector('[data-latest-all-trigger]');
 
-  if (!panel || !categoryInput || !tagInput || !searchInput || !categoryList || !tagList || !clearButton || !resultsSection || !resultsList) return;
+  if (!panel || !categoryInput || !tagInput || !searchInput || !categoryList || !tagList || !clearButton || !status || !resultsSection || !resultsList) {
+    return;
+  }
 
-  let activeInput = null;
+  const pageSize = 10;
   let currentPage = 1;
   let latestListMode = false;
-  const pageSize = 10;
-  const normalize = window.ChambersInsightCards.normalize;
-  const allItems = window.chambersInsightsRegistry || [];
+
+  let pagination = resultsSection.querySelector('.insights-pagination');
+  if (!pagination) {
+    pagination = document.createElement('div');
+    pagination.className = 'insights-pagination';
+    pagination.setAttribute('aria-label', 'Insights pagination');
+    resultsSection.appendChild(pagination);
+  }
+
+  const normalize = (value) => String(value || '').trim().toLowerCase();
+
+  const extractStaticCards = () => Array.from(document.querySelectorAll('.latest-insights-section .update-item-link')).map((card) => {
+    const tagsFromData = (card.dataset.tags || '')
+      .split(',')
+      .map((tag) => tag.trim())
+      .filter(Boolean);
+
+    const tagsFromMarkup = Array.from(card.querySelectorAll('.insight-card-tags span'))
+      .map((tag) => tag.textContent.trim())
+      .filter(Boolean);
+
+    return {
+      href: card.getAttribute('href') || '#',
+      category: card.dataset.category || card.querySelector('.update-tag')?.textContent?.trim() || 'Insight',
+      title: card.querySelector('.update-title')?.textContent?.trim() || '',
+      excerpt: card.querySelector('.update-excerpt')?.textContent?.trim() || '',
+      date: card.querySelector('.update-date')?.textContent?.trim() || '',
+      tags: tagsFromData.length ? tagsFromData : tagsFromMarkup,
+    };
+  });
+
+  const registryItems = Array.isArray(window.chambersInsightsRegistry) ? window.chambersInsightsRegistry : [];
+  const allItems = registryItems.length ? registryItems : extractStaticCards();
+
+  const buildFallbackCard = (item) => {
+    const card = document.createElement('a');
+    card.className = 'update-item update-item-link insights-result-item';
+    card.href = item.href || '#';
+    card.dataset.category = item.category || '';
+    card.dataset.tags = (item.tags || []).join(', ');
+
+    const badge = document.createElement('span');
+    badge.className = 'update-tag';
+    badge.textContent = item.category || 'Insight';
+
+    const title = document.createElement('div');
+    title.className = 'update-title';
+    title.textContent = item.title || '';
+
+    const excerpt = document.createElement('div');
+    excerpt.className = 'update-excerpt';
+    excerpt.textContent = item.excerpt || '';
+
+    const date = document.createElement('div');
+    date.className = 'update-date';
+    date.textContent = item.date || '';
+
+    const tags = document.createElement('div');
+    tags.className = 'insight-card-tags';
+    tags.setAttribute('aria-label', 'Article tags');
+
+    (item.tags || []).slice(0, 4).forEach((tag) => {
+      const tagEl = document.createElement('span');
+      tagEl.textContent = tag;
+      tags.appendChild(tagEl);
+    });
+
+    card.appendChild(badge);
+    card.appendChild(title);
+    card.appendChild(excerpt);
+    card.appendChild(date);
+    card.appendChild(tags);
+
+    return card;
+  };
+
+  const buildCard = (item) => {
+    if (window.ChambersInsightCards && typeof window.ChambersInsightCards.buildCard === 'function') {
+      return window.ChambersInsightCards.buildCard(item, { result: true, tagLinks: true });
+    }
+
+    return buildFallbackCard(item);
+  };
 
   const uniqueSorted = (values) => Array.from(new Set(values.filter(Boolean)))
-    .sort((a, b) => a.localeCompare(b, 'en-IN', { sensitivity: 'base' }));
+    .sort((first, second) => first.localeCompare(second, 'en-IN', { sensitivity: 'base' }));
 
   const setDatalist = (list, values) => {
     list.innerHTML = '';
@@ -935,155 +1018,161 @@ window.ChambersInsightCards = (function () {
     });
   };
 
-  const itemMatches = (item, category, tag, search) => {
-    const categoryText = normalize(item.category);
-    const tagsText = normalize((item.tags || []).join(', '));
-    const searchable = normalize(`${item.title} ${item.excerpt} ${item.category} ${(item.tags || []).join(' ')}`);
-    return (!category || categoryText.includes(category)) &&
-      (!tag || tagsText.includes(tag)) &&
-      (!search || searchable.includes(search));
+  const getFilters = () => ({
+    category: normalize(categoryInput.value),
+    tag: normalize(tagInput.value),
+    search: normalize(searchInput.value),
+  });
+
+  const hasActiveFilters = () => {
+    const filters = getFilters();
+    return Boolean(filters.category || filters.tag || filters.search);
   };
 
-  const hasAnyMatch = (category, tag, search) => allItems.some((item) => itemMatches(item, category, tag, search));
+  const itemMatchesFilters = (item, filters) => {
+    const category = normalize(item.category);
+    const tags = (item.tags || []).map(normalize);
+    const text = normalize([
+      item.title,
+      item.excerpt,
+      item.category,
+      item.date,
+      ...(item.tags || []),
+    ].join(' '));
 
-  const resolveConflicts = () => {
-    const category = normalize(categoryInput.value);
-    const tag = normalize(tagInput.value);
-    const search = normalize(searchInput.value);
-    if (!category || !tag) return;
-    if (hasAnyMatch(category, tag, search)) return;
-    if (activeInput === 'tag') categoryInput.value = '';
-    else if (activeInput === 'category') tagInput.value = '';
-    else categoryInput.value = '';
+    const categoryMatch = !filters.category || category.includes(filters.category);
+    const tagMatch = !filters.tag || tags.some((tag) => tag.includes(filters.tag));
+    const searchMatch = !filters.search || text.includes(filters.search);
+
+    return categoryMatch && tagMatch && searchMatch;
   };
 
-  const updateDependentOptions = () => {
-    const category = normalize(categoryInput.value);
-    const tag = normalize(tagInput.value);
-    const search = normalize(searchInput.value);
-
-    const tagScope = category ? allItems.filter((item) => itemMatches(item, category, '', search)) : allItems;
-    const categoryScope = tag ? allItems.filter((item) => itemMatches(item, '', tag, search)) : allItems;
-
-    setDatalist(tagList, uniqueSorted(tagScope.flatMap((item) => item.tags || [])));
-    setDatalist(categoryList, uniqueSorted(categoryScope.map((item) => item.category)));
-  };
-
-  const pagination = document.createElement('div');
-  pagination.className = 'insights-pagination';
-
-  const renderPagination = (totalItems) => {
+  const setDefaultView = () => {
+    resultsSection.hidden = true;
+    resultsList.innerHTML = '';
     pagination.innerHTML = '';
-    const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
-    if (totalPages <= 1) {
-      if (pagination.parentNode) pagination.remove();
+    if (latestSection) latestSection.hidden = false;
+    status.textContent = 'Showing default editorial view.';
+  };
+
+  const renderPagination = (totalItems, totalPages, modeLabel) => {
+    pagination.innerHTML = '';
+
+    if (totalItems <= pageSize) {
       return;
     }
 
-    for (let page = 1; page <= totalPages; page += 1) {
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'insights-page-button';
-      button.textContent = String(page);
-      button.classList.toggle('is-active', page === currentPage);
-      button.addEventListener('click', () => {
-        currentPage = page;
-        applyFilters(false);
-        resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-      pagination.appendChild(button);
-    }
+    const previous = document.createElement('button');
+    previous.type = 'button';
+    previous.className = 'insights-page-button';
+    previous.textContent = 'Previous';
+    previous.disabled = currentPage <= 1;
+    previous.addEventListener('click', () => {
+      if (currentPage <= 1) return;
+      currentPage -= 1;
+      renderCurrentView();
+    });
 
-    resultsList.after(pagination);
+    const pageStatus = document.createElement('span');
+    pageStatus.className = 'insights-page-status';
+    pageStatus.textContent = `${modeLabel} page ${currentPage} of ${totalPages}`;
+
+    const next = document.createElement('button');
+    next.type = 'button';
+    next.className = 'insights-page-button';
+    next.textContent = 'Next';
+    next.disabled = currentPage >= totalPages;
+    next.addEventListener('click', () => {
+      if (currentPage >= totalPages) return;
+      currentPage += 1;
+      renderCurrentView();
+    });
+
+    pagination.appendChild(previous);
+    pagination.appendChild(pageStatus);
+    pagination.appendChild(next);
   };
 
-  const renderResults = (items) => {
+  const renderList = (items, modeLabel) => {
+    const totalItems = items.length;
+    const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
+    currentPage = Math.min(Math.max(1, currentPage), totalPages);
+
+    resultsSection.hidden = false;
+    if (latestSection) latestSection.hidden = true;
+
     resultsList.innerHTML = '';
 
-    if (!items.length) {
+    if (!totalItems) {
       const empty = document.createElement('p');
-      empty.className = 'insights-filter-status';
-      empty.textContent = 'No matching insights found. Clear filters or try a broader search.';
+      empty.className = 'insights-empty-state';
+      empty.textContent = 'No matching insights found. Clear the filters or try a broader search term.';
       resultsList.appendChild(empty);
-      renderPagination(0);
+      pagination.innerHTML = '';
+      status.textContent = 'No matching insights found.';
       return;
     }
 
-    const totalPages = Math.max(1, Math.ceil(items.length / pageSize));
-    if (currentPage > totalPages) currentPage = totalPages;
-
     const start = (currentPage - 1) * pageSize;
-    const visible = items.slice(start, start + pageSize);
-
-    visible.forEach((item) => resultsList.appendChild(window.ChambersInsightCards.buildCard(item, { result: true, tagLinks: false })));
-    renderPagination(items.length);
-  };
-
-  const applyFilters = (resetPage = true) => {
-    if (resetPage) currentPage = 1;
-    resolveConflicts();
-    updateDependentOptions();
-
-    const category = normalize(categoryInput.value);
-    const tag = normalize(tagInput.value);
-    const search = normalize(searchInput.value);
-    const isFilterActive = Boolean(category || tag || search);
-    const isActive = latestListMode || isFilterActive;
-
-    const matches = latestListMode && !isFilterActive
-      ? allItems
-      : allItems.filter((item) => itemMatches(item, category, tag, search));
-
-    document.body.classList.toggle('insights-filter-active', isActive);
-    document.body.classList.toggle('insights-list-active', latestListMode);
-    resultsSection.hidden = !isActive;
-
-    if (isActive) {
-      renderResults(matches);
-      if (latestListMode && !isFilterActive) {
-        status.textContent = `Showing all latest insights, newest first. Page ${currentPage} of ${Math.max(1, Math.ceil(matches.length / pageSize))}.`;
-      } else {
-        const parts = [];
-        if (category) parts.push(`category: ${categoryInput.value}`);
-        if (tag) parts.push(`tag: ${tagInput.value}`);
-        if (search) parts.push(`search: ${searchInput.value}`);
-        status.textContent = `Showing ${matches.length} matching insight${matches.length === 1 ? '' : 's'} for ${parts.join(', ')}.`;
-      }
-    } else {
-      resultsList.innerHTML = '';
-      renderPagination(0);
-      status.textContent = 'Showing default editorial view.';
-    }
-  };
-
-  categoryInput.addEventListener('input', () => { activeInput = 'category'; latestListMode = false; applyFilters(); });
-  categoryInput.addEventListener('change', () => { activeInput = 'category'; latestListMode = false; applyFilters(); });
-  tagInput.addEventListener('input', () => { activeInput = 'tag'; latestListMode = false; applyFilters(); });
-  tagInput.addEventListener('change', () => { activeInput = 'tag'; latestListMode = false; applyFilters(); });
-  searchInput.addEventListener('input', () => { activeInput = 'search'; latestListMode = false; applyFilters(); });
-  searchInput.addEventListener('change', () => { activeInput = 'search'; latestListMode = false; applyFilters(); });
-
-  if (latestAllButton) {
-    latestAllButton.addEventListener('click', () => {
-      activeInput = 'latest';
-      latestListMode = true;
-      categoryInput.value = '';
-      tagInput.value = '';
-      searchInput.value = '';
-      applyFilters();
-      resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    items.slice(start, start + pageSize).forEach((item) => {
+      resultsList.appendChild(buildCard(item));
     });
+
+    renderPagination(totalItems, totalPages, modeLabel);
+    status.textContent = `${modeLabel}: showing ${Math.min(start + 1, totalItems)}-${Math.min(start + pageSize, totalItems)} of ${totalItems} insights.`;
+  };
+
+  function renderCurrentView() {
+    const filters = getFilters();
+
+    if (latestListMode) {
+      renderList(allItems, 'Latest articles');
+      return;
+    }
+
+    if (!hasActiveFilters()) {
+      setDefaultView();
+      return;
+    }
+
+    renderList(allItems.filter((item) => itemMatchesFilters(item, filters)), 'Filtered results');
   }
 
-  clearButton.addEventListener('click', () => {
-    activeInput = null;
+  const activateFilters = () => {
     latestListMode = false;
+    currentPage = 1;
+    renderCurrentView();
+  };
+
+  [categoryInput, tagInput, searchInput].forEach((input) => {
+    input.addEventListener('input', activateFilters);
+    input.addEventListener('change', activateFilters);
+  });
+
+  clearButton.addEventListener('click', () => {
     categoryInput.value = '';
     tagInput.value = '';
     searchInput.value = '';
-    applyFilters();
-    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    latestListMode = false;
+    currentPage = 1;
+    setDefaultView();
+    categoryInput.focus();
   });
+
+  if (latestAllButton) {
+    latestAllButton.addEventListener('click', () => {
+      categoryInput.value = '';
+      tagInput.value = '';
+      searchInput.value = '';
+      latestListMode = true;
+      currentPage = 1;
+      renderCurrentView();
+      resultsSection.scrollIntoView({
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+        block: 'start',
+      });
+    });
+  }
 
   const params = new URLSearchParams(window.location.search);
   if (params.get('category')) categoryInput.value = params.get('category');
@@ -1092,7 +1181,12 @@ window.ChambersInsightCards = (function () {
 
   setDatalist(categoryList, uniqueSorted(allItems.map((item) => item.category)));
   setDatalist(tagList, uniqueSorted(allItems.flatMap((item) => item.tags || [])));
-  applyFilters();
+
+  if (hasActiveFilters()) {
+    renderCurrentView();
+  } else {
+    setDefaultView();
+  }
 })();
 
 // Article footer: tags, previous/next and recommended reads

@@ -37,7 +37,7 @@
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" sizes="180x180">
   <link rel="manifest" href="/site.webmanifest">
-  <link rel="stylesheet" href="assets/css/style.css?v=legal-3">
+  <link rel="stylesheet" href="assets/css/style.css?v=insights-fix-2">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -166,14 +166,14 @@
           <h2>Matching Insights</h2>
           <p>Results are shown in latest-first order and filtered by selected category, tag and search terms.</p>
         </div>
-        <div class="insights-results-list"></div>
+        <div class="insights-results-list" id="insights-results-list"></div>
       </section>
 
 
 
       <section class="sec latest-insights-section">
         <div class="sec-label">Latest Articles</div>
-        <button class="insights-view-all-latest" type="button" data-latest-all-trigger>View All Latest Articles</button>
+        <button class="insights-view-all-latest" type="button" data-latest-all-trigger aria-controls="insights-results-list">View All Latest Articles</button>
         <div class="updates-grid">
           <a class="update-item update-item-link" href="updates/non-reportable-judgments-online-publication-case-brief.html" data-category="Case Brief" data-tags="High Court, Gujarat High Court, Online Publication, Judgment Reporting, Court Records, Article 226">
             <span class="update-tag tag-case-brief">Case Brief</span>
@@ -399,6 +399,6 @@
     </footer>
   </div>
 
-  <script src="assets/js/script.js?v=socialbar-4"></script>
+  <script src="assets/js/script.js?v=insights-fix-2"></script>
 </body>
 </html>
