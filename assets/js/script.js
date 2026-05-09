@@ -1429,3 +1429,147 @@ window.ChambersInsightCards = (function () {
     });
   });
 })();
+
+// Dynamic contact enquiry form - Step 1 UI only
+(function () {
+  const form = document.querySelector('[data-contact-dynamic-form]');
+  if (!form) return;
+
+  const matterSelect = form.querySelector('[data-matter-type]');
+  const matterGroups = Array.from(form.querySelectorAll('[data-matter-fields]'));
+  const generateButton = form.querySelector('[data-generate-enquiry]');
+  const copyButton = form.querySelector('[data-copy-enquiry]');
+  const outputWrapper = form.querySelector('[data-form-result]');
+  const output = form.querySelector('[data-enquiry-output]');
+  const consent = form.querySelector('[data-form-consent]');
+
+  const matterLabels = {
+    cheque: 'Cheque Bounce / Section 138',
+    msme: 'MSME Recovery',
+    rera: 'RERA / Builder Dispute',
+    arbitration: 'Arbitration / Contract Dispute',
+    commercial: 'Commercial Recovery',
+    property: 'Property / Civil Suit',
+    other: 'Other Legal Enquiry'
+  };
+
+  const readable = {
+    name: 'Name',
+    phone: 'Phone / WhatsApp',
+    email: 'Email',
+    location: 'City / State',
+    preferredContact: 'Preferred Contact Mode',
+    matterType: 'Matter Type',
+    cheque_amount: 'Cheque Amount',
+    cheque_date: 'Cheque Date',
+    return_memo_date: 'Return Memo Date',
+    notice_status: 'Demand Notice Status',
+    cheque_stage: 'Current Stage',
+    udyam_status: 'Udyam Registration Status',
+    invoice_amount: 'Invoice Amount',
+    invoice_dates: 'Invoice Dates',
+    buyer_location: 'Buyer Location',
+    payment_due_date: 'Payment Due Date',
+    project_location: 'Project Location',
+    builder_project: 'Builder / Project Name',
+    allotment_date: 'Agreement / Allotment Date',
+    possession_due_date: 'Possession Due Date',
+    amount_paid: 'Amount Paid',
+    rera_relief: 'Relief Sought',
+    contract_date: 'Contract Date',
+    arbitration_clause: 'Arbitration Clause',
+    seat_venue: 'Seat / Venue',
+    arbitration_amount: 'Amount / Relief Involved',
+    invocation_status: 'Notice / Invocation Status',
+    commercial_parties: 'Parties Involved',
+    commercial_amount: 'Outstanding Amount',
+    commercial_docs: 'Contract / PO / Invoice Details',
+    last_payment_date: 'Last Payment Date',
+    commercial_notice: 'Notice Status',
+    property_location: 'Property Location',
+    possession_status: 'Possession Status',
+    title_docs: 'Title Documents Available?',
+    property_stage: 'Current Dispute Stage',
+    property_relief: 'Relief Sought',
+    other_area: 'Legal Area',
+    other_forum: 'Forum / Court',
+    summary: 'Brief Summary',
+    urgency: 'Urgency'
+  };
+
+  const updateMatterFields = () => {
+    const selected = matterSelect.value;
+    matterGroups.forEach((group) => {
+      group.hidden = group.dataset.matterFields !== selected;
+    });
+  };
+
+  const getValue = (field) => {
+    if (!field.name || field.type === 'checkbox') return '';
+    return (field.value || '').trim();
+  };
+
+  const generateMessage = () => {
+    const selected = matterSelect.value;
+    const fields = Array.from(form.querySelectorAll('input, select, textarea'))
+      .filter((field) => !field.closest('[hidden]'))
+      .filter((field) => field.name && field.type !== 'checkbox');
+
+    const lines = [
+      'Chambers of AK - Structured Enquiry',
+      '------------------------------------'
+    ];
+
+    fields.forEach((field) => {
+      const value = getValue(field);
+      if (!value) return;
+      const label = field.name === 'matterType' ? 'Matter Type' : (readable[field.name] || field.name);
+      const finalValue = field.name === 'matterType' ? (matterLabels[value] || value) : value;
+      lines.push(`${label}: ${finalValue}`);
+    });
+
+    lines.push('');
+    lines.push('Note: This is an initial enquiry summary only. I understand that no advocate-client relationship is created until formal consultation or engagement is confirmed.');
+
+    if (!selected) {
+      lines.push('');
+      lines.push('Please select a matter type before sending this message.');
+    }
+
+    output.value = lines.join('\n');
+    outputWrapper.hidden = false;
+    copyButton.disabled = false;
+    output.focus();
+  };
+
+  const copyPreparedMessage = async () => {
+    if (!output.value.trim()) return;
+
+    try {
+      await navigator.clipboard.writeText(output.value);
+      copyButton.textContent = 'Copied';
+    } catch (error) {
+      output.select();
+      document.execCommand('copy');
+      copyButton.textContent = 'Copied';
+    }
+
+    window.setTimeout(() => {
+      copyButton.textContent = 'Copy Prepared Message';
+    }, 1600);
+  };
+
+  matterSelect.addEventListener('change', updateMatterFields);
+
+  if (consent) {
+    consent.addEventListener('change', () => {
+      generateButton.disabled = !consent.checked;
+    });
+    generateButton.disabled = !consent.checked;
+  }
+
+  generateButton.addEventListener('click', generateMessage);
+  copyButton.addEventListener('click', copyPreparedMessage);
+
+  updateMatterFields();
+})();

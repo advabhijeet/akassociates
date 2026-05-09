@@ -36,7 +36,7 @@
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" sizes="180x180">
   <link rel="manifest" href="/site.webmanifest">
-  <link rel="stylesheet" href="assets/css/style.css?v=footer-normalize-1">
+  <link rel="stylesheet" href="assets/css/style.css?v=contact-form-ui-1">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -119,6 +119,163 @@
         </div>
       </section>
 
+
+      <section class="sec" id="dynamic-enquiry-form">
+        <div class="sec-label">Structured Contact Form</div>
+        <div class="content-panel contact-form-intro">
+          <p>Use this form to prepare a structured first-contact enquiry. This Step 1 form does not send email yet. It helps you generate a clean enquiry message that can be copied and sent by WhatsApp or email.</p>
+          <p><strong>Important:</strong> Do not share confidential, privileged or voluminous documents through this form. Initial communication does not create an advocate-client relationship.</p>
+        </div>
+
+        <form class="dynamic-contact-form" data-contact-dynamic-form>
+          <div class="form-grid">
+            <label class="form-field">
+              <span>Name</span>
+              <input type="text" name="name" autocomplete="name" placeholder="Your name">
+            </label>
+            <label class="form-field">
+              <span>Phone / WhatsApp</span>
+              <input type="tel" name="phone" autocomplete="tel" placeholder="+91 ...">
+            </label>
+            <label class="form-field">
+              <span>Email</span>
+              <input type="email" name="email" autocomplete="email" placeholder="name@example.com">
+            </label>
+            <label class="form-field">
+              <span>City / State</span>
+              <input type="text" name="location" autocomplete="address-level2" placeholder="Patna, Bihar">
+            </label>
+            <label class="form-field">
+              <span>Preferred Contact Mode</span>
+              <select name="preferredContact">
+                <option value="">Select</option>
+                <option>WhatsApp</option>
+                <option>Phone</option>
+                <option>Email</option>
+              </select>
+            </label>
+            <label class="form-field">
+              <span>Matter Type</span>
+              <select name="matterType" data-matter-type required>
+                <option value="">Select matter type</option>
+                <option value="cheque">Cheque Bounce / Section 138</option>
+                <option value="msme">MSME Recovery</option>
+                <option value="rera">RERA / Builder Dispute</option>
+                <option value="arbitration">Arbitration / Contract Dispute</option>
+                <option value="commercial">Commercial Recovery</option>
+                <option value="property">Property / Civil Suit</option>
+                <option value="other">Other Legal Enquiry</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="matter-fields" data-matter-fields="cheque" hidden>
+            <div class="form-grid">
+              <label class="form-field"><span>Cheque Amount</span><input type="text" name="cheque_amount" placeholder="Amount mentioned on cheque"></label>
+              <label class="form-field"><span>Cheque Date</span><input type="date" name="cheque_date"></label>
+              <label class="form-field"><span>Return Memo Date</span><input type="date" name="return_memo_date"></label>
+              <label class="form-field"><span>Demand Notice Status</span><input type="text" name="notice_status" placeholder="Sent / received / not yet"></label>
+              <label class="form-field"><span>Current Stage</span><input type="text" name="cheque_stage" placeholder="Notice / complaint / summons / trial / appeal"></label>
+            </div>
+          </div>
+
+          <div class="matter-fields" data-matter-fields="msme" hidden>
+            <div class="form-grid">
+              <label class="form-field"><span>Udyam Registration Status</span><input type="text" name="udyam_status" placeholder="Registered / applied / unsure"></label>
+              <label class="form-field"><span>Invoice Amount</span><input type="text" name="invoice_amount" placeholder="Outstanding amount"></label>
+              <label class="form-field"><span>Invoice Dates</span><input type="text" name="invoice_dates" placeholder="Invoice dates or range"></label>
+              <label class="form-field"><span>Buyer Location</span><input type="text" name="buyer_location" placeholder="City / State"></label>
+              <label class="form-field"><span>Payment Due Date</span><input type="date" name="payment_due_date"></label>
+            </div>
+          </div>
+
+          <div class="matter-fields" data-matter-fields="rera" hidden>
+            <div class="form-grid">
+              <label class="form-field"><span>Project Location</span><input type="text" name="project_location" placeholder="City / State"></label>
+              <label class="form-field"><span>Builder / Project Name</span><input type="text" name="builder_project" placeholder="Builder or project name"></label>
+              <label class="form-field"><span>Agreement / Allotment Date</span><input type="date" name="allotment_date"></label>
+              <label class="form-field"><span>Possession Due Date</span><input type="date" name="possession_due_date"></label>
+              <label class="form-field"><span>Amount Paid</span><input type="text" name="amount_paid" placeholder="Approx amount paid"></label>
+              <label class="form-field"><span>Relief Sought</span><input type="text" name="rera_relief" placeholder="Possession / refund / interest / other"></label>
+            </div>
+          </div>
+
+          <div class="matter-fields" data-matter-fields="arbitration" hidden>
+            <div class="form-grid">
+              <label class="form-field"><span>Contract Date</span><input type="date" name="contract_date"></label>
+              <label class="form-field"><span>Arbitration Clause</span><input type="text" name="arbitration_clause" placeholder="Yes / no / unsure"></label>
+              <label class="form-field"><span>Seat / Venue</span><input type="text" name="seat_venue" placeholder="If mentioned in contract"></label>
+              <label class="form-field"><span>Amount / Relief Involved</span><input type="text" name="arbitration_amount" placeholder="Amount or relief"></label>
+              <label class="form-field"><span>Notice / Invocation Status</span><input type="text" name="invocation_status" placeholder="Not sent / sent / received / pending"></label>
+            </div>
+          </div>
+
+          <div class="matter-fields" data-matter-fields="commercial" hidden>
+            <div class="form-grid">
+              <label class="form-field"><span>Parties Involved</span><input type="text" name="commercial_parties" placeholder="Names of parties"></label>
+              <label class="form-field"><span>Outstanding Amount</span><input type="text" name="commercial_amount" placeholder="Amount due"></label>
+              <label class="form-field"><span>Contract / PO / Invoice Details</span><input type="text" name="commercial_docs" placeholder="Available commercial documents"></label>
+              <label class="form-field"><span>Last Payment Date</span><input type="date" name="last_payment_date"></label>
+              <label class="form-field"><span>Notice Status</span><input type="text" name="commercial_notice" placeholder="Notice sent / received / not yet"></label>
+            </div>
+          </div>
+
+          <div class="matter-fields" data-matter-fields="property" hidden>
+            <div class="form-grid">
+              <label class="form-field"><span>Property Location</span><input type="text" name="property_location" placeholder="City / locality / state"></label>
+              <label class="form-field"><span>Possession Status</span><input type="text" name="possession_status" placeholder="In possession / disputed / dispossessed"></label>
+              <label class="form-field"><span>Title Documents Available?</span><input type="text" name="title_docs" placeholder="Sale deed / mutation / agreement / unsure"></label>
+              <label class="form-field"><span>Current Dispute Stage</span><input type="text" name="property_stage" placeholder="Notice / suit / appeal / pre-litigation"></label>
+              <label class="form-field"><span>Relief Sought</span><input type="text" name="property_relief" placeholder="Injunction / possession / partition / declaration / other"></label>
+            </div>
+          </div>
+
+          <div class="matter-fields" data-matter-fields="other" hidden>
+            <div class="form-grid">
+              <label class="form-field"><span>Legal Area</span><input type="text" name="other_area" placeholder="Brief legal area"></label>
+              <label class="form-field"><span>Forum / Court, if any</span><input type="text" name="other_forum" placeholder="Court, authority or forum"></label>
+            </div>
+          </div>
+
+          <div class="form-grid form-grid-wide">
+            <label class="form-field form-field-full">
+              <span>Brief Summary</span>
+              <textarea name="summary" rows="5" placeholder="Write only basic facts, important dates and current stage. Do not paste confidential details."></textarea>
+            </label>
+            <label class="form-field">
+              <span>Urgency</span>
+              <select name="urgency">
+                <option value="">Select</option>
+                <option>Urgent - deadline/hearing within 7 days</option>
+                <option>Time-sensitive - deadline/hearing within 30 days</option>
+                <option>Normal enquiry</option>
+              </select>
+            </label>
+            <label class="form-consent form-field-full">
+              <input type="checkbox" name="consent" data-form-consent>
+              <span>I understand that this is only an initial enquiry tool. I will not submit confidential documents here, and I understand that no advocate-client relationship is created merely by preparing or sending this message.</span>
+            </label>
+          </div>
+
+          <div class="hero-actions form-actions">
+            <button class="btn-gold" type="button" data-generate-enquiry>Prepare Enquiry Message</button>
+            <button class="btn-outline" type="button" data-copy-enquiry disabled>Copy Prepared Message</button>
+          </div>
+
+          <div class="form-result" data-form-result hidden>
+            <label class="form-field form-field-full">
+              <span>Prepared Message</span>
+              <textarea data-enquiry-output rows="12" readonly></textarea>
+            </label>
+            <p class="form-note">Email delivery is not active yet. After EmailJS is connected, this form can send enquiries directly to Chambers of AK. For now, copy this message and send it through WhatsApp or email.</p>
+            <div class="hero-actions form-actions">
+              <a class="btn-gold" href="https://wa.me/919471214118">Open WhatsApp</a>
+              <a class="btn-outline" href="mailto:chambersofakadmin@gmail.com">Open Email</a>
+            </div>
+          </div>
+        </form>
+      </section>
+
       <section class="sec">
         <div class="sec-label">Before You Write</div>
         <div class="content-panel">
@@ -174,6 +331,6 @@
     </footer>
   </div>
 
-  <script src="assets/js/script.js?v=socialbar-4"></script>
+  <script src="assets/js/script.js?v=contact-form-ui-1"></script>
 </body>
 </html>

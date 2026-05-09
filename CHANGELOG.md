@@ -1,5 +1,35 @@
 # Changelog
 
+## 2026-05-09 20:34 IST - Contact dynamic form UI step 1
+
+Files changed:
+
+- `contact.html`
+- `assets/js/script.js`
+- `assets/css/style.css`
+- `sitemap.xml`
+- `CHANGELOG.md`
+
+Summary:
+
+- Added a dynamic structured enquiry form to the Contact page.
+- Matter type selection now reveals relevant fields for cheque bounce, MSME, RERA, arbitration, commercial recovery, property/civil suit and other enquiries.
+- Added client-side message generation and copy-to-clipboard functionality.
+- Kept email delivery inactive for Step 1; EmailJS connection remains a later Step 2 after keys are available.
+- Preserved confidentiality warning, no-document-upload position and no advocate-client relationship caution.
+- Updated Contact page CSS/JS cache strings and sitemap freshness.
+
+Validation / notes:
+
+- `node --check assets\js\script.js` passed.
+- `git diff --check` passed.
+- `sitemap.xml` and `feed.xml` parsed successfully.
+- JSON-LD parsing and internal href/src validation completed during the patch run.
+- Manual contact form browser test remains required after GitHub Pages redeploy.
+
+Commits:
+
+- Commit hash to be recorded after push.
 ## 2026-05-09 02:39 IST - Footer visual normalization
 
 Files changed:
