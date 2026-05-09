@@ -1,5 +1,30 @@
 # Changelog
 
+## 2026-05-09 20:46 IST - Contact form Gmail compose fix
+
+Files changed:
+
+- `contact.html`
+- `assets/js/script.js`
+- `CHANGELOG.md`
+
+Summary:
+
+- Changed the generated contact form result's email button from a `mailto:` link to Gmail web compose.
+- Added JavaScript to prefill Gmail recipient, subject and prepared enquiry message body.
+- Renamed the generated form button from `Open Email` to `Open Gmail`.
+- Bumped the Contact page JavaScript cache string.
+- Kept the main contact email links, WhatsApp button and form UI otherwise unchanged.
+
+Validation / notes:
+
+- `node --check assets\js\script.js` passed.
+- `git diff --check` passed.
+- Manual browser test recommended after GitHub Pages redeploy.
+
+Commits:
+
+- Commit hash to be recorded after push.
 ## 2026-05-09 20:34 IST - Contact dynamic form UI step 1
 
 Files changed:

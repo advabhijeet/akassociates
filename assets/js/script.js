@@ -1441,6 +1441,7 @@ window.ChambersInsightCards = (function () {
   const copyButton = form.querySelector('[data-copy-enquiry]');
   const outputWrapper = form.querySelector('[data-form-result]');
   const output = form.querySelector('[data-enquiry-output]');
+  const gmailCompose = form.querySelector('[data-gmail-compose]');
   const consent = form.querySelector('[data-form-consent]');
 
   const matterLabels = {
@@ -1497,6 +1498,17 @@ window.ChambersInsightCards = (function () {
     urgency: 'Urgency'
   };
 
+  const buildGmailComposeUrl = (message) => {
+    const params = new URLSearchParams({
+      view: 'cm',
+      fs: '1',
+      to: 'chambersofakadmin@gmail.com',
+      su: 'Chambers of AK - Structured Enquiry',
+      body: message
+    });
+
+    return `https://mail.google.com/mail/?${params.toString()}`;
+  };
   const updateMatterFields = () => {
     const selected = matterSelect.value;
     matterGroups.forEach((group) => {
