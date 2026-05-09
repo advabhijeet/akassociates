@@ -1441,6 +1441,7 @@ window.ChambersInsightCards = (function () {
   const copyButton = form.querySelector('[data-copy-enquiry]');
   const outputWrapper = form.querySelector('[data-form-result]');
   const output = form.querySelector('[data-enquiry-output]');
+  const whatsappCompose = form.querySelector('[data-whatsapp-compose]');
   const gmailCompose = form.querySelector('[data-gmail-compose]');
   const consent = form.querySelector('[data-form-consent]');
 
@@ -1498,6 +1499,14 @@ window.ChambersInsightCards = (function () {
     urgency: 'Urgency'
   };
 
+  const buildWhatsAppComposeUrl = (message) => {
+    const params = new URLSearchParams({
+      text: message
+    });
+
+    return `https://wa.me/919471214118?${params.toString()}`;
+  };
+
   const buildGmailComposeUrl = (message) => {
     const composeParams = new URLSearchParams({
       view: 'cm',
@@ -1514,6 +1523,7 @@ window.ChambersInsightCards = (function () {
 
     return `https://accounts.google.com/AccountChooser?${chooserParams.toString()}`;
   };
+
   const updateMatterFields = () => {
     const selected = matterSelect.value;
     matterGroups.forEach((group) => {
@@ -1553,7 +1563,16 @@ window.ChambersInsightCards = (function () {
       lines.push('Please select a matter type before sending this message.');
     }
 
-    output.value = lines.join('\n');
+    output.value = lines.join('\\n');
+
+    if (whatsappCompose) {
+      whatsappCompose.href = buildWhatsAppComposeUrl(output.value);
+    }
+
+    if (gmailCompose) {
+      gmailCompose.href = buildGmailComposeUrl(output.value);
+    }
+
     outputWrapper.hidden = false;
     copyButton.disabled = false;
     output.focus();

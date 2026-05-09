@@ -1,5 +1,82 @@
 # Changelog
 
+## 2026-05-09 21:21 IST - Contact form prefilled share links v3
+
+Files changed:
+
+- `contact.html`
+- `assets/js/script.js`
+- `CHANGELOG.md`
+
+Summary:
+
+- Recovered from the failed v1/v2 partial patch state by replacing the dynamic contact-form JavaScript module with a clean known-good version.
+- WhatsApp now opens Chambers of AK chat with the prepared enquiry message prefilled.
+- Gmail now opens through Google Account Chooser / Gmail compose with recipient, subject and prepared enquiry body prefilled.
+- Kept copy-to-clipboard functionality and form UI unchanged.
+- Bumped the Contact page JavaScript cache string.
+
+Validation / notes:
+
+- `node --check assets/js/script.js` passed.
+- `git diff --check` passed.
+- Literal background paste is not possible for browser security reasons; this uses app-supported prefilled message URLs.
+- Manual browser test recommended after GitHub Pages redeploy.
+
+Commits:
+
+- Commit hash to be recorded after push.
+## 2026-05-09 21:19 IST - Contact form prefilled share links v2
+
+Files changed:
+
+- `contact.html`
+- `assets/js/script.js`
+- `CHANGELOG.md`
+
+Summary:
+
+- Fixed the Contact form share-link behavior after the failed v1 validation.
+- WhatsApp now opens Chambers of AK chat with the prepared enquiry message prefilled.
+- Gmail now opens through Google Account Chooser / Gmail compose with recipient, subject and prepared enquiry body prefilled.
+- Kept copy-to-clipboard functionality and form UI unchanged.
+- Bumped the Contact page JavaScript cache string.
+
+Validation / notes:
+
+- `node --check assets\js\script.js` passed.
+- `git diff --check` passed.
+- Literal background paste is not possible for browser security reasons; this uses app-supported prefilled message URLs.
+- Manual browser test recommended after GitHub Pages redeploy.
+
+Commits:
+
+- Commit hash to be recorded after push.
+## 2026-05-09 21:17 IST - Contact form prefilled share links
+
+Files changed:
+
+- `contact.html`
+- `assets/js/script.js`
+- `CHANGELOG.md`
+
+Summary:
+
+- Updated the generated contact form WhatsApp button to open Chambers of AK chat with the prepared enquiry message prefilled.
+- Updated the Gmail/account-chooser link builder to include the prepared enquiry message as the Gmail compose body.
+- Kept copy-to-clipboard functionality and form UI unchanged.
+- Bumped the Contact page JavaScript cache string.
+
+Validation / notes:
+
+- `node --check assets\js\script.js` passed.
+- `git diff --check` passed.
+- Literal background paste is not possible for security reasons; this uses app-supported prefilled message URLs.
+- Manual browser test recommended after GitHub Pages redeploy.
+
+Commits:
+
+- Commit hash to be recorded after push.
 ## 2026-05-09 21:06 IST - Contact form Gmail account chooser fix
 
 Files changed:
