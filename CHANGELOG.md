@@ -1,5 +1,30 @@
 # Changelog
 
+## 2026-05-09 22:34 IST - EmailJS public key correction
+
+Files changed:
+
+- `assets/js/script.js`
+- `contact.html`
+- `CHANGELOG.md`
+
+Summary:
+
+- Corrected the EmailJS Public Key from `rivGZ1liuSkSgFdm` to `rivGZ1UliuSkSgFdm`.
+- Preserved EmailJS Service ID `chambersofak` and Template ID `ContactEmailTemplateID`.
+- Bumped the Contact page JavaScript cache string.
+- Kept EmailJS send flow, WhatsApp fallback, Gmail fallback and copy fallback unchanged.
+- No private key was added.
+
+Validation / notes:
+
+- `node --check assets/js/script.js` passed.
+- `git diff --check` passed.
+- Manual live test required after GitHub Pages redeploy.
+
+Commits:
+
+- Commit hash to be recorded after push.
 ## 2026-05-09 21:58 IST - EmailJS contact form integration v2
 
 Files changed:

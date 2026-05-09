@@ -1436,7 +1436,7 @@ window.ChambersInsightCards = (function () {
   if (!form) return;
 
   const emailJsConfig = {
-    publicKey: 'rivGZ1liuSkSgFdm',
+    publicKey: 'rivGZ1UliuSkSgFdm',
     serviceId: 'chambersofak',
     templateId: 'ContactEmailTemplateID'
   };
