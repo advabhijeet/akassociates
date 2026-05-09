@@ -23,32 +23,6 @@ When Codex completes an item:
 
 ## Active Handoff Items
 
-### Post-deployment Insights category/tag polish check
-
-Status: Pending after the Insights category/tag polish is committed, pushed and deployed
-
-Context:
-
-- Latest accepted repository checkpoint is `0b39ee3 Clean up contact form documentation`.
-- The local Insights patch aligns visible card badges with article types and keeps legal topics in smaller tag chips.
-- The patch also restores `commercial-suit-documents-checklist.html` to the shared Insights registry.
-
-Rules:
-
-- Do not move existing live `updates/*.html` article URLs.
-- Keep natural browser scroll for filtered Insights results.
-- Keep category/tag/search filters free-switching; Clear Filter should only restore default editorial view.
-- Update `CHANGELOG.md` after the patch.
-
-After deployment, re-check:
-
-- live `legal-updates.html` loads `insights-polish-1` CSS/JS cache strings;
-- primary badges show article type: Case Brief, Legal Update, Practical Guide, Checklist or Procedure Note;
-- clicking a card category badge filters by category;
-- clicking a topic chip filters by tag;
-- `Commercial Suit Documents Checklist` appears in search/filter results;
-- desktop and mobile Insights checks show no console errors or horizontal overflow.
-
 ### Search Console follow-up
 
 Status: Manual/account follow-up after deployment or live recrawl
@@ -83,6 +57,17 @@ As of 2026-05-10:
 - Insights category/tag polish is the active local patch after Contact stability validation.
 
 ## Completed Handoff Items
+
+### 2026-05-10 Insights category/tag polish and live validation
+
+Status: Done through Codex/local and live browser review
+
+- Committed and pushed `6b372e4 Polish Insights categories and filters`.
+- Confirmed live `legal-updates.html` served `insights-polish-1` CSS/JS cache strings.
+- Confirmed primary badges now represent article type while smaller chips represent legal tags/topics.
+- Confirmed category filter, tag filter, free-switching, clickable topic chips and clickable category badges worked on the live page without console errors.
+- Confirmed `Commercial Suit Documents Checklist` appears in filtered live results.
+- Kept all existing `updates/*.html` article URLs unchanged.
 
 ### 2026-05-09 Contact cleanup deployment check
 

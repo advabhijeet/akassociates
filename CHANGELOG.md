@@ -33,11 +33,11 @@ Validation / notes:
 - Internal `href`/`src` reference check passed.
 - Insights visible card hrefs and shared JS registry hrefs are aligned.
 - Local browser smoke test passed on `legal-updates.html`: category filter, tag filter, free-switching, clickable topic chips and clickable category badges worked without console errors.
-- Live post-deployment Insights check remains required after commit/push.
+- Post-deployment live check passed after deployment: `insights-polish-1` CSS/JS cache strings served, category/tag/free-switching filters worked, clickable topic chips/category badges worked and no console errors appeared.
 
 Commits:
 
-- Commit hash to be recorded after commit.
+- `6b372e4` - Polish Insights categories and filters.
 
 ## 2026-05-09 23:27 IST - Contact cleanup and documentation sync
 
