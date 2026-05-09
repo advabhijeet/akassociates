@@ -1,5 +1,58 @@
 # Changelog
 
+## 2026-05-09 21:58 IST - EmailJS contact form integration v2
+
+Files changed:
+
+- `contact.html`
+- `assets/js/script.js`
+- `CHANGELOG.md`
+
+Summary:
+
+- Recovered from the failed v1 EmailJS patch by robustly inserting the EmailJS browser SDK into `contact.html`.
+- Connected the Contact page dynamic enquiry form to EmailJS for direct website enquiry delivery.
+- Added a direct `Send Enquiry` button while preserving WhatsApp, Gmail and copy fallback options.
+- Configured EmailJS with public browser key, service ID `chambersofak` and template ID `ContactEmailTemplateID`.
+- Mapped website form fields to template variables: `from_name`, `phone`, `reply_to`, `location`, `preferred_contact`, `matter_type`, `urgency`, `message` and `page_url`.
+- Did not add any EmailJS private key.
+
+Validation / notes:
+
+- `node --check assets/js/script.js` passed.
+- `git diff --check` passed.
+- Manual live test required after GitHub Pages redeploy using EmailJS dashboard history/inbox confirmation.
+
+Commits:
+
+- Commit hash to be recorded after push.
+## 2026-05-09 21:56 IST - EmailJS contact form integration
+
+Files changed:
+
+- `contact.html`
+- `assets/js/script.js`
+- `CHANGELOG.md`
+
+Summary:
+
+- Connected the Contact page dynamic enquiry form to EmailJS for direct website enquiry delivery.
+- Added EmailJS browser SDK on the Contact page.
+- Added a direct `Send Enquiry` button while preserving WhatsApp, Gmail and copy fallback options.
+- Configured EmailJS with public browser key, service ID `chambersofak` and template ID `ContactEmailTemplateID`.
+- Mapped website form fields to template variables: `from_name`, `phone`, `reply_to`, `location`, `preferred_contact`, `matter_type`, `urgency`, `message` and `page_url`.
+- Kept confidentiality and no advocate-client relationship warnings intact.
+- Did not add any EmailJS private key.
+
+Validation / notes:
+
+- `node --check assets/js/script.js` passed.
+- `git diff --check` passed.
+- Manual live test required after GitHub Pages redeploy using EmailJS dashboard history/inbox confirmation.
+
+Commits:
+
+- Commit hash to be recorded after push.
 ## 2026-05-09 21:26 IST - Contact form prepared-message newline fix
 
 Files changed:

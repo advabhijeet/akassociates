@@ -1435,10 +1435,18 @@ window.ChambersInsightCards = (function () {
   const form = document.querySelector('[data-contact-dynamic-form]');
   if (!form) return;
 
+  const emailJsConfig = {
+    publicKey: 'rivGZ1liuSkSgFdm',
+    serviceId: 'chambersofak',
+    templateId: 'ContactEmailTemplateID'
+  };
+
   const matterSelect = form.querySelector('[data-matter-type]');
   const matterGroups = Array.from(form.querySelectorAll('[data-matter-fields]'));
   const generateButton = form.querySelector('[data-generate-enquiry]');
   const copyButton = form.querySelector('[data-copy-enquiry]');
+  const sendButton = form.querySelector('[data-emailjs-send]');
+  const statusMessage = form.querySelector('[data-emailjs-status]');
   const outputWrapper = form.querySelector('[data-form-result]');
   const output = form.querySelector('[data-enquiry-output]');
   const whatsappCompose = form.querySelector('[data-whatsapp-compose]');
@@ -1499,11 +1507,15 @@ window.ChambersInsightCards = (function () {
     urgency: 'Urgency'
   };
 
-  const buildWhatsAppComposeUrl = (message) => {
-    const params = new URLSearchParams({
-      text: message
-    });
+  const setStatus = (message, tone) => {
+    if (!statusMessage) return;
+    statusMessage.textContent = message || '';
+    statusMessage.dataset.status = tone || '';
+    statusMessage.hidden = !message;
+  };
 
+  const buildWhatsAppComposeUrl = (message) => {
+    const params = new URLSearchParams({ text: message });
     return `https://wa.me/919471214118?${params.toString()}`;
   };
 
@@ -1517,10 +1529,7 @@ window.ChambersInsightCards = (function () {
     });
 
     const gmailComposeUrl = `https://mail.google.com/mail/?${composeParams.toString()}`;
-    const chooserParams = new URLSearchParams({
-      continue: gmailComposeUrl
-    });
-
+    const chooserParams = new URLSearchParams({ continue: gmailComposeUrl });
     return `https://accounts.google.com/AccountChooser?${chooserParams.toString()}`;
   };
 
@@ -1532,8 +1541,18 @@ window.ChambersInsightCards = (function () {
   };
 
   const getValue = (field) => {
-    if (!field.name || field.type === 'checkbox') return '';
+    if (!field || !field.name || field.type === 'checkbox') return '';
     return (field.value || '').trim();
+  };
+
+  const getFieldValue = (name) => {
+    const field = form.querySelector(`[name="${name}"]`);
+    return getValue(field);
+  };
+
+  const getMatterLabel = () => {
+    const selected = matterSelect.value;
+    return matterLabels[selected] || selected || 'Not selected';
   };
 
   const generateMessage = () => {
@@ -1575,7 +1594,66 @@ window.ChambersInsightCards = (function () {
 
     outputWrapper.hidden = false;
     copyButton.disabled = false;
+    if (sendButton) {
+      sendButton.disabled = !consent || !consent.checked;
+    }
+    setStatus('', '');
     output.focus();
+  };
+
+  const getTemplateParams = () => {
+    if (!output.value.trim()) {
+      generateMessage();
+    }
+
+    return {
+      from_name: getFieldValue('name') || 'Website Enquiry',
+      phone: getFieldValue('phone'),
+      reply_to: getFieldValue('email'),
+      location: getFieldValue('location'),
+      preferred_contact: getFieldValue('preferredContact'),
+      matter_type: getMatterLabel(),
+      urgency: getFieldValue('urgency'),
+      message: output.value,
+      page_url: window.location.href
+    };
+  };
+
+  const sendEmailEnquiry = async () => {
+    if (!consent || !consent.checked) {
+      setStatus('Please accept the enquiry acknowledgement before sending.', 'error');
+      return;
+    }
+
+    if (!window.emailjs || typeof window.emailjs.send !== 'function') {
+      setStatus('Email service is still loading. Please try again in a few seconds, or use WhatsApp/Gmail fallback.', 'error');
+      return;
+    }
+
+    const params = getTemplateParams();
+
+    if (!params.reply_to) {
+      setStatus('Please enter your email address before sending directly.', 'error');
+      return;
+    }
+
+    try {
+      sendButton.disabled = true;
+      setStatus('Sending enquiry...', 'pending');
+
+      await window.emailjs.send(
+        emailJsConfig.serviceId,
+        emailJsConfig.templateId,
+        params,
+        { publicKey: emailJsConfig.publicKey }
+      );
+
+      setStatus('Enquiry sent successfully. Chambers of AK will review the message and respond as appropriate.', 'success');
+    } catch (error) {
+      sendButton.disabled = false;
+      setStatus('Could not send directly right now. Please use WhatsApp, Gmail, or copy the prepared message.', 'error');
+      console.error('EmailJS send failed:', error);
+    }
   };
 
   const copyPreparedMessage = async () => {
@@ -1600,12 +1678,22 @@ window.ChambersInsightCards = (function () {
   if (consent) {
     consent.addEventListener('change', () => {
       generateButton.disabled = !consent.checked;
+      if (sendButton) {
+        sendButton.disabled = !consent.checked || !output.value.trim();
+      }
     });
     generateButton.disabled = !consent.checked;
   }
 
+  if (window.emailjs && typeof window.emailjs.init === 'function') {
+    window.emailjs.init({ publicKey: emailJsConfig.publicKey });
+  }
+
   generateButton.addEventListener('click', generateMessage);
   copyButton.addEventListener('click', copyPreparedMessage);
+  if (sendButton) {
+    sendButton.addEventListener('click', sendEmailEnquiry);
+  }
 
   updateMatterFields();
 })();

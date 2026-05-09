@@ -257,7 +257,8 @@
             </label>
           </div>
 
-          <div class="hero-actions form-actions">
+          <p class="form-note emailjs-status" data-emailjs-status hidden></p>
+            <div class="hero-actions form-actions">
             <button class="btn-gold" type="button" data-generate-enquiry>Prepare Enquiry Message</button>
             <button class="btn-outline" type="button" data-copy-enquiry disabled>Copy Prepared Message</button>
           </div>
@@ -267,9 +268,11 @@
               <span>Prepared Message</span>
               <textarea data-enquiry-output rows="12" readonly></textarea>
             </label>
-            <p class="form-note">Email delivery is not active yet. After EmailJS is connected, this form can send enquiries directly to Chambers of AK. For now, copy this message and send it through WhatsApp or email.</p>
+            <p class="form-note">You may send this enquiry directly through the website. WhatsApp, Gmail and copy options remain available as fallback.</p>
+            <p class="form-note emailjs-status" data-emailjs-status hidden></p>
             <div class="hero-actions form-actions">
-              <a class="btn-gold" href="https://wa.me/919471214118" target="_blank" rel="noopener" data-whatsapp-compose>Open WhatsApp</a>
+              <button class="btn-gold" type="button" data-emailjs-send disabled>Send Enquiry</button>
+              <a class="btn-outline" href="https://wa.me/919471214118" target="_blank" rel="noopener" data-whatsapp-compose>Open WhatsApp</a>
               <a class="btn-outline" href="https://accounts.google.com/AccountChooser?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F%3Fview%3Dcm%26fs%3D1%26to%3Dchambersofakadmin%2540gmail.com%26su%3DChambers%2520of%2520AK%2520-%2520Structured%2520Enquiry" target="_blank" rel="noopener" data-gmail-compose>Choose Gmail Account</a>
             </div>
           </div>
@@ -331,6 +334,7 @@
     </footer>
   </div>
 
-  <script src="assets/js/script.js?v=contact-newline-1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+  <script src="assets/js/script.js?v=emailjs-contact-2" defer></script>
 </body>
 </html>
