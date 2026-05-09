@@ -1,5 +1,28 @@
 # Changelog
 
+## 2026-05-09 21:26 IST - Contact form prepared-message newline fix
+
+Files changed:
+
+- `assets/js/script.js`
+- `contact.html`
+- `CHANGELOG.md`
+
+Summary:
+
+- Fixed prepared enquiry message formatting so line breaks render as real newlines instead of literal `\n` text.
+- Bumped the Contact page JavaScript cache string.
+- Kept WhatsApp/Gmail prefilled share-link behaviour unchanged.
+
+Validation / notes:
+
+- `node --check assets/js/script.js` passed.
+- `git diff --check` passed.
+- Manual browser test recommended after GitHub Pages redeploy.
+
+Commits:
+
+- Commit hash to be recorded after push.
 ## 2026-05-09 21:21 IST - Contact form prefilled share links v3
 
 Files changed:

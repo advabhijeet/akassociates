@@ -1563,7 +1563,7 @@ window.ChambersInsightCards = (function () {
       lines.push('Please select a matter type before sending this message.');
     }
 
-    output.value = lines.join('\\n');
+    output.value = lines.join('\n');
 
     if (whatsappCompose) {
       whatsappCompose.href = buildWhatsAppComposeUrl(output.value);
