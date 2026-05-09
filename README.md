@@ -23,6 +23,7 @@ Current positioning:
 - Static HTML5 pages.
 - CSS3 custom styling in `assets/css/style.css`.
 - Vanilla JavaScript in `assets/js/script.js`.
+- EmailJS browser SDK on `contact.html` for the direct structured enquiry send flow.
 - GitHub Pages hosting from the `main` branch.
 - Custom domain through `CNAME`.
 - Google Tag Manager for analytics and lead-event tracking.
@@ -198,6 +199,20 @@ AdSense Publisher ID: pub-6935574990807827
 GA4 should be controlled through GTM to avoid duplicate page-view tracking.
 
 Tracked interaction events include important lead actions such as WhatsApp clicks, email clicks, phone clicks and case enquiry actions.
+
+## Contact Form Delivery
+
+`contact.html` includes a dynamic matter-type enquiry form. It prepares a structured message, supports direct Send Enquiry delivery through EmailJS, and keeps WhatsApp, Gmail and copy-prepared-message fallbacks available.
+
+Current public EmailJS configuration:
+
+```text
+Public Key: rivGZ1UliuSkSgFdm
+Service ID: chambersofak
+Template ID: contactformtempid
+```
+
+Do not add, request, expose or commit any EmailJS private key.
 
 ## Social Profiles
 

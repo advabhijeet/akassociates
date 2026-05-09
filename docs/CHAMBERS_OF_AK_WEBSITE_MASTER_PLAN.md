@@ -161,10 +161,10 @@ should not be created until team-member details are ready and approved
 
 ## Current Stable Checkpoint - 2026-05-09
 
-Accepted repository checkpoint:
+Current repository checkpoint:
 
 ```text
-ef11809 Strengthen trust and forum guidance
+5b97717 Correct EmailJS template ID
 ```
 
 Current verified website state:
@@ -180,6 +180,7 @@ Sitewide BreadcrumbList JSON-LD added
 Trust / Entity pages strengthened
 ads.txt confirmed working at root /ads.txt
 Search Console live inspection completed after breadcrumb pass
+Contact page includes direct EmailJS Send Enquiry with WhatsApp, Gmail and copy fallbacks
 ```
 
 Recent accepted commits:
@@ -193,16 +194,20 @@ f61b326 Limit insights default blocks and add section pagination
 4aecf5e Add case enquiry copy templates
 3f7ed57 Add sitewide breadcrumb structured data
 ef11809 Strengthen trust and forum guidance
+3bc5199 Add dynamic contact enquiry form UI
+d586d02 Route contact Gmail through account chooser
+8f61c47 Prefill contact enquiry share links
+7444a89 Connect contact form to EmailJS
+5b97717 Correct EmailJS template ID
 ```
 
 Current next plan:
 
 ```text
-1. Live stability review of major public routes.
-2. Footer + internal-link polish pass.
-3. Contact page improvement.
-4. Search Console follow-up for breadcrumbs, coverage and changed hub pages.
-5. Future content expansion only after stability, avoiding thin SEO pages.
+1. Contact page cleanup and documentation sync.
+2. Live stability review of major public routes.
+3. Search Console follow-up for breadcrumbs, coverage and changed hub pages.
+4. Future content or Insights feature work only after stability, avoiding thin SEO pages.
 ```
 
 Documentation rule:
@@ -760,14 +765,15 @@ legal source monitoring queue
 Immediate next task:
 
 ```text
+Commit/deploy the Contact cleanup, run the post-deployment Contact live check, then proceed to the next approved feature/content patch.
+```
+
+Next feature candidate after validation:
+
+```text
 Prepare manual patch for Insights visual/category restructure:
 - assets/css/style.css
 - legal-updates.html
-```
-
-Patch goals:
-
-```text
 improve all tag/label CSS
 add Case Briefs block
 keep Latest Articles block

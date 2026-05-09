@@ -6,6 +6,7 @@ This folder keeps internal planning, audit, maintenance and handoff material sep
 
 ```text
 docs/
+  CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md
   README.md
   REPOSITORY_ORGANIZATION.md
   audits/
@@ -29,6 +30,7 @@ docs/
 
 ## Documentation Map
 
+- `CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md` - primary working source of truth for current website state, roadmap and operating rules.
 - `REPOSITORY_ORGANIZATION.md` - intended repository/documentation structure and cleanup rules.
 - `audits/WEBSITE_REPOSITORY_AUDIT_2026-05-06.md` - website and repository audit before the next development stage.
 - `codex/HANDOFF.md` - active and completed handoff notes for work that requires Codex or local validation.

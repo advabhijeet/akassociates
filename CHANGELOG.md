@@ -1,5 +1,47 @@
 # Changelog
 
+## 2026-05-09 23:27 IST - Contact cleanup and documentation sync
+
+Files changed:
+
+- `contact.html`
+- `assets/js/script.js`
+- `assets/css/style.css`
+- `README.md`
+- `docs/CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md`
+- `docs/README.md`
+- `docs/codex/HANDOFF.md`
+- `docs/planning/NEXT_WEBSITE_UPGRADE_AGENDA.md`
+- `docs/planning/SEO_GROWTH_AGENDA.md`
+- `docs/wiki/WORKFLOW.md`
+- `CHANGELOG.md`
+
+Summary:
+
+- Updated Contact page copy so the dynamic form reflects the current direct EmailJS Send Enquiry flow.
+- Kept WhatsApp, Gmail and copy-prepared-message fallbacks intact.
+- Routed EmailJS status text to the visible Contact form status area and added status tone styling.
+- Bumped the Contact page CSS/JS cache strings.
+- Synced README, master plan, Codex handoff, SEO agenda, upgrade agenda, docs index and wiki workflow with the current Contact/EmailJS state.
+- Recorded that `.wiki-clone/` and `.wiki-work/` were inspected locally and remain preserved, untracked working folders.
+- No EmailJS private key was added.
+
+Validation / notes:
+
+- `node --check assets/js/script.js` passed.
+- `git diff --check` passed with line-ending warnings only.
+- `sitemap.xml` and `feed.xml` parsed successfully.
+- JSON-LD parsing passed; 105 blocks parsed.
+- Internal `href`/`src` reference check passed.
+- Local browser smoke test passed for the patched Contact form on desktop and mobile; no live EmailJS send was submitted.
+- Current live route checks returned HTTP 200 for homepage, Practice, Insights, Case Enquiry, Courts, FAQ, Process, Contact, sitemap, feed and ads.txt.
+- Live browser smoke test passed for homepage mobile drawer and Insights filtering before the next feature/content patch.
+- Post-deployment Contact live check remains required after commit/push.
+
+Commits:
+
+- Commit hash to be recorded after commit.
+
 ## 2026-05-09 22:48 IST - EmailJS template ID correction
 
 Files changed:

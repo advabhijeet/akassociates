@@ -9,7 +9,7 @@ This document records the next planned upgrade sequence for the Chambers of AK w
 Accepted checkpoint:
 
 ```text
-ef11809 Strengthen trust and forum guidance
+5b97717 Correct EmailJS template ID
 ```
 
 Recently completed:
@@ -23,6 +23,7 @@ Technical SEO freshness pass completed.
 Sitewide BreadcrumbList JSON-LD added and live inspection completed.
 Trust / Entity pages strengthened.
 ads.txt confirmed working.
+Contact form upgraded with direct EmailJS Send Enquiry and WhatsApp/Gmail/copy fallbacks.
 ```
 
 Current public-flow status:
@@ -104,7 +105,7 @@ Contact -> Case Enquiry / WhatsApp / Email
 
 ### Phase C - Contact Page Improvement
 
-Review and strengthen `contact.html` after footer/internal-link polish.
+Status: Direct send integration is complete. Local cleanup has aligned page copy, status-message behaviour and documentation with the EmailJS flow; post-deployment Contact live check remains after commit/push.
 
 Contact page should clearly show:
 
@@ -116,6 +117,7 @@ Office/base location
 Working regions
 No advocate-client relationship from initial communication
 Link to case enquiry before sending detailed facts
+Direct Send Enquiry with WhatsApp, Gmail and copy fallback routes
 ```
 
 ### Phase D - Search Console Follow-Up

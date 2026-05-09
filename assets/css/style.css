@@ -2684,6 +2684,22 @@ body.insights-list-active .insights-category-section {
   line-height: 1.8;
 }
 
+.emailjs-status {
+  font-weight: 600;
+}
+
+.emailjs-status[data-status="pending"] {
+  color: #7a6420;
+}
+
+.emailjs-status[data-status="success"] {
+  color: #2f6f45;
+}
+
+.emailjs-status[data-status="error"] {
+  color: #8a2c2c;
+}
+
 @media (max-width: 720px) {
   .form-grid {
     grid-template-columns: 1fr;

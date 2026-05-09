@@ -46,6 +46,7 @@ Core focus areas include:
 - Google Tag Manager: `GTM-5GMHQTJJ`.
 - GA4 Measurement ID: `G-DCP7MK6V0V`.
 - AdSense publisher: `pub-6935574990807827`.
+- Contact page direct enquiry delivery uses the EmailJS browser SDK with public browser configuration only.
 
 There is no build step and no package manager requirement for normal edits.
 
@@ -175,6 +176,12 @@ Important lead interactions should be tracked through GTM/GA4, including:
 - Contact page actions.
 
 Avoid installing GA4 both directly and through GTM at the same time, because that can double-count page views.
+
+### Contact Form Delivery
+
+`contact.html` includes a dynamic matter-type enquiry form. It prepares a structured message, supports direct Send Enquiry delivery through EmailJS, and preserves WhatsApp, Gmail and copy-prepared-message fallbacks.
+
+Do not add, request, expose or commit any EmailJS private key.
 
 Update SEO documentation when:
 

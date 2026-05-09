@@ -1430,7 +1430,7 @@ window.ChambersInsightCards = (function () {
   });
 })();
 
-// Dynamic contact enquiry form - Step 1 UI only
+// Dynamic contact enquiry form
 (function () {
   const form = document.querySelector('[data-contact-dynamic-form]');
   if (!form) return;
@@ -1446,12 +1446,12 @@ window.ChambersInsightCards = (function () {
   const generateButton = form.querySelector('[data-generate-enquiry]');
   const copyButton = form.querySelector('[data-copy-enquiry]');
   const sendButton = form.querySelector('[data-emailjs-send]');
-  const statusMessage = form.querySelector('[data-emailjs-status]');
   const outputWrapper = form.querySelector('[data-form-result]');
   const output = form.querySelector('[data-enquiry-output]');
   const whatsappCompose = form.querySelector('[data-whatsapp-compose]');
   const gmailCompose = form.querySelector('[data-gmail-compose]');
   const consent = form.querySelector('[data-form-consent]');
+  const statusMessages = Array.from(form.querySelectorAll('[data-emailjs-status]'));
 
   const matterLabels = {
     cheque: 'Cheque Bounce / Section 138',
@@ -1508,7 +1508,15 @@ window.ChambersInsightCards = (function () {
   };
 
   const setStatus = (message, tone) => {
-    if (!statusMessage) return;
+    if (!statusMessages.length) return;
+    statusMessages.forEach((statusMessage) => {
+      statusMessage.textContent = '';
+      statusMessage.dataset.status = '';
+      statusMessage.hidden = true;
+    });
+    const statusMessage = outputWrapper && !outputWrapper.hidden
+      ? statusMessages[statusMessages.length - 1]
+      : statusMessages[0];
     statusMessage.textContent = message || '';
     statusMessage.dataset.status = tone || '';
     statusMessage.hidden = !message;

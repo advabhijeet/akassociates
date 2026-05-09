@@ -72,6 +72,7 @@ Primary geography clusters:
 - Changelog and documentation-maintenance rules established.
 - Documentation reorganized under `docs/audits/`, `docs/codex/`, `docs/google/`, `docs/maintenance/`, `docs/planning/`, `docs/seo/` and `docs/wiki/`.
 - Next website upgrade agenda created at `docs/planning/NEXT_WEBSITE_UPGRADE_AGENDA.md`.
+- Contact page upgraded with a dynamic matter-type enquiry form, direct EmailJS Send Enquiry, and WhatsApp, Gmail and copy fallbacks.
 
 ### Manual Validation Completed
 
@@ -153,15 +154,11 @@ Commits:
 - `01a96f26cb3c9a8804ba2a743a91a549a7484c5d` - Strengthen arbitration practice page.
 - `b92c87309e2ebec8d04149fb874c16e2c0209536` - Strengthen property and civil suits practice page.
 
-Pending local/Codex cleanup after Phase 4:
+Post-Phase-4 cleanup status:
 
-- Update `sitemap.xml` lastmod dates for the remaining strengthened practice pages.
-- Run local `node --check assets\js\script.js`.
-- Run `git diff --check`.
-- Run XML sitemap parse.
-- Run JSON-LD parsing across public HTML files.
-- Run internal href/src reference check.
-- Run browser/mobile smoke test.
+- `sitemap.xml` now records 2026-05-09 lastmod dates for the strengthened practice pages.
+- Local syntax and XML validation should be repeated after the current Contact cleanup.
+- Browser/mobile smoke testing remains part of the current stability pass before the next feature/content patch.
 
 ## Remaining Technical SEO Cleanup
 
@@ -178,10 +175,10 @@ Before adding more public pages, run or complete:
 
 ## Pending Legal Update Articles
 
-Priority pending update articles:
+Recently completed priority update articles:
 
-- [ ] `updates/cheque-bounce-defence-after-summons.html`
-- [ ] `updates/msme-facilitation-council-process.html`
+- [x] `updates/cheque-bounce-defence-after-summons.html`
+- [x] `updates/msme-facilitation-council-process.html`
 
 Future content clusters to consider after technical audit:
 
@@ -289,8 +286,8 @@ After each public page batch:
 5. [x] Reorganize documentation structure.
 6. [x] Run manual technical validation checks: JavaScript syntax, git diff, sitemap XML, JSON-LD and internal href/src references.
 7. [x] Strengthen six practice pages.
-8. [ ] Run post-Phase-4 local validation and sitemap lastmod cleanup.
-9. [ ] Run live desktop/mobile smoke test and review titles/meta/canonicals/footer/CTAs.
-10. [ ] Inspect `.wiki-clone/` and `.wiki-work/` when Codex is available.
-11. [ ] Create pending legal update articles with distribution drafts.
+8. [x] Run post-Phase-4 sitemap lastmod cleanup.
+9. [x] Run Contact cleanup validation and pre-deployment live desktop/mobile smoke test.
+10. [x] Inspect `.wiki-clone/` and `.wiki-work/` when Codex is available.
+11. [x] Create priority legal update articles with distribution drafts.
 12. [ ] Monitor Search Console data.

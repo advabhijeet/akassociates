@@ -23,92 +23,47 @@ When Codex completes an item:
 
 ## Active Handoff Items
 
-### Post-Phase-4 sitemap and local validation cleanup
+### Post-deployment Contact cleanup check
 
-Status: Pending local/Codex access
-
-Context:
-
-ChatGPT strengthened all six public practice pages on 2026-05-07. One sitemap update was completed for `practice/cheque-bounce.html`, but later full sitemap replacement attempts were blocked by connector safety checks.
-
-Required sitemap lastmod updates:
-
-```xml
-<url><loc>https://chambersofak.in/practice/msme-disputes.html</loc><lastmod>2026-05-07</lastmod></url>
-<url><loc>https://chambersofak.in/practice/rera-property.html</loc><lastmod>2026-05-07</lastmod></url>
-<url><loc>https://chambersofak.in/practice/commercial-recovery.html</loc><lastmod>2026-05-07</lastmod></url>
-<url><loc>https://chambersofak.in/practice/arbitration.html</loc><lastmod>2026-05-07</lastmod></url>
-<url><loc>https://chambersofak.in/practice/property-civil-suits.html</loc><lastmod>2026-05-07</lastmod></url>
-```
-
-Post-update checks:
-
-- `node --check assets\js\script.js`
-- `git diff --check`
-- sitemap XML parse
-- JSON-LD parsing across public HTML files
-- internal `href`/`src` reference check
-- browser/mobile smoke test for the strengthened pages
-
-Do not alter page positioning or public URLs during this cleanup.
-
-### Inspect local wiki working folders
-
-Status: Pending Codex/local access
+Status: Pending only after the local Contact cleanup is committed, pushed and deployed
 
 Context:
 
-- User's local Codex folder is:
+- Latest synced repository checkpoint is `5b97717 Correct EmailJS template ID`.
+- The local Contact cleanup updates stale copy, status-message placement, cache-busting and documentation around the direct EmailJS flow.
+- Current public EmailJS configuration is:
+  - Public Key: `rivGZ1UliuSkSgFdm`
+  - Service ID: `chambersofak`
+  - Template ID: `contactformtempid`
 
-```text
-C:\Users\abhik\Documents\Codex\2026-05-02\https-github-com-advabhijeet-akassociates-can
-```
+Rules:
 
-- Local `git status` showed untracked folders:
+- Do not add, request, expose or commit any EmailJS private key.
+- Keep Contact page language informational and non-solicitation oriented.
+- Keep WhatsApp, Gmail and copy fallback routes intact.
+- Update `CHANGELOG.md` after Contact cleanup or documentation sync changes.
 
-```text
-.wiki-clone/
-.wiki-work/
-```
+After deployment, re-check:
 
-Instructions:
+- live `contact.html` loads the updated copy and `contact-cleanup-1` CSS/JS cache strings;
+- direct Send Enquiry remains present;
+- WhatsApp, Gmail and copy fallback routes remain present;
+- no browser console errors appear on Contact.
 
-1. Sync the local workspace with latest `origin/main`.
-2. Do not delete, overwrite, ignore, add or commit `.wiki-clone/` or `.wiki-work/` before inspection.
-3. Inspect those folders to determine whether unfinished GitHub Wiki work exists from the interrupted Codex session.
-4. Compare any unfinished wiki work with `docs/wiki/WORKFLOW.md`, `README.md`, `CHANGELOG.md`, `docs/planning/SEO_GROWTH_AGENDA.md` and `docs/planning/NEXT_WEBSITE_UPGRADE_AGENDA.md`.
-5. Complete only the required wiki/documentation sync.
-6. Do not modify public website files unless necessary.
-7. Do not commit `.wiki-clone/` or `.wiki-work/`.
-8. Update `CHANGELOG.md` if any tracked files are changed.
+### Search Console follow-up
 
-### Complete browser/mobile smoke validation
+Status: Manual/account follow-up after deployment or live recrawl
 
-Status: Pending browser/local review
+Check Search Console for:
 
-Manual terminal validation was completed by the user on 2026-05-07 before Phase 4:
-
-- `git pull origin main`: already up to date.
-- `node --check assets\js\script.js`: passed with no output.
-- `git diff --check`: passed with no output.
-- `sitemap.xml`: parsed successfully.
-- JSON-LD parsing: passed; 44 blocks parsed.
-- Internal `href`/`src` reference check: passed.
-
-Still pending after Phase 4:
-
-- live desktop/mobile smoke test;
-- homepage, About, Expertise, Contact, Case Enquiry and Legal Updates review;
-- the six strengthened practice pages;
-- mobile drawer behavior;
-- footer legal links;
-- LinkedIn and WhatsApp Channel icons;
-- WhatsApp, email, phone and case-enquiry CTAs;
-- title/meta/canonical review across representative public HTML files.
+- Breadcrumb enhancement detection after the sitewide breadcrumb pass.
+- Coverage/indexing status for recently changed hub pages.
+- Indexing status for newer legal insight articles.
+- Homepage duplicate canonical validation, without repeatedly changing the homepage while Google is still processing.
 
 ## Current Repository State
 
-As of 2026-05-07:
+As of 2026-05-09:
 
 - Batch 1 SEO pages and article upgrades are complete.
 - Batch 2 service-page buildout is complete.
@@ -121,10 +76,40 @@ As of 2026-05-07:
 - `docs/audits/WEBSITE_REPOSITORY_AUDIT_2026-05-06.md` records the current audit.
 - Documentation has been reorganized into `docs/audits/`, `docs/codex/`, `docs/google/`, `docs/maintenance/`, `docs/planning/`, `docs/seo/`, and `docs/wiki/`.
 - Next-stage upgrade plan is recorded in `docs/planning/NEXT_WEBSITE_UPGRADE_AGENDA.md`.
-- Manual validation checks passed for JavaScript syntax, git diff, sitemap XML, JSON-LD and internal href/src references before Phase 4.
+- Manual/local validation checks have passed for JavaScript syntax, git diff, sitemap XML, feed XML, JSON-LD and internal href/src references in recent maintenance passes.
 - Phase 4 practice-page strengthening is complete.
+- `sitemap.xml` records 2026-05-09 freshness for the strengthened practice pages and key hub pages.
+- Contact form direct EmailJS Send Enquiry is connected and uses Template ID `contactformtempid`.
+- `.wiki-clone/` and `.wiki-work/` were inspected on 2026-05-09; the wiki clone is clean and `.wiki-work/` matches the same wiki files. Both folders remain untracked and must not be committed.
 
 ## Completed Handoff Items
+
+### 2026-05-09 local wiki folder inspection
+
+Status: Done through Codex/local review
+
+- Inspected `.wiki-clone/` and `.wiki-work/` without deleting, ignoring, adding or committing them.
+- Confirmed `.wiki-clone` is a clean wiki repository on `master` at `a26ef05 Expand project wiki`.
+- Confirmed `.wiki-work/` contains matching wiki files.
+- Current canonical repository-side wiki mirror remains `docs/wiki/WORKFLOW.md`.
+
+### 2026-05-09 post-Phase-4 sitemap freshness check
+
+Status: Done through Codex/local review
+
+- Confirmed `sitemap.xml` includes 2026-05-09 `lastmod` entries for the six strengthened practice pages.
+- Confirmed current root hub pages such as Practice, Insights, Contact and Case Enquiry also carry 2026-05-09 sitemap freshness where applicable.
+
+### 2026-05-09 Contact cleanup and pre-deployment stability validation
+
+Status: Done locally through Codex
+
+- Updated stale Contact copy so the page reflects the direct EmailJS Send Enquiry flow.
+- Kept WhatsApp, Gmail and copy fallback routes intact.
+- Confirmed `node --check assets\js\script.js`, `git diff --check`, sitemap/feed XML parsing, JSON-LD parsing and internal `href`/`src` checks passed.
+- Confirmed local browser smoke testing for the patched Contact form on desktop and mobile passed without console errors.
+- Confirmed current live public routes and live Insights filtering are stable before the next feature/content patch.
+- Did not submit a live EmailJS enquiry during validation.
 
 ### 2026-05-07 Phase 4 practice page strengthening
 
