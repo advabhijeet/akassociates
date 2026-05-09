@@ -2465,6 +2465,130 @@ body.insights-list-active .insights-category-section {
   }
 }
 
+/* Insights category and tag polish */
+.insights-page .insights-filter-panel {
+  border-block: 1px solid rgba(212, 175, 55, 0.3);
+  background:
+    linear-gradient(90deg, rgba(212, 175, 55, 0.09), rgba(255, 255, 255, 0.78) 42%, rgba(17, 17, 17, 0.035));
+}
+
+.insights-page .insights-filter-panel .insights-section-head {
+  border-bottom-color: rgba(17, 17, 17, 0.14);
+}
+
+.insights-page .insights-filter-panel .insights-section-head h2 {
+  font-size: clamp(24px, 2.4vw, 34px);
+}
+
+.insights-page .insights-control-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.35fr) auto;
+}
+
+.insights-page .insights-filter-input {
+  border-color: rgba(17, 17, 17, 0.18);
+  background: #ffffff;
+}
+
+.insights-page .insights-filter-status {
+  border-left: 2px solid var(--gold-line);
+  padding-left: 0.8rem;
+}
+
+.insights-page .insights-category-section {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(250, 250, 250, 0.42));
+}
+
+.insights-page .updates-grid {
+  background: rgba(17, 17, 17, 0.1);
+}
+
+.insights-page .update-item.update-item-link {
+  border-left: 3px solid transparent;
+  background: #ffffff;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.insights-page .update-item.update-item-link:hover {
+  border-left-color: var(--gold);
+  background: #fbfbfb;
+  box-shadow: 0 14px 30px rgba(17, 17, 17, 0.07);
+}
+
+.insights-page .update-tag {
+  border-radius: 2px;
+  letter-spacing: 0.13em;
+  white-space: normal;
+}
+
+.insights-page .update-tag.tag-case-brief {
+  border-color: rgba(212, 175, 55, 0.78);
+  background: #111111;
+  color: #ffffff;
+}
+
+.insights-page .update-tag.tag-legal-update {
+  border-color: rgba(48, 82, 122, 0.42);
+  background: rgba(48, 82, 122, 0.1);
+  color: #294a70;
+}
+
+.insights-page .update-tag.tag-procedure {
+  border-color: rgba(128, 58, 58, 0.42);
+  background: rgba(128, 58, 58, 0.1);
+  color: #703131;
+}
+
+.insights-page .update-tag.tag-guide {
+  border-color: rgba(44, 92, 71, 0.42);
+  background: rgba(44, 92, 71, 0.1);
+  color: #244f3d;
+}
+
+.insights-page .update-tag.tag-checklist {
+  border-color: rgba(99, 71, 24, 0.42);
+  background: rgba(99, 71, 24, 0.1);
+  color: #5f4314;
+}
+
+.insights-page .insight-card-tags span,
+.insights-page .insight-card-tags a {
+  cursor: pointer;
+  max-width: 100%;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.76);
+  color: rgba(17, 17, 17, 0.72);
+  letter-spacing: 0.07em;
+  overflow-wrap: anywhere;
+}
+
+.insights-page .insight-card-tags span:hover,
+.insights-page .insight-card-tags a:hover,
+.insights-page .insight-card-tags a:focus-visible {
+  border-color: var(--gold);
+  background: rgba(212, 175, 55, 0.16);
+  color: #111111;
+}
+
+@media (max-width: 980px) {
+  .insights-page .insights-control-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .insights-page .insights-control-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .insights-page .update-item.update-item-link:hover {
+    transform: none;
+  }
+}
+
 /* Case enquiry copy templates */
 .enquiry-template-grid {
   align-items: stretch;

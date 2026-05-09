@@ -1,6 +1,6 @@
 # Next Website Upgrade Agenda
 
-Last synced: 2026-05-09
+Last synced: 2026-05-10
 
 This document records the next planned upgrade sequence for the Chambers of AK website. It is intended for ChatGPT, Codex and future maintainers so that website improvements remain ordered, documented and consistent with the firm's professional positioning.
 
@@ -9,7 +9,7 @@ This document records the next planned upgrade sequence for the Chambers of AK w
 Accepted checkpoint:
 
 ```text
-5b97717 Correct EmailJS template ID
+0b39ee3 Clean up contact form documentation
 ```
 
 Recently completed:
@@ -24,6 +24,7 @@ Sitewide BreadcrumbList JSON-LD added and live inspection completed.
 Trust / Entity pages strengthened.
 ads.txt confirmed working.
 Contact form upgraded with direct EmailJS Send Enquiry and WhatsApp/Gmail/copy fallbacks.
+Contact cleanup deployed and live Contact stability check completed.
 ```
 
 Current public-flow status:
@@ -31,16 +32,40 @@ Current public-flow status:
 ```text
 Homepage -> Practice / Enquiry / Courts / Insights
 Practice -> Practice pages / Related insights / Enquiry
-Insights -> Filtered articles / Paginated results
+Insights -> Category blocks / Clickable tags / Filtered paginated results
 Enquiry -> Copy templates / Contact options
 Footer -> FAQ / Process / Policies / Contact
 ```
 
 ## Immediate Next Plan Of Action
 
-### Phase A - Live Stability Review
+### Phase A - Insights Category/Tag Polish
 
-Review the major public routes on desktop and mobile:
+Current patch goal:
+
+```text
+legal-updates.html
+assets/js/script.js
+assets/css/style.css
+CHANGELOG.md and planning docs
+```
+
+Scope:
+
+```text
+Make primary badges represent article type.
+Keep legal subjects/forums in smaller tag chips.
+Allow category badges and topic tags to filter the Insights hub.
+Keep natural browser scroll for results.
+Keep existing article URLs unchanged.
+Restore any article missing from the shared Insights registry.
+Validate JS, XML, JSON-LD, links and browser behaviour.
+Deploy, then live-check Insights on desktop and mobile.
+```
+
+### Phase B - Live Stability Review
+
+Review the major public routes on desktop and mobile after the Insights patch:
 
 ```text
 /
@@ -65,13 +90,7 @@ CTA behaviour
 unexpected internal scroll
 ```
 
-### Phase B - Footer + Internal-Link Polish Pass
-
-Goal:
-
-```text
-Make supporting pages easier to discover without overloading the top navigation.
-```
+### Phase C - Footer + Internal-Link Polish Pass
 
 Preferred footer grouping:
 
@@ -103,9 +122,9 @@ Courts -> Practice / Case Enquiry / Document Checklists
 Contact -> Case Enquiry / WhatsApp / Email
 ```
 
-### Phase C - Contact Page Improvement
+### Phase D - Contact Page Status
 
-Status: Direct send integration is complete. Local cleanup has aligned page copy, status-message behaviour and documentation with the EmailJS flow; post-deployment Contact live check remains after commit/push.
+Status: Direct send integration is complete. Contact cleanup aligned page copy, status-message behaviour and documentation with the EmailJS flow. Post-deployment Contact live check passed after the `0b39ee3` deployment.
 
 Contact page should clearly show:
 
@@ -120,7 +139,7 @@ Link to case enquiry before sending detailed facts
 Direct Send Enquiry with WhatsApp, Gmail and copy fallback routes
 ```
 
-### Phase D - Search Console Follow-Up
+### Phase E - Search Console Follow-Up
 
 After recrawl:
 
@@ -132,7 +151,7 @@ Submit sitemap again only if useful.
 Request indexing for meaningful changed hub pages.
 ```
 
-### Phase E - Future Content Expansion
+### Phase F - Future Content Expansion
 
 Only after stability:
 
@@ -151,7 +170,7 @@ Preserve non-solicitation language.
 - Do not add `team.html` until team-member details are ready and approved.
 - Keep public website files in their current public locations.
 - Update `CHANGELOG.md` after every meaningful modification.
-- Reserve `.wiki-clone/` and `.wiki-work/` for Codex/local wiki continuation; do not commit those folders.
+- Do not recreate `.wiki-clone/` or `.wiki-work/` unless working on the GitHub Wiki specifically; if they appear locally, do not commit them.
 
 ## Long-Term Backlog
 

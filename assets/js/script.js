@@ -785,6 +785,21 @@ window.chambersInsightsRegistry = [
     ]
   },
   {
+    "href": "updates/commercial-suit-documents-checklist.html",
+    "category": "Checklist",
+    "title": "Commercial suit documents checklist",
+    "excerpt": "Contracts, invoices, ledger records, notices, admissions, limitation and forum-preparation checklist for business recovery.",
+    "date": "May 2026",
+    "tags": [
+      "Commercial Recovery",
+      "Commercial Courts",
+      "Documents",
+      "Contracts",
+      "Invoices",
+      "Limitation"
+    ]
+  },
+  {
     "href": "updates/arbitration-notice-before-claim.html",
     "category": "Procedure Note",
     "title": "Arbitration notice before claim",
@@ -828,7 +843,7 @@ window.chambersInsightsRegistry = [
 
 // Shared Insights card rendering helpers
 window.ChambersInsightCards = (function () {
-  const normalize = (value) => (value || '').toLowerCase().replace(/s+/g, ' ').trim();
+  const normalize = (value) => (value || '').toLowerCase().replace(/\s+/g, ' ').trim();
 
   const categoryClass = (category) => {
     const normalized = normalize(category);
@@ -847,7 +862,11 @@ window.ChambersInsightCards = (function () {
     (tags || []).slice(0, 5).forEach((tag) => {
       const el = linked ? document.createElement('a') : document.createElement('span');
       el.textContent = tag;
-      if (linked) el.href = `legal-updates.html?tag=${encodeURIComponent(tag)}`;
+      el.title = `Filter insights tagged ${tag}`;
+      if (linked) {
+        el.href = `legal-updates.html?tag=${encodeURIComponent(tag)}`;
+        el.setAttribute('aria-label', `Filter insights tagged ${tag}`);
+      }
       wrap.appendChild(el);
     });
 
@@ -864,6 +883,7 @@ window.ChambersInsightCards = (function () {
     const badge = document.createElement('span');
     badge.className = `update-tag ${categoryClass(item.category)}`;
     badge.textContent = item.category || 'Insight';
+    badge.title = `Filter insights by ${badge.textContent}`;
 
     const title = document.createElement('div');
     title.className = 'update-title';
@@ -974,8 +994,12 @@ window.ChambersInsightCards = (function () {
     card.dataset.tags = (item.tags || []).join(', ');
 
     const badge = document.createElement('span');
-    badge.className = 'update-tag';
+    const categoryClassName = window.ChambersInsightCards && typeof window.ChambersInsightCards.categoryClass === 'function'
+      ? window.ChambersInsightCards.categoryClass(item.category)
+      : '';
+    badge.className = `update-tag ${categoryClassName}`.trim();
     badge.textContent = item.category || 'Insight';
+    badge.title = `Filter insights by ${badge.textContent}`;
 
     const title = document.createElement('div');
     title.className = 'update-title';
@@ -995,6 +1019,7 @@ window.ChambersInsightCards = (function () {
     (item.tags || []).slice(0, 4).forEach((tag) => {
       const tagEl = document.createElement('span');
       tagEl.textContent = tag;
+      tagEl.title = `Filter insights tagged ${tag}`;
       tags.appendChild(tagEl);
     });
 
@@ -1058,6 +1083,108 @@ window.ChambersInsightCards = (function () {
     const searchMatch = !filters.search || text.includes(filters.search);
 
     return categoryMatch && tagMatch && searchMatch;
+  };
+
+  const itemsMatchingCategory = (categoryValue) => {
+    const category = normalize(categoryValue);
+    if (!category) return allItems;
+    return allItems.filter((item) => normalize(item.category).includes(category));
+  };
+
+  const itemsMatchingTag = (tagValue) => {
+    const tagNeedle = normalize(tagValue);
+    if (!tagNeedle) return allItems;
+    return allItems.filter((item) => (item.tags || []).some((tag) => normalize(tag).includes(tagNeedle)));
+  };
+
+  const filtersAreCompatible = (categoryValue, tagValue) => {
+    const category = normalize(categoryValue);
+    const tagNeedle = normalize(tagValue);
+    if (!category || !tagNeedle) return true;
+
+    return allItems.some((item) => {
+      const categoryMatch = normalize(item.category).includes(category);
+      const tagMatch = (item.tags || []).some((tag) => normalize(tag).includes(tagNeedle));
+      return categoryMatch && tagMatch;
+    });
+  };
+
+  const refreshFilterOptions = () => {
+    const filters = getFilters();
+    const categoryOptions = filters.tag ? itemsMatchingTag(filters.tag) : allItems;
+    const tagOptions = filters.category ? itemsMatchingCategory(filters.category) : allItems;
+
+    setDatalist(categoryList, uniqueSorted(categoryOptions.map((item) => item.category)));
+    setDatalist(tagList, uniqueSorted(tagOptions.flatMap((item) => item.tags || [])));
+  };
+
+  const reconcileFilterSwitch = (changedInput) => {
+    if (!filtersAreCompatible(categoryInput.value, tagInput.value)) {
+      if (changedInput === tagInput) {
+        categoryInput.value = '';
+      } else if (changedInput === categoryInput) {
+        tagInput.value = '';
+      } else {
+        tagInput.value = '';
+      }
+    }
+  };
+
+  const syncFilterParams = () => {
+    if (!window.history || !window.history.replaceState) return;
+
+    const url = new URL(window.location.href);
+    const values = {
+      category: categoryInput.value.trim(),
+      tag: tagInput.value.trim(),
+      q: searchInput.value.trim(),
+    };
+
+    Object.entries(values).forEach(([key, value]) => {
+      if (value) {
+        url.searchParams.set(key, value);
+      } else {
+        url.searchParams.delete(key);
+      }
+    });
+
+    window.history.replaceState({}, '', url);
+  };
+
+  const annotateFilterControls = (scope = document) => {
+    scope.querySelectorAll('.insights-page .update-item-link .update-tag').forEach((badge) => {
+      const label = badge.textContent.trim();
+      if (label) badge.title = `Filter insights by ${label}`;
+    });
+
+    scope.querySelectorAll('.insights-page .update-item-link .insight-card-tags span, .insights-page .update-item-link .insight-card-tags a').forEach((tag) => {
+      const label = tag.textContent.trim();
+      if (label) tag.title = `Filter insights tagged ${label}`;
+    });
+  };
+
+  const activateCardFilter = (target) => {
+    const value = target.textContent.trim();
+    if (!value) return;
+
+    if (target.classList.contains('update-tag')) {
+      categoryInput.value = value;
+      if (!filtersAreCompatible(categoryInput.value, tagInput.value)) {
+        tagInput.value = '';
+      }
+    } else {
+      tagInput.value = value;
+      if (!filtersAreCompatible(categoryInput.value, tagInput.value)) {
+        categoryInput.value = '';
+      }
+    }
+
+    latestListMode = false;
+    sectionListMode = null;
+    currentPage = 1;
+    refreshFilterOptions();
+    renderCurrentView();
+    resultsSection.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
   };
 
   const ensureSectionButton = (section, cards, sectionItems) => {
@@ -1145,6 +1272,9 @@ window.ChambersInsightCards = (function () {
     pagination.innerHTML = '';
     setEditorialVisibility(false);
     applyDefaultSectionLimits();
+    refreshFilterOptions();
+    annotateFilterControls(document);
+    syncFilterParams();
     status.textContent = 'Showing default editorial view. Each section shows the latest 3 articles.';
   };
 
@@ -1210,12 +1340,14 @@ window.ChambersInsightCards = (function () {
       resultsList.appendChild(buildCard(item));
     });
 
+    annotateFilterControls(resultsList);
     renderPagination(totalItems, totalPages, modeLabel);
     status.textContent = `${modeLabel}: showing ${Math.min(start + 1, totalItems)}-${Math.min(start + pageSize, totalItems)} of ${totalItems} insights.`;
   };
 
   function renderCurrentView() {
     const filters = getFilters();
+    syncFilterParams();
 
     if (sectionListMode && !hasActiveFilters()) {
       renderList(sectionListMode.items, sectionListMode.title || 'Section insights');
@@ -1237,10 +1369,12 @@ window.ChambersInsightCards = (function () {
     renderList(allItems.filter((item) => itemMatchesFilters(item, filters)), 'Filtered results');
   }
 
-  const activateFilters = () => {
+  const activateFilters = (event) => {
+    reconcileFilterSwitch(event ? event.target : null);
     latestListMode = false;
     sectionListMode = null;
     currentPage = 1;
+    refreshFilterOptions();
     renderCurrentView();
   };
 
@@ -1256,6 +1390,17 @@ window.ChambersInsightCards = (function () {
     currentPage = 1;
     setDefaultView();
     categoryInput.focus();
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!(event.target instanceof Element)) return;
+
+    const target = event.target.closest('.insights-page .update-item-link .update-tag, .insights-page .update-item-link .insight-card-tags span, .insights-page .update-item-link .insight-card-tags a');
+    if (!target) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+    activateCardFilter(target);
   });
 
   document.querySelectorAll('[data-latest-all-trigger]').forEach((button) => {
@@ -1283,10 +1428,10 @@ window.ChambersInsightCards = (function () {
   if (params.get('tag')) tagInput.value = params.get('tag');
   if (params.get('q')) searchInput.value = params.get('q');
 
-  setDatalist(categoryList, uniqueSorted(allItems.map((item) => item.category)));
-  setDatalist(tagList, uniqueSorted(allItems.flatMap((item) => item.tags || [])));
+  refreshFilterOptions();
 
   applyDefaultSectionLimits();
+  annotateFilterControls(document);
 
   if (hasActiveFilters()) {
     renderCurrentView();

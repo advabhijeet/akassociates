@@ -23,32 +23,31 @@ When Codex completes an item:
 
 ## Active Handoff Items
 
-### Post-deployment Contact cleanup check
+### Post-deployment Insights category/tag polish check
 
-Status: Pending only after the local Contact cleanup is committed, pushed and deployed
+Status: Pending after the Insights category/tag polish is committed, pushed and deployed
 
 Context:
 
-- Latest synced repository checkpoint is `5b97717 Correct EmailJS template ID`.
-- The local Contact cleanup updates stale copy, status-message placement, cache-busting and documentation around the direct EmailJS flow.
-- Current public EmailJS configuration is:
-  - Public Key: `rivGZ1UliuSkSgFdm`
-  - Service ID: `chambersofak`
-  - Template ID: `contactformtempid`
+- Latest accepted repository checkpoint is `0b39ee3 Clean up contact form documentation`.
+- The local Insights patch aligns visible card badges with article types and keeps legal topics in smaller tag chips.
+- The patch also restores `commercial-suit-documents-checklist.html` to the shared Insights registry.
 
 Rules:
 
-- Do not add, request, expose or commit any EmailJS private key.
-- Keep Contact page language informational and non-solicitation oriented.
-- Keep WhatsApp, Gmail and copy fallback routes intact.
-- Update `CHANGELOG.md` after Contact cleanup or documentation sync changes.
+- Do not move existing live `updates/*.html` article URLs.
+- Keep natural browser scroll for filtered Insights results.
+- Keep category/tag/search filters free-switching; Clear Filter should only restore default editorial view.
+- Update `CHANGELOG.md` after the patch.
 
 After deployment, re-check:
 
-- live `contact.html` loads the updated copy and `contact-cleanup-1` CSS/JS cache strings;
-- direct Send Enquiry remains present;
-- WhatsApp, Gmail and copy fallback routes remain present;
-- no browser console errors appear on Contact.
+- live `legal-updates.html` loads `insights-polish-1` CSS/JS cache strings;
+- primary badges show article type: Case Brief, Legal Update, Practical Guide, Checklist or Procedure Note;
+- clicking a card category badge filters by category;
+- clicking a topic chip filters by tag;
+- `Commercial Suit Documents Checklist` appears in search/filter results;
+- desktop and mobile Insights checks show no console errors or horizontal overflow.
 
 ### Search Console follow-up
 
@@ -63,7 +62,7 @@ Check Search Console for:
 
 ## Current Repository State
 
-As of 2026-05-09:
+As of 2026-05-10:
 
 - Batch 1 SEO pages and article upgrades are complete.
 - Batch 2 service-page buildout is complete.
@@ -79,18 +78,28 @@ As of 2026-05-09:
 - Manual/local validation checks have passed for JavaScript syntax, git diff, sitemap XML, feed XML, JSON-LD and internal href/src references in recent maintenance passes.
 - Phase 4 practice-page strengthening is complete.
 - `sitemap.xml` records 2026-05-09 freshness for the strengthened practice pages and key hub pages.
-- Contact form direct EmailJS Send Enquiry is connected and uses Template ID `contactformtempid`.
-- `.wiki-clone/` and `.wiki-work/` were inspected on 2026-05-09; the wiki clone is clean and `.wiki-work/` matches the same wiki files. Both folders remain untracked and must not be committed.
+- Contact form direct EmailJS Send Enquiry is connected and uses Template ID `contactformtempid`; Contact cleanup is deployed and live-checked.
+- GitHub Wiki pages were refreshed from the local wiki working folders on 2026-05-09, then `.wiki-clone/` and `.wiki-work/` were removed from the local workspace. If similar folders appear again, do not commit them.
+- Insights category/tag polish is the active local patch after Contact stability validation.
 
 ## Completed Handoff Items
+
+### 2026-05-09 Contact cleanup deployment check
+
+Status: Done through Codex/local and live browser review
+
+- Confirmed live `contact.html` loaded the updated Contact cleanup copy and `contact-cleanup-1` cache strings.
+- Confirmed EmailJS SDK, direct Send Enquiry button, WhatsApp fallback, Gmail fallback and copy fallback remained present.
+- Confirmed live Contact page browser smoke check passed without console errors.
 
 ### 2026-05-09 local wiki folder inspection
 
 Status: Done through Codex/local review
 
-- Inspected `.wiki-clone/` and `.wiki-work/` without deleting, ignoring, adding or committing them.
+- Inspected `.wiki-clone/` and `.wiki-work/` before any cleanup action.
 - Confirmed `.wiki-clone` is a clean wiki repository on `master` at `a26ef05 Expand project wiki`.
 - Confirmed `.wiki-work/` contains matching wiki files.
+- Refreshed the GitHub Wiki and then removed `.wiki-clone/` and `.wiki-work/` from the local workspace.
 - Current canonical repository-side wiki mirror remains `docs/wiki/WORKFLOW.md`.
 
 ### 2026-05-09 post-Phase-4 sitemap freshness check

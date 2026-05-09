@@ -159,12 +159,12 @@ should not be created until team-member details are ready and approved
 ```
 
 
-## Current Stable Checkpoint - 2026-05-09
+## Current Stable Checkpoint - 2026-05-10
 
 Current repository checkpoint:
 
 ```text
-5b97717 Correct EmailJS template ID
+0b39ee3 Clean up contact form documentation
 ```
 
 Current verified website state:
@@ -181,6 +181,7 @@ Trust / Entity pages strengthened
 ads.txt confirmed working at root /ads.txt
 Search Console live inspection completed after breadcrumb pass
 Contact page includes direct EmailJS Send Enquiry with WhatsApp, Gmail and copy fallbacks
+Contact cleanup and post-deployment Contact live check completed
 ```
 
 Recent accepted commits:
@@ -199,21 +200,22 @@ d586d02 Route contact Gmail through account chooser
 8f61c47 Prefill contact enquiry share links
 7444a89 Connect contact form to EmailJS
 5b97717 Correct EmailJS template ID
+0b39ee3 Clean up contact form documentation
 ```
 
 Current next plan:
 
 ```text
-1. Contact page cleanup and documentation sync.
-2. Live stability review of major public routes.
+1. Complete the Insights category/tag polish patch and deploy it.
+2. Run a live Insights stability check on desktop and mobile after deployment.
 3. Search Console follow-up for breadcrumbs, coverage and changed hub pages.
-4. Future content or Insights feature work only after stability, avoiding thin SEO pages.
+4. Continue content or service-page work only after stability, avoiding thin SEO pages.
 ```
 
 Documentation rule:
 
 ```text
-Before the next feature patch, confirm this master plan and docs/planning/NEXT_WEBSITE_UPGRADE_AGENDA.md are synced with the latest accepted checkpoint.
+Before each feature patch, confirm this master plan and docs/planning/NEXT_WEBSITE_UPGRADE_AGENDA.md are synced with the latest accepted checkpoint.
 ```
 
 ## 6. Practice / Expertise Areas
@@ -247,7 +249,7 @@ trademark / IP advisory
 
 The Insights section should evolve into a legal-publication style section.
 
-Do not treat all content as one undifferentiated ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“Legal UpdatesÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â list.
+Do not treat all content as one undifferentiated Legal Updates list.
 
 Recommended editorial groups:
 
@@ -269,10 +271,12 @@ Homepage now has exactly one Latest Legal Insights block.
 Case Enquiry appears below homepage Latest Legal Insights.
 Insights page default/no-filter mode keeps grouped editorial blocks visible.
 Each grouped block shows a 3-card preview by default.
+Primary card badges identify article type, while smaller tag chips identify legal topics/forums.
 Filter/search/category/tag modes show Matching Insights in paginated list format.
 Matching Insights uses natural browser scroll, not internal scroll.
 Cards use list-style layout on Insights page to avoid grid gaps.
 View All Latest Articles / section pagination behaviour is accepted as stable.
+Category badges and topic tags can be clicked to filter the Insights hub.
 ```
 
 ## 8. Article Categories
@@ -765,21 +769,20 @@ legal source monitoring queue
 Immediate next task:
 
 ```text
-Commit/deploy the Contact cleanup, run the post-deployment Contact live check, then proceed to the next approved feature/content patch.
+Commit/deploy the Insights category/tag polish, then run the post-deployment Insights live check.
 ```
 
 Next feature candidate after validation:
 
 ```text
-Prepare manual patch for Insights visual/category restructure:
-- assets/css/style.css
-- legal-updates.html
-improve all tag/label CSS
-add Case Briefs block
-keep Latest Articles block
-possibly add Practical Guides / Checklists block
+Proceed with Category Inventory for all existing articles:
+- current URL
+- primary category
+- legal tags
+- future folder recommendation
+- judgment PDF/source status where relevant
+- sitemap/feed/internal-link status
 keep existing URLs unchanged
-validate links/XML/JSON-LD
 ```
 
 Next content candidates:
@@ -941,8 +944,8 @@ If a user selects a category, the tag input should suggest only tags available u
 If a user selects a tag, the category input should suggest only categories that contain that tag.
 Users must be able to change category, tag or search directly without pressing Clear Filter first.
 Clear Filter should only be required to reset the page to the default editorial view.
-Filtered results should be shown in a vertical list with internal scrolling so long result sets do not make the page look awkward.
-The visible result panel should show about five items at a time on desktop, with internal scrolling for additional results.
+Filtered results should be shown in a vertical list using natural browser scroll, not an internal scrolling panel.
+The result panel should remain readable and stable on desktop and mobile without horizontal overflow.
 Mobile view must remain stacked, readable and free from horizontal overflow.
 ```
 

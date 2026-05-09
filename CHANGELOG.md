@@ -1,5 +1,44 @@
 # Changelog
 
+## 2026-05-10 00:27 IST - Insights category and tag polish
+
+Files changed:
+
+- `legal-updates.html`
+- `assets/js/script.js`
+- `assets/css/style.css`
+- `docs/CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md`
+- `docs/planning/NEXT_WEBSITE_UPGRADE_AGENDA.md`
+- `docs/planning/INSIGHTS_CATEGORY_RESTRUCTURE_PLAN.md`
+- `docs/codex/HANDOFF.md`
+- `CHANGELOG.md`
+
+Summary:
+
+- Updated Insights page labels so primary card badges consistently show article type: Case Brief, Legal Update, Practical Guide, Checklist or Procedure Note.
+- Kept legal topics in the smaller tag row and added click-to-filter behaviour for category badges and topic tags.
+- Added dependent category/tag datalist refresh and direct free-switching between incompatible category/tag choices.
+- Added the missing `commercial-suit-documents-checklist.html` item to the shared Insights registry and corrected its page metadata/tags on the Insights hub.
+- Fixed the shared Insights category-class normalizer so dynamically rendered Case Brief cards receive the correct `tag-case-brief` styling.
+- Polished Insights filter panel, category badges, topic chips and list-card hover states.
+- Bumped the Insights page CSS/JS cache strings.
+- Updated planning/handoff docs to reflect the current Insights patch and the completed Contact cleanup deployment check.
+
+Validation / notes:
+
+- `node --check assets/js/script.js` passed.
+- `git diff --check` passed with line-ending warnings only.
+- `sitemap.xml` and `feed.xml` parsed successfully.
+- JSON-LD parsing passed; 105 blocks parsed.
+- Internal `href`/`src` reference check passed.
+- Insights visible card hrefs and shared JS registry hrefs are aligned.
+- Local browser smoke test passed on `legal-updates.html`: category filter, tag filter, free-switching, clickable topic chips and clickable category badges worked without console errors.
+- Live post-deployment Insights check remains required after commit/push.
+
+Commits:
+
+- Commit hash to be recorded after commit.
+
 ## 2026-05-09 23:27 IST - Contact cleanup and documentation sync
 
 Files changed:

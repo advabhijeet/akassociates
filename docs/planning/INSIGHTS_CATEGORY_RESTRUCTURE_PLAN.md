@@ -4,6 +4,14 @@ Date: 2026-05-08
 
 This plan records the next structural upgrade for the Chambers of AK Insights section.
 
+Status update 2026-05-10:
+
+```text
+Phase 1 visual/category polish is being implemented without moving any live article URLs.
+The Insights hub now treats primary badges as article type and smaller chips as legal tags/topics.
+The shared JS registry must stay aligned with visible cards so filters, homepage cards and result lists do not diverge.
+```
+
 ## Trigger
 
 The user reviewed the Insights page and identified two issues:
@@ -30,7 +38,9 @@ Use a staged approach.
 
 ### Phase 1 - Visual and Page Layout Upgrade
 
-Do now:
+Status: implemented in the 2026-05-10 Insights category/tag polish patch.
+
+Completed scope:
 
 - improve tag/label CSS;
 - add consistent styling for:
@@ -51,6 +61,9 @@ Do now:
   - Case Briefs;
   - Practical Guides / Checklists;
   - Practice-Area Updates;
+- make article-type badges and legal-topic chips visually distinct;
+- make category badges and legal-topic chips filter the Insights hub;
+- keep category/tag filters directly switchable without forcing Clear Filter first;
 - keep existing article URLs unchanged during this phase.
 
 ### Phase 2 - Category Inventory
@@ -197,20 +210,21 @@ Examples:
 
 ## Immediate Next Patch
 
-Prepare a manual patch for:
+The immediate patch is the 2026-05-10 Insights category/tag polish touching:
 
 ```text
 assets/css/style.css
+assets/js/script.js
 legal-updates.html
 ```
 
-Patch goals:
+Patch goals/status:
 
-- improve all tag styling;
-- add `Case Briefs` block to Insights page;
-- keep existing article URLs unchanged;
-- avoid breaking sitemap/feed/canonical state;
-- validate JS, XML, JSON-LD and internal links.
+- improve all tag styling - done;
+- add/retain `Case Briefs` block on Insights page - done;
+- keep existing article URLs unchanged - required;
+- avoid breaking sitemap/feed/canonical state - required;
+- validate JS, XML, JSON-LD and internal links - required before push.
 
 ## Future Documentation Updates
 
@@ -225,4 +239,4 @@ docs/codex/HANDOFF.md
 
 ## Current Recommendation
 
-For now, keep existing live article URLs under `updates/` and organize the Insights page visually by category. Start using category folders for future articles after the category inventory and migration plan are approved.
+For now, keep existing live article URLs under `updates/` and organize the Insights page visually by category. Next, complete the category inventory before approving any future folder migration.
