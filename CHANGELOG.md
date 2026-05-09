@@ -1,5 +1,30 @@
 # Changelog
 
+## 2026-05-09 21:06 IST - Contact form Gmail account chooser fix
+
+Files changed:
+
+- `contact.html`
+- `assets/js/script.js`
+- `CHANGELOG.md`
+
+Summary:
+
+- Updated the generated contact form Gmail action to route through Google Account Chooser before opening Gmail compose.
+- Renamed the generated form button from `Open Gmail` to `Choose Gmail Account`.
+- Preserved prefilled recipient, subject and prepared enquiry body.
+- Bumped the Contact page JavaScript cache string.
+- Kept form UI, WhatsApp and copy functionality otherwise unchanged.
+
+Validation / notes:
+
+- `node --check assets\js\script.js` passed.
+- `git diff --check` passed.
+- Manual browser test recommended after GitHub Pages redeploy by using multiple logged-in Google accounts.
+
+Commits:
+
+- Commit hash to be recorded after push.
 ## 2026-05-09 20:46 IST - Contact form Gmail compose fix
 
 Files changed:

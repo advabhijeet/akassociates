@@ -1499,7 +1499,7 @@ window.ChambersInsightCards = (function () {
   };
 
   const buildGmailComposeUrl = (message) => {
-    const params = new URLSearchParams({
+    const composeParams = new URLSearchParams({
       view: 'cm',
       fs: '1',
       to: 'chambersofakadmin@gmail.com',
@@ -1507,7 +1507,12 @@ window.ChambersInsightCards = (function () {
       body: message
     });
 
-    return `https://mail.google.com/mail/?${params.toString()}`;
+    const gmailComposeUrl = `https://mail.google.com/mail/?${composeParams.toString()}`;
+    const chooserParams = new URLSearchParams({
+      continue: gmailComposeUrl
+    });
+
+    return `https://accounts.google.com/AccountChooser?${chooserParams.toString()}`;
   };
   const updateMatterFields = () => {
     const selected = matterSelect.value;
