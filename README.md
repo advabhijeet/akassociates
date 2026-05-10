@@ -287,6 +287,8 @@ Every meaningful modification must update the changelog with:
 
 Preferred shell for local manual patching and validation is PowerShell 7 (`pwsh`). Run patch and validation scripts from the repository root unless a patch package README states otherwise. Avoid staging untracked `.wiki-clone/` or `.wiki-work/` folders during manual patch work.
 
+ChatGPT connector note: if ChatGPT cannot directly and safely patch, validate, commit and push through its available GitHub connector, it should prepare a manual patch package or update `docs/codex/HANDOFF.md` for Codex. Local Windows workspace changes require Codex/local execution or the documented manual patch workflow.
+
 ## Local Preview
 
 Because this is a static site, pages can be opened directly in a browser. For a cleaner local preview, run a small local server from the repository root:

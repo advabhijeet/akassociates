@@ -15,7 +15,9 @@ Core Profile Details:
 - Service areas: Bihar, UP, Delhi NCR
 - Languages: Hindi, English
 - Administrative Gmail: chambersofakadmin@gmail.com
-- Google Business Profile status: In review
+- Google Business Profile status: Live public profile available
+- Google Business Profile public URL: https://share.google/GhBO4etH9rEE2tWMe
+- Google review request URL: https://g.page/r/CQ3qHOMx28GrEAI/review
 - LinkedIn page: https://www.linkedin.com/company/chambersofak
 - Personal LinkedIn profile: https://www.linkedin.com/in/abhijeetk03/
 - WhatsApp Business Profile status: Ready
@@ -57,7 +59,9 @@ Ongoing Maintenance:
 - Post useful, informational updates connected to website legal updates.
 - Keep phone, email and website links current.
 - Review Google Search Console and Analytics performance after profile traffic begins.
-- Add the public Google Business Profile URL to the website structured data as sameAs once the profile URL is available.
+- Keep the public Google Business Profile URL in homepage LegalService structured data as sameAs.
+- Keep the Google review request URL available from the Contact page only with neutral genuine-review wording.
+- Do not offer incentives, rewards or pressure for Google reviews.
 
 Compliance Notes:
 - Do not promise outcomes.

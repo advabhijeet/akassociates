@@ -63,14 +63,15 @@ Use consistent business details:
 
 Current external profile status:
 
-- Google Business Profile: in review.
+- Google Business Profile: live public profile available at https://share.google/GhBO4etH9rEE2tWMe
+- Google review request link: https://g.page/r/CQ3qHOMx28GrEAI/review
 - LinkedIn page: https://www.linkedin.com/company/chambersofak
 - Personal LinkedIn profile: https://www.linkedin.com/in/abhijeetk03/
 - WhatsApp Business Profile: ready and linked through `https://wa.me/919471214118`.
 - WhatsApp Channel: https://whatsapp.com/channel/0029VbCmf6M9sBIHqiTPIz33
 - Administrative Gmail: chambersofakadmin@gmail.com
 
-After the Google Business Profile is live, add its public profile URL to the website structured data as `sameAs`.
+The public Google Business Profile URL should remain in homepage LegalService structured data as `sameAs`. The review request link may be shown on the Contact page, but should not be used with incentives or language that suggests paid, rewarded or non-genuine reviews.
 
 Profile setup reference:
 

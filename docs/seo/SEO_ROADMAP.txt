@@ -23,8 +23,8 @@ Status: Mostly implemented. External domain setup completed on May 4, 2026.
 
 Phase 2 - Local Search And Google Business
 Priority: Very high.
-Status: In progress. Website-side service-area signals and Google Business checklist added on May 3, 2026. Google Business Profile is in review as of May 5, 2026. LinkedIn page, WhatsApp Business Profile, WhatsApp Channel and administrative Gmail are ready. LinkedIn and WhatsApp Channel links were added to website schema and the contact page on May 5, 2026.
-- Create or optimize Google Business Profile for Chambers of AK.
+Status: In progress. Website-side service-area signals and Google Business checklist added on May 3, 2026. Google Business Profile public and review-request links were recorded and added to the website on May 11, 2026. LinkedIn page, WhatsApp Business Profile, WhatsApp Channel and administrative Gmail are ready. LinkedIn, Google Business Profile and WhatsApp Channel links are reflected in website schema/contact signals where appropriate.
+- Maintain and optimize Google Business Profile for Chambers of AK.
 - Use consistent NAP details: name, address/service area, phone and email.
 - Add practice categories relevant to advocate/legal services where available.
 - Add service areas: Patna, Bihar, UP and Delhi NCR, as applicable.

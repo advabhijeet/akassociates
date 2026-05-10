@@ -644,6 +644,12 @@ push to origin main
 ignore .wiki-clone/ and .wiki-work/
 ```
 
+ChatGPT connector limitation:
+
+```text
+ChatGPT may inspect repository files through connected GitHub access, but it should not claim local workspace changes unless the user applies a manual patch or Codex performs the local edit. If ChatGPT cannot safely patch, validate, commit and push through its available connector, it should prepare a manual patch package or update docs/codex/HANDOFF.md for Codex.
+```
+
 Standard local path:
 
 ```text

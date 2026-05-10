@@ -287,6 +287,18 @@ git remote -v
 
 This is intended for local Git/GitHub authentication where more than one GitHub account is connected. It does not require ChatGPT GitHub App write access.
 
+### ChatGPT Connector And Manual Patch Rule
+
+ChatGPT may inspect repository files through connected GitHub access, but it should not imply that it has updated the user's local Windows workspace. When ChatGPT cannot safely make and validate a repository change through its connector, it must use the documented manual patch or Codex handoff path instead of guessing or leaving undocumented instructions.
+
+Use this rule:
+
+```text
+If ChatGPT cannot directly and safely patch, validate, commit and push through its available connector, it should prepare a manual patch package or update docs/codex/HANDOFF.md for Codex.
+```
+
+For local/manual updates, follow `docs/maintenance/MANUAL_PATCH_AND_CODEX_HANDOFF_WORKFLOW.md`. The patch package should include intended files only, validation commands, changelog entry text, commit guidance and a push path using the `advabhijeet` Git identity.
+
 ### Universal PowerShell 7 Patch Package Command
 
 For downloadable manual patch packages, use a short PowerShell 7 command that extracts the ZIP from the default Downloads folder into the repository root, then runs the package apply script.

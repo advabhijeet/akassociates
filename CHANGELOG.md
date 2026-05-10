@@ -1,5 +1,38 @@
 # Changelog
 
+## 2026-05-11 00:26 IST - Add Google profile links and ChatGPT patch guidance
+
+Files changed:
+
+- `index.html`
+- `contact.html`
+- `README.md`
+- `docs/CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md`
+- `docs/google/GOOGLE_SETUP.md`
+- `docs/google/GOOGLE_BUSINESS_PROFILE_CHECKLIST.txt`
+- `docs/seo/SEO_ROADMAP.txt`
+- `docs/wiki/WORKFLOW.md`
+- `CHANGELOG.md`
+
+Summary:
+
+- Added the provided Google Business Profile link to the homepage LegalService `sameAs` structured data.
+- Added Google Business Profile and Google Review request links to the Contact page Public Profiles section.
+- Recorded the Google Business Profile public URL and review request URL in Google setup/checklist documentation.
+- Updated SEO roadmap status to show the Google Business Profile links are now available and website-side signals have been added.
+- Documented that ChatGPT must use the manual patch/Codex handoff workflow when it cannot safely patch, validate, commit and push through its connector.
+
+Validation / notes:
+
+- Ran `node --check assets/js/script.js`.
+- Ran `git diff --check`; only Windows line-ending warnings were reported.
+- Parsed 105 JSON-LD blocks successfully after adding the Google Business Profile URL to homepage schema.
+- Confirmed the Google Business Profile URL, Google review URL and ChatGPT manual-patch rule are now present in the intended public/docs files.
+
+Commits:
+
+- Pending.
+
 ## 2026-05-10 23:44 IST - Fix Citadel live navbar contrast and logo parity
 
 Files changed:
