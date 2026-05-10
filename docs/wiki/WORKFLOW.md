@@ -40,6 +40,7 @@ Core focus areas include:
 
 - Static HTML pages.
 - CSS in `assets/css/style.css`.
+- Active theme package in `assets/css/themes/chambers-ak.css`; see `docs/maintenance/THEME_SYSTEM.md` before changing sitewide colors, fonts, surfaces, borders, shadows or tag/category colors.
 - JavaScript in `assets/js/script.js`.
 - GitHub Pages hosting from the `main` branch.
 - Custom domain: `chambersofak.in`.
@@ -297,7 +298,7 @@ The patch package's internal apply script should handle backups, validation, int
 Shared CSS and JavaScript files are referenced with query-string versions, for example:
 
 ```html
-assets/css/style.css?v=legal-3
+assets/css/style.css?v=theme-package-1
 assets/js/script.js?v=socialbar-4
 ```
 

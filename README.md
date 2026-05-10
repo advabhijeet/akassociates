@@ -50,6 +50,7 @@ There is no build step and no package manager requirement for normal edits.
 |-- disclaimer.html
 |-- assets/
 |   |-- css/style.css
+|   |-- css/themes/chambers-ak.css
 |   |-- js/script.js
 |   `-- img/
 |-- practice/
@@ -152,6 +153,20 @@ Main brand colors:
 Black: #000000 / #111111
 White: #ffffff
 Gold accent: #d4af37
+```
+
+The shared site design is packaged as a CSS theme:
+
+```text
+assets/css/themes/chambers-ak.css
+```
+
+`assets/css/style.css` imports the active theme and contains shared layout/component rules. To swap visual themes, create a replacement theme file with the same CSS custom properties, update the import at the top of `style.css`, and bump the stylesheet cache string across public HTML pages.
+
+Theme maintenance reference:
+
+```text
+docs/maintenance/THEME_SYSTEM.md
 ```
 
 Design direction: modern boutique legal brand, black/white base, gold accent, serif monogram/logotype, premium but restrained.
@@ -280,7 +295,7 @@ http://localhost:8000/
 HTML pages reference CSS and JavaScript with version query strings, for example:
 
 ```html
-assets/css/style.css?v=legal-3
+assets/css/style.css?v=theme-package-1
 assets/js/script.js?v=socialbar-4
 ```
 

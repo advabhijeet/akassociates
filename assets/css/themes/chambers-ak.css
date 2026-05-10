@@ -1,0 +1,94 @@
+/*
+  Chambers of AK theme package.
+
+  Swap this file, or the import that points to it in ../style.css, to change
+  the site's visual theme without editing public page markup.
+*/
+
+:root,
+[data-theme="chambers-ak"] {
+  color-scheme: light;
+
+  --theme-name: "Chambers of AK";
+
+  --font-display: 'Cinzel', Georgia, 'Times New Roman', Times, serif;
+  --font-body: 'Montserrat', 'Lato', 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-serif: Georgia, 'Times New Roman', Times, serif;
+
+  --color-black: #000000;
+  --color-ink: #111111;
+  --color-white: #ffffff;
+  --color-paper: #ffffff;
+  --color-paper-soft: #fbfbfb;
+  --color-canvas: #f7f7f7;
+  --color-canvas-muted: #eeeeee;
+  --color-gold: #d4af37;
+  --color-gold-dark: #9c7620;
+  --color-gold-muted: #d1a947;
+  --color-gold-deep: #6f5418;
+  --color-gold-earth: #5f4314;
+  --color-gold-brown: #7a6420;
+  --color-success: #2f6f45;
+  --color-danger: #8a2c2c;
+  --color-msme: #244f3d;
+  --color-civil: #4b3865;
+  --color-ni-act: #703131;
+  --color-rera: #294a70;
+
+  --rgb-ink: 17, 17, 17;
+  --rgb-white: 255, 255, 255;
+  --rgb-gold: 212, 175, 55;
+  --rgb-gold-dark: 156, 118, 32;
+  --rgb-gold-earth: 140, 107, 31;
+  --rgb-gold-deep: 99, 71, 24;
+  --rgb-success: 47, 111, 69;
+  --rgb-danger: 138, 44, 44;
+  --rgb-msme: 44, 92, 71;
+  --rgb-civil: 93, 74, 122;
+  --rgb-ni-act: 128, 58, 58;
+  --rgb-rera: 48, 82, 122;
+
+  --surface-page:
+    radial-gradient(circle at top left, rgba(var(--rgb-gold-earth), 0.1), transparent 28rem),
+    linear-gradient(135deg, var(--color-white) 0%, var(--color-canvas) 54%, var(--color-canvas-muted) 100%);
+  --surface-grid:
+    linear-gradient(90deg, rgba(var(--rgb-ink), 0.028) 0 1px, transparent 1px 100%),
+    linear-gradient(180deg, rgba(var(--rgb-ink), 0.022) 0 1px, transparent 1px 100%),
+    transparent;
+  --surface-section:
+    linear-gradient(90deg, rgba(var(--rgb-gold), 0.09), rgba(var(--rgb-white), 0.78) 42%, rgba(var(--rgb-ink), 0.035));
+  --surface-card:
+    linear-gradient(180deg, rgba(var(--rgb-white), 0.72), rgba(250, 250, 250, 0.42));
+
+  --text-primary: var(--color-ink);
+  --text-secondary: rgba(var(--rgb-ink), 0.78);
+  --text-muted: rgba(var(--rgb-ink), 0.68);
+  --text-faint: rgba(var(--rgb-ink), 0.58);
+  --text-inverse: var(--color-white);
+  --text-inverse-muted: rgba(var(--rgb-white), 0.72);
+
+  --line-soft: rgba(var(--rgb-ink), 0.1);
+  --line-default: rgba(var(--rgb-ink), 0.14);
+  --line-strong: rgba(var(--rgb-ink), 0.24);
+  --line-gold-soft: rgba(var(--rgb-gold), 0.24);
+  --line-gold: rgba(var(--rgb-gold), 0.42);
+  --line-gold-strong: rgba(var(--rgb-gold), 0.62);
+
+  --shadow-soft: 0 10px 24px rgba(var(--rgb-ink), 0.1);
+  --shadow-card: 0 14px 30px rgba(var(--rgb-ink), 0.07);
+  --shadow-raised: 0 16px 44px rgba(var(--rgb-ink), 0.1);
+  --shadow-panel: 0 22px 60px rgba(var(--rgb-ink), 0.12);
+  --shadow-drawer: -10px 0 26px rgba(var(--rgb-ink), 0.18);
+
+  --radius-control: 0;
+  --radius-card: 0;
+  --radius-pill: 999px;
+
+  --black: var(--color-black);
+  --white: var(--color-white);
+  --gold: var(--color-gold);
+  --gold-dark: var(--color-gold-dark);
+  --gold-soft: rgba(var(--rgb-gold), 0.14);
+  --gold-line: var(--line-gold);
+  --serif: var(--font-serif);
+}

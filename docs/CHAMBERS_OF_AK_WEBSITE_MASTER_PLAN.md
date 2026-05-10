@@ -67,6 +67,18 @@ Core palette:
 #D4AF37
 ```
 
+Theme system:
+
+```text
+assets/css/themes/chambers-ak.css
+```
+
+The active website design is packaged as a swappable CSS theme. `assets/css/style.css` imports the active theme and should contain shared layout/component rules. Before changing sitewide colors, fonts, surfaces, borders, shadows or category/tag colors, read:
+
+```text
+docs/maintenance/THEME_SYSTEM.md
+```
+
 ## 3. Public Website File Rules
 
 Do not move public website files unless explicitly instructed.
@@ -562,6 +574,7 @@ Target files:
 
 ```text
 assets/css/style.css
+assets/css/themes/chambers-ak.css
 legal-updates.html
 ```
 
@@ -1085,7 +1098,7 @@ Use the feed loader as enhancement, not as the only source of latest cards.
 Example:
 
 ```html
-<link rel="stylesheet" href="assets/css/style.css?v=legal-4">
+<link rel="stylesheet" href="assets/css/style.css?v=theme-package-1">
 <script src="assets/js/script.js?v=homefeed-2"></script>
 ```
 

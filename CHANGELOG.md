@@ -1,5 +1,42 @@
 # Changelog
 
+## 2026-05-10 16:05 IST - Package website design as swappable theme
+
+Files changed:
+
+- `assets/css/style.css`
+- `assets/css/themes/chambers-ak.css`
+- Public HTML files loading `assets/css/style.css`
+- `docs/maintenance/THEME_SYSTEM.md`
+- `docs/maintenance/ARTICLE_HTML_TEMPLATE.md`
+- `README.md`
+- `docs/wiki/WORKFLOW.md`
+- `docs/CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md`
+- `CHANGELOG.md`
+
+Summary:
+
+- Added a dedicated Chambers of AK theme package at `assets/css/themes/chambers-ak.css`.
+- Moved sitewide fonts, colors, surfaces, lines, shadows, category colors and legacy design aliases into theme variables.
+- Converted the shared stylesheet to consume theme tokens and import the active theme from one place.
+- Bumped public page stylesheet cache strings to `style.css?v=theme-package-1`.
+- Documented how future maintainers can swap the active theme without moving public website files.
+
+Validation / notes:
+
+- CSS variable check passed; all theme variables used by the shared stylesheet are defined.
+- Confirmed all public pages that load `style.css` now use `style.css?v=theme-package-1`.
+- `node --check assets/js/script.js` passed.
+- `git diff --check` passed with line-ending warnings only.
+- `sitemap.xml` and `feed.xml` parsed successfully.
+- JSON-LD parsing passed; 105 blocks parsed.
+- Internal `href`/`src` reference check passed for 57 HTML files.
+- Local browser smoke passed for homepage, practice, Insights, case enquiry, contact, one service page, one article page and privacy policy with no console errors.
+
+Commits:
+
+- Pending.
+
 ## 2026-05-10 15:25 IST - Strengthen fourth AdSense readiness content batch
 
 Files changed:
