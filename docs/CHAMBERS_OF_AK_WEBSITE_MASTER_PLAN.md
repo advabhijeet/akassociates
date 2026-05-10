@@ -74,7 +74,7 @@ assets/css/themes/chambers-ak.css
 assets/css/themes/citadel-of-ak.css
 ```
 
-The active website design is packaged as a swappable CSS theme. `assets/css/style.css` imports the active theme and should contain shared layout/component rules. The dormant `Citadel of AK` theme is available only through `theme-preview-citadel-of-ak.html` until approved. Before changing sitewide colors, fonts, surfaces, borders, shadows or category/tag colors, read:
+The active website design is packaged as a swappable CSS theme. `assets/css/style.css` imports the active theme and should contain shared layout/component rules. The dormant `Citadel of AK` theme is available through `theme-preview-citadel-of-ak.html` and full-site preview URLs using `?theme=citadel-of-ak` until approved. Before changing sitewide colors, fonts, surfaces, borders, shadows or category/tag colors, read:
 
 ```text
 docs/maintenance/THEME_SYSTEM.md
@@ -1100,7 +1100,7 @@ Example:
 
 ```html
 <link rel="stylesheet" href="assets/css/style.css?v=theme-package-1">
-<script src="assets/js/script.js?v=homefeed-2"></script>
+<script src="assets/js/script.js?v=citadel-preview-2"></script>
 ```
 
 If the homepage still shows older insight cards after deployment:

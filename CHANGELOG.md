@@ -1,5 +1,43 @@
 # Changelog
 
+## 2026-05-10 17:05 IST - Upgrade Citadel into full-site preview mode
+
+Files changed:
+
+- `assets/css/themes/citadel-of-ak.css`
+- `assets/js/script.js`
+- Public HTML files loading `assets/js/script.js`
+- `theme-preview-citadel-of-ak.html`
+- `docs/maintenance/THEME_SYSTEM.md`
+- `README.md`
+- `docs/wiki/WORKFLOW.md`
+- `docs/CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md`
+- `docs/maintenance/ARTICLE_HTML_TEMPLATE.md`
+- `CHANGELOG.md`
+
+Summary:
+
+- Reworked Citadel from a small static showcase into a preview mode for the real website.
+- Added `?theme=citadel-of-ak` support so actual public pages load the dormant Citadel stylesheet, fonts and preview banner without changing the active theme.
+- Preserved Citadel preview mode across internal links so homepage, practice, Insights, enquiry, contact, service, article and policy pages can be browsed as a working preview.
+- Expanded the Citadel CSS to more closely reflect the Stitch package: marble-like white surface, obsidian feature panels, citadel gold borders, sharp geometry, editorial serif headings and Lato UI/body text.
+- Updated the preview hub to link into working site pages using actual Chambers of AK assets and content.
+
+Validation / notes:
+
+- CSS variable check passed across shared, active and dormant theme files.
+- `node --check assets/js/script.js` passed.
+- `git diff --check` passed with line-ending warnings only.
+- `sitemap.xml` and `feed.xml` parsed successfully.
+- JSON-LD parsing passed; 105 blocks parsed.
+- Internal `href`/`src` reference check passed for 58 HTML files.
+- Local browser smoke passed for the preview hub plus actual homepage, practice, Insights, case enquiry, contact, service, article and privacy pages opened with `?theme=citadel-of-ak`.
+- Confirmed preview pages dynamically load `citadel-of-ak.css`, set `data-theme="citadel-of-ak"`, show the preview banner, preserve `theme=citadel-of-ak` across internal links and produce no console errors.
+
+Commits:
+
+- Pending.
+
 ## 2026-05-10 16:35 IST - Add Citadel of AK dormant theme preview
 
 Files changed:

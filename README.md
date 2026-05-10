@@ -174,7 +174,8 @@ Available theme packages:
 ```text
 Active:  assets/css/themes/chambers-ak.css
 Dormant: assets/css/themes/citadel-of-ak.css
-Preview: theme-preview-citadel-of-ak.html
+Preview hub: theme-preview-citadel-of-ak.html
+Full-site preview: append `?theme=citadel-of-ak` to any public page URL.
 ```
 
 Design direction: modern boutique legal brand, black/white base, gold accent, serif monogram/logotype, premium but restrained.
@@ -304,7 +305,7 @@ HTML pages reference CSS and JavaScript with version query strings, for example:
 
 ```html
 assets/css/style.css?v=theme-package-1
-assets/js/script.js?v=socialbar-4
+assets/js/script.js?v=citadel-preview-2
 ```
 
 When changing shared CSS or JavaScript, update the query string across HTML pages so browsers and mobile devices fetch the latest files.

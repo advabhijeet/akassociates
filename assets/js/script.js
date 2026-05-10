@@ -17,6 +17,118 @@
   window.location.replace(target);
 })();
 
+/* Dormant theme preview mode. This does not change the active site theme. */
+(function () {
+  const allowedPreviewThemes = new Set(['citadel-of-ak', 'citadel']);
+  const params = new URLSearchParams(window.location.search);
+  const requestedTheme = params.get('theme');
+  const storageKey = 'akThemePreview';
+  const isExplicitExit = params.get('theme') === 'off';
+  const isPreviewPage = /theme-preview-citadel-of-ak\.html$/i.test(window.location.pathname || '');
+
+  if (isExplicitExit) {
+    window.sessionStorage.removeItem(storageKey);
+    return;
+  }
+
+  if (requestedTheme && allowedPreviewThemes.has(requestedTheme)) {
+    window.sessionStorage.setItem(storageKey, 'citadel-of-ak');
+  }
+
+  const previewTheme = isPreviewPage ? 'citadel-of-ak' : window.sessionStorage.getItem(storageKey);
+
+  if (previewTheme !== 'citadel-of-ak') {
+    return;
+  }
+
+  document.documentElement.setAttribute('data-theme', 'citadel-of-ak');
+  document.documentElement.classList.add('theme-preview-active');
+
+  const addHeadTag = (tagName, attributes) => {
+    const existing = attributes.id ? document.getElementById(attributes.id) : null;
+    if (existing) return existing;
+
+    const tag = document.createElement(tagName);
+    Object.entries(attributes).forEach(([key, value]) => {
+      tag.setAttribute(key, value);
+    });
+    document.head.appendChild(tag);
+    return tag;
+  };
+
+  addHeadTag('link', {
+    id: 'citadel-font-preconnect',
+    rel: 'preconnect',
+    href: 'https://fonts.googleapis.com',
+  });
+  addHeadTag('link', {
+    id: 'citadel-fonts',
+    rel: 'stylesheet',
+    href: 'https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Lato:wght@400;700;900&display=swap',
+  });
+
+  const currentScript = document.currentScript || document.querySelector('script[src*="assets/js/script.js"]');
+  const scriptUrl = currentScript ? new URL(currentScript.getAttribute('src'), window.location.href) : null;
+  const siteRootUrl = scriptUrl ? new URL('../../', scriptUrl) : new URL('./', window.location.href);
+  const cssUrl = scriptUrl
+    ? new URL('../css/themes/citadel-of-ak.css?v=preview-2', scriptUrl).href
+    : new URL('assets/css/themes/citadel-of-ak.css?v=preview-2', window.location.href).href;
+
+  addHeadTag('link', {
+    id: 'citadel-theme-preview-css',
+    rel: 'stylesheet',
+    href: cssUrl,
+  });
+
+  addHeadTag('meta', {
+    id: 'citadel-preview-robots',
+    name: 'robots',
+    content: 'noindex, nofollow',
+  });
+
+  const preservePreviewLinks = () => {
+    document.querySelectorAll('a[href]').forEach((link) => {
+      const rawHref = link.getAttribute('href');
+      if (!rawHref || rawHref.startsWith('#')) return;
+      if (/^(mailto:|tel:|https?:|data:|javascript:)/i.test(rawHref)) return;
+
+      const url = new URL(rawHref, window.location.href);
+      const isHtmlPage = url.pathname === '/' || /\.html$/i.test(url.pathname) || !url.pathname.split('/').pop().includes('.');
+
+      if (!isHtmlPage) return;
+
+      url.searchParams.set('theme', 'citadel-of-ak');
+      link.setAttribute('href', `${url.pathname}${url.search}${url.hash}`);
+    });
+  };
+
+  const addPreviewBanner = () => {
+    if (document.querySelector('.citadel-preview-banner')) return;
+
+    const banner = document.createElement('div');
+    banner.className = 'citadel-preview-banner';
+    const previewHubUrl = new URL('theme-preview-citadel-of-ak.html?theme=citadel-of-ak', siteRootUrl).href;
+    const exitUrl = new URL(window.location.href);
+    exitUrl.searchParams.set('theme', 'off');
+    banner.innerHTML = [
+      '<span>Citadel of AK preview mode - active theme is still Chambers of AK</span>',
+      '<a href="' + previewHubUrl + '">Preview hub</a>',
+      '<a href="' + exitUrl.href + '">Exit preview</a>',
+    ].join('');
+    document.body.prepend(banner);
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      preservePreviewLinks();
+      addPreviewBanner();
+    });
+  } else {
+    preservePreviewLinks();
+    addPreviewBanner();
+  }
+})();
+
 const socialLinks = [
   {
     label: 'Firm LinkedIn',

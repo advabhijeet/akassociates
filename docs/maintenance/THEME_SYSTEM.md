@@ -27,13 +27,14 @@ assets/css/themes/citadel-of-ak.css
 
 `assets/css/themes/citadel-of-ak.css` is a dormant preview theme based on the Stitch AI "Lex Regalis / Citadel" redesign. It must not be imported from `style.css` or applied globally until the site owner approves the preview.
 
-Preview page:
+Preview page and full-site preview mode:
 
 ```text
 theme-preview-citadel-of-ak.html
+?theme=citadel-of-ak
 ```
 
-The preview page is marked `noindex, nofollow` and loads the Citadel theme after the shared stylesheet. This allows review without changing the active production theme.
+The preview page is marked `noindex, nofollow` and loads the Citadel theme after the shared stylesheet. Any public page can also be opened with `?theme=citadel-of-ak`; `assets/js/script.js` will dynamically load the dormant Citadel stylesheet and preserve the preview query across internal links. This allows review of the actual working site without changing the active production theme.
 
 ## How The Theme Loads
 
@@ -50,7 +51,7 @@ Every public page continues to load only `assets/css/style.css`. This keeps page
 ```text
 Active:  assets/css/themes/chambers-ak.css
 Dormant: assets/css/themes/citadel-of-ak.css
-Preview: theme-preview-citadel-of-ak.html
+Preview: theme-preview-citadel-of-ak.html and `?theme=citadel-of-ak`
 ```
 
 ## How To Swap Themes
