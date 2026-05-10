@@ -164,7 +164,7 @@ should not be created until team-member details are ready and approved
 Current repository checkpoint:
 
 ```text
-0b39ee3 Clean up contact form documentation
+d66ac6e Record Insights live validation
 ```
 
 Current verified website state:
@@ -182,6 +182,7 @@ ads.txt confirmed working at root /ads.txt
 Search Console live inspection completed after breadcrumb pass
 Contact page includes direct EmailJS Send Enquiry with WhatsApp, Gmail and copy fallbacks
 Contact cleanup and post-deployment Contact live check completed
+Insights category/tag polish deployed and live-checked
 ```
 
 Recent accepted commits:
@@ -201,13 +202,15 @@ d586d02 Route contact Gmail through account chooser
 7444a89 Connect contact form to EmailJS
 5b97717 Correct EmailJS template ID
 0b39ee3 Clean up contact form documentation
+6b372e4 Polish Insights categories and filters
+d66ac6e Record Insights live validation
 ```
 
 Current next plan:
 
 ```text
-1. Complete the Insights category/tag polish patch and deploy it.
-2. Run a live Insights stability check on desktop and mobile after deployment.
+1. Complete the homepage latest-insights freshness/style patch and deploy it.
+2. Run live checks for both `/` and `/index.html` after deployment.
 3. Search Console follow-up for breadcrumbs, coverage and changed hub pages.
 4. Continue content or service-page work only after stability, avoiding thin SEO pages.
 ```
@@ -974,6 +977,8 @@ The homepage should keep a static fallback of the latest three insight cards for
 The homepage JavaScript should then load `feed.xml` and replace the fallback cards with the newest feed items.
 `feed.xml` remains the source of truth for homepage latest insights.
 Whenever a new article is published, update `feed.xml`; the homepage will then pull the newest items automatically.
+The homepage feed request should use cache-busting/no-store behaviour so visitors do not see stale Latest Legal Insights.
+The shared Insights registry may be used to enrich feed-matched homepage cards with article-type badges and topic tags.
 ```
 
 Validation:

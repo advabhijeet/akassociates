@@ -9,7 +9,7 @@ This document records the next planned upgrade sequence for the Chambers of AK w
 Accepted checkpoint:
 
 ```text
-0b39ee3 Clean up contact form documentation
+d66ac6e Record Insights live validation
 ```
 
 Recently completed:
@@ -25,12 +25,13 @@ Trust / Entity pages strengthened.
 ads.txt confirmed working.
 Contact form upgraded with direct EmailJS Send Enquiry and WhatsApp/Gmail/copy fallbacks.
 Contact cleanup deployed and live Contact stability check completed.
+Insights category/tag polish deployed and live Insights stability check completed.
 ```
 
 Current public-flow status:
 
 ```text
-Homepage -> Practice / Enquiry / Courts / Insights
+Homepage -> Practice / Enquiry / Courts / feed-backed Latest Insights
 Practice -> Practice pages / Related insights / Enquiry
 Insights -> Category blocks / Clickable tags / Filtered paginated results
 Enquiry -> Copy templates / Contact options
@@ -39,33 +40,30 @@ Footer -> FAQ / Process / Policies / Contact
 
 ## Immediate Next Plan Of Action
 
-### Phase A - Insights Category/Tag Polish
+### Phase A - Homepage Latest Insights Freshness
 
 Current patch goal:
 
 ```text
-legal-updates.html
+index.html
 assets/js/script.js
-assets/css/style.css
 CHANGELOG.md and planning docs
 ```
 
 Scope:
 
 ```text
-Make primary badges represent article type.
-Keep legal subjects/forums in smaller tag chips.
-Allow category badges and topic tags to filter the Insights hub.
-Keep natural browser scroll for results.
-Keep existing article URLs unchanged.
-Restore any article missing from the shared Insights registry.
-Validate JS, XML, JSON-LD, links and browser behaviour.
-Deploy, then live-check Insights on desktop and mobile.
+Bump homepage CSS/JS cache strings.
+Load homepage Latest Legal Insights from feed.xml with cache-busting/no-store behaviour.
+Preserve static fallback cards for SEO and no-JS.
+Use shared registry metadata to keep article-type badges and topic tags polished.
+Improve homepage latest-card layout so the first card is not oversized.
+Validate `/` and `/index.html` locally and live.
 ```
 
 ### Phase B - Live Stability Review
 
-Review the major public routes on desktop and mobile after the Insights patch:
+Review the major public routes on desktop and mobile after the homepage patch:
 
 ```text
 /

@@ -1,5 +1,39 @@
 # Changelog
 
+## 2026-05-10 07:32 IST - Homepage latest insights freshness pass
+
+Files changed:
+
+- `index.html`
+- `assets/js/script.js`
+- `docs/CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md`
+- `docs/planning/NEXT_WEBSITE_UPGRADE_AGENDA.md`
+- `CHANGELOG.md`
+
+Summary:
+
+- Bumped homepage CSS/JS cache strings to `home-fresh-1`.
+- Changed the homepage Latest Legal Insights renderer to fetch `feed.xml` with a per-load cache-busting query and `no-store` request mode.
+- Preserved the static homepage insight cards as SEO/no-JS fallback and added a shared-registry fallback if feed loading fails.
+- Kept registry metadata for feed-matched cards so homepage badges continue to show article type while smaller chips show legal topics.
+- Updated homepage Latest Legal Insights card layout to a balanced three-card row instead of the older oversized-first-card grid.
+- Synced planning docs with the homepage freshness rule.
+
+Validation / notes:
+
+- `node --check assets/js/script.js` passed.
+- `git diff --check` passed with line-ending warnings only.
+- `sitemap.xml` and `feed.xml` parsed successfully.
+- JSON-LD parsing passed; 105 blocks parsed.
+- Internal `href`/`src` reference check passed.
+- Local browser smoke passed for `/` and `/index.html`; homepage Latest Legal Insights rendered 3 cards from `feed.xml` with `data-home-insights-source="feed"` and no console errors.
+- Local mobile-width browser smoke passed; homepage latest cards stacked cleanly and rendered from `feed.xml`.
+- Live post-deployment homepage check remains required after commit/push.
+
+Commits:
+
+- Commit hash to be recorded after commit.
+
 ## 2026-05-10 00:27 IST - Insights category and tag polish
 
 Files changed:

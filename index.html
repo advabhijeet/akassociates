@@ -38,17 +38,19 @@
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" sizes="180x180">
   <link rel="manifest" href="/site.webmanifest">
-  <link rel="stylesheet" href="assets/css/style.css?v=footer-normalize-1">
+  <link rel="stylesheet" href="assets/css/style.css?v=home-fresh-1">
   <style>
     .home-section-head { display: flex; align-items: end; justify-content: space-between; gap: 1.5rem; margin-bottom: 1.4rem; }
     .home-section-copy { max-width: 680px; color: rgba(17,17,17,0.68); font-size: 13px; line-height: 1.8; }
     .home-view-more { display: inline-flex; flex: 0 0 auto; align-items: center; justify-content: center; min-height: 42px; border: 1px solid var(--gold-line); border-radius: 2px; color: var(--gold); font-size: 10px; letter-spacing: 0.14em; padding: 9px 14px; text-transform: uppercase; }
     .practice-grid.home-practice-slider { display: flex; flex-wrap: nowrap; gap: 1rem; overflow-x: auto; overscroll-behavior-inline: contain; padding: 0.25rem 0 1.25rem; scroll-snap-type: x mandatory; scrollbar-width: thin; -webkit-overflow-scrolling: touch; }
     .home-practice-slider .practice-item { flex: 0 0 clamp(280px, 32vw, 360px); min-width: 0; min-height: 260px; scroll-snap-align: start; }
+    .home-latest-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; }
+    .home-latest-grid .update-item { min-height: 280px; }
     .home-latest-grid .update-item:nth-child(n+4) { display: none; }
     .home-firm-meta { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: 1.7rem 0 2rem; }
     .home-firm-meta .meta-item { min-height: 86px; border: 1px solid rgba(17,17,17,0.1); background: rgba(255,255,255,0.64); padding: 1rem; }
-    @media (max-width: 900px) { .home-section-head { align-items: flex-start; flex-direction: column; } .practice-grid.home-practice-slider { gap: 0.9rem; margin-right: calc(-1 * var(--page-gutter)); padding-right: var(--page-gutter); } .home-practice-slider .practice-item { flex-basis: min(82vw, 340px); min-height: 300px; } .home-practice-slider .practice-title { font-size: clamp(24px, 7.2vw, 34px); line-height: 1.14; } .home-practice-slider .practice-desc { font-size: 15px; line-height: 1.7; } .home-firm-meta { grid-template-columns: 1fr; } }
+    @media (max-width: 900px) { .home-section-head { align-items: flex-start; flex-direction: column; } .practice-grid.home-practice-slider { gap: 0.9rem; margin-right: calc(-1 * var(--page-gutter)); padding-right: var(--page-gutter); } .home-practice-slider .practice-item { flex-basis: min(82vw, 340px); min-height: 300px; } .home-practice-slider .practice-title { font-size: clamp(24px, 7.2vw, 34px); line-height: 1.14; } .home-practice-slider .practice-desc { font-size: 15px; line-height: 1.7; } .home-latest-grid { grid-template-columns: 1fr; } .home-latest-grid .update-item { min-height: 0; } .home-firm-meta { grid-template-columns: 1fr; } }
     @media (max-width: 430px) { .home-practice-slider .practice-item { flex-basis: calc(100vw - 74px); } }
   </style>
   <script type="application/ld+json">
@@ -184,6 +186,6 @@
       <div class="foot-disc">For informational purposes only. Does not constitute legal advice or solicitation. Bar Council of India. Initial communication does not create an advocate-client relationship.</div>
     </footer>
   </div>
-  <script src="assets/js/script.js?v=home-structure-1"></script>
+  <script src="assets/js/script.js?v=home-fresh-1"></script>
 </body>
 </html>

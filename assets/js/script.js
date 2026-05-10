@@ -912,12 +912,93 @@ window.ChambersInsightCards = (function () {
 // Homepage latest insights strip renderer
 (function () {
   const grid = document.querySelector('[data-home-insights-limit]');
-  if (!grid || !window.ChambersInsightCards || !window.chambersInsightsRegistry) return;
+  if (!grid || !window.ChambersInsightCards) return;
 
-  grid.innerHTML = '';
-  window.chambersInsightsRegistry
-    .slice(0, 3)
-    .forEach((item) => grid.appendChild(window.ChambersInsightCards.buildCard(item, { tagLinks: false })));
+  const limit = Number(grid.dataset.homeInsightsLimit || 3);
+  const registryItems = Array.isArray(window.chambersInsightsRegistry) ? window.chambersInsightsRegistry : [];
+  const registryByHref = new Map(registryItems.map((item) => [item.href, item]));
+
+  const relativeHref = (href) => {
+    try {
+      const url = new URL(href, window.location.href);
+      return url.pathname.replace(/^\/+/, '');
+    } catch (error) {
+      return href;
+    }
+  };
+
+  const cleanFeedTitle = (title) => String(title || '')
+    .replace(/^Case Brief:\s*/i, '')
+    .replace(/\s+\|\s+/g, ' | ')
+    .trim();
+
+  const formatFeedDate = (pubDate) => {
+    const date = new Date(pubDate);
+    if (Number.isNaN(date.getTime())) return 'May 2026';
+    return date.toLocaleDateString('en-IN', { month: 'long', year: 'numeric' });
+  };
+
+  const fallbackCategory = (title, feedCategory) => {
+    const text = `${title || ''} ${feedCategory || ''}`.toLowerCase();
+    if (text.includes('case brief')) return 'Case Brief';
+    if (text.includes('checklist')) return 'Checklist';
+    if (text.includes('procedure') || text.includes('process') || text.includes('timeline')) return 'Procedure Note';
+    if (text.includes('guide')) return 'Practical Guide';
+    return 'Legal Update';
+  };
+
+  const renderItems = (items, source) => {
+    if (!items.length) return;
+    grid.innerHTML = '';
+    grid.dataset.homeInsightsSource = source;
+    items
+      .slice(0, limit)
+      .forEach((item) => grid.appendChild(window.ChambersInsightCards.buildCard(item, { tagLinks: false })));
+  };
+
+  const renderRegistryFallback = () => {
+    renderItems(registryItems, 'registry');
+  };
+
+  const parseFeedItems = (xmlText) => {
+    const doc = new DOMParser().parseFromString(xmlText, 'application/xml');
+    if (doc.querySelector('parsererror')) return [];
+
+    return Array.from(doc.querySelectorAll('channel > item')).map((item) => {
+      const link = item.querySelector('link')?.textContent?.trim() || '#';
+      const href = relativeHref(link);
+      const registryItem = registryByHref.get(href);
+      const feedTitle = item.querySelector('title')?.textContent?.trim() || '';
+      const feedCategory = item.querySelector('category')?.textContent?.trim() || '';
+      const feedDescription = item.querySelector('description')?.textContent?.trim() || '';
+      const pubDate = item.querySelector('pubDate')?.textContent?.trim() || '';
+
+      return {
+        href,
+        category: registryItem?.category || fallbackCategory(feedTitle, feedCategory),
+        title: registryItem?.title || cleanFeedTitle(feedTitle),
+        excerpt: registryItem?.excerpt || feedDescription,
+        date: registryItem?.date || formatFeedDate(pubDate),
+        tags: registryItem?.tags || (feedCategory ? [feedCategory] : []),
+      };
+    }).filter((item) => item.href && item.title);
+  };
+
+  renderRegistryFallback();
+
+  const feedUrl = new URL('feed.xml', window.location.href);
+  feedUrl.searchParams.set('home-cache', Date.now().toString());
+
+  fetch(feedUrl.toString(), { cache: 'no-store' })
+    .then((response) => {
+      if (!response.ok) throw new Error('Feed request failed');
+      return response.text();
+    })
+    .then((xmlText) => {
+      const feedItems = parseFeedItems(xmlText);
+      if (feedItems.length) renderItems(feedItems, 'feed');
+    })
+    .catch(renderRegistryFallback);
 })();
 
 // Advanced Insights paginated list/filter module v9
