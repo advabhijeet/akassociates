@@ -10,6 +10,7 @@ The public website now separates the reusable visual theme from page structure.
 assets/css/style.css
 assets/css/themes/chambers-ak.css
 assets/css/themes/citadel-of-ak.css
+assets/img/citadel/
 ```
 
 `assets/css/style.css` is the shared layout and component stylesheet.
@@ -26,6 +27,8 @@ assets/css/themes/citadel-of-ak.css
 - legacy aliases such as `--gold`, `--gold-dark`, `--gold-soft` and `--gold-line`
 
 `assets/css/themes/citadel-of-ak.css` is a dormant preview theme based on the Stitch AI "Lex Regalis / Citadel" redesign. It must not be imported from `style.css` or applied globally until the site owner approves the preview.
+
+`assets/img/citadel/` contains generated preview imagery used only by the dormant Citadel theme. These images reduce blank hero/card areas in the working preview while leaving the active Chambers theme unchanged.
 
 Preview page and full-site preview mode:
 
@@ -52,6 +55,7 @@ Every public page continues to load only `assets/css/style.css`. This keeps page
 Active:  assets/css/themes/chambers-ak.css
 Dormant: assets/css/themes/citadel-of-ak.css
 Preview: theme-preview-citadel-of-ak.html and `?theme=citadel-of-ak`
+Citadel preview media: assets/img/citadel/
 ```
 
 ## How To Swap Themes

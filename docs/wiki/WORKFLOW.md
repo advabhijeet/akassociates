@@ -42,6 +42,7 @@ Core focus areas include:
 - CSS in `assets/css/style.css`.
 - Active theme package in `assets/css/themes/chambers-ak.css`; see `docs/maintenance/THEME_SYSTEM.md` before changing sitewide colors, fonts, surfaces, borders, shadows or tag/category colors.
 - Dormant Citadel preview theme lives in `assets/css/themes/citadel-of-ak.css`; use `theme-preview-citadel-of-ak.html` or append `?theme=citadel-of-ak` to public pages for a full working preview. Do not activate it without owner approval.
+- Citadel preview images live in `assets/img/citadel/` and should remain preview-only unless the owner approves the Citadel theme for production.
 - JavaScript in `assets/js/script.js`.
 - GitHub Pages hosting from the `main` branch.
 - Custom domain: `chambersofak.in`.

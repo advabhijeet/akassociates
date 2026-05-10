@@ -1,5 +1,35 @@
 # Changelog
 
+## 2026-05-10 14:15 IST - Add Citadel preview imagery
+
+Files changed:
+
+- `assets/css/themes/citadel-of-ak.css`
+- `assets/img/citadel/`
+- `docs/maintenance/THEME_SYSTEM.md`
+- `README.md`
+- `docs/wiki/WORKFLOW.md`
+- `docs/CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md`
+- `CHANGELOG.md`
+
+Summary:
+
+- Added generated Citadel preview imagery for the homepage hero, legal-document article cards and tribunal-style editorial cards.
+- Wired the images through the dormant Citadel theme only, using CSS backgrounds and card media slots so existing page HTML and the active Chambers theme remain unchanged.
+- Documented the preview-only image asset folder and its approval boundary.
+
+Validation / notes:
+
+- Confirmed `assets/css/style.css` still imports only `assets/css/themes/chambers-ak.css`; Citadel remains preview-only.
+- `node --check assets/js/script.js` passed.
+- `git diff --check` passed with line-ending warnings only.
+- Citadel CSS image URL existence check passed for all new local image references.
+- Local browser smoke passed on homepage and Insights with `?theme=citadel-of-ak`, including desktop and mobile viewport checks; no console errors found.
+
+Commits:
+
+- Pending.
+
 ## 2026-05-10 17:05 IST - Upgrade Citadel into full-site preview mode
 
 Files changed:

@@ -52,7 +52,8 @@ There is no build step and no package manager requirement for normal edits.
 |   |-- css/style.css
 |   |-- css/themes/chambers-ak.css
 |   |-- js/script.js
-|   `-- img/
+|   |-- img/
+|   `-- img/citadel/
 |-- practice/
 |-- services/
 |-- updates/
@@ -176,6 +177,7 @@ Active:  assets/css/themes/chambers-ak.css
 Dormant: assets/css/themes/citadel-of-ak.css
 Preview hub: theme-preview-citadel-of-ak.html
 Full-site preview: append `?theme=citadel-of-ak` to any public page URL.
+Preview assets: assets/img/citadel/
 ```
 
 Design direction: modern boutique legal brand, black/white base, gold accent, serif monogram/logotype, premium but restrained.
