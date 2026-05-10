@@ -2519,49 +2519,52 @@ body.insights-list-active .insights-category-section {
 }
 
 .insights-page .update-tag {
-  border-radius: 2px;
-  letter-spacing: 0.13em;
+  border-color: rgba(212, 175, 55, 0.62);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.84);
+  color: #111111;
+  letter-spacing: 0.16em;
   white-space: normal;
 }
 
 .insights-page .update-tag.tag-case-brief {
-  border-color: rgba(212, 175, 55, 0.78);
-  background: #111111;
-  color: #ffffff;
+  border-color: rgba(212, 175, 55, 0.7);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.22), rgba(255, 255, 255, 0.88));
+  color: #111111;
 }
 
 .insights-page .update-tag.tag-legal-update {
-  border-color: rgba(48, 82, 122, 0.42);
-  background: rgba(48, 82, 122, 0.1);
-  color: #294a70;
+  border-color: rgba(212, 175, 55, 0.5);
+  background: rgba(255, 255, 255, 0.84);
+  color: #6f5418;
 }
 
 .insights-page .update-tag.tag-procedure {
-  border-color: rgba(128, 58, 58, 0.42);
-  background: rgba(128, 58, 58, 0.1);
-  color: #703131;
+  border-color: rgba(212, 175, 55, 0.5);
+  background: rgba(255, 255, 255, 0.84);
+  color: #6f5418;
 }
 
 .insights-page .update-tag.tag-guide {
-  border-color: rgba(44, 92, 71, 0.42);
-  background: rgba(44, 92, 71, 0.1);
-  color: #244f3d;
+  border-color: rgba(212, 175, 55, 0.5);
+  background: rgba(255, 255, 255, 0.84);
+  color: #6f5418;
 }
 
 .insights-page .update-tag.tag-checklist {
-  border-color: rgba(99, 71, 24, 0.42);
-  background: rgba(99, 71, 24, 0.1);
-  color: #5f4314;
+  border-color: rgba(212, 175, 55, 0.5);
+  background: rgba(255, 255, 255, 0.84);
+  color: #6f5418;
 }
 
 .insights-page .insight-card-tags span,
 .insights-page .insight-card-tags a {
   cursor: pointer;
   max-width: 100%;
-  border-radius: 2px;
-  background: rgba(255, 255, 255, 0.76);
-  color: rgba(17, 17, 17, 0.72);
-  letter-spacing: 0.07em;
+  border-radius: 999px;
+  background: rgba(212, 175, 55, 0.09);
+  color: #6f5418;
+  letter-spacing: 0.08em;
   overflow-wrap: anywhere;
 }
 

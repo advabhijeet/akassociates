@@ -1,5 +1,30 @@
 # Changelog
 
+## 2026-05-10 07:45 IST - Align Insights pills with homepage
+
+Files changed:
+
+- `assets/css/style.css`
+- `legal-updates.html`
+- `CHANGELOG.md`
+
+Summary:
+
+- Aligned Insights page category badges and topic tag chips with the rounded gold-outline pill style used by homepage Latest Legal Insights cards.
+- Kept the Insights page category/tag filtering behavior unchanged.
+- Bumped the Insights page CSS cache string to `insights-pills-1`.
+
+Validation / notes:
+
+- `git diff --check` passed with line-ending warnings only.
+- Confirmed `legal-updates.html` now loads `style.css?v=insights-pills-1` and keeps the existing JS cache string unchanged.
+- Local browser smoke passed on `legal-updates.html`; Insights category badge and topic tag text rendered, and no console errors appeared.
+- Live post-deployment Insights CSS check remains required after commit/push.
+
+Commits:
+
+- Commit hash to be recorded after commit.
+
 ## 2026-05-10 07:32 IST - Homepage latest insights freshness pass
 
 Files changed:
