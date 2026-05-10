@@ -169,6 +169,14 @@ Theme maintenance reference:
 docs/maintenance/THEME_SYSTEM.md
 ```
 
+Available theme packages:
+
+```text
+Active:  assets/css/themes/chambers-ak.css
+Dormant: assets/css/themes/citadel-of-ak.css
+Preview: theme-preview-citadel-of-ak.html
+```
+
 Design direction: modern boutique legal brand, black/white base, gold accent, serif monogram/logotype, premium but restrained.
 
 Logo and brand assets are stored in `assets/img/`.

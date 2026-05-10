@@ -41,6 +41,7 @@ Core focus areas include:
 - Static HTML pages.
 - CSS in `assets/css/style.css`.
 - Active theme package in `assets/css/themes/chambers-ak.css`; see `docs/maintenance/THEME_SYSTEM.md` before changing sitewide colors, fonts, surfaces, borders, shadows or tag/category colors.
+- Dormant Citadel preview theme lives in `assets/css/themes/citadel-of-ak.css` with preview page `theme-preview-citadel-of-ak.html`; do not activate it without owner approval.
 - JavaScript in `assets/js/script.js`.
 - GitHub Pages hosting from the `main` branch.
 - Custom domain: `chambersofak.in`.

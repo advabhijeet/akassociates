@@ -9,6 +9,7 @@ The public website now separates the reusable visual theme from page structure.
 ```text
 assets/css/style.css
 assets/css/themes/chambers-ak.css
+assets/css/themes/citadel-of-ak.css
 ```
 
 `assets/css/style.css` is the shared layout and component stylesheet.
@@ -24,6 +25,16 @@ assets/css/themes/chambers-ak.css
 - category/tag colors
 - legacy aliases such as `--gold`, `--gold-dark`, `--gold-soft` and `--gold-line`
 
+`assets/css/themes/citadel-of-ak.css` is a dormant preview theme based on the Stitch AI "Lex Regalis / Citadel" redesign. It must not be imported from `style.css` or applied globally until the site owner approves the preview.
+
+Preview page:
+
+```text
+theme-preview-citadel-of-ak.html
+```
+
+The preview page is marked `noindex, nofollow` and loads the Citadel theme after the shared stylesheet. This allows review without changing the active production theme.
+
 ## How The Theme Loads
 
 The first line of `assets/css/style.css` imports the active theme:
@@ -33,6 +44,14 @@ The first line of `assets/css/style.css` imports the active theme:
 ```
 
 Every public page continues to load only `assets/css/style.css`. This keeps page markup stable and makes the theme universal across homepage, practice pages, service pages, article pages, policy pages and enquiry/contact pages.
+
+## Current Theme Inventory
+
+```text
+Active:  assets/css/themes/chambers-ak.css
+Dormant: assets/css/themes/citadel-of-ak.css
+Preview: theme-preview-citadel-of-ak.html
+```
 
 ## How To Swap Themes
 
@@ -71,6 +90,7 @@ one policy page
 ## Rules
 
 - Do not move public website files to support a theme change.
+- Do not activate `citadel-of-ak.css` without site-owner approval after preview.
 - Do not hard-code new brand colors in page HTML.
 - Prefer adding or reusing theme tokens before adding one-off color values in `style.css`.
 - Keep fallback aliases in the active theme until all legacy component rules have been migrated.

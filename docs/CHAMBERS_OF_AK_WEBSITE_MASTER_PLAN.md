@@ -71,9 +71,10 @@ Theme system:
 
 ```text
 assets/css/themes/chambers-ak.css
+assets/css/themes/citadel-of-ak.css
 ```
 
-The active website design is packaged as a swappable CSS theme. `assets/css/style.css` imports the active theme and should contain shared layout/component rules. Before changing sitewide colors, fonts, surfaces, borders, shadows or category/tag colors, read:
+The active website design is packaged as a swappable CSS theme. `assets/css/style.css` imports the active theme and should contain shared layout/component rules. The dormant `Citadel of AK` theme is available only through `theme-preview-citadel-of-ak.html` until approved. Before changing sitewide colors, fonts, surfaces, borders, shadows or category/tag colors, read:
 
 ```text
 docs/maintenance/THEME_SYSTEM.md

@@ -1,0 +1,262 @@
+/*
+  Citadel of AK theme package.
+
+  Preview-only until approved. Do not import this file from ../style.css unless
+  the theme is approved for activation.
+*/
+
+:root[data-theme="citadel-of-ak"],
+[data-theme="citadel-of-ak"] {
+  color-scheme: light;
+
+  --theme-name: "Citadel of AK";
+
+  --font-display: 'EB Garamond', 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-body: 'Lato', 'Inter', 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-serif: 'EB Garamond', Georgia, 'Times New Roman', serif;
+
+  --color-black: #000000;
+  --color-ink: #000000;
+  --color-white: #ffffff;
+  --color-paper: #ffffff;
+  --color-paper-soft: #f9f9f9;
+  --color-canvas: #f9f9f9;
+  --color-canvas-muted: #eeeeee;
+  --color-gold: #c9a84c;
+  --color-gold-dark: #755b00;
+  --color-gold-muted: #e6c364;
+  --color-gold-deep: #584400;
+  --color-gold-earth: #755b00;
+  --color-gold-brown: #584400;
+  --color-success: #2f6f45;
+  --color-danger: #8a2c2c;
+  --color-msme: #244f3d;
+  --color-civil: #4b3865;
+  --color-ni-act: #703131;
+  --color-rera: #294a70;
+
+  --rgb-ink: 0, 0, 0;
+  --rgb-white: 255, 255, 255;
+  --rgb-gold: 201, 168, 76;
+  --rgb-gold-dark: 117, 91, 0;
+  --rgb-gold-earth: 201, 168, 76;
+  --rgb-gold-deep: 88, 68, 0;
+  --rgb-success: 47, 111, 69;
+  --rgb-danger: 138, 44, 44;
+  --rgb-msme: 44, 92, 71;
+  --rgb-civil: 93, 74, 122;
+  --rgb-ni-act: 128, 58, 58;
+  --rgb-rera: 48, 82, 122;
+
+  --surface-page:
+    radial-gradient(circle at 74% 88%, rgba(var(--rgb-gold), 0.2), transparent 28rem),
+    linear-gradient(115deg, rgba(var(--rgb-ink), 0.035) 0 1px, transparent 1px 26%),
+    linear-gradient(145deg, rgba(var(--rgb-gold), 0.1), transparent 18rem),
+    linear-gradient(180deg, var(--color-white), var(--color-paper-soft));
+  --surface-grid:
+    linear-gradient(90deg, rgba(var(--rgb-gold), 0.16) 0 1px, transparent 1px 100%),
+    linear-gradient(180deg, rgba(var(--rgb-ink), 0.055) 0 1px, transparent 1px 100%),
+    transparent;
+  --surface-section:
+    linear-gradient(90deg, rgba(var(--rgb-gold), 0.18), rgba(var(--rgb-white), 0.88) 46%, rgba(var(--rgb-ink), 0.045));
+  --surface-card:
+    linear-gradient(180deg, rgba(var(--rgb-white), 0.96), rgba(var(--rgb-white), 0.82));
+
+  --text-primary: var(--color-ink);
+  --text-secondary: rgba(var(--rgb-ink), 0.76);
+  --text-muted: rgba(var(--rgb-ink), 0.62);
+  --text-faint: rgba(var(--rgb-ink), 0.48);
+  --text-inverse: var(--color-white);
+  --text-inverse-muted: rgba(var(--rgb-white), 0.72);
+
+  --line-soft: rgba(var(--rgb-ink), 0.1);
+  --line-default: rgba(var(--rgb-ink), 0.18);
+  --line-strong: rgba(var(--rgb-ink), 0.42);
+  --line-gold-soft: rgba(var(--rgb-gold), 0.32);
+  --line-gold: rgba(var(--rgb-gold), 0.68);
+  --line-gold-strong: rgba(var(--rgb-gold), 0.86);
+
+  --shadow-soft: none;
+  --shadow-card: none;
+  --shadow-raised: none;
+  --shadow-panel: none;
+  --shadow-drawer: none;
+
+  --radius-control: 0;
+  --radius-card: 0;
+  --radius-pill: 0;
+
+  --black: var(--color-black);
+  --white: var(--color-white);
+  --gold: var(--color-gold);
+  --gold-dark: var(--color-gold-dark);
+  --gold-soft: rgba(var(--rgb-gold), 0.16);
+  --gold-line: var(--line-gold);
+  --serif: var(--font-serif);
+}
+
+:root[data-theme="citadel-of-ak-dark"],
+[data-theme="citadel-of-ak-dark"],
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-ink: #ffffff;
+  --color-paper: #000000;
+  --color-paper-soft: #111111;
+  --color-canvas: #000000;
+  --color-canvas-muted: #111111;
+  --rgb-ink: 255, 255, 255;
+  --rgb-white: 0, 0, 0;
+  --surface-page:
+    radial-gradient(circle at 78% 16%, rgba(var(--rgb-gold), 0.2), transparent 24rem),
+    linear-gradient(120deg, rgba(var(--rgb-gold), 0.1) 0 1px, transparent 1px 26%),
+    linear-gradient(180deg, #000000, #050505);
+  --surface-grid:
+    linear-gradient(90deg, rgba(var(--rgb-gold), 0.16) 0 1px, transparent 1px 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 100%),
+    transparent;
+  --surface-card: linear-gradient(180deg, rgba(15, 15, 15, 0.98), rgba(0, 0, 0, 0.88));
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.78);
+  --text-muted: rgba(255, 255, 255, 0.64);
+  --text-faint: rgba(255, 255, 255, 0.48);
+  --line-soft: rgba(255, 255, 255, 0.12);
+  --line-default: rgba(255, 255, 255, 0.2);
+  --line-strong: rgba(255, 255, 255, 0.44);
+}
+
+[data-theme^="citadel-of-ak"] body {
+  background: var(--surface-page);
+}
+
+[data-theme^="citadel-of-ak"] .s {
+  border-inline: 0;
+  background: var(--surface-grid);
+  background-size: 64px 64px;
+}
+
+[data-theme^="citadel-of-ak"] .site-topbar {
+  border-top: 2px solid var(--gold);
+  border-bottom: 1px solid var(--line-gold);
+  background: rgba(var(--rgb-white), 0.86);
+  backdrop-filter: blur(10px);
+  color: var(--text-secondary);
+}
+
+[data-theme^="citadel-of-ak"] .nav {
+  border-top: 2px solid var(--gold);
+  border-bottom: 1px solid var(--line-default);
+  background: rgba(var(--rgb-white), 0.88);
+  backdrop-filter: blur(10px);
+  box-shadow: none;
+}
+
+[data-theme^="citadel-of-ak"] h1,
+[data-theme^="citadel-of-ak"] h2,
+[data-theme^="citadel-of-ak"] h3,
+[data-theme^="citadel-of-ak"] .nav-logo-wordmark,
+[data-theme^="citadel-of-ak"] .foot-copy {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+[data-theme^="citadel-of-ak"] .hero-eyebrow,
+[data-theme^="citadel-of-ak"] .sec-label,
+[data-theme^="citadel-of-ak"] .nav-links a,
+[data-theme^="citadel-of-ak"] .btn-gold,
+[data-theme^="citadel-of-ak"] .btn-outline,
+[data-theme^="citadel-of-ak"] .tag,
+[data-theme^="citadel-of-ak"] .pill,
+[data-theme^="citadel-of-ak"] .article-tag,
+[data-theme^="citadel-of-ak"] .latest-card-category {
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+[data-theme^="citadel-of-ak"] .page-hero,
+[data-theme^="citadel-of-ak"] .home-hero {
+  min-height: min(720px, 82vh);
+}
+
+[data-theme^="citadel-of-ak"] .page-hero h1,
+[data-theme^="citadel-of-ak"] .home-hero h1 {
+  color: var(--text-primary);
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  line-height: 1;
+}
+
+[data-theme^="citadel-of-ak"] .page-hero::after,
+[data-theme^="citadel-of-ak"] .sec::before {
+  content: "";
+  display: block;
+  width: min(100%, 16rem);
+  height: 1px;
+  margin: 2rem auto;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+[data-theme^="citadel-of-ak"] .info-item,
+[data-theme^="citadel-of-ak"] .content-panel,
+[data-theme^="citadel-of-ak"] .latest-card,
+[data-theme^="citadel-of-ak"] .article-card,
+[data-theme^="citadel-of-ak"] .contact-panel,
+[data-theme^="citadel-of-ak"] .form-panel {
+  border: 1px solid var(--line-default);
+  border-left: 3px solid var(--gold);
+  border-radius: 0;
+  background: var(--surface-card);
+  box-shadow: none;
+}
+
+[data-theme^="citadel-of-ak"] .info-item.featured,
+[data-theme^="citadel-of-ak"] .latest-card.is-featured {
+  border-color: var(--color-black);
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+[data-theme^="citadel-of-ak"] .btn-gold,
+[data-theme^="citadel-of-ak"] .nav-cta {
+  border: 1px solid var(--gold);
+  border-radius: 0;
+  background: var(--gold);
+  color: var(--color-black);
+  box-shadow: none;
+}
+
+[data-theme^="citadel-of-ak"] .btn-outline,
+[data-theme^="citadel-of-ak"] .filter-btn,
+[data-theme^="citadel-of-ak"] .copy-btn {
+  border: 1px solid var(--line-strong);
+  border-radius: 0;
+  background: transparent;
+  color: var(--text-primary);
+}
+
+[data-theme^="citadel-of-ak"] .btn-gold:hover,
+[data-theme^="citadel-of-ak"] .nav-cta:hover,
+[data-theme^="citadel-of-ak"] .filter-btn.active {
+  border-color: var(--color-black);
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+[data-theme^="citadel-of-ak"] input,
+[data-theme^="citadel-of-ak"] textarea,
+[data-theme^="citadel-of-ak"] select {
+  border-radius: 0;
+}
+
+[data-theme^="citadel-of-ak"] .foot {
+  border-top: 2px solid var(--gold);
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+[data-theme^="citadel-of-ak"] .foot a,
+[data-theme^="citadel-of-ak"] .foot-copy {
+  color: var(--color-white);
+}

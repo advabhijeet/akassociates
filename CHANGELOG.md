@@ -1,5 +1,37 @@
 # Changelog
 
+## 2026-05-10 16:35 IST - Add Citadel of AK dormant theme preview
+
+Files changed:
+
+- `assets/css/themes/citadel-of-ak.css`
+- `theme-preview-citadel-of-ak.html`
+- `docs/maintenance/THEME_SYSTEM.md`
+- `README.md`
+- `docs/wiki/WORKFLOW.md`
+- `docs/CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md`
+- `CHANGELOG.md`
+
+Summary:
+
+- Reviewed the Stitch AI redesign package from `stitch_chambers_of_ak_redesign.zip`.
+- Added a dormant `Citadel of AK` theme based on the Lex Regalis / Citadel direction: stark white, obsidian black, citadel gold, serif headings, Lato body text, sharp geometry and gold structural borders.
+- Added a noindex preview showcase page that loads the Citadel theme without changing the active production theme.
+- Documented that `assets/css/themes/chambers-ak.css` remains active and Citadel must not be activated without owner approval.
+
+Validation / notes:
+
+- Confirmed `assets/css/style.css` still imports only `assets/css/themes/chambers-ak.css`; Citadel is not active globally.
+- CSS variable check passed across shared, active and dormant theme files.
+- `node --check assets/js/script.js` passed.
+- `git diff --check` passed with line-ending warnings only.
+- Internal `href`/`src` reference check passed for 58 HTML files.
+- Local browser smoke passed for `theme-preview-citadel-of-ak.html`; preview loads both `style.css?v=theme-package-1` and `citadel-of-ak.css?v=preview-1`, has `noindex, nofollow`, and shows no console errors.
+
+Commits:
+
+- Pending.
+
 ## 2026-05-10 16:05 IST - Package website design as swappable theme
 
 Files changed:
