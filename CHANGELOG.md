@@ -28,11 +28,12 @@ Validation / notes:
 - Internal `href`/`src` reference check passed.
 - Local browser smoke passed for `/` and `/index.html`; homepage Latest Legal Insights rendered 3 cards from `feed.xml` with `data-home-insights-source="feed"` and no console errors.
 - Local mobile-width browser smoke passed; homepage latest cards stacked cleanly and rendered from `feed.xml`.
-- Live post-deployment homepage check remains required after commit/push.
+- Post-deployment live checks passed for `/` and `/index.html`: both served `home-fresh-1`, rendered 3 Latest Legal Insights cards from `feed.xml`, and showed no console errors.
+- Live mobile-width homepage smoke passed with 3 feed-rendered cards and no console errors.
 
 Commits:
 
-- Commit hash to be recorded after commit.
+- `4becd72` - Refresh homepage latest insights.
 
 ## 2026-05-10 00:27 IST - Insights category and tag polish
 

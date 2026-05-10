@@ -9,7 +9,7 @@ This document records the next planned upgrade sequence for the Chambers of AK w
 Accepted checkpoint:
 
 ```text
-d66ac6e Record Insights live validation
+4becd72 Refresh homepage latest insights
 ```
 
 Recently completed:
@@ -26,6 +26,7 @@ ads.txt confirmed working.
 Contact form upgraded with direct EmailJS Send Enquiry and WhatsApp/Gmail/copy fallbacks.
 Contact cleanup deployed and live Contact stability check completed.
 Insights category/tag polish deployed and live Insights stability check completed.
+Homepage latest-insights freshness patch deployed and live homepage checks completed.
 ```
 
 Current public-flow status:
@@ -42,7 +43,9 @@ Footer -> FAQ / Process / Policies / Contact
 
 ### Phase A - Homepage Latest Insights Freshness
 
-Current patch goal:
+Status: Complete in `4becd72 Refresh homepage latest insights`.
+
+Patch scope:
 
 ```text
 index.html
@@ -63,7 +66,7 @@ Validate `/` and `/index.html` locally and live.
 
 ### Phase B - Live Stability Review
 
-Review the major public routes on desktop and mobile after the homepage patch:
+Next: review the major public routes on desktop and mobile after the homepage patch:
 
 ```text
 /

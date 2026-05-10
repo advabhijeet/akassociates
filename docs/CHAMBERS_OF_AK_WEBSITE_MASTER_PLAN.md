@@ -164,7 +164,7 @@ should not be created until team-member details are ready and approved
 Current repository checkpoint:
 
 ```text
-d66ac6e Record Insights live validation
+4becd72 Refresh homepage latest insights
 ```
 
 Current verified website state:
@@ -183,6 +183,7 @@ Search Console live inspection completed after breadcrumb pass
 Contact page includes direct EmailJS Send Enquiry with WhatsApp, Gmail and copy fallbacks
 Contact cleanup and post-deployment Contact live check completed
 Insights category/tag polish deployed and live-checked
+Homepage Latest Legal Insights now loads from feed.xml with cache-busting and live-check passed
 ```
 
 Recent accepted commits:
@@ -204,15 +205,16 @@ d586d02 Route contact Gmail through account chooser
 0b39ee3 Clean up contact form documentation
 6b372e4 Polish Insights categories and filters
 d66ac6e Record Insights live validation
+4becd72 Refresh homepage latest insights
 ```
 
 Current next plan:
 
 ```text
-1. Complete the homepage latest-insights freshness/style patch and deploy it.
-2. Run live checks for both `/` and `/index.html` after deployment.
-3. Search Console follow-up for breadcrumbs, coverage and changed hub pages.
-4. Continue content or service-page work only after stability, avoiding thin SEO pages.
+1. Run broader live stability review on major public routes after the homepage freshness patch.
+2. Search Console follow-up for breadcrumbs, coverage and changed hub pages.
+3. Continue content or service-page work only after stability, avoiding thin SEO pages.
+4. Keep homepage feed/fallback cards synced whenever a new article is published.
 ```
 
 Documentation rule:
