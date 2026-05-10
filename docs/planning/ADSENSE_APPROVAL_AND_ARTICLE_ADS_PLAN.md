@@ -85,6 +85,23 @@ Purpose:
 - Preserve existing URLs and non-solicitation language.
 - Update freshness signals through `dateModified`, `sitemap.xml` and `feed.xml`.
 
+### Batch 3 - 2026-05-10
+
+Strengthened the next low-depth service and article pages:
+
+- `services/msme-recovery-lawyer-bihar.html`
+- `services/cheque-bounce-lawyer-patna.html`
+- `services/rera-lawyer-bihar-up-delhi-ncr.html`
+- `updates/rera-delayed-possession-bihar.html`
+- `updates/commercial-suit-documents-checklist.html`
+
+Purpose:
+
+- Raise content depth on MSME, cheque bounce, RERA and commercial recovery pages.
+- Add forum/route review, date sensitivity, first enquiry details and common-mistake guidance.
+- Preserve existing URLs and non-solicitation language.
+- Update freshness signals through `dateModified`, `sitemap.xml` and `feed.xml`.
+
 ## Compliance Notes
 
 Google references reviewed:

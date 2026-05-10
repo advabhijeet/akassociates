@@ -30,6 +30,7 @@ Homepage latest-insights freshness patch deployed and live homepage checks compl
 AdSense rejection email reviewed; public legal pages and article-only ads plan updated.
 AdSense readiness content Batch 1 strengthened four thin public pages.
 AdSense readiness content Batch 2 strengthened arbitration and commercial recovery pages.
+AdSense readiness content Batch 3 strengthened MSME, cheque bounce, RERA and commercial checklist pages.
 ```
 
 Current public-flow status:
@@ -75,7 +76,7 @@ Scope:
 
 ```text
 Treat AdSense as an onboarding/account approval issue unless a more specific dashboard reason becomes available.
-Strengthen thin public pages and short legacy articles before resubmission; Batches 1-2 covered the first eight weak public pages.
+Strengthen thin public pages and short legacy articles before resubmission; Batches 1-3 covered the first thirteen weak public pages.
 If required, add official AdSense site connection code without enabling aggressive sitewide ads.
 Keep future visible ads limited to article-style pages only.
 Avoid ads on homepage, enquiry/contact, practice/service landing pages and policy/trust pages.

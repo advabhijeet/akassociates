@@ -187,6 +187,7 @@ Homepage Latest Legal Insights now loads from feed.xml with cache-busting and li
 AdSense rejection email reviewed; article-only subtle ads direction recorded
 AdSense readiness content Batch 1 strengthened four thin public pages
 AdSense readiness content Batch 2 strengthened arbitration and commercial recovery pages
+AdSense readiness content Batch 3 strengthened MSME, cheque bounce, RERA and commercial checklist pages
 ```
 
 Recent accepted commits:
@@ -338,6 +339,16 @@ services/arbitration-lawyer-bihar.html
 services/commercial-recovery-lawyer-patna.html
 updates/section-34-arbitration-award-challenge.html
 updates/arbitration-notice-before-claim.html
+```
+
+Third readiness content batch:
+
+```text
+services/msme-recovery-lawyer-bihar.html
+services/cheque-bounce-lawyer-patna.html
+services/rera-lawyer-bihar-up-delhi-ncr.html
+updates/rera-delayed-possession-bihar.html
+updates/commercial-suit-documents-checklist.html
 ```
 
 ## 8. Article Categories

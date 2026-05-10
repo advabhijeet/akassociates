@@ -1,5 +1,42 @@
 # Changelog
 
+## 2026-05-10 14:45 IST - Strengthen third AdSense readiness content batch
+
+Files changed:
+
+- `services/msme-recovery-lawyer-bihar.html`
+- `services/cheque-bounce-lawyer-patna.html`
+- `services/rera-lawyer-bihar-up-delhi-ncr.html`
+- `updates/rera-delayed-possession-bihar.html`
+- `updates/commercial-suit-documents-checklist.html`
+- `sitemap.xml`
+- `feed.xml`
+- `docs/planning/ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md`
+- `docs/planning/NEXT_WEBSITE_UPGRADE_AGENDA.md`
+- `docs/CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md`
+- `CHANGELOG.md`
+
+Summary:
+
+- Expanded Batch 3 of the AdSense readiness content pass across MSME, cheque bounce, RERA and commercial recovery pages.
+- Added route/forum review, date sensitivity, first enquiry details, document guidance and common-mistake sections while preserving non-solicitation language.
+- Updated article `dateModified` values, sitemap `lastmod` entries and the commercial checklist feed description.
+- Recorded this as AdSense readiness content Batch 3.
+
+Validation / notes:
+
+- `node --check assets/js/script.js` passed.
+- `git diff --check` passed with line-ending warnings only.
+- `sitemap.xml` and `feed.xml` parsed successfully.
+- JSON-LD parsing passed; 105 blocks parsed.
+- Internal `href`/`src` reference check passed.
+- Word-count spot check confirmed the five strengthened pages now sit around 630-708 words.
+- Local browser smoke passed for the five changed public pages with no console errors.
+
+Commits:
+
+- Pending.
+
 ## 2026-05-10 14:15 IST - Strengthen second AdSense readiness content batch
 
 Files changed:
@@ -34,7 +71,7 @@ Validation / notes:
 
 Commits:
 
-- Pending.
+- `d5040f5` - Strengthen second AdSense readiness batch.
 
 ## 2026-05-10 13:45 IST - Strengthen first AdSense readiness content batch
 
