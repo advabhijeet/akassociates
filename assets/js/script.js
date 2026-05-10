@@ -19,10 +19,11 @@
 
 /* Dormant theme preview mode. This does not change the active site theme. */
 (function () {
-  const allowedPreviewThemes = new Set(['citadel-of-ak', 'citadel']);
+  const allowedPreviewThemes = new Set(['citadel-of-ak', 'citadel', 'citadel-of-ak-dark']);
   const params = new URLSearchParams(window.location.search);
   const requestedTheme = params.get('theme');
   const storageKey = 'akThemePreview';
+  const modeKey = 'akCitadelColorMode';
   const isExplicitExit = params.get('theme') === 'off';
   const isPreviewPage = /theme-preview-citadel-of-ak\.html$/i.test(window.location.pathname || '');
 
@@ -33,6 +34,9 @@
 
   if (requestedTheme && allowedPreviewThemes.has(requestedTheme)) {
     window.sessionStorage.setItem(storageKey, 'citadel-of-ak');
+    if (requestedTheme === 'citadel-of-ak-dark') {
+      window.sessionStorage.setItem(modeKey, 'dark');
+    }
   }
 
   const previewTheme = isPreviewPage ? 'citadel-of-ak' : window.sessionStorage.getItem(storageKey);
@@ -41,8 +45,50 @@
     return;
   }
 
-  document.documentElement.setAttribute('data-theme', 'citadel-of-ak');
+  const setCitadelMode = (mode) => {
+    const normalizedMode = mode === 'dark' ? 'dark' : 'light';
+    const themeName = normalizedMode === 'dark' ? 'citadel-of-ak-dark' : 'citadel-of-ak';
+    const assetPrefix = window.location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
+    const logoSources = {
+      nav: `${assetPrefix}assets/img/logo-navbar-dark.png?v=dark-1`,
+      hero: `${assetPrefix}assets/img/primary-logo-dark.png?v=dark-1`,
+    };
+
+    window.sessionStorage.setItem(modeKey, normalizedMode);
+    document.documentElement.setAttribute('data-theme', themeName);
+    document.documentElement.dataset.themeMode = normalizedMode;
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', normalizedMode === 'dark' ? '#000000' : '#111111');
+    document.querySelectorAll('img.nav-logo, img.hero-logo').forEach((logo) => {
+      if (!logo.dataset.lightSrc) {
+        logo.dataset.lightSrc = logo.getAttribute('src') || '';
+      }
+
+      const darkSrc = logo.classList.contains('hero-logo') ? logoSources.hero : logoSources.nav;
+      logo.setAttribute('src', normalizedMode === 'dark' ? darkSrc : logo.dataset.lightSrc);
+    });
+    document.querySelectorAll('[data-theme-mode-toggle]').forEach((button) => {
+      const nextLabel = normalizedMode === 'dark' ? 'Light mode' : 'Dark mode';
+      button.textContent = nextLabel;
+      button.setAttribute('aria-label', `Switch to ${nextLabel}`);
+      button.setAttribute('aria-pressed', normalizedMode === 'dark' ? 'true' : 'false');
+    });
+  };
+
+  const initialMode = window.sessionStorage.getItem(modeKey) === 'dark' ? 'dark' : 'light';
+  setCitadelMode(initialMode);
   document.documentElement.classList.add('theme-preview-active');
+  window.ChambersThemePreview = {
+    isCitadelPreview: true,
+    getMode: () => document.documentElement.dataset.themeMode || 'light',
+    toggleColorMode: () => setCitadelMode(document.documentElement.dataset.themeMode === 'dark' ? 'light' : 'dark'),
+    refreshToggleLabels: () => setCitadelMode(document.documentElement.dataset.themeMode || initialMode),
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', window.ChambersThemePreview.refreshToggleLabels, { once: true });
+  } else {
+    window.setTimeout(window.ChambersThemePreview.refreshToggleLabels, 0);
+  }
 
   const addHeadTag = (tagName, attributes) => {
     const existing = attributes.id ? document.getElementById(attributes.id) : null;
@@ -71,8 +117,8 @@
   const scriptUrl = currentScript ? new URL(currentScript.getAttribute('src'), window.location.href) : null;
   const siteRootUrl = scriptUrl ? new URL('../../', scriptUrl) : new URL('./', window.location.href);
   const cssUrl = scriptUrl
-    ? new URL('../css/themes/citadel-of-ak.css?v=preview-2', scriptUrl).href
-    : new URL('assets/css/themes/citadel-of-ak.css?v=preview-2', window.location.href).href;
+    ? new URL('../css/themes/citadel-of-ak.css?v=preview-4', scriptUrl).href
+    : new URL('assets/css/themes/citadel-of-ak.css?v=preview-4', window.location.href).href;
 
   addHeadTag('link', {
     id: 'citadel-theme-preview-css',
@@ -177,6 +223,11 @@ const updateLiveClocks = () => {
   });
 };
 
+const createThemeToggleMarkup = () => {
+  if (!window.ChambersThemePreview?.isCitadelPreview) return '';
+  return '<button class="theme-mode-toggle" type="button" data-theme-mode-toggle aria-pressed="false">Dark mode</button>';
+};
+
 const nav = document.querySelector('.nav');
 
 if (nav) {
@@ -209,10 +260,12 @@ if (nav) {
       <div class="topbar-label">Chambers of AK</div>
       <div class="topbar-actions">
         <div class="ak-social topbar-social" aria-label="Social links">${createSocialLinksMarkup()}</div>
+        ${createThemeToggleMarkup()}
         <time class="live-clock" data-ak-clock></time>
       </div>
     `;
     nav.parentNode.insertBefore(topBar, nav);
+    window.ChambersThemePreview?.refreshToggleLabels();
   };
 
   const lockPageScroll = () => {
@@ -281,10 +334,12 @@ if (nav) {
       <div class="drawer-social-panel">
         <div class="drawer-time-label">Social Links</div>
         <div class="ak-social" aria-label="Social links">${createSocialLinksMarkup()}</div>
+        ${createThemeToggleMarkup()}
         <time class="drawer-time" data-ak-clock></time>
       </div>
     `;
     navLinksList.insertBefore(socialItem, navLinksList.firstElementChild);
+    window.ChambersThemePreview?.refreshToggleLabels();
   }
 
   if (!menuButton.parentNode) {
@@ -398,6 +453,12 @@ if (nav) {
       link.addEventListener('click', closeMenu);
     });
   }
+
+  document.addEventListener('click', (event) => {
+    const toggle = event.target instanceof Element ? event.target.closest('[data-theme-mode-toggle]') : null;
+    if (!toggle || !window.ChambersThemePreview?.isCitadelPreview) return;
+    window.ChambersThemePreview.toggleColorMode();
+  });
 
   window.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
@@ -956,6 +1017,8 @@ window.chambersInsightsRegistry = [
 // Shared Insights card rendering helpers
 window.ChambersInsightCards = (function () {
   const normalize = (value) => (value || '').toLowerCase().replace(/\s+/g, ' ').trim();
+  const thumbnailBase = 'assets/img/citadel/';
+  const defaultThumbnail = `${thumbnailBase}citadel-legal-documents-card.webp`;
 
   const categoryClass = (category) => {
     const normalized = normalize(category);
@@ -964,6 +1027,50 @@ window.ChambersInsightCards = (function () {
     if (normalized.includes('procedure')) return 'tag-procedure';
     if (normalized.includes('guide')) return 'tag-guide';
     return 'tag-legal-update';
+  };
+
+  const thumbnailFor = (item) => {
+    const text = normalize([
+      item?.title,
+      item?.category,
+      item?.excerpt,
+      ...(item?.tags || []),
+    ].join(' '));
+
+    if (text.includes('cheque') || text.includes('ni act') || text.includes('section 138')) return `${thumbnailBase}citadel-thumb-cheque-ni-act.webp`;
+    if (text.includes('msme') || text.includes('msefc') || text.includes('udyam')) return `${thumbnailBase}citadel-thumb-msme-invoices.webp`;
+    if (text.includes('rera') || text.includes('property') || text.includes('possession') || text.includes('builder')) return `${thumbnailBase}citadel-thumb-rera-property.webp`;
+    if (text.includes('arbitration') || text.includes('section 34') || text.includes('award')) return `${thumbnailBase}citadel-thumb-arbitration.webp`;
+    if (text.includes('commercial') || text.includes('contract') || text.includes('invoice') || text.includes('sarfaesi') || text.includes('drt') || text.includes('banking')) return `${thumbnailBase}citadel-thumb-commercial-recovery.webp`;
+    if (text.includes('court') || text.includes('judgment')) return `${thumbnailBase}citadel-tribunal-room-card.webp`;
+
+    return item?.thumbnail || item?.thumb || defaultThumbnail;
+  };
+
+  const normalizeThumbUrl = (thumb) => {
+    if (!thumb) return defaultThumbnail;
+    if (/^(https?:|data:|\/)/i.test(thumb)) return thumb;
+
+    const isNestedPage = window.location.pathname.split('/').filter(Boolean).length > 1;
+    return (isNestedPage ? '../' : '') + thumb.replace(/^\.\//, '');
+  };
+
+  const ensureCardMedia = (card, item) => {
+    if (!card) return null;
+
+    const thumb = normalizeThumbUrl(card.dataset.thumb || item?.thumbnail || item?.thumb || thumbnailFor(item));
+    card.dataset.thumb = thumb;
+
+    let media = card.querySelector(':scope > .insight-card-media');
+    if (!media) {
+      media = document.createElement('span');
+      media.className = 'insight-card-media';
+      media.setAttribute('aria-hidden', 'true');
+      card.insertBefore(media, card.firstChild);
+    }
+
+    media.style.backgroundImage = `url("${thumb}")`;
+    return media;
   };
 
   const buildTagList = (tags, linked) => {
@@ -991,6 +1098,8 @@ window.ChambersInsightCards = (function () {
     card.href = item.href;
     card.dataset.category = item.category || '';
     card.dataset.tags = (item.tags || []).join(', ');
+    card.dataset.thumb = normalizeThumbUrl(item.thumbnail || item.thumb || thumbnailFor(item));
+    ensureCardMedia(card, item);
 
     const badge = document.createElement('span');
     badge.className = `update-tag ${categoryClass(item.category)}`;
@@ -1018,8 +1127,42 @@ window.ChambersInsightCards = (function () {
     return card;
   };
 
-  return { buildCard, normalize, categoryClass, buildTagList };
+  const hydrateStaticCards = (scope = document) => {
+    const registry = Array.isArray(window.chambersInsightsRegistry) ? window.chambersInsightsRegistry : [];
+    const byHref = new Map(registry.map((item) => [item.href, item]));
+
+    scope.querySelectorAll('.update-item-link[href]').forEach((card) => {
+      const href = card.getAttribute('href') || '';
+      const item = byHref.get(href) || {
+        href,
+        category: card.dataset.category || card.querySelector('.update-tag')?.textContent?.trim() || '',
+        title: card.querySelector('.update-title')?.textContent?.trim() || '',
+        excerpt: card.querySelector('.update-excerpt')?.textContent?.trim() || '',
+        date: card.querySelector('.update-date')?.textContent?.trim() || '',
+        tags: (card.dataset.tags || '').split(',').map((tag) => tag.trim()).filter(Boolean),
+      };
+      ensureCardMedia(card, item);
+    });
+  };
+
+  const applyCurrentArticleThumbnail = () => {
+    const registry = Array.isArray(window.chambersInsightsRegistry) ? window.chambersInsightsRegistry : [];
+    const currentPath = window.location.pathname.replace(/^\/+/, '').replace(/^akassociates\//, '');
+    const match = registry.find((item) => item.href === currentPath);
+    if (!match) return;
+
+    const thumb = normalizeThumbUrl(match.thumbnail || match.thumb || thumbnailFor(match));
+    document.documentElement.style.setProperty('--citadel-page-hero-image', `url("${thumb}")`);
+    document.body?.classList.add('has-citadel-article-thumb');
+  };
+
+  return { buildCard, normalize, categoryClass, buildTagList, thumbnailFor, hydrateStaticCards, applyCurrentArticleThumbnail };
 })();
+
+if (window.ChambersInsightCards) {
+  window.ChambersInsightCards.hydrateStaticCards(document);
+  window.ChambersInsightCards.applyCurrentArticleThumbnail();
+}
 
 // Homepage latest insights strip renderer
 (function () {
@@ -1092,6 +1235,7 @@ window.ChambersInsightCards = (function () {
         excerpt: registryItem?.excerpt || feedDescription,
         date: registryItem?.date || formatFeedDate(pubDate),
         tags: registryItem?.tags || (feedCategory ? [feedCategory] : []),
+        thumb: registryItem?.thumb || registryItem?.thumbnail,
       };
     }).filter((item) => item.href && item.title);
   };
@@ -1171,6 +1315,7 @@ window.ChambersInsightCards = (function () {
       excerpt: card.querySelector('.update-excerpt')?.textContent?.trim() || '',
       date: card.querySelector('.update-date')?.textContent?.trim() || '',
       tags: tagsFromData.length ? tagsFromData : tagsFromMarkup,
+      thumb: card.dataset.thumb || '',
     };
   });
 
@@ -1185,6 +1330,10 @@ window.ChambersInsightCards = (function () {
     card.href = item.href || '#';
     card.dataset.category = item.category || '';
     card.dataset.tags = (item.tags || []).join(', ');
+    card.dataset.thumb = item.thumb || item.thumbnail || '';
+    if (window.ChambersInsightCards?.hydrateStaticCards) {
+      window.ChambersInsightCards.hydrateStaticCards(card);
+    }
 
     const badge = document.createElement('span');
     const categoryClassName = window.ChambersInsightCards && typeof window.ChambersInsightCards.categoryClass === 'function'

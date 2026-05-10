@@ -1,5 +1,49 @@
 # Changelog
 
+## 2026-05-10 15:09 IST - Refine Citadel preview photos, dark mode and article cards
+
+Files changed:
+
+- `about.html`
+- `assets/css/style.css`
+- `assets/css/themes/citadel-of-ak.css`
+- `assets/js/script.js`
+- `assets/img/primary-logo-dark.png`
+- `assets/img/logo-navbar-dark.png`
+- `assets/img/citadel/`
+- Public HTML files loading `assets/js/script.js`
+- `docs/maintenance/THEME_SYSTEM.md`
+- `docs/maintenance/ARTICLE_PUBLISHING_WORKFLOW.md`
+- `docs/maintenance/ARTICLE_HTML_TEMPLATE.md`
+- `README.md`
+- `docs/wiki/WORKFLOW.md`
+- `docs/CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md`
+- `CHANGELOG.md`
+
+Summary:
+
+- Added the authentic founder profile photo to the About page firm profile section.
+- Restored the Citadel topbar to a black surface and added preview-only light/dark mode controls in the desktop topbar and mobile drawer.
+- Added subject-aware Citadel article thumbnails for cheque/NI Act, MSME, RERA/property, arbitration and commercial recovery themes.
+- Added supplied dark logo assets and wired Citadel dark mode to swap the navbar and homepage hero logos while preserving the existing light-mode logo sources.
+- Updated the Insights thumbnail system so homepage cards, Insights cards, filtered results and article hero backgrounds share the same thumbnail source.
+- Reworked desktop Insights cards to place thumbnail media on the left and metadata/content on the right, while keeping mobile cards stacked.
+- Redesigned the Insights pagination block.
+- Bumped the public JavaScript cache string to `script.js?v=citadel-preview-4`.
+
+Validation / notes:
+
+- Confirmed `assets/css/style.css` still imports only `assets/css/themes/chambers-ak.css`; Citadel remains preview-only.
+- `node --check assets/js/script.js` passed.
+- `git diff --check` passed with line-ending warnings only.
+- Local asset existence checks passed for supplied dark logos and generated Citadel thumbnails.
+- Confirmed no stale `citadel-preview-3` or `preview-3` cache strings remain.
+- Local browser smoke passed for About page founder photo, Citadel dark-mode toggle, desktop Insights left-thumbnail cards, article hero thumbnail sync, mobile drawer dark-mode toggle and homepage dark-logo swapping; no console errors found.
+
+Commits:
+
+- Pending.
+
 ## 2026-05-10 14:15 IST - Add Citadel preview imagery
 
 Files changed:

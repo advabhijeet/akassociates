@@ -39,6 +39,10 @@ theme-preview-citadel-of-ak.html
 
 The preview page is marked `noindex, nofollow` and loads the Citadel theme after the shared stylesheet. Any public page can also be opened with `?theme=citadel-of-ak`; `assets/js/script.js` will dynamically load the dormant Citadel stylesheet and preserve the preview query across internal links. This allows review of the actual working site without changing the active production theme.
 
+Citadel preview mode includes a light/dark toggle. Desktop users see it in the topbar; mobile users see it in the drawer. The toggle switches between `data-theme="citadel-of-ak"` and `data-theme="citadel-of-ak-dark"` without changing the active production import.
+
+Citadel dark mode uses `assets/img/primary-logo-dark.png` for the homepage hero logo and `assets/img/logo-navbar-dark.png` for the navbar logo.
+
 ## How The Theme Loads
 
 The first line of `assets/css/style.css` imports the active theme:
@@ -56,6 +60,7 @@ Active:  assets/css/themes/chambers-ak.css
 Dormant: assets/css/themes/citadel-of-ak.css
 Preview: theme-preview-citadel-of-ak.html and `?theme=citadel-of-ak`
 Citadel preview media: assets/img/citadel/
+Dark mode: preview-only toggle through `assets/js/script.js`
 ```
 
 ## How To Swap Themes

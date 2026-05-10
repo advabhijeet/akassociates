@@ -42,7 +42,8 @@ Core focus areas include:
 - CSS in `assets/css/style.css`.
 - Active theme package in `assets/css/themes/chambers-ak.css`; see `docs/maintenance/THEME_SYSTEM.md` before changing sitewide colors, fonts, surfaces, borders, shadows or tag/category colors.
 - Dormant Citadel preview theme lives in `assets/css/themes/citadel-of-ak.css`; use `theme-preview-citadel-of-ak.html` or append `?theme=citadel-of-ak` to public pages for a full working preview. Do not activate it without owner approval.
-- Citadel preview images live in `assets/img/citadel/` and should remain preview-only unless the owner approves the Citadel theme for production.
+- Citadel preview images live in `assets/img/citadel/` and should remain preview-only unless the owner approves the Citadel theme for production. New articles should get a content-specific thumbnail so homepage cards, Insights cards and Citadel article hero backgrounds stay synced.
+- Citadel preview dark mode is controlled by `assets/js/script.js` and the topbar/mobile drawer toggle; it must remain preview-only unless the owner approves activation.
 - JavaScript in `assets/js/script.js`.
 - GitHub Pages hosting from the `main` branch.
 - Custom domain: `chambersofak.in`.
@@ -301,7 +302,7 @@ Shared CSS and JavaScript files are referenced with query-string versions, for e
 
 ```html
 assets/css/style.css?v=theme-package-1
-assets/js/script.js?v=citadel-preview-2
+assets/js/script.js?v=citadel-preview-4
 ```
 
 When changing shared CSS or JavaScript, bump the version string across all HTML pages.

@@ -98,10 +98,18 @@ Avoid phrases such as:
 
 ## Legal Updates Page Card
 
+Generate or choose a content-specific thumbnail for every new article before adding the card. Store generated Citadel preview thumbnails under:
+
+```text
+assets/img/citadel/
+```
+
+Use a descriptive filename such as `citadel-thumb-<article-slug>.webp`. Reuse the same thumbnail for the homepage latest card, the Insights page card, filtered/paginated Insights result cards and the Citadel article hero background.
+
 Add a card near the top of `legal-updates.html`:
 
 ```html
-<a class="update-item update-item-link" href="updates/<article-slug>.html">
+<a class="update-item update-item-link" href="updates/<article-slug>.html" data-thumb="assets/img/citadel/citadel-thumb-<article-slug>.webp">
   <span class="update-tag tag-<category>">CATEGORY</span>
   <div class="update-title">Article title in sentence case</div>
   <div class="update-excerpt">Short informational summary of the article.</div>
@@ -109,7 +117,7 @@ Add a card near the top of `legal-updates.html`:
 </a>
 ```
 
-Use existing tag classes where possible. If a new tag class is required, update CSS carefully and validate.
+Use existing tag classes where possible. If a new tag class is required, update CSS carefully and validate. Also add the same thumbnail reference to `window.chambersInsightsRegistry` in `assets/js/script.js` if the article is added to the registry manually.
 
 ## Sitemap Entry
 
