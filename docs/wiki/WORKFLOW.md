@@ -302,7 +302,7 @@ Shared CSS and JavaScript files are referenced with query-string versions, for e
 
 ```html
 assets/css/style.css?v=theme-package-1
-assets/js/script.js?v=citadel-preview-5
+assets/js/script.js?v=citadel-preview-6
 ```
 
 When changing shared CSS or JavaScript, bump the version string across all HTML pages.

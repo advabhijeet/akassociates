@@ -1,5 +1,38 @@
 # Changelog
 
+## 2026-05-10 20:36 IST - Refine Citadel marble visibility and controls
+
+Files changed:
+
+- `assets/css/themes/citadel-of-ak.css`
+- `assets/js/script.js`
+- Public HTML files loading `assets/js/script.js`
+- `README.md`
+- `docs/maintenance/ARTICLE_HTML_TEMPLATE.md`
+- `docs/wiki/WORKFLOW.md`
+- `docs/CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md`
+- `CHANGELOG.md`
+
+Summary:
+
+- Reduced Citadel card and panel opacity and layered the marble texture under glass-like panels so the generated marble surface remains visible behind content blocks.
+- Reworked article hero thumbnails back into the shared gradient hero style instead of a split solid title/image treatment.
+- Added marble-backed mobile drawer overrides for light and dark Citadel preview modes.
+- Replaced the text-only light/dark preview control with a sun/moon sliding toggle.
+- Recalibrated social icon sizing in the Citadel topbar and drawer so circular borders stay round.
+- Bumped the public JavaScript cache string to `script.js?v=citadel-preview-6` and the preview CSS cache string to `preview-6`.
+
+Validation / notes:
+
+- Confirmed `assets/css/style.css` still imports only `assets/css/themes/chambers-ak.css`; Citadel remains preview-only.
+- `node --check assets/js/script.js` passed.
+- `git diff --check` passed with line-ending warnings only.
+- Local browser smoke passed for article gradient hero thumbnails, marble-backed glass panels, mobile drawer marble background, sun/moon toggle states and circular drawer social icons.
+
+Commits:
+
+- Pending.
+
 ## 2026-05-10 19:50 IST - Stabilize Citadel dark mode and marble surfaces
 
 Files changed:

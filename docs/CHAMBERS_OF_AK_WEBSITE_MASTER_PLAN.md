@@ -1101,7 +1101,7 @@ Example:
 
 ```html
 <link rel="stylesheet" href="assets/css/style.css?v=theme-package-1">
-<script src="assets/js/script.js?v=citadel-preview-5"></script>
+<script src="assets/js/script.js?v=citadel-preview-6"></script>
 ```
 
 If the homepage still shows older insight cards after deployment:
