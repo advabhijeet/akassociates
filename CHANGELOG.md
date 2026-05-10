@@ -19,11 +19,11 @@ Validation / notes:
 - `git diff --check` passed with line-ending warnings only.
 - Confirmed `legal-updates.html` now loads `style.css?v=insights-pills-1` and keeps the existing JS cache string unchanged.
 - Local browser smoke passed on `legal-updates.html`; Insights category badge and topic tag text rendered, and no console errors appeared.
-- Live post-deployment Insights CSS check remains required after commit/push.
+- Post-deployment live check passed: `legal-updates.html` served `insights-pills-1`, Insights badge/tag text rendered, and no console errors appeared.
 
 Commits:
 
-- Commit hash to be recorded after commit.
+- `a285f15` - Align Insights pills with homepage.
 
 ## 2026-05-10 07:32 IST - Homepage latest insights freshness pass
 
