@@ -1,5 +1,44 @@
 # Changelog
 
+## 2026-05-10 15:25 IST - Strengthen fourth AdSense readiness content batch
+
+Files changed:
+
+- `updates/section-138-cheque-bounce-limitation.html`
+- `updates/cheque-bounce-notice-limitation.html`
+- `updates/msme-45-days-payment-rule.html`
+- `services/rera-lawyer-patna.html`
+- `services/msme-recovery-lawyer-patna.html`
+- `services/rera-lawyer-noida.html`
+- `services/civil-litigation-lawyer-patna.html`
+- `sitemap.xml`
+- `feed.xml`
+- `docs/planning/ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md`
+- `docs/planning/NEXT_WEBSITE_UPGRADE_AGENDA.md`
+- `docs/CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md`
+- `CHANGELOG.md`
+
+Summary:
+
+- Expanded Batch 4 of the AdSense readiness content pass across NI Act, MSME, RERA and civil litigation pages.
+- Added liability/document review, route or forum selection, common-mistake guidance and stronger first-enquiry preparation.
+- Updated article `dateModified` values, sitemap `lastmod` entries and feed descriptions for changed article pages.
+- Recorded this as AdSense readiness content Batch 4.
+
+Validation / notes:
+
+- `node --check assets/js/script.js` passed.
+- `git diff --check` passed with line-ending warnings only.
+- `sitemap.xml` and `feed.xml` parsed successfully.
+- JSON-LD parsing passed; 105 blocks parsed.
+- Internal `href`/`src` reference check passed for 57 HTML files.
+- Word-count spot check confirmed the seven strengthened pages now sit around 667-715 words.
+- Local browser smoke passed for the seven changed public pages with no console errors.
+
+Commits:
+
+- Pending.
+
 ## 2026-05-10 14:45 IST - Strengthen third AdSense readiness content batch
 
 Files changed:
@@ -35,7 +74,7 @@ Validation / notes:
 
 Commits:
 
-- Pending.
+- `f6cd937` - Strengthen third AdSense readiness batch.
 
 ## 2026-05-10 14:15 IST - Strengthen second AdSense readiness content batch
 

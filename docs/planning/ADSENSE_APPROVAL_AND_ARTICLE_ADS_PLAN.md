@@ -102,6 +102,25 @@ Purpose:
 - Preserve existing URLs and non-solicitation language.
 - Update freshness signals through `dateModified`, `sitemap.xml` and `feed.xml`.
 
+### Batch 4 - 2026-05-10
+
+Strengthened the next low-depth service and article pages:
+
+- `updates/section-138-cheque-bounce-limitation.html`
+- `updates/cheque-bounce-notice-limitation.html`
+- `updates/msme-45-days-payment-rule.html`
+- `services/rera-lawyer-patna.html`
+- `services/msme-recovery-lawyer-patna.html`
+- `services/rera-lawyer-noida.html`
+- `services/civil-litigation-lawyer-patna.html`
+
+Purpose:
+
+- Raise content depth on NI Act, MSME, RERA and civil litigation pages.
+- Add liability/document review, route or forum selection, common-mistake guidance and stronger first-enquiry preparation.
+- Preserve existing URLs and non-solicitation language.
+- Update freshness signals through `dateModified`, `sitemap.xml` and `feed.xml`.
+
 ## Compliance Notes
 
 Google references reviewed:
