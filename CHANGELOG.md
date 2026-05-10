@@ -1,5 +1,48 @@
 # Changelog
 
+## 2026-05-10 21:22 IST - Strengthen Citadel marble and prose spacing
+
+Files changed:
+
+- `assets/css/style.css`
+- `assets/css/themes/citadel-of-ak.css`
+- `assets/js/script.js`
+- `assets/img/citadel/citadel-marble-light.webp`
+- `assets/img/citadel/citadel-marble-dark.webp`
+- `favicon-192.png`
+- `favicon-512.png`
+- `site.webmanifest`
+- Public HTML files loading `assets/js/script.js`
+- `README.md`
+- `docs/maintenance/ARTICLE_HTML_TEMPLATE.md`
+- `docs/wiki/WORKFLOW.md`
+- `docs/CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md`
+- `CHANGELOG.md`
+
+Summary:
+
+- Replaced the Citadel marble textures with stronger-veined light and dark marble assets.
+- Increased Citadel marble visibility while keeping the glass-panel overlay readable.
+- Added Citadel article/card/content padding so text does not sit against the gold border.
+- Forced the Citadel mobile drawer to use marble-backed light/dark backgrounds with higher specificity.
+- Aligned the sun/moon toggle geometry and gave light/dark navbar logos the same non-stretched display frame.
+- Added a shared prose rule to justify paragraph text in article blocks, content panels and cards.
+- Added explicit root-level 192px and 512px favicon assets, advertised them in page heads, and updated the web manifest for clearer Google favicon crawling.
+- Bumped the public JavaScript cache string to `script.js?v=citadel-preview-7` and the preview CSS cache string to `preview-7`.
+
+Validation / notes:
+
+- Confirmed the active imported theme remains `chambers-ak`; Citadel remains preview-only.
+- Ran `node --check assets/js/script.js`.
+- Ran `git diff --check`; only existing Windows line-ending warnings were reported.
+- Confirmed no functional `citadel-preview-6` / `preview-6` references remain outside historical changelog notes.
+- Locally smoke-tested Citadel light/dark pages for stronger marble visibility, article content padding, justified article paragraphs, mobile drawer marble background, toggle alignment and non-stretched navbar logos.
+- Confirmed root favicon assets include `favicon.ico`, `favicon-32.png`, `favicon-48.png`, `favicon-96.png`, `favicon-192.png` and `favicon-512.png`.
+
+Commits:
+
+- Pending.
+
 ## 2026-05-10 20:36 IST - Refine Citadel marble visibility and controls
 
 Files changed:

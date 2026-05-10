@@ -117,8 +117,8 @@
   const scriptUrl = currentScript ? new URL(currentScript.getAttribute('src'), window.location.href) : null;
   const siteRootUrl = scriptUrl ? new URL('../../', scriptUrl) : new URL('./', window.location.href);
   const cssUrl = scriptUrl
-    ? new URL('../css/themes/citadel-of-ak.css?v=preview-6', scriptUrl).href
-    : new URL('assets/css/themes/citadel-of-ak.css?v=preview-6', window.location.href).href;
+    ? new URL('../css/themes/citadel-of-ak.css?v=preview-7', scriptUrl).href
+    : new URL('assets/css/themes/citadel-of-ak.css?v=preview-7', window.location.href).href;
 
   addHeadTag('link', {
     id: 'citadel-theme-preview-css',
