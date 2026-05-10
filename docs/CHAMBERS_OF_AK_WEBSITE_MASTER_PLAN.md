@@ -164,7 +164,7 @@ should not be created until team-member details are ready and approved
 Current repository checkpoint:
 
 ```text
-4becd72 Refresh homepage latest insights
+fe6837f Record Insights pill live validation
 ```
 
 Current verified website state:
@@ -184,6 +184,7 @@ Contact page includes direct EmailJS Send Enquiry with WhatsApp, Gmail and copy 
 Contact cleanup and post-deployment Contact live check completed
 Insights category/tag polish deployed and live-checked
 Homepage Latest Legal Insights now loads from feed.xml with cache-busting and live-check passed
+AdSense rejection email reviewed; article-only subtle ads direction recorded
 ```
 
 Recent accepted commits:
@@ -206,15 +207,22 @@ d586d02 Route contact Gmail through account chooser
 6b372e4 Polish Insights categories and filters
 d66ac6e Record Insights live validation
 4becd72 Refresh homepage latest insights
+e024e13 Record homepage live validation
+a285f15 Align Insights pills with homepage
+fe6837f Record Insights pill live validation
 ```
 
 Current next plan:
 
 ```text
-1. Run broader live stability review on major public routes after the homepage freshness patch.
-2. Search Console follow-up for breadcrumbs, coverage and changed hub pages.
-3. Continue content or service-page work only after stability, avoiding thin SEO pages.
-4. Keep homepage feed/fallback cards synced whenever a new article is published.
+1. Treat AdSense as an onboarding/account approval issue unless a more specific dashboard reason becomes available.
+2. Strengthen thin public pages and short legacy articles before resubmission.
+3. Add official AdSense connection code only if required, without enabling aggressive sitewide ads.
+4. Keep future visible ads limited to article-style pages only.
+5. Run broader live stability review on major public routes after legal/documentation sync.
+6. Search Console follow-up for breadcrumbs, coverage and changed hub pages.
+7. Continue content or service-page work only after stability, avoiding thin SEO pages.
+8. Keep homepage feed/fallback cards synced whenever a new article is published.
 ```
 
 Documentation rule:
@@ -282,6 +290,34 @@ Matching Insights uses natural browser scroll, not internal scroll.
 Cards use list-style layout on Insights page to avoid grid gaps.
 View All Latest Articles / section pagination behaviour is accepted as stable.
 Category badges and topic tags can be clicked to filter the Insights hub.
+Future ads, if approved, should be limited to article-style pages and remain subtle.
+```
+
+## 7A. AdSense And Article Ads Direction
+
+Current AdSense direction:
+
+```text
+AdSense publisher ID: pub-6935574990807827
+ads.txt exists at root
+robots.txt allows AdsBot-Google
+2026-05-10 rejection email points toward content readiness / content quality
+dashboard currently exposes limited onboarding/account-not-approved options
+no visible ad placement is implemented yet
+```
+
+User-approved placement rule:
+
+```text
+Ads should appear only on article-style pages, if approved and enabled.
+Ads should be subtle and clearly separate from editorial content.
+Do not place ads on homepage, contact, case enquiry, practice/service landing pages, policy pages or private-communication-focused screens.
+```
+
+Operational reference:
+
+```text
+docs/planning/ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md
 ```
 
 ## 8. Article Categories
@@ -632,6 +668,7 @@ JSON-LD validation passes across public HTML files.
 Sitewide BreadcrumbList JSON-LD added to meaningful public pages.
 Search Console live inspection completed after breadcrumb pass.
 FAQ rich-result display should not be chased; breadcrumbs are the preferred enhancement focus.
+AdSense readiness is now tracked as an article-only subtle ads workstream.
 ```
 
 Search Console follow-up:
@@ -774,20 +811,18 @@ legal source monitoring queue
 Immediate next task:
 
 ```text
-Commit/deploy the Insights category/tag polish, then run the post-deployment Insights live check.
+Complete AdSense legal/documentation sync, validate the patched legal pages, then commit/deploy.
 ```
 
 Next feature candidate after validation:
 
 ```text
-Proceed with Category Inventory for all existing articles:
-- current URL
-- primary category
-- legal tags
-- future folder recommendation
-- judgment PDF/source status where relevant
-- sitemap/feed/internal-link status
-keep existing URLs unchanged
+AdSense readiness pass:
+- treat current state as account/onboarding approval unless a more specific dashboard reason appears
+- expand thin public pages and short legacy articles
+- decide whether official AdSense connection code is required
+- keep future ads article-only and subtle
+- run live validation before resubmission
 ```
 
 Next content candidates:

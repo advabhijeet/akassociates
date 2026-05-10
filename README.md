@@ -200,6 +200,8 @@ GA4 should be controlled through GTM to avoid duplicate page-view tracking.
 
 Tracked interaction events include important lead actions such as WhatsApp clicks, email clicks, phone clicks and case enquiry actions.
 
+AdSense readiness is documented in `docs/planning/ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md`. If AdSense is approved and enabled, ads should be limited to article-style legal information pages, remain subtle, and should not appear on homepage, contact, case enquiry, practice/service landing pages or policy/trust pages.
+
 ## Contact Form Delivery
 
 `contact.html` includes a dynamic matter-type enquiry form. It prepares a structured message, supports direct Send Enquiry delivery through EmailJS, and keeps WhatsApp, Gmail and copy-prepared-message fallbacks available.
@@ -249,6 +251,7 @@ Every meaningful modification must update the changelog with:
 | `docs/codex/PROMPT_RULE.md` | Codex prompt template and handoff rule |
 | `docs/google/GOOGLE_SETUP.md` | Google Search Console, GTM, GA4, GBP and AdSense notes |
 | `docs/maintenance/LEGAL_DOCUMENTATION_MAINTENANCE.md` | Legal/documentation maintenance checklist |
+| `docs/planning/ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md` | AdSense readiness and article-only subtle ads plan |
 | `docs/planning/SEO_GROWTH_AGENDA.md` | SEO roadmap and pending work |
 | `docs/planning/TEAM_PAGE_AGENDA.md` | Future Team page plan |
 | `docs/seo/SEO_CONTENT_BATCH_2026-05-05.md` | Historical Batch 1 SEO content record |

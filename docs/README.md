@@ -19,6 +19,7 @@ docs/
   maintenance/
     LEGAL_DOCUMENTATION_MAINTENANCE.md
   planning/
+    ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md
     NEXT_WEBSITE_UPGRADE_AGENDA.md
     SEO_GROWTH_AGENDA.md
     TEAM_PAGE_AGENDA.md
@@ -37,6 +38,7 @@ docs/
 - `codex/PROMPT_RULE.md` - standing rule and prompt template for future Codex handoffs.
 - `google/GOOGLE_SETUP.md` - Google Search Console, GTM, GA4, Google Business Profile and AdSense notes.
 - `maintenance/LEGAL_DOCUMENTATION_MAINTENANCE.md` - checklist for keeping public legal pages and project documentation aligned with site changes.
+- `planning/ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md` - AdSense rejection/readiness plan and article-only subtle ad placement rules.
 - `planning/NEXT_WEBSITE_UPGRADE_AGENDA.md` - ordered next-stage upgrade plan, including validation follow-up, practice-page strengthening, pending articles and Insights distribution workflow.
 - `planning/SEO_GROWTH_AGENDA.md` - primary SEO roadmap and remaining growth work.
 - `planning/TEAM_PAGE_AGENDA.md` - future `team.html` planning note.
@@ -63,6 +65,7 @@ If the GitHub Wiki is later enabled/reachable, sync it manually from:
 - `docs/wiki/WORKFLOW.md`
 - `docs/planning/SEO_GROWTH_AGENDA.md`
 - `docs/planning/NEXT_WEBSITE_UPGRADE_AGENDA.md`
+- `docs/planning/ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md`
 - `docs/maintenance/LEGAL_DOCUMENTATION_MAINTENANCE.md`
 
 ## Root Files That Should Stay At The Site Root

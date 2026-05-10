@@ -97,6 +97,7 @@ Update `README.md` when:
 - Public page groups change.
 - Domain, deployment or GitHub Pages setup changes.
 - GTM, GA4, AdSense, Search Console or social links change.
+- AdSense approval status, advertising placement strategy, cookie/consent posture or ad-serving scope changes.
 - Branding, positioning, logo assets or cache-busting versions change.
 - Quality checks or maintenance workflows change.
 - Changelog or documentation policy changes.
@@ -131,6 +132,21 @@ Update `sitemap.xml` when:
 - A public indexed page is removed.
 - A page URL changes.
 - A page is moved between folders.
+
+### AdSense / Advertising Review
+
+Review `docs/planning/ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md`, `privacy-policy.html`, `disclaimer.html` and `terms.html` when:
+
+- AdSense site status changes.
+- The official AdSense review or ad script is added, removed or materially changed.
+- Visible ad placements are added to any article page.
+- AdSense Privacy & messaging, consent mode, a consent-management platform or personalized/non-personalized ad settings change.
+
+Current standing rule:
+
+- Ads, if approved and enabled, should be limited to article-style pages.
+- Do not place ads on homepage, contact, case enquiry, practice/service landing pages, policy pages or private-communication-focused screens.
+- Keep ads subtle, clearly distinguishable from editorial content and never designed to encourage accidental clicks.
 
 ## Standard Change Workflow
 

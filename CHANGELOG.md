@@ -1,5 +1,43 @@
 # Changelog
 
+## 2026-05-10 13:20 IST - Document AdSense article-only ads plan
+
+Files changed:
+
+- `privacy-policy.html`
+- `disclaimer.html`
+- `terms.html`
+- `README.md`
+- `docs/README.md`
+- `docs/CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md`
+- `docs/google/GOOGLE_SETUP.md`
+- `docs/planning/NEXT_WEBSITE_UPGRADE_AGENDA.md`
+- `docs/planning/ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md`
+- `docs/maintenance/LEGAL_DOCUMENTATION_MAINTENANCE.md`
+- `docs/codex/HANDOFF.md`
+- `CHANGELOG.md`
+
+Summary:
+
+- Updated public Privacy Policy, Disclaimer and Terms with advertising, AdSense, third-party ad technology and article-only ad placement language.
+- Recorded the user-approved direction that any future ads should appear only on article-style pages and remain subtle.
+- Added an internal AdSense approval and article ads plan covering the rejection-readiness path, placement limits and consent/cookie follow-up.
+- Recorded that the current AdSense dashboard exposes only limited account-not-approved onboarding options and that Customer ID/account identifiers should not be requested or documented.
+- Updated repository documentation and Codex handoff notes so future work does not place ads on homepage, enquiry/contact, practice/service landing pages or policy/trust pages.
+
+Validation / notes:
+
+- `node --check assets/js/script.js` passed.
+- `git diff --check` passed with line-ending warnings only.
+- `sitemap.xml` and `feed.xml` parsed successfully.
+- JSON-LD parsing passed; 105 blocks parsed.
+- Internal `href`/`src` reference check passed.
+- Local browser smoke passed for `privacy-policy.html`, `disclaimer.html` and `terms.html`; each showed the 10 May 2026 update date and no console errors.
+
+Commits:
+
+- Pending.
+
 ## 2026-05-10 07:45 IST - Align Insights pills with homepage
 
 Files changed:

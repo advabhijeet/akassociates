@@ -71,6 +71,16 @@ Profile setup reference:
 
 ## Google AdSense
 
-AdSense is active with publisher ID `pub-6935574990807827`.
+AdSense publisher ID: `pub-6935574990807827`.
 
 The `ads.txt` file contains the matching Google authorization line.
+
+Current application status:
+
+- The 2026-05-10 AdSense email asked for updates to the application and pointed toward content readiness, especially insufficient content or content quality.
+- The visible dashboard is still in the account-not-approved onboarding view and does not currently expose a normal Sites/Ads review-detail menu.
+- The site has `ads.txt` and crawler access in place, but visible ads have not been implemented.
+- Future ads should be limited to article-style pages in `updates/` or future article pages, with subtle manual placement.
+- Do not place ads on homepage, contact, case enquiry, practice/service landing pages, policy pages or private-communication-focused screens.
+
+Operational plan: `docs/planning/ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md`.

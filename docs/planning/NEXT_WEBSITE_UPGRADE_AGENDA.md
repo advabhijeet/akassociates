@@ -9,7 +9,7 @@ This document records the next planned upgrade sequence for the Chambers of AK w
 Accepted checkpoint:
 
 ```text
-4becd72 Refresh homepage latest insights
+fe6837f Record Insights pill live validation
 ```
 
 Recently completed:
@@ -27,6 +27,7 @@ Contact form upgraded with direct EmailJS Send Enquiry and WhatsApp/Gmail/copy f
 Contact cleanup deployed and live Contact stability check completed.
 Insights category/tag polish deployed and live Insights stability check completed.
 Homepage latest-insights freshness patch deployed and live homepage checks completed.
+AdSense rejection email reviewed; public legal pages and article-only ads plan updated.
 ```
 
 Current public-flow status:
@@ -64,7 +65,28 @@ Improve homepage latest-card layout so the first card is not oversized.
 Validate `/` and `/index.html` locally and live.
 ```
 
-### Phase B - Live Stability Review
+### Phase B - AdSense Readiness And Article-Only Ads Plan
+
+Status: Next active workstream after legal/documentation sync.
+
+Scope:
+
+```text
+Treat AdSense as an onboarding/account approval issue unless a more specific dashboard reason becomes available.
+Strengthen thin public pages and short legacy articles before resubmission.
+If required, add official AdSense site connection code without enabling aggressive sitewide ads.
+Keep future visible ads limited to article-style pages only.
+Avoid ads on homepage, enquiry/contact, practice/service landing pages and policy/trust pages.
+Use subtle manual placements and preserve reading experience.
+```
+
+Reference:
+
+```text
+docs/planning/ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md
+```
+
+### Phase C - Live Stability Review
 
 Next: review the major public routes on desktop and mobile after the homepage patch:
 
@@ -91,7 +113,7 @@ CTA behaviour
 unexpected internal scroll
 ```
 
-### Phase C - Footer + Internal-Link Polish Pass
+### Phase D - Footer + Internal-Link Polish Pass
 
 Preferred footer grouping:
 
@@ -123,7 +145,7 @@ Courts -> Practice / Case Enquiry / Document Checklists
 Contact -> Case Enquiry / WhatsApp / Email
 ```
 
-### Phase D - Contact Page Status
+### Phase E - Contact Page Status
 
 Status: Direct send integration is complete. Contact cleanup aligned page copy, status-message behaviour and documentation with the EmailJS flow. Post-deployment Contact live check passed after the `0b39ee3` deployment.
 
@@ -140,7 +162,7 @@ Link to case enquiry before sending detailed facts
 Direct Send Enquiry with WhatsApp, Gmail and copy fallback routes
 ```
 
-### Phase E - Search Console Follow-Up
+### Phase F - Search Console Follow-Up
 
 After recrawl:
 
@@ -152,7 +174,7 @@ Submit sitemap again only if useful.
 Request indexing for meaningful changed hub pages.
 ```
 
-### Phase F - Future Content Expansion
+### Phase G - Future Content Expansion
 
 Only after stability:
 
@@ -196,6 +218,7 @@ Do not create thin SEO pages.
 Do not move already-indexed article URLs without redirect/canonical planning.
 Update sitemap/feed/Insights cards for new articles.
 Prepare social distribution copy only after article publication.
+Keep future ad placements article-only and subtle.
 ```
 
 ### Future Service Pages

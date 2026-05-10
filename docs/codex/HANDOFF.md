@@ -23,6 +23,23 @@ When Codex completes an item:
 
 ## Active Handoff Items
 
+### AdSense approval and article-only ads readiness
+
+Status: Next active website workstream
+
+- The 2026-05-10 AdSense email asked for application updates and pointed toward content readiness, especially insufficient content or content quality.
+- The visible dashboard is still in the account-not-approved onboarding view; do not ask the user to share Account information or Customer ID.
+- Public Privacy Policy, Disclaimer and Terms now include advertising/third-party ad technology language.
+- Future visible ads should be limited to article-style pages and kept subtle.
+- Do not add ads to homepage, contact, case enquiry, practice/service landing pages, policy pages or private-communication-focused screens.
+- Reference plan: `docs/planning/ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md`.
+
+Next:
+
+1. Treat the issue as account/onboarding approval unless AdSense exposes a more specific reason later.
+2. Strengthen thin pages and short legacy articles before resubmission.
+3. Add official AdSense connection code only if required, and do not enable aggressive sitewide ad placement.
+
 ### Search Console follow-up
 
 Status: Manual/account follow-up after deployment or live recrawl
@@ -55,6 +72,7 @@ As of 2026-05-10:
 - Contact form direct EmailJS Send Enquiry is connected and uses Template ID `contactformtempid`; Contact cleanup is deployed and live-checked.
 - GitHub Wiki pages were refreshed from the local wiki working folders on 2026-05-09, then `.wiki-clone/` and `.wiki-work/` were removed from the local workspace. If similar folders appear again, do not commit them.
 - Insights category/tag polish is the active local patch after Contact stability validation.
+- AdSense readiness is now tracked as an article-only subtle ads workstream; see `docs/planning/ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md`.
 
 ## Completed Handoff Items
 
