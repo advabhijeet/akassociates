@@ -17,32 +17,20 @@
   window.location.replace(target);
 })();
 
-/* Dormant theme preview mode. This does not change the active site theme. */
+/* Active Citadel theme controller. Keeps the previous theme file available for rollback. */
 (function () {
   const allowedPreviewThemes = new Set(['citadel-of-ak', 'citadel', 'citadel-of-ak-dark']);
   const params = new URLSearchParams(window.location.search);
   const requestedTheme = params.get('theme');
   const storageKey = 'akThemePreview';
   const modeKey = 'akCitadelColorMode';
-  const isExplicitExit = params.get('theme') === 'off';
   const isPreviewPage = /theme-preview-citadel-of-ak\.html$/i.test(window.location.pathname || '');
-
-  if (isExplicitExit) {
-    window.sessionStorage.removeItem(storageKey);
-    return;
-  }
 
   if (requestedTheme && allowedPreviewThemes.has(requestedTheme)) {
     window.sessionStorage.setItem(storageKey, 'citadel-of-ak');
     if (requestedTheme === 'citadel-of-ak-dark') {
-      window.sessionStorage.setItem(modeKey, 'dark');
+      window.localStorage.setItem(modeKey, 'dark');
     }
-  }
-
-  const previewTheme = isPreviewPage ? 'citadel-of-ak' : window.sessionStorage.getItem(storageKey);
-
-  if (previewTheme !== 'citadel-of-ak') {
-    return;
   }
 
   const setCitadelMode = (mode) => {
@@ -54,7 +42,7 @@
       hero: `${assetPrefix}assets/img/primary-logo-dark.png?v=dark-1`,
     };
 
-    window.sessionStorage.setItem(modeKey, normalizedMode);
+    window.localStorage.setItem(modeKey, normalizedMode);
     document.documentElement.setAttribute('data-theme', themeName);
     document.documentElement.dataset.themeMode = normalizedMode;
     document.querySelector('meta[name="theme-color"]')?.setAttribute('content', normalizedMode === 'dark' ? '#000000' : '#111111');
@@ -74,20 +62,22 @@
     });
   };
 
-  const initialMode = window.sessionStorage.getItem(modeKey) === 'dark' ? 'dark' : 'light';
+  const initialMode = window.localStorage.getItem(modeKey) === 'dark' ? 'dark' : 'light';
   setCitadelMode(initialMode);
-  document.documentElement.classList.add('theme-preview-active');
-  window.ChambersThemePreview = {
-    isCitadelPreview: true,
+  document.documentElement.classList.add('theme-citadel-active');
+  window.ChambersTheme = {
+    isCitadelActive: true,
+    isPreviewPage,
     getMode: () => document.documentElement.dataset.themeMode || 'light',
     toggleColorMode: () => setCitadelMode(document.documentElement.dataset.themeMode === 'dark' ? 'light' : 'dark'),
     refreshToggleLabels: () => setCitadelMode(document.documentElement.dataset.themeMode || initialMode),
   };
+  window.ChambersThemePreview = window.ChambersTheme;
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', window.ChambersThemePreview.refreshToggleLabels, { once: true });
+    document.addEventListener('DOMContentLoaded', window.ChambersTheme.refreshToggleLabels, { once: true });
   } else {
-    window.setTimeout(window.ChambersThemePreview.refreshToggleLabels, 0);
+    window.setTimeout(window.ChambersTheme.refreshToggleLabels, 0);
   }
 
   const addHeadTag = (tagName, attributes) => {
@@ -113,66 +103,7 @@
     href: 'https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Lato:wght@400;700;900&display=swap',
   });
 
-  const currentScript = document.currentScript || document.querySelector('script[src*="assets/js/script.js"]');
-  const scriptUrl = currentScript ? new URL(currentScript.getAttribute('src'), window.location.href) : null;
-  const siteRootUrl = scriptUrl ? new URL('../../', scriptUrl) : new URL('./', window.location.href);
-  const cssUrl = scriptUrl
-    ? new URL('../css/themes/citadel-of-ak.css?v=preview-7', scriptUrl).href
-    : new URL('assets/css/themes/citadel-of-ak.css?v=preview-7', window.location.href).href;
-
-  addHeadTag('link', {
-    id: 'citadel-theme-preview-css',
-    rel: 'stylesheet',
-    href: cssUrl,
-  });
-
-  addHeadTag('meta', {
-    id: 'citadel-preview-robots',
-    name: 'robots',
-    content: 'noindex, nofollow',
-  });
-
-  const preservePreviewLinks = () => {
-    document.querySelectorAll('a[href]').forEach((link) => {
-      const rawHref = link.getAttribute('href');
-      if (!rawHref || rawHref.startsWith('#')) return;
-      if (/^(mailto:|tel:|https?:|data:|javascript:)/i.test(rawHref)) return;
-
-      const url = new URL(rawHref, window.location.href);
-      const isHtmlPage = url.pathname === '/' || /\.html$/i.test(url.pathname) || !url.pathname.split('/').pop().includes('.');
-
-      if (!isHtmlPage) return;
-
-      url.searchParams.set('theme', 'citadel-of-ak');
-      link.setAttribute('href', `${url.pathname}${url.search}${url.hash}`);
-    });
-  };
-
-  const addPreviewBanner = () => {
-    if (document.querySelector('.citadel-preview-banner')) return;
-
-    const banner = document.createElement('div');
-    banner.className = 'citadel-preview-banner';
-    const previewHubUrl = new URL('theme-preview-citadel-of-ak.html?theme=citadel-of-ak', siteRootUrl).href;
-    const exitUrl = new URL(window.location.href);
-    exitUrl.searchParams.set('theme', 'off');
-    banner.innerHTML = [
-      '<span>Citadel of AK preview mode - active theme is still Chambers of AK</span>',
-      '<a href="' + previewHubUrl + '">Preview hub</a>',
-      '<a href="' + exitUrl.href + '">Exit preview</a>',
-    ].join('');
-    document.body.prepend(banner);
-  };
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      preservePreviewLinks();
-      addPreviewBanner();
-    });
-  } else {
-    preservePreviewLinks();
-    addPreviewBanner();
-  }
+  window.sessionStorage.removeItem(storageKey);
 })();
 
 const socialLinks = [
@@ -224,7 +155,7 @@ const updateLiveClocks = () => {
 };
 
 const createThemeToggleMarkup = () => {
-  if (!window.ChambersThemePreview?.isCitadelPreview) return '';
+  if (!window.ChambersTheme?.isCitadelActive) return '';
   return '<button class="theme-mode-toggle" type="button" data-theme-mode-toggle aria-pressed="false" aria-label="Switch to Dark mode"><span class="theme-mode-track" aria-hidden="true"><span class="theme-mode-icon theme-mode-sun">☀</span><span class="theme-mode-thumb"></span><span class="theme-mode-icon theme-mode-moon">☾</span></span><span class="sr-only">Toggle Citadel color mode</span></button>';
 };
 
@@ -265,7 +196,7 @@ if (nav) {
       </div>
     `;
     nav.parentNode.insertBefore(topBar, nav);
-    window.ChambersThemePreview?.refreshToggleLabels();
+    window.ChambersTheme?.refreshToggleLabels();
   };
 
   const lockPageScroll = () => {
@@ -339,7 +270,7 @@ if (nav) {
       </div>
     `;
     navLinksList.insertBefore(socialItem, navLinksList.firstElementChild);
-    window.ChambersThemePreview?.refreshToggleLabels();
+    window.ChambersTheme?.refreshToggleLabels();
   }
 
   if (!menuButton.parentNode) {
@@ -456,8 +387,8 @@ if (nav) {
 
   document.addEventListener('click', (event) => {
     const toggle = event.target instanceof Element ? event.target.closest('[data-theme-mode-toggle]') : null;
-    if (!toggle || !window.ChambersThemePreview?.isCitadelPreview) return;
-    window.ChambersThemePreview.toggleColorMode();
+    if (!toggle || !window.ChambersTheme?.isCitadelActive) return;
+    window.ChambersTheme.toggleColorMode();
   });
 
   window.addEventListener('keydown', (event) => {

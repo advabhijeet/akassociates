@@ -5,6 +5,7 @@
   the theme is approved for activation.
 */
 
+:root,
 :root[data-theme="citadel-of-ak"],
 [data-theme="citadel-of-ak"] {
   color-scheme: light;
@@ -48,7 +49,7 @@
   --rgb-ni-act: 128, 58, 58;
   --rgb-rera: 48, 82, 122;
 
-  --citadel-marble-bg: url("../../img/citadel/citadel-marble-light.webp");
+  --citadel-marble-bg: url("/assets/img/citadel/citadel-marble-light.webp");
   --citadel-marble-overlay:
     linear-gradient(180deg, rgba(255, 255, 255, 0.68), rgba(249, 249, 249, 0.46)),
     radial-gradient(circle at 82% 14%, rgba(var(--rgb-gold), 0.16), transparent 24rem),
@@ -115,7 +116,7 @@
   --color-white: #080808;
   --rgb-ink: 255, 255, 255;
   --rgb-white: 8, 8, 8;
-  --citadel-marble-bg: url("../../img/citadel/citadel-marble-dark.webp");
+  --citadel-marble-bg: url("/assets/img/citadel/citadel-marble-dark.webp");
   --citadel-marble-overlay:
     linear-gradient(180deg, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.58)),
     radial-gradient(circle at 76% 12%, rgba(var(--rgb-gold), 0.16), transparent 24rem),

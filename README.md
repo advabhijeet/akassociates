@@ -159,7 +159,7 @@ Gold accent: #d4af37
 The shared site design is packaged as a CSS theme:
 
 ```text
-assets/css/themes/chambers-ak.css
+assets/css/themes/citadel-of-ak.css
 ```
 
 `assets/css/style.css` imports the active theme and contains shared layout/component rules. To swap visual themes, create a replacement theme file with the same CSS custom properties, update the import at the top of `style.css`, and bump the stylesheet cache string across public HTML pages.
@@ -173,17 +173,16 @@ docs/maintenance/THEME_SYSTEM.md
 Available theme packages:
 
 ```text
-Active:  assets/css/themes/chambers-ak.css
-Dormant: assets/css/themes/citadel-of-ak.css
-Preview hub: theme-preview-citadel-of-ak.html
-Full-site preview: append `?theme=citadel-of-ak` to any public page URL.
-Preview assets: assets/img/citadel/
-Dark preview: use the Dark mode button in the desktop topbar or mobile drawer while in Citadel preview.
+Active: assets/css/themes/citadel-of-ak.css
+Fallback / previous: assets/css/themes/chambers-ak.css
+Theme reference hub: theme-preview-citadel-of-ak.html
+Citadel media assets: assets/img/citadel/
+Dark mode: use the Dark mode button in the desktop topbar or mobile drawer.
 ```
 
 Design direction: modern boutique legal brand, black/white base, gold accent, serif monogram/logotype, premium but restrained.
 
-Logo, founder profile and brand assets are stored in `assets/img/`. Dark-mode logo variants are `assets/img/primary-logo-dark.png` and `assets/img/logo-navbar-dark.png`. Citadel preview thumbnails and light/dark marble surface textures are stored in `assets/img/citadel/`; new article thumbnails should be generated or selected per article so homepage, Insights cards and article hero backgrounds stay synced.
+Logo, founder profile and brand assets are stored in `assets/img/`. Dark-mode logo variants are `assets/img/primary-logo-dark.png` and `assets/img/logo-navbar-dark.png`. Citadel thumbnails and light/dark marble surface textures are stored in `assets/img/citadel/`; new article thumbnails should be generated or selected per article so homepage, Insights cards and article hero backgrounds stay synced.
 
 ## SEO Setup
 
@@ -307,8 +306,8 @@ http://localhost:8000/
 HTML pages reference CSS and JavaScript with version query strings, for example:
 
 ```html
-assets/css/style.css?v=theme-package-1
-assets/js/script.js?v=citadel-preview-7
+assets/css/style.css?v=theme-package-2
+assets/js/script.js?v=citadel-live-1
 ```
 
 When changing shared CSS or JavaScript, update the query string across HTML pages so browsers and mobile devices fetch the latest files.

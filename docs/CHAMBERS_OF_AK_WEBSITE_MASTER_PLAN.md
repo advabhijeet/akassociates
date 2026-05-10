@@ -75,7 +75,7 @@ assets/css/themes/citadel-of-ak.css
 assets/img/citadel/
 ```
 
-The active website design is packaged as a swappable CSS theme. `assets/css/style.css` imports the active theme and should contain shared layout/component rules. The dormant `Citadel of AK` theme is available through `theme-preview-citadel-of-ak.html` and full-site preview URLs using `?theme=citadel-of-ak` until approved. Citadel preview imagery lives in `assets/img/citadel/` and must remain preview-only unless the theme is approved for production; it includes article thumbnails and light/dark marble surface textures. The preview includes a light/dark toggle and a content-thumbnail system for article cards and article hero backgrounds. Before changing sitewide colors, fonts, surfaces, borders, shadows or category/tag colors, read:
+The active website design is packaged as a swappable CSS theme. `assets/css/style.css` currently imports `assets/css/themes/citadel-of-ak.css`; `assets/css/themes/chambers-ak.css` remains the previous/fallback theme package. Citadel imagery lives in `assets/img/citadel/` and includes article thumbnails plus light/dark marble surface textures. The active Citadel system includes a light/dark toggle and a content-thumbnail system for article cards and article hero backgrounds. Before changing sitewide colors, fonts, surfaces, borders, shadows or category/tag colors, read:
 
 ```text
 docs/maintenance/THEME_SYSTEM.md
@@ -1100,8 +1100,8 @@ Use the feed loader as enhancement, not as the only source of latest cards.
 Example:
 
 ```html
-<link rel="stylesheet" href="assets/css/style.css?v=theme-package-1">
-<script src="assets/js/script.js?v=citadel-preview-7"></script>
+<link rel="stylesheet" href="assets/css/style.css?v=theme-package-2">
+<script src="assets/js/script.js?v=citadel-live-1"></script>
 ```
 
 If the homepage still shows older insight cards after deployment:

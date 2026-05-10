@@ -40,10 +40,10 @@ Core focus areas include:
 
 - Static HTML pages.
 - CSS in `assets/css/style.css`.
-- Active theme package in `assets/css/themes/chambers-ak.css`; see `docs/maintenance/THEME_SYSTEM.md` before changing sitewide colors, fonts, surfaces, borders, shadows or tag/category colors.
-- Dormant Citadel preview theme lives in `assets/css/themes/citadel-of-ak.css`; use `theme-preview-citadel-of-ak.html` or append `?theme=citadel-of-ak` to public pages for a full working preview. Do not activate it without owner approval.
-- Citadel preview images live in `assets/img/citadel/` and should remain preview-only unless the owner approves the Citadel theme for production. The folder includes article thumbnails plus the light/dark marble textures used by the Citadel page surface. New articles should get a content-specific thumbnail so homepage cards, Insights cards and Citadel article hero backgrounds stay synced.
-- Citadel preview dark mode is controlled by `assets/js/script.js` and the topbar/mobile drawer toggle; it must remain preview-only unless the owner approves activation.
+- Active theme package in `assets/css/themes/citadel-of-ak.css`; see `docs/maintenance/THEME_SYSTEM.md` before changing sitewide colors, fonts, surfaces, borders, shadows or tag/category colors.
+- Previous/fallback theme package lives in `assets/css/themes/chambers-ak.css`.
+- Citadel images live in `assets/img/citadel/`. The folder includes article thumbnails plus the light/dark marble textures used by the Citadel page surface. New articles should get a content-specific thumbnail so homepage cards, Insights cards and Citadel article hero backgrounds stay synced.
+- Citadel dark mode is controlled by `assets/js/script.js` and the topbar/mobile drawer toggle.
 - JavaScript in `assets/js/script.js`.
 - GitHub Pages hosting from the `main` branch.
 - Custom domain: `chambersofak.in`.
@@ -179,6 +179,8 @@ Important lead interactions should be tracked through GTM/GA4, including:
 - Case enquiry clicks.
 - Contact page actions.
 
+Current data layer event names are `whatsapp_click`, `phone_click`, `email_click`, `case_enquiry_click` and `contact_click`.
+
 Avoid installing GA4 both directly and through GTM at the same time, because that can double-count page views.
 
 ### Contact Form Delivery
@@ -301,8 +303,8 @@ The patch package's internal apply script should handle backups, validation, int
 Shared CSS and JavaScript files are referenced with query-string versions, for example:
 
 ```html
-assets/css/style.css?v=theme-package-1
-assets/js/script.js?v=citadel-preview-7
+assets/css/style.css?v=theme-package-2
+assets/js/script.js?v=citadel-live-1
 ```
 
 When changing shared CSS or JavaScript, bump the version string across all HTML pages.
@@ -431,7 +433,7 @@ For larger changes, also run the internal link/source check and JSON-LD parsing 
 
 ## Recurring Review
 
-A monthly Codex app automation exists:
+A weekly Codex app automation exists:
 
 ```text
 monthly-legal-and-documentation-review

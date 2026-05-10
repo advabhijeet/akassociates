@@ -15,7 +15,7 @@ assets/img/citadel/
 
 `assets/css/style.css` is the shared layout and component stylesheet.
 
-`assets/css/themes/chambers-ak.css` is the active theme package. It owns the Chambers of AK visual identity:
+`assets/css/themes/citadel-of-ak.css` is the active theme package. It owns the current Chambers of AK visual identity:
 
 - fonts
 - core brand colors
@@ -26,20 +26,21 @@ assets/img/citadel/
 - category/tag colors
 - legacy aliases such as `--gold`, `--gold-dark`, `--gold-soft` and `--gold-line`
 
-`assets/css/themes/citadel-of-ak.css` is a dormant preview theme based on the Stitch AI "Lex Regalis / Citadel" redesign. It must not be imported from `style.css` or applied globally until the site owner approves the preview.
+`assets/css/themes/chambers-ak.css` is the previous/fallback theme package. Keep it available unless a later cleanup explicitly removes the rollback path.
 
-`assets/img/citadel/` contains generated preview imagery used only by the dormant Citadel theme. These images reduce blank hero/card areas in the working preview while leaving the active Chambers theme unchanged. The folder also includes the low-noise light/dark marble background textures used by Citadel page surfaces.
+`assets/img/citadel/` contains Citadel imagery used by the active theme. The folder includes article thumbnails and the light/dark marble background textures used by Citadel page surfaces.
 
-Preview page and full-site preview mode:
+Commercial WordPress packaging or a paid-theme distribution should be built in a separate repository and separate implementation thread. This repository should only carry the production static-site theme and its rollback fallback.
+
+Theme reference page:
 
 ```text
 theme-preview-citadel-of-ak.html
-?theme=citadel-of-ak
 ```
 
-The preview page is marked `noindex, nofollow` and loads the Citadel theme after the shared stylesheet. Any public page can also be opened with `?theme=citadel-of-ak`; `assets/js/script.js` will dynamically load the dormant Citadel stylesheet and preserve the preview query across internal links. This allows review of the actual working site without changing the active production theme.
+The reference page is marked `noindex, nofollow` and uses the same active Citadel stylesheet as the public site. It is a component and layout review surface, not a public marketing page.
 
-Citadel preview mode includes a light/dark toggle. Desktop users see it in the topbar; mobile users see it in the drawer. The toggle switches between `data-theme="citadel-of-ak"` and `data-theme="citadel-of-ak-dark"` without changing the active production import.
+The active Citadel theme includes a light/dark toggle. Desktop users see it in the topbar; mobile users see it in the drawer. The toggle switches between `data-theme="citadel-of-ak"` and `data-theme="citadel-of-ak-dark"` and persists the visitor preference locally.
 
 Citadel dark mode uses `assets/img/primary-logo-dark.png` for the homepage hero logo and `assets/img/logo-navbar-dark.png` for the navbar logo.
 
@@ -48,7 +49,7 @@ Citadel dark mode uses `assets/img/primary-logo-dark.png` for the homepage hero 
 The first line of `assets/css/style.css` imports the active theme:
 
 ```css
-@import url("./themes/chambers-ak.css?v=theme-1");
+@import url("./themes/citadel-of-ak.css?v=theme-1");
 ```
 
 Every public page continues to load only `assets/css/style.css`. This keeps page markup stable and makes the theme universal across homepage, practice pages, service pages, article pages, policy pages and enquiry/contact pages.
@@ -56,11 +57,11 @@ Every public page continues to load only `assets/css/style.css`. This keeps page
 ## Current Theme Inventory
 
 ```text
-Active:  assets/css/themes/chambers-ak.css
-Dormant: assets/css/themes/citadel-of-ak.css
-Preview: theme-preview-citadel-of-ak.html and `?theme=citadel-of-ak`
-Citadel preview media: assets/img/citadel/
-Dark mode: preview-only toggle through `assets/js/script.js`
+Active: assets/css/themes/citadel-of-ak.css
+Fallback / previous: assets/css/themes/chambers-ak.css
+Reference: theme-preview-citadel-of-ak.html
+Citadel media: assets/img/citadel/
+Dark mode: active toggle through `assets/js/script.js`
 ```
 
 ## How To Swap Themes
@@ -100,7 +101,6 @@ one policy page
 ## Rules
 
 - Do not move public website files to support a theme change.
-- Do not activate `citadel-of-ak.css` without site-owner approval after preview.
 - Do not hard-code new brand colors in page HTML.
 - Prefer adding or reusing theme tokens before adding one-off color values in `style.css`.
 - Keep fallback aliases in the active theme until all legacy component rules have been migrated.

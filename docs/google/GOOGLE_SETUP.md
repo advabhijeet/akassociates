@@ -31,14 +31,23 @@ Optional: rename the GTM container/workspace display name to `chambersofak.in` f
 
 ### Conversion Event Data Layer
 
-The website now pushes a normalized GTM data layer event when visitors click enquiry links.
+The website currently pushes one GTM data layer event per important enquiry interaction.
 
-- Event name: `ak_conversion_click`
-- Suggested GA4 event name variable: `ga_event_name`
-- Supported values: `whatsapp_click`, `phone_click`, `email_click`, `case_enquiry_click`, `contact_click`
-- Additional data layer variables: `conversion_type`, `conversion_label`, `conversion_target`, `conversion_page_path`, `conversion_page_title`
+Supported event names:
 
-In GTM, create a Custom Event trigger for `ak_conversion_click`, then create a GA4 Event tag that uses the `ga_event_name` data layer variable as the event name. This keeps all enquiry clicks measurable through one stable trigger.
+- `whatsapp_click`
+- `phone_click`
+- `email_click`
+- `case_enquiry_click`
+- `contact_click`
+
+Current event payload keys:
+
+- `link_text`
+- `link_target`
+- `page_path`
+
+In GTM, create Custom Event triggers for these event names, or use a single regular-expression Custom Event trigger that matches the five names above. Then create GA4 Event tags that send the same event names into GA4. Re-test GTM Preview whenever `assets/js/script.js` changes around enquiry links or event tracking.
 
 ## Google Business Profile
 

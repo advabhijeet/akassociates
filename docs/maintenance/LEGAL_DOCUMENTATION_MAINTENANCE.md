@@ -132,6 +132,7 @@ Update `sitemap.xml` when:
 - A public indexed page is removed.
 - A page URL changes.
 - A page is moved between folders.
+- A public legal or policy page's visible last-updated date changes.
 
 ### AdSense / Advertising Review
 
@@ -178,16 +179,16 @@ In addition to change-based review, check these pages periodically for legal, pr
 Recommended cadence:
 
 - Quick review after every meaningful website change.
-- Full review monthly while the site is actively changing.
+- Full review weekly while the site is actively changing.
 - Full review immediately after any material change in Bar Council of India rules, data protection requirements, Google tracking setup or AdSense setup.
 
 ## Active Automation
 
-A monthly Codex app automation has been created for this repository:
+A weekly Codex app automation has been created for this repository:
 
 ```text
 Automation ID: monthly-legal-and-documentation-review
-Schedule: Monthly on the 1st day at 10:00 AM
+Schedule: Weekly recurring legal and documentation review
 Scope: Legal pages, README, docs, sitemap, robots.txt, ads.txt, social links, tracking notes, branding, and public website setup.
 ```
 

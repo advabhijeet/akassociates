@@ -1,5 +1,5 @@
 CHAMBERS OF AK - SEARCH VISIBILITY AND CLIENT ACQUISITION ROADMAP
-Last updated: May 4, 2026
+Last updated: May 10, 2026
 
 Goal:
 Improve discoverability for high-intent legal searches while keeping the website compliant, useful, and conversion-focused. The site should help potential clients quickly understand practice areas, jurisdiction fit, required documents, and how to make a clean enquiry.
@@ -13,7 +13,7 @@ Current Positioning:
 Phase 1 - Technical Foundation
 Status: Mostly implemented. External domain setup completed on May 4, 2026.
 - Keep Google Analytics active through Google Tag Manager with Measurement ID G-DCP7MK6V0V.
-- Keep AdSense publisher script active with pub-6935574990807827.
+- Keep `ads.txt` active for AdSense publisher pub-6935574990807827. Do not add visible AdSense placements or broad ad scripts until approval and placement scope are confirmed.
 - Maintain robots.txt and sitemap.xml at the live GitHub Pages root.
 - Keep canonical URLs consistent with https://chambersofak.in/.
 - Keep Search Console, GA4, Google Business Profile and AdSense aligned with https://chambersofak.in/.
@@ -84,12 +84,12 @@ Status: First supporting article batch added on May 4, 2026.
 
 Phase 6 - Conversion Improvements
 Priority: High.
-Status: Website-side conversion data layer events added on May 4, 2026.
+Status: Website-side conversion data layer events are active; tracking notes resynced on May 10, 2026.
 - Keep WhatsApp Enquiry and Email Chambers visible on the homepage.
 - Keep Case Enquiry in the navbar.
 - Add clear enquiry prompts on practice pages.
 - Add short document checklists to reduce back-and-forth.
-- Track clicks on WhatsApp, phone, email, case enquiry and contact links through GTM event `ak_conversion_click`.
+- Track clicks on WhatsApp, phone, email, case enquiry and contact links through GTM data layer events `whatsapp_click`, `phone_click`, `email_click`, `case_enquiry_click` and `contact_click`.
 - Add testimonials or representative non-confidential experience only if compliant and appropriate.
 
 Phase 7 - Trust Signals

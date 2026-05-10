@@ -1,5 +1,80 @@
 # Changelog
 
+## 2026-05-10 23:13 IST - Activate Citadel of AK theme
+
+Files changed:
+
+- `assets/css/style.css`
+- `assets/css/themes/citadel-of-ak.css`
+- `assets/js/script.js`
+- Public HTML files loading `assets/css/style.css` / `assets/js/script.js`
+- `README.md`
+- `docs/maintenance/THEME_SYSTEM.md`
+- `docs/maintenance/ARTICLE_HTML_TEMPLATE.md`
+- `docs/wiki/WORKFLOW.md`
+- `docs/CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md`
+- `CHANGELOG.md`
+
+Summary:
+
+- Activated `assets/css/themes/citadel-of-ak.css` through the shared `assets/css/style.css` import.
+- Preserved `assets/css/themes/chambers-ak.css` as the previous-theme rollback package.
+- Converted the Citadel controller from preview-only behavior into the active light/dark theme controller.
+- Removed production preview-banner behavior and kept the theme reference page as a noindex review surface.
+- Bumped public stylesheet references to `style.css?v=theme-package-2` and script references to `script.js?v=citadel-live-1`.
+- Updated repository documentation to reflect Citadel as the active site theme and to keep WordPress/commercial packaging out of this repository.
+
+Validation / notes:
+
+- Confirmed `assets/css/style.css` imports `assets/css/themes/citadel-of-ak.css?v=theme-1`.
+- Confirmed `assets/css/themes/chambers-ak.css` remains in place as the previous-theme rollback package.
+- Ran `node --check assets/js/script.js`.
+- Ran `git diff --check`; only Windows line-ending warnings were reported.
+- Confirmed no functional `style.css?v=theme-package-1`, `script.js?v=citadel-preview-7`, preview-banner or `isCitadelPreview` references remain outside historical changelog notes.
+- Local Chrome/Playwright smoke passed for homepage, Insights, SARFAESI article and contact page without `?theme=`: Citadel loads directly, no preview banner appears, light/dark toggle works, marble assets load with no 404s, article padding remains `40px`, and article text is justified.
+- Mobile smoke passed for homepage drawer: the drawer uses the dark marble background after toggle and drawer social icons render as `36x36` circles.
+
+Commits:
+
+- Pending.
+
+## 2026-05-10 23:07 IST - Resync legal and tracking maintenance notes
+
+Files changed:
+
+- `sitemap.xml`
+- `README.md`
+- `theme-preview-citadel-of-ak.html`
+- `docs/CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md`
+- `docs/google/GOOGLE_SETUP.md`
+- `docs/seo/SEO_ROADMAP.txt`
+- `docs/maintenance/LEGAL_DOCUMENTATION_MAINTENANCE.md`
+- `docs/maintenance/THEME_SYSTEM.md`
+- `docs/wiki/WORKFLOW.md`
+- `CHANGELOG.md`
+
+Summary:
+
+- Updated sitemap lastmod dates for `disclaimer.html`, `privacy-policy.html` and `terms.html` to match their visible 10 May 2026 legal-policy update date.
+- Aligned the Citadel preview page's direct theme CSS cache string with the current `preview-7` cache key.
+- Corrected GTM/GA4 tracking notes to match the current data layer events emitted by `assets/js/script.js`.
+- Updated the SEO roadmap's AdSense note to reflect the current `ads.txt` readiness state and no visible ad placements.
+- Updated legal/documentation maintenance guidance and the wiki workflow to describe the current weekly recurring review.
+- Aligned branding/theme documentation and the noindex Citadel reference page with the current active Citadel theme import observed in the working tree.
+
+Validation / notes:
+
+- `node --check assets/js/script.js` passed.
+- `git diff --check` passed.
+- Internal `href`/`src` reference check passed.
+- JSON-LD parse check passed for 105 blocks.
+- Targeted checks confirmed legal sitemap dates are `2026-05-10`, the Citadel reference page uses `preview-7`, and Google tracking notes document the current direct data layer event names.
+- The working tree also contains active Citadel implementation/cache-busting edits in shared CSS/JS and public HTML files; this review pass aligned legal/maintenance documentation to that current state without reverting those concurrent changes.
+
+Commits:
+
+- Pending.
+
 ## 2026-05-10 21:22 IST - Strengthen Citadel marble and prose spacing
 
 Files changed:
