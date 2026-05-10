@@ -1,5 +1,41 @@
 # Changelog
 
+## 2026-05-10 14:15 IST - Strengthen second AdSense readiness content batch
+
+Files changed:
+
+- `services/arbitration-lawyer-bihar.html`
+- `services/commercial-recovery-lawyer-patna.html`
+- `updates/section-34-arbitration-award-challenge.html`
+- `updates/arbitration-notice-before-claim.html`
+- `sitemap.xml`
+- `feed.xml`
+- `docs/planning/ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md`
+- `docs/planning/NEXT_WEBSITE_UPGRADE_AGENDA.md`
+- `docs/CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md`
+- `CHANGELOG.md`
+
+Summary:
+
+- Expanded the second readiness batch with deeper arbitration and commercial recovery content.
+- Added route-selection, limitation/date, response strategy and common-mistake guidance to two service pages and two arbitration articles.
+- Updated article `dateModified` values, sitemap `lastmod` entries and feed descriptions for changed article pages.
+- Recorded this as AdSense readiness content Batch 2.
+
+Validation / notes:
+
+- `node --check assets/js/script.js` passed.
+- `git diff --check` passed with line-ending warnings only.
+- `sitemap.xml` and `feed.xml` parsed successfully.
+- JSON-LD parsing passed; 105 blocks parsed.
+- Internal `href`/`src` reference check passed.
+- Word-count spot check confirmed the four strengthened pages now sit around 603-704 words.
+- Local browser smoke passed for the four changed public pages with no console errors.
+
+Commits:
+
+- Pending.
+
 ## 2026-05-10 13:45 IST - Strengthen first AdSense readiness content batch
 
 Files changed:
@@ -34,7 +70,7 @@ Validation / notes:
 
 Commits:
 
-- Pending.
+- `c730c5d` - Strengthen AdSense readiness content batch.
 
 ## 2026-05-10 13:20 IST - Document AdSense article-only ads plan
 

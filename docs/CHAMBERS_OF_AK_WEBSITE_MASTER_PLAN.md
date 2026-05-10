@@ -186,6 +186,7 @@ Insights category/tag polish deployed and live-checked
 Homepage Latest Legal Insights now loads from feed.xml with cache-busting and live-check passed
 AdSense rejection email reviewed; article-only subtle ads direction recorded
 AdSense readiness content Batch 1 strengthened four thin public pages
+AdSense readiness content Batch 2 strengthened arbitration and commercial recovery pages
 ```
 
 Recent accepted commits:
@@ -328,6 +329,15 @@ updates/msme-delayed-payment.html
 updates/bihar-rera-complaint.html
 updates/property-injunction-suit-documents.html
 document-checklists.html
+```
+
+Second readiness content batch:
+
+```text
+services/arbitration-lawyer-bihar.html
+services/commercial-recovery-lawyer-patna.html
+updates/section-34-arbitration-award-challenge.html
+updates/arbitration-notice-before-claim.html
 ```
 
 ## 8. Article Categories

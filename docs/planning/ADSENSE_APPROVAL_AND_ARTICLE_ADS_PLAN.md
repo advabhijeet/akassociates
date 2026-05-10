@@ -69,6 +69,22 @@ Purpose:
 - Add document-led, practical, non-solicitation material.
 - Update freshness signals through `dateModified`, `sitemap.xml` and, where applicable, `feed.xml`.
 
+### Batch 2 - 2026-05-10
+
+Strengthened the next group of thin public pages:
+
+- `services/arbitration-lawyer-bihar.html`
+- `services/commercial-recovery-lawyer-patna.html`
+- `updates/section-34-arbitration-award-challenge.html`
+- `updates/arbitration-notice-before-claim.html`
+
+Purpose:
+
+- Raise content depth on two service pages and two arbitration articles.
+- Add route-selection, limitation/date, response strategy and common-mistake guidance.
+- Preserve existing URLs and non-solicitation language.
+- Update freshness signals through `dateModified`, `sitemap.xml` and `feed.xml`.
+
 ## Compliance Notes
 
 Google references reviewed:
