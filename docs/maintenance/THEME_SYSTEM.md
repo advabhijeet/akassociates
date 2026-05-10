@@ -28,7 +28,7 @@ assets/img/citadel/
 
 `assets/css/themes/citadel-of-ak.css` is a dormant preview theme based on the Stitch AI "Lex Regalis / Citadel" redesign. It must not be imported from `style.css` or applied globally until the site owner approves the preview.
 
-`assets/img/citadel/` contains generated preview imagery used only by the dormant Citadel theme. These images reduce blank hero/card areas in the working preview while leaving the active Chambers theme unchanged.
+`assets/img/citadel/` contains generated preview imagery used only by the dormant Citadel theme. These images reduce blank hero/card areas in the working preview while leaving the active Chambers theme unchanged. The folder also includes the low-noise light/dark marble background textures used by Citadel page surfaces.
 
 Preview page and full-site preview mode:
 

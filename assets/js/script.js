@@ -117,8 +117,8 @@
   const scriptUrl = currentScript ? new URL(currentScript.getAttribute('src'), window.location.href) : null;
   const siteRootUrl = scriptUrl ? new URL('../../', scriptUrl) : new URL('./', window.location.href);
   const cssUrl = scriptUrl
-    ? new URL('../css/themes/citadel-of-ak.css?v=preview-4', scriptUrl).href
-    : new URL('assets/css/themes/citadel-of-ak.css?v=preview-4', window.location.href).href;
+    ? new URL('../css/themes/citadel-of-ak.css?v=preview-5', scriptUrl).href
+    : new URL('assets/css/themes/citadel-of-ak.css?v=preview-5', window.location.href).href;
 
   addHeadTag('link', {
     id: 'citadel-theme-preview-css',
@@ -1152,7 +1152,8 @@ window.ChambersInsightCards = (function () {
     if (!match) return;
 
     const thumb = normalizeThumbUrl(match.thumbnail || match.thumb || thumbnailFor(match));
-    document.documentElement.style.setProperty('--citadel-page-hero-image', `url("${thumb}")`);
+    const absoluteThumb = new URL(thumb, window.location.href).href;
+    document.documentElement.style.setProperty('--citadel-page-hero-image', `url("${absoluteThumb}")`);
     document.body?.classList.add('has-citadel-article-thumb');
   };
 

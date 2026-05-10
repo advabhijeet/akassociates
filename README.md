@@ -183,7 +183,7 @@ Dark preview: use the Dark mode button in the desktop topbar or mobile drawer wh
 
 Design direction: modern boutique legal brand, black/white base, gold accent, serif monogram/logotype, premium but restrained.
 
-Logo, founder profile and brand assets are stored in `assets/img/`. Dark-mode logo variants are `assets/img/primary-logo-dark.png` and `assets/img/logo-navbar-dark.png`. Citadel preview thumbnails are stored in `assets/img/citadel/` and should be generated or selected per article so homepage, Insights cards and article hero backgrounds stay synced.
+Logo, founder profile and brand assets are stored in `assets/img/`. Dark-mode logo variants are `assets/img/primary-logo-dark.png` and `assets/img/logo-navbar-dark.png`. Citadel preview thumbnails and light/dark marble surface textures are stored in `assets/img/citadel/`; new article thumbnails should be generated or selected per article so homepage, Insights cards and article hero backgrounds stay synced.
 
 ## SEO Setup
 
@@ -308,7 +308,7 @@ HTML pages reference CSS and JavaScript with version query strings, for example:
 
 ```html
 assets/css/style.css?v=theme-package-1
-assets/js/script.js?v=citadel-preview-4
+assets/js/script.js?v=citadel-preview-5
 ```
 
 When changing shared CSS or JavaScript, update the query string across HTML pages so browsers and mobile devices fetch the latest files.

@@ -1,5 +1,40 @@
 # Changelog
 
+## 2026-05-10 19:50 IST - Stabilize Citadel dark mode and marble surfaces
+
+Files changed:
+
+- `assets/css/themes/citadel-of-ak.css`
+- `assets/js/script.js`
+- `assets/img/citadel/citadel-marble-light.webp`
+- `assets/img/citadel/citadel-marble-dark.webp`
+- Public HTML files loading `assets/js/script.js`
+- `README.md`
+- `docs/maintenance/ARTICLE_HTML_TEMPLATE.md`
+- `docs/wiki/WORKFLOW.md`
+- `docs/CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md`
+- `CHANGELOG.md`
+
+Summary:
+
+- Replaced the Citadel preview checkered/grid background with generated low-noise light and dark marble textures.
+- Tightened Citadel dark-mode surface variables and component overrides so shared white card styles render as dark surfaces in preview mode.
+- Reduced the article hero overlay and added article-thumbnail-specific hero treatment so generated article thumbnails are visible as hero backgrounds.
+- Corrected Citadel navbar logo sizing so light and dark logos preserve their natural proportions instead of stretching horizontally.
+- Bumped the public JavaScript cache string to `script.js?v=citadel-preview-5` and the preview CSS cache string to `preview-5`.
+
+Validation / notes:
+
+- Confirmed `assets/css/style.css` still imports only `assets/css/themes/chambers-ak.css`; Citadel remains preview-only.
+- `node --check assets/js/script.js` passed.
+- `git diff --check` passed with line-ending warnings only.
+- Local asset existence checks passed for both generated marble WebP files.
+- Local browser smoke passed for article light/dark hero thumbnails, marble page surfaces, dark-mode white-surface leak checks, Insights dark mode, About mobile dark mode and navbar logo proportions.
+
+Commits:
+
+- Pending.
+
 ## 2026-05-10 15:09 IST - Refine Citadel preview photos, dark mode and article cards
 
 Files changed:
