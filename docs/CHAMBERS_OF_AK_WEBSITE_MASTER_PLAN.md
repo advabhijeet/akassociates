@@ -185,6 +185,7 @@ Contact cleanup and post-deployment Contact live check completed
 Insights category/tag polish deployed and live-checked
 Homepage Latest Legal Insights now loads from feed.xml with cache-busting and live-check passed
 AdSense rejection email reviewed; article-only subtle ads direction recorded
+AdSense readiness content Batch 1 strengthened four thin public pages
 ```
 
 Recent accepted commits:
@@ -216,7 +217,7 @@ Current next plan:
 
 ```text
 1. Treat AdSense as an onboarding/account approval issue unless a more specific dashboard reason becomes available.
-2. Strengthen thin public pages and short legacy articles before resubmission.
+2. Continue strengthening thin public pages and short legacy articles before resubmission.
 3. Add official AdSense connection code only if required, without enabling aggressive sitewide ads.
 4. Keep future visible ads limited to article-style pages only.
 5. Run broader live stability review on major public routes after legal/documentation sync.
@@ -318,6 +319,15 @@ Operational reference:
 
 ```text
 docs/planning/ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md
+```
+
+First readiness content batch:
+
+```text
+updates/msme-delayed-payment.html
+updates/bihar-rera-complaint.html
+updates/property-injunction-suit-documents.html
+document-checklists.html
 ```
 
 ## 8. Article Categories

@@ -51,6 +51,24 @@ Avoid ads on:
 6. Run live route and browser stability checks.
 7. Resubmit the site for AdSense review only after the readiness pass.
 
+## Readiness Content Batches
+
+### Batch 1 - 2026-05-10
+
+Strengthened the first group of thin public pages:
+
+- `updates/msme-delayed-payment.html`
+- `updates/bihar-rera-complaint.html`
+- `updates/property-injunction-suit-documents.html`
+- `document-checklists.html`
+
+Purpose:
+
+- Raise content depth on older short public pages.
+- Preserve existing URLs.
+- Add document-led, practical, non-solicitation material.
+- Update freshness signals through `dateModified`, `sitemap.xml` and, where applicable, `feed.xml`.
+
 ## Compliance Notes
 
 Google references reviewed:

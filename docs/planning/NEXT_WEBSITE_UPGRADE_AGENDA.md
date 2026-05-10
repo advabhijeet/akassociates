@@ -28,6 +28,7 @@ Contact cleanup deployed and live Contact stability check completed.
 Insights category/tag polish deployed and live Insights stability check completed.
 Homepage latest-insights freshness patch deployed and live homepage checks completed.
 AdSense rejection email reviewed; public legal pages and article-only ads plan updated.
+AdSense readiness content Batch 1 strengthened four thin public pages.
 ```
 
 Current public-flow status:
@@ -73,7 +74,7 @@ Scope:
 
 ```text
 Treat AdSense as an onboarding/account approval issue unless a more specific dashboard reason becomes available.
-Strengthen thin public pages and short legacy articles before resubmission.
+Strengthen thin public pages and short legacy articles before resubmission; Batch 1 covered MSME delayed payment, Bihar RERA complaint, property injunction documents and document-checklists.
 If required, add official AdSense site connection code without enabling aggressive sitewide ads.
 Keep future visible ads limited to article-style pages only.
 Avoid ads on homepage, enquiry/contact, practice/service landing pages and policy/trust pages.

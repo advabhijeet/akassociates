@@ -1,5 +1,41 @@
 # Changelog
 
+## 2026-05-10 13:45 IST - Strengthen first AdSense readiness content batch
+
+Files changed:
+
+- `updates/msme-delayed-payment.html`
+- `updates/bihar-rera-complaint.html`
+- `updates/property-injunction-suit-documents.html`
+- `document-checklists.html`
+- `sitemap.xml`
+- `feed.xml`
+- `docs/planning/ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md`
+- `docs/planning/NEXT_WEBSITE_UPGRADE_AGENDA.md`
+- `docs/CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md`
+- `CHANGELOG.md`
+
+Summary:
+
+- Expanded the thinnest public readiness pages with document-led, non-solicitation content for MSME delayed payment, RERA complaint preparation, property injunction documents and document checklist preparation.
+- Updated article `dateModified` values and sitemap `lastmod` entries for the changed public pages.
+- Refreshed the property injunction feed description to reflect the strengthened article.
+- Recorded this as the first AdSense readiness content batch.
+
+Validation / notes:
+
+- `node --check assets/js/script.js` passed.
+- `git diff --check` passed with line-ending warnings only.
+- `sitemap.xml` and `feed.xml` parsed successfully.
+- JSON-LD parsing passed; 105 blocks parsed.
+- Internal `href`/`src` reference check passed.
+- Word-count spot check confirmed the four strengthened pages now sit around 539-595 words.
+- Local browser smoke passed for the four changed public pages with no console errors.
+
+Commits:
+
+- Pending.
+
 ## 2026-05-10 13:20 IST - Document AdSense article-only ads plan
 
 Files changed:
@@ -36,7 +72,7 @@ Validation / notes:
 
 Commits:
 
-- Pending.
+- `7ed5590` - Document AdSense article-only ads plan.
 
 ## 2026-05-10 07:45 IST - Align Insights pills with homepage
 
