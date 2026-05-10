@@ -38,7 +38,7 @@
     const themeName = normalizedMode === 'dark' ? 'citadel-of-ak-dark' : 'citadel-of-ak';
     const assetPrefix = window.location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
     const logoSources = {
-      nav: `${assetPrefix}assets/img/logo-navbar-dark.png?v=dark-1`,
+      nav: `${assetPrefix}assets/img/logo-navbar-dark.png?v=dark-2`,
       hero: `${assetPrefix}assets/img/primary-logo-dark.png?v=dark-1`,
     };
 

@@ -296,6 +296,19 @@ body {
   color: var(--color-white);
 }
 
+[data-theme^="citadel-of-ak"] .s .nav-cta {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: var(--color-black);
+}
+
+[data-theme^="citadel-of-ak"] .s .nav-cta:hover,
+[data-theme^="citadel-of-ak"] .s .nav-cta.active {
+  border-color: var(--color-black);
+  background: var(--color-black);
+  color: #ffffff;
+}
+
 .menu-toggle,
 .menu-backdrop {
   display: none;

@@ -42,7 +42,7 @@ The reference page is marked `noindex, nofollow` and uses the same active Citade
 
 The active Citadel theme includes a light/dark toggle. Desktop users see it in the topbar; mobile users see it in the drawer. The toggle switches between `data-theme="citadel-of-ak"` and `data-theme="citadel-of-ak-dark"` and persists the visitor preference locally.
 
-Citadel dark mode uses `assets/img/primary-logo-dark.png` for the homepage hero logo and `assets/img/logo-navbar-dark.png` for the navbar logo.
+Citadel dark mode uses `assets/img/primary-logo-dark.png` for the homepage hero logo and `assets/img/logo-navbar-dark.png` for the navbar logo. Keep the light and dark navbar logo files on the same `620x115` canvas so desktop and mobile logo sizing remains consistent without stretching.
 
 ## How The Theme Loads
 

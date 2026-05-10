@@ -93,7 +93,7 @@ Replace:
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" sizes="180x180">
   <link rel="manifest" href="/site.webmanifest">
-  <link rel="stylesheet" href="../assets/css/style.css?v=theme-package-2">
+  <link rel="stylesheet" href="../assets/css/style.css?v=theme-package-3">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -190,7 +190,7 @@ Replace:
 
     <footer class="foot"><div class="foot-copy">&copy; 2026 Chambers of AK - Advocates &amp; Legal Consultants</div><div class="foot-links"><a href="../about.html">About</a><a href="../practice.html">Practice</a><a href="../case-enquiry.html">Case Enquiry</a><a href="../document-checklists.html">Document Checklists</a><a href="../faq.html">FAQ</a><a href="../process.html">Process</a><a href="../disclaimer.html">Disclaimer</a><a href="../privacy-policy.html">Privacy Policy</a><a href="../terms.html">Terms</a><a href="../contact.html">Contact</a></div><div class="foot-disc">For informational purposes only. Does not constitute legal advice or solicitation. Bar Council of India.</div></footer>
   </div>
-  <script src="../assets/js/script.js?v=citadel-live-1"></script>
+  <script src="../assets/js/script.js?v=citadel-live-2"></script>
 </body>
 </html>
 ```

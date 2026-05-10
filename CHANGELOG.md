@@ -1,5 +1,38 @@
 # Changelog
 
+## 2026-05-10 23:44 IST - Fix Citadel live navbar contrast and logo parity
+
+Files changed:
+
+- `assets/css/style.css`
+- `assets/js/script.js`
+- `assets/img/logo-navbar-dark.png`
+- Public HTML files loading `assets/css/style.css` / `assets/js/script.js`
+- `README.md`
+- `docs/maintenance/ARTICLE_HTML_TEMPLATE.md`
+- `docs/wiki/WORKFLOW.md`
+- `docs/CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md`
+- `CHANGELOG.md`
+
+Summary:
+
+- Fixed the active Citadel navbar Contact button so text remains visible in light and dark modes, including active Contact-page state.
+- Rebuilt `assets/img/logo-navbar-dark.png` on the same `620x115` canvas as the light navbar logo to keep desktop and mobile logo sizing consistent without CSS stretching.
+- Bumped the dark navbar logo asset key to `dark-2`.
+- Bumped public stylesheet references to `style.css?v=theme-package-3` and script references to `script.js?v=citadel-live-2`.
+
+Validation / notes:
+
+- Ran `node --check assets/js/script.js`.
+- Ran `git diff --check`; only Windows line-ending warnings were reported.
+- Confirmed no functional `style.css?v=theme-package-2`, `script.js?v=citadel-live-1` or old dark navbar logo cache references remain.
+- Local Chrome smoke confirmed homepage navbar CTA contrast in light/dark, Contact-page active CTA contrast in dark mode, and matching desktop logo frame `430x58`.
+- Local Chrome mobile smoke confirmed matching logo frame `246x39` in light/dark mode.
+
+Commits:
+
+- Pending.
+
 ## 2026-05-10 23:13 IST - Activate Citadel of AK theme
 
 Files changed:
@@ -21,7 +54,7 @@ Summary:
 - Preserved `assets/css/themes/chambers-ak.css` as the previous-theme rollback package.
 - Converted the Citadel controller from preview-only behavior into the active light/dark theme controller.
 - Removed production preview-banner behavior and kept the theme reference page as a noindex review surface.
-- Bumped public stylesheet references to `style.css?v=theme-package-2` and script references to `script.js?v=citadel-live-1`.
+- Bumped public stylesheet references to `style.css?v=theme-package-3` and script references to `script.js?v=citadel-live-2`.
 - Updated repository documentation to reflect Citadel as the active site theme and to keep WordPress/commercial packaging out of this repository.
 
 Validation / notes:
