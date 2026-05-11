@@ -299,6 +299,18 @@ If ChatGPT cannot directly and safely patch, validate, commit and push through i
 
 For local/manual updates, follow `docs/maintenance/MANUAL_PATCH_AND_CODEX_HANDOFF_WORKFLOW.md`. The patch package should include intended files only, validation commands, changelog entry text, commit guidance and a push path using the `advabhijeet` Git identity.
 
+### Live Checks, Codex Smoke Tests And ChatGPT Limits
+
+For live/deployment validation boundaries, use `docs/codex/CHATGPT_CODEX_LIVE_CHECK_BOUNDARY.md`.
+
+Rules:
+
+- ChatGPT may inspect repository files, commits and documentation through connected GitHub tools.
+- ChatGPT must not claim that a live visual check or smoke test has passed unless it actually opened and inspected the live website in the current environment.
+- If ChatGPT cannot access the live site, it must ask the user to manually check the relevant URLs and report the result.
+- Codex/local automation may run browser smoke tests, Playwright/Chrome checks and live route checks when it has working browser/network access.
+- Keep these labels separate: repository source check, local smoke test, live visual check and manual user check.
+
 ### Universal PowerShell 7 Patch Package Command
 
 For downloadable manual patch packages, use a short PowerShell 7 command that extracts the ZIP from the default Downloads folder into the repository root, then runs the package apply script.
@@ -453,3 +465,4 @@ monthly-legal-and-documentation-review
 ```
 
 It is a periodic helper. It does not replace the need to update legal and documentation files during the same work cycle as meaningful website changes.
+

@@ -21,6 +21,17 @@ When Codex completes an item:
 6. Update `CHANGELOG.md` with date, time, changed files, validation and commit hash.
 7. Update `README.md`, `docs/planning/SEO_GROWTH_AGENDA.md` or relevant docs if the work affects structure, SEO, tracking, positioning or maintenance.
 
+## Live Check Boundary
+
+For any live/deployment validation handoff, read `docs/codex/CHATGPT_CODEX_LIVE_CHECK_BOUNDARY.md`.
+
+Rules:
+
+- ChatGPT repository inspection is not a live visual check.
+- If ChatGPT cannot open the live site, ask the user to manually check the listed URLs and report.
+- Codex/local automation may perform browser smoke tests or live route checks when it has a functioning browser/network environment.
+- Record source checks, local smoke tests, live visual checks and manual user checks separately.
+
 ## Active Handoff Items
 
 ### AdSense approval and article-only ads readiness
@@ -277,3 +288,4 @@ Recommended order:
 6. Prepare social/newsletter distribution copy for each new article.
 7. Improve Case Enquiry flow.
 8. Consider future service pages only after Search Console review.
+

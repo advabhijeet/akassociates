@@ -1,5 +1,30 @@
 # Changelog
 
+## 2026-05-11 17:36 IST - Document ChatGPT/Codex live-check boundary
+
+Files changed:
+
+- docs/codex/CHATGPT_CODEX_LIVE_CHECK_BOUNDARY.md
+- docs/codex/HANDOFF.md
+- docs/wiki/WORKFLOW.md
+- CHANGELOG.md
+
+Summary:
+
+- Added a clear ChatGPT/Codex boundary note for live deployment checks, local smoke tests and repository source checks.
+- Recorded that ChatGPT must ask the user to manually check and report when it cannot access the live website.
+- Recorded that Codex/local automation may perform browser smoke tests and live checks when it has a functioning browser/network environment.
+- Added cross-references in Codex handoff and workflow documentation so future handoffs do not treat repository inspection as live validation.
+
+Validation / notes:
+
+- Documentation-only patch; no public website, CSS, JavaScript, schema or theme asset changes.
+- Ran git diff --check before commit.
+- Live visual check is not required for this documentation-only patch.
+
+Commits:
+
+- Pending.
 ## 2026-05-11 00:26 IST - Add Google profile links and ChatGPT patch guidance
 
 Files changed:
@@ -1804,3 +1829,4 @@ For every future meaningful modification:
 4. Summarize what changed and why.
 5. List validation performed or pending.
 6. Add commit hash after commit if available.
+

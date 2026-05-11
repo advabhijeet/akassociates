@@ -4,7 +4,7 @@ This note prevents confusion between repository inspection, local smoke testing 
 
 ## Rule
 
-ChatGPT may inspect repository files, commits and documentation through the connected GitHub tools. ChatGPT should not claim that a live website smoke test or visual deployment check has passed unless it has actually been able to open and inspect the live website in the current environment.
+ChatGPT may inspect repository files, commits and documentation through connected GitHub tools. ChatGPT should not claim that a live website smoke test or visual deployment check has passed unless it has actually been able to open and inspect the live website in the current environment.
 
 If ChatGPT cannot access or visually verify the live website, it must say so clearly and ask the user to manually check the live site and report the result.
 
