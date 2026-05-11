@@ -1,5 +1,36 @@
 # Changelog
 
+## 2026-05-11 18:50 IST - Normalize homepage canonical links
+
+Files changed:
+
+- Public HTML files containing homepage links or `script.js` cache references
+- `assets/js/script.js`
+- `README.md`
+- `docs/CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md`
+- `docs/maintenance/ARTICLE_HTML_TEMPLATE.md`
+- `docs/wiki/WORKFLOW.md`
+- `CHANGELOG.md`
+
+Summary:
+
+- Replaced internal homepage links pointing to `index.html` or `../index.html` with `/` so the site consistently points to the canonical homepage.
+- Added a JavaScript canonical redirect from `https://chambersofak.in/index.html` to `https://chambersofak.in/`.
+- Preserved the existing GitHub Pages duplicate-host redirect and normalized `/akassociates/index.html` to the canonical homepage.
+- Bumped the public JavaScript cache key from `citadel-live-2` to `citadel-live-3`.
+
+Validation / notes:
+
+- Ran `node --check assets/js/script.js`.
+- Ran `git diff --check`.
+- Parsed `sitemap.xml` and `feed.xml`.
+- Confirmed public HTML homepage links no longer use `index.html` / `../index.html`.
+- Confirmed public HTML script references now use `script.js?v=citadel-live-3`.
+- Live visual check remains manual/Codex-dependent after GitHub Pages refresh.
+
+Commits:
+
+- `PENDING_COMMIT_HASH` - Normalize homepage canonical links.
 ## 2026-05-11 17:36 IST - Document ChatGPT/Codex live-check boundary
 
 Files changed:

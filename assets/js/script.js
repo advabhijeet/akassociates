@@ -1,22 +1,31 @@
-/* Canonical host redirect: GitHub Pages duplicate to custom domain */
+/* Canonical host redirect: GitHub Pages duplicate and /index.html to custom domain */
 (function () {
   var duplicateHost = 'advabhijeet.github.io';
+  var canonicalHost = 'chambersofak.in';
   var projectPath = '/akassociates';
   var canonicalOrigin = 'https://chambersofak.in';
 
-  if (window.location.hostname !== duplicateHost) {
+  var host = window.location.hostname;
+  var path = window.location.pathname || '/';
+  var shouldRedirect = host === duplicateHost || (host === canonicalHost && path === '/index.html');
+
+  if (!shouldRedirect) {
     return;
   }
 
-  var path = window.location.pathname || '/';
-  if (path.indexOf(projectPath) === 0) {
+  if (host === duplicateHost && path.indexOf(projectPath) === 0) {
     path = path.slice(projectPath.length) || '/';
   }
 
-  var target = canonicalOrigin + path + window.location.search + window.location.hash;
-  window.location.replace(target);
-})();
+  if (path === '/index.html') {
+    path = '/';
+  }
 
+  var target = canonicalOrigin + path + window.location.search + window.location.hash;
+  if (window.location.href !== target) {
+    window.location.replace(target);
+  }
+})();
 /* Active Citadel theme controller. Keeps the previous theme file available for rollback. */
 (function () {
   const allowedPreviewThemes = new Set(['citadel-of-ak', 'citadel', 'citadel-of-ak-dark']);
