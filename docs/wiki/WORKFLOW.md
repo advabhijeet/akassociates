@@ -465,4 +465,3 @@ monthly-legal-and-documentation-review
 ```
 
 It is a periodic helper. It does not replace the need to update legal and documentation files during the same work cycle as meaningful website changes.
-
