@@ -121,7 +121,21 @@ Purpose:
 - Preserve existing URLs and non-solicitation language.
 - Update freshness signals through `dateModified`, `sitemap.xml` and `feed.xml`.
 
-## Compliance Notes
+
+### Batch 5 - 2026-05-11
+
+Strengthened the next existing content-readiness pages:
+
+- `services/property-dispute-lawyer-patna.html`
+- `services/commercial-recovery-lawyer-bihar.html`
+- `updates/cheque-bounce-30-days.html`
+
+Purpose:
+
+- Improve depth on property, commercial recovery and NI Act pages without creating thin new URLs.
+- Add route-selection, limitation/date, common-mistake and official-reference guidance where useful.
+- Preserve existing URLs, non-solicitation positioning, article-only ads direction and current theme assets.
+- Update freshness signals through `dateModified` and `sitemap.xml` where applicable.## Compliance Notes
 
 Google references reviewed:
 

@@ -1,5 +1,34 @@
 # Changelog
 
+## 2026-05-11 22:20 IST - Strengthen AdSense readiness content Batch 5
+
+Files changed:
+
+- services/property-dispute-lawyer-patna.html
+- services/commercial-recovery-lawyer-bihar.html
+- updates/cheque-bounce-30-days.html
+- sitemap.xml
+- docs/planning/ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md
+- CHANGELOG.md
+
+Summary:
+
+- Strengthened three existing public pages for AdSense/content-readiness without adding new thin URLs.
+- Added route-review, limitation/date, common-mistake and official-reference guidance where useful.
+- Refreshed the cheque bounce article modified date and sitemap freshness for the strengthened pages.
+- Preserved existing URLs, Citadel theme assets, non-solicitation wording and article-only ads direction.
+
+Validation / notes:
+
+- Documentation/content patch only; no CSS, JavaScript, schema framework, images or ad placements changed.
+- Ran `node --check assets/js/script.js`.
+- Ran `git diff --check`.
+- Parsed `sitemap.xml` and `feed.xml`.
+- Live visual check remains manual/Codex-dependent after GitHub Pages refresh.
+
+Commits:
+
+- $commitHash - Strengthen AdSense readiness content Batch 5.
 ## 2026-05-11 18:50 IST - Normalize homepage canonical links
 
 Files changed:
