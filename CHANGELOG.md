@@ -1,5 +1,32 @@
 # Changelog
 
+## 2026-05-13 01:40 IST - Clean property title article publication
+
+Files changed:
+
+- `CHANGELOG.md`
+- `legal-updates.html`
+- `feed.xml`
+- `sitemap.xml`
+
+Summary:
+
+- Cleaned the property title article publication metadata and Insights placement.
+- Removed UTF-8 BOM markers from discovery files.
+- Kept the new article in Latest Articles and Practical Guides & Checklists.
+- Removed the checklist article from the Case Briefs/Judgment Briefs block.
+- Preserved article content, URLs, CSS, JavaScript, theme assets, ad code, homepage, contact page and service pages.
+
+Validation / notes:
+
+- Cleanup-only patch.
+- Ran `node --check assets/js/script.js`.
+- Ran `git diff --check`.
+- Parsed `sitemap.xml` and `feed.xml`.
+
+Commits:
+
+- Cleanup committed by this patch; see `git log --oneline -1`.
 ## 2026-05-13 01:20 IST - Publish property title search article
 
 Files changed:
@@ -27,7 +54,7 @@ Validation / notes:
 
 Commits:
 
-- `b4b31fd` - Publish property title search article.
+- `2c0e10d` - Publish property title search article.
 ## 2026-05-12 19:45 IST - Clean AdSense Batch 5 formatting
 
 Files changed:
@@ -53,7 +80,7 @@ Validation / notes:
 
 Commits:
 
-- `901d54b` - Clean AdSense Batch 5 formatting.
+- `bd22daf` - Clean AdSense Batch 5 formatting.
 ## 2026-05-11 22:20 IST - Strengthen AdSense readiness content Batch 5
 
 Files changed:
