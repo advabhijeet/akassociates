@@ -1,5 +1,31 @@
 # Changelog
 
+## 2026-05-12 19:45 IST - Clean AdSense Batch 5 formatting
+
+Files changed:
+
+- CHANGELOG.md
+- docs/planning/ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md
+- services/property-dispute-lawyer-patna.html
+- services/commercial-recovery-lawyer-bihar.html
+- updates/cheque-bounce-30-days.html
+
+Summary:
+
+- Replaced remaining changelog commit placeholders for the Batch 5 and homepage canonical cleanup entries.
+- Cleaned the Batch 5 AdSense plan markdown boundary before Compliance Notes.
+- Normalized adjacent HTML section boundaries and paragraph spacing introduced during the Batch 5 content patch.
+
+Validation / notes:
+
+- Cleanup-only patch; no CSS, JavaScript, sitemap, feed, schema framework, images or ad placements changed.
+- Ran `node --check assets/js/script.js`.
+- Ran `git diff --check`.
+- Parsed `sitemap.xml` and `feed.xml`.
+
+Commits:
+
+- `901d54b` - Clean AdSense Batch 5 formatting.
 ## 2026-05-11 22:20 IST - Strengthen AdSense readiness content Batch 5
 
 Files changed:
@@ -28,7 +54,7 @@ Validation / notes:
 
 Commits:
 
-- $commitHash - Strengthen AdSense readiness content Batch 5.
+- `fbd426d` - Strengthen AdSense readiness content Batch 5.
 ## 2026-05-11 18:50 IST - Normalize homepage canonical links
 
 Files changed:
@@ -59,7 +85,7 @@ Validation / notes:
 
 Commits:
 
-- `PENDING_COMMIT_HASH` - Normalize homepage canonical links.
+- `fe9ba80` - Normalize homepage canonical links.
 ## 2026-05-11 17:36 IST - Document ChatGPT/Codex live-check boundary
 
 Files changed:
