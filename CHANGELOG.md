@@ -1,5 +1,33 @@
 # Changelog
 
+## 2026-05-13 01:20 IST - Publish property title search article
+
+Files changed:
+
+- `updates/property-title-search-before-purchase-india.html`
+- `legal-updates.html`
+- `feed.xml`
+- `sitemap.xml`
+- `CHANGELOG.md`
+
+Summary:
+
+- Published one high-quality, document-led article: `Property Title Search Before Purchase in India: Document Checklist and State-Wise Records`.
+- Added state-wise property record examples for Bihar, Uttar Pradesh, Delhi, Haryana, Jharkhand, Maharashtra and other common record systems.
+- Added the article to the Insights hub, RSS feed and sitemap without changing CSS, JavaScript, theme assets, ad code, homepage, contact page or service pages.
+- Preserved non-solicitation wording and article-only AdSense direction during active AdSense review.
+
+Validation / notes:
+
+- Single-article publication patch only.
+- Ran `node --check assets/js/script.js`.
+- Ran `git diff --check`.
+- Parsed `sitemap.xml` and `feed.xml`.
+- Live visual check remains manual/Codex-dependent after GitHub Pages refresh.
+
+Commits:
+
+- `b4b31fd` - Publish property title search article.
 ## 2026-05-12 19:45 IST - Clean AdSense Batch 5 formatting
 
 Files changed:

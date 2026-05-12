@@ -1,17 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Chambers of AK Legal Insights</title>
     <link>https://chambersofak.in/legal-updates.html</link>
     <description>Informational legal insights from Chambers of AK on cheque bounce, MSME, RERA, arbitration, commercial recovery, property and civil litigation matters.</description>
     <language>en-IN</language>
-    <lastBuildDate>Fri, 08 May 2026 00:00:00 +0530</lastBuildDate>
+    <lastBuildDate>Wed, 13 May 2026 00:00:00 +0530</lastBuildDate>
     <atom:link href="https://chambersofak.in/feed.xml" rel="self" type="application/rss+xml" />
     <managingEditor>chambersofakadmin@gmail.com (Chambers of AK)</managingEditor>
     <webMaster>chambersofakadmin@gmail.com (Chambers of AK)</webMaster>
     <copyright>2026 Chambers of AK - Advocates &amp; Legal Consultants</copyright>
     <category>Legal Insights</category>
     <ttl>1440</ttl>
+    <item>
+      <title>Property Title Search Before Purchase in India</title>
+      <link>https://chambersofak.in/updates/property-title-search-before-purchase-india.html</link>
+      <guid isPermaLink="true">https://chambersofak.in/updates/property-title-search-before-purchase-india.html</guid>
+      <pubDate>Wed, 13 May 2026 00:00:00 +0530</pubDate>
+      <category>Property</category>
+      <description>Document-first guide to property title search before purchase in India: title-chain papers, revenue records, municipal records, encumbrance checks, litigation searches and state-wise record examples.</description>
+    </item>
             <item>
       <title>Case Brief: Can Non-Reportable Judgments Be Published Online?</title>
       <link>https://chambersofak.in/updates/non-reportable-judgments-online-publication-case-brief.html</link>
