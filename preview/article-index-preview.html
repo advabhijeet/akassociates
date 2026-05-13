@@ -48,9 +48,7 @@
       font-size: 0.95rem;
     }
 
-    .article-index-preview-notice strong {
-      color: var(--text, #141414);
-    }
+    .article-index-preview-notice strong { color: var(--text, #141414); }
 
     .article-index-preview-actions {
       max-width: 1180px;
@@ -91,12 +89,23 @@
     .article-index-preview-toc {
       position: sticky;
       top: 112px;
+      align-self: start;
+      max-height: calc(100vh - 136px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      scrollbar-width: thin;
       padding: 22px;
       border: 1px solid rgba(212, 175, 55, 0.34);
       border-radius: 22px;
       background: rgba(255, 255, 255, 0.74);
       box-shadow: 0 24px 70px rgba(0, 0, 0, 0.13);
       backdrop-filter: blur(18px);
+    }
+
+    .article-index-preview-toc::-webkit-scrollbar { width: 6px; }
+    .article-index-preview-toc::-webkit-scrollbar-thumb {
+      border-radius: 999px;
+      background: rgba(212, 175, 55, 0.55);
     }
 
     [data-ak-theme="dark"] .article-index-preview-toc,
@@ -186,9 +195,7 @@
       letter-spacing: 0.08em;
     }
 
-    .article-index-preview-content h2 {
-      scroll-margin-top: 112px;
-    }
+    .article-index-preview-content h2 { scroll-margin-top: 112px; }
 
     @media (max-width: 920px) {
       .article-index-preview-layout {
@@ -199,6 +206,8 @@
       .article-index-preview-toc {
         position: static;
         order: -1;
+        max-height: none;
+        overflow: visible;
         border-radius: 24px;
       }
 
@@ -207,9 +216,7 @@
         gap: 5px;
       }
 
-      .article-index-preview-toc a {
-        padding: 10px;
-      }
+      .article-index-preview-toc a { padding: 10px; }
     }
   </style>
 </head>
@@ -251,7 +258,7 @@
       <section class="article-index-preview-layout">
         <aside class="article-index-preview-toc" aria-labelledby="article-index-preview-title">
           <h2 id="article-index-preview-title">Article Index</h2>
-          <p class="article-index-preview-toc-note">Desktop uses the left rail. Mobile places this block below the hero before article content.</p>
+          <p class="article-index-preview-toc-note">Desktop keeps this index fixed while scrolling. If the index grows taller than the screen, it scrolls internally. Mobile keeps it below the hero.</p>
           <div class="article-index-preview-progress" aria-hidden="true"><span></span></div>
           <ol>
             <li><a class="is-active" href="#why-title-search-matters">Why title search matters</a></li>
