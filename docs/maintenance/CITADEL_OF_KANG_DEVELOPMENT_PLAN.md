@@ -45,6 +45,38 @@ local-only patch preparation
 non-production examples
 ```
 
+## Preservation Rule For Existing Features
+
+Citadel of Kang development must preserve the existing Chambers/Citadel feature base.
+
+The Newspaper WordPress theme package may be studied only as architecture inspiration. It must not replace or override the current Chambers of AK / Citadel feature system.
+
+Existing working features and operational decisions must be treated as the baseline, including:
+
+```text
+current premium black/white/gold visual identity
+dark mode / theme toggle behaviour
+mobile navigation behaviour
+current footer grouping and legal disclaimer structure
+current social/profile link strategy
+current GTM / Analytics / conversion event boundaries
+AdSense readiness and ads.txt decisions
+Search Console / canonical / sitemap / feed discipline
+article index decisions already approved in preview
+insights/filter/card behaviour already developed
+Chambers-specific compliance and non-solicitation boundaries
+PowerShell 7-compatible patch workflow
+```
+
+Rule:
+
+```text
+Preserve first.
+Refactor carefully.
+Only replace after explicit approval.
+Use external theme references for ideas, not substitution.
+```
+
 ## Theme Identity
 
 Theme name:
