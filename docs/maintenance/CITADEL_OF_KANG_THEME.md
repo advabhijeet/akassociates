@@ -13,6 +13,24 @@ Production site status:
 - Chambers of AK currently runs on the Citadel-derived live theme.
 - Existing production files should not be renamed in a rushed patch.
 - Renaming and restructuring should be performed through a single controlled PowerShell 7-compatible patch after the modular architecture is finalized.
+- Theme development may temporarily happen inside this repository because the current assets, implementation constraints and visual source material are here.
+- Live website rollout should happen only after the theme work is reviewed and applied through a controlled patch.
+
+## Temporary Development Repository Rule
+
+This repository is a temporary development and staging ground for Citadel of Kang only because Chambers of AK is the first implementation and the required assets already exist here.
+
+Long-term rule:
+
+```text
+Develop and validate Citadel of Kang here first.
+Roll it out to Chambers of AK only after review.
+After the theme is stable and final enough, extract Citadel of Kang into a fresh standalone repository.
+```
+
+The future standalone repository should contain the reusable theme package, cleaned documentation, modular CSS/JS files, examples and licensing/distribution notes. It should not carry unnecessary Chambers-specific content, legal articles, analytics IDs, private configuration, sitemap/feed files or law-firm-only implementation details.
+
+This repository must continue to remain the Chambers of AK website repository after extraction.
 
 ## Naming
 
@@ -63,6 +81,7 @@ This means:
 - Chambers-specific content, legal disclaimers, social links, analytics IDs and branding assets must stay separate from reusable theme logic.
 - The theme should not depend on `/updates/*.html`, `chambersofak.in`, law-firm-specific language, or any specific article route.
 - Chambers of AK may use default modules, but other websites must be able to opt in or opt out cleanly.
+- The theme may be developed here temporarily, but final reusable distribution should be moved to a clean repository after rollout.
 
 ## Proposed Folder Structure
 
@@ -221,6 +240,29 @@ A future PowerShell 7-compatible migration patch should perform:
 9. Remove the noindex article-index preview page after production rollout.
 10. Update documentation and changelog.
 11. Validate with `node --check`, `git diff --check`, and manual live checks.
+
+## Extraction Plan
+
+After Citadel of Kang is sufficiently stable and rolled out on Chambers of AK, create a fresh standalone repository for the theme.
+
+That future repository should include:
+
+- modular CSS and JS source files;
+- theme documentation;
+- sample pages;
+- usage examples for module activation and disabling;
+- branding-token examples;
+- changelog/versioning notes;
+- license/distribution notes once decided.
+
+That future repository should exclude:
+
+- Chambers of AK legal articles;
+- Chambers-specific contact details;
+- Chambers-specific social links;
+- Google Analytics/GTM/AdSense IDs;
+- sitemap/feed files from this site;
+- private or law-firm-only implementation details.
 
 ## Repository Rule
 
