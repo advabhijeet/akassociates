@@ -1,0 +1,62 @@
+/* Citadel of Kang Theme Pack: Navigation
+   Non-live development file. */
+
+.ck-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  min-height: var(--ck-nav-space);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-inline: clamp(1rem, 5vw, 4.5rem);
+  border-bottom: 1px solid rgba(var(--ck-rgb-gold), 0.28);
+  background: rgba(var(--ck-rgb-black), 0.94);
+  color: var(--ck-color-white);
+}
+
+.ck-nav-brand {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.ck-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ck-nav-links a {
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: none;
+}
+
+.ck-nav-links a:hover,
+.ck-nav-links a[aria-current="page"] {
+  color: var(--ck-color-gold);
+}
+
+.ck-menu-toggle {
+  display: none;
+}
+
+@media (max-width: 920px) {
+  .ck-nav-links {
+    display: none;
+  }
+
+  .ck-menu-toggle {
+    display: inline-flex;
+  }
+}
