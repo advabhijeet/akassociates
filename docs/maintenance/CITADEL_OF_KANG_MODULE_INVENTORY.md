@@ -18,6 +18,14 @@ Chambers-specific code stays in the Chambers implementation layer.
 Live rollout happens later through one controlled PowerShell 7-compatible patch.
 ```
 
+Latest-reference note:
+
+```text
+Use the Newspaper 12.7.6 reference analysis only for architecture/gap inspiration.
+Do not replace existing Chambers/Citadel features.
+Do not copy proprietary code, UI, assets or implementation.
+```
+
 ## Current Source Areas
 
 Current active sources to inspect and modularize:
@@ -29,6 +37,22 @@ assets/js/script.js
 assets/css/themes/citadel/modules/article-index.css
 assets/js/themes/citadel/article-index.js
 preview/article-index-preview.html
+```
+
+New non-live Citadel of Kang development sources:
+
+```text
+assets/css/themes/citadel-of-kang/index.css
+assets/css/themes/citadel-of-kang/tokens.css
+assets/css/themes/citadel-of-kang/core.css
+assets/css/themes/citadel-of-kang/layout.css
+assets/css/themes/citadel-of-kang/typography.css
+assets/css/themes/citadel-of-kang/navigation.css
+assets/css/themes/citadel-of-kang/footer.css
+assets/css/themes/citadel-of-kang/components.css
+assets/css/themes/citadel-of-kang/pages.css
+assets/css/themes/citadel-of-kang/modules/article-index.css
+assets/js/themes/citadel-of-kang/article-index.js
 ```
 
 Rollback source to preserve:
@@ -57,6 +81,68 @@ assets/js/themes/citadel/
 
 should be treated as transitional and migrated during the controlled feature patch.
 
+## Module Contract Standard
+
+Every Citadel module should eventually have a contract before production rollout.
+
+Required contract fields:
+
+```text
+module id
+module name
+version
+purpose
+frontend CSS path
+frontend JS path
+activation method
+public config keys
+required markup/data attributes
+default behavior
+disable behavior
+dependencies
+accessibility notes
+performance notes
+Chambers-specific override notes
+```
+
+General module rules:
+
+```text
+No-op safely when required markup/config is absent.
+Avoid route-only assumptions.
+Avoid Chambers-only content in reusable files.
+Keep admin/CMS functions outside public theme files.
+Expose safe public config only.
+```
+
+## Accessibility Foundation Inventory
+
+Accessibility items to integrate into reusable Citadel core/navigation/components:
+
+```text
+skip link
+semantic landmarks: banner, navigation, main, contentinfo
+focus-visible styling
+reduced-motion fallbacks
+keyboard-safe mobile navigation
+Escape key close behavior for drawers/dialogs
+aria-expanded and aria-controls on toggles
+aria-labels for icon-only controls
+accessible active states
+form labels and error states
+safe search/dialog pattern when search module exists
+```
+
+Chambers rollout must manually test:
+
+```text
+keyboard tab order
+mobile drawer keyboard behavior
+Article Index link focus/active state
+dark/light contrast
+reduced-motion sanity
+```
+
 ## CSS Migration Map
 
 ### tokens.css
@@ -72,6 +158,9 @@ gold accent system
 light/dark mode token mapping
 shadow/surface variables
 z-index and nav height variables
+global color token pattern
+global font token pattern
+component token pattern
 ```
 
 Chambers-specific values that may remain implementation tokens:
@@ -102,12 +191,15 @@ accessibility helpers
 reduced-motion handling
 focus-visible patterns
 base light/dark surfaces
+skip link pattern
+semantic landmark-friendly base styles
 ```
 
 Migration decision:
 
 ```text
 Extract from citadel-of-ak.css into citadel-of-kang/core.css where not Chambers-specific.
+Add accessibility primitives before live rollout.
 ```
 
 ### typography.css
@@ -122,6 +214,8 @@ small caps/eyebrow treatment
 blockquote/note patterns
 list spacing
 legal/editorial content hierarchy
+reading time/meta typography patterns
+article excerpt/subtitle typography patterns
 ```
 
 Chambers-specific items:
@@ -151,6 +245,8 @@ grid primitives
 hero section layout
 responsive breakpoints
 page-header spacing
+main landmark layout
+article/template-friendly layout primitives
 ```
 
 Migration decision:
@@ -171,6 +267,8 @@ menu toggle styles
 nav CTA styles
 topbar layout where optional
 scrolled nav state
+keyboard/focus styles
+accessible open/closed states
 ```
 
 Chambers-specific items:
@@ -198,6 +296,7 @@ grouped footer links
 footer social row styling
 footer disclaimer styling
 responsive footer layout
+contentinfo landmark-compatible footer structure
 ```
 
 Chambers-specific items:
@@ -229,6 +328,8 @@ contact panels
 info grids
 alert/note boxes
 social icon styles
+focus states
+editor-friendly blocks for future CMS
 ```
 
 Migration decision:
@@ -247,6 +348,9 @@ about/practice page layout patterns
 article body page layout
 contact/process/FAQ page patterns where generic
 updates grid structure
+article template patterns
+listing/category template patterns
+search/404 template patterns later
 ```
 
 Chambers-specific items:
@@ -290,6 +394,7 @@ active section state
 reading progress bar
 mobile/tablet below-hero layout
 light/dark contrast states
+keyboard focus states
 ```
 
 Rules:
@@ -298,6 +403,39 @@ Rules:
 No Chambers-specific route dependency.
 No hardcoded article titles.
 No hardcoded chambersofak.in references.
+Preserve approved Chambers preview behavior.
+```
+
+### modules/reading-time.css
+
+Future source:
+
+```text
+assets/css/themes/citadel-of-kang/modules/reading-time.css
+```
+
+Reusable module items:
+
+```text
+reading time badge/meta style
+article meta row integration
+compact mobile style
+```
+
+### modules/reading-progress.css
+
+Future source:
+
+```text
+assets/css/themes/citadel-of-kang/modules/reading-progress.css
+```
+
+Reusable module items:
+
+```text
+top progress rail
+article-local progress rail
+reduced-motion compatible transitions
 ```
 
 ### modules/insights-filter.css
@@ -309,6 +447,7 @@ filter button row
 active filter button
 hidden-card state
 filter status text
+keyboard-focus state
 ```
 
 Chambers-specific items:
@@ -377,6 +516,8 @@ utility functions
 CSS variable helpers
 reduced-motion helpers
 module config reader
+safe public config reader
+module registry/bootstrap pattern
 ```
 
 Avoid:
@@ -385,6 +526,8 @@ Avoid:
 GTM IDs
 Chambers-specific URLs
 article registry content
+admin write functions
+private config
 ```
 
 ### theme-toggle.js
@@ -438,6 +581,8 @@ CSS --nav-space update
 Escape key close
 backdrop handling
 active nav state
+aria-expanded/aria-controls updates
+keyboard-safe close behavior
 ```
 
 Chambers-specific items:
@@ -515,6 +660,7 @@ mobile non-fixed index
 active latest-visible-heading tracking
 progress bar update
 Back to top handling
+keyboard/focus-safe behavior
 ```
 
 Rules:
@@ -523,6 +669,41 @@ Rules:
 No /updates/*.html dependency.
 No Chambers content dependency.
 No hardcoded article titles.
+```
+
+### reading-time.js
+
+Future source:
+
+```text
+assets/js/themes/citadel-of-kang/reading-time.js
+```
+
+Reusable module items:
+
+```text
+article text extraction
+configurable words-per-minute value
+reading time output into data-citadel-reading-time target
+safe no-op if target/article absent
+```
+
+### reading-progress.js
+
+Future source:
+
+```text
+assets/js/themes/citadel-of-kang/reading-progress.js
+```
+
+Reusable module items:
+
+```text
+scroll progress calculation
+article-specific progress target option
+document-level progress option
+reduced-motion-safe update
+safe no-op if module disabled
 ```
 
 ### insights-filter.js
@@ -638,6 +819,59 @@ Migration decision:
 Keep out of core. Make optional/configurable or Chambers implementation-only.
 ```
 
+## Future Citadel Manager / CMS Inventory
+
+Citadel Manager is a separate future product, not part of the theme pack.
+
+Relevant planning areas from latest-reference analysis:
+
+```text
+site dashboard
+site identity manager
+theme switcher
+theme settings panel
+global colors/fonts
+header/footer builder
+menu manager
+page/article editor
+media manager
+SEO manager
+template manager
+plugin/module manager
+public-safe config generator
+publish/export/deploy adapter
+backup/restore history
+admin role protection
+```
+
+Template manager future types:
+
+```text
+home template
+standard page template
+article template
+article listing/category template
+search template
+404 template
+contact template
+policy/legal template
+future custom content type templates
+```
+
+Plugin/module manager future capabilities:
+
+```text
+module install/register
+module enable/disable
+module settings schema
+module dependency checks
+public-safe config output
+frontend asset loading rules
+accessibility/performance notes
+version tracking
+rollback/disable option
+```
+
 ## Chambers-Specific Implementation Layer
 
 The following should remain outside reusable Citadel core:
@@ -667,6 +901,7 @@ Potential future file:
 ```text
 assets/js/chambers-implementation.js
 assets/css/chambers-overrides.css
+assets/config/chambers-public.config.json
 ```
 
 These should be considered only during a later controlled rollout.
@@ -700,9 +935,11 @@ Do not activate the new modular system until:
 1. Citadel of Kang files are created in final namespace.
 2. Modules are route-agnostic and configurable.
 3. Chambers-specific data is separated or clearly marked.
-4. A PowerShell 7 patch is prepared and reviewed.
-5. Validation commands are included.
-6. Manual live-check instructions are included.
+4. Accessibility foundation requirements are checked.
+5. Module contracts are documented for production modules.
+6. A PowerShell 7 patch is prepared and reviewed.
+7. Validation commands are included.
+8. Manual live-check instructions are included.
 ```
 
 ## PowerShell Patch Scope Later
@@ -744,8 +981,11 @@ assets/js/themes/citadel-of-kang/**
 neutral demo pages
 README
 module usage docs
+module contract docs
 activation examples
 configuration examples
+accessibility checklist
+performance checklist
 license notes
 changelog
 ```
@@ -760,6 +1000,8 @@ contact details
 legal-service disclaimers specific to Chambers
 google/search console files
 sitemap/feed files
+Citadel Manager/CMS backend
+Client Portal private data or code
 ```
 
 ## Immediate Development Priorities
@@ -767,10 +1009,12 @@ sitemap/feed files
 Next practical development sequence:
 
 ```text
-1. Create final citadel-of-kang folder structure.
-2. Move Article Index module into final namespace.
-3. Draft module README/usage notes.
-4. Create or preserve preview-only demo page.
-5. Plan separation of script.js into reusable and Chambers-specific modules.
-6. Prepare PowerShell patch only after architecture is reviewed.
+1. Keep final citadel-of-kang folder structure non-live.
+2. Preserve Article Index module in final namespace.
+3. Draft module README/usage notes and module contract format.
+4. Add accessibility foundation notes to core/navigation planning.
+5. Plan reading-time and reading-progress modules.
+6. Create or preserve preview-only demo page.
+7. Plan separation of script.js into reusable and Chambers-specific modules.
+8. Prepare PowerShell patch only after architecture is reviewed.
 ```
