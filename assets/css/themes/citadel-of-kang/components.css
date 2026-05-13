@@ -1,0 +1,74 @@
+/* Citadel of Kang Theme Pack: Components
+   Non-live development file. */
+
+.ck-button,
+.ck-button:visited {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(var(--ck-rgb-gold), 0.74);
+  border-radius: 999px;
+  color: #050505;
+  background: linear-gradient(135deg, var(--ck-color-gold-muted), var(--ck-color-gold) 58%, var(--ck-color-gold-dark));
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.ck-button:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.ck-card {
+  border: 1px solid var(--ck-color-line);
+  border-radius: var(--ck-radius-xl);
+  background: var(--ck-color-surface);
+  box-shadow: var(--ck-shadow-card);
+}
+
+.ck-card-pad {
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.ck-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid rgba(var(--ck-rgb-gold), 0.35);
+  border-radius: 999px;
+  color: #55491f;
+  background: rgba(var(--ck-rgb-gold), 0.12);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.ck-note {
+  padding: 1.1rem 1.25rem;
+  border-left: 3px solid var(--ck-color-gold);
+  background: rgba(var(--ck-rgb-gold), 0.08);
+  color: var(--ck-color-ink);
+}
+
+.ck-form-field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.ck-input,
+.ck-textarea,
+.ck-select {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--ck-color-line);
+  border-radius: var(--ck-radius-sm);
+  color: var(--ck-color-ink);
+  background: var(--ck-color-white);
+}
