@@ -345,7 +345,7 @@
       <section class="article-index-preview-layout">
         <aside class="article-index-preview-toc" aria-labelledby="article-index-preview-title">
           <h2 id="article-index-preview-title">Article Index</h2>
-          <p class="article-index-preview-toc-note">Desktop keeps this index fixed while scrolling. The active state follows the section nearest the middle reading line.</p>
+          <p class="article-index-preview-toc-note">Desktop keeps this index fixed while scrolling. The active state follows the latest heading visible in the article viewport.</p>
           <div class="article-index-preview-progress" aria-hidden="true"><span></span></div>
           <ol>
             <li><a class="is-active" href="#why-title-search-matters">Why title search matters</a></li>
@@ -408,7 +408,6 @@
     (function () {
       var layout = document.querySelector('.article-index-preview-layout');
       var toc = document.querySelector('.article-index-preview-toc');
-      var article = document.querySelector('.article-index-preview-content');
       var links = Array.prototype.slice.call(document.querySelectorAll('.article-index-preview-toc a[href^="#"]')).filter(function (link) { return link.getAttribute('href') !== '#top'; });
       var sections = links.map(function (link) { return document.querySelector(link.getAttribute('href')); }).filter(Boolean);
       var progress = document.querySelector('.article-index-preview-progress span');
@@ -448,20 +447,20 @@
         else if (scrollY > fixedEnd) layout.classList.add('is-index-after');
       }
 
-      function getCurrentSectionByReadingLine() {
+      function getCurrentSectionByLatestVisibleHeading() {
         if (!sections.length) return null;
-        var readingLine = Math.min(window.innerHeight * 0.58, window.innerHeight - 260);
-        readingLine = Math.max(220, readingLine);
+        var viewportBottomLine = window.innerHeight - 80;
         var current = sections[0];
         sections.forEach(function (section) {
-          if (section.getBoundingClientRect().top <= readingLine) current = section;
+          var rect = section.getBoundingClientRect();
+          if (rect.top <= viewportBottomLine) current = section;
         });
         return current;
       }
 
       function setActiveArticleIndexItem() {
         updateArticleIndexRail();
-        var current = getCurrentSectionByReadingLine();
+        var current = getCurrentSectionByLatestVisibleHeading();
         if (current) {
           links.forEach(function (link) { link.classList.toggle('is-active', link.getAttribute('href') === '#' + current.id); });
         }
