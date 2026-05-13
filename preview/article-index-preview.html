@@ -63,20 +63,29 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 38px;
-      padding: 9px 14px;
+      min-height: 40px;
+      padding: 10px 16px;
       border-radius: 999px;
-      border: 1px solid rgba(212, 175, 55, 0.42);
-      color: var(--text, #141414);
-      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid rgba(212, 175, 55, 0.9);
+      color: #080808;
+      background: linear-gradient(135deg, #f2d675 0%, #d4af37 52%, #b68f20 100%);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.35);
       text-decoration: none;
+      text-shadow: none;
+      opacity: 1;
       font-size: 0.82rem;
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: 0.04em;
       text-transform: uppercase;
     }
 
+    .article-index-preview-actions a:hover {
+      filter: brightness(1.08);
+      transform: translateY(-1px);
+    }
+
     .article-index-preview-layout {
+      position: relative;
       max-width: 1180px;
       margin: 0 auto;
       padding: clamp(30px, 5vw, 56px) clamp(18px, 4vw, 36px) 90px;
@@ -88,18 +97,19 @@
 
     .article-index-preview-toc {
       position: sticky;
-      top: 112px;
+      top: 122px;
       align-self: start;
-      max-height: calc(100vh - 136px);
+      max-height: calc(100vh - 146px);
       overflow-y: auto;
       overscroll-behavior: contain;
       scrollbar-width: thin;
       padding: 22px;
       border: 1px solid rgba(212, 175, 55, 0.34);
       border-radius: 22px;
-      background: rgba(255, 255, 255, 0.74);
+      background: rgba(255, 255, 255, 0.9);
       box-shadow: 0 24px 70px rgba(0, 0, 0, 0.13);
       backdrop-filter: blur(18px);
+      z-index: 9;
     }
 
     .article-index-preview-toc::-webkit-scrollbar { width: 6px; }
@@ -111,8 +121,8 @@
     [data-ak-theme="dark"] .article-index-preview-toc,
     html[data-ak-theme="dark"] .article-index-preview-toc,
     body[data-ak-theme="dark"] .article-index-preview-toc {
-      background: rgba(18, 18, 18, 0.78);
-      border-color: rgba(212, 175, 55, 0.38);
+      background: rgba(245, 245, 241, 0.92);
+      border-color: rgba(212, 175, 55, 0.5);
     }
 
     .article-index-preview-toc h2 {
@@ -120,11 +130,12 @@
       font-family: Georgia, 'Times New Roman', serif;
       font-size: 1.22rem;
       font-weight: 600;
+      color: #232018;
     }
 
     .article-index-preview-toc-note {
       margin: 0 0 16px;
-      color: var(--text-muted, #6d675d);
+      color: #5a554b;
       font-size: 0.86rem;
       line-height: 1.5;
     }
@@ -161,7 +172,7 @@
       align-items: start;
       padding: 9px 10px;
       border-radius: 14px;
-      color: var(--text, #141414);
+      color: #171717;
       text-decoration: none;
       font-size: 0.88rem;
       line-height: 1.35;
@@ -171,31 +182,52 @@
 
     .article-index-preview-toc a::before {
       content: counter(toc, decimal-leading-zero);
-      color: #d4af37;
+      color: #b68f20;
       font-size: 0.72rem;
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: 0.04em;
     }
 
     .article-index-preview-toc a:hover,
     .article-index-preview-toc a.is-active {
-      background: rgba(212, 175, 55, 0.18);
-      border-color: rgba(212, 175, 55, 0.3);
+      background: rgba(212, 175, 55, 0.22);
+      border-color: rgba(212, 175, 55, 0.42);
       transform: translateX(2px);
     }
 
     .article-index-preview-back-top {
       display: inline-flex;
       margin-top: 18px;
-      color: #8b6f16;
+      color: #171717;
       font-size: 0.84rem;
       text-decoration: none;
-      font-weight: 800;
+      font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 0.08em;
     }
 
-    .article-index-preview-content h2 { scroll-margin-top: 112px; }
+    .article-index-preview-content h2 { scroll-margin-top: 122px; }
+
+    @media (min-width: 921px) {
+      .article-index-preview-toc { grid-column: 1; }
+      .article-index-preview-content { grid-column: 2; }
+
+      .article-index-preview-layout.is-index-fixed .article-index-preview-toc {
+        position: fixed;
+        top: var(--article-index-top, 122px);
+        left: var(--article-index-left, 40px);
+        width: var(--article-index-width, 280px);
+        max-height: calc(100vh - var(--article-index-top, 122px) - 24px);
+      }
+
+      .article-index-preview-layout.is-index-after .article-index-preview-toc {
+        position: absolute;
+        top: auto;
+        bottom: 90px;
+        left: var(--article-index-local-left, 36px);
+        width: var(--article-index-width, 280px);
+      }
+    }
 
     @media (max-width: 920px) {
       .article-index-preview-layout {
@@ -361,6 +393,8 @@
   </div>
   <script>
     (function () {
+      var layout = document.querySelector('.article-index-preview-layout');
+      var toc = document.querySelector('.article-index-preview-toc');
       var links = Array.prototype.slice.call(document.querySelectorAll('.article-index-preview-toc a[href^="#"]')).filter(function (link) {
         return link.getAttribute('href') !== '#top';
       });
@@ -369,24 +403,64 @@
       }).filter(Boolean);
       var progress = document.querySelector('.article-index-preview-progress span');
 
+      function getScrollY() {
+        return window.pageYOffset || document.documentElement.scrollTop || 0;
+      }
+
+      function updateArticleIndexRail() {
+        if (!layout || !toc) return;
+        layout.classList.remove('is-index-fixed', 'is-index-after');
+
+        if (window.innerWidth <= 920) {
+          toc.style.removeProperty('--article-index-left');
+          toc.style.removeProperty('--article-index-width');
+          toc.style.removeProperty('--article-index-local-left');
+          toc.style.removeProperty('--article-index-top');
+          return;
+        }
+
+        var topOffset = 122;
+        var scrollY = getScrollY();
+        var layoutRect = layout.getBoundingClientRect();
+        var tocRect = toc.getBoundingClientRect();
+        var layoutTop = layoutRect.top + scrollY;
+        var layoutBottom = layoutTop + layout.offsetHeight;
+        var tocHeight = Math.min(toc.scrollHeight, window.innerHeight - topOffset - 24);
+        var fixedStart = layoutTop - topOffset;
+        var fixedEnd = layoutBottom - tocHeight - topOffset;
+
+        toc.style.setProperty('--article-index-left', tocRect.left + 'px');
+        toc.style.setProperty('--article-index-width', tocRect.width + 'px');
+        toc.style.setProperty('--article-index-local-left', (tocRect.left - layoutRect.left) + 'px');
+        toc.style.setProperty('--article-index-top', topOffset + 'px');
+
+        if (scrollY >= fixedStart && scrollY <= fixedEnd) {
+          layout.classList.add('is-index-fixed');
+        } else if (scrollY > fixedEnd) {
+          layout.classList.add('is-index-after');
+        }
+      }
+
       function setActiveArticleIndexItem() {
+        updateArticleIndexRail();
         if (!sections.length) return;
         var current = sections[0];
         sections.forEach(function (section) {
           var rect = section.getBoundingClientRect();
-          if (rect.top < 160) current = section;
+          if (rect.top < 170) current = section;
         });
         links.forEach(function (link) {
           link.classList.toggle('is-active', link.getAttribute('href') === '#' + current.id);
         });
 
         var documentHeight = document.documentElement.scrollHeight - window.innerHeight;
-        var percentage = documentHeight > 0 ? Math.min(100, Math.max(0, (window.scrollY / documentHeight) * 100)) : 0;
+        var percentage = documentHeight > 0 ? Math.min(100, Math.max(0, (getScrollY() / documentHeight) * 100)) : 0;
         if (progress) progress.style.width = percentage + '%';
       }
 
       window.addEventListener('scroll', setActiveArticleIndexItem, { passive: true });
       window.addEventListener('resize', setActiveArticleIndexItem);
+      window.addEventListener('load', setActiveArticleIndexItem);
       setActiveArticleIndexItem();
     })();
   </script>
