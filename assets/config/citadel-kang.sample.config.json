@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "0.1.0",
+  "site": {
+    "name": "Citadel Demo Site",
+    "tagline": "A reusable static-first theme system.",
+    "url": "https://example.com",
+    "language": "en"
+  },
+  "theme": {
+    "selected": "citadel-of-kang",
+    "defaultMode": "light",
+    "accent": "#D4AF37",
+    "fontDisplay": "Georgia, Times New Roman, serif",
+    "fontBody": "Inter, system-ui, sans-serif"
+  },
+  "assets": {
+    "logoLight": "",
+    "logoDark": "",
+    "favicon": "",
+    "socialImage": ""
+  },
+  "navigation": {
+    "primary": [
+      { "label": "Home", "url": "/" },
+      { "label": "Articles", "url": "/articles/" },
+      { "label": "Contact", "url": "/contact/" }
+    ]
+  },
+  "footer": {
+    "groups": [],
+    "notice": "This is a public-safe sample config for Citadel of Kang."
+  },
+  "social": {
+    "links": []
+  },
+  "modules": {
+    "themeToggle": true,
+    "socialBar": true,
+    "articleIndex": true,
+    "readingTime": true,
+    "readingProgress": true,
+    "insightsFilter": true,
+    "reveal": true,
+    "conversionEvents": false
+  },
+  "articleIndex": {
+    "minHeadings": 3,
+    "activeMode": "latest-visible-heading",
+    "showProgress": true,
+    "showBackToTop": true
+  },
+  "readingTime": {
+    "wordsPerMinute": 220,
+    "minimumMinutes": 1,
+    "label": "min read"
+  },
+  "readingProgress": {
+    "mode": "article",
+    "fallbackToDocument": true
+  }
+}
