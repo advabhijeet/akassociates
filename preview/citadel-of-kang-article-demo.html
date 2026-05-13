@@ -1,178 +1,524 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="citadel-of-kang-light">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow, noarchive" />
-  <title>Citadel of Kang Article Demo Preview</title>
-  <link rel="stylesheet" href="../assets/css/themes/citadel-of-kang/index.css" />
-  <link rel="stylesheet" href="../assets/css/themes/citadel-of-kang/modules/reading-time.css" />
-  <link rel="stylesheet" href="../assets/css/themes/citadel-of-kang/modules/reading-progress.css" />
+  <title>Citadel of Kang Article Index Preview</title>
   <style>
+    :root {
+      --ak-black: #050505;
+      --ak-ink: #141414;
+      --ak-muted: #6d675d;
+      --ak-gold: #d4af37;
+      --ak-gold-soft: rgba(212, 175, 55, 0.18);
+      --ak-paper: #fbfaf7;
+      --ak-card: rgba(255, 255, 255, 0.86);
+      --ak-line: rgba(20, 20, 20, 0.12);
+      --ak-shadow: 0 24px 70px rgba(0, 0, 0, 0.13);
+      --ak-radius: 22px;
+      --nav-space: 88px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      min-height: 100%;
+      scroll-behavior: smooth;
+    }
+
     body {
+      min-height: 100%;
+      margin: 0;
+      overflow-y: auto;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ak-ink);
       background:
         radial-gradient(circle at 20% 0%, rgba(212, 175, 55, 0.18), transparent 28rem),
         linear-gradient(135deg, #ffffff 0%, #f6f1e8 46%, #ffffff 100%);
+      line-height: 1.65;
     }
 
-    .demo-hero {
-      padding: clamp(4rem, 8vw, 7rem) 0 clamp(2.5rem, 5vw, 4rem);
-      border-bottom: 1px solid var(--ck-color-line);
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 999;
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: #050505;
+      background: var(--ak-gold);
+      font-size: 0.84rem;
+      font-weight: 800;
+      text-decoration: none;
+      transform: translateY(-170%);
+      transition: transform 180ms ease;
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      height: var(--nav-space);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 18px clamp(18px, 5vw, 72px);
+      background: rgba(7, 7, 7, 0.94);
+      color: #fff;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.28);
+      backdrop-filter: blur(16px);
+    }
+
+    .brand {
+      white-space: nowrap;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 0.95rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.76);
+      white-space: nowrap;
+    }
+
+    .hero {
+      padding: clamp(56px, 8vw, 96px) clamp(18px, 6vw, 88px) clamp(34px, 5vw, 52px);
+      border-bottom: 1px solid var(--ak-line);
       background:
-        linear-gradient(110deg, rgba(5, 5, 5, 0.92), rgba(12, 12, 12, 0.84)),
-        radial-gradient(circle at 85% 20%, rgba(212, 175, 55, 0.32), transparent 22rem);
-      color: var(--ck-color-white);
+        linear-gradient(110deg, rgba(5,5,5,0.92), rgba(12,12,12,0.84)),
+        radial-gradient(circle at 85% 20%, rgba(212,175,55,0.32), transparent 22rem);
+      color: #fff;
     }
 
-    .demo-hero .ck-lead {
-      color: rgba(255, 255, 255, 0.82);
+    .hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
     }
 
-    .demo-status {
-      margin-top: 1.2rem;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      color: var(--ak-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.19em;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 44px;
+      height: 1px;
+      background: var(--ak-gold);
+    }
+
+    h1 {
+      max-width: 940px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.3rem, 5vw, 4.9rem);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+      font-weight: 500;
+    }
+
+    .hero p {
+      max-width: 780px;
+      margin: 24px 0 0;
+      color: rgba(255,255,255,0.82);
+      font-size: clamp(1rem, 1.7vw, 1.2rem);
+    }
+
+    .preview-label {
+      max-width: 1180px;
+      margin: 24px auto 0;
+      padding: 0 clamp(18px, 4vw, 36px);
+      color: var(--ak-muted);
+      font-size: 0.9rem;
+    }
+
+    .preview-label strong { color: var(--ak-ink); }
+
+    .preview-actions {
+      max-width: 1180px;
+      margin: 14px auto 0;
+      padding: 0 clamp(18px, 4vw, 36px);
       display: flex;
       flex-wrap: wrap;
-      gap: 0.65rem;
+      gap: 10px;
     }
 
-    .demo-preview-note {
-      width: min(var(--ck-container), calc(100% - clamp(2rem, 8vw, 6rem)));
-      margin: 1.5rem auto 0;
-      color: var(--ck-color-muted);
-      font-size: 0.92rem;
+    .preview-actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(212,175,55,0.42);
+      color: #3e3108;
+      background: rgba(212,175,55,0.12);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
-    .demo-actions {
-      width: min(var(--ck-container), calc(100% - clamp(2rem, 8vw, 6rem)));
-      margin: 0.9rem auto 0;
+    .article-wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: clamp(30px, 5vw, 56px) clamp(18px, 4vw, 36px) 90px;
+      display: grid;
+      grid-template-columns: minmax(230px, 280px) minmax(0, 1fr);
+      align-items: start;
+      gap: clamp(26px, 4vw, 48px);
+    }
+
+    .article-index {
+      position: sticky;
+      top: calc(var(--nav-space) + 22px);
+      max-height: calc(100vh - var(--nav-space) - 44px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding: 22px;
+      border: 1px solid rgba(212, 175, 55, 0.34);
+      border-radius: var(--ak-radius);
+      background: rgba(255,255,255,0.86);
+      box-shadow: var(--ak-shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .article-index h2 {
+      margin: 0 0 4px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.22rem;
+      font-weight: 600;
+    }
+
+    .index-note {
+      margin: 0 0 16px;
+      color: var(--ak-muted);
+      font-size: 0.86rem;
+      line-height: 1.5;
+    }
+
+    .index-progress {
+      height: 4px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(20,20,20,0.1);
+      margin: 0 0 18px;
+    }
+
+    .index-progress span {
+      display: block;
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--ak-gold), #f5dc89);
+    }
+
+    .article-index ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 7px;
+      counter-reset: toc;
+    }
+
+    .article-index a {
+      counter-increment: toc;
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 9px;
+      align-items: start;
+      padding: 9px 10px;
+      border-radius: 14px;
+      color: var(--ak-ink);
+      text-decoration: none;
+      font-size: 0.88rem;
+      line-height: 1.35;
+      border: 1px solid transparent;
+      transition: 180ms ease;
+    }
+
+    .article-index a::before {
+      content: counter(toc, decimal-leading-zero);
+      color: var(--ak-gold);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .article-index a:hover,
+    .article-index a.is-active {
+      background: var(--ak-gold-soft);
+      border-color: rgba(212, 175, 55, 0.3);
+      transform: translateX(2px);
+    }
+
+    .article-card {
+      padding: clamp(24px, 4vw, 48px);
+      border: 1px solid var(--ak-line);
+      border-radius: 30px;
+      background: var(--ak-card);
+      box-shadow: var(--ak-shadow);
+    }
+
+    .article-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.65rem;
+      gap: 10px;
+      margin-bottom: 24px;
     }
 
-    .demo-article-shell {
-      padding: clamp(2rem, 5vw, 3.5rem) clamp(1rem, 4vw, 2.25rem) 5.5rem;
+    .article-meta span {
+      padding: 7px 11px;
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      border-radius: 999px;
+      color: #55491f;
+      background: rgba(212, 175, 55, 0.12);
+      font-size: 0.78rem;
+      font-weight: 700;
     }
 
-    .article-index-layout .article-body {
-      padding: clamp(1.5rem, 4vw, 3rem);
-      border: 1px solid var(--ck-color-line);
-      border-radius: var(--ck-radius-xl);
-      background: var(--ck-color-surface);
-      box-shadow: var(--ck-shadow-card);
+    .article-summary {
+      margin: 0 0 32px;
+      padding: 20px 22px;
+      border-left: 3px solid var(--ak-gold);
+      background: rgba(212, 175, 55, 0.08);
+      color: #34302a;
+      font-size: 1.04rem;
     }
 
-    .demo-info-grid {
+    .article-card h2 {
+      scroll-margin-top: calc(var(--nav-space) + 28px);
+      margin: 42px 0 12px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.5rem, 2.6vw, 2rem);
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+    }
+
+    .article-card h2:first-of-type { margin-top: 0; }
+
+    .article-card p,
+    .article-card li {
+      color: #282520;
+      font-size: 1rem;
+    }
+
+    .article-card ul { padding-left: 1.2rem; }
+
+    .info-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.9rem;
-      margin: 1.2rem 0 0.4rem;
+      gap: 14px;
+      margin: 18px 0 6px;
     }
 
-    .demo-info-grid section {
-      padding: 1rem;
-      border: 1px solid var(--ck-color-line);
-      border-radius: var(--ck-radius-md);
-      background: rgba(255, 255, 255, 0.62);
+    .info-item {
+      padding: 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(20,20,20,0.1);
+      background: rgba(255,255,255,0.7);
     }
 
-    .demo-info-grid h3 {
-      margin: 0 0 0.4rem;
-      font-family: var(--ck-font-display);
+    .info-item h3 {
+      margin: 0 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      color: #1a1713;
     }
 
-    @media (max-width: 760px) {
-      .demo-info-grid {
+    .back-top {
+      display: inline-flex;
+      margin-top: 18px;
+      color: #5c4b11;
+      font-size: 0.84rem;
+      text-decoration: none;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 920px) {
+      .nav-links { display: none; }
+
+      .article-wrap {
+        grid-template-columns: 1fr;
+        padding-top: 24px;
+      }
+
+      .article-index {
+        position: static;
+        order: -1;
+        max-height: none;
+        overflow: visible;
+        border-radius: 24px;
+      }
+
+      .article-index ol {
+        grid-template-columns: 1fr;
+        gap: 5px;
+      }
+
+      .article-index a {
+        padding: 10px;
+      }
+
+      .info-grid {
         grid-template-columns: 1fr;
       }
     }
+
+    @media (max-width: 560px) {
+      :root { --nav-space: 70px; }
+      .nav { padding: 14px 18px; }
+      .brand { font-size: 0.78rem; }
+      .hero { padding: 42px 18px 28px; }
+      .article-card { border-radius: 24px; }
+      .article-index { padding: 18px; }
+    }
   </style>
 </head>
-<body id="top" data-citadel-article-index="true" data-citadel-reading-time="true" data-citadel-reading-progress="true">
+<body id="top">
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <header class="ck-nav" role="banner">
-    <a class="ck-nav-brand" href="../index.html" aria-label="Preview home">
-      <span>Citadel of Kang</span>
-    </a>
-    <nav aria-label="Preview navigation">
-      <ul class="ck-nav-links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../legal-updates.html">Insights</a></li>
-        <li><a href="../contact.html">Contact</a></li>
-      </ul>
-    </nav>
-    <button class="ck-button ck-menu-toggle" type="button" aria-label="Preview menu">Menu</button>
+  <nav class="nav" aria-label="Preview navigation">
+    <div class="brand">Citadel of Kang</div>
+    <div class="nav-links">
+      <span>Home</span><span>Practice</span><span>Insights</span><span>Contact</span>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Noindex Preview</div>
+      <h1>Citadel of Kang Article Demo</h1>
+      <p>A stable hosted preview for testing the article index layout before connecting unfinished Citadel modules to production pages.</p>
+    </div>
   </header>
 
-  <div class="citadel-reading-progress is-fixed" data-citadel-reading-progress aria-hidden="true"><span></span></div>
-
-  <section class="demo-hero">
-    <div class="ck-page-hero-inner">
-      <div class="ck-eyebrow">Noindex preview</div>
-      <h1 class="ck-display">Citadel of Kang Article Demo</h1>
-      <p class="ck-lead">A preview-only page for testing the final Citadel namespace, Article Index module, Reading Time module, Reading Progress module and accessibility foundation without touching production article pages.</p>
-      <div class="demo-status" aria-label="Demo module status">
-        <span class="ck-tag">Article Index</span>
-        <span class="ck-tag" data-citadel-reading-time-output>Reading time pending</span>
-        <span class="ck-tag">Reading Progress</span>
-        <span class="ck-tag">Noindex</span>
-      </div>
-    </div>
-  </section>
-
-  <p class="demo-preview-note"><strong>Preview only.</strong> This page is intentionally marked noindex and is not intended for sitemap/feed inclusion. It exists to test Citadel modules before Chambers production rollout.</p>
-  <div class="demo-actions">
-    <a class="ck-button" href="#module-boundary">Jump to module boundary</a>
-    <a class="ck-button" href="#state-wise-adaptation">Jump to adaptation</a>
-    <a class="ck-button" href="#validation-checks">Jump to validation</a>
+  <div class="preview-label"><strong>Preview only.</strong> This page is intentionally marked noindex and is not intended for sitemap/feed inclusion. It exists to test Citadel layout behaviour before Chambers production rollout.</div>
+  <div class="preview-actions">
+    <a href="#why-title-search-matters">Try section jump</a>
+    <a href="#state-wise-records">Jump to state-wise records</a>
+    <a href="#official-references">Jump to references</a>
   </div>
 
-  <main id="main-content" class="demo-article-shell">
-    <article class="article-body ck-prose" data-citadel-article-index data-citadel-reading-time data-citadel-reading-progress-source>
-      <p class="ck-article-summary">This demo intentionally uses neutral article text. Chambers of AK remains the first implementation, but Citadel of Kang must be reusable across different websites, routes and content types.</p>
+  <main id="main-content" class="article-wrap">
+    <aside class="article-index" aria-labelledby="article-index-title">
+      <h2 id="article-index-title">Article Index</h2>
+      <p class="index-note">Jump directly to a section. On mobile, this block appears immediately after the hero.</p>
+      <div class="index-progress" aria-hidden="true"><span></span></div>
+      <ol>
+        <li><a class="is-active" href="#why-title-search-matters">Why title search matters</a></li>
+        <li><a href="#core-documents">Core documents to check</a></li>
+        <li><a href="#seller-capacity">Seller capacity and authority</a></li>
+        <li><a href="#revenue-municipal-records">Revenue and municipal records</a></li>
+        <li><a href="#encumbrance-litigation">Encumbrance and litigation checks</a></li>
+        <li><a href="#state-wise-records">State-wise record examples</a></li>
+        <li><a href="#red-flags">Red flags before purchase</a></li>
+        <li><a href="#buyer-checklist">Buyer enquiry checklist</a></li>
+        <li><a href="#official-references">Official references</a></li>
+      </ol>
+      <a class="back-top" href="#top">Back to top ↑</a>
+    </aside>
 
-      <h2 id="module-boundary">1. Module Boundary</h2>
-      <p>Citadel of Kang is the theme pack. Citadel Manager is the future admin-only website management product. The public website should only load safe frontend modules and generated public configuration.</p>
-      <p>The theme pack should not contain private admin credentials, repository write tokens, CMS backend logic, client portal data or Chambers-specific private implementation details.</p>
-
-      <h2 id="preserve-existing-features">2. Preserve Existing Features</h2>
-      <p>Existing Chambers/Citadel features remain the baseline. The current dark mode toggle, mobile navigation behavior, social link strategy, article index decisions, SEO discipline and PowerShell 7 patch workflow must be preserved unless expressly approved for replacement.</p>
-
-      <h2 id="route-agnostic-design">3. Route-Agnostic Design</h2>
-      <p>Citadel modules must not depend only on routes such as /updates/*.html. They should activate through data attributes, public-safe config and fallback markup detection.</p>
-
-      <h2 id="article-experience">4. Article Experience</h2>
-      <p>The Article Index module should support long-form pages, articles, guides, insights and documentation. Reading time and reading progress should be optional standalone modules that no-op safely when markup is absent.</p>
-
-      <h2 id="accessibility-foundation">5. Accessibility Foundation</h2>
-      <p>Citadel should include skip links, semantic landmarks, keyboard-safe navigation, visible focus states, reduced-motion handling, readable dark/light contrast and accessible module behavior.</p>
-
-      <h2 id="state-wise-adaptation">6. Adaptation Without Replication</h2>
-      <div class="demo-info-grid">
-        <section>
-          <h3>Allowed</h3>
-          <p>Study mature systems to identify missing capabilities and convert them into original Citadel-designed features.</p>
-        </section>
-        <section>
-          <h3>Not Allowed</h3>
-          <p>Do not copy proprietary code, assets, UI layouts, commercial builder logic or naming conventions.</p>
-        </section>
+    <article class="article-card">
+      <div class="article-meta">
+        <span>Preview</span>
+        <span>Article Index</span>
+        <span>Reading Layout</span>
+        <span>Noindex</span>
       </div>
 
-      <h2 id="cms-separation">7. CMS Separation</h2>
-      <p>Citadel Manager / Website CMS should later handle content editing, theme switching, template management, plugin/module management, SEO settings and publishing. It should not be merged into the theme pack.</p>
+      <p class="article-summary">This stable preview intentionally tests the approved article navigation layout first. The dynamic Citadel module implementation will be connected only after the layout itself is confirmed to scroll and behave correctly.</p>
 
-      <h2 id="client-portal-separation">8. Client Portal Separation</h2>
-      <p>The future client portal for matter status, documents and hearing dates must be a separate secure product with authentication, authorization, private storage and audit logs.</p>
+      <h2 id="why-title-search-matters">1. Why Title Search Matters Before Purchase</h2>
+      <p>Buying property without title verification can lead to disputes over ownership, possession, boundary, unpaid dues, mortgage, family claims, forged documents or pending litigation.</p>
+      <p>The purpose of a structured article index is to help readers navigate long-form legal content without losing their place.</p>
 
-      <h2 id="validation-checks">9. Validation Checks</h2>
-      <p>Before rollout, run JavaScript syntax checks, git whitespace checks and manual desktop/mobile/dark/light/keyboard tests. Production rollout should happen only through a controlled PowerShell 7-compatible patch.</p>
+      <h2 id="core-documents">2. Core Documents To Check In Every State</h2>
+      <ul>
+        <li>Current sale deed, gift deed, partition deed, conveyance deed, lease deed or other transfer instrument.</li>
+        <li>Previous title-chain documents showing ownership movement.</li>
+        <li>Mutation, revenue, municipal or property-tax records.</li>
+        <li>Encumbrance certificate or registration-search record where available.</li>
+      </ul>
+
+      <h2 id="seller-capacity">3. Seller-Side Capacity And Authority</h2>
+      <p>Title search is incomplete without checking whether the seller is legally competent to sell. Individual, company, trust, society, developer and inherited-property transactions require different authority records.</p>
+      <p>The index must remain usable even when article sections contain varied content lengths.</p>
+
+      <h2 id="revenue-municipal-records">4. Revenue, Municipal And Possession Records</h2>
+      <p>Revenue and mutation entries can be useful, but they should not be treated as a complete substitute for title-chain documents.</p>
+      <p>Where records differ across states, the article layout should support explanatory grids, bullets and note boxes.</p>
+
+      <h2 id="encumbrance-litigation">5. Encumbrance, Mortgage And Litigation Checks</h2>
+      <p>Before purchase, check whether the property is mortgaged, attached, restrained by court order, involved in partition or injunction proceedings, subject to acquisition, or burdened with unpaid dues.</p>
+      <p>The left-side index should stay visible on desktop while allowing the page itself to scroll normally.</p>
+
+      <h2 id="state-wise-records">6. State-Wise Record Examples</h2>
+      <div class="info-grid">
+        <section class="info-item"><h3>Bihar</h3><p>Sale deed chain, jamabandi, khata, khesra, mutation and rent receipts.</p></section>
+        <section class="info-item"><h3>Delhi</h3><p>Sale deed, chain documents, DDA/MCD or society records depending on property type.</p></section>
+        <section class="info-item"><h3>Uttar Pradesh</h3><p>Khatauni, khasra, mutation, registry search and authority records.</p></section>
+        <section class="info-item"><h3>Maharashtra</h3><p>7/12 extract, property card, index-II, mutation entries and society records.</p></section>
+      </div>
+
+      <h2 id="red-flags">7. Red Flags Before Purchase</h2>
+      <ul>
+        <li>The seller cannot provide original title documents.</li>
+        <li>Possession and title records do not match.</li>
+        <li>Mutation or tax records conflict with the sale deed chain.</li>
+        <li>There are unclear heirship, family or co-owner issues.</li>
+      </ul>
+
+      <h2 id="buyer-checklist">8. Buyer Enquiry Checklist</h2>
+      <p>Prepare a short note with property location, seller details, property type, available title papers, possession status, pending loan details and current transaction stage.</p>
+      <p>This section adds enough length to confirm that the page scrolls normally and that the active index state keeps updating through later headings.</p>
+
+      <h2 id="official-references">9. Official References</h2>
+      <p>Official record systems vary by state. General statutory references may include the Transfer of Property Act, 1882 and Registration Act, 1908.</p>
+      <p>This final section confirms that the active index state can reach the last heading and that the sticky index does not block page scrolling.</p>
     </article>
   </main>
 
-  <script src="../assets/js/themes/citadel-of-kang/article-index.js"></script>
-  <script src="../assets/js/themes/citadel-of-kang/reading-time.js"></script>
-  <script src="../assets/js/themes/citadel-of-kang/reading-progress.js"></script>
+  <script>
+    const links = Array.from(document.querySelectorAll('.article-index a[href^="#"]')).filter(link => link.getAttribute('href') !== '#top');
+    const sections = links.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+    const progress = document.querySelector('.index-progress span');
+
+    const setActive = () => {
+      let current = sections[0];
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 90) current = section;
+      });
+      links.forEach(link => link.classList.toggle('is-active', link.getAttribute('href') === `#${current.id}`));
+
+      const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const percentage = documentHeight > 0 ? Math.min(100, Math.max(0, (window.scrollY / documentHeight) * 100)) : 0;
+      if (progress) progress.style.width = `${percentage}%`;
+    };
+
+    window.addEventListener('scroll', setActive, { passive: true });
+    window.addEventListener('resize', setActive);
+    setActive();
+  </script>
 </body>
 </html>
