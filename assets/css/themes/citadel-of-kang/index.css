@@ -13,3 +13,5 @@
 
 /* Optional modules. Keep module imports explicit and removable. */
 @import url("./modules/article-index.css");
+@import url("./modules/reading-time.css");
+@import url("./modules/reading-progress.css");
