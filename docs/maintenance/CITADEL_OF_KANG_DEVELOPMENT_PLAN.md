@@ -77,6 +77,44 @@ Only replace after explicit approval.
 Use external theme references for ideas, not substitution.
 ```
 
+## Inspiration Without Replication Rule
+
+Citadel of Kang may study mature systems such as the Newspaper WordPress theme package to identify missing capabilities and improve the product architecture.
+
+Permitted inspiration:
+
+```text
+admin-dashboard information architecture
+theme-panel categories
+module/plugin organization
+page-builder concepts
+template hierarchy concepts
+child-theme/customization concepts
+demo/import package concepts
+update/patch workflow concepts
+documentation and onboarding structure
+```
+
+Not permitted:
+
+```text
+copying proprietary code
+copying proprietary UI layouts exactly
+copying commercial assets or icons
+copying private naming conventions as product identity
+replicating implementation details line-by-line
+replacing existing Citadel/Chambers features without approval
+```
+
+Improvement rule:
+
+```text
+Take what we do not have.
+Adapt it into an original Citadel-designed feature.
+Keep what already works.
+Do not replicate.
+```
+
 ## Theme Identity
 
 Theme name:
