@@ -1,0 +1,44 @@
+/* Citadel of Kang Theme Pack: Tokens
+   Non-live development file. Keep reusable and implementation-configurable. */
+
+:root {
+  --ck-color-black: #050505;
+  --ck-color-white: #ffffff;
+  --ck-color-ink: #141414;
+  --ck-color-muted: #6d675d;
+  --ck-color-gold: #d4af37;
+  --ck-color-gold-dark: #b68f20;
+  --ck-color-gold-muted: #f5dc89;
+  --ck-color-paper: #fbfaf7;
+  --ck-color-surface: rgba(255, 255, 255, 0.86);
+  --ck-color-line: rgba(20, 20, 20, 0.12);
+
+  --ck-rgb-gold: 212, 175, 55;
+  --ck-rgb-black: 5, 5, 5;
+  --ck-rgb-white: 255, 255, 255;
+
+  --ck-font-display: Georgia, "Times New Roman", serif;
+  --ck-font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --ck-radius-sm: 10px;
+  --ck-radius-md: 16px;
+  --ck-radius-lg: 22px;
+  --ck-radius-xl: 30px;
+
+  --ck-shadow-card: 0 24px 70px rgba(0, 0, 0, 0.13);
+  --ck-shadow-strong: 0 30px 90px rgba(0, 0, 0, 0.32);
+
+  --ck-nav-space: 108px;
+  --ck-container: 1180px;
+  --ck-article-width: 820px;
+  --ck-transition: 180ms ease;
+}
+
+[data-theme^="citadel-of-kang-dark"],
+[data-theme="dark"] {
+  --ck-color-ink: #fff8e6;
+  --ck-color-muted: rgba(255, 248, 230, 0.76);
+  --ck-color-paper: #080808;
+  --ck-color-surface: rgba(8, 8, 8, 0.92);
+  --ck-color-line: rgba(212, 175, 55, 0.28);
+}
