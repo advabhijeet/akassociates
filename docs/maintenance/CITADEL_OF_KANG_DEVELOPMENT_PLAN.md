@@ -115,6 +115,27 @@ Keep what already works.
 Do not replicate.
 ```
 
+## Latest Reference Lessons Incorporated
+
+The latest reviewed reference package is the Newspaper 12.7.6 line. Future planning should use the latest-reference analysis document, not the older 11.4.3-era package, when considering architecture inspiration.
+
+New planning priorities added from latest-reference analysis:
+
+```text
+accessibility foundation
+module-aware CSS/JS loading
+module contract schema
+reading time module
+reading progress module
+template manager concepts
+plugin/module manager concepts
+public-safe config generation
+admin role/access separation
+backup/restore and update discipline
+```
+
+These are roadmap improvements only. They must be implemented as original Citadel/Citadel Manager features.
+
 ## Theme Identity
 
 Theme name:
@@ -139,6 +160,8 @@ citadel-kang-navigation-1
 citadel-kang-article-index-1
 citadel-kang-social-1
 citadel-kang-insights-1
+citadel-kang-reading-time-1
+citadel-kang-reading-progress-1
 ```
 
 ## Repository Role
@@ -176,11 +199,15 @@ buttons
 cards
 forms
 article index module
+reading time module
+reading progress module
 insights filter module
 theme toggle module
 social bar module
 reveal animation module
 conversion event hook pattern
+accessibility primitives
+module contract documentation
 ```
 
 Must not include:
@@ -193,6 +220,8 @@ chambersofak.in hardcoded references
 law-firm-only wording unless kept as sample content
 sitemap/feed files
 private configuration
+admin/CMS backend code
+client portal private data
 ```
 
 ### Track B — Chambers of AK Implementation Layer
@@ -213,6 +242,55 @@ site-specific schema
 site-specific analytics and ad configuration
 ```
 
+### Track C — Citadel Manager / Website CMS Product
+
+Citadel Manager is a separate future product. It is not the Citadel of Kang theme pack.
+
+Planned responsibilities:
+
+```text
+admin login and roles
+site dashboard
+content editor
+page/article manager
+media manager
+theme switcher
+theme settings panel
+global colors and fonts
+header/footer builder
+menu manager
+template manager
+plugin/module manager
+SEO manager
+public-safe config generator
+publish/export/deploy adapter
+backup/restore history
+```
+
+This should eventually live in a separate repository/product track.
+
+## Accessibility Foundation
+
+Citadel of Kang must adopt accessibility as a first-class theme requirement.
+
+Baseline accessibility requirements:
+
+```text
+skip link
+semantic landmarks: banner, navigation, main, contentinfo
+keyboard-safe navigation
+visible focus states
+reduced-motion support
+accessible menu open/close behavior
+accessible search/dialog patterns when added
+no keyboard traps
+aria labels for icon-only controls
+active state communication where appropriate
+form labels and error states
+```
+
+Every future module must include an accessibility note in its module contract.
+
 ## Proposed Theme Structure
 
 Target development structure:
@@ -222,6 +300,7 @@ assets/
 ├─ css/
 │  └─ themes/
 │     └─ citadel-of-kang/
+│        ├─ index.css
 │        ├─ tokens.css
 │        ├─ core.css
 │        ├─ layout.css
@@ -232,6 +311,8 @@ assets/
 │        ├─ pages.css
 │        └─ modules/
 │           ├─ article-index.css
+│           ├─ reading-time.css
+│           ├─ reading-progress.css
 │           ├─ insights-filter.css
 │           ├─ social-bar.css
 │           ├─ theme-toggle.css
@@ -245,12 +326,40 @@ assets/
          ├─ theme-toggle.js
          ├─ social-links.js
          ├─ article-index.js
+         ├─ reading-time.js
+         ├─ reading-progress.js
          ├─ insights-filter.js
          ├─ conversion-events.js
          └─ reveal.js
 ```
 
 The currently created intermediate namespace `assets/css/themes/citadel/modules/` and `assets/js/themes/citadel/` should be treated as transitional. The final planned namespace is `citadel-of-kang`.
+
+## Module Contract Schema
+
+Each Citadel module should eventually be documented with a simple contract.
+
+Module contract fields:
+
+```text
+module id
+module name
+version
+purpose
+frontend CSS path
+frontend JS path
+activation method
+public config keys
+required markup/data attributes
+default behavior
+disable behavior
+dependencies
+accessibility notes
+performance notes
+Chambers-specific override notes
+```
+
+Modules should be designed to no-op safely when required markup/config is absent.
 
 ## Module Inventory
 
@@ -272,6 +381,8 @@ The currently created intermediate namespace `assets/css/themes/citadel/modules/
 | Module | Purpose | Default Rule |
 |---|---|---|
 | article-index | auto-generate long-form article index | opt-in/fallback with 3+ h2 headings |
+| reading-time | estimate reading time for article content | only when article content exists and module enabled |
+| reading-progress | show article/document reading progress | only when progress target exists/module enabled |
 | insights-filter | filter content cards by tag/category | only when filter markup exists |
 | social-bar | render configured social links | requires configured links |
 | theme-toggle | light/dark mode | enabled where toggle markup/config exists |
@@ -325,7 +436,7 @@ post/
 custom CMS/static routes
 ```
 
-## Article Index Feature Update
+## Article Experience Feature Set
 
 Article Index is the first formal Citadel of Kang feature update.
 
@@ -356,6 +467,82 @@ explicit opt-in and opt-out support
 route-agnostic activation
 ```
 
+Future article modules:
+
+```text
+reading time estimate
+standalone reading progress indicator
+article subtitle/excerpt metadata slot
+related articles/content block
+article social sharing block, only where appropriate
+```
+
+For Chambers of AK, article experience modules must remain professional and non-solicitation oriented.
+
+## Template Manager Concepts For Future CMS
+
+Citadel Manager should eventually support template assignment, but this is not part of the theme pack itself.
+
+Template types to plan:
+
+```text
+home template
+standard page template
+article template
+article listing/category template
+search template
+404 template
+contact template
+policy/legal template
+future custom content type templates
+```
+
+Chambers first implementation template set:
+
+```text
+home
+about
+practice
+contact
+legal-updates hub
+article page
+policy pages
+preview pages
+```
+
+## Plugin / Module Manager Concepts For Future CMS
+
+Citadel Manager should eventually allow admin-only enable/disable controls for modules.
+
+Future plugin/module manager should support:
+
+```text
+module install/register
+module enable/disable
+module settings schema
+module dependency checks
+public-safe config output
+frontend asset loading rules
+accessibility/performance notes
+version tracking
+rollback/disable option
+```
+
+Initial Citadel module candidates:
+
+```text
+article-index
+reading-time
+reading-progress
+insights-filter
+social-bar
+theme-toggle
+reveal
+conversion-events
+seo-schema
+related-content
+```
+
 ## Migration Map From Current Site
 
 ### Reusable Theme Candidates
@@ -371,6 +558,8 @@ card grids and update cards
 insights filter behaviour
 home reveal animation pattern
 article index module draft
+accessibility primitives
+reading time/progress pattern later
 ```
 
 ### Chambers-Specific Implementation
@@ -409,6 +598,7 @@ Temporary items must be cleaned or migrated during the controlled feature patch.
 3. Separate reusable theme logic from Chambers-specific implementation.
 4. Keep production pipeline unchanged.
 5. Use preview/local pages only.
+6. Add accessibility and module-contract documentation before live rollout.
 ```
 
 ### Phase 2 — Local Patch Preparation
@@ -470,6 +660,9 @@ manual mobile preview
 manual dark/light mode test
 manual article heading/index test
 manual nav/footer test
+manual keyboard navigation test
+manual focus-visible test
+manual reduced-motion sanity check
 ```
 
 ## Commit Naming
