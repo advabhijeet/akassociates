@@ -1,0 +1,15 @@
+/* Citadel of Kang Theme Pack
+   Non-live development entrypoint.
+   This file is not imported by assets/css/style.css until a controlled rollout patch. */
+
+@import url("./tokens.css");
+@import url("./core.css");
+@import url("./layout.css");
+@import url("./typography.css");
+@import url("./navigation.css");
+@import url("./footer.css");
+@import url("./components.css");
+@import url("./pages.css");
+
+/* Optional modules. Keep module imports explicit and removable. */
+@import url("./modules/article-index.css");
