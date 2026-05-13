@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="citadel-of-kang-light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <title>Citadel of Kang Article Demo Preview</title>
+  <link rel="stylesheet" href="../assets/css/themes/citadel-of-kang/index.css" />
+  <link rel="stylesheet" href="../assets/css/themes/citadel-of-kang/modules/reading-time.css" />
+  <link rel="stylesheet" href="../assets/css/themes/citadel-of-kang/modules/reading-progress.css" />
+  <style>
+    body {
+      background:
+        radial-gradient(circle at 20% 0%, rgba(212, 175, 55, 0.18), transparent 28rem),
+        linear-gradient(135deg, #ffffff 0%, #f6f1e8 46%, #ffffff 100%);
+    }
+
+    .demo-hero {
+      padding: clamp(4rem, 8vw, 7rem) 0 clamp(2.5rem, 5vw, 4rem);
+      border-bottom: 1px solid var(--ck-color-line);
+      background:
+        linear-gradient(110deg, rgba(5, 5, 5, 0.92), rgba(12, 12, 12, 0.84)),
+        radial-gradient(circle at 85% 20%, rgba(212, 175, 55, 0.32), transparent 22rem);
+      color: var(--ck-color-white);
+    }
+
+    .demo-hero .ck-lead {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .demo-status {
+      margin-top: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+
+    .demo-preview-note {
+      width: min(var(--ck-container), calc(100% - clamp(2rem, 8vw, 6rem)));
+      margin: 1.5rem auto 0;
+      color: var(--ck-color-muted);
+      font-size: 0.92rem;
+    }
+
+    .demo-actions {
+      width: min(var(--ck-container), calc(100% - clamp(2rem, 8vw, 6rem)));
+      margin: 0.9rem auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+
+    .demo-article-shell {
+      padding: clamp(2rem, 5vw, 3.5rem) clamp(1rem, 4vw, 2.25rem) 5.5rem;
+    }
+
+    .article-index-layout .article-body {
+      padding: clamp(1.5rem, 4vw, 3rem);
+      border: 1px solid var(--ck-color-line);
+      border-radius: var(--ck-radius-xl);
+      background: var(--ck-color-surface);
+      box-shadow: var(--ck-shadow-card);
+    }
+
+    .demo-info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin: 1.2rem 0 0.4rem;
+    }
+
+    .demo-info-grid section {
+      padding: 1rem;
+      border: 1px solid var(--ck-color-line);
+      border-radius: var(--ck-radius-md);
+      background: rgba(255, 255, 255, 0.62);
+    }
+
+    .demo-info-grid h3 {
+      margin: 0 0 0.4rem;
+      font-family: var(--ck-font-display);
+    }
+
+    @media (max-width: 760px) {
+      .demo-info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body id="top" data-citadel-article-index="true" data-citadel-reading-time="true" data-citadel-reading-progress="true">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="ck-nav" role="banner">
+    <a class="ck-nav-brand" href="../index.html" aria-label="Preview home">
+      <span>Citadel of Kang</span>
+    </a>
+    <nav aria-label="Preview navigation">
+      <ul class="ck-nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../legal-updates.html">Insights</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="ck-button ck-menu-toggle" type="button" aria-label="Preview menu">Menu</button>
+  </header>
+
+  <div class="citadel-reading-progress is-fixed" data-citadel-reading-progress aria-hidden="true"><span></span></div>
+
+  <section class="demo-hero">
+    <div class="ck-page-hero-inner">
+      <div class="ck-eyebrow">Noindex preview</div>
+      <h1 class="ck-display">Citadel of Kang Article Demo</h1>
+      <p class="ck-lead">A preview-only page for testing the final Citadel namespace, Article Index module, Reading Time module, Reading Progress module and accessibility foundation without touching production article pages.</p>
+      <div class="demo-status" aria-label="Demo module status">
+        <span class="ck-tag">Article Index</span>
+        <span class="ck-tag" data-citadel-reading-time-output>Reading time pending</span>
+        <span class="ck-tag">Reading Progress</span>
+        <span class="ck-tag">Noindex</span>
+      </div>
+    </div>
+  </section>
+
+  <p class="demo-preview-note"><strong>Preview only.</strong> This page is intentionally marked noindex and is not intended for sitemap/feed inclusion. It exists to test Citadel modules before Chambers production rollout.</p>
+  <div class="demo-actions">
+    <a class="ck-button" href="#module-boundary">Jump to module boundary</a>
+    <a class="ck-button" href="#state-wise-adaptation">Jump to adaptation</a>
+    <a class="ck-button" href="#validation-checks">Jump to validation</a>
+  </div>
+
+  <main id="main-content" class="demo-article-shell">
+    <article class="article-body ck-prose" data-citadel-article-index data-citadel-reading-time data-citadel-reading-progress-source>
+      <p class="ck-article-summary">This demo intentionally uses neutral article text. Chambers of AK remains the first implementation, but Citadel of Kang must be reusable across different websites, routes and content types.</p>
+
+      <h2 id="module-boundary">1. Module Boundary</h2>
+      <p>Citadel of Kang is the theme pack. Citadel Manager is the future admin-only website management product. The public website should only load safe frontend modules and generated public configuration.</p>
+      <p>The theme pack should not contain private admin credentials, repository write tokens, CMS backend logic, client portal data or Chambers-specific private implementation details.</p>
+
+      <h2 id="preserve-existing-features">2. Preserve Existing Features</h2>
+      <p>Existing Chambers/Citadel features remain the baseline. The current dark mode toggle, mobile navigation behavior, social link strategy, article index decisions, SEO discipline and PowerShell 7 patch workflow must be preserved unless expressly approved for replacement.</p>
+
+      <h2 id="route-agnostic-design">3. Route-Agnostic Design</h2>
+      <p>Citadel modules must not depend only on routes such as /updates/*.html. They should activate through data attributes, public-safe config and fallback markup detection.</p>
+
+      <h2 id="article-experience">4. Article Experience</h2>
+      <p>The Article Index module should support long-form pages, articles, guides, insights and documentation. Reading time and reading progress should be optional standalone modules that no-op safely when markup is absent.</p>
+
+      <h2 id="accessibility-foundation">5. Accessibility Foundation</h2>
+      <p>Citadel should include skip links, semantic landmarks, keyboard-safe navigation, visible focus states, reduced-motion handling, readable dark/light contrast and accessible module behavior.</p>
+
+      <h2 id="state-wise-adaptation">6. Adaptation Without Replication</h2>
+      <div class="demo-info-grid">
+        <section>
+          <h3>Allowed</h3>
+          <p>Study mature systems to identify missing capabilities and convert them into original Citadel-designed features.</p>
+        </section>
+        <section>
+          <h3>Not Allowed</h3>
+          <p>Do not copy proprietary code, assets, UI layouts, commercial builder logic or naming conventions.</p>
+        </section>
+      </div>
+
+      <h2 id="cms-separation">7. CMS Separation</h2>
+      <p>Citadel Manager / Website CMS should later handle content editing, theme switching, template management, plugin/module management, SEO settings and publishing. It should not be merged into the theme pack.</p>
+
+      <h2 id="client-portal-separation">8. Client Portal Separation</h2>
+      <p>The future client portal for matter status, documents and hearing dates must be a separate secure product with authentication, authorization, private storage and audit logs.</p>
+
+      <h2 id="validation-checks">9. Validation Checks</h2>
+      <p>Before rollout, run JavaScript syntax checks, git whitespace checks and manual desktop/mobile/dark/light/keyboard tests. Production rollout should happen only through a controlled PowerShell 7-compatible patch.</p>
+    </article>
+  </main>
+
+  <script src="../assets/js/themes/citadel-of-kang/article-index.js"></script>
+  <script src="../assets/js/themes/citadel-of-kang/reading-time.js"></script>
+  <script src="../assets/js/themes/citadel-of-kang/reading-progress.js"></script>
+</body>
+</html>
