@@ -1,0 +1,56 @@
+/* Citadel of Kang Theme Pack: Footer
+   Non-live development file. */
+
+.ck-footer {
+  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1rem, 5vw, 4.5rem);
+  border-top: 1px solid rgba(var(--ck-rgb-gold), 0.28);
+  background: var(--ck-color-black);
+  color: var(--ck-color-white);
+}
+
+.ck-footer a {
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: none;
+}
+
+.ck-footer a:hover {
+  color: var(--ck-color-gold);
+}
+
+.ck-footer-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+
+.ck-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(1rem, 3vw, 2rem);
+}
+
+.ck-footer-group {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.ck-footer-heading {
+  color: var(--ck-color-gold);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.ck-footer-note {
+  max-width: 760px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.82rem;
+}
+
+@media (max-width: 760px) {
+  .ck-footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
