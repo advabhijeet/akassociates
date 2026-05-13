@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5GMHQTJJ');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="googlebot" content="noindex, nofollow, noarchive">
+  <meta name="author" content="Chambers of AK - Advocates &amp; Legal Consultants">
+  <meta name="theme-color" content="#111111">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <title>Article Index Preview | Chambers of AK</title>
+  <meta name="description" content="Temporary noindex preview page for the proposed Chambers of AK article index navigation system.">
+  <link rel="canonical" href="https://chambersofak.in/preview/article-index-preview.html">
+  <meta property="og:title" content="Article Index Preview | Chambers of AK">
+  <meta property="og:description" content="Temporary noindex preview page for the proposed Chambers of AK article index navigation system.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chambersofak.in/preview/article-index-preview.html">
+  <meta property="og:site_name" content="Chambers of AK">
+  <meta property="og:image" content="https://chambersofak.in/assets/img/social-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Article Index Preview | Chambers of AK">
+  <meta name="twitter:description" content="Temporary noindex preview page for the proposed Chambers of AK article index navigation system.">
+  <meta name="twitter:image" content="https://chambersofak.in/assets/img/social-preview.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon-512.png" type="image/png" sizes="512x512">
+  <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">
+  <link rel="icon" href="/favicon-96.png" type="image/png" sizes="96x96">
+  <link rel="icon" href="/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" sizes="180x180">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="../assets/css/style.css?v=theme-package-3">
+  <style>
+    html { scroll-behavior: smooth; }
+
+    .article-index-preview-notice {
+      max-width: 1180px;
+      margin: 24px auto 0;
+      padding: 0 clamp(18px, 4vw, 36px);
+      color: var(--text-muted, #6d675d);
+      font-size: 0.95rem;
+    }
+
+    .article-index-preview-notice strong {
+      color: var(--text, #141414);
+    }
+
+    .article-index-preview-actions {
+      max-width: 1180px;
+      margin: 14px auto 0;
+      padding: 0 clamp(18px, 4vw, 36px);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .article-index-preview-actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(212, 175, 55, 0.42);
+      color: var(--text, #141414);
+      background: rgba(212, 175, 55, 0.12);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .article-index-preview-layout {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: clamp(30px, 5vw, 56px) clamp(18px, 4vw, 36px) 90px;
+      display: grid;
+      grid-template-columns: minmax(230px, 280px) minmax(0, 1fr);
+      align-items: start;
+      gap: clamp(26px, 4vw, 48px);
+    }
+
+    .article-index-preview-toc {
+      position: sticky;
+      top: 112px;
+      padding: 22px;
+      border: 1px solid rgba(212, 175, 55, 0.34);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.74);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.13);
+      backdrop-filter: blur(18px);
+    }
+
+    [data-ak-theme="dark"] .article-index-preview-toc,
+    html[data-ak-theme="dark"] .article-index-preview-toc,
+    body[data-ak-theme="dark"] .article-index-preview-toc {
+      background: rgba(18, 18, 18, 0.78);
+      border-color: rgba(212, 175, 55, 0.38);
+    }
+
+    .article-index-preview-toc h2 {
+      margin: 0 0 4px;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.22rem;
+      font-weight: 600;
+    }
+
+    .article-index-preview-toc-note {
+      margin: 0 0 16px;
+      color: var(--text-muted, #6d675d);
+      font-size: 0.86rem;
+      line-height: 1.5;
+    }
+
+    .article-index-preview-progress {
+      height: 4px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(20, 20, 20, 0.1);
+      margin: 0 0 18px;
+    }
+
+    .article-index-preview-progress span {
+      display: block;
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, #d4af37, #f5dc89);
+    }
+
+    .article-index-preview-toc ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 7px;
+      counter-reset: toc;
+    }
+
+    .article-index-preview-toc a {
+      counter-increment: toc;
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 9px;
+      align-items: start;
+      padding: 9px 10px;
+      border-radius: 14px;
+      color: var(--text, #141414);
+      text-decoration: none;
+      font-size: 0.88rem;
+      line-height: 1.35;
+      border: 1px solid transparent;
+      transition: 180ms ease;
+    }
+
+    .article-index-preview-toc a::before {
+      content: counter(toc, decimal-leading-zero);
+      color: #d4af37;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .article-index-preview-toc a:hover,
+    .article-index-preview-toc a.is-active {
+      background: rgba(212, 175, 55, 0.18);
+      border-color: rgba(212, 175, 55, 0.3);
+      transform: translateX(2px);
+    }
+
+    .article-index-preview-back-top {
+      display: inline-flex;
+      margin-top: 18px;
+      color: #8b6f16;
+      font-size: 0.84rem;
+      text-decoration: none;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .article-index-preview-content h2 {
+      scroll-margin-top: 112px;
+    }
+
+    @media (max-width: 920px) {
+      .article-index-preview-layout {
+        grid-template-columns: 1fr;
+        padding-top: 24px;
+      }
+
+      .article-index-preview-toc {
+        position: static;
+        order: -1;
+        border-radius: 24px;
+      }
+
+      .article-index-preview-toc ol {
+        grid-template-columns: 1fr;
+        gap: 5px;
+      }
+
+      .article-index-preview-toc a {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body id="top">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GMHQTJJ"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="s">
+    <nav class="nav">
+      <a class="nav-brand" href="/" aria-label="Chambers of AK homepage"><img class="nav-logo" src="../assets/img/logo-navbar.png?v=secondary-1" alt="Chambers of AK"></a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../practice.html">Practice</a></li>
+        <li><a href="../case-enquiry.html">Enquiry</a></li>
+        <li><a href="../courts.html">Courts</a></li>
+        <li><a class="active" href="../legal-updates.html">Insights</a></li>
+        <li><a href="../disclaimer.html">Disclaimer</a></li>
+      </ul>
+      <a class="nav-cta" href="../contact.html">Contact</a>
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+
+    <main>
+      <section class="page-hero">
+        <div class="hero-eyebrow">Noindex Preview</div>
+        <h1>Article Index Navigation Preview</h1>
+        <p>This temporary preview page demonstrates a proposed article index system using the live Chambers of AK stylesheet, JavaScript, navbar, footer, logo assets and article typography.</p>
+      </section>
+
+      <div class="article-index-preview-notice"><strong>Preview only.</strong> This page is marked <code>noindex, nofollow</code>, is not in the sitemap, is not in the feed, and is not linked from the public navigation. Use it only to review the proposed article-index layout.</div>
+      <div class="article-index-preview-actions">
+        <a href="#why-title-search-matters">Try section jump</a>
+        <a href="#state-wise-records">Jump to state-wise records</a>
+        <a href="#official-references">Jump to references</a>
+      </div>
+
+      <section class="article-index-preview-layout">
+        <aside class="article-index-preview-toc" aria-labelledby="article-index-preview-title">
+          <h2 id="article-index-preview-title">Article Index</h2>
+          <p class="article-index-preview-toc-note">Desktop uses the left rail. Mobile places this block below the hero before article content.</p>
+          <div class="article-index-preview-progress" aria-hidden="true"><span></span></div>
+          <ol>
+            <li><a class="is-active" href="#why-title-search-matters">Why title search matters</a></li>
+            <li><a href="#core-documents">Core documents to check</a></li>
+            <li><a href="#seller-capacity">Seller capacity and authority</a></li>
+            <li><a href="#revenue-municipal-records">Revenue and municipal records</a></li>
+            <li><a href="#encumbrance-litigation">Encumbrance and litigation checks</a></li>
+            <li><a href="#state-wise-records">State-wise record examples</a></li>
+            <li><a href="#red-flags">Red flags before purchase</a></li>
+            <li><a href="#buyer-checklist">Buyer enquiry checklist</a></li>
+            <li><a href="#official-references">Official references</a></li>
+          </ol>
+          <a class="article-index-preview-back-top" href="#top">Back to top ↑</a>
+        </aside>
+
+        <article class="article-body article-index-preview-content">
+          <div class="article-meta">
+            <span>Published May 2026</span>
+            <span>Property</span>
+            <span>Due Diligence</span>
+            <span>Checklist</span>
+          </div>
+
+          <p class="article-summary">Property purchase due diligence should begin before token money or an agreement to sell is signed. A clean title search is not limited to one sale deed; it usually requires checking the ownership chain, seller capacity, encumbrances, possession, mutation, tax records, litigation history and property-specific permissions.</p>
+
+          <h2 id="why-title-search-matters">1. Why Title Search Matters Before Purchase</h2>
+          <p>Buying property without title verification can lead to disputes over ownership, possession, boundary, unpaid dues, mortgage, family claims, forged documents or pending litigation. The purpose of the index is to make long-form article navigation easier without forcing the reader to scroll through every section.</p>
+
+          <h2 id="core-documents">2. Core Documents To Check In Every State</h2>
+          <ul>
+            <li>Current sale deed, gift deed, partition deed, conveyance deed, lease deed or other transfer instrument.</li>
+            <li>Previous title-chain documents showing how ownership moved from earlier owners to the present seller.</li>
+            <li>Mutation, revenue, municipal or property-tax records showing administrative history.</li>
+            <li>Encumbrance certificate or available registration-search record, depending on the state system.</li>
+          </ul>
+
+          <h2 id="seller-capacity">3. Seller-Side Capacity And Authority</h2>
+          <p>Title search is incomplete without checking whether the seller is legally competent to sell. If the seller is an individual, verify identity, inheritance papers and co-owner consent where relevant. If the seller is a company, firm, society, trust or developer, check authority documents and signing powers.</p>
+
+          <h2 id="revenue-municipal-records">4. Revenue, Municipal And Possession Records</h2>
+          <p>Revenue and mutation entries can be useful, but they should not be treated as a complete substitute for title-chain documents. They often show possession or administrative record updates, while ownership may still depend on registered instruments, inheritance documents, court orders and other legal papers.</p>
+
+          <h2 id="encumbrance-litigation">5. Encumbrance, Mortgage And Litigation Checks</h2>
+          <p>Before purchase, check whether the property is mortgaged, attached, restrained by court order, involved in partition or injunction proceedings, subject to acquisition, affected by a developer dispute, or burdened with unpaid dues.</p>
+
+          <h2 id="state-wise-records">6. State-Wise Record Examples</h2>
+          <p>State systems and record names differ. The following examples are indicative and must be adapted to the property type, local office practice and current online-record availability.</p>
+          <div class="info-grid">
+            <article class="info-item"><h2>Bihar</h2><p>Sale deed chain, mutation, jamabandi, khata, khesra, rent receipt, LPC where applicable, municipal holding/tax records and pending-case or partition documents.</p></article>
+            <article class="info-item"><h2>Uttar Pradesh</h2><p>Registered deed chain, khatauni, khasra, mutation record, revenue map, registry search, authority approval and possession/tax records depending on land or urban property type.</p></article>
+            <article class="info-item"><h2>Delhi</h2><p>Sale deed or conveyance deed, chain documents, DDA/L&amp;DO/MCD or society records depending on the property type, mutation, tax records and possession documents.</p></article>
+            <article class="info-item"><h2>Maharashtra</h2><p>Sale deed chain, 7/12 extract, property card, mutation entries, index-II, society share certificate and no-dues papers where relevant.</p></article>
+          </div>
+
+          <h2 id="red-flags">7. Red Flags Before Purchase</h2>
+          <ul>
+            <li>The seller cannot provide the original title documents or gives inconsistent explanations.</li>
+            <li>The property is in possession of someone other than the seller without a clear written basis.</li>
+            <li>Mutation or tax records do not match the title-chain documents.</li>
+            <li>There are family disputes, pending partition issues or unclear legal-heir consent.</li>
+          </ul>
+
+          <h2 id="buyer-checklist">8. Buyer Enquiry Checklist</h2>
+          <p>Before asking for legal review, prepare a short note with property location, property type, seller name, proposed purchase amount, available title documents, possession status, pending loan details, family/co-owner position and whether any agreement to sell or token receipt has already been signed.</p>
+
+          <h2 id="official-references">9. Official References</h2>
+          <p>Official record systems vary by state. For general statutory reference, readers may check the Transfer of Property Act, 1882 and Registration Act, 1908 on India Code, and relevant state land-record portals for current revenue or municipal records.</p>
+
+          <div class="article-note">This is a temporary preview page for layout review only. It is not part of the public article archive and should be deleted after the index design is approved or rejected.</div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="foot-copy">&copy; 2026 Chambers of AK - Advocates &amp; Legal Consultants</div>
+      <div class="foot-links foot-links-grouped" aria-label="Footer navigation">
+        <div class="foot-link-group">
+          <div class="foot-link-heading">Main</div>
+          <a href="../about.html">About</a>
+          <a href="../practice.html">Practice</a>
+          <a href="../case-enquiry.html">Case Enquiry</a>
+          <a href="../contact.html">Contact</a>
+        </div>
+        <div class="foot-link-group">
+          <div class="foot-link-heading">Resources</div>
+          <a href="../legal-updates.html">Insights</a>
+          <a href="../document-checklists.html">Document Checklists</a>
+          <a href="../faq.html">FAQ</a>
+          <a href="../process.html">Process</a>
+        </div>
+        <div class="foot-link-group">
+          <div class="foot-link-heading">Legal</div>
+          <a href="../disclaimer.html">Disclaimer</a>
+          <a href="../privacy-policy.html">Privacy Policy</a>
+          <a href="../terms.html">Terms</a>
+        </div>
+      </div>
+      <div class="foot-disc">For informational purposes only. Does not constitute legal advice or solicitation. Bar Council of India. Initial communication does not create an advocate-client relationship.</div>
+    </footer>
+  </div>
+  <script>
+    (function () {
+      var links = Array.prototype.slice.call(document.querySelectorAll('.article-index-preview-toc a[href^="#"]')).filter(function (link) {
+        return link.getAttribute('href') !== '#top';
+      });
+      var sections = links.map(function (link) {
+        return document.querySelector(link.getAttribute('href'));
+      }).filter(Boolean);
+      var progress = document.querySelector('.article-index-preview-progress span');
+
+      function setActiveArticleIndexItem() {
+        if (!sections.length) return;
+        var current = sections[0];
+        sections.forEach(function (section) {
+          var rect = section.getBoundingClientRect();
+          if (rect.top < 160) current = section;
+        });
+        links.forEach(function (link) {
+          link.classList.toggle('is-active', link.getAttribute('href') === '#' + current.id);
+        });
+
+        var documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var percentage = documentHeight > 0 ? Math.min(100, Math.max(0, (window.scrollY / documentHeight) * 100)) : 0;
+        if (progress) progress.style.width = percentage + '%';
+      }
+
+      window.addEventListener('scroll', setActiveArticleIndexItem, { passive: true });
+      window.addEventListener('resize', setActiveArticleIndexItem);
+      setActiveArticleIndexItem();
+    })();
+  </script>
+  <script src="../assets/js/script.js?v=citadel-live-3"></script>
+</body>
+</html>
