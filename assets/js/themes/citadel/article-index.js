@@ -1,22 +1,34 @@
 /* Citadel of AK module: Article Index
-   Builds a section index for long-form article pages. */
+   Builds a section index for long-form article pages.
+
+   Portable activation rules for standalone Citadel usage:
+   - <body data-citadel-article-index="false"> disables the module.
+   - <body data-citadel-article-index="true"> explicitly enables the module.
+   - <article data-citadel-article-index> explicitly enables the module for that article.
+   - Fallback: first article.article-body with at least 3 direct h2 headings.
+*/
 (function () {
-  var path = window.location.pathname || '';
-  var isArticlePage = /\/updates\/[^/]+\.html$/i.test(path);
-  if (!isArticlePage) return;
+  var bodySetting = document.body ? document.body.getAttribute('data-citadel-article-index') : null;
+  if (bodySetting === 'false') return;
 
   if (!document.body.id) {
     document.body.id = 'top';
   }
 
-  var section = document.querySelector('main > section.sec');
-  var article = section ? section.querySelector('article.article-body') : document.querySelector('article.article-body');
-  if (!section || !article || article.dataset.articleIndexReady === 'true') return;
+  var explicitArticle = document.querySelector('article[data-citadel-article-index], [data-citadel-article-index] article.article-body');
+  var fallbackArticle = document.querySelector('article.article-body');
+  var article = explicitArticle || fallbackArticle;
+  if (!article || article.dataset.articleIndexReady === 'true') return;
+
+  var explicitEnabled = bodySetting === 'true' || Boolean(explicitArticle);
+  var section = article.closest('section.sec') || article.parentElement;
+  if (!section) return;
 
   var headings = Array.prototype.slice.call(article.querySelectorAll(':scope > h2'))
     .filter(function (heading) { return (heading.textContent || '').trim().length > 0; });
 
   if (headings.length < 3) return;
+  if (!explicitEnabled && !article.classList.contains('article-body')) return;
 
   var slugify = function (text) {
     return (text || '')
