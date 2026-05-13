@@ -1,0 +1,44 @@
+/* Citadel of Kang Theme Pack: Layout
+   Non-live development file. */
+
+.ck-shell {
+  min-height: 100vh;
+}
+
+.ck-container {
+  width: min(var(--ck-container), calc(100% - clamp(2rem, 8vw, 6rem)));
+  margin-inline: auto;
+}
+
+.ck-section {
+  padding-block: clamp(3rem, 7vw, 6rem);
+}
+
+.ck-grid {
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 2rem);
+}
+
+.ck-grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ck-grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.ck-page-hero {
+  padding: clamp(4rem, 8vw, 7rem) 0 clamp(2.5rem, 5vw, 4rem);
+}
+
+.ck-page-hero-inner {
+  width: min(var(--ck-container), calc(100% - clamp(2rem, 8vw, 6rem)));
+  margin-inline: auto;
+}
+
+@media (max-width: 920px) {
+  .ck-grid-2,
+  .ck-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
