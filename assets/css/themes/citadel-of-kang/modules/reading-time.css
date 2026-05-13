@@ -1,0 +1,26 @@
+/* Citadel of Kang Theme Pack: Reading Time Module
+   Non-live development file. Not imported by production pipeline yet. */
+
+.citadel-reading-time,
+[data-citadel-reading-time-output] {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid rgba(var(--ck-rgb-gold, 212, 175, 55), 0.35);
+  border-radius: 999px;
+  color: #55491f;
+  background: rgba(var(--ck-rgb-gold, 212, 175, 55), 0.12);
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+[data-theme^="citadel-of-kang-dark"] .citadel-reading-time,
+[data-theme="dark"] .citadel-reading-time,
+[data-theme^="citadel-of-kang-dark"] [data-citadel-reading-time-output],
+[data-theme="dark"] [data-citadel-reading-time-output] {
+  color: #fff8e6;
+  background: rgba(var(--ck-rgb-gold, 212, 175, 55), 0.16);
+  border-color: rgba(var(--ck-rgb-gold, 212, 175, 55), 0.48);
+}
