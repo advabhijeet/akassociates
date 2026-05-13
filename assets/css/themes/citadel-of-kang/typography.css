@@ -1,0 +1,66 @@
+/* Citadel of Kang Theme Pack: Typography
+   Non-live development file. */
+
+.ck-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--ck-color-gold);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.ck-eyebrow::before {
+  content: "";
+  width: 44px;
+  height: 1px;
+  background: currentColor;
+}
+
+.ck-display {
+  margin: 0;
+  font-family: var(--ck-font-display);
+  font-size: clamp(2.3rem, 5vw, 4.9rem);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.ck-lead {
+  max-width: 780px;
+  color: var(--ck-color-muted);
+  font-size: clamp(1rem, 1.7vw, 1.2rem);
+}
+
+.ck-prose {
+  max-width: var(--ck-article-width);
+}
+
+.ck-prose h2,
+.ck-prose h3 {
+  font-family: var(--ck-font-display);
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+}
+
+.ck-prose h2 {
+  margin: 2.6rem 0 0.75rem;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+}
+
+.ck-prose h3 {
+  margin: 1.8rem 0 0.65rem;
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+}
+
+.ck-prose p,
+.ck-prose li {
+  font-size: 1rem;
+}
+
+.ck-prose ul,
+.ck-prose ol {
+  padding-left: 1.25rem;
+}
