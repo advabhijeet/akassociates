@@ -41,6 +41,28 @@ select {
   font: inherit;
 }
 
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 999;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid rgba(var(--ck-rgb-gold, 212, 175, 55), 0.72);
+  border-radius: 999px;
+  color: #050505;
+  background: var(--ck-color-gold, #d4af37);
+  font-size: 0.82rem;
+  font-weight: 900;
+  text-decoration: none;
+  transform: translateY(-180%);
+  transition: transform var(--ck-transition, 180ms ease);
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
 :focus-visible {
   outline: 2px solid var(--ck-color-gold);
   outline-offset: 3px;
