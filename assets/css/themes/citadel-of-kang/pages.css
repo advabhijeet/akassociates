@@ -1,0 +1,55 @@
+/* Citadel of Kang Theme Pack: Page Patterns
+   Non-live development file. */
+
+.ck-article {
+  max-width: var(--ck-article-width);
+  margin-inline: auto;
+}
+
+.ck-article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 1.5rem;
+}
+
+.ck-article-summary {
+  margin: 0 0 2rem;
+  padding: 1.25rem 1.35rem;
+  border-left: 3px solid var(--ck-color-gold);
+  background: rgba(var(--ck-rgb-gold), 0.08);
+  color: var(--ck-color-ink);
+  font-size: 1.04rem;
+}
+
+.ck-updates-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2.4vw, 1.6rem);
+}
+
+.ck-update-card {
+  display: grid;
+  gap: 0.9rem;
+  min-height: 100%;
+}
+
+.ck-contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+.ck-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (max-width: 920px) {
+  .ck-updates-grid,
+  .ck-contact-grid,
+  .ck-info-grid {
+    grid-template-columns: 1fr;
+  }
+}
