@@ -5,6 +5,10 @@
   var isArticlePage = /\/updates\/[^/]+\.html$/i.test(path);
   if (!isArticlePage) return;
 
+  if (!document.body.id) {
+    document.body.id = 'top';
+  }
+
   var section = document.querySelector('main > section.sec');
   var article = section ? section.querySelector('article.article-body') : document.querySelector('article.article-body');
   if (!section || !article || article.dataset.articleIndexReady === 'true') return;
