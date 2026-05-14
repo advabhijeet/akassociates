@@ -4,7 +4,7 @@
   var body = document.body;
   if (!body || body.getAttribute('data-citadel-reading-progress') === 'false') return;
 
-  var root = document.querySelector('[data-citadel-reading-progress], .citadel-reading-progress');
+  var root = document.querySelector('[data-citadel-reading-progress-bar], .citadel-reading-progress, [data-citadel-reading-progress]:not(body):not(html)');
   if (!root || root.dataset.citadelReadingProgressReady === 'true') return;
 
   var bar = root.querySelector('span') || root;
