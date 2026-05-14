@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <meta name="author" content="Chambers of AK - Advocates &amp; Legal Consultants" />
+  <meta name="theme-color" content="#111111" />
+  <title>Article Index Clean Baseline v3 | Chambers of AK</title>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=theme-package-3" />
+  <style>
+    :root {
+      --preview-index-width: 280px;
+      --preview-article-width: 820px;
+      --preview-index-radius: 22px;
+      --preview-index-bg: rgba(255, 255, 255, 0.9);
+      --preview-index-line: rgba(var(--rgb-gold, 212, 175, 55), 0.34);
+      --preview-index-active: rgba(var(--rgb-gold, 212, 175, 55), 0.18);
+      --preview-index-shadow: 0 24px 70px rgba(0, 0, 0, 0.13);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    .preview-page-note {
+      max-width: 1180px;
+      margin: 24px auto 0;
+      padding: 0 var(--page-gutter);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .preview-page-note strong { color: var(--ink); }
+
+    .preview-actions {
+      max-width: 1180px;
+      margin: 14px auto 0;
+      padding: 0 var(--page-gutter);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .preview-actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(var(--rgb-gold), 0.42);
+      color: #3e3108;
+      background: rgba(var(--rgb-gold), 0.12);
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .article-index-preview-wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: clamp(30px, 5vw, 56px) var(--page-gutter) 72px;
+      display: grid;
+      grid-template-columns: minmax(230px, var(--preview-index-width)) minmax(0, 1fr);
+      align-items: start;
+      gap: clamp(26px, 4vw, 48px);
+    }
+
+    .article-index-preview {
+      position: sticky;
+      top: calc(var(--nav-space, 88px) + 22px);
+      padding: 22px;
+      border: 1px solid var(--preview-index-line);
+      border-radius: var(--preview-index-radius);
+      background: var(--preview-index-bg);
+      box-shadow: var(--preview-index-shadow);
+      backdrop-filter: blur(18px);
+      z-index: 5;
+    }
+
+    .article-index-preview-title {
+      margin: 0 0 4px;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.22rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .article-index-preview-note {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.5;
+    }
+
+    .article-index-preview-progress {
+      height: 4px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(var(--rgb-ink), 0.1);
+      margin: 0 0 18px;
+      pointer-events: none;
+    }
+
+    .article-index-preview-progress span {
+      display: block;
+      width: 0%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--gold), #f5dc89);
+    }
+
+    .article-index-preview ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 7px;
+      counter-reset: article-index-preview;
+    }
+
+    .article-index-preview a,
+    .article-index-preview a:visited,
+    .article-index-preview a:active,
+    .article-index-preview a:focus {
+      counter-increment: article-index-preview;
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 9px;
+      align-items: start;
+      padding: 9px 10px;
+      border: 1px solid transparent;
+      border-radius: 14px;
+      color: var(--ink);
+      background: transparent;
+      font-size: 0.88rem;
+      line-height: 1.35;
+      text-decoration: none;
+      outline-offset: 2px;
+      transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+    }
+
+    .article-index-preview a::before {
+      content: counter(article-index-preview, decimal-leading-zero);
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .article-index-preview a:hover,
+    .article-index-preview a.is-active,
+    .article-index-preview a.is-active:visited,
+    .article-index-preview a.is-active:active,
+    .article-index-preview a.is-active:focus {
+      background: var(--preview-index-active);
+      border-color: rgba(var(--rgb-gold), 0.3);
+      color: var(--ink);
+      transform: translateX(2px);
+    }
+
+    .article-index-preview-back,
+    .article-index-preview-back:visited,
+    .article-index-preview-back:active,
+    .article-index-preview-back:focus {
+      display: inline-flex;
+      margin-top: 18px;
+      color: #5c4b11;
+      font-size: 0.84rem;
+      text-decoration: none;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .article-preview-card {
+      max-width: var(--preview-article-width);
+      padding: clamp(24px, 4vw, 48px);
+      border: 1px solid rgba(var(--rgb-ink), 0.12);
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: var(--preview-index-shadow);
+    }
+
+    .article-preview-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .article-preview-meta span {
+      padding: 7px 11px;
+      border: 1px solid rgba(var(--rgb-gold), 0.35);
+      border-radius: 999px;
+      color: #55491f;
+      background: rgba(var(--rgb-gold), 0.12);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .article-preview-summary {
+      margin: 0 0 32px;
+      padding: 20px 22px;
+      border-left: 3px solid var(--gold);
+      background: rgba(var(--rgb-gold), 0.08);
+      color: #34302a;
+      font-size: 1.04rem;
+    }
+
+    .article-preview-card h2 {
+      scroll-margin-top: calc(var(--nav-space, 88px) + 28px);
+      margin: 40px 0 12px;
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 2.6vw, 2rem);
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+    }
+
+    .article-preview-card h2:first-of-type { margin-top: 0; }
+
+    .article-preview-card p,
+    .article-preview-card li {
+      color: #282520;
+      font-size: 1rem;
+    }
+
+    .article-preview-card ul {
+      padding-left: 1.2rem;
+      margin-bottom: 0;
+    }
+
+    .article-preview-card p + p,
+    .article-preview-card ul + p,
+    .article-preview-card p + ul {
+      margin-top: 12px;
+    }
+
+    .article-preview-section-extra {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-left: 2px solid rgba(var(--rgb-gold), 0.5);
+      background: rgba(var(--rgb-gold), 0.06);
+      color: #34302a;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 18px 0 6px;
+    }
+
+    .info-item {
+      padding: 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(var(--rgb-ink), 0.1);
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .info-item h3 {
+      margin: 0 0 8px;
+      font-family: var(--font-display);
+      color: #1a1713;
+    }
+
+    [data-theme="dark"] .preview-page-note strong,
+    [data-theme="citadel-of-ak-dark"] .preview-page-note strong { color: #fff8e6; }
+
+    [data-theme="dark"] .article-index-preview,
+    [data-theme="citadel-of-ak-dark"] .article-index-preview {
+      background: rgba(8, 8, 8, 0.9);
+      border-color: rgba(var(--rgb-gold), 0.54);
+    }
+
+    [data-theme="dark"] .article-index-preview-title,
+    [data-theme="citadel-of-ak-dark"] .article-index-preview-title,
+    [data-theme="dark"] .article-index-preview a,
+    [data-theme="citadel-of-ak-dark"] .article-index-preview a,
+    [data-theme="dark"] .article-index-preview a:visited,
+    [data-theme="citadel-of-ak-dark"] .article-index-preview a:visited { color: #fff8e6; }
+
+    [data-theme="dark"] .article-index-preview-note,
+    [data-theme="citadel-of-ak-dark"] .article-index-preview-note { color: rgba(255, 248, 230, 0.76); }
+
+    [data-theme="dark"] .article-index-preview a:hover,
+    [data-theme="dark"] .article-index-preview a.is-active,
+    [data-theme="citadel-of-ak-dark"] .article-index-preview a:hover,
+    [data-theme="citadel-of-ak-dark"] .article-index-preview a.is-active {
+      color: #fff8e6;
+      background: rgba(var(--rgb-gold), 0.18);
+      border-color: rgba(var(--rgb-gold), 0.38);
+    }
+
+    [data-theme="dark"] .article-preview-card,
+    [data-theme="citadel-of-ak-dark"] .article-preview-card {
+      background: rgba(8, 8, 8, 0.84);
+      border-color: rgba(var(--rgb-gold), 0.22);
+    }
+
+    [data-theme="dark"] .article-preview-card p,
+    [data-theme="dark"] .article-preview-card li,
+    [data-theme="dark"] .article-preview-section-extra,
+    [data-theme="citadel-of-ak-dark"] .article-preview-card p,
+    [data-theme="citadel-of-ak-dark"] .article-preview-card li,
+    [data-theme="citadel-of-ak-dark"] .article-preview-section-extra { color: rgba(255, 248, 230, 0.86); }
+
+    [data-theme="dark"] .article-preview-summary,
+    [data-theme="citadel-of-ak-dark"] .article-preview-summary,
+    [data-theme="dark"] .article-preview-section-extra,
+    [data-theme="citadel-of-ak-dark"] .article-preview-section-extra { background: rgba(var(--rgb-gold), 0.1); }
+
+    @media (max-width: 920px) {
+      .article-index-preview-wrap {
+        grid-template-columns: 1fr;
+        padding-top: 24px;
+      }
+
+      .article-index-preview {
+        position: static;
+        order: -1;
+        border-radius: 24px;
+      }
+
+      .article-index-preview ol {
+        grid-template-columns: 1fr;
+        gap: 5px;
+      }
+
+      .article-index-preview a { padding: 10px; }
+      .article-preview-card { max-width: none; }
+      .info-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .article-index-preview-card { border-radius: 24px; }
+      .article-index-preview { padding: 18px; }
+    }
+  </style>
+</head>
+<body id="top">
+  <div class="s">
+    <nav class="nav">
+      <a class="nav-brand" href="../index.html" aria-label="Chambers of AK homepage">
+        <img class="nav-logo" src="../assets/img/logo-navbar.png?v=secondary-1" alt="Chambers of AK" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../practice.html">Practice</a></li>
+        <li><a href="../case-enquiry.html">Enquiry</a></li>
+        <li><a href="../courts.html">Courts</a></li>
+        <li><a class="active" href="../legal-updates.html">Insights</a></li>
+        <li><a href="../disclaimer.html">Disclaimer</a></li>
+      </ul>
+      <a class="nav-cta" href="../contact.html">Contact</a>
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <div class="hero-layout">
+          <div class="hero-copy">
+            <div class="hero-eyebrow">Noindex Preview: Article Navigation</div>
+            <h1>Property Title Search Before Purchase in India</h1>
+            <p class="hero-tagline">A Chambers-styled preview for testing Article Index behaviour before touching production article pages or reusable theme modules.</p>
+            <div class="hero-actions">
+              <a class="btn-gold" href="#why-title-search-matters">Try Section Jump</a>
+              <a class="btn-outline" href="#official-references">Jump To References</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="preview-page-note"><strong>Preview only.</strong> This page is noindex/noarchive and is not linked from public navigation. It uses Chambers assets and site styling for review, but it does not alter live article pages.</div>
+      <div class="preview-actions">
+        <a href="#seller-capacity">Test active switch</a>
+        <a href="#state-wise-records">State-wise records</a>
+        <a href="#red-flags">Red flags</a>
+      </div>
+
+      <section class="article-index-preview-wrap">
+        <aside class="article-index-preview" aria-labelledby="article-index-title">
+          <h2 id="article-index-title" class="article-index-preview-title">Article Index</h2>
+          <p class="article-index-preview-note">The active tile changes as soon as a heading becomes visible on screen.</p>
+          <div class="article-index-preview-progress" aria-hidden="true"><span></span></div>
+          <ol>
+            <li><a class="is-active" href="#why-title-search-matters">Why title search matters</a></li>
+            <li><a href="#core-documents">Core documents to check</a></li>
+            <li><a href="#seller-capacity">Seller capacity and authority</a></li>
+            <li><a href="#revenue-municipal-records">Revenue and municipal records</a></li>
+            <li><a href="#encumbrance-litigation">Encumbrance and litigation checks</a></li>
+            <li><a href="#state-wise-records">State-wise record examples</a></li>
+            <li><a href="#red-flags">Red flags before purchase</a></li>
+            <li><a href="#buyer-checklist">Buyer enquiry checklist</a></li>
+            <li><a href="#official-references">Official references</a></li>
+          </ol>
+          <a class="article-index-preview-back" href="#top">Back to top ↑</a>
+        </aside>
+
+        <article class="article-preview-card">
+          <div class="article-preview-meta"><span>Published May 2026</span><span>Property</span><span>Due Diligence</span><span>Checklist</span></div>
+          <p class="article-preview-summary">Property purchase due diligence should begin before token money or an agreement to sell is signed. A clean title search is not limited to one sale deed; it usually requires checking the ownership chain, seller capacity, encumbrances, possession, mutation, tax records, litigation history and property-specific permissions.</p>
+
+          <h2 id="why-title-search-matters">1. Why Title Search Matters Before Purchase</h2>
+          <p>Buying property without title verification can lead to disputes over ownership, possession, boundary, unpaid dues, mortgage, family claims, forged documents or pending litigation.</p>
+          <p>The index should remain stable beside the article on desktop. Only the active tile and progress bar should change while scrolling.</p>
+
+          <h2 id="core-documents">2. Core Documents To Check In Every State</h2>
+          <ul><li>Current sale deed, gift deed, partition deed, conveyance deed, lease deed or other transfer instrument.</li><li>Previous title-chain documents showing ownership movement.</li><li>Mutation, revenue, municipal or property-tax records.</li><li>Encumbrance certificate or registration-search record where available.</li></ul>
+          <p class="article-preview-section-extra">Practical note: document names differ by state, but the checklist should remain structured enough for a buyer to collect papers before legal review.</p>
+
+          <h2 id="seller-capacity">3. Seller-Side Capacity And Authority</h2>
+          <p>Title search is incomplete without checking whether the seller is legally competent to sell. Individual, company, trust, society, developer and inherited-property transactions require different authority records.</p>
+          <p>If the property is inherited, review death certificate, succession-related papers, family settlement, partition documents, probate or letters of administration where applicable.</p>
+
+          <h2 id="revenue-municipal-records">4. Revenue, Municipal And Possession Records</h2>
+          <p>Revenue and mutation entries can be useful, but they should not be treated as a complete substitute for title-chain documents.</p>
+          <p>Possession, property tax, municipal holding and electricity records may support factual verification, but ownership should still be traced from registered instruments and legally relevant orders.</p>
+
+          <h2 id="encumbrance-litigation">5. Encumbrance, Mortgage And Litigation Checks</h2>
+          <p>Before purchase, check whether the property is mortgaged, attached, restrained by court order, involved in partition or injunction proceedings, subject to acquisition, or burdened with unpaid dues.</p>
+          <p>Bank loan closure letters, original title-deed custody, CERSAI records where relevant, court-case searches and registration records can be important.</p>
+
+          <h2 id="state-wise-records">6. State-Wise Record Examples</h2>
+          <div class="info-grid"><section class="info-item"><h3>Bihar</h3><p>Sale deed chain, jamabandi, khata, khesra, mutation and rent receipts.</p></section><section class="info-item"><h3>Delhi</h3><p>Sale deed, chain documents, DDA/MCD or society records depending on property type.</p></section><section class="info-item"><h3>Uttar Pradesh</h3><p>Khatauni, khasra, mutation, registry search and authority records.</p></section><section class="info-item"><h3>Maharashtra</h3><p>7/12 extract, property card, index-II, mutation entries and society records.</p></section></div>
+
+          <h2 id="red-flags">7. Red Flags Before Purchase</h2>
+          <ul><li>The seller cannot provide original title documents.</li><li>Possession and title records do not match.</li><li>Mutation or tax records conflict with the sale deed chain.</li><li>There are unclear heirship, family or co-owner issues.</li></ul>
+
+          <h2 id="buyer-checklist">8. Buyer Enquiry Checklist</h2>
+          <p>Prepare a short note with property location, seller details, property type, available title papers, possession status, pending loan details and current transaction stage.</p>
+          <p>Document checklists before sending an enquiry can reduce unnecessary back-and-forth and help a lawyer understand the transaction faster.</p>
+
+          <h2 id="official-references">9. Official References</h2>
+          <p>Official record systems vary by state. General statutory references may include the Transfer of Property Act, 1882 and Registration Act, 1908.</p>
+          <p>This final section confirms that the active index can reach the last heading without artificial vertical spacing.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="foot-copy">&copy; 2026 Chambers of AK - Advocates &amp; Legal Consultants</div>
+      <div class="foot-links foot-links-grouped" aria-label="Footer navigation"><div class="foot-link-group"><div class="foot-link-heading">Main</div><a href="../about.html">About</a><a href="../practice.html">Practice</a><a href="../case-enquiry.html">Case Enquiry</a><a href="../contact.html">Contact</a></div><div class="foot-link-group"><div class="foot-link-heading">Resources</div><a href="../legal-updates.html">Insights</a><a href="../document-checklists.html">Document Checklists</a><a href="../faq.html">FAQ</a><a href="../process.html">Process</a></div><div class="foot-link-group"><div class="foot-link-heading">Legal</div><a href="../disclaimer.html">Disclaimer</a><a href="../privacy-policy.html">Privacy Policy</a><a href="../terms.html">Terms</a></div></div>
+      <div class="foot-disc">For informational purposes only. Does not constitute legal advice or solicitation. Bar Council of India. Initial communication does not create an advocate-client relationship.</div>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var links = Array.prototype.slice.call(document.querySelectorAll('.article-index-preview a[href^="#"]')).filter(function (link) { return link.getAttribute('href') !== '#top'; });
+      var sections = links.map(function (link) { return document.getElementById(decodeURIComponent(link.getAttribute('href').slice(1))); }).filter(Boolean);
+      var progress = document.querySelector('.article-index-preview-progress span');
+      var nav = document.querySelector('.nav');
+
+      var getNavSpace = function () { return nav ? nav.getBoundingClientRect().height : 88; };
+
+      var setActive = function () {
+        var navSpace = getNavSpace();
+        var viewportBottom = window.innerHeight;
+        var visible = sections.filter(function (section) {
+          var rect = section.getBoundingClientRect();
+          return rect.top < viewportBottom && rect.bottom > navSpace;
+        });
+        var current = visible.length ? visible[visible.length - 1] : sections[0];
+
+        links.forEach(function (link) {
+          var id = decodeURIComponent(link.getAttribute('href').slice(1));
+          link.classList.toggle('is-active', current && id === current.id);
+        });
+
+        var documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var percentage = documentHeight > 0 ? Math.min(100, Math.max(0, (window.scrollY / documentHeight) * 100)) : 0;
+        if (progress) progress.style.width = percentage + '%';
+      };
+
+      links.forEach(function (link) { link.addEventListener('click', function () { window.setTimeout(setActive, 120); }); });
+      window.addEventListener('scroll', setActive, { passive: true });
+      window.addEventListener('resize', setActive);
+      window.addEventListener('load', setActive);
+      setActive();
+    })();
+  </script>
+  <script src="../assets/js/script.js?v=citadel-live-3"></script>
+</body>
+</html>
