@@ -4,7 +4,11 @@
   var body = document.body;
   if (!body || body.getAttribute('data-citadel-navigation') === 'false') return;
 
-  var navRoot = document.querySelector('[data-citadel-navigation]');
+  var navRoot = document.querySelector('[data-citadel-navigation-root]') ||
+    document.querySelector('header[data-citadel-navigation]') ||
+    document.querySelector('nav[data-citadel-navigation]') ||
+    document.querySelector('.ck-nav[data-citadel-navigation]') ||
+    document.querySelector('[data-citadel-navigation]:not(body)');
   var toggle = document.querySelector('[data-citadel-menu-toggle]');
   var drawer = document.querySelector('[data-citadel-mobile-drawer]');
   var backdrop = document.querySelector('[data-citadel-drawer-backdrop]');
@@ -26,6 +30,7 @@
 
   var setNavSpace = function () {
     var height = navRoot.offsetHeight || 88;
+    if (height > 180) height = 88;
     document.documentElement.style.setProperty(navHeightVar, height + 'px');
   };
 
