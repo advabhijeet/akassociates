@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="citadel-of-kang-light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <title>Citadel Navigation + Article Index Preview</title>
+  <link rel="stylesheet" href="../assets/css/themes/citadel-of-kang/modules/article-index.css" />
+  <style>
+    :root {
+      --ck-color-black: #050505;
+      --ck-color-white: #ffffff;
+      --ck-color-ink: #141414;
+      --ck-color-muted: #6d675d;
+      --ck-color-gold: #d4af37;
+      --ck-color-gold-dark: #b68f20;
+      --ck-color-gold-muted: #f5dc89;
+      --ck-color-paper: #fbfaf7;
+      --ck-color-surface: rgba(255, 255, 255, 0.9);
+      --ck-color-line: rgba(20, 20, 20, 0.12);
+      --ck-rgb-gold: 212, 175, 55;
+      --ck-rgb-black: 5, 5, 5;
+      --ck-rgb-white: 255, 255, 255;
+      --ck-font-display: Georgia, "Times New Roman", serif;
+      --ck-font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --ck-radius-xl: 30px;
+      --ck-shadow-card: 0 24px 70px rgba(0, 0, 0, 0.13);
+      --ck-nav-space: 88px;
+      --ck-container: 1180px;
+      --ck-article-width: 760px;
+      --ck-transition: 180ms ease;
+    }
+
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding-top: var(--ck-nav-space);
+      font-family: var(--ck-font-body);
+      color: var(--ck-color-ink);
+      background:
+        radial-gradient(circle at 18% 0%, rgba(212, 175, 55, 0.18), transparent 26rem),
+        linear-gradient(135deg, #ffffff 0%, #f6f1e8 48%, #ffffff 100%);
+      line-height: 1.65;
+    }
+
+    body.citadel-drawer-open { overflow: hidden; }
+
+    :focus-visible {
+      outline: 2px solid var(--ck-color-gold);
+      outline-offset: 3px;
+    }
+
+    .ck-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      min-height: var(--ck-nav-space);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 18px clamp(18px, 5vw, 72px);
+      background: rgba(7, 7, 7, 0.96);
+      color: #fff;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.28);
+      backdrop-filter: blur(16px);
+    }
+
+    .ck-brand {
+      color: #fff;
+      font-family: var(--ck-font-display);
+      font-size: 0.95rem;
+      letter-spacing: 0.22em;
+      text-decoration: none;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .ck-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .ck-nav-links a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .ck-nav-links a:hover { color: var(--ck-color-gold); }
+
+    .ck-menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0.62rem 1rem;
+      border: 1px solid rgba(212, 175, 55, 0.62);
+      border-radius: 999px;
+      color: #050505;
+      background: linear-gradient(135deg, var(--ck-color-gold-muted), var(--ck-color-gold) 62%, var(--ck-color-gold-dark));
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .ck-drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      background: rgba(0, 0, 0, 0.58);
+      opacity: 0;
+      transition: opacity 180ms ease;
+    }
+
+    .ck-drawer-backdrop.is-open { opacity: 1; }
+
+    .ck-mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 100;
+      width: min(88vw, 390px);
+      height: 100dvh;
+      padding: 1.2rem;
+      border-left: 1px solid rgba(212, 175, 55, 0.36);
+      background:
+        radial-gradient(circle at 80% 12%, rgba(212, 175, 55, 0.18), transparent 18rem),
+        linear-gradient(180deg, rgba(5, 5, 5, 0.98), rgba(15, 15, 15, 0.98));
+      color: #fff;
+      box-shadow: -24px 0 70px rgba(0, 0, 0, 0.38);
+      transform: translateX(104%);
+      transition: transform 180ms ease;
+    }
+
+    .ck-mobile-drawer.is-open { transform: translateX(0); }
+
+    .drawer-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.28);
+    }
+
+    .drawer-title {
+      margin: 0;
+      font-family: var(--ck-font-display);
+      font-size: 1.05rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .drawer-close {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(212, 175, 55, 0.42);
+      border-radius: 999px;
+      color: #fff8e6;
+      background: rgba(255, 255, 255, 0.06);
+      cursor: pointer;
+    }
+
+    .drawer-links {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 1.2rem;
+    }
+
+    .drawer-links a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 48px;
+      padding: 0.86rem 0.95rem;
+      border: 1px solid rgba(212, 175, 55, 0.18);
+      border-radius: 16px;
+      color: rgba(255, 255, 255, 0.86);
+      background: rgba(255, 255, 255, 0.04);
+      font-size: 0.82rem;
+      font-weight: 850;
+      letter-spacing: 0.12em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .drawer-links a:hover,
+    .drawer-links a:focus-visible {
+      color: var(--ck-color-gold);
+      border-color: rgba(212, 175, 55, 0.44);
+      background: rgba(212, 175, 55, 0.1);
+    }
+
+    .drawer-note {
+      margin: 1.4rem 0 0;
+      color: rgba(255, 248, 230, 0.68);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    .hero {
+      padding: clamp(36px, 7vw, 76px) clamp(18px, 6vw, 88px) clamp(28px, 5vw, 48px);
+      border-bottom: 1px solid var(--ck-color-line);
+      background:
+        linear-gradient(110deg, rgba(5,5,5,0.92), rgba(12,12,12,0.84)),
+        radial-gradient(circle at 85% 20%, rgba(212,175,55,0.32), transparent 22rem);
+      color: #fff;
+    }
+
+    .hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      color: var(--ck-color-gold);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.19em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 44px;
+      height: 1px;
+      background: var(--ck-color-gold);
+    }
+
+    h1 {
+      max-width: 940px;
+      margin: 0;
+      font-family: var(--ck-font-display);
+      font-size: clamp(2rem, 5vw, 4.6rem);
+      font-weight: 500;
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+    }
+
+    .hero p {
+      max-width: 780px;
+      margin: 24px 0 0;
+      color: rgba(255,255,255,0.82);
+      font-size: clamp(1rem, 1.7vw, 1.2rem);
+    }
+
+    .preview-label {
+      max-width: 1180px;
+      margin: 24px auto 0;
+      padding: 0 clamp(18px, 4vw, 36px);
+      color: var(--ck-color-muted);
+      font-size: 0.9rem;
+    }
+
+    .preview-label strong { color: var(--ck-color-ink); }
+
+    .preview-actions {
+      max-width: 1180px;
+      margin: 14px auto 0;
+      padding: 0 clamp(18px, 4vw, 36px);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .preview-actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(212,175,55,0.42);
+      color: #3e3108;
+      background: rgba(212,175,55,0.12);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .article-shell {
+      padding: clamp(30px, 5vw, 56px) clamp(18px, 4vw, 36px) 90px;
+    }
+
+    .article-index-layout .article-body {
+      padding: clamp(24px, 4vw, 48px);
+      border: 1px solid var(--ck-color-line);
+      border-radius: var(--ck-radius-xl);
+      background: var(--ck-color-surface);
+      box-shadow: var(--ck-shadow-card);
+    }
+
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .article-meta span {
+      padding: 7px 11px;
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      border-radius: 999px;
+      color: #55491f;
+      background: rgba(212, 175, 55, 0.12);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .article-summary {
+      margin: 0 0 32px;
+      padding: 20px 22px;
+      border-left: 3px solid var(--ck-color-gold);
+      background: rgba(212, 175, 55, 0.08);
+      color: #34302a;
+      font-size: 1.04rem;
+    }
+
+    .article-body h2 {
+      scroll-margin-top: calc(var(--ck-nav-space) + 28px);
+      margin: 42px 0 12px;
+      font-family: var(--ck-font-display);
+      font-size: clamp(1.5rem, 2.6vw, 2rem);
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+    }
+
+    .article-body h2:first-of-type { margin-top: 0; }
+
+    .article-body p,
+    .article-body li {
+      color: #282520;
+      font-size: 1rem;
+    }
+
+    .article-body ul { padding-left: 1.2rem; }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 18px 0 6px;
+    }
+
+    .info-item {
+      padding: 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(20,20,20,0.1);
+      background: rgba(255,255,255,0.7);
+    }
+
+    .info-item h3 {
+      margin: 0 0 8px;
+      font-family: var(--ck-font-display);
+      color: #1a1713;
+    }
+
+    @media (max-width: 920px) {
+      .ck-nav-links { display: none; }
+      .ck-menu-toggle { display: inline-flex; }
+      .article-shell { padding-top: 24px; }
+      .info-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      :root { --ck-nav-space: 72px; }
+      .ck-nav { padding: 14px 18px; }
+      .ck-brand { font-size: 0.78rem; letter-spacing: 0.16em; }
+      .hero { padding: 34px 18px 28px; }
+      .article-index-layout .article-body { border-radius: 24px; }
+      .ck-mobile-drawer { width: min(92vw, 380px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body id="top" data-citadel-navigation="true" data-citadel-article-index="true">
+  <header class="ck-nav" data-citadel-navigation data-citadel-navigation-root>
+    <a class="ck-brand" href="../index.html">Chambers of AK</a>
+    <nav class="ck-nav-links" aria-label="Primary navigation">
+      <a href="../index.html">Home</a>
+      <a href="../practice.html">Practice</a>
+      <a href="../legal-updates.html">Insights</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+    <button class="ck-menu-toggle" type="button" data-citadel-menu-toggle aria-expanded="false" aria-controls="ck-mobile-drawer">Menu</button>
+  </header>
+
+  <div class="ck-drawer-backdrop" data-citadel-drawer-backdrop hidden></div>
+
+  <aside id="ck-mobile-drawer" class="ck-mobile-drawer" data-citadel-mobile-drawer aria-label="Mobile navigation" hidden>
+    <div class="drawer-head">
+      <p class="drawer-title">Menu</p>
+      <button class="drawer-close" type="button" data-citadel-drawer-close aria-label="Close menu">×</button>
+    </div>
+    <nav class="drawer-links" aria-label="Mobile navigation links">
+      <a href="../index.html">Home <span>→</span></a>
+      <a href="../practice.html">Practice <span>→</span></a>
+      <a href="../legal-updates.html">Insights <span>→</span></a>
+      <a href="../contact.html">Contact <span>→</span></a>
+    </nav>
+    <p class="drawer-note">Preview-only drawer for testing Citadel of Kang mobile navigation behaviour. This page is noindex and is not part of production navigation.</p>
+  </aside>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Combined Preview: Navigation + Article Index</div>
+      <h1>Property Title Search Before Purchase in India</h1>
+      <p>This page tests Citadel Navigation Drawer and dynamic Article Index together, without loading Reading Time or Reading Progress yet.</p>
+    </div>
+  </header>
+
+  <div class="preview-label"><strong>Preview only.</strong> This page is noindex and exists only to test Citadel module compatibility before production rollout.</div>
+  <div class="preview-actions">
+    <a href="#why-title-search-matters">Try section jump</a>
+    <a href="#state-wise-records">Jump to state-wise records</a>
+    <a href="#official-references">Jump to references</a>
+  </div>
+
+  <main class="article-shell">
+    <article class="article-body" data-citadel-article-index>
+      <div class="article-meta">
+        <span>Published May 2026</span>
+        <span>Property</span>
+        <span>Due Diligence</span>
+        <span>Checklist</span>
+      </div>
+
+      <p class="article-summary">Property purchase due diligence should begin before token money or an agreement to sell is signed. A clean title search is not limited to one sale deed; it usually requires checking the ownership chain, seller capacity, encumbrances, possession, mutation, tax records, litigation history and property-specific permissions.</p>
+
+      <h2 id="why-title-search-matters">1. Why Title Search Matters Before Purchase</h2>
+      <p>Buying property without title verification can lead to disputes over ownership, possession, boundary, unpaid dues, mortgage, family claims, forged documents or pending litigation.</p>
+      <p>The purpose of a structured article index is to help readers navigate long-form legal content without losing their place.</p>
+
+      <h2 id="core-documents">2. Core Documents To Check In Every State</h2>
+      <ul>
+        <li>Current sale deed, gift deed, partition deed, conveyance deed, lease deed or other transfer instrument.</li>
+        <li>Previous title-chain documents showing ownership movement.</li>
+        <li>Mutation, revenue, municipal or property-tax records.</li>
+        <li>Encumbrance certificate or registration-search record where available.</li>
+      </ul>
+
+      <h2 id="seller-capacity">3. Seller-Side Capacity And Authority</h2>
+      <p>Title search is incomplete without checking whether the seller is legally competent to sell. Individual, company, trust, society, developer and inherited-property transactions require different authority records.</p>
+      <p>The index must remain usable even when article sections contain varied content lengths.</p>
+
+      <h2 id="revenue-municipal-records">4. Revenue, Municipal And Possession Records</h2>
+      <p>Revenue and mutation entries can be useful, but they should not be treated as a complete substitute for title-chain documents.</p>
+      <p>Where records differ across states, the article layout should support explanatory grids, bullets and note boxes.</p>
+
+      <h2 id="encumbrance-litigation">5. Encumbrance, Mortgage And Litigation Checks</h2>
+      <p>Before purchase, check whether the property is mortgaged, attached, restrained by court order, involved in partition or injunction proceedings, subject to acquisition, or burdened with unpaid dues.</p>
+      <p>The left-side index should stay visible on desktop while allowing the page itself to scroll normally.</p>
+
+      <h2 id="state-wise-records">6. State-Wise Record Examples</h2>
+      <div class="info-grid">
+        <section class="info-item"><h3>Bihar</h3><p>Sale deed chain, jamabandi, khata, khesra, mutation and rent receipts.</p></section>
+        <section class="info-item"><h3>Delhi</h3><p>Sale deed, chain documents, DDA/MCD or society records depending on property type.</p></section>
+        <section class="info-item"><h3>Uttar Pradesh</h3><p>Khatauni, khasra, mutation, registry search and authority records.</p></section>
+        <section class="info-item"><h3>Maharashtra</h3><p>7/12 extract, property card, index-II, mutation entries and society records.</p></section>
+      </div>
+
+      <h2 id="red-flags">7. Red Flags Before Purchase</h2>
+      <ul>
+        <li>The seller cannot provide original title documents.</li>
+        <li>Possession and title records do not match.</li>
+        <li>Mutation or tax records conflict with the sale deed chain.</li>
+        <li>There are unclear heirship, family or co-owner issues.</li>
+      </ul>
+
+      <h2 id="buyer-checklist">8. Buyer Enquiry Checklist</h2>
+      <p>Prepare a short note with property location, seller details, property type, available title papers, possession status, pending loan details and current transaction stage.</p>
+      <p>This section adds enough length to confirm that the page scrolls normally and that the active index state keeps updating through later headings.</p>
+
+      <h2 id="official-references">9. Official References</h2>
+      <p>Official record systems vary by state. General statutory references may include the Transfer of Property Act, 1882 and Registration Act, 1908.</p>
+      <p>This final section confirms that the active index state can reach the last heading and that the sticky index does not block page scrolling.</p>
+    </article>
+  </main>
+
+  <script src="../assets/js/themes/citadel-of-kang/navigation.js?v=nav-root-1"></script>
+  <script src="../assets/js/themes/citadel-of-kang/article-index.js"></script>
+</body>
+</html>
