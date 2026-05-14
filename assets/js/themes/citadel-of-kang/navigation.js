@@ -43,6 +43,17 @@
     return drawer.classList.contains('is-open');
   };
 
+  var resetClosedState = function () {
+    drawer.classList.remove('is-open');
+    drawer.hidden = true;
+    if (backdrop) {
+      backdrop.classList.remove('is-open');
+      backdrop.hidden = true;
+    }
+    body.classList.remove('citadel-drawer-open');
+    toggle.setAttribute('aria-expanded', 'false');
+  };
+
   var openDrawer = function () {
     previousFocus = document.activeElement;
     drawer.hidden = false;
@@ -127,12 +138,16 @@
     }
   });
 
-  window.addEventListener('resize', setNavSpace);
-  window.addEventListener('load', setNavSpace);
+  window.addEventListener('resize', function () {
+    setNavSpace();
+    if (!isOpen()) body.classList.remove('citadel-drawer-open');
+  });
+  window.addEventListener('load', function () {
+    setNavSpace();
+    if (!isOpen()) body.classList.remove('citadel-drawer-open');
+  });
 
-  drawer.hidden = true;
-  if (backdrop) backdrop.hidden = true;
-  toggle.setAttribute('aria-expanded', 'false');
+  resetClosedState();
   toggle.dataset.citadelNavigationReady = 'true';
   setNavSpace();
 })();
