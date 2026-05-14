@@ -79,6 +79,48 @@
       white-space: nowrap;
     }
 
+    .preview-menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0.6rem 1rem;
+      border: 1px solid rgba(212,175,55,0.56);
+      border-radius: 999px;
+      color: #050505;
+      background: linear-gradient(135deg, var(--ck-color-gold-muted), var(--ck-color-gold));
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .preview-mobile-menu {
+      display: none;
+      position: sticky;
+      top: var(--ck-nav-space);
+      z-index: 19;
+      padding: 0.85rem clamp(18px, 5vw, 72px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.28);
+      background: rgba(7, 7, 7, 0.96);
+      color: #fff;
+    }
+
+    .preview-mobile-menu.is-open {
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .preview-mobile-menu a {
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
     .hero {
       padding: clamp(56px, 8vw, 96px) clamp(18px, 6vw, 88px) clamp(34px, 5vw, 52px);
       border-bottom: 1px solid var(--ck-color-line);
@@ -244,6 +286,7 @@
 
     @media (max-width: 920px) {
       .nav-links { display: none; }
+      .preview-menu-toggle { display: inline-flex; }
       .article-shell { padding-top: 24px; }
       .info-grid { grid-template-columns: 1fr; }
     }
@@ -263,7 +306,14 @@
     <div class="nav-links">
       <span>Home</span><span>Practice</span><span>Insights</span><span>Contact</span>
     </div>
+    <button class="preview-menu-toggle" type="button" aria-expanded="false" aria-controls="preview-mobile-menu">Menu</button>
   </nav>
+  <div id="preview-mobile-menu" class="preview-mobile-menu">
+    <a href="../index.html">Home</a>
+    <a href="../practice.html">Practice</a>
+    <a href="../legal-updates.html">Insights</a>
+    <a href="../contact.html">Contact</a>
+  </div>
 
   <header class="hero">
     <div class="hero-inner">
@@ -342,5 +392,22 @@
   </main>
 
   <script src="../assets/js/themes/citadel-of-kang/article-index.js"></script>
+  <script>
+    const previewMenuToggle = document.querySelector('.preview-menu-toggle');
+    const previewMobileMenu = document.querySelector('#preview-mobile-menu');
+    if (previewMenuToggle && previewMobileMenu) {
+      previewMenuToggle.addEventListener('click', () => {
+        const isOpen = previewMobileMenu.classList.toggle('is-open');
+        previewMenuToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && previewMobileMenu.classList.contains('is-open')) {
+          previewMobileMenu.classList.remove('is-open');
+          previewMenuToggle.setAttribute('aria-expanded', 'false');
+          previewMenuToggle.focus();
+        }
+      });
+    }
+  </script>
 </body>
 </html>
