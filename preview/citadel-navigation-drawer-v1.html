@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="citadel-of-kang-light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <title>Citadel Navigation Drawer Preview</title>
+  <style>
+    :root {
+      --ck-color-black: #050505;
+      --ck-color-white: #ffffff;
+      --ck-color-ink: #141414;
+      --ck-color-muted: #6d675d;
+      --ck-color-gold: #d4af37;
+      --ck-color-gold-dark: #b68f20;
+      --ck-color-gold-muted: #f5dc89;
+      --ck-color-paper: #fbfaf7;
+      --ck-color-surface: rgba(255, 255, 255, 0.86);
+      --ck-color-line: rgba(20, 20, 20, 0.12);
+      --ck-rgb-gold: 212, 175, 55;
+      --ck-rgb-black: 5, 5, 5;
+      --ck-rgb-white: 255, 255, 255;
+      --ck-font-display: Georgia, "Times New Roman", serif;
+      --ck-font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --ck-nav-space: 88px;
+      --ck-transition: 180ms ease;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family: var(--ck-font-body);
+      color: var(--ck-color-ink);
+      background:
+        radial-gradient(circle at 18% 0%, rgba(212, 175, 55, 0.18), transparent 26rem),
+        linear-gradient(135deg, #ffffff 0%, #f6f1e8 48%, #ffffff 100%);
+      line-height: 1.65;
+    }
+
+    body.citadel-drawer-open {
+      overflow: hidden;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--ck-color-gold);
+      outline-offset: 3px;
+    }
+
+    .ck-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      min-height: var(--ck-nav-space);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 18px clamp(18px, 5vw, 72px);
+      background: rgba(7, 7, 7, 0.94);
+      color: #fff;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.28);
+      backdrop-filter: blur(16px);
+    }
+
+    .ck-brand {
+      color: #fff;
+      font-family: var(--ck-font-display);
+      font-size: 0.95rem;
+      letter-spacing: 0.22em;
+      text-decoration: none;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .ck-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .ck-nav-links a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .ck-nav-links a:hover { color: var(--ck-color-gold); }
+
+    .ck-menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0.62rem 1rem;
+      border: 1px solid rgba(212, 175, 55, 0.62);
+      border-radius: 999px;
+      color: #050505;
+      background: linear-gradient(135deg, var(--ck-color-gold-muted), var(--ck-color-gold) 62%, var(--ck-color-gold-dark));
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .ck-drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      background: rgba(0, 0, 0, 0.58);
+      opacity: 0;
+      transition: opacity 180ms ease;
+    }
+
+    .ck-drawer-backdrop.is-open { opacity: 1; }
+
+    .ck-mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 100;
+      width: min(88vw, 390px);
+      height: 100dvh;
+      padding: 1.2rem;
+      border-left: 1px solid rgba(212, 175, 55, 0.36);
+      background:
+        linear-gradient(180deg, rgba(5, 5, 5, 0.98), rgba(15, 15, 15, 0.98)),
+        radial-gradient(circle at 80% 12%, rgba(212, 175, 55, 0.18), transparent 18rem);
+      color: #fff;
+      box-shadow: -24px 0 70px rgba(0, 0, 0, 0.38);
+      transform: translateX(104%);
+      transition: transform 180ms ease;
+    }
+
+    .ck-mobile-drawer.is-open {
+      transform: translateX(0);
+    }
+
+    .drawer-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.28);
+    }
+
+    .drawer-title {
+      margin: 0;
+      font-family: var(--ck-font-display);
+      font-size: 1.05rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .drawer-close {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(212, 175, 55, 0.42);
+      border-radius: 999px;
+      color: #fff8e6;
+      background: rgba(255, 255, 255, 0.06);
+      cursor: pointer;
+    }
+
+    .drawer-links {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 1.2rem;
+    }
+
+    .drawer-links a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 48px;
+      padding: 0.86rem 0.95rem;
+      border: 1px solid rgba(212, 175, 55, 0.18);
+      border-radius: 16px;
+      color: rgba(255, 255, 255, 0.86);
+      background: rgba(255, 255, 255, 0.04);
+      font-size: 0.82rem;
+      font-weight: 850;
+      letter-spacing: 0.12em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .drawer-links a:hover,
+    .drawer-links a:focus-visible {
+      color: var(--ck-color-gold);
+      border-color: rgba(212, 175, 55, 0.44);
+      background: rgba(212, 175, 55, 0.1);
+    }
+
+    .drawer-note {
+      margin: 1.4rem 0 0;
+      color: rgba(255, 248, 230, 0.68);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    .hero {
+      padding: clamp(56px, 8vw, 96px) clamp(18px, 6vw, 88px) clamp(34px, 5vw, 52px);
+      border-bottom: 1px solid var(--ck-color-line);
+      background:
+        linear-gradient(110deg, rgba(5, 5, 5, 0.92), rgba(12, 12, 12, 0.84)),
+        radial-gradient(circle at 85% 20%, rgba(212, 175, 55, 0.32), transparent 22rem);
+      color: #fff;
+    }
+
+    .hero-inner,
+    .content {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      color: var(--ck-color-gold);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.19em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 44px;
+      height: 1px;
+      background: var(--ck-color-gold);
+    }
+
+    h1 {
+      max-width: 940px;
+      margin: 0;
+      font-family: var(--ck-font-display);
+      font-size: clamp(2.3rem, 5vw, 4.9rem);
+      font-weight: 500;
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+    }
+
+    .hero p {
+      max-width: 780px;
+      margin: 24px 0 0;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: clamp(1rem, 1.7vw, 1.2rem);
+    }
+
+    .content {
+      padding: clamp(32px, 5vw, 64px) clamp(18px, 6vw, 88px) 90px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .card {
+      min-height: 180px;
+      padding: 1.25rem;
+      border: 1px solid var(--ck-color-line);
+      border-radius: 24px;
+      background: var(--ck-color-surface);
+      box-shadow: var(--ck-shadow-card);
+    }
+
+    .card h2 {
+      margin: 0 0 0.65rem;
+      font-family: var(--ck-font-display);
+      font-size: 1.25rem;
+    }
+
+    .card p { color: var(--ck-color-muted); }
+
+    @media (max-width: 920px) {
+      .ck-nav-links { display: none; }
+      .ck-menu-toggle { display: inline-flex; }
+      .card-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      :root { --ck-nav-space: 72px; }
+      .ck-nav { padding: 14px 18px; }
+      .ck-brand { font-size: 0.78rem; letter-spacing: 0.16em; }
+      .hero { padding: 42px 18px 30px; }
+      .content { padding-inline: 18px; }
+      .ck-mobile-drawer { width: min(92vw, 380px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body data-citadel-navigation="true">
+  <header class="ck-nav" data-citadel-navigation>
+    <a class="ck-brand" href="../index.html">Chambers of AK</a>
+    <nav class="ck-nav-links" aria-label="Primary navigation">
+      <a href="../index.html">Home</a>
+      <a href="../practice.html">Practice</a>
+      <a href="../legal-updates.html">Insights</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+    <button class="ck-menu-toggle" type="button" data-citadel-menu-toggle aria-expanded="false" aria-controls="ck-mobile-drawer">Menu</button>
+  </header>
+
+  <div class="ck-drawer-backdrop" data-citadel-drawer-backdrop hidden></div>
+
+  <aside id="ck-mobile-drawer" class="ck-mobile-drawer" data-citadel-mobile-drawer aria-label="Mobile navigation" hidden>
+    <div class="drawer-head">
+      <p class="drawer-title">Menu</p>
+      <button class="drawer-close" type="button" data-citadel-drawer-close aria-label="Close menu">×</button>
+    </div>
+    <nav class="drawer-links" aria-label="Mobile navigation links">
+      <a href="../index.html">Home <span>→</span></a>
+      <a href="../practice.html">Practice <span>→</span></a>
+      <a href="../legal-updates.html">Insights <span>→</span></a>
+      <a href="../contact.html">Contact <span>→</span></a>
+    </nav>
+    <p class="drawer-note">Preview-only drawer for testing Citadel of Kang mobile navigation behaviour. This page is noindex and is not part of production navigation.</p>
+  </aside>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Dynamic Preview: Navigation Drawer</div>
+      <h1>Citadel Burger Menu Drawer</h1>
+      <p>This page tests the actual Citadel navigation drawer module in isolation. Resize to mobile width and test opening, closing, Escape key, focus handling and backdrop behaviour.</p>
+    </div>
+  </section>
+
+  <main class="content">
+    <p><strong>Preview only.</strong> This page is marked noindex and exists only to test the drawer navigation module before production rollout.</p>
+    <div class="card-grid">
+      <section class="card">
+        <h2>Mobile-first</h2>
+        <p>Citadel of Kang must treat mobile compatibility as a first-class requirement.</p>
+      </section>
+      <section class="card">
+        <h2>Accessible</h2>
+        <p>The drawer updates aria-expanded, supports Escape close and keeps focus inside the drawer while open.</p>
+      </section>
+      <section class="card">
+        <h2>Reusable</h2>
+        <p>The module is route-agnostic and uses data attributes, not Chambers-only assumptions.</p>
+      </section>
+    </div>
+
+    <div class="card-grid">
+      <section class="card"><h2>Scroll Test</h2><p>This extra content confirms that page scrolling is restored after the drawer closes.</p></section>
+      <section class="card"><h2>Backdrop Test</h2><p>Opening the menu should show a dim backdrop. Clicking the backdrop should close the drawer.</p></section>
+      <section class="card"><h2>Focus Test</h2><p>Keyboard focus should move into the drawer and return after closing.</p></section>
+    </div>
+  </main>
+
+  <script src="../assets/js/themes/citadel-of-kang/navigation.js"></script>
+</body>
+</html>
