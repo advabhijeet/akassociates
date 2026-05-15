@@ -1739,6 +1739,39 @@ if (window.ChambersInsightCards) {
   }
 })();
 
+
+// Article index: Citadel Article Index v20 auto-loader
+(function () {
+  const init = () => {
+    const article = document.querySelector('article[data-citadel-article-index], article.article-body, article.ck-article');
+    if (!article || article.dataset.citadelArticleIndexReady === 'true') return;
+    if (document.querySelector('.article-index-layout')) return;
+    if (document.getElementById('citadel-article-index-v20')) return;
+
+    const headings = Array.from(article.querySelectorAll(':scope > h2'))
+      .filter((heading) => (heading.textContent || '').trim().length > 0);
+
+    if (headings.length < 3) return;
+
+    // Existing article pages may still include a manual Article Index script tag.
+    // The auto-loader waits until the document is parsed and avoids injecting a duplicate.
+    if (document.querySelector('script[src*="article-index-direct-rail.js"]')) return;
+
+    const assetPrefix = window.location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
+    const script = document.createElement('script');
+
+    script.id = 'citadel-article-index-v20';
+    script.src = `${assetPrefix}assets/js/themes/citadel-of-kang/article-index-direct-rail.js?v=article-index-v20`;
+    script.defer = true;
+    document.body.appendChild(script);
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init, { once: true });
+  } else {
+    window.setTimeout(init, 0);
+  }
+})();
 // Article footer: Citadel Article Footer v2 loader
 (function () {
   const article = document.querySelector('article.article-body');

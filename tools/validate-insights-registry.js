@@ -8,6 +8,8 @@ const path = require('path');
 const root = process.cwd();
 const strict = process.argv.includes('--strict');
 const scriptPath = path.join(root, 'assets', 'js', 'script.js');
+const articleIndexModulePath = path.join(root, 'assets', 'js', 'themes', 'citadel-of-kang', 'article-index-direct-rail.js');
+const articleFooterModulePath = path.join(root, 'assets', 'js', 'themes', 'citadel-of-kang', 'article-footer.js');
 const updatesDir = path.join(root, 'updates');
 
 const normalizePath = (value) => String(value || '')
@@ -38,8 +40,8 @@ if (!fs.existsSync(scriptPath)) {
 }
 
 let registry = [];
-if (fs.existsSync(scriptPath)) {
-  const script = read(scriptPath);
+const script = fs.existsSync(scriptPath) ? read(scriptPath) : '';
+if (script) {
   const match = script.match(/window\.chambersInsightsRegistry\s*=\s*(\[[\s\S]*?\]);/);
 
   if (!match) {
@@ -51,6 +53,14 @@ if (fs.existsSync(scriptPath)) {
       errors.push(`Could not parse window.chambersInsightsRegistry: ${error.message}`);
     }
   }
+}
+
+if (script && !/Citadel Article Index v20 auto-loader/.test(script)) {
+  errors.push('Missing Citadel Article Index auto-loader in assets/js/script.js');
+}
+
+if (script && !/Citadel Article Footer v2 loader/.test(script)) {
+  errors.push('Missing Citadel Article Footer v2 loader in assets/js/script.js');
 }
 
 const registryHrefs = new Set(registry.map((item) => normalizePath(item.href)));

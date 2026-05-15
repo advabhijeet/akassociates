@@ -1,3 +1,8 @@
+## 2026-05-16 IST - Add Citadel Article Index auto-loader
+- Added a safe Article Index v20 auto-loader in `assets/js/script.js`.
+- The loader detects standard article-body pages with at least three h2 headings and loads the Citadel Article Index module when no manual script is already present.
+- Updated registry validation to check reusable article module availability and auto-loader presence.
+- Preserved existing manually wired article pages and duplicate-initialization safeguards.
 ## 2026-05-16 IST - Fix Citadel Article Footer v2 registry path matching
 - Corrected Article Footer v2 path normalization so registry hrefs such as updates/... match current /updates/... article pages.
 - Bumped the footer module cache key to article-footer-v2-1.

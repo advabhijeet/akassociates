@@ -87,6 +87,16 @@ The Article Index should auto-apply to all current and future article pages that
 
 No future article should require manual wiring of the Article Index script if a safe global loader is implemented.
 
+Current auto-loader behaviour:
+
+```text
+The Article Index auto-loader lives in assets/js/script.js.
+It detects article.article-body / Citadel article pages with at least three direct h2 headings.
+It loads assets/js/themes/citadel-of-kang/article-index-direct-rail.js only when an Article Index is not already ready and no manual article-index script tag is already present.
+Existing manually wired article pages remain safe because the module and loader both guard against duplicate initialization.
+```
+
+No future article should require manual wiring of the Article Index script when the article uses the standard article-body structure and has enough h2 headings.
 ## Article Footer Module
 
 Current module location:
