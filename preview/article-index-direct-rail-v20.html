@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <title>Article Index Direct Rail v20 | Chambers of AK</title>
+</head>
+<body>
+  <script>
+    (function () {
+      fetch('./article-index-direct-rail-v19.html', { cache: 'no-store' })
+        .then(function (response) { return response.text(); })
+        .then(function (html) {
+          html = html
+            .replace(/Article Index Direct Rail v19/g, 'Article Index Direct Rail v20')
+            .replace(/v19 keeps v17 approved behaviour and fixes mobile progress visibility with standalone geometry-based placement\./g, 'v20 keeps v19 approved behaviour and suspends the mobile progress bar while the mobile drawer is open.')
+            .replace('</style>', 'body.menu-open .mobile-reading-progress{display:none!important;visibility:hidden!important;opacity:0!important}</style>')
+            .replace('</body>', '<script>(function(){var lastScrollY=window.scrollY||0;var bar=function(){return document.querySelector(".mobile-reading-progress")};var isOpen=function(){return document.body.classList.contains("menu-open")};var apply=function(){var b=bar();if(!b)return;if(isOpen()){b.style.display="none";b.style.visibility="hidden";b.style.opacity="0";}else{b.style.display="";b.style.visibility="";b.style.opacity="";}};var menu=document.querySelector(".menu-toggle");if(menu){menu.addEventListener("pointerdown",function(){lastScrollY=window.scrollY||document.documentElement.scrollTop||0;},true);menu.addEventListener("click",function(){window.requestAnimationFrame(function(){apply();if(!isOpen()){window.scrollTo(0,lastScrollY);}});},true);}var observer=new MutationObserver(function(){apply();});observer.observe(document.body,{attributes:true,attributeFilter:["class"]});window.addEventListener("scroll",function(){if(!isOpen())lastScrollY=window.scrollY||document.documentElement.scrollTop||0;},{passive:true});apply();})();<\/script></body>');
+          document.open();
+          document.write(html);
+          document.close();
+        })
+        .catch(function () {
+          document.body.innerHTML = '<p style="font-family:system-ui;padding:24px">Could not load the v20 preview.</p>';
+        });
+    })();
+  </script>
+</body>
+</html>
