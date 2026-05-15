@@ -858,7 +858,7 @@
 [data-theme^="citadel-of-ak-dark"] .tag-update {
   border: 1px solid rgba(var(--rgb-gold), 0.58);
   background: linear-gradient(180deg, rgba(var(--rgb-gold), 0.18), rgba(var(--rgb-gold), 0.09));
-  color: rgba(255, 238, 184, 0.96);
+  color: #ffffff;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.035);
 }
 
@@ -879,6 +879,6 @@
 [data-theme^="citadel-of-ak-dark"] .pill:hover {
   border-color: rgba(var(--rgb-gold), 0.78);
   background: linear-gradient(180deg, rgba(var(--rgb-gold), 0.26), rgba(var(--rgb-gold), 0.13));
-  color: #fff8e6;
+  color: #ffffff;
 }
 /* END CITADEL DARK MODE PILL CONTRAST FIX */
