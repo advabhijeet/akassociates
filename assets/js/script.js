@@ -1751,7 +1751,7 @@ if (window.ChambersInsightCards) {
   const script = document.createElement('script');
 
   script.id = scriptId;
-  script.src = `${assetPrefix}assets/js/themes/citadel-of-kang/article-footer.js?v=article-footer-v2`;
+  script.src = `${assetPrefix}assets/js/themes/citadel-of-kang/article-footer.js?v=article-footer-v2-1`;
   script.defer = true;
   document.body.appendChild(script);
 })();
@@ -2084,3 +2084,4 @@ if (window.ChambersInsightCards) {
 
   updateMatterFields();
 })();
+

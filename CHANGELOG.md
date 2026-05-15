@@ -1,3 +1,7 @@
+## 2026-05-16 IST - Fix Citadel Article Footer v2 registry path matching
+- Corrected Article Footer v2 path normalization so registry hrefs such as updates/... match current /updates/... article pages.
+- Bumped the footer module cache key to article-footer-v2-1.
+- Ensured current article exclusion from Recommended Reads and restored Previous / Next rendering for registry-matched article pages.
 ## 2026-05-15 IST - Add Citadel Article Footer v2
 - Added reusable Citadel Article Footer v2 module under `assets/js/themes/citadel-of-kang/article-footer.js`.
 - Replaced the legacy inline article-footer block in `assets/js/script.js` with a loader and registry handoff.
@@ -2021,3 +2025,4 @@ For every future meaningful modification:
 4. Summarize what changed and why.
 5. List validation performed or pending.
 6. Add commit hash after commit if available.
+

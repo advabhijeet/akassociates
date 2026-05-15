@@ -17,10 +17,14 @@
 
     if (!path) return '';
 
+    path = path.split(/[?#]/)[0];
+
     try {
-      path = new URL(path, window.location.href).pathname;
+      if (/^(https?:|\/)/i.test(path)) {
+        path = new URL(path, window.location.origin).pathname;
+      }
     } catch (error) {
-      // Keep relative paths as-is.
+      // Keep relative registry paths as-is.
     }
 
     return path
@@ -28,7 +32,7 @@
       .replace(/^\/+/, '')
       .replace(/^akassociates\//i, '')
       .replace(/^\.\//, '')
-      .replace(/^\.\.\//, '')
+      .replace(/^(\.\.\/)+/, '')
       .replace(/\/index\.html$/i, '/')
       .replace(/\\/g, '/');
   };
@@ -279,3 +283,4 @@
     init();
   }
 })();
+
