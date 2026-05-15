@@ -1,3 +1,7 @@
+## 2026-05-15 IST - Add dark-theme pill fallback
+- Added a [data-theme="dark"] fallback for tag/category/chip pills so the white-text pill treatment applies on the live dark-mode site.
+- Preserved gold borders and dark-gold translucent fill.
+
 ## 2026-05-15 IST - Set dark-mode pill text to white
 - Changed dark-mode tag/category/chip pill text from muted gold to white for stronger readability.
 - Preserved the gold border, translucent dark-gold fill and hover treatment.
