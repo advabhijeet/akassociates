@@ -1,3 +1,7 @@
+## 2026-05-15 IST - Set dark-mode pill text to white
+- Changed dark-mode tag/category/chip pill text from muted gold to white for stronger readability.
+- Preserved the gold border, translucent dark-gold fill and hover treatment.
+
 ## 2026-05-15 IST - Improve dark-mode tag pill contrast
 - Improved dark-mode contrast for shared tag/category/chip pills at the Citadel theme level.
 - Applied stronger gold borders, readable gold text and translucent dark-gold fill for insight tags, update tags, article tags and generic pill classes.
