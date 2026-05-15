@@ -1,3 +1,21 @@
+## 2026-05-15 IST - Roll out Article Index v20 to eligible article pages
+- Rolled out the reusable Article Index v20 module to eligible /updates/ article pages with article-body content and at least three h2 headings.
+- Added article-level activation and direct-rail script loading only where needed.
+- Preserved existing non-article pages, listing pages and legal-policy pages.
+- Changed pages:
+- $_
+- $_
+- $_
+- $_
+- $_
+- $_
+- $_
+- $_
+- $_
+- $_
+- $_
+- $_
+- $_
 ## 2026-05-15 IST - Refine Article Index click-jump anchor offset
 - Increased the Article Index click-jump anchor offset so target headings remain visible below the fixed navigation bar.
 - Aligned JS smooth-scroll targeting with the CSS heading scroll-margin fallback.

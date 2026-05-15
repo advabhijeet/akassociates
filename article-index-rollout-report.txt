@@ -1,0 +1,29 @@
+Article Index v20 rollout report
+Generated: 2026-05-15 11:48:58
+
+Eligible pages: 14
+Changed pages: 13
+
+Changed:
+ - updates\arbitration-clause-checklist.html
+ - updates\bihar-rera-complaint.html
+ - updates\cheque-bounce-30-days.html
+ - updates\cheque-bounce-defence-after-summons.html
+ - updates\cheque-bounce-notice-limitation.html
+ - updates\commercial-recovery-before-suit.html
+ - updates\msme-delayed-payment.html
+ - updates\msme-documents-checklist.html
+ - updates\msme-facilitation-council-process.html
+ - updates\non-reportable-judgments-online-publication-case-brief.html
+ - updates\rera-refund-interest-delayed-possession.html
+ - updates\sarfaesi-auction-sale-challenge-documents.html
+ - updates\summary-judgment-commercial-suits-order-xiii-a.html
+
+Skipped:
+ - updates\arbitration-notice-before-claim.html :: no article-body
+ - updates\commercial-suit-documents-checklist.html :: no article-body
+ - updates\msme-45-days-payment-rule.html :: no article-body
+ - updates\property-injunction-suit-documents.html :: no article-body
+ - updates\rera-delayed-possession-bihar.html :: no article-body
+ - updates\section-138-cheque-bounce-limitation.html :: no article-body
+ - updates\section-34-arbitration-award-challenge.html :: no article-body
