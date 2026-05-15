@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <title>Article Index Direct Rail v18 | Chambers of AK</title>
+</head>
+<body>
+  <script>
+    (function () {
+      fetch('./article-index-direct-rail-v17.html', { cache: 'no-store' })
+        .then(function (response) { return response.text(); })
+        .then(function (html) {
+          html = html
+            .replace(/Article Index Direct Rail v17/g, 'Article Index Direct Rail v18')
+            .replace(/v17 keeps v16 approved behaviour and adds a mobile-only reading progress bar directly under the navbar\./g, 'v18 keeps v17 approved behaviour and removes the mobile navbar/progress-bar gap by measuring the actual navbar edge instead of relying on guessed spacing.')
+            .replace(/\.mobile-reading-progress\{display:block;position:fixed;top:var\(--nav-space,88px\);left:0;right:0;height:3px;/g, '.mobile-reading-progress{display:block;position:fixed;top:var(--mobile-progress-top,0px);left:0;right:0;height:var(--mobile-progress-height,3px);')
+            .replace('</body>', '<script>(function(){var setMobileProgressTop=function(){var nav=document.querySelector(".nav");var bar=document.querySelector(".mobile-reading-progress");if(!nav||!bar)return;var barHeight=bar.offsetHeight||3;document.documentElement.style.setProperty("--mobile-progress-height",barHeight+"px");document.documentElement.style.setProperty("--mobile-progress-top",Math.max(0,nav.getBoundingClientRect().bottom-barHeight)+"px");};window.addEventListener("load",setMobileProgressTop);window.addEventListener("resize",setMobileProgressTop);window.addEventListener("orientationchange",function(){window.setTimeout(setMobileProgressTop,120);});window.addEventListener("scroll",setMobileProgressTop,{passive:true});setMobileProgressTop();})();<\/script></body>');
+
+          document.open();
+          document.write(html);
+          document.close();
+        })
+        .catch(function () {
+          document.body.innerHTML = '<p style="font-family:system-ui;padding:24px">Could not load the v18 preview shell.</p>';
+        });
+    })();
+  </script>
+</body>
+</html>
