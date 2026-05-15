@@ -55,6 +55,25 @@ Reusable module rules have been documented in:
 docs/maintenance/ARTICLE_REUSABLE_MODULES.md
 ```
 
+## Citadel Scope Clarification
+
+The user clarified that Article Footer v2 should be a Citadel feature, not only a Chambers of AK-specific fix.
+
+Recorded rule:
+
+```text
+Article Footer v2 must be designed as a reusable Citadel article module.
+It may use the current Chambers registry during this project, but the module logic should remain portable and theme/module-oriented.
+```
+
+Future preferred module/data direction:
+
+```text
+assets/js/themes/citadel-of-kang/article-footer.js
+assets/css/themes/citadel-of-kang/modules/article-footer.css
+window.CitadelArticleRegistry or assets/data/insights-registry.json
+```
+
 ## Current Article Index Status
 
 Article Index v20 is approved and deployed.
@@ -108,7 +127,7 @@ This caused the latest property title search article to show no Tags / Previous 
 Required fix:
 
 ```text
-Article Footer v2 must become fault-tolerant and auto-applied.
+Article Footer v2 must become a Citadel reusable feature that is fault-tolerant and auto-applied.
 It should use registry metadata when available and page metadata fallback when missing.
 It must never silently disappear on valid article-body pages.
 ```
@@ -128,7 +147,7 @@ docs/planning/STATUS_2026-05-15_REUSABLE_ARTICLE_MODULES_AND_PLATFORM_V2.md
 Recommended next steps:
 
 ```text
-1. Patch Article Footer v2 so it auto-applies with fallback metadata.
+1. Patch Article Footer v2 as a reusable Citadel module so it auto-applies with fallback metadata.
 2. Add property-title-search-before-purchase-india.html to the central article registry.
 3. Add registry validation script for /updates/*.html pages.
 4. Add Article Index auto-loader for future article pages.
