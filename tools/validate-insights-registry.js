@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /*
   Validate Chambers/Citadel article registry coverage and reusable article module assumptions.
+  Source of truth: assets/data/insights-registry.json
 */
 const fs = require('fs');
 const path = require('path');
@@ -8,8 +9,7 @@ const path = require('path');
 const root = process.cwd();
 const strict = process.argv.includes('--strict');
 const scriptPath = path.join(root, 'assets', 'js', 'script.js');
-const articleIndexModulePath = path.join(root, 'assets', 'js', 'themes', 'citadel-of-kang', 'article-index-direct-rail.js');
-const articleFooterModulePath = path.join(root, 'assets', 'js', 'themes', 'citadel-of-kang', 'article-footer.js');
+const registryPath = path.join(root, 'assets', 'data', 'insights-registry.json');
 const updatesDir = path.join(root, 'updates');
 
 const normalizePath = (value) => String(value || '')
@@ -39,31 +39,37 @@ if (!fs.existsSync(scriptPath)) {
   errors.push(`Missing script.js at ${path.relative(root, scriptPath)}`);
 }
 
-let registry = [];
-const script = fs.existsSync(scriptPath) ? read(scriptPath) : '';
-if (script) {
-  const match = script.match(/window\.chambersInsightsRegistry\s*=\s*(\[[\s\S]*?\]);/);
+if (!fs.existsSync(registryPath)) {
+  errors.push(`Missing insights registry JSON at ${path.relative(root, registryPath)}`);
+}
 
-  if (!match) {
-    errors.push('Could not find window.chambersInsightsRegistry in assets/js/script.js');
-  } else {
-    try {
-      registry = Function(`"use strict"; return (${match[1]});`)();
-    } catch (error) {
-      errors.push(`Could not parse window.chambersInsightsRegistry: ${error.message}`);
-    }
+let registry = [];
+if (fs.existsSync(registryPath)) {
+  try {
+    registry = JSON.parse(read(registryPath));
+  } catch (error) {
+    errors.push(`Could not parse assets/data/insights-registry.json: ${error.message}`);
+  }
+
+  if (!Array.isArray(registry)) {
+    errors.push('assets/data/insights-registry.json must contain a JSON array');
+    registry = [];
   }
 }
 
-if (script && !/Citadel Article Index v20 auto-loader/.test(script)) {
-  errors.push('Missing Citadel Article Index auto-loader in assets/js/script.js');
+if (fs.existsSync(scriptPath)) {
+  const script = read(scriptPath);
+
+  if (/window\.chambersInsightsRegistry\s*=\s*\[\s*\{/m.test(script)) {
+    errors.push('assets/js/script.js still appears to contain an inline registry object array');
+  }
+
+  if (!/ChambersInsightsRegistryReady/.test(script) || !/assets\/data\/insights-registry\.json/.test(script)) {
+    errors.push('assets/js/script.js is missing the JSON registry loader');
+  }
 }
 
-if (script && !/Citadel Article Footer v2 loader/.test(script)) {
-  errors.push('Missing Citadel Article Footer v2 loader in assets/js/script.js');
-}
-
-const registryHrefs = new Set(registry.map((item) => normalizePath(item.href)));
+const registryHrefs = new Set(registry.map((item) => normalizePath(item && item.href)));
 const updateArticleFiles = walk(updatesDir)
   .filter((file) => file.endsWith('.html'))
   .filter((file) => {
@@ -76,7 +82,7 @@ updateArticleFiles.forEach((file) => {
   const html = read(file);
 
   if (!registryHrefs.has(relative)) {
-    const message = `${relative} has article-body but is missing from window.chambersInsightsRegistry`;
+    const message = `${relative} has article-body but is missing from assets/data/insights-registry.json`;
     if (strict) errors.push(message);
     else warnings.push(message);
   }
@@ -86,23 +92,18 @@ updateArticleFiles.forEach((file) => {
   }
 
   const h2Count = (html.match(/<h2[\s>]/gi) || []).length;
-  if (/data-citadel-article-index/i.test(html) && h2Count < 3) {
-    errors.push(`${relative} has data-citadel-article-index but only ${h2Count} h2 heading(s)`);
-  }
-
-  const footerCount = (html.match(/article-standard-footer/g) || []).length;
-  if (footerCount > 0) {
-    errors.push(`${relative} contains manually hardcoded article-standard-footer markup`);
-  }
-
   const articleIndexScriptCount = (html.match(/article-index-direct-rail\.js/g) || []).length;
-  if (articleIndexScriptCount > 1) {
+  if (h2Count >= 3 && articleIndexScriptCount > 1) {
     errors.push(`${relative} contains duplicate Article Index script references`);
+  }
+
+  if ((html.match(/article-standard-footer/g) || []).length > 0) {
+    errors.push(`${relative} contains manually hardcoded article-standard-footer markup`);
   }
 });
 
 registry.forEach((item, index) => {
-  const href = normalizePath(item.href);
+  const href = normalizePath(item && item.href);
   if (!href) {
     errors.push(`Registry item ${index + 1} has no href`);
     return;

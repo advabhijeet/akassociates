@@ -1,3 +1,8 @@
+## 2026-05-16 IST - Move Insights registry to JSON source
+- Extracted article metadata from `assets/js/script.js` into `assets/data/insights-registry.json`.
+- Added a runtime registry loader that preserves `window.chambersInsightsRegistry` and exposes `window.CitadelArticleRegistry`.
+- Updated registry validation to use the JSON file as the source of truth.
+- Bumped public script cache references to `citadel-live-4`.
 ## 2026-05-16 IST - Add Citadel Article Index auto-loader
 - Added a safe Article Index v20 auto-loader in `assets/js/script.js`.
 - The loader detects standard article-body pages with at least three h2 headings and loads the Citadel Article Index module when no manual script is already present.
@@ -195,7 +200,7 @@ Validation / notes:
 - Ran `git diff --check`.
 - Parsed `sitemap.xml` and `feed.xml`.
 - Confirmed public HTML homepage links no longer use `index.html` / `../index.html`.
-- Confirmed public HTML script references now use `script.js?v=citadel-live-3`.
+- Confirmed public HTML script references now use `script.js?v=citadel-live-4`.
 - Live visual check remains manual/Codex-dependent after GitHub Pages refresh.
 
 Commits:
@@ -2030,4 +2035,3 @@ For every future meaningful modification:
 4. Summarize what changed and why.
 5. List validation performed or pending.
 6. Add commit hash after commit if available.
-

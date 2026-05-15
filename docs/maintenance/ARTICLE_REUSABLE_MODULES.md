@@ -253,3 +253,27 @@ Correct approach:
 ```
 
 Manual page-by-page insertion is allowed only as a temporary emergency fix and must be removed when the reusable module is stable.
+## Registry JSON Source Of Truth - 2026-05-16
+
+The current static-site article metadata source of truth is now:
+
+```text
+assets/data/insights-registry.json
+```
+
+Runtime compatibility remains available through:
+
+```text
+window.chambersInsightsRegistry
+window.CitadelArticleRegistry
+window.ChambersInsightsRegistryReady
+```
+
+Rules:
+
+```text
+- do not manually maintain the article registry inside assets/js/script.js;
+- add or update article metadata in assets/data/insights-registry.json;
+- keep script.js responsible for behaviour/module loading, not article data;
+- run tools/validate-insights-registry.js --strict after article or registry changes.
+```
