@@ -357,3 +357,156 @@
     min-height: 40px;
   }
 }
+/* CITADEL PILL GROUP COLOR NORMALIZATION V2 */
+:root {
+  --citadel-pill-category-border: rgba(var(--rgb-gold), 0.72);
+  --citadel-pill-category-bg:
+    linear-gradient(180deg, rgba(var(--rgb-gold), 0.24), rgba(var(--rgb-gold), 0.11)),
+    rgba(var(--rgb-white), 0.7);
+  --citadel-pill-category-text: var(--color-gold-deep);
+  --citadel-pill-category-shadow: inset 0 0 0 1px rgba(var(--rgb-white), 0.22);
+
+  --citadel-pill-tag-border: rgba(var(--rgb-gold), 0.46);
+  --citadel-pill-tag-bg: rgba(var(--rgb-gold), 0.08);
+  --citadel-pill-tag-text: var(--color-gold-deep);
+  --citadel-pill-tag-shadow: none;
+
+  --citadel-pill-meta-border: rgba(var(--rgb-ink), 0.16);
+  --citadel-pill-meta-bg: rgba(var(--rgb-white), 0.42);
+  --citadel-pill-meta-text: var(--text-muted);
+
+  --citadel-pill-filter-border: rgba(var(--rgb-gold), 0.58);
+  --citadel-pill-filter-bg: rgba(var(--rgb-white), 0.58);
+  --citadel-pill-filter-text: var(--color-gold-deep);
+}
+
+[data-theme^="citadel-of-ak-dark"],
+[data-theme="dark"] {
+  --citadel-pill-category-border: rgba(var(--rgb-gold), 0.78);
+  --citadel-pill-category-bg: linear-gradient(180deg, rgba(var(--rgb-gold), 0.28), rgba(var(--rgb-gold), 0.14));
+  --citadel-pill-category-text: #ffffff;
+  --citadel-pill-category-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.045);
+
+  --citadel-pill-tag-border: rgba(var(--rgb-gold), 0.56);
+  --citadel-pill-tag-bg: rgba(var(--rgb-gold), 0.09);
+  --citadel-pill-tag-text: #e6c364;
+  --citadel-pill-tag-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.025);
+
+  --citadel-pill-meta-border: rgba(255, 255, 255, 0.18);
+  --citadel-pill-meta-bg: rgba(255, 255, 255, 0.045);
+  --citadel-pill-meta-text: rgba(255, 255, 255, 0.72);
+
+  --citadel-pill-filter-border: rgba(var(--rgb-gold), 0.66);
+  --citadel-pill-filter-bg: rgba(var(--rgb-gold), 0.1);
+  --citadel-pill-filter-text: #e6c364;
+}
+
+/* Category pills must share one visual language regardless of label. */
+[data-theme^="citadel-of-ak"] .update-tag,
+[data-theme^="citadel-of-ak"] .article-tag,
+[data-theme^="citadel-of-ak"] .latest-card-category,
+[data-theme^="citadel-of-ak"] .tag-case-brief,
+[data-theme^="citadel-of-ak"] .tag-checklist,
+[data-theme^="citadel-of-ak"] .tag-guide,
+[data-theme^="citadel-of-ak"] .tag-procedure,
+[data-theme^="citadel-of-ak"] .tag-update,
+[data-theme^="citadel-of-ak"] .tag-legal-update,
+[data-theme^="citadel-of-ak"] .citadel-pill-category,
+[data-theme="dark"] .update-tag,
+[data-theme="dark"] .article-tag,
+[data-theme="dark"] .latest-card-category,
+[data-theme="dark"] .tag-case-brief,
+[data-theme="dark"] .tag-checklist,
+[data-theme="dark"] .tag-guide,
+[data-theme="dark"] .tag-procedure,
+[data-theme="dark"] .tag-update,
+[data-theme="dark"] .tag-legal-update,
+[data-theme="dark"] .citadel-pill-category,
+.theme-citadel-active .update-tag,
+.theme-citadel-active .article-tag,
+.theme-citadel-active .latest-card-category,
+.theme-citadel-active .tag-case-brief,
+.theme-citadel-active .tag-checklist,
+.theme-citadel-active .tag-guide,
+.theme-citadel-active .tag-procedure,
+.theme-citadel-active .tag-update,
+.theme-citadel-active .tag-legal-update,
+.theme-citadel-active .citadel-pill-category {
+  border-color: var(--citadel-pill-category-border) !important;
+  background: var(--citadel-pill-category-bg) !important;
+  color: var(--citadel-pill-category-text) !important;
+  box-shadow: var(--citadel-pill-category-shadow) !important;
+  opacity: 1 !important;
+}
+
+/* Tag pills must share one visual language regardless of topic. */
+[data-theme^="citadel-of-ak"] .insight-card-tags span,
+[data-theme^="citadel-of-ak"] .insight-card-tags a,
+[data-theme^="citadel-of-ak"] .article-tag-list a,
+[data-theme^="citadel-of-ak"] .citadel-pill-tag,
+[data-theme="dark"] .insight-card-tags span,
+[data-theme="dark"] .insight-card-tags a,
+[data-theme="dark"] .article-tag-list a,
+[data-theme="dark"] .citadel-pill-tag,
+.theme-citadel-active .insight-card-tags span,
+.theme-citadel-active .insight-card-tags a,
+.theme-citadel-active .article-tag-list a,
+.theme-citadel-active .citadel-pill-tag {
+  border-color: var(--citadel-pill-tag-border) !important;
+  background: var(--citadel-pill-tag-bg) !important;
+  color: var(--citadel-pill-tag-text) !important;
+  box-shadow: var(--citadel-pill-tag-shadow) !important;
+  opacity: 1 !important;
+}
+
+/* Technical/legal tags stay in the tag family but get more width. */
+[data-theme^="citadel-of-ak"] .insight-card-tags span:nth-child(n+5),
+[data-theme^="citadel-of-ak"] .insight-card-tags a:nth-child(n+5),
+[data-theme="dark"] .insight-card-tags span:nth-child(n+5),
+[data-theme="dark"] .insight-card-tags a:nth-child(n+5),
+.theme-citadel-active .insight-card-tags span:nth-child(n+5),
+.theme-citadel-active .insight-card-tags a:nth-child(n+5) {
+  min-width: min(100%, 9.5rem) !important;
+}
+
+/* Meta pills remain quieter than tags and categories. */
+[data-theme^="citadel-of-ak"] .article-meta span,
+[data-theme^="citadel-of-ak"] .citadel-pill-meta,
+[data-theme="dark"] .article-meta span,
+[data-theme="dark"] .citadel-pill-meta,
+.theme-citadel-active .article-meta span,
+.theme-citadel-active .citadel-pill-meta {
+  border-color: var(--citadel-pill-meta-border) !important;
+  background: var(--citadel-pill-meta-bg) !important;
+  color: var(--citadel-pill-meta-text) !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+
+/* Filter/action pills remain visibly clickable but use one group color. */
+[data-theme^="citadel-of-ak"] .insights-filter,
+[data-theme^="citadel-of-ak"] .insights-page-button,
+[data-theme^="citadel-of-ak"] .citadel-pill-filter,
+[data-theme="dark"] .insights-filter,
+[data-theme="dark"] .insights-page-button,
+[data-theme="dark"] .citadel-pill-filter,
+.theme-citadel-active .insights-filter,
+.theme-citadel-active .insights-page-button,
+.theme-citadel-active .citadel-pill-filter {
+  border-color: var(--citadel-pill-filter-border) !important;
+  background: var(--citadel-pill-filter-bg) !important;
+  color: var(--citadel-pill-filter-text) !important;
+  opacity: 1 !important;
+}
+
+[data-theme^="citadel-of-ak"] .insight-card-tags a:hover,
+[data-theme^="citadel-of-ak"] .article-tag-list a:hover,
+[data-theme="dark"] .insight-card-tags a:hover,
+[data-theme="dark"] .article-tag-list a:hover,
+.theme-citadel-active .insight-card-tags a:hover,
+.theme-citadel-active .article-tag-list a:hover {
+  border-color: var(--citadel-pill-category-border) !important;
+  background: rgba(var(--rgb-gold), 0.16) !important;
+  color: var(--citadel-pill-tag-text) !important;
+}
+/* END CITADEL PILL GROUP COLOR NORMALIZATION V2 */

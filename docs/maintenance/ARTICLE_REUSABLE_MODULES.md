@@ -300,3 +300,14 @@ Pill groups:
 Existing markup remains backward-compatible. Current selectors such as `.update-tag`, `.insight-card-tags`, `.article-tag-list`, `.article-meta span`, `.insights-filter` and `.insights-page-button` are mapped into the Citadel grouped pill system. Future modules may use explicit classes such as `.citadel-pill`, `.citadel-pill-category`, `.citadel-pill-tag`, `.citadel-pill-technical`, `.citadel-pill-meta` and `.citadel-pill-filter`.
 
 All pill styling must remain compatible with Citadel light mode, Citadel dark mode, desktop layouts and mobile wrapping.
+### Citadel-wide grouped pill system v2
+
+- Pill styling is maintained at Citadel module level in `assets/css/themes/citadel-of-kang/modules/pills.css`.
+- Pill differences are by purpose group, not by individual content label:
+  - category pills use one stronger visual language for article/content type labels;
+  - tag pills use one lighter topic-pill visual language;
+  - technical/legal tags remain tag pills but may receive more width;
+  - meta pills stay muted;
+  - filter/action pills remain visibly interactive.
+- Light mode, dark mode, desktop and mobile states must remain compatible.
+- Do not add Chambers-specific one-off pill fixes for homepage cards or articles; update the Citadel pill module instead.

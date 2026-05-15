@@ -1106,7 +1106,7 @@ Use the feed loader as enhancement, not as the only source of latest cards.
 Example:
 
 ```html
-<link rel="stylesheet" href="assets/css/style.css?v=theme-package-4">
+<link rel="stylesheet" href="assets/css/style.css?v=theme-package-5">
 <script src="assets/js/script.js?v=citadel-live-4"></script>
 ```
 

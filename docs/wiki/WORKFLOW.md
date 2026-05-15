@@ -328,7 +328,7 @@ The patch package's internal apply script should handle backups, validation, int
 Shared CSS and JavaScript files are referenced with query-string versions, for example:
 
 ```html
-assets/css/style.css?v=theme-package-4
+assets/css/style.css?v=theme-package-5
 assets/js/script.js?v=citadel-live-4
 ```
 

@@ -1,3 +1,8 @@
+### Normalize Citadel pill group colors
+
+- Normalized category, tag, meta and filter/action pill colors at the Citadel module level so labels within the same group no longer appear with inconsistent text color or fill strength.
+- Kept category pills visually stronger, tag pills lighter, technical tags wider, and meta pills muted across light mode, dark mode, desktop and mobile layouts.
+- Bumped public stylesheet cache references to `style.css?v=theme-package-5` and the pill module import to `pills.css?v=pills-v2`.
 ## 2026-05-16 IST - Add Citadel-wide grouped pill system
 - Added a reusable Citadel pill module for category, tag, technical, meta and filter/action pills.
 - Mapped existing card, article, footer and Insights filter pill selectors into the grouped system without changing article markup.
@@ -288,7 +293,7 @@ Summary:
 - Fixed the active Citadel navbar Contact button so text remains visible in light and dark modes, including active Contact-page state.
 - Rebuilt `assets/img/logo-navbar-dark.png` on the same `620x115` canvas as the light navbar logo to keep desktop and mobile logo sizing consistent without CSS stretching.
 - Bumped the dark navbar logo asset key to `dark-2`.
-- Bumped public stylesheet references to `style.css?v=theme-package-4` and script references to `script.js?v=citadel-live-2`.
+- Bumped public stylesheet references to `style.css?v=theme-package-5` and script references to `script.js?v=citadel-live-2`.
 
 Validation / notes:
 
@@ -323,7 +328,7 @@ Summary:
 - Preserved `assets/css/themes/chambers-ak.css` as the previous-theme rollback package.
 - Converted the Citadel controller from preview-only behavior into the active light/dark theme controller.
 - Removed production preview-banner behavior and kept the theme reference page as a noindex review surface.
-- Bumped public stylesheet references to `style.css?v=theme-package-4` and script references to `script.js?v=citadel-live-2`.
+- Bumped public stylesheet references to `style.css?v=theme-package-5` and script references to `script.js?v=citadel-live-2`.
 - Updated repository documentation to reflect Citadel as the active site theme and to keep WordPress/commercial packaging out of this repository.
 
 Validation / notes:
