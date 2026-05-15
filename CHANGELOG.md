@@ -1,3 +1,8 @@
+## 2026-05-15 IST - Fix dark-mode pill idle state
+- Added a stronger shared override for dark-mode article tag/category pill idle states.
+- Ensured tag pills remain white-text with gold border and dark-gold fill even when not hovered.
+- Preserved the existing hover treatment.
+
 ## 2026-05-15 IST - Add dark-theme pill fallback
 - Added a [data-theme="dark"] fallback for tag/category/chip pills so the white-text pill treatment applies on the live dark-mode site.
 - Preserved gold borders and dark-gold translucent fill.

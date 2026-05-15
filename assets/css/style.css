@@ -2926,3 +2926,40 @@ body.insights-list-active .insights-category-section {
     padding: 0.85rem;
   }
 }
+
+/* CITADEL DARK PILL IDLE STATE OVERRIDE */
+[data-theme="dark"] .article-standard-footer a[href*="legal-updates.html?tag="],
+[data-theme="dark"] .article-standard-footer a[href*="/legal-updates.html?tag="],
+[data-theme="dark"] .article-standard-footer .article-tag,
+[data-theme="dark"] .article-standard-footer .tag,
+[data-theme="dark"] .article-standard-footer .pill,
+[data-theme="dark"] .insight-card-tags a,
+[data-theme="dark"] .insight-card-tags span,
+[data-theme="dark"] .update-tag,
+[data-theme="dark"] .article-tag,
+[data-theme="dark"] .latest-card-category,
+[data-theme^="citadel-of-ak-dark"] .article-standard-footer a[href*="legal-updates.html?tag="],
+[data-theme^="citadel-of-ak-dark"] .article-standard-footer a[href*="/legal-updates.html?tag="],
+[data-theme^="citadel-of-ak-dark"] .article-standard-footer .article-tag,
+[data-theme^="citadel-of-ak-dark"] .article-standard-footer .tag,
+[data-theme^="citadel-of-ak-dark"] .article-standard-footer .pill {
+  border-color: rgba(var(--rgb-gold), 0.58) !important;
+  background: linear-gradient(180deg, rgba(var(--rgb-gold), 0.18), rgba(var(--rgb-gold), 0.09)) !important;
+  color: #ffffff !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.035) !important;
+}
+
+[data-theme="dark"] .article-standard-footer a[href*="legal-updates.html?tag="]:hover,
+[data-theme="dark"] .article-standard-footer a[href*="/legal-updates.html?tag="]:hover,
+[data-theme="dark"] .article-standard-footer .article-tag:hover,
+[data-theme="dark"] .insight-card-tags a:hover,
+[data-theme="dark"] .latest-card-category:hover,
+[data-theme^="citadel-of-ak-dark"] .article-standard-footer a[href*="legal-updates.html?tag="]:hover,
+[data-theme^="citadel-of-ak-dark"] .article-standard-footer a[href*="/legal-updates.html?tag="]:hover,
+[data-theme^="citadel-of-ak-dark"] .article-standard-footer .article-tag:hover {
+  border-color: rgba(var(--rgb-gold), 0.78) !important;
+  background: linear-gradient(180deg, rgba(var(--rgb-gold), 0.26), rgba(var(--rgb-gold), 0.13)) !important;
+  color: #ffffff !important;
+}
+/* END CITADEL DARK PILL IDLE STATE OVERRIDE */
+
