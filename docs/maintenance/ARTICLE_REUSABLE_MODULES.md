@@ -277,3 +277,26 @@ Rules:
 - keep script.js responsible for behaviour/module loading, not article data;
 - run tools/validate-insights-registry.js --strict after article or registry changes.
 ```
+## Citadel Pill System
+
+The Citadel theme owns a reusable grouped pill system at:
+
+```text
+assets/css/themes/citadel-of-kang/modules/pills.css
+```
+
+The module is imported through `assets/css/style.css` and is theme-level, not Chambers-specific.
+
+Pill groups:
+
+```text
+- Category pills: content type labels such as Checklist, Case Brief, Practical Guide, Procedure Note and Legal Update.
+- Tag pills: repeatable subject labels such as Property, MSME, Arbitration, Due Diligence and Title Search.
+- Technical tag pills: longer statutory or procedural labels such as Transfer of Property Act, Registration Act, Order XIII-A, Section 138 and Rule 9(4).
+- Meta pills: quieter article metadata such as publication dates, updated labels and reading metadata.
+- Filter/action pills: clickable filter controls and pagination/action chips.
+```
+
+Existing markup remains backward-compatible. Current selectors such as `.update-tag`, `.insight-card-tags`, `.article-tag-list`, `.article-meta span`, `.insights-filter` and `.insights-page-button` are mapped into the Citadel grouped pill system. Future modules may use explicit classes such as `.citadel-pill`, `.citadel-pill-category`, `.citadel-pill-tag`, `.citadel-pill-technical`, `.citadel-pill-meta` and `.citadel-pill-filter`.
+
+All pill styling must remain compatible with Citadel light mode, Citadel dark mode, desktop layouts and mobile wrapping.

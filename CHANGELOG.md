@@ -1,3 +1,8 @@
+## 2026-05-16 IST - Add Citadel-wide grouped pill system
+- Added a reusable Citadel pill module for category, tag, technical, meta and filter/action pills.
+- Mapped existing card, article, footer and Insights filter pill selectors into the grouped system without changing article markup.
+- Preserved light-mode, dark-mode, desktop and mobile compatibility.
+- Bumped public stylesheet cache references to `theme-package-4`.
 ## 2026-05-16 IST - Move Insights registry to JSON source
 - Extracted article metadata from `assets/js/script.js` into `assets/data/insights-registry.json`.
 - Added a runtime registry loader that preserves `window.chambersInsightsRegistry` and exposes `window.CitadelArticleRegistry`.
@@ -283,7 +288,7 @@ Summary:
 - Fixed the active Citadel navbar Contact button so text remains visible in light and dark modes, including active Contact-page state.
 - Rebuilt `assets/img/logo-navbar-dark.png` on the same `620x115` canvas as the light navbar logo to keep desktop and mobile logo sizing consistent without CSS stretching.
 - Bumped the dark navbar logo asset key to `dark-2`.
-- Bumped public stylesheet references to `style.css?v=theme-package-3` and script references to `script.js?v=citadel-live-2`.
+- Bumped public stylesheet references to `style.css?v=theme-package-4` and script references to `script.js?v=citadel-live-2`.
 
 Validation / notes:
 
@@ -318,7 +323,7 @@ Summary:
 - Preserved `assets/css/themes/chambers-ak.css` as the previous-theme rollback package.
 - Converted the Citadel controller from preview-only behavior into the active light/dark theme controller.
 - Removed production preview-banner behavior and kept the theme reference page as a noindex review surface.
-- Bumped public stylesheet references to `style.css?v=theme-package-3` and script references to `script.js?v=citadel-live-2`.
+- Bumped public stylesheet references to `style.css?v=theme-package-4` and script references to `script.js?v=citadel-live-2`.
 - Updated repository documentation to reflect Citadel as the active site theme and to keep WordPress/commercial packaging out of this repository.
 
 Validation / notes:
