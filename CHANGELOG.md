@@ -1,3 +1,8 @@
+## 2026-05-15 IST - Wire Article Index v20 production module
+- Wired the reusable Article Index v20 CSS module into the global stylesheet without replacing existing site styles.
+- Enabled the direct-rail Article Index production script on the property title search article.
+- Added explicit article-level activation for the Article Index module.
+- Preserved the approved v20 behaviour: desktop direct rail, mobile progress bar, drawer-safe progress suppression, native scrolling and active-heading sync.
 # Changelog
 
 ## 2026-05-13 01:40 IST - Clean property title article publication
