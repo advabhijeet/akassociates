@@ -882,3 +882,47 @@
   color: #ffffff;
 }
 /* END CITADEL DARK MODE PILL CONTRAST FIX */
+
+/* CITADEL DARK THEME PILL FALLBACK */
+[data-theme="dark"] .insight-card-tags span,
+[data-theme="dark"] .insight-card-tags a,
+[data-theme="dark"] .update-tag,
+[data-theme="dark"] .article-tag,
+[data-theme="dark"] .latest-card-category,
+[data-theme="dark"] .tag,
+[data-theme="dark"] .pill,
+[data-theme="dark"] .tag-ni,
+[data-theme="dark"] .tag-msme,
+[data-theme="dark"] .tag-rera,
+[data-theme="dark"] .tag-case-brief,
+[data-theme="dark"] .tag-checklist,
+[data-theme="dark"] .tag-guide,
+[data-theme="dark"] .tag-procedure,
+[data-theme="dark"] .tag-update {
+  border: 1px solid rgba(var(--rgb-gold), 0.58);
+  background: linear-gradient(180deg, rgba(var(--rgb-gold), 0.18), rgba(var(--rgb-gold), 0.09));
+  color: #ffffff;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.035);
+}
+
+[data-theme="dark"] .insight-card-tags span,
+[data-theme="dark"] .insight-card-tags a {
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+[data-theme="dark"] .insight-card-tags a:hover,
+[data-theme="dark"] .insight-card-tags a:focus-visible,
+[data-theme="dark"] .update-item-link:hover .insight-card-tags span,
+[data-theme="dark"] .update-item-link:focus-visible .insight-card-tags span,
+[data-theme="dark"] .article-tag:hover,
+[data-theme="dark"] .latest-card-category:hover,
+[data-theme="dark"] .tag:hover,
+[data-theme="dark"] .pill:hover {
+  border-color: rgba(var(--rgb-gold), 0.78);
+  background: linear-gradient(180deg, rgba(var(--rgb-gold), 0.26), rgba(var(--rgb-gold), 0.13));
+  color: #ffffff;
+}
+/* END CITADEL DARK THEME PILL FALLBACK */
+
