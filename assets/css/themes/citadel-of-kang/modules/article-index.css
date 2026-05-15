@@ -1,14 +1,33 @@
-/* Citadel of Kang Theme Pack: Article Index Module
-   Clean baseline: CSS grid + sticky. No JavaScript rail positioning. */
+/* Citadel Article Index Module
+   Production module promoted from the approved v20 preview baseline.
+   Rules: no guessed navbar offsets, no internal article scroll, no scroll-capture. */
+
+:root {
+  --ck-article-index-width: 280px;
+  --ck-article-index-gap: clamp(26px, 4vw, 48px);
+  --ck-article-index-radius: 22px;
+  --ck-article-index-bg: rgba(255, 255, 255, 0.9);
+  --ck-article-index-border: rgba(var(--ck-rgb-gold, var(--rgb-gold, 212, 175, 55)), 0.34);
+  --ck-article-index-active-bg: rgba(var(--ck-rgb-gold, var(--rgb-gold, 212, 175, 55)), 0.18);
+  --ck-article-index-shadow: 0 24px 70px rgba(0, 0, 0, 0.13);
+  --ck-mobile-reading-progress-top: 0px;
+  --ck-mobile-reading-progress-height: 4px;
+}
 
 .article-index-layout {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(230px, var(--ck-article-index-width, 280px)) minmax(0, 1fr);
+  grid-template-columns: minmax(230px, var(--ck-article-index-width)) minmax(0, 1fr);
   align-items: start;
-  gap: var(--ck-article-index-gap, clamp(26px, 4vw, 48px));
+  gap: var(--ck-article-index-gap);
   max-width: var(--ck-container, 1180px);
   margin-inline: auto;
+}
+
+.article-index-rail {
+  position: relative;
+  grid-column: 1;
+  min-height: 100%;
 }
 
 .article-index-layout .article-body,
@@ -19,18 +38,17 @@
 }
 
 .article-index-toc {
-  position: sticky;
-  top: calc(var(--ck-nav-space, var(--nav-space, 88px)) + var(--ck-article-index-top-offset, 22px));
-  grid-column: 1;
-  align-self: start;
-  padding: var(--ck-article-index-padding, 22px);
-  border: 1px solid var(--ck-article-index-border, rgba(var(--ck-rgb-gold, var(--rgb-gold, 212, 175, 55)), 0.34));
-  border-radius: var(--ck-article-index-radius, 22px);
-  background: var(--ck-article-index-bg, rgba(255, 255, 255, 0.9));
-  box-shadow: var(--ck-article-index-shadow, 0 24px 70px rgba(0, 0, 0, 0.13));
-  backdrop-filter: blur(var(--ck-article-index-blur, 18px));
-  color: var(--ck-color-ink, var(--ink, #141414));
+  position: relative;
   z-index: var(--ck-article-index-z, 5);
+  padding: var(--ck-article-index-padding, 22px);
+  border: 1px solid var(--ck-article-index-border);
+  border-radius: var(--ck-article-index-radius);
+  background: var(--ck-article-index-bg);
+  box-shadow: var(--ck-article-index-shadow);
+  color: var(--ck-color-ink, var(--ink, #141414));
+  backdrop-filter: blur(var(--ck-article-index-blur, 18px));
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
 }
 
 .article-index-title {
@@ -58,7 +76,8 @@
   pointer-events: none;
 }
 
-.article-index-progress span {
+.article-index-progress span,
+.mobile-reading-progress span {
   display: block;
   width: 0%;
   height: 100%;
@@ -96,6 +115,7 @@
   transition:
     background-color var(--ck-transition, 180ms ease),
     border-color var(--ck-transition, 180ms ease),
+    color var(--ck-transition, 180ms ease),
     transform var(--ck-transition, 180ms ease);
 }
 
@@ -112,7 +132,7 @@
 .article-index-toc a.is-active:visited,
 .article-index-toc a.is-active:active,
 .article-index-toc a.is-active:focus {
-  background: var(--ck-article-index-active-bg, rgba(var(--ck-rgb-gold, var(--rgb-gold, 212, 175, 55)), 0.18));
+  background: var(--ck-article-index-active-bg);
   border-color: var(--ck-article-index-active-border, rgba(var(--ck-rgb-gold, var(--rgb-gold, 212, 175, 55)), 0.3));
   color: var(--ck-color-ink, var(--ink, #141414));
   transform: translateX(2px);
@@ -137,59 +157,98 @@
   scroll-margin-top: calc(var(--ck-nav-space, var(--nav-space, 88px)) + 28px);
 }
 
+.mobile-reading-progress {
+  display: none;
+}
+
 [data-theme="dark"] .article-index-toc,
 [data-theme="citadel-of-ak-dark"] .article-index-toc,
 [data-theme^="citadel-of-kang-dark"] .article-index-toc {
-  border-color: rgba(var(--ck-rgb-gold, var(--rgb-gold, 212, 175, 55)), 0.54);
-  background: var(--ck-article-index-dark-bg, rgba(8, 8, 8, 0.9));
+  border-color: rgba(var(--ck-rgb-gold, var(--rgb-gold, 212, 175, 55)), 0.45);
+  background: var(--ck-article-index-dark-bg, rgba(6, 6, 6, 0.92));
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
   color: #fff8e6;
 }
 
 [data-theme="dark"] .article-index-title,
 [data-theme="citadel-of-ak-dark"] .article-index-title,
-[data-theme^="citadel-of-kang-dark"] .article-index-title,
-[data-theme="dark"] .article-index-toc a,
-[data-theme="citadel-of-ak-dark"] .article-index-toc a,
-[data-theme^="citadel-of-kang-dark"] .article-index-toc a,
-[data-theme="dark"] .article-index-toc a:visited,
-[data-theme="citadel-of-ak-dark"] .article-index-toc a:visited,
-[data-theme^="citadel-of-kang-dark"] .article-index-toc a:visited,
-[data-theme="dark"] .article-index-toc a:active,
-[data-theme="citadel-of-ak-dark"] .article-index-toc a:active,
-[data-theme^="citadel-of-kang-dark"] .article-index-toc a:active,
-[data-theme="dark"] .article-index-toc a:focus,
-[data-theme="citadel-of-ak-dark"] .article-index-toc a:focus,
-[data-theme^="citadel-of-kang-dark"] .article-index-toc a:focus {
+[data-theme^="citadel-of-kang-dark"] .article-index-title {
   color: #fff8e6;
 }
 
 [data-theme="dark"] .article-index-note,
 [data-theme="citadel-of-ak-dark"] .article-index-note,
 [data-theme^="citadel-of-kang-dark"] .article-index-note {
-  color: rgba(255, 248, 230, 0.76);
+  color: rgba(255, 248, 230, 0.74);
+}
+
+[data-theme="dark"] .article-index-toc a,
+[data-theme="dark"] .article-index-toc a:visited,
+[data-theme="citadel-of-ak-dark"] .article-index-toc a,
+[data-theme="citadel-of-ak-dark"] .article-index-toc a:visited,
+[data-theme^="citadel-of-kang-dark"] .article-index-toc a,
+[data-theme^="citadel-of-kang-dark"] .article-index-toc a:visited {
+  color: rgba(255, 248, 230, 0.92);
+  background: rgba(255, 255, 255, 0.018);
+  border-color: rgba(255, 255, 255, 0.045);
 }
 
 [data-theme="dark"] .article-index-toc a:hover,
-[data-theme="dark"] .article-index-toc a.is-active,
 [data-theme="citadel-of-ak-dark"] .article-index-toc a:hover,
-[data-theme="citadel-of-ak-dark"] .article-index-toc a.is-active,
-[data-theme^="citadel-of-kang-dark"] .article-index-toc a:hover,
-[data-theme^="citadel-of-kang-dark"] .article-index-toc a.is-active {
+[data-theme^="citadel-of-kang-dark"] .article-index-toc a:hover {
   color: #fff8e6;
-  background: rgba(var(--ck-rgb-gold, var(--rgb-gold, 212, 175, 55)), 0.18);
+  background: rgba(var(--ck-rgb-gold, var(--rgb-gold, 212, 175, 55)), 0.11);
   border-color: rgba(var(--ck-rgb-gold, var(--rgb-gold, 212, 175, 55)), 0.38);
+}
+
+[data-theme="dark"] .article-index-toc a.is-active,
+[data-theme="dark"] .article-index-toc a.is-active:visited,
+[data-theme="dark"] .article-index-toc a.is-active:active,
+[data-theme="dark"] .article-index-toc a.is-active:focus,
+[data-theme="citadel-of-ak-dark"] .article-index-toc a.is-active,
+[data-theme="citadel-of-ak-dark"] .article-index-toc a.is-active:visited,
+[data-theme="citadel-of-ak-dark"] .article-index-toc a.is-active:active,
+[data-theme="citadel-of-ak-dark"] .article-index-toc a.is-active:focus,
+[data-theme^="citadel-of-kang-dark"] .article-index-toc a.is-active,
+[data-theme^="citadel-of-kang-dark"] .article-index-toc a.is-active:visited,
+[data-theme^="citadel-of-kang-dark"] .article-index-toc a.is-active:active,
+[data-theme^="citadel-of-kang-dark"] .article-index-toc a.is-active:focus {
+  color: #fff8e6;
+  background: linear-gradient(90deg, rgba(var(--ck-rgb-gold, var(--rgb-gold, 212, 175, 55)), 0.17), rgba(var(--ck-rgb-gold, var(--rgb-gold, 212, 175, 55)), 0.075));
+  border-color: rgba(var(--ck-rgb-gold, var(--rgb-gold, 212, 175, 55)), 0.58);
+  box-shadow: inset 0 0 0 1px rgba(var(--ck-rgb-gold, var(--rgb-gold, 212, 175, 55)), 0.13);
 }
 
 [data-theme="dark"] .article-index-progress,
 [data-theme="citadel-of-ak-dark"] .article-index-progress,
 [data-theme^="citadel-of-kang-dark"] .article-index-progress {
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="dark"] .article-meta span,
+[data-theme="citadel-of-ak-dark"] .article-meta span,
+[data-theme^="citadel-of-kang-dark"] .article-meta span {
+  color: rgba(255, 238, 184, 0.92);
+  background: rgba(var(--ck-rgb-gold, var(--rgb-gold, 212, 175, 55)), 0.095);
+  border-color: rgba(var(--ck-rgb-gold, var(--rgb-gold, 212, 175, 55)), 0.38);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.025);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .article-index-toc {
+    transform: none !important;
+  }
 }
 
 @media (max-width: 920px) {
   .article-index-layout {
     grid-template-columns: 1fr;
     gap: 1.35rem;
+  }
+
+  .article-index-rail {
+    grid-column: 1;
+    min-height: 0;
   }
 
   .article-index-layout .article-body,
@@ -201,11 +260,15 @@
   }
 
   .article-index-toc {
-    position: static;
+    transform: none !important;
     order: -1;
     grid-column: 1;
     border-radius: var(--ck-article-index-mobile-radius, 24px);
     padding: var(--ck-article-index-mobile-padding, 18px);
+  }
+
+  .article-index-progress {
+    display: none;
   }
 
   .article-index-toc ol {
@@ -215,5 +278,31 @@
 
   .article-index-toc a {
     padding: 10px;
+  }
+
+  .mobile-reading-progress {
+    position: fixed;
+    top: var(--ck-mobile-reading-progress-top);
+    left: 0;
+    right: 0;
+    z-index: var(--ck-mobile-reading-progress-z, 9999);
+    display: block;
+    height: var(--ck-mobile-reading-progress-height);
+    background: rgba(var(--ck-rgb-gold, var(--rgb-gold, 212, 175, 55)), 0.22);
+    pointer-events: none;
+  }
+
+  .mobile-reading-progress span {
+    width: 8%;
+    min-width: 30px;
+    box-shadow: 0 0 18px rgba(var(--ck-rgb-gold, var(--rgb-gold, 212, 175, 55)), 0.46);
+  }
+
+  body.menu-open .mobile-reading-progress,
+  body.drawer-open .mobile-reading-progress,
+  body.nav-open .mobile-reading-progress {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
   }
 }
