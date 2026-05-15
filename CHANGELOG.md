@@ -1,3 +1,9 @@
+## 2026-05-15 IST - Add Citadel Article Footer v2
+- Added reusable Citadel Article Footer v2 module under `assets/js/themes/citadel-of-kang/article-footer.js`.
+- Replaced the legacy inline article-footer block in `assets/js/script.js` with a loader and registry handoff.
+- Added the property title search article to `window.chambersInsightsRegistry`.
+- Added a registry validation script for `/updates/*.html` article-body coverage and reusable module assumptions.
+- Preserved non-duplicating footer behaviour and existing Article Index v20 wiring.
 ## 2026-05-15 IST - Fix dark-mode pill idle state
 - Added a stronger shared override for dark-mode article tag/category pill idle states.
 - Ensured tag pills remain white-text with gold border and dark-gold fill even when not hovered.

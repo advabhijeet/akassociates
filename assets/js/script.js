@@ -671,7 +671,23 @@ if (revealItems.length) {
 
 // Chambers Insights article metadata registry
 window.chambersInsightsRegistry = [
-  {
+    {
+    "href": "updates/property-title-search-before-purchase-india.html",
+    "category": "Checklist",
+    "title": "Property title search before purchase in India",
+    "excerpt": "Document-first guide to title-chain, revenue, municipal, encumbrance and litigation checks before buying property in India.",
+    "date": "May 2026",
+    "thumbnail": "assets/img/citadel/citadel-thumb-rera-property.webp",
+    "tags": [
+      "Property",
+      "Due Diligence",
+      "Title Search",
+      "Checklist",
+      "Transfer of Property Act",
+      "Registration Act"
+    ]
+  },
+{
     "href": "updates/non-reportable-judgments-online-publication-case-brief.html",
     "category": "Case Brief",
     "title": "Can non-reportable judgments be published online?",
@@ -1723,87 +1739,22 @@ if (window.ChambersInsightCards) {
   }
 })();
 
-// Article footer: tags, previous/next and recommended reads
+// Article footer: Citadel Article Footer v2 loader
 (function () {
-  const article = document.querySelector('.article-body');
-  if (!article || !window.ChambersInsightCards || !window.chambersInsightsRegistry) return;
+  const article = document.querySelector('article.article-body');
+  if (!article || window.CitadelArticleFooter) return;
 
-  const path = window.location.pathname.replace(/^\//, '');
-  const items = window.chambersInsightsRegistry;
-  const currentIndex = items.findIndex((item) => item.href === path);
-  if (currentIndex === -1) return;
+  const scriptId = 'citadel-article-footer-v2';
+  if (document.getElementById(scriptId)) return;
 
-  const current = items[currentIndex];
-  const previous = items[currentIndex + 1];
-  const next = items[currentIndex - 1];
+  const assetPrefix = window.location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
+  const script = document.createElement('script');
 
-  const related = items
-    .filter((item, index) => index !== currentIndex && (item.category === current.category || item.tags.some((tag) => current.tags.includes(tag))))
-    .slice(0, 3);
-
-  const footer = document.createElement('section');
-  footer.className = 'article-standard-footer';
-
-  const tagsTitle = document.createElement('h2');
-  tagsTitle.textContent = 'Tags';
-
-  const tags = document.createElement('div');
-  tags.className = 'article-tag-list';
-  current.tags.forEach((tag) => {
-    const link = document.createElement('a');
-    link.href = `../legal-updates.html?tag=${encodeURIComponent(tag)}`;
-    link.textContent = tag;
-    tags.appendChild(link);
-  });
-
-  footer.appendChild(tagsTitle);
-  footer.appendChild(tags);
-
-  if (previous || next) {
-    const nav = document.createElement('div');
-    nav.className = 'article-nav-row';
-
-    if (previous) {
-      const prevLink = document.createElement('a');
-      prevLink.className = 'article-nav-button';
-      prevLink.href = '../' + previous.href;
-      prevLink.innerHTML = `<span>Previous Article</span>${previous.title}`;
-      nav.appendChild(prevLink);
-    }
-
-    if (next) {
-      const nextLink = document.createElement('a');
-      nextLink.className = 'article-nav-button';
-      nextLink.href = '../' + next.href;
-      nextLink.innerHTML = `<span>Next Article</span>${next.title}`;
-      nav.appendChild(nextLink);
-    }
-
-    footer.appendChild(nav);
-  }
-
-  if (related.length) {
-    const recTitle = document.createElement('h2');
-    recTitle.textContent = 'Recommended Reads';
-    footer.appendChild(recTitle);
-
-    const grid = document.createElement('div');
-    grid.className = 'article-recommended-grid';
-
-    related.forEach((item) => {
-      const card = document.createElement('a');
-      card.className = 'article-recommended-card';
-      card.href = '../' + item.href;
-      card.innerHTML = `<strong>${item.title}</strong><small>${item.category}</small>`;
-      grid.appendChild(card);
-    });
-
-    footer.appendChild(grid);
-  }
-
-  article.appendChild(footer);
+  script.id = scriptId;
+  script.src = `${assetPrefix}assets/js/themes/citadel-of-kang/article-footer.js?v=article-footer-v2`;
+  script.defer = true;
+  document.body.appendChild(script);
 })();
-
 // Case enquiry copy-to-clipboard templates
 (function () {
   const copyButtons = document.querySelectorAll('[data-copy-target]');
