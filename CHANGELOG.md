@@ -1,3 +1,7 @@
+## 2026-05-15 IST - Refine Article Index click-jump anchor offset
+- Increased the Article Index click-jump anchor offset so target headings remain visible below the fixed navigation bar.
+- Aligned JS smooth-scroll targeting with the CSS heading scroll-margin fallback.
+- Preserved approved v20 direct-rail behaviour and mobile drawer/progress handling.
 ## 2026-05-15 IST - Wire Article Index v20 production module
 - Wired the reusable Article Index v20 CSS module into the global stylesheet without replacing existing site styles.
 - Enabled the direct-rail Article Index production script on the property title search article.

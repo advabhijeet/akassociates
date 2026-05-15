@@ -154,7 +154,7 @@
 
 .article-body > h2[id],
 .ck-article > h2[id] {
-  scroll-margin-top: calc(var(--ck-nav-space, var(--nav-space, 88px)) + 28px);
+  scroll-margin-top: calc(var(--ck-nav-space, var(--nav-space, 88px)) + 72px);
 }
 
 .mobile-reading-progress {

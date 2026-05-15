@@ -123,6 +123,10 @@
   var topbar = document.querySelector('.site-topbar');
   var clickIntent = null;
   var clickTimer = null;
+  var anchorOffset = function () {
+    return navSpace() + 72;
+  };
+
 
   var getScrollY = function () {
     return window.pageYOffset || document.documentElement.scrollTop || 0;
@@ -156,7 +160,7 @@
     }
 
     var elapsed = Date.now() - clickIntent.startedAt;
-    var distance = Math.abs(target.getBoundingClientRect().top - navSpace() - 28);
+    var distance = Math.abs(target.getBoundingClientRect().top - anchorOffset());
     if (elapsed < 720) return true;
     if (distance > 90 && elapsed < 1450) return true;
     clickIntent = null;
@@ -242,7 +246,7 @@
         requestUpdate();
       }, 1550);
 
-      window.scrollTo({ top: getScrollY() + target.getBoundingClientRect().top - navSpace() - 28, behavior: 'smooth' });
+      window.scrollTo({ top: getScrollY() + target.getBoundingClientRect().top - anchorOffset(), behavior: 'smooth' });
       window.setTimeout(requestUpdate, 80);
       window.setTimeout(requestUpdate, 260);
     });
