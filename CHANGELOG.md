@@ -1,3 +1,8 @@
+## 2026-05-15 IST - Improve dark-mode tag pill contrast
+- Improved dark-mode contrast for shared tag/category/chip pills at the Citadel theme level.
+- Applied stronger gold borders, readable gold text and translucent dark-gold fill for insight tags, update tags, article tags and generic pill classes.
+- Kept the fix global and reusable instead of patching individual article pages.
+
 ## 2026-05-15 IST - Roll out Article Index v20 to eligible article pages
 - Rolled out the reusable Article Index v20 module to eligible /updates/ article pages with article-body content and at least three h2 headings.
 - Added article-level activation and direct-rail script loading only where needed.
