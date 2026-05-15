@@ -839,3 +839,47 @@
     flex-wrap: wrap;
   }
 }
+
+/* CITADEL DARK MODE PILL CONTRAST FIX */
+[data-theme^="citadel-of-ak-dark"] .insight-card-tags span,
+[data-theme^="citadel-of-ak-dark"] .insight-card-tags a,
+[data-theme^="citadel-of-ak-dark"] .update-tag,
+[data-theme^="citadel-of-ak-dark"] .article-tag,
+[data-theme^="citadel-of-ak-dark"] .latest-card-category,
+[data-theme^="citadel-of-ak-dark"] .tag,
+[data-theme^="citadel-of-ak-dark"] .pill,
+[data-theme^="citadel-of-ak-dark"] .tag-ni,
+[data-theme^="citadel-of-ak-dark"] .tag-msme,
+[data-theme^="citadel-of-ak-dark"] .tag-rera,
+[data-theme^="citadel-of-ak-dark"] .tag-case-brief,
+[data-theme^="citadel-of-ak-dark"] .tag-checklist,
+[data-theme^="citadel-of-ak-dark"] .tag-guide,
+[data-theme^="citadel-of-ak-dark"] .tag-procedure,
+[data-theme^="citadel-of-ak-dark"] .tag-update {
+  border: 1px solid rgba(var(--rgb-gold), 0.58);
+  background: linear-gradient(180deg, rgba(var(--rgb-gold), 0.18), rgba(var(--rgb-gold), 0.09));
+  color: rgba(255, 238, 184, 0.96);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.035);
+}
+
+[data-theme^="citadel-of-ak-dark"] .insight-card-tags span,
+[data-theme^="citadel-of-ak-dark"] .insight-card-tags a {
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+[data-theme^="citadel-of-ak-dark"] .insight-card-tags a:hover,
+[data-theme^="citadel-of-ak-dark"] .insight-card-tags a:focus-visible,
+[data-theme^="citadel-of-ak-dark"] .update-item-link:hover .insight-card-tags span,
+[data-theme^="citadel-of-ak-dark"] .update-item-link:focus-visible .insight-card-tags span,
+[data-theme^="citadel-of-ak-dark"] .article-tag:hover,
+[data-theme^="citadel-of-ak-dark"] .latest-card-category:hover,
+[data-theme^="citadel-of-ak-dark"] .tag:hover,
+[data-theme^="citadel-of-ak-dark"] .pill:hover {
+  border-color: rgba(var(--rgb-gold), 0.78);
+  background: linear-gradient(180deg, rgba(var(--rgb-gold), 0.26), rgba(var(--rgb-gold), 0.13));
+  color: #fff8e6;
+}
+/* END CITADEL DARK MODE PILL CONTRAST FIX */
+
