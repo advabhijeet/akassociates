@@ -2,7 +2,7 @@
 
 Last updated: 2026-05-15
 
-This document records the reusable article architecture for Chambers of AK.
+This document records the reusable article architecture for the Citadel article system currently used by Chambers of AK.
 
 It should be read with:
 
@@ -27,6 +27,35 @@ Do not manually hard-code the following blocks page-by-page unless a module is u
 - future comments / feedback block;
 - future article ad slots.
 ```
+
+## Citadel Feature Scope
+
+The reusable article UI system is a Citadel feature, not merely a Chambers of AK one-off implementation.
+
+This means:
+
+```text
+- Article Index is a Citadel article module.
+- Article Footer v2 must also be treated as a Citadel article module.
+- The behaviour should be reusable across Citadel-powered article pages, not hardcoded only for Chambers of AK pages.
+- Chambers-specific data can exist in the current registry, but module logic should remain portable.
+- CSS and JavaScript selectors should prefer generic article/module classes where practical.
+- Future extraction should move module behaviour under the Citadel theme/module structure instead of keeping all logic inside the global site script.
+```
+
+Current Chambers-specific registry name:
+
+```text
+window.chambersInsightsRegistry
+```
+
+Future portable direction:
+
+```text
+window.CitadelArticleRegistry or assets/data/insights-registry.json
+```
+
+The immediate website implementation can continue using the current Chambers registry, but Article Footer v2 should be written as a reusable Citadel module with fallback behaviour and minimal brand-specific assumptions.
 
 ## Article Index Module
 
@@ -97,14 +126,14 @@ This caused the property title search article to show Article Index but not the 
 
 ## Article Footer v2 Target
 
-The Article Footer must become fault-tolerant and auto-applied.
+The Article Footer must become a Citadel reusable feature that is fault-tolerant and auto-applied.
 
 Required v2 behaviour:
 
 ```text
 1. Detect article.article-body automatically.
 2. Do nothing if an article footer already exists.
-3. Try to find the current article in window.chambersInsightsRegistry.
+3. Try to find the current article in the available article registry.
 4. If found, use registry metadata for tags, previous/next and recommended reads.
 5. If not found, derive fallback metadata from:
    - h1 title;
@@ -115,6 +144,7 @@ Required v2 behaviour:
 6. Render a useful footer instead of silently disappearing.
 7. Never duplicate the footer if the module runs twice.
 8. Keep the generated footer inside article.article-body at the end of the article content.
+9. Keep module logic portable enough for Citadel-powered pages beyond Chambers of AK.
 ```
 
 Suggested optional article attributes for stronger fallback:
@@ -188,6 +218,15 @@ CSS/theme files = visual styling
 ```
 
 This will make future article publishing, admin CMS integration and database migration easier.
+
+Citadel long-term module separation should be:
+
+```text
+assets/js/themes/citadel-of-kang/article-index-direct-rail.js
+assets/js/themes/citadel-of-kang/article-footer.js
+assets/css/themes/citadel-of-kang/modules/article-index.css
+assets/css/themes/citadel-of-kang/modules/article-footer.css
+```
 
 ## Zero-Tolerance Rule
 
