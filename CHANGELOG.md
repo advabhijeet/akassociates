@@ -1,3 +1,7 @@
+## 2026-05-16 IST - Publish arbitration notice before claim article
+- Rebuilt `updates/arbitration-notice-before-claim.html` using Article Publishing Template v2 with `article.article-body` so Article Index and Article Footer auto-load correctly.
+- Updated the Insights registry JSON, legal-updates card, sitemap lastmod and RSS feed item for the refreshed arbitration notice article.
+- Preserved Citadel theme compatibility, grouped pill styling and non-solicitation informational language.
 ## 2026-05-16 IST - Update article publishing template for Citadel modules
 
 - Rewrote the article HTML template for the current Citadel module architecture.
