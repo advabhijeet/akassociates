@@ -418,3 +418,7 @@ assets/data/insights-registry.json
 ```
 
 The `legal-updates.html` directory/listing is rendered by the Citadel Insights Directory section module. Any static card template in this document is retained only as fallback/reference markup and should not be treated as the primary publishing source.
+
+## Registry-First Directory Note
+
+Do not add a full manual card for each new article to the Latest Articles grid in `legal-updates.html`. The Citadel Insights Directory section renders latest cards from `assets/data/insights-registry.json`. Update the registry, sitemap, and feed instead.

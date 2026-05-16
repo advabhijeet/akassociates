@@ -332,3 +332,16 @@ Include:
 - live-check status;
 - Search Console status;
 - remaining follow-up.
+
+## Registry-First Insights Directory
+
+The `legal-updates.html` Latest Articles grid is registry-rendered by the Citadel Insights Directory section module.
+
+Rules:
+
+```text
+- Do not manually maintain the full Latest Articles card list in legal-updates.html.
+- Add article metadata to assets/data/insights-registry.json.
+- Keep legal-updates.html as a lightweight module host with a no-script/RSS fallback.
+- Static category blocks may remain as curated fallback/editorial sections, but the main latest directory should stay registry-first.
+```

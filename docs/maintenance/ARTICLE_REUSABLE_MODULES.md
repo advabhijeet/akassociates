@@ -408,3 +408,17 @@ Rules:
 - static `legal-updates.html` cards are fallback markup only, not the publishing source of truth;
 - do not fix Insights listing/order issues by manually copying or reordering duplicate cards in HTML;
 - future Citadel sites should reuse the data hook and module instead of writing page-specific listing JavaScript.
+
+### Static latest-grid cleanup
+
+The primary `legal-updates.html` Latest Articles grid is now a lightweight Citadel Insights Directory host. It should not contain a full manually-maintained card list.
+
+Correct structure:
+
+```html
+<div class="updates-grid" data-citadel-insights-directory aria-live="polite">
+  <noscript>RSS/feed fallback content only.</noscript>
+</div>
+```
+
+Future article publishing should update `assets/data/insights-registry.json`, `sitemap.xml`, and `feed.xml`, not the Latest Articles grid markup.

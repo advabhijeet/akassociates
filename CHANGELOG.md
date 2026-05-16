@@ -1,3 +1,8 @@
+## 2026-05-16 IST - Simplify Insights latest grid static fallback
+- Removed the long manually-maintained Latest Articles card list from `legal-updates.html`.
+- Kept a lightweight no-script RSS fallback inside the Citadel Insights Directory host grid.
+- Preserved registry-first rendering through `assets/js/themes/citadel-of-kang/modules/sections/insights-directory-section.js`.
+
 ## 2026-05-16 IST - Add Citadel Insights Directory section module
 - Added `assets/js/themes/citadel-of-kang/modules/sections/insights-directory-section.js` to render the Insights directory from the central JSON registry.
 - Added a module loader in `assets/js/script.js` and marked the `legal-updates.html` latest grid with `data-citadel-insights-directory`.
