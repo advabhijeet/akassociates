@@ -1,41 +1,49 @@
-# Article Publishing Workflow
+# Article Publishing Workflow v2
 
-This document defines the standard workflow for publishing a new Chambers of AK legal insight article under `updates/`.
+This workflow defines how to publish a new Chambers of AK legal insight under `updates/` after the Citadel reusable module architecture was introduced.
 
-## Purpose
+## Current Architecture
 
-Every new legal insight should be published in a consistent, document-first, non-solicitation-oriented manner and should be connected to the website's SEO, feed, social distribution and indexing workflow.
+Article publishing now uses reusable shared modules and JSON metadata:
 
-This workflow should be followed by ChatGPT, Codex, future developers and any AI agent working on the repository.
+```text
+Article metadata source: assets/data/insights-registry.json
+Article Index: auto-loaded by assets/js/script.js
+Article Footer: auto-loaded by assets/js/script.js
+Pill system: assets/css/themes/citadel-of-kang/modules/pills.css
+Template: docs/maintenance/ARTICLE_HTML_TEMPLATE.md
+```
+
+Do not add article metadata to `assets/js/script.js`.
+Do not manually add Article Index script tags to new article pages.
+Do not manually copy Article Footer HTML into articles.
 
 ## Core Principles
 
 - Preserve informational language.
 - Do not use direct solicitation language.
 - Do not claim guaranteed outcomes.
-- Do not use unverifiable superlatives such as "best", "top" or "guaranteed result".
-- Maintain the Chambers of AK black/white/gold premium boutique legal brand style.
+- Do not use unverifiable superlatives such as `best`, `top` or `guaranteed result`.
+- Maintain the black/white/gold premium boutique legal brand style through Citadel theme modules.
 - Keep the homepage firm-focused.
-- Do not create or link `team.html` until team details are approved.
 - Update `CHANGELOG.md` or a status note after meaningful changes.
-- Use the one-command manual patch workflow when large shared files are risky to update through the connector.
+- Use the one-command manual patch workflow when large shared files are risky to update directly.
 
-## Required Files To Consider
-
-For each new article, review or update:
+## Files To Consider For Every New Article
 
 ```text
 updates/<article-slug>.html
-legal-updates.html
+assets/data/insights-registry.json
 sitemap.xml
 feed.xml
-practice/<relevant-practice-page>.html
+practice/<relevant-practice-page>.html, if contextually useful
 services/<relevant-service-page>.html, if contextually useful
 CHANGELOG.md or docs/planning/STATUS_*.md
-docs/codex/HANDOFF.md, if any work remains blocked or local-only
 ```
 
-## Article Page Requirements
+`legal-updates.html` should not be treated as the primary metadata source. The registry JSON is the source of truth for article metadata used by the homepage, Insights modules and article footer.
+
+## Required Article Page Features
 
 Each article under `updates/` should include:
 
@@ -48,10 +56,13 @@ Each article under `updates/` should include:
 - Open Graph title/description/type/url/site/image tags;
 - Twitter card tags;
 - favicon/manifest links;
-- stylesheet link;
-- BlogPosting JSON-LD where appropriate;
+- current stylesheet link;
+- BlogPosting JSON-LD;
+- BreadcrumbList JSON-LD;
 - `page-hero` section;
-- article body with useful headings;
+- `article.article-body` content container;
+- at least three direct `h2` headings when Article Index is desired;
+- `data-article-category` and `data-article-tags` fallback metadata on `article.article-body`;
 - internal links to relevant practice/service pages;
 - official reference links where needed;
 - structured enquiry or document-preparation section;
@@ -63,71 +74,73 @@ Use this structure unless the topic requires a different layout:
 
 ```text
 1. Page hero
-2. Why this topic matters
-3. When the issue usually arises
-4. Key dates / limitation / timeline
-5. Documents to keep ready
-6. Procedure or forum route
-7. Claimant / respondent / buyer / seller / accused / complainant perspective, where relevant
-8. Common mistakes
-9. Enquiry format
-10. Useful internal pages
-11. Official references
-12. CTA to case enquiry
-13. Non-solicitation note
+2. Article meta row
+3. Short article summary
+4. Why this topic matters
+5. When the issue usually arises
+6. Key dates / limitation / timeline
+7. Documents to keep ready
+8. Procedure or forum route
+9. Claimant / respondent / buyer / seller / accused / complainant perspective, where relevant
+10. Common mistakes
+11. Enquiry format
+12. Useful internal pages
+13. Official references
+14. CTA to case enquiry
+15. Non-solicitation note
 ```
 
-## Legal Language Rules
+## Registry JSON Entry
 
-Use phrases such as:
+Add one item near the top of `assets/data/insights-registry.json`:
 
-- "general information";
-- "document-first preparation";
-- "the next step depends on facts, documents, limitation and forum";
-- "formal consultation or engagement";
-- "does not create an advocate-client relationship".
+```json
+{
+  "href": "updates/<article-slug>.html",
+  "category": "Checklist",
+  "title": "Card-friendly article title",
+  "excerpt": "Short informational summary for cards, feeds and recommended reads.",
+  "date": "May 2026",
+  "thumbnail": "assets/img/citadel/citadel-thumb-topic.webp",
+  "tags": [
+    "Property",
+    "Due Diligence",
+    "Title Search"
+  ]
+}
+```
 
-Avoid phrases such as:
+Registry rules:
 
-- "hire us now";
-- "guaranteed success";
-- "best lawyer";
-- "top advocate";
-- "we will win";
-- aggressive calls to action.
+- `href` must exist.
+- `category` should normally be `Case Brief`, `Checklist`, `Practical Guide`, `Procedure Note` or `Legal Update`.
+- `title` should be concise enough for cards.
+- `excerpt` should be informational and non-solicitational.
+- `tags` should support discovery and related-article matching.
+- Long technical tags are permitted but should be used sparingly.
+- Keep JSON valid: no trailing commas.
 
-## Legal Updates Page Card
+## Category And Pill Rules
 
-Generate or choose a content-specific thumbnail for every new article before adding the card. Store generated Citadel preview thumbnails under:
+The Citadel pill system groups pills by purpose:
 
 ```text
-assets/img/citadel/
+Category pills: content type, strongest visual identity
+Tag pills: topic discovery, lighter visual identity
+Technical tag pills: long statutory/topic tags, same tag family with wider handling
+Meta pills: date/status labels, muted
+Filter/action pills: clickable filters and pagination controls
 ```
 
-Use a descriptive filename such as `citadel-thumb-<article-slug>.webp`. Reuse the same thumbnail for the homepage latest card, the Insights page card, filtered/paginated Insights result cards and the Citadel article hero background.
-
-Add a card near the top of `legal-updates.html`:
-
-```html
-<a class="update-item update-item-link" href="updates/<article-slug>.html" data-thumb="assets/img/citadel/citadel-thumb-<article-slug>.webp">
-  <span class="update-tag tag-<category>">CATEGORY</span>
-  <div class="update-title">Article title in sentence case</div>
-  <div class="update-excerpt">Short informational summary of the article.</div>
-  <div class="update-date">Month Year</div>
-</a>
-```
-
-Use existing tag classes where possible. If a new tag class is required, update CSS carefully and validate. Also add the same thumbnail reference to `window.chambersInsightsRegistry` in `assets/js/script.js` if the article is added to the registry manually.
+Do not create one-off colors for individual categories such as only `Checklist` or only `Case Brief`. Visual differences should be by pill group, not by label.
 
 ## Sitemap Entry
 
-Add to `sitemap.xml`:
+Add one line to `sitemap.xml`:
 
 ```xml
 <url><loc>https://chambersofak.in/updates/<article-slug>.html</loc><lastmod>YYYY-MM-DD</lastmod></url>
 ```
-
-Keep each `<url>` entry on its own line.
 
 ## Feed Entry
 
@@ -144,17 +157,17 @@ Add a new item near the top of `feed.xml`:
 </item>
 ```
 
-Update channel `lastBuildDate`.
+Update the channel `lastBuildDate`.
 
 ## Internal Linking Checklist
 
 Link from the article to:
 
 - relevant practice page;
-- relevant service page if one exists;
-- relevant legal update articles;
+- relevant service page, if one exists;
+- related legal update articles;
 - case enquiry page;
-- document checklist page if useful.
+- document checklist page, if useful.
 
 Where contextually useful, link back to the new article from:
 
@@ -164,71 +177,36 @@ Where contextually useful, link back to the new article from:
 
 Do not over-link. Links should be useful and natural.
 
-## Social Distribution Drafts
+## Legal Language Rules
 
-Prepare drafts for:
+Use phrases such as:
 
-### LinkedIn Page
+- `general information`;
+- `document-first preparation`;
+- `the next step depends on facts, documents, limitation and forum`;
+- `formal consultation or engagement`;
+- `does not create an advocate-client relationship`.
 
-```text
-New legal insight published by Chambers of AK:
+Avoid phrases such as:
 
-<Article Title>
-
-<2-3 sentence informational summary.>
-
-Read: https://chambersofak.in/updates/<article-slug>.html
-
-For general information only. Not legal advice or solicitation.
-```
-
-### WhatsApp Channel
-
-```text
-New Legal Insight | Chambers of AK
-
-<Article Title>
-
-<Short practical summary.>
-
-Read:
-https://chambersofak.in/updates/<article-slug>.html
-
-For general information only. Not legal advice or solicitation.
-```
-
-### Newsletter / Email Draft
-
-```text
-Subject: <Article Title>
-
-Chambers of AK has published a new legal insight:
-
-<Article Title>
-
-<Short summary of the issue, who it may be relevant for, and what documents/dates should be kept ready.>
-
-Read the full note:
-https://chambersofak.in/updates/<article-slug>.html
-
-For general information only. Not legal advice or solicitation.
-```
-
-## Google Search Console Checklist
-
-After push and live check:
-
-- submit or re-submit `https://chambersofak.in/sitemap.xml` if needed;
-- inspect the new article URL;
-- request indexing;
-- record indexing request in a status note if the article is part of a major batch.
+- `hire us now`;
+- `guaranteed success`;
+- `best lawyer`;
+- `top advocate`;
+- `we will win`;
+- aggressive calls to action.
 
 ## Validation Checklist
 
-Run locally after the article batch or manual patch:
+Run locally before committing:
 
 ```powershell
-node --check assets\js\script.js
+node --check assets/js/script.js
+node --check assets/js/themes/citadel-of-kang/article-index-direct-rail.js
+node --check assets/js/themes/citadel-of-kang/article-footer.js
+node --check tools/validate-insights-registry.js
+node -e "JSON.parse(require('fs').readFileSync('assets/data/insights-registry.json','utf8')); console.log('insights registry JSON ok')"
+node tools/validate-insights-registry.js --strict
 git diff --check
 [xml](Get-Content sitemap.xml -Raw)
 [xml](Get-Content feed.xml -Raw)
@@ -282,43 +260,65 @@ if($missing.Count){ $missing | ForEach-Object { Write-Output $_ }; exit 1 }
 
 After deployment:
 
-- open article URL;
-- open `legal-updates.html` and confirm card appears;
+- open the article URL;
+- confirm Article Index appears when there are at least three h2 headings;
+- confirm Article Footer appears once;
+- open homepage and confirm latest article cards load from the registry/feed flow;
+- open `legal-updates.html` and test filters/search;
 - open `feed.xml` and confirm feed item appears;
 - open `sitemap.xml` and confirm article URL appears;
-- check relevant practice/service page links;
-- test mobile view;
-- test CTA links if article contains them.
+- test light mode and dark mode;
+- test mobile layout;
+- test CTA links.
+
+## Google Search Console Checklist
+
+After live check:
+
+- submit or re-submit `https://chambersofak.in/sitemap.xml` if needed;
+- inspect the new article URL;
+- request indexing;
+- record indexing request in a status note if the article is part of a major batch.
+
+## Social Distribution Drafts
+
+Prepare drafts for:
+
+```text
+LinkedIn Page
+WhatsApp Channel
+Newsletter / Email
+```
+
+Each draft must include the informational disclaimer:
+
+```text
+For general information only. Not legal advice or solicitation.
+```
 
 ## Manual Patch Rule
 
-If the change involves large shared files such as:
+If a change involves large shared files such as:
 
-- `legal-updates.html`;
-- `sitemap.xml`;
-- `feed.xml`;
-- `robots.txt`;
-- `assets/css/style.css`;
-- major docs;
+```text
+assets/data/insights-registry.json
+sitemap.xml
+feed.xml
+assets/css/style.css
+major docs
+```
 
-ask the user:
+ask:
 
 ```text
 Codex or Manual?
 ```
 
-If the user chooses Manual, prepare:
-
-- ZIP patch package;
-- one-command PowerShell executable;
-- validation script;
-- backup cleanup;
-- safe staging of intended files only;
-- commit and push if validation passes and scope is safe.
+If Manual is chosen, prepare a ZIP patch package with one-command PowerShell execution, validation and safe staging of intended files only.
 
 ## Status Note Template
 
-For major article batches, create a status note:
+For major article batches, create:
 
 ```text
 docs/planning/STATUS_YYYY-MM-DD_<SHORT_TOPIC>.md

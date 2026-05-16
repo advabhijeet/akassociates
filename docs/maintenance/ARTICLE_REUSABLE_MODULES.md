@@ -311,3 +311,28 @@ All pill styling must remain compatible with Citadel light mode, Citadel dark mo
   - filter/action pills remain visibly interactive.
 - Light mode, dark mode, desktop and mobile states must remain compatible.
 - Do not add Chambers-specific one-off pill fixes for homepage cards or articles; update the Citadel pill module instead.
+
+
+## Article Publishing Template v2
+
+Future article publishing must use `docs/maintenance/ARTICLE_HTML_TEMPLATE.md` and `docs/maintenance/ARTICLE_PUBLISHING_WORKFLOW.md` as the operating instructions for Citadel reusable article pages.
+
+The template now assumes:
+
+```text
+- article metadata lives in assets/data/insights-registry.json;
+- Article Index is auto-loaded by assets/js/script.js;
+- Article Footer is auto-loaded by assets/js/script.js;
+- Citadel pill groups are styled by assets/css/themes/citadel-of-kang/modules/pills.css;
+- new article pages should not manually copy Article Index or Article Footer markup/scripts.
+```
+
+Publishing checklist summary:
+
+```text
+1. Create updates/<article-slug>.html from ARTICLE_HTML_TEMPLATE.md.
+2. Add one JSON item to assets/data/insights-registry.json.
+3. Update sitemap.xml and feed.xml.
+4. Validate JSON, registry coverage, XML, JSON-LD and internal links.
+5. Live-check light mode, dark mode, desktop and mobile.
+```

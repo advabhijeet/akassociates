@@ -1,3 +1,9 @@
+## 2026-05-16 IST - Update article publishing template for Citadel modules
+
+- Rewrote the article HTML template for the current Citadel module architecture.
+- Updated the publishing workflow to use `assets/data/insights-registry.json` as the article metadata source of truth.
+- Documented that Article Index, Article Footer and grouped pill styling are auto-loaded by shared Citadel modules.
+- Added validation, registry, sitemap, feed, JSON-LD, internal-link and live-check guidance for future article publishing.
 ### Normalize Citadel pill group colors
 
 - Normalized category, tag, meta and filter/action pill colors at the Citadel module level so labels within the same group no longer appear with inconsistent text color or fill strength.
