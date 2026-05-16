@@ -378,3 +378,33 @@ Section module naming rule:
 ```text
 Latest Insights is a section component. Keep it under modules/sections/ so future maintainers understand that it can be used on homepages, landing pages or other Citadel layouts, while remaining separate from article-specific modules.
 ```
+
+## Citadel Insights Directory section module
+
+The Insights listing/directory section is a Citadel-level section module, not a Chambers-specific one-off.
+
+Current module:
+
+```text
+assets/js/themes/citadel-of-kang/modules/sections/insights-directory-section.js
+```
+
+Runtime loader:
+
+```text
+assets/js/script.js
+```
+
+Supported markup hook:
+
+```html
+<div class="updates-grid" data-citadel-insights-directory aria-live="polite"></div>
+```
+
+Rules:
+
+- `assets/data/insights-registry.json` remains the canonical article metadata source;
+- the module renders registry items into the Insights directory and de-duplicates by normalized href;
+- static `legal-updates.html` cards are fallback markup only, not the publishing source of truth;
+- do not fix Insights listing/order issues by manually copying or reordering duplicate cards in HTML;
+- future Citadel sites should reuse the data hook and module instead of writing page-specific listing JavaScript.

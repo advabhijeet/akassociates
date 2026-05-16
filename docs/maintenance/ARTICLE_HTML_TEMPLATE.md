@@ -324,7 +324,7 @@ Long statutory tags such as `Transfer of Property Act`, `Registration Act`, `Ord
       <div class="foot-disc">For informational purposes only. Does not constitute legal advice or solicitation. Bar Council of India. Initial communication does not create an advocate-client relationship.</div>
     </footer>
   </div>
-  <script src="../assets/js/script.js?v=citadel-live-6"></script>
+  <script src="../assets/js/script.js?v=citadel-live-7"></script>
 </body>
 </html>
 ```
@@ -408,3 +408,13 @@ https://chambersofak.in/updates/{{ARTICLE_SLUG}}.html
 
 For general information only. Not legal advice or solicitation.
 ```
+
+## Citadel Insights Directory note
+
+After Article Publishing Template v2, the canonical way to publish an article card is the registry object in:
+
+```text
+assets/data/insights-registry.json
+```
+
+The `legal-updates.html` directory/listing is rendered by the Citadel Insights Directory section module. Any static card template in this document is retained only as fallback/reference markup and should not be treated as the primary publishing source.

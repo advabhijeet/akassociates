@@ -309,7 +309,7 @@ HTML pages reference CSS and JavaScript with version query strings, for example:
 
 ```html
 assets/css/style.css?v=theme-package-5
-assets/js/script.js?v=citadel-live-6
+assets/js/script.js?v=citadel-live-7
 ```
 
 When changing shared CSS or JavaScript, update the query string across HTML pages so browsers and mobile devices fetch the latest files.

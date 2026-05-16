@@ -868,6 +868,23 @@ if (window.ChambersInsightCards) {
   script.defer = true;
   document.body.appendChild(script);
 })();
+
+// Citadel insights directory section module auto-loader
+(function () {
+  const grid = document.querySelector('[data-citadel-insights-directory], .latest-insights-section .updates-grid');
+  if (!grid || window.CitadelInsightsDirectorySection) return;
+
+  const scriptId = 'citadel-insights-directory-section-v1';
+  if (document.getElementById(scriptId)) return;
+
+  const assetPrefix = window.location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
+  const script = document.createElement('script');
+
+  script.id = scriptId;
+  script.src = `${assetPrefix}assets/js/themes/citadel-of-kang/modules/sections/insights-directory-section.js?v=insights-directory-section-v1`;
+  script.defer = true;
+  document.body.appendChild(script);
+})();
 // Advanced Insights paginated list/filter module v9
 (function () {
   const panel = document.querySelector('.insights-filter-panel');
