@@ -337,14 +337,14 @@ Publishing checklist summary:
 5. Live-check light mode, dark mode, desktop and mobile.
 ```
 
-## Citadel Latest Insights module
+## Citadel Latest Insights Section module
 
-The homepage/latest-insights renderer is a Citadel-level module, not a Chambers-specific one-off.
+The Latest Insights section renderer is a Citadel-level section module, not a Chambers-specific homepage one-off.
 
 Current module:
 
 ```text
-assets/js/themes/citadel-of-kang/modules/latest-insights.js
+assets/js/themes/citadel-of-kang/modules/sections/latest-insights-section.js
 ```
 
 Runtime loader:
@@ -371,4 +371,10 @@ Rules:
 - registry metadata from `assets/data/insights-registry.json` remains the preferred source;
 - RSS/feed data may be used as a freshness source, but duplicated feed entries must not produce duplicate cards;
 - do not fix homepage duplicate cards by deleting registry entries, deleting feed entries, or hardcoding a one-page exception;
-- future Citadel projects should reuse the module and data attributes rather than copying Chambers-specific homepage JavaScript.
+- future Citadel projects should reuse the section module and data attributes rather than copying Chambers-specific homepage JavaScript.
+
+Section module naming rule:
+
+```text
+Latest Insights is a section component. Keep it under modules/sections/ so future maintainers understand that it can be used on homepages, landing pages or other Citadel layouts, while remaining separate from article-specific modules.
+```

@@ -857,14 +857,14 @@ if (window.ChambersInsightCards) {
   const grid = document.querySelector('[data-citadel-latest-insights], [data-home-insights-limit]');
   if (!grid || window.CitadelLatestInsights) return;
 
-  const scriptId = 'citadel-latest-insights-v1';
+  const scriptId = 'citadel-latest-insights-section-v1';
   if (document.getElementById(scriptId)) return;
 
   const assetPrefix = window.location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
   const script = document.createElement('script');
 
   script.id = scriptId;
-  script.src = `${assetPrefix}assets/js/themes/citadel-of-kang/modules/latest-insights.js?v=latest-insights-v1`;
+  script.src = `${assetPrefix}assets/js/themes/citadel-of-kang/modules/sections/latest-insights-section.js?v=latest-insights-section-v1`;
   script.defer = true;
   document.body.appendChild(script);
 })();

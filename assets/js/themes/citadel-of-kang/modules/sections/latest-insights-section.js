@@ -1,6 +1,6 @@
 /*
-  Citadel Latest Insights module v1.
-  Renders latest insight cards from registry/feed data and de-duplicates by normalized href
+  Citadel Latest Insights Section module v1.
+  Renders a Latest Insights section from registry/feed data and de-duplicates by normalized href
   before applying the visible card limit. This is Citadel-level behaviour and supports
   both future [data-citadel-latest-insights] markup and the legacy homepage
   [data-home-insights-limit] hook.
