@@ -336,3 +336,39 @@ Publishing checklist summary:
 4. Validate JSON, registry coverage, XML, JSON-LD and internal links.
 5. Live-check light mode, dark mode, desktop and mobile.
 ```
+
+## Citadel Latest Insights module
+
+The homepage/latest-insights renderer is a Citadel-level module, not a Chambers-specific one-off.
+
+Current module:
+
+```text
+assets/js/themes/citadel-of-kang/modules/latest-insights.js
+```
+
+Runtime loader:
+
+```text
+assets/js/script.js
+```
+
+Supported markup hooks:
+
+```html
+<div class="updates-grid" data-citadel-latest-insights data-citadel-latest-limit="3"></div>
+```
+
+Legacy compatibility remains available:
+
+```html
+<div class="updates-grid" data-home-insights-limit="3"></div>
+```
+
+Rules:
+
+- latest-card rendering must de-duplicate by normalized article href before applying the visible limit;
+- registry metadata from `assets/data/insights-registry.json` remains the preferred source;
+- RSS/feed data may be used as a freshness source, but duplicated feed entries must not produce duplicate cards;
+- do not fix homepage duplicate cards by deleting registry entries, deleting feed entries, or hardcoding a one-page exception;
+- future Citadel projects should reuse the module and data attributes rather than copying Chambers-specific homepage JavaScript.

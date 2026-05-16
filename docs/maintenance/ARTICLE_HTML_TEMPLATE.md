@@ -324,7 +324,7 @@ Long statutory tags such as `Transfer of Property Act`, `Registration Act`, `Ord
       <div class="foot-disc">For informational purposes only. Does not constitute legal advice or solicitation. Bar Council of India. Initial communication does not create an advocate-client relationship.</div>
     </footer>
   </div>
-  <script src="../assets/js/script.js?v=citadel-live-4"></script>
+  <script src="../assets/js/script.js?v=citadel-live-5"></script>
 </body>
 </html>
 ```
