@@ -324,7 +324,7 @@ Long statutory tags such as `Transfer of Property Act`, `Registration Act`, `Ord
       <div class="foot-disc">For informational purposes only. Does not constitute legal advice or solicitation. Bar Council of India. Initial communication does not create an advocate-client relationship.</div>
     </footer>
   </div>
-  <script src="../assets/js/script.js?v=citadel-live-7"></script>
+  <script src="../assets/js/script.js?v=citadel-live-8"></script>
 </body>
 </html>
 ```
@@ -422,3 +422,6 @@ The `legal-updates.html` directory/listing is rendered by the Citadel Insights D
 ## Registry-First Directory Note
 
 Do not add a full manual card for each new article to the Latest Articles grid in `legal-updates.html`. The Citadel Insights Directory section renders latest cards from `assets/data/insights-registry.json`. Update the registry, sitemap, and feed instead.
+## Registry-Driven Directory Note
+
+Do not manually add new article cards to the Legal Updates latest grid or category sections. Those sections are rendered from `assets/data/insights-registry.json` by Citadel section modules.

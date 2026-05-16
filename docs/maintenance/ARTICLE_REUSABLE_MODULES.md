@@ -422,3 +422,24 @@ Correct structure:
 ```
 
 Future article publishing should update `assets/data/insights-registry.json`, `sitemap.xml`, and `feed.xml`, not the Latest Articles grid markup.
+## Citadel Insights category sections
+
+The Insights / Legal Updates page category blocks are registry-driven. Static category-card blocks should not be manually maintained.
+
+Supported Citadel section-grid attributes:
+
+```html
+<div class="updates-grid insights-compact-grid" data-citadel-insights-category="Case Brief"></div>
+<div class="updates-grid insights-compact-grid" data-citadel-insights-categories="Practical Guide, Checklist"></div>
+<div class="updates-grid insights-compact-grid" data-citadel-insights-tags="MSME, RERA, Arbitration"></div>
+```
+
+Optional filters:
+
+```text
+data-citadel-insights-directory-limit
+data-citadel-insights-exclude-categories
+data-citadel-insights-exclude-tags
+```
+
+Future article publishing should update `assets/data/insights-registry.json`, `sitemap.xml` and `feed.xml`; it should not require manually adding cards to `legal-updates.html` category sections.

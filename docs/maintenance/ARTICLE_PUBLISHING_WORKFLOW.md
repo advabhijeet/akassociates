@@ -345,3 +345,16 @@ Rules:
 - Keep legal-updates.html as a lightweight module host with a no-script/RSS fallback.
 - Static category blocks may remain as curated fallback/editorial sections, but the main latest directory should stay registry-first.
 ```
+## Registry-Driven Insights Category Sections
+
+Do not manually add cards to the `legal-updates.html` category sections. The lower category blocks are rendered from `assets/data/insights-registry.json` through the Citadel Insights Directory section module.
+
+When publishing a new article, update:
+
+```text
+assets/data/insights-registry.json
+sitemap.xml
+feed.xml
+```
+
+Then run validation. The category sections should update automatically based on category and tag metadata.
