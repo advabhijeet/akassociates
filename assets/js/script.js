@@ -599,7 +599,7 @@ document.addEventListener('chambers:insights-registry-ready', hydrateInsightCard
   const script = document.createElement('script');
 
   script.id = scriptId;
-  script.src = ${assetPrefix}assets/js/themes/citadel-of-kang/modules/forms/enquiry-form.js?v=enquiry-form-v1;
+  script.src = `${assetPrefix}assets/js/themes/citadel-of-kang/modules/forms/enquiry-form.js?v=enquiry-form-v1`;
   script.defer = true;
   document.body.appendChild(script);
 })();
