@@ -57,3 +57,14 @@ This file records patch-script and workflow mistakes observed during the Chamber
     - Legal Insights is really a Blog/News/Insights directory template.
     - Once a page needs latest/category/tag/trending/search/pagination behaviour, extract a Citadel-level Blog module instead of adding page-specific selectors.
 
+
+11. **When a page becomes a product pattern, stop patching it as a one-off page.**
+    - The Legal Insights page accumulated separate renderers, filter logic, directory logic and card limits.
+    - The correct fix was to promote the page to a reusable Citadel Blog Page module.
+
+12. **Architecture roadmaps should be recorded before broad template migration.**
+    - Header, footer, homepage, practice, enquiry, contact and general pages should be modularized through a documented Citadel Template System rather than ad hoc patches.
+
+13. **Patch payload paths must resolve relative to the extracted patch script, not the repository root.**
+    - A roadmap patch referenced `payloads/...` from the current working directory, so PowerShell looked inside the repository instead of the extracted temp folder.
+    - Use `$PatchRoot = Split-Path -Parent $MyInvocation.MyCommand.Path` and `Join-Path $PatchRoot 'payloads/...'` for payload reads/copies.

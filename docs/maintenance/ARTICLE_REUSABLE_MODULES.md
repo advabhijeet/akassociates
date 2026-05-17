@@ -455,3 +455,14 @@ assets/js/themes/citadel-of-kang/modules/blog/blog-page.js
 The module is label-neutral and may power Blog, News, Insights, Updates, Resources or Knowledge Centre pages. Chambers of AK labels the page as Legal Insights through `data-citadel-blog-label`.
 
 The module owns latest sections, category sections, tag sections, default 3-card section limits, View All behaviour, filtered results, search and pagination. Do not split this behaviour across separate page-specific scripts.
+
+
+## Citadel Template System Roadmap
+
+The wider template migration is recorded in:
+
+```text
+docs/maintenance/CITADEL_TEMPLATE_SYSTEM_ROADMAP.md
+```
+
+Going forward, reusable page behaviour should be promoted to Citadel template modules instead of being patched page-by-page. Chambers of AK should remain an implementation of Citadel, not the naming source for generic module architecture.

@@ -104,3 +104,16 @@ assets/data/insights-registry.json
 ```
 
 and the Blog Page module will render the relevant sections.
+
+
+## Relationship To The Citadel Template System
+
+The Blog Page module is the first page-level template in the wider Citadel Template System. It should be treated as the reusable Blog / News / Updates / Insights listing template. Site-specific public labels such as “Legal Insights” belong in page markup or data attributes, not in module names.
+
+Future template modules should follow the same pattern:
+
+```text
+Citadel module name = generic template/function
+Website label/content = implementation-specific
+Registry/data = externalized where practical
+```

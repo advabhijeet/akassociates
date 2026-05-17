@@ -1,3 +1,8 @@
+## 2026-05-17 IST - Record Citadel Template System roadmap
+- Added `docs/maintenance/CITADEL_TEMPLATE_SYSTEM_ROADMAP.md` to define the wider Citadel template architecture after the Blog Page module migration.
+- Recorded target template families for global shell, homepage, blog/news/insights, article, practice/services, about/team, contact, enquiry and general content pages.
+- Documented that NewsPaper 12 and other external theme references may be used for architecture and UX taxonomy only, not copied code/assets.
+- Updated Blog Page and reusable module documentation to position Chambers of AK as an implementation of the reusable Citadel template system.
 ## 2026-05-17 IST - Create Citadel Blog page module
 - Added `assets/js/themes/citadel-of-kang/modules/blog/blog-page.js` as a reusable Citadel-level Blog/News/Insights directory controller.
 - Converted `legal-updates.html` into a declarative Citadel Blog Page labelled as Legal Insights, with latest, category, categories and tag-driven sections.
