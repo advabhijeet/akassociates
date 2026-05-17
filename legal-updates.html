@@ -102,7 +102,7 @@
       <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </nav>
 
-    <main>
+    <main data-citadel-blog-page data-citadel-blog-label="Legal Insights">
       <section class="page-hero">
         <div class="hero-eyebrow">Legal Insights</div>
         <h1>Articles On Procedure, Remedies, And Timelines</h1>
@@ -186,39 +186,39 @@
         <p class="insights-filter-status" aria-live="polite">Showing default editorial view.</p>
       </section>
 
-      <section class="sec insights-results-section" hidden>
+      <section class="sec insights-results-section" data-citadel-blog-results hidden>
         <div class="sec-label">Filtered Results</div>
         <div class="insights-section-head">
           <h2>Matching Insights</h2>
           <p>Results are shown in latest-first order and filtered by selected category, tag and search terms.</p>
         </div>
-        <div class="insights-results-list" id="insights-results-list"></div>
+        <div class="insights-results-list" id="insights-results-list" data-citadel-blog-results-list></div>
       </section>
 
-
-
-      <section class="sec latest-insights-section">
+      <section class="sec latest-insights-section" data-citadel-blog-section="latest" data-limit="3">
         <div class="sec-label">Latest Articles</div>
-        <button class="insights-view-all-latest" type="button" data-latest-all-trigger aria-controls="insights-results-list">View All Latest Articles</button>
-        <div class="updates-grid" data-citadel-insights-directory aria-live="polite">
+        <button class="insights-view-all-latest" type="button" data-citadel-blog-view-all aria-controls="insights-results-list">View All Latest Articles</button>
+        <div class="updates-grid" data-citadel-blog-grid aria-live="polite">
           <noscript>
             <div class="update-item">
               <span class="update-tag tag-legal-update">Insights</span>
               <div class="update-title">Legal insights directory</div>
-              <div class="update-excerpt">Enable JavaScript to view the latest registry-driven Insights directory, or open the RSS feed for recent legal updates.</div>
+              <div class="update-excerpt">Enable JavaScript to view the latest registry-driven Legal Insights directory, or open the RSS feed for recent legal updates.</div>
               <div class="article-links"><a href="feed.xml">Open RSS Feed</a></div>
             </div>
           </noscript>
         </div>
       </section>
-      <!-- Insights category blocks -->
-      <section class="sec insights-category-section">
+
+      <!-- Citadel Blog category blocks -->
+      <section class="sec insights-category-section" data-citadel-blog-section="category" data-category="Case Brief" data-limit="3">
         <div class="sec-label">Case Briefs</div>
         <div class="insights-section-head">
           <h2>Judgment Briefs</h2>
           <p>Source-based briefs of selected judgments and orders, with case metadata, practical takeaways and judgment download links where available.</p>
         </div>
-        <div class="updates-grid insights-compact-grid" data-citadel-insights-category="Case Brief" data-citadel-insights-directory-limit="3" aria-live="polite">
+        <button class="insights-view-all-latest insights-view-section-all" type="button" data-citadel-blog-view-all aria-controls="insights-results-list">View All</button>
+        <div class="updates-grid insights-compact-grid" data-citadel-blog-grid aria-live="polite">
           <noscript>
             <div class="update-item">
               <span class="update-tag tag-case-brief">Case Briefs</span>
@@ -230,13 +230,14 @@
         </div>
       </section>
 
-      <section class="sec insights-category-section">
+      <section class="sec insights-category-section" data-citadel-blog-section="categories" data-categories="Practical Guide, Checklist" data-limit="3">
         <div class="sec-label">Practical Guides &amp; Checklists</div>
         <div class="insights-section-head">
           <h2>Document-First Guides</h2>
           <p>Practical explainers and checklists focused on dates, notices, pleadings, invoices, contracts and first-review readiness.</p>
         </div>
-        <div class="updates-grid insights-compact-grid" data-citadel-insights-categories="Practical Guide, Checklist" data-citadel-insights-directory-limit="6" aria-live="polite">
+        <button class="insights-view-all-latest insights-view-section-all" type="button" data-citadel-blog-view-all aria-controls="insights-results-list">View All</button>
+        <div class="updates-grid insights-compact-grid" data-citadel-blog-grid aria-live="polite">
           <noscript>
             <div class="update-item">
               <span class="update-tag tag-checklist">Guides</span>
@@ -248,13 +249,14 @@
         </div>
       </section>
 
-      <section class="sec insights-category-section">
+      <section class="sec insights-category-section" data-citadel-blog-section="tags" data-tags="NI Act, MSME, RERA, Arbitration, Commercial Recovery" data-exclude-categories="Case Brief" data-limit="3">
         <div class="sec-label">Practice-Area Updates</div>
         <div class="insights-section-head">
           <h2>Focused Legal Updates</h2>
           <p>Practice-area notes covering NI Act, MSME, RERA, arbitration, commercial recovery and related procedural issues.</p>
         </div>
-        <div class="updates-grid insights-compact-grid" data-citadel-insights-tags="NI Act, MSME, RERA, Arbitration, Commercial Recovery" data-citadel-insights-exclude-categories="Case Brief" data-citadel-insights-directory-limit="6" aria-live="polite">
+        <button class="insights-view-all-latest insights-view-section-all" type="button" data-citadel-blog-view-all aria-controls="insights-results-list">View All</button>
+        <div class="updates-grid insights-compact-grid" data-citadel-blog-grid aria-live="polite">
           <noscript>
             <div class="update-item">
               <span class="update-tag tag-legal-update">Practice Updates</span>
@@ -294,6 +296,6 @@
     </footer>
   </div>
 
-  <script src="assets/js/script.js?v=citadel-live-8"></script>
+  <script src="assets/js/script.js?v=citadel-live-9"></script>
 </body>
 </html>

@@ -47,3 +47,13 @@ This file records patch-script and workflow mistakes observed during the Chamber
 - Replace via robust structural markers.
 - Validate syntax and registry coverage.
 - Use specific module-level fixes whenever the issue belongs to Citadel.
+
+11. **Do not keep layered controllers for the same page behaviour.**
+    - The Legal Insights page had one module rendering registry cards and a separate legacy script limiting, filtering and paginating them.
+    - This caused render-order bugs where direct navbar load showed all articles, while Clear Filter later corrected the view.
+    - Directory rendering, default section limits, View All, filters and pagination must be owned by one page-level module.
+
+12. **Do not patch a custom page forever when it has become a reusable product pattern.**
+    - Legal Insights is really a Blog/News/Insights directory template.
+    - Once a page needs latest/category/tag/trending/search/pagination behaviour, extract a Citadel-level Blog module instead of adding page-specific selectors.
+
