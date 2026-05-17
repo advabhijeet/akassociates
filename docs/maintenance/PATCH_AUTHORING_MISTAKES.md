@@ -72,3 +72,12 @@ This file records patch-script and workflow mistakes observed during the Chamber
 11. **Do not leave reusable shell behaviour inside the monolithic global script.**
    - Header, mobile drawer, footer social rows, active navigation and other site-wide chrome belong to Citadel shell modules.
    - Keep `assets/js/script.js` as a loader/orchestrator wherever possible.
+
+11. **Do not use synchronous XHR for registry fallbacks.**
+   - The previous Insights registry loader used `request.open('GET', registryUrl, false)`, which triggered Chrome's synchronous XMLHttpRequest deprecation warning.
+   - Use async `fetch()` and `window.ChambersInsightsRegistryReady` promise chaining instead.
+
+12. **Do not patch post-load hydration by brittle exact text only.**
+   - After module extraction, helper blocks may move or shrink.
+   - Replace by stable surrounding markers or make the replacement idempotent.
+

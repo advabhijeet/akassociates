@@ -1,8 +1,13 @@
+## 2026-05-17 IST - Remove synchronous Insights registry fallback
+- Removed the blocking synchronous XMLHttpRequest fallback from the Insights registry loader.
+- Kept `window.ChambersInsightsRegistryReady` as the async promise used by Citadel modules that depend on article metadata.
+- Delayed Insight card hydration until the registry promise settles so article thumbnails and current-article styling remain consistent.
+- Bumped the registry cache key to `registry-2` and public script references to `script.js?v=citadel-live-11`.
 ## 2026-05-17 IST - Create Citadel Global Shell v1
 - Added `assets/js/themes/citadel-of-kang/modules/shell/global-shell.js` for reusable shell behaviour.
 - Moved topbar, mobile drawer, footer social row, active navigation and smooth anchor logic out of the monolithic global script.
 - Added `docs/maintenance/CITADEL_GLOBAL_SHELL_MODULE.md` and updated the Citadel Template System roadmap.
-- Bumped public script cache references to `script.js?v=citadel-live-10`.
+- Bumped public script cache references to `script.js?v=citadel-live-11`.
 ## 2026-05-17 IST - Record Citadel Template System roadmap
 - Added `docs/maintenance/CITADEL_TEMPLATE_SYSTEM_ROADMAP.md` to define the wider Citadel template architecture after the Blog Page module migration.
 - Recorded target template families for global shell, homepage, blog/news/insights, article, practice/services, about/team, contact, enquiry and general content pages.
@@ -19,7 +24,7 @@
 - Extended the Citadel Insights Directory section module so lower Legal Updates category blocks render from registry category/tag filters.
 - Replaced manually maintained category-card blocks in `legal-updates.html` with registry-driven grids and small no-script fallbacks.
 - Added `docs/maintenance/PATCH_AUTHORING_MISTAKES.md` to record patch-script mistakes and prevent repeat failures.
-- Bumped public script cache references to `script.js?v=citadel-live-10` and the Insights Directory module cache key to `insights-directory-v2`.
+- Bumped public script cache references to `script.js?v=citadel-live-11` and the Insights Directory module cache key to `insights-directory-v2`.
 ## 2026-05-16 IST - Simplify Insights latest grid static fallback
 - Removed the long manually-maintained Latest Articles card list from `legal-updates.html`.
 - Kept a lightweight no-script RSS fallback inside the Citadel Insights Directory host grid.
@@ -33,12 +38,12 @@
 ## 2026-05-16 IST - Clarify Citadel latest insights section module path
 - Renamed the Citadel latest-insights renderer from `assets/js/themes/citadel-of-kang/modules/latest-insights.js` to `assets/js/themes/citadel-of-kang/modules/sections/latest-insights-section.js`.
 - Kept the module theme-level and reusable for homepages, landing pages and other Citadel layouts instead of treating it as Chambers-specific homepage JavaScript.
-- Updated the global loader path and bumped public script cache references to `script.js?v=citadel-live-10`.
+- Updated the global loader path and bumped public script cache references to `script.js?v=citadel-live-11`.
 ## 2026-05-16 IST - Add Citadel latest insights dedupe module
 - Moved the homepage latest-insights rendering behaviour into a reusable Citadel module.
 - Added href-based de-duplication before the latest-card display limit is applied, preventing registry/feed overlap from showing the same article twice.
 - Preserved registry-first fallback and feed freshness rendering while supporting both `data-citadel-latest-insights` and legacy `data-home-insights-limit` hooks.
-- Bumped public script cache references to `script.js?v=citadel-live-10`.
+- Bumped public script cache references to `script.js?v=citadel-live-11`.
 ## 2026-05-16 IST - Publish arbitration notice before claim article
 - Rebuilt `updates/arbitration-notice-before-claim.html` using Article Publishing Template v2 with `article.article-body` so Article Index and Article Footer auto-load correctly.
 - Updated the Insights registry JSON, legal-updates card, sitemap lastmod and RSS feed item for the refreshed arbitration notice article.
@@ -261,7 +266,7 @@ Validation / notes:
 - Ran `git diff --check`.
 - Parsed `sitemap.xml` and `feed.xml`.
 - Confirmed public HTML homepage links no longer use `index.html` / `../index.html`.
-- Confirmed public HTML script references now use `script.js?v=citadel-live-10`.
+- Confirmed public HTML script references now use `script.js?v=citadel-live-11`.
 - Live visual check remains manual/Codex-dependent after GitHub Pages refresh.
 
 Commits:
@@ -344,13 +349,13 @@ Summary:
 - Fixed the active Citadel navbar Contact button so text remains visible in light and dark modes, including active Contact-page state.
 - Rebuilt `assets/img/logo-navbar-dark.png` on the same `620x115` canvas as the light navbar logo to keep desktop and mobile logo sizing consistent without CSS stretching.
 - Bumped the dark navbar logo asset key to `dark-2`.
-- Bumped public stylesheet references to `style.css?v=theme-package-5` and script references to `script.js?v=citadel-live-10`.
+- Bumped public stylesheet references to `style.css?v=theme-package-5` and script references to `script.js?v=citadel-live-11`.
 
 Validation / notes:
 
 - Ran `node --check assets/js/script.js`.
 - Ran `git diff --check`; only Windows line-ending warnings were reported.
-- Confirmed no functional `style.css?v=theme-package-2`, `script.js?v=citadel-live-10` or old dark navbar logo cache references remain.
+- Confirmed no functional `style.css?v=theme-package-2`, `script.js?v=citadel-live-11` or old dark navbar logo cache references remain.
 - Local Chrome smoke confirmed homepage navbar CTA contrast in light/dark, Contact-page active CTA contrast in dark mode, and matching desktop logo frame `430x58`.
 - Local Chrome mobile smoke confirmed matching logo frame `246x39` in light/dark mode.
 
@@ -379,7 +384,7 @@ Summary:
 - Preserved `assets/css/themes/chambers-ak.css` as the previous-theme rollback package.
 - Converted the Citadel controller from preview-only behavior into the active light/dark theme controller.
 - Removed production preview-banner behavior and kept the theme reference page as a noindex review surface.
-- Bumped public stylesheet references to `style.css?v=theme-package-5` and script references to `script.js?v=citadel-live-10`.
+- Bumped public stylesheet references to `style.css?v=theme-package-5` and script references to `script.js?v=citadel-live-11`.
 - Updated repository documentation to reflect Citadel as the active site theme and to keep WordPress/commercial packaging out of this repository.
 
 Validation / notes:
@@ -2096,3 +2101,5 @@ For every future meaningful modification:
 4. Summarize what changed and why.
 5. List validation performed or pending.
 6. Add commit hash after commit if available.
+
+

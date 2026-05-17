@@ -1107,7 +1107,7 @@ Example:
 
 ```html
 <link rel="stylesheet" href="assets/css/style.css?v=theme-package-5">
-<script src="assets/js/script.js?v=citadel-live-10"></script>
+<script src="assets/js/script.js?v=citadel-live-11"></script>
 ```
 
 If the homepage still shows older insight cards after deployment:
@@ -1172,3 +1172,4 @@ Case Enquiry must appear near the bottom, after Latest Legal Insights.
 Homepage cards must use the standard tagged card style.
 When homepage structure changes, bump homepage CSS/JS cache query strings.
 ```
+

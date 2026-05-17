@@ -329,7 +329,7 @@ Shared CSS and JavaScript files are referenced with query-string versions, for e
 
 ```html
 assets/css/style.css?v=theme-package-5
-assets/js/script.js?v=citadel-live-10
+assets/js/script.js?v=citadel-live-11
 ```
 
 When changing shared CSS or JavaScript, bump the version string across all HTML pages.
@@ -465,3 +465,4 @@ monthly-legal-and-documentation-review
 ```
 
 It is a periodic helper. It does not replace the need to update legal and documentation files during the same work cycle as meaningful website changes.
+

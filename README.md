@@ -309,7 +309,7 @@ HTML pages reference CSS and JavaScript with version query strings, for example:
 
 ```html
 assets/css/style.css?v=theme-package-5
-assets/js/script.js?v=citadel-live-10
+assets/js/script.js?v=citadel-live-11
 ```
 
 When changing shared CSS or JavaScript, update the query string across HTML pages so browsers and mobile devices fetch the latest files.
@@ -448,3 +448,4 @@ The detailed maintenance checklist is in `docs/maintenance/LEGAL_DOCUMENTATION_M
 ## License and Rights
 
 This repository contains brand assets, copy, images and website materials for Chambers of AK. Do not reuse the branding, legal copy, photographs or website assets without permission from the owner.
+

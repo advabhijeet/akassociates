@@ -317,28 +317,15 @@ window.ChambersInsightsRegistryReady = Promise.resolve(window.chambersInsightsRe
     .then(applyRegistry)
     .catch((error) => {
       console.warn('Insights registry could not be loaded:', error);
-      return window.chambersInsightsRegistry;
+      return applyRegistry(window.chambersInsightsRegistry);
     });
 
   const assetPrefix = window.location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
-  const registryUrl = assetPrefix + 'assets/data/insights-registry.json?v=registry-1';
-
-  try {
-    const request = new XMLHttpRequest();
-    request.open('GET', registryUrl, false);
-    request.overrideMimeType('application/json');
-    request.send(null);
-
-    if ((request.status >= 200 && request.status < 300) || request.status === 0) {
-      applyRegistry(JSON.parse(request.responseText));
-      return;
-    }
-  } catch (error) {
-    console.warn('Insights registry synchronous load failed; falling back to async load:', error);
-  }
+  const registryUrl = assetPrefix + 'assets/data/insights-registry.json?v=registry-2';
 
   window.ChambersInsightsRegistryReady = loadRegistryAsync(registryUrl);
 })();
+
 // Shared Insights card rendering helpers
 window.ChambersInsightCards = (function () {
   const normalize = (value) => (value || '').toLowerCase().replace(/\s+/g, ' ').trim();
@@ -486,8 +473,16 @@ window.ChambersInsightCards = (function () {
 })();
 
 if (window.ChambersInsightCards) {
-  window.ChambersInsightCards.hydrateStaticCards(document);
-  window.ChambersInsightCards.applyCurrentArticleThumbnail();
+  const hydrateInsightCards = () => {
+    window.ChambersInsightCards.hydrateStaticCards(document);
+    window.ChambersInsightCards.applyCurrentArticleThumbnail();
+  };
+
+  if (window.ChambersInsightsRegistryReady && typeof window.ChambersInsightsRegistryReady.then === 'function') {
+    window.ChambersInsightsRegistryReady.then(hydrateInsightCards).catch(hydrateInsightCards);
+  } else {
+    hydrateInsightCards();
+  }
 }
 
 
@@ -920,3 +915,6 @@ if (window.ChambersInsightCards) {
 
   updateMatterFields();
 })();
+
+
+
