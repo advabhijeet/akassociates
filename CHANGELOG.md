@@ -1,3 +1,8 @@
+## 2026-05-17 IST - Create Citadel Enquiry Page template v1
+- Added `assets/js/themes/citadel-of-kang/modules/pages/enquiry-page.js` as the reusable Citadel Enquiry Page Template controller.
+- Marked `case-enquiry.html` as a Citadel Enquiry Page implementation while preserving existing visual layout and copy-template behaviour.
+- Added `docs/maintenance/CITADEL_ENQUIRY_PAGE_TEMPLATE.md` to document the separation between enquiry-page structure and enquiry/form behaviour.
+- Bumped the case enquiry page script cache reference to `script.js?v=citadel-live-14`.
 ## 2026-05-17 IST - Create Citadel Contact Page template v1
 - Added `assets/js/themes/citadel-of-kang/modules/pages/contact-page.js` as the reusable Citadel Contact Page Template controller.
 - Marked `contact.html` as a Citadel Contact Page implementation while preserving existing visual layout and enquiry form behaviour.

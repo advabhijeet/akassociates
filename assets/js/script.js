@@ -622,3 +622,22 @@ document.addEventListener('chambers:insights-registry-ready', hydrateInsightCard
   script.defer = true;
   document.body.appendChild(script);
 })();
+
+// Citadel Enquiry Page template loader
+(function () {
+  const hasEnquiryPage = document.querySelector('[data-citadel-enquiry-page], .enquiry-template-section, [data-copy-target]');
+  const isEnquiryPath = /(^|\/)case-enquiry\.html$/.test(window.location.pathname) || window.location.pathname === '/case-enquiry';
+
+  if ((!hasEnquiryPage && !isEnquiryPath) || window.CitadelEnquiryPage) return;
+
+  const scriptId = 'citadel-enquiry-page-v1';
+  if (document.getElementById(scriptId)) return;
+
+  const assetPrefix = window.location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
+  const script = document.createElement('script');
+
+  script.id = scriptId;
+  script.src = `${assetPrefix}assets/js/themes/citadel-of-kang/modules/pages/enquiry-page.js?v=enquiry-page-v1`;
+  script.defer = true;
+  document.body.appendChild(script);
+})();
