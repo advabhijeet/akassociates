@@ -341,3 +341,24 @@ Do not:
 - introduce styling that has not been checked in both light and dark mode;
 - introduce layout changes that are not checked on mobile.
 ```
+
+## Global Shell v1 Implementation
+
+The first Global Shell implementation moves site-wide chrome behaviour out of the monolithic global script and into:
+
+```text
+assets/js/themes/citadel-of-kang/modules/shell/global-shell.js
+```
+
+Current v1 scope:
+
+```text
+- topbar social row and live clock;
+- theme toggle wiring;
+- mobile menu / drawer behaviour;
+- footer social row;
+- smooth anchor links;
+- active navigation state.
+```
+
+Future shell work should move shell data to `navigation.json`, `footer-links.json` and `site-settings.json`, then split header/footer/theme-toggle behaviours into smaller modules only after v1 is stable.

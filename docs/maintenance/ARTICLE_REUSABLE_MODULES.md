@@ -466,3 +466,13 @@ docs/maintenance/CITADEL_TEMPLATE_SYSTEM_ROADMAP.md
 ```
 
 Going forward, reusable page behaviour should be promoted to Citadel template modules instead of being patched page-by-page. Chambers of AK should remain an implementation of Citadel, not the naming source for generic module architecture.
+
+## Citadel Global Shell v1
+
+Global site chrome behaviour now lives at:
+
+```text
+assets/js/themes/citadel-of-kang/modules/shell/global-shell.js
+```
+
+The module is loaded by `assets/js/script.js` and controls topbar, mobile drawer, footer social row, active navigation and smooth anchors. Future navigation/footer data should move to JSON registries before deeper shell templating.

@@ -68,3 +68,7 @@ This file records patch-script and workflow mistakes observed during the Chamber
 13. **Patch payload paths must resolve relative to the extracted patch script, not the repository root.**
     - A roadmap patch referenced `payloads/...` from the current working directory, so PowerShell looked inside the repository instead of the extracted temp folder.
     - Use `$PatchRoot = Split-Path -Parent $MyInvocation.MyCommand.Path` and `Join-Path $PatchRoot 'payloads/...'` for payload reads/copies.
+
+11. **Do not leave reusable shell behaviour inside the monolithic global script.**
+   - Header, mobile drawer, footer social rows, active navigation and other site-wide chrome belong to Citadel shell modules.
+   - Keep `assets/js/script.js` as a loader/orchestrator wherever possible.
