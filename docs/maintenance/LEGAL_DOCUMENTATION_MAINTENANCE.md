@@ -50,7 +50,7 @@ Key points to preserve:
 
 Update or review `privacy-policy.html` when:
 
-- Contact forms, WhatsApp links, email links, phone links, LinkedIn links or enquiry tools change.
+- Contact forms, WhatsApp links, email links, phone links, LinkedIn links, EmailJS/direct-send delivery, or enquiry tools change.
 - Google Tag Manager, Google Analytics, AdSense, pixels, cookies or other tracking tools are added, removed or materially reconfigured.
 - The website starts collecting new categories of information.
 - A third-party platform is added to the visitor journey.
@@ -72,7 +72,7 @@ Update or review `terms.html` when:
 
 - Website functionality changes.
 - New downloadable resources, checklists, articles or user flows are added.
-- External platforms or embedded tools are added.
+- External platforms, embedded tools, or browser-based enquiry delivery services are added.
 - Branding, copyright or reuse permissions change.
 - The website's permitted use or limitation language needs adjustment.
 
@@ -98,6 +98,7 @@ Update `README.md` when:
 - Domain, deployment or GitHub Pages setup changes.
 - GTM, GA4, AdSense, Search Console or social links change.
 - AdSense approval status, advertising placement strategy, cookie/consent posture or ad-serving scope changes.
+- Contact-form delivery changes, including EmailJS configuration, direct-send behaviour, or WhatsApp/Gmail fallback routing.
 - Branding, positioning, logo assets or cache-busting versions change.
 - Quality checks or maintenance workflows change.
 - Changelog or documentation policy changes.
@@ -167,6 +168,7 @@ Run these checks where possible:
 
 ```powershell
 node --check assets\js\script.js
+node --check assets\js\themes\citadel-of-kang\modules\forms\enquiry-form.js
 git diff --check
 ```
 

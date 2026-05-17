@@ -1,3 +1,9 @@
+## 2026-05-17 IST - Review legal and documentation maintenance
+- Updated `disclaimer.html`, `privacy-policy.html` and `terms.html` for the current structured contact form, EmailJS direct-send path, enquiry fallbacks and third-party communication tools.
+- Clarified README and Google setup notes so GTM/GA4 lead-link events remain separate from the EmailJS direct form-send action unless a dedicated data-layer event is added later.
+- Updated the legal/documentation maintenance checklist for EmailJS/direct-send review triggers and enquiry-form module validation.
+- Refreshed sitemap lastmod dates for legal pages, contact, case enquiry and the registry-driven legal updates index.
+
 ## 2026-05-17 IST - Create Citadel Enquiry Page template v1
 - Added `assets/js/themes/citadel-of-kang/modules/pages/enquiry-page.js` as the reusable Citadel Enquiry Page Template controller.
 - Marked `case-enquiry.html` as a Citadel Enquiry Page implementation while preserving existing visual layout and copy-template behaviour.

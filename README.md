@@ -224,13 +224,13 @@ AdSense Publisher ID: pub-6935574990807827
 
 GA4 should be controlled through GTM to avoid duplicate page-view tracking.
 
-Tracked interaction events include important lead actions such as WhatsApp clicks, email clicks, phone clicks and case enquiry actions.
+Tracked interaction events include important lead-link actions such as WhatsApp clicks, email clicks, phone clicks, case enquiry clicks and contact clicks. The direct EmailJS `Send Enquiry` button is part of contact-form delivery; add and document a separate GTM data-layer event before treating direct form sends as a GA4 conversion.
 
 AdSense readiness is documented in `docs/planning/ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md`. If AdSense is approved and enabled, ads should be limited to article-style legal information pages, remain subtle, and should not appear on homepage, contact, case enquiry, practice/service landing pages or policy/trust pages.
 
 ## Contact Form Delivery
 
-`contact.html` includes a dynamic matter-type enquiry form. It prepares a structured message, supports direct Send Enquiry delivery through EmailJS, and keeps WhatsApp, Gmail and copy-prepared-message fallbacks available.
+`contact.html` includes a dynamic matter-type enquiry form. It prepares a structured message, supports direct Send Enquiry delivery through the EmailJS browser SDK, and keeps WhatsApp, Gmail and copy-prepared-message fallbacks available. Visitor-entered form details are sent through EmailJS only when the visitor chooses the direct send option.
 
 Current public EmailJS configuration:
 
@@ -249,7 +249,7 @@ Current official public social links:
 - Firm LinkedIn Page: [https://www.linkedin.com/company/chambersofak](https://www.linkedin.com/company/chambersofak)
 - WhatsApp Channel: [https://whatsapp.com/channel/0029VbCmf6M9sBIHqiTPIz33](https://whatsapp.com/channel/0029VbCmf6M9sBIHqiTPIz33)
 
-Generated social icons in the desktop topbar, mobile drawer and footer are controlled from `assets/js/script.js`.
+The contact page also links the advocate LinkedIn profile, Google Business Profile and Google review request URL. Generated social icons in the desktop topbar, mobile drawer and footer are controlled by the Citadel global shell loaded through `assets/js/script.js`.
 
 ## Change Tracking Policy
 
@@ -430,6 +430,7 @@ Avoid force-pushing or resetting public history unless there is a specific reaso
 - Move detailed individual profiles to the future `team.html` page.
 - Re-check mobile navigation after header, social or menu changes.
 - Re-test important click events in GTM Preview after contact CTA changes.
+- Re-test EmailJS direct-send, WhatsApp, Gmail and copy fallbacks after contact-form or enquiry-form module changes.
 - Update `sitemap.xml` whenever adding, removing, renaming or moving indexed pages.
 - Update `CHANGELOG.md` after every meaningful modification.
 

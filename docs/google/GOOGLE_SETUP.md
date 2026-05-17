@@ -31,7 +31,7 @@ Optional: rename the GTM container/workspace display name to `chambersofak.in` f
 
 ### Conversion Event Data Layer
 
-The website currently pushes one GTM data layer event per important enquiry interaction.
+The website currently pushes one GTM data layer event per important lead-link interaction handled by `assets/js/script.js`.
 
 Supported event names:
 
@@ -48,6 +48,8 @@ Current event payload keys:
 - `page_path`
 
 In GTM, create Custom Event triggers for these event names, or use a single regular-expression Custom Event trigger that matches the five names above. Then create GA4 Event tags that send the same event names into GA4. Re-test GTM Preview whenever `assets/js/script.js` changes around enquiry links or event tracking.
+
+The direct EmailJS `Send Enquiry` button on `contact.html` is a form delivery action, not one of the five data-layer events above. If direct form-send conversion tracking is needed, add an explicit form-send data-layer event in the enquiry form module, update this list, and re-test GA4/GTM before treating it as a conversion.
 
 ## Google Business Profile
 
