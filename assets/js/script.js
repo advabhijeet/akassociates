@@ -317,7 +317,7 @@ window.ChambersInsightsRegistryReady = Promise.resolve(window.chambersInsightsRe
     .then(applyRegistry)
     .catch((error) => {
       console.warn('Insights registry could not be loaded:', error);
-      return applyRegistry(window.chambersInsightsRegistry);
+      return window.chambersInsightsRegistry;
     });
 
   const assetPrefix = window.location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
@@ -325,7 +325,6 @@ window.ChambersInsightsRegistryReady = Promise.resolve(window.chambersInsightsRe
 
   window.ChambersInsightsRegistryReady = loadRegistryAsync(registryUrl);
 })();
-
 // Shared Insights card rendering helpers
 window.ChambersInsightCards = (function () {
   const normalize = (value) => (value || '').toLowerCase().replace(/\s+/g, ' ').trim();
@@ -472,19 +471,19 @@ window.ChambersInsightCards = (function () {
   return { buildCard, normalize, categoryClass, buildTagList, thumbnailFor, hydrateStaticCards, applyCurrentArticleThumbnail };
 })();
 
-if (window.ChambersInsightCards) {
-  const hydrateInsightCards = () => {
-    window.ChambersInsightCards.hydrateStaticCards(document);
-    window.ChambersInsightCards.applyCurrentArticleThumbnail();
-  };
+const hydrateInsightCardsWhenReady = () => {
+  if (!window.ChambersInsightCards) return;
+  window.ChambersInsightCards.hydrateStaticCards(document);
+  window.ChambersInsightCards.applyCurrentArticleThumbnail();
+};
 
-  if (window.ChambersInsightsRegistryReady && typeof window.ChambersInsightsRegistryReady.then === 'function') {
-    window.ChambersInsightsRegistryReady.then(hydrateInsightCards).catch(hydrateInsightCards);
-  } else {
-    hydrateInsightCards();
-  }
+if (window.ChambersInsightsRegistryReady && typeof window.ChambersInsightsRegistryReady.then === 'function') {
+  window.ChambersInsightsRegistryReady.then(hydrateInsightCardsWhenReady).catch(hydrateInsightCardsWhenReady);
+} else {
+  hydrateInsightCardsWhenReady();
 }
 
+document.addEventListener('chambers:insights-registry-ready', hydrateInsightCardsWhenReady);
 
 // Citadel latest insights module auto-loader
 (function () {
@@ -915,6 +914,3 @@ if (window.ChambersInsightCards) {
 
   updateMatterFields();
 })();
-
-
-
