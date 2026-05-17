@@ -81,3 +81,7 @@ This file records patch-script and workflow mistakes observed during the Chamber
    - After module extraction, helper blocks may move or shrink.
    - Replace by stable surrounding markers or make the replacement idempotent.
 
+
+11. **Do not leave page-specific form logic inside the global bootstrap.**
+    - Contact/enquiry/copy-template behaviour belongs in a Citadel form module, not in ssets/js/script.js.
+    - script.js should remain a bootstrap/loader file wherever possible.

@@ -60,6 +60,7 @@ External theme references, including the user's NewsPaper 12 theme documents, ma
 
 ```text
 assets/js/themes/citadel-of-kang/modules/blog/blog-page.js
+assets/js/themes/citadel-of-kang/modules/forms/enquiry-form.js
 assets/js/themes/citadel-of-kang/modules/sections/latest-insights-section.js
 assets/js/themes/citadel-of-kang/modules/sections/insights-directory-section.js
 assets/js/themes/citadel-of-kang/article-index-direct-rail.js
@@ -126,7 +127,8 @@ assets/css/themes/citadel-of-kang/modules/home-page.css
 
 ### 3. Blog / News / Insights Template
 
-Status: started by `assets/js/themes/citadel-of-kang/modules/blog/blog-page.js`.
+Status: started by `assets/js/themes/citadel-of-kang/modules/blog/blog-page.js
+assets/js/themes/citadel-of-kang/modules/forms/enquiry-form.js`.
 
 Purpose: listing pages for articles, news, insights and resources.
 
