@@ -1,87 +1,106 @@
 # Patch Authoring Mistakes Log
 
+Last updated: 2026-05-17
+
 This file records patch-script and workflow mistakes observed during the Chambers of AK / Citadel migration so future patches avoid repeating them.
 
-## Rules learned
+## Core Rules
 
-1. **Do not rely on brittle exact text markers for large HTML sections.**
-   - Prefer section-level replacement between stable structural markers, or add explicit data attributes first.
-   - The failed category-section patch looked for a precise “Practical Guides and Checklists” block and failed when the current `legal-updates.html` structure no longer matched.
+1. Do not rely on brittle exact text markers for large HTML sections.
+   - Prefer stable structural markers, data attributes, small targeted replacements, or manual commands.
+   - Exact text failed repeatedly when the live repository had already changed.
 
-2. **Keep replacement payloads outside PowerShell here-strings when HTML/Markdown is large.**
-   - Large embedded strings repeatedly caused parser failures, unterminated quotes, or backtick interpretation problems.
-   - Use separate payload files and read them with `Get-Content -Raw`.
+2. Keep large HTML, JavaScript and Markdown payloads out of fragile inline patch strings.
+   - Payload files are safer for ZIP patches.
+   - For manual PowerShell, keep generated Markdown free of nested Markdown fences.
 
-3. **Escape PowerShell variable names before colons.**
-   - Use `${Variable}:` instead of `$Variable:`.
-   - `$Variable:` is parsed as a scoped variable and can throw parser errors.
+3. Do not put Markdown code fences inside PowerShell here-strings that are being shared inside ChatGPT Markdown code fences.
+   - This broke multiple copy/paste command blocks.
+   - Use plain text in generated docs or provide continuation blocks.
 
-4. **Avoid backticks inside double-quoted PowerShell here-strings.**
-   - Markdown and JavaScript snippets often contain backticks.
-   - Prefer single-quoted here-strings or external payload files.
+4. Escape PowerShell variable names before colons.
+   - Use ${Variable}: instead of $Variable:.
 
-5. **Every patch script must reset failed dry-run leftovers before applying.**
-   - Use `git reset --hard origin/main` after fetch/pull.
-   - Remove known untracked target folders before reapplying.
+5. Avoid JavaScript template literals inside double-quoted PowerShell strings.
+   - The enquiry-form loader was once committed as script.src = ${assetPrefix}... without backticks.
+   - Prefer single-quoted here-strings or payload files.
 
-6. **Make patches idempotent or explicitly detect already-applied state.**
-   - Re-running a patch after it has already changed cache keys or file paths should not produce a false failure.
+6. Always verify the repository path before running commands.
+   - Commands were once run in an unrelated anime-manga repository, causing false MODULE_NOT_FOUND errors.
 
-7. **Check current working directory before running repository patches.**
-   - Running from `C:\Users\abhik` instead of the repository caused Git and path failures.
+7. git reset --hard does not remove untracked files.
+   - Use git clean -nd first to preview.
+   - Use git clean -fd only for known failed-patch leftovers.
 
-8. **Expect Windows file locks.**
-   - Editors, preview panes, live servers, and browser tooling can lock files like `contact.html`.
-   - Close editors/preview panes or retry after cleanup.
+8. Make patches idempotent or detect already-applied state.
+   - Re-running already-applied patches caused false failures when old markers no longer existed.
 
-9. **Theme-level fixes must not be replaced by website-only fixes.**
-   - Homepage duplicate cards were correctly moved into a Citadel section module instead of being patched only in `index.html` or site-specific code.
+9. Dry-run success is not commit success.
+   - Always run final validation, git status, git log and push confirmation.
 
-10. **Dry-run success is not commit success.**
-    - Always run final `git status`, validation commands, and log checks after commit/push.
+10. Network push errors can be ambiguous.
+   - If push reports RPC failure but also says Everything up-to-date, verify with git fetch, git status -sb and git ls-remote.
 
-## Current preferred patch pattern
+## Architecture Rules
 
-- Keep complex replacement HTML/JS/Markdown in `payloads/` files.
-- Reset to `origin/main` before applying.
-- Replace via robust structural markers.
-- Validate syntax and registry coverage.
-- Use specific module-level fixes whenever the issue belongs to Citadel.
+11. Theme-level issues should be fixed at Citadel module level, not by website-only patches.
+   - Example: homepage duplicate cards were fixed through the Latest Insights section module.
 
-11. **Do not keep layered controllers for the same page behaviour.**
-    - The Legal Insights page had one module rendering registry cards and a separate legacy script limiting, filtering and paginating them.
-    - This caused render-order bugs where direct navbar load showed all articles, while Clear Filter later corrected the view.
-    - Directory rendering, default section limits, View All, filters and pagination must be owned by one page-level module.
+12. Do not leave reusable shell behaviour inside the monolithic global script.
+   - Header, mobile drawer, footer social rows, active navigation and smooth anchors belong to the Global Shell module.
 
-12. **Do not patch a custom page forever when it has become a reusable product pattern.**
-    - Legal Insights is really a Blog/News/Insights directory template.
-    - Once a page needs latest/category/tag/trending/search/pagination behaviour, extract a Citadel-level Blog module instead of adding page-specific selectors.
+13. Do not leave page-specific form logic inside the global bootstrap.
+   - Contact/enquiry/copy-template behaviour belongs in the Enquiry/Form module.
 
+14. Do not leave layered controllers fighting over the same page.
+   - The Legal Insights page previously had separate renderers, filters, directory logic and card limits.
+   - The correct solution was the Citadel Blog Page module.
 
-11. **When a page becomes a product pattern, stop patching it as a one-off page.**
-    - The Legal Insights page accumulated separate renderers, filter logic, directory logic and card limits.
-    - The correct fix was to promote the page to a reusable Citadel Blog Page module.
+15. When a page becomes a product pattern, promote it to a reusable template.
+   - Legal Insights became Blog Page.
+   - Contact became Contact Page.
+   - Case Enquiry became Enquiry Page.
 
-12. **Architecture roadmaps should be recorded before broad template migration.**
-    - Header, footer, homepage, practice, enquiry, contact and general pages should be modularized through a documented Citadel Template System rather than ad hoc patches.
+16. Keep separation between page templates and behaviour modules.
+   - Contact Page and Enquiry Page modules mark structure.
+   - Enquiry/Form module owns copy/form/send behaviour.
 
-13. **Patch payload paths must resolve relative to the extracted patch script, not the repository root.**
-    - A roadmap patch referenced `payloads/...` from the current working directory, so PowerShell looked inside the repository instead of the extracted temp folder.
-    - Use `$PatchRoot = Split-Path -Parent $MyInvocation.MyCommand.Path` and `Join-Path $PatchRoot 'payloads/...'` for payload reads/copies.
+17. Do not use synchronous XHR for registry fallbacks.
+   - The old registry loader used request.open(..., false), causing Chrome's synchronous XMLHttpRequest warning.
+   - Use async fetch and ChambersInsightsRegistryReady instead.
 
-11. **Do not leave reusable shell behaviour inside the monolithic global script.**
-   - Header, mobile drawer, footer social rows, active navigation and other site-wide chrome belong to Citadel shell modules.
-   - Keep `assets/js/script.js` as a loader/orchestrator wherever possible.
+18. Keep article metadata in assets/data/insights-registry.json.
+   - Do not reintroduce inline article registry data into assets/js/script.js.
 
-11. **Do not use synchronous XHR for registry fallbacks.**
-   - The previous Insights registry loader used `request.open('GET', registryUrl, false)`, which triggered Chrome's synchronous XMLHttpRequest deprecation warning.
-   - Use async `fetch()` and `window.ChambersInsightsRegistryReady` promise chaining instead.
+19. Do not solve reusable article UI problems by copying blocks into individual article pages.
+   - Improve Article Index, Article Footer, registry, validation or template docs instead.
 
-12. **Do not patch post-load hydration by brittle exact text only.**
-   - After module extraction, helper blocks may move or shrink.
-   - Replace by stable surrounding markers or make the replacement idempotent.
+## Current Preferred Workflow
 
+1. Confirm clean state:
+   git status -sb
 
-11. **Do not leave page-specific form logic inside the global bootstrap.**
-    - Contact/enquiry/copy-template behaviour belongs in a Citadel form module, not in ssets/js/script.js.
-    - script.js should remain a bootstrap/loader file wherever possible.
+2. Inspect current files before patching:
+   git log --oneline --decorate -5
+   targeted file reads/diffs
+
+3. Apply the smallest safe change:
+   - one module
+   - one loader
+   - one page hook
+   - one documentation update
+
+4. Validate:
+   node --check assets/js/script.js
+   node --check any new or modified JS module
+   node -e "JSON.parse(require('fs').readFileSync('assets/data/insights-registry.json','utf8')); console.log('insights registry JSON ok')"
+   node tools/validate-insights-registry.js --strict
+   git diff --check
+
+5. Commit with a clear message.
+
+6. Push and verify:
+   git status -sb
+   git log --oneline --decorate -5
+
+7. Browser-check the affected public page in light mode, dark mode, desktop and mobile.

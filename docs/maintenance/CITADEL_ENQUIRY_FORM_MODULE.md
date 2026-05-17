@@ -54,3 +54,18 @@ Every future change must be checked on:
 - WhatsApp/Gmail fallback links;
 - EmailJS unavailable/error state.
 ```
+
+## Relationship With Page Templates
+
+The Enquiry/Form module is used by multiple page templates but does not own their page structure.
+
+Related page modules:
+
+- Contact Page Template: assets/js/themes/citadel-of-kang/modules/pages/contact-page.js
+- Enquiry Page Template: assets/js/themes/citadel-of-kang/modules/pages/enquiry-page.js
+
+Boundary:
+
+- Page modules mark sections, cards, contact rows and template groups.
+- This form module controls interaction behaviour, including copy, prepared-message generation, consent gating, WhatsApp/Gmail compose URLs and EmailJS direct send.
+- Do not duplicate copy/form behaviour in contact-page.js or enquiry-page.js.

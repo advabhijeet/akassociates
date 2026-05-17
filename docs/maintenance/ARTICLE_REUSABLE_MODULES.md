@@ -479,5 +479,27 @@ The module is loaded by `assets/js/script.js` and controls topbar, mobile drawer
 
 ## Citadel Enquiry/Form module
 
-- Form and copy-template behaviour now lives in ssets/js/themes/citadel-of-kang/modules/forms/enquiry-form.js.
+- Form and copy-template behaviour now lives in assets/js/themes/citadel-of-kang/modules/forms/enquiry-form.js.
 - See docs/maintenance/CITADEL_ENQUIRY_FORM_MODULE.md.
+
+## Citadel Page Template Modules
+
+Reusable non-article page behaviour is now being documented separately from article-only behaviour.
+
+Current page/template modules:
+
+- Blog Page: assets/js/themes/citadel-of-kang/modules/blog/blog-page.js
+- Contact Page: assets/js/themes/citadel-of-kang/modules/pages/contact-page.js
+- Enquiry Page: assets/js/themes/citadel-of-kang/modules/pages/enquiry-page.js
+- Enquiry/Form Behaviour: assets/js/themes/citadel-of-kang/modules/forms/enquiry-form.js
+- Global Shell: assets/js/themes/citadel-of-kang/modules/shell/global-shell.js
+
+Boundary rule:
+
+- Article modules own article reading interfaces.
+- Blog module owns article listing/search/filter/pagination interfaces.
+- Page template modules own reusable page-level semantics.
+- Form module owns form/copy behaviour.
+- Global shell module owns site chrome behaviour.
+
+Do not move all page-template notes into this article document long-term. This document should eventually be narrowed to article-specific modules, while wider template notes should live in CITADEL_TEMPLATE_SYSTEM_ROADMAP.md and per-template documentation files.

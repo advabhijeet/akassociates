@@ -61,6 +61,8 @@ External theme references, including the user's NewsPaper 12 theme documents, ma
 ```text
 assets/js/themes/citadel-of-kang/modules/blog/blog-page.js
 assets/js/themes/citadel-of-kang/modules/forms/enquiry-form.js
+assets/js/themes/citadel-of-kang/modules/pages/contact-page.js
+assets/js/themes/citadel-of-kang/modules/pages/enquiry-page.js
 assets/js/themes/citadel-of-kang/modules/sections/latest-insights-section.js
 assets/js/themes/citadel-of-kang/modules/sections/insights-directory-section.js
 assets/js/themes/citadel-of-kang/article-index-direct-rail.js
@@ -74,6 +76,24 @@ Current data source:
 ```text
 assets/data/insights-registry.json
 ```
+
+
+## Current Implementation Checkpoint
+
+As of 2026-05-17, the following Citadel modules are implemented and pushed on `main`:
+
+- Blog Page Template v1: `assets/js/themes/citadel-of-kang/modules/blog/blog-page.js`
+- Global Shell v1: `assets/js/themes/citadel-of-kang/modules/shell/global-shell.js`
+- Enquiry/Form Module v1: `assets/js/themes/citadel-of-kang/modules/forms/enquiry-form.js`
+- Contact Page Template v1: `assets/js/themes/citadel-of-kang/modules/pages/contact-page.js`
+- Enquiry Page Template v1: `assets/js/themes/citadel-of-kang/modules/pages/enquiry-page.js`
+- Latest Insights Section: `assets/js/themes/citadel-of-kang/modules/sections/latest-insights-section.js`
+- Insights Directory Section: `assets/js/themes/citadel-of-kang/modules/sections/insights-directory-section.js`
+- Article Index: `assets/js/themes/citadel-of-kang/article-index-direct-rail.js`
+- Article Footer: `assets/js/themes/citadel-of-kang/article-footer.js`
+- Pill System: `assets/css/themes/citadel-of-kang/modules/pills.css`
+
+The next architecture step should not start until documentation is clean and the repository is confirmed clean. After this documentation checkpoint, the next likely template is the General Content Page Template for policy, FAQ, process, courts and document-checklist pages.
 
 ## Target Template Families
 
@@ -308,6 +328,29 @@ Recommended order after the Blog Page module is visually accepted:
 9. Consolidate Article template docs and preview files.
 10. Add validation for required data attributes and registries.
 ```
+
+
+## Completed Migration Status
+
+Completed:
+
+- Roadmap recorded.
+- Global shell behaviour extracted into a Citadel shell module.
+- Blog / Legal Insights page promoted to a reusable Blog Page module.
+- Contact form and copy-template behaviour extracted into the Enquiry/Form module.
+- Contact page promoted to a reusable Contact Page Template.
+- Case Enquiry page promoted to a reusable Enquiry Page Template.
+- Legal documentation was updated to account for structured contact forms, EmailJS direct-send behaviour, and third-party enquiry delivery tools.
+
+Remaining:
+
+- General Content Page Template.
+- Homepage Template.
+- Practice / Services Template.
+- About / Team Template.
+- Navigation/footer/site-settings data registries.
+- Article template documentation consolidation and old-preview cleanup.
+- Validation for required template hooks and data registries.
 
 ## Validation Expectations
 

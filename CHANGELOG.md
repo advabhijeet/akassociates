@@ -1,3 +1,8 @@
+## 2026-05-17 IST - Update Citadel documentation checkpoint
+- Updated the Citadel Template System roadmap to reflect completed Blog, Global Shell, Contact Page and Enquiry Page template work.
+- Expanded Contact Page, Enquiry Page and Enquiry/Form documentation with module boundaries, hooks, validation and future data-migration notes.
+- Cleaned Article Reusable Modules documentation to reference current Citadel page-template modules and corrected a corrupted path.
+- Rewrote the Patch Authoring Mistakes log to remove duplicate numbering and record safer patch/documentation workflow rules.
 ## 2026-05-17 IST - Review legal and documentation maintenance
 - Updated `disclaimer.html`, `privacy-policy.html` and `terms.html` for the current structured contact form, EmailJS direct-send path, enquiry fallbacks and third-party communication tools.
 - Clarified README and Google setup notes so GTM/GA4 lead-link events remain separate from the EmailJS direct form-send action unless a dedicated data-layer event is added later.
