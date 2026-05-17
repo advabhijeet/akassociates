@@ -1,3 +1,8 @@
+## 2026-05-17 IST - Create Citadel Contact Page template v1
+- Added `assets/js/themes/citadel-of-kang/modules/pages/contact-page.js` as the reusable Citadel Contact Page Template controller.
+- Marked `contact.html` as a Citadel Contact Page implementation while preserving existing visual layout and enquiry form behaviour.
+- Added `docs/maintenance/CITADEL_CONTACT_PAGE_TEMPLATE.md` to document the separation between page-level contact structure and enquiry form logic.
+- Bumped the contact page script cache reference to `script.js?v=citadel-live-13`.
 ## 2026-05-17 IST - Create Citadel enquiry form module
 - Added `assets/js/themes/citadel-of-kang/modules/forms/enquiry-form.js` for copy-to-clipboard templates and structured enquiry form behaviour.
 - Replaced the inline form/copy behaviour in `assets/js/script.js` with a conditional Citadel module loader.

@@ -603,3 +603,22 @@ document.addEventListener('chambers:insights-registry-ready', hydrateInsightCard
   script.defer = true;
   document.body.appendChild(script);
 })();
+
+// Citadel Contact Page template loader
+(function () {
+  const hasContactPage = document.querySelector('[data-citadel-contact-page], .contact-row, #dynamic-enquiry-form');
+  const isContactPath = /(^|\/)contact\.html$/.test(window.location.pathname) || window.location.pathname === '/contact';
+
+  if ((!hasContactPage && !isContactPath) || window.CitadelContactPage) return;
+
+  const scriptId = 'citadel-contact-page-v1';
+  if (document.getElementById(scriptId)) return;
+
+  const assetPrefix = window.location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
+  const script = document.createElement('script');
+
+  script.id = scriptId;
+  script.src = `${assetPrefix}assets/js/themes/citadel-of-kang/modules/pages/contact-page.js?v=contact-page-v1`;
+  script.defer = true;
+  document.body.appendChild(script);
+})();
