@@ -84,13 +84,11 @@ Expected hooks after v1:
 
 Potential future homepage sections:
 
-- How We Work
-- Matter Routes
-- Document-First Advantage
-- Before You Contact
-- Compliance / Non-Solicitation Note
+- Testimonials or representative non-confidential experience, only if compliant and appropriate.
+- Practice-specific route summaries once service-page cleanup is complete.
+- A stronger document-checklist preview if it improves enquiry quality.
 
-These should be added after the template hooks are stable.
+The original expansion set was added in Homepage Content Expansion v1.
 
 ## Validation
 
@@ -113,3 +111,22 @@ Browser-check:
 - mobile layout works
 - light mode works
 - dark mode works
+
+## Homepage Content Expansion v1
+
+Added after the initial template module:
+
+- How We Work
+- Matter Routes
+- Document-First Advantage
+- Before You Contact
+- Compliance / Non-Solicitation Note
+- Priority-aligned Latest Legal Insights fallback cards
+
+These sections preserve the five-pillar strategy:
+
+1. MSME Recovery
+2. Arbitration
+3. Commercial / Consumer Recovery
+4. RERA / Property
+5. Cheque Bounce

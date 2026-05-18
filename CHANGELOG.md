@@ -1,3 +1,10 @@
+## 2026-05-18 IST - Expand Chambers homepage priority sections
+- Added homepage sections for How We Work, Matter Routes, Document-First Advantage, Before You Contact and an Important Professional Note.
+- Rewrote the homepage About cards to remove old broad practice signals and align with the five-pillar strategy.
+- Replaced the homepage Latest Legal Insights static fallback with MSME, arbitration and commercial-recovery priority cards.
+- Updated the Homepage Template documentation to record Homepage Content Expansion v1.
+- Bumped the homepage script cache reference to `script.js?v=citadel-live-18`.
+
 ## 2026-05-18 IST - Create Citadel Homepage Template v1
 - Added `assets/js/themes/citadel-of-kang/modules/pages/home-page.js` as the reusable Citadel Homepage Template controller.
 - Marked `index.html` as a Citadel Homepage implementation while preserving the current MSME/arbitration-first homepage content.
