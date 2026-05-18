@@ -1,3 +1,7 @@
+## 2026-05-18 IST - Improve homepage hero meta-card readability
+- Improved the homepage hero meta-card contrast by replacing light translucent cards with darker glass panels.
+- Added clearer heading/body text styling for the Document-first approach, Firm-level expertise and Based in Patna cards.
+- Bumped the homepage script cache reference to `script.js?v=citadel-live-19`.
 ## 2026-05-18 IST - Expand Chambers homepage priority sections
 - Added homepage sections for How We Work, Matter Routes, Document-First Advantage, Before You Contact and an Important Professional Note.
 - Rewrote the homepage About cards to remove old broad practice signals and align with the five-pillar strategy.
