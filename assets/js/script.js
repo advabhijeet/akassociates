@@ -662,3 +662,23 @@ document.addEventListener('chambers:insights-registry-ready', hydrateInsightCard
   script.defer = true;
   document.body.appendChild(script);
 })();
+
+
+// Citadel Homepage template loader
+(function () {
+  const hasHomePage = document.querySelector('[data-citadel-home-page]');
+  const isHomePath = window.location.pathname === '/' || /(^|\/)index\.html$/.test(window.location.pathname);
+
+  if ((!hasHomePage && !isHomePath) || window.CitadelHomePage) return;
+
+  const scriptId = 'citadel-home-page-v1';
+  if (document.getElementById(scriptId)) return;
+
+  const assetPrefix = window.location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
+  const script = document.createElement('script');
+
+  script.id = scriptId;
+  script.src = `${assetPrefix}assets/js/themes/citadel-of-kang/modules/pages/home-page.js?v=home-page-v1`;
+  script.defer = true;
+  document.body.appendChild(script);
+})();

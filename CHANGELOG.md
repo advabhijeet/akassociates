@@ -1,3 +1,9 @@
+## 2026-05-18 IST - Create Citadel Homepage Template v1
+- Added `assets/js/themes/citadel-of-kang/modules/pages/home-page.js` as the reusable Citadel Homepage Template controller.
+- Marked `index.html` as a Citadel Homepage implementation while preserving the current MSME/arbitration-first homepage content.
+- Added `docs/maintenance/CITADEL_HOME_PAGE_TEMPLATE.md` and updated the Citadel Template System roadmap.
+- Added a homepage module loader to `assets/js/script.js` and bumped the homepage script cache reference to `script.js?v=citadel-live-17`.
+
 ## 2026-05-17 IST - Update Chambers practice taxonomy and location priority
 - Repositioned Chambers of AK around five core pillars: MSME Recovery, Arbitration, Commercial / Consumer Recovery, RERA / Property and Cheque Bounce.
 - Updated homepage, practice page, case enquiry and courts page language to prioritize Patna High Court, District Courts and forums of Bihar.
