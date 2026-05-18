@@ -93,7 +93,7 @@ As of 2026-05-17, the following Citadel modules are implemented and pushed on `m
 - Article Footer: `assets/js/themes/citadel-of-kang/article-footer.js`
 - Pill System: `assets/css/themes/citadel-of-kang/modules/pills.css`
 
-The next architecture step should not start until documentation is clean and the repository is confirmed clean. After this documentation checkpoint, the next likely template is the General Content Page Template for policy, FAQ, process, courts and document-checklist pages.
+The next architecture step should not start until documentation is clean and the repository is confirmed clean. After this documentation checkpoint, the General Content Page Template was the next template target for policy, FAQ, process, courts and document-checklist pages.
 
 ## Target Template Families
 
@@ -344,7 +344,6 @@ Completed:
 
 Remaining:
 
-- General Content Page Template.
 - Homepage Template.
 - Practice / Services Template.
 - About / Team Template.

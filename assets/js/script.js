@@ -641,3 +641,24 @@ document.addEventListener('chambers:insights-registry-ready', hydrateInsightCard
   script.defer = true;
   document.body.appendChild(script);
 })();
+
+// Citadel General Content Page template loader
+(function () {
+  const specialPage = document.querySelector('[data-citadel-blog-page], [data-citadel-contact-page], [data-citadel-enquiry-page], article.article-body');
+  const hasGeneralPage = document.querySelector('[data-citadel-general-page]');
+  const hasGeneralStructure = document.querySelector('.page-hero') && (document.querySelector('.content-panel') || document.querySelector('.info-grid') || document.querySelector('.sec'));
+  const generalPath = /(^|\/)(faq|process|courts|document-checklists|disclaimer|privacy-policy|terms)(\.html)?$/.test(window.location.pathname);
+
+  if (specialPage || ((!hasGeneralPage && !hasGeneralStructure && !generalPath) || window.CitadelGeneralContentPage)) return;
+
+  const scriptId = 'citadel-general-content-page-v1';
+  if (document.getElementById(scriptId)) return;
+
+  const assetPrefix = window.location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
+  const script = document.createElement('script');
+
+  script.id = scriptId;
+  script.src = `${assetPrefix}assets/js/themes/citadel-of-kang/modules/pages/general-content-page.js?v=general-content-page-v1`;
+  script.defer = true;
+  document.body.appendChild(script);
+})();

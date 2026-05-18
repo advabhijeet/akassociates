@@ -1,3 +1,8 @@
+## 2026-05-17 IST - Create Citadel General Content Page template v1
+- Added `assets/js/themes/citadel-of-kang/modules/pages/general-content-page.js` as the reusable Citadel General Content Page Template controller.
+- Marked FAQ, process, courts, document checklists, disclaimer, privacy policy and terms pages as General Content Page implementations.
+- Added `docs/maintenance/CITADEL_GENERAL_CONTENT_PAGE_TEMPLATE.md` and updated the Citadel Template System roadmap.
+- Bumped affected general page script cache references to `script.js?v=citadel-live-15`.
 ## 2026-05-17 IST - Update Citadel documentation checkpoint
 - Updated the Citadel Template System roadmap to reflect completed Blog, Global Shell, Contact Page and Enquiry Page template work.
 - Expanded Contact Page, Enquiry Page and Enquiry/Form documentation with module boundaries, hooks, validation and future data-migration notes.
