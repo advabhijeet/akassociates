@@ -1,3 +1,10 @@
+## 2026-05-17 IST - Update Chambers practice taxonomy and location priority
+- Repositioned Chambers of AK around five core pillars: MSME Recovery, Arbitration, Commercial / Consumer Recovery, RERA / Property and Cheque Bounce.
+- Updated homepage, practice page, case enquiry and courts page language to prioritize Patna High Court, District Courts and forums of Bihar.
+- Limited secondary location positioning to Delhi, Supreme Court of India, Noida, Ghaziabad and Allahabad High Court-linked matters.
+- Updated SEO roadmap to reflect the five-cluster strategy and removed broad DRT/NCLT/SARFAESI/banking positioning from active sitewide priority.
+- Refreshed sitemap lastmod entries for the homepage, practice, courts and case enquiry pages.
+
 ## 2026-05-17 IST - Create Citadel General Content Page template v1
 - Added `assets/js/themes/citadel-of-kang/modules/pages/general-content-page.js` as the reusable Citadel General Content Page Template controller.
 - Marked FAQ, process, courts, document checklists, disclaimer, privacy policy and terms pages as General Content Page implementations.
