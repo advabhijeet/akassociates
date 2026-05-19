@@ -1,3 +1,8 @@
+## 2026-05-18 IST - Fix homepage hero meta-card mobile layout
+- Fixed homepage hero meta cards so they stack cleanly on mobile instead of remaining in three cramped columns.
+- Added safer text wrapping and justified body text for hero meta cards.
+- Replaced slash wording with "commercial and consumer recovery" for cleaner wrapping.
+- Bumped the homepage script cache reference to `script.js?v=citadel-live-20`.
 ## 2026-05-18 IST - Fix homepage hero meta-card wrapping
 - Improved homepage hero meta-card readability by preventing long practice labels from overflowing.
 - Changed the hero meta-card copy from slash wording to cleaner "commercial and consumer recovery" wording.
