@@ -306,3 +306,106 @@
     opacity: 0 !important;
   }
 }
+
+/* Citadel Article Index mobile overflow fix v21 */
+.article-index-layout,
+.article-index-rail,
+.article-index-toc,
+.article-index-layout .article-body,
+.article-index-layout .ck-article {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.article-index-layout {
+  width: 100%;
+  overflow: hidden;
+}
+
+.article-index-rail,
+.article-index-toc {
+  width: 100%;
+  overflow: hidden;
+}
+
+.article-index-toc ol,
+.article-index-toc li {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.article-index-toc a,
+.article-index-toc a:visited,
+.article-index-toc a:active,
+.article-index-toc a:focus {
+  grid-template-columns: 28px minmax(0, 1fr);
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: none;
+}
+
+.article-index-toc a::before {
+  min-width: 0;
+}
+
+@media (max-width: 920px) {
+  .article-index-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    max-width: 100%;
+    gap: 1.15rem;
+    overflow: hidden;
+  }
+
+  .article-index-rail,
+  .article-index-layout .article-body,
+  .article-index-layout .ck-article {
+    grid-column: 1;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .article-index-toc {
+    width: 100%;
+    max-width: 100%;
+    padding: min(18px, 5vw);
+    border-radius: 18px;
+  }
+
+  .article-index-toc a,
+  .article-index-toc a:visited,
+  .article-index-toc a:active,
+  .article-index-toc a:focus {
+    grid-template-columns: 24px minmax(0, 1fr);
+    gap: 8px;
+    padding: 9px 8px;
+    font-size: clamp(0.74rem, 2.8vw, 0.88rem);
+    line-height: 1.45;
+    transform: none;
+  }
+
+  .article-index-toc a:hover,
+  .article-index-toc a.is-active,
+  .article-index-toc a.is-active:visited,
+  .article-index-toc a.is-active:active,
+  .article-index-toc a.is-active:focus {
+    transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .article-index-toc {
+    padding: 14px;
+  }
+
+  .article-index-title {
+    font-size: 1.02rem;
+  }
+
+  .article-index-note {
+    font-size: 0.78rem;
+  }
+}

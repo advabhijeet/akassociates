@@ -1,3 +1,9 @@
+## 2026-05-19 IST - Fix mobile article index overflow
+- Added global mobile overflow guards for the Citadel Article Index module.
+- Fixed narrow-screen article index layout so long TOC headings wrap instead of cropping.
+- Bumped the article index CSS import to `article-index-v21`.
+- Bumped the Sabarimala article stylesheet cache reference to `style.css?v=theme-package-6`.
+
 ## 2026-05-18 IST - Fix homepage hero meta-card mobile layout
 - Fixed homepage hero meta cards so they stack cleanly on mobile instead of remaining in three cramped columns.
 - Added safer text wrapping and justified body text for hero meta cards.

@@ -1,5 +1,5 @@
 @import url("./themes/citadel-of-ak.css?v=theme-1");
-@import url("./themes/citadel-of-kang/modules/article-index.css?v=article-index-v20");
+@import url("./themes/citadel-of-kang/modules/article-index.css?v=article-index-v21");
 @import url("./themes/citadel-of-kang/modules/pills.css?v=pills-v2");
 
 :root {
@@ -2963,4 +2963,3 @@ body.insights-list-active .insights-category-section {
   color: #ffffff !important;
 }
 /* END CITADEL DARK PILL IDLE STATE OVERRIDE */
-
