@@ -1,3 +1,7 @@
+## 2026-05-18 IST - Fix homepage hero meta-card wrapping
+- Improved homepage hero meta-card readability by preventing long practice labels from overflowing.
+- Changed the hero meta-card copy from slash wording to cleaner "commercial and consumer recovery" wording.
+- Added justified body text, safer wrapping and tablet stacking for the hero meta cards.
 ## 2026-05-18 IST - Improve homepage hero meta-card readability
 - Improved the homepage hero meta-card contrast by replacing light translucent cards with darker glass panels.
 - Added clearer heading/body text styling for the Document-first approach, Firm-level expertise and Based in Patna cards.
