@@ -1,19 +1,29 @@
 [
   {
+    "href": "updates/sabarimala-case-9-judge-bench-2026.html",
+    "category": "Constitutional Law",
+    "title": "Sabarimala Case: 9-Judge Bench 2026 Explained",
+    "excerpt": "Detailed explainer on the Sabarimala case, the 2018 judgment, the review reference and the nine-judge Bench hearings reserved on 14 May 2026.",
+    "date": "May 2026",
+    "thumbnail": "assets/img/citadel/citadel-thumb-sabarimala-2026.svg",
+    "tags": [
+      "Sabarimala",
+      "Supreme Court",
+      "Constitution Bench",
+      "Religious Freedom",
+      "Gender Equality",
+      "Essential Religious Practices",
+      "Articles 25 and 26"
+    ]
+  },
+  {
     "href": "updates/arbitration-notice-before-claim.html",
     "category": "Procedure Note",
     "title": "Arbitration notice before claim",
     "excerpt": "Clause-first guide to Section 21 invocation, limitation, appointment procedure, interim relief and document preparation before arbitration begins.",
     "date": "May 2026",
     "thumbnail": "assets/img/citadel/citadel-thumb-arbitration.webp",
-    "tags": [
-      "Arbitration",
-      "Notice",
-      "Section 21",
-      "Appointment",
-      "Limitation",
-      "Interim Relief"
-    ]
+    "tags": ["Arbitration", "Notice", "Section 21", "Appointment", "Limitation", "Interim Relief"]
   },
   {
     "href": "updates/property-title-search-before-purchase-india.html",
@@ -22,14 +32,7 @@
     "excerpt": "Document-first guide to title-chain, revenue, municipal, encumbrance and litigation checks before buying property in India.",
     "date": "May 2026",
     "thumbnail": "assets/img/citadel/citadel-thumb-rera-property.webp",
-    "tags": [
-      "Property",
-      "Due Diligence",
-      "Title Search",
-      "Checklist",
-      "Transfer of Property Act",
-      "Registration Act"
-    ]
+    "tags": ["Property", "Due Diligence", "Title Search", "Checklist", "Transfer of Property Act", "Registration Act"]
   },
   {
     "href": "updates/non-reportable-judgments-online-publication-case-brief.html",
@@ -37,14 +40,7 @@
     "title": "Can non-reportable judgments be published online?",
     "excerpt": "Gujarat High Court case brief on non-reportable judgments, online publication and public court records.",
     "date": "May 2026",
-    "tags": [
-      "High Court",
-      "Gujarat High Court",
-      "Online Publication",
-      "Judgment Reporting",
-      "Court Records",
-      "Article 226"
-    ]
+    "tags": ["High Court", "Gujarat High Court", "Online Publication", "Judgment Reporting", "Court Records", "Article 226"]
   },
   {
     "href": "updates/sarfaesi-auction-sale-challenge-documents.html",
@@ -52,14 +48,7 @@
     "title": "SARFAESI auction sale challenge: documents and Rule 9(4) timeline",
     "excerpt": "Supreme Court case brief on auction-sale finality, balance consideration, redemption and DRT/DRAT records.",
     "date": "May 2026",
-    "tags": [
-      "SARFAESI",
-      "DRT",
-      "Banking Recovery",
-      "Auction Sale",
-      "Supreme Court",
-      "Rule 9(4)"
-    ]
+    "tags": ["SARFAESI", "DRT", "Banking Recovery", "Auction Sale", "Supreme Court", "Rule 9(4)"]
   },
   {
     "href": "updates/summary-judgment-commercial-suits-order-xiii-a.html",
@@ -67,14 +56,7 @@
     "title": "Summary judgment in commercial suits under Order XIII-A CPC",
     "excerpt": "Supreme Court case brief on pleadings, documents, real prospect test and mini-trial caution.",
     "date": "May 2026",
-    "tags": [
-      "Commercial Courts",
-      "CPC",
-      "Order XIII-A",
-      "Summary Judgment",
-      "Supreme Court",
-      "Commercial Recovery"
-    ]
+    "tags": ["Commercial Courts", "CPC", "Order XIII-A", "Summary Judgment", "Supreme Court", "Commercial Recovery"]
   },
   {
     "href": "updates/msme-facilitation-council-process.html",
@@ -82,13 +64,7 @@
     "title": "MSME Facilitation Council process for delayed payments",
     "excerpt": "Udyam records, invoices, 45-day issue, conciliation, arbitration, interest and enforcement preparation.",
     "date": "May 2026",
-    "tags": [
-      "MSME",
-      "MSEFC",
-      "Delayed Payment",
-      "Conciliation",
-      "Arbitration"
-    ]
+    "tags": ["MSME", "MSEFC", "Delayed Payment", "Conciliation", "Arbitration"]
   },
   {
     "href": "updates/cheque-bounce-defence-after-summons.html",
@@ -96,13 +72,7 @@
     "title": "Cheque bounce case after summons: defence preparation",
     "excerpt": "Complaint papers, summons, notice proof, liability review, settlement and court-stage preparation.",
     "date": "May 2026",
-    "tags": [
-      "NI Act",
-      "Cheque Bounce",
-      "Summons",
-      "Defence Preparation",
-      "Section 138"
-    ]
+    "tags": ["NI Act", "Cheque Bounce", "Summons", "Defence Preparation", "Section 138"]
   },
   {
     "href": "updates/msme-documents-checklist.html",
@@ -110,13 +80,7 @@
     "title": "MSME delayed payment documents checklist",
     "excerpt": "Udyam records, invoice-wise summaries, purchase orders, delivery proof, ledgers and communications.",
     "date": "May 2026",
-    "tags": [
-      "MSME",
-      "MSEFC",
-      "Documents",
-      "Delayed Payment",
-      "Udyam"
-    ]
+    "tags": ["MSME", "MSEFC", "Documents", "Delayed Payment", "Udyam"]
   },
   {
     "href": "updates/commercial-recovery-before-suit.html",
@@ -124,13 +88,7 @@
     "title": "Before filing a commercial recovery suit",
     "excerpt": "Contract clauses, invoice ledgers, limitation, pre-filing issues and dispute records.",
     "date": "May 2026",
-    "tags": [
-      "Commercial Recovery",
-      "Contracts",
-      "Invoices",
-      "Limitation",
-      "Commercial Courts"
-    ]
+    "tags": ["Commercial Recovery", "Contracts", "Invoices", "Limitation", "Commercial Courts"]
   },
   {
     "href": "updates/rera-refund-interest-delayed-possession.html",
@@ -138,13 +96,7 @@
     "title": "Delayed possession: refund or interest?",
     "excerpt": "Relief selection, project documents, possession timelines and forum location in RERA disputes.",
     "date": "May 2026",
-    "tags": [
-      "RERA",
-      "Delayed Possession",
-      "Refund",
-      "Interest",
-      "Builder Dispute"
-    ]
+    "tags": ["RERA", "Delayed Possession", "Refund", "Interest", "Builder Dispute"]
   },
   {
     "href": "updates/arbitration-clause-checklist.html",
@@ -152,13 +104,7 @@
     "title": "Arbitration clause checklist before a dispute",
     "excerpt": "Seat, venue, appointment, notice, interim relief, enforcement and papers to preserve.",
     "date": "May 2026",
-    "tags": [
-      "Arbitration",
-      "Contract",
-      "Seat",
-      "Venue",
-      "Interim Relief"
-    ]
+    "tags": ["Arbitration", "Contract", "Seat", "Venue", "Interim Relief"]
   },
   {
     "href": "updates/cheque-bounce-30-days.html",
@@ -166,13 +112,7 @@
     "title": "Cheque bounce: 30-day notice timeline",
     "excerpt": "A practical date-chart approach for cheque dishonour notices, limitation and complaint preparation.",
     "date": "May 2026",
-    "tags": [
-      "NI Act",
-      "Cheque Bounce",
-      "Demand Notice",
-      "Limitation",
-      "Section 138"
-    ]
+    "tags": ["NI Act", "Cheque Bounce", "Demand Notice", "Limitation", "Section 138"]
   },
   {
     "href": "updates/msme-delayed-payment.html",
@@ -180,12 +120,7 @@
     "title": "MSME delayed payment claims: first review",
     "excerpt": "How to organize invoices, Udyam records, delivery proof and buyer communications for MSME delayed payment claims.",
     "date": "May 2026",
-    "tags": [
-      "MSME",
-      "Delayed Payment",
-      "MSEFC",
-      "Udyam"
-    ]
+    "tags": ["MSME", "Delayed Payment", "MSEFC", "Udyam"]
   },
   {
     "href": "updates/bihar-rera-complaint.html",
@@ -193,13 +128,7 @@
     "title": "Bihar RERA complaint preparation",
     "excerpt": "A document-first approach to delayed possession, refund, interest and builder dispute complaints.",
     "date": "May 2026",
-    "tags": [
-      "RERA",
-      "Bihar",
-      "Builder Dispute",
-      "Delayed Possession",
-      "Refund"
-    ]
+    "tags": ["RERA", "Bihar", "Builder Dispute", "Delayed Possession", "Refund"]
   },
   {
     "href": "updates/cheque-bounce-notice-limitation.html",
@@ -207,13 +136,7 @@
     "title": "Cheque bounce notice and limitation",
     "excerpt": "Key dates to track before filing or defending a Section 138 cheque bounce complaint.",
     "date": "May 2026",
-    "tags": [
-      "NI Act",
-      "Cheque Bounce",
-      "Notice",
-      "Limitation",
-      "Section 138"
-    ]
+    "tags": ["NI Act", "Cheque Bounce", "Notice", "Limitation", "Section 138"]
   },
   {
     "href": "updates/msme-45-days-payment-rule.html",
@@ -221,13 +144,7 @@
     "title": "MSME 45-day payment rule",
     "excerpt": "Document and date preparation for MSME delayed payment claims and buyer responses.",
     "date": "May 2026",
-    "tags": [
-      "MSME",
-      "Delayed Payment",
-      "45-Day Rule",
-      "Income Tax",
-      "Udyam"
-    ]
+    "tags": ["MSME", "Delayed Payment", "45-Day Rule", "Income Tax", "Udyam"]
   },
   {
     "href": "updates/section-138-cheque-bounce-limitation.html",
@@ -235,13 +152,7 @@
     "title": "Section 138 cheque bounce limitation",
     "excerpt": "Limitation, demand notice and complaint timelines in cheque dishonour matters.",
     "date": "May 2026",
-    "tags": [
-      "NI Act",
-      "Cheque Bounce",
-      "Limitation",
-      "Demand Notice",
-      "Section 138"
-    ]
+    "tags": ["NI Act", "Cheque Bounce", "Limitation", "Demand Notice", "Section 138"]
   },
   {
     "href": "updates/rera-delayed-possession-bihar.html",
@@ -249,13 +160,7 @@
     "title": "RERA delayed possession in Bihar",
     "excerpt": "Refund, interest and possession relief considerations in delayed possession matters.",
     "date": "May 2026",
-    "tags": [
-      "RERA",
-      "Bihar",
-      "Delayed Possession",
-      "Refund",
-      "Interest"
-    ]
+    "tags": ["RERA", "Bihar", "Delayed Possession", "Refund", "Interest"]
   },
   {
     "href": "updates/commercial-suit-documents-checklist.html",
@@ -263,14 +168,7 @@
     "title": "Commercial suit documents checklist",
     "excerpt": "Contracts, invoices, ledger records, notices, admissions, limitation and forum-preparation checklist for business recovery.",
     "date": "May 2026",
-    "tags": [
-      "Commercial Recovery",
-      "Commercial Courts",
-      "Documents",
-      "Contracts",
-      "Invoices",
-      "Limitation"
-    ]
+    "tags": ["Commercial Recovery", "Commercial Courts", "Documents", "Contracts", "Invoices", "Limitation"]
   },
   {
     "href": "updates/property-injunction-suit-documents.html",
@@ -278,13 +176,7 @@
     "title": "Property injunction suit documents",
     "excerpt": "Possession, title, site photographs, notices and urgent-court preparation in property injunction suits.",
     "date": "May 2026",
-    "tags": [
-      "Property",
-      "Injunction",
-      "Civil Suit",
-      "Documents",
-      "Possession"
-    ]
+    "tags": ["Property", "Injunction", "Civil Suit", "Documents", "Possession"]
   },
   {
     "href": "updates/section-34-arbitration-award-challenge.html",
@@ -292,11 +184,6 @@
     "title": "Section 34 arbitration award challenge",
     "excerpt": "Limitation, grounds, record preparation and court-stage considerations for award challenges.",
     "date": "May 2026",
-    "tags": [
-      "Arbitration",
-      "Section 34",
-      "Award Challenge",
-      "Limitation"
-    ]
+    "tags": ["Arbitration", "Section 34", "Award Challenge", "Limitation"]
   }
 ]
