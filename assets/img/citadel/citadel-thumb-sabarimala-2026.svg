@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Sabarimala Case 9-Judge Bench Reference</title>
+  <desc id="desc">Sabarimala case 9-judge Constitution Bench hearing explained as of 14 May 2026</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#050505"/><stop offset="52%" stop-color="#111111"/><stop offset="100%" stop-color="#000000"/></linearGradient>
+    <radialGradient id="goldGlow" cx="72%" cy="28%" r="65%"><stop offset="0%" stop-color="#d4af37" stop-opacity="0.24"/><stop offset="60%" stop-color="#d4af37" stop-opacity="0.05"/><stop offset="100%" stop-color="#d4af37" stop-opacity="0"/></radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f4df8a"/><stop offset="48%" stop-color="#d4af37"/><stop offset="100%" stop-color="#8b6b18"/></linearGradient>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse"><path d="M 44 0 L 0 0 0 44" fill="none" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/></pattern>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="22" stdDeviation="18" flood-color="#000000" flood-opacity="0.55"/></filter>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect width="1200" height="675" fill="url(#goldGlow)"/>
+  <rect width="1200" height="675" fill="url(#grid)"/>
+  <rect x="34" y="34" width="1132" height="607" rx="30" fill="none" stroke="#d4af37" stroke-opacity="0.55" stroke-width="2"/>
+  <rect x="52" y="52" width="1096" height="571" rx="22" fill="none" stroke="#ffffff" stroke-opacity="0.10" stroke-width="1"/>
+  <g transform="translate(94 105)" opacity="0.88" filter="url(#softShadow)">
+    <path d="M80 152 C115 82 188 42 270 42 C352 42 425 82 460 152" fill="none" stroke="url(#gold)" stroke-width="7" stroke-linecap="round"/>
+    <path d="M107 151 L433 151" stroke="#f4df8a" stroke-opacity="0.86" stroke-width="5" stroke-linecap="round"/>
+    <path d="M142 175 H398" stroke="#ffffff" stroke-opacity="0.34" stroke-width="2"/>
+    <g stroke="#d4af37" stroke-opacity="0.58" stroke-width="5" stroke-linecap="round"><path d="M157 177 V314"/><path d="M214 177 V314"/><path d="M271 177 V314"/><path d="M328 177 V314"/><path d="M385 177 V314"/></g>
+    <path d="M120 323 H420" stroke="url(#gold)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M92 350 H448" stroke="#ffffff" stroke-opacity="0.23" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(784 143)" opacity="0.68">
+    <path d="M145 0 L240 96 H211 L211 156 H79 V96 H50 Z" fill="#ffffff" fill-opacity="0.055" stroke="#d4af37" stroke-opacity="0.42" stroke-width="3"/>
+    <path d="M145 34 L205 96 H177 V156 H113 V96 H85 Z" fill="#d4af37" fill-opacity="0.09"/>
+    <path d="M105 188 H185" stroke="#d4af37" stroke-opacity="0.65" stroke-width="5" stroke-linecap="round"/>
+    <path d="M84 213 H206" stroke="#ffffff" stroke-opacity="0.19" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(584 238)" filter="url(#softShadow)">
+    <path d="M0 0 V192" stroke="url(#gold)" stroke-width="5" stroke-linecap="round"/>
+    <path d="M-90 38 H90" stroke="url(#gold)" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="0" cy="0" r="10" fill="#f4df8a"/>
+    <path d="M-72 38 L-112 116 M-72 38 L-32 116" stroke="#d4af37" stroke-opacity="0.78" stroke-width="3"/>
+    <path d="M72 38 L32 116 M72 38 L112 116" stroke="#d4af37" stroke-opacity="0.78" stroke-width="3"/>
+    <path d="M-138 116 H-6 C-18 147 -126 147 -138 116Z" fill="#ffffff" fill-opacity="0.08" stroke="#d4af37" stroke-opacity="0.62" stroke-width="3"/>
+    <path d="M6 116 H138 C126 147 18 147 6 116Z" fill="#ffffff" fill-opacity="0.08" stroke="#d4af37" stroke-opacity="0.62" stroke-width="3"/>
+    <path d="M-42 203 H42" stroke="#f4df8a" stroke-opacity="0.85" stroke-width="6" stroke-linecap="round"/>
+    <path d="M-72 226 H72" stroke="#d4af37" stroke-opacity="0.55" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(94 444)">
+    <rect x="0" y="-34" width="618" height="154" rx="24" fill="#000000" fill-opacity="0.44" stroke="#d4af37" stroke-opacity="0.26"/>
+    <text x="28" y="18" font-family="Georgia, 'Times New Roman', serif" font-size="62" font-weight="700" fill="#ffffff" letter-spacing="0.4">Sabarimala Case</text>
+    <text x="31" y="68" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="url(#gold)" letter-spacing="2.7">9-JUDGE BENCH REFERENCE</text>
+    <text x="31" y="108" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#ffffff" fill-opacity="0.78" letter-spacing="1.4">As of 14 May 2026</text>
+  </g>
+  <g transform="translate(868 548)">
+    <path d="M0 0 H226" stroke="#d4af37" stroke-opacity="0.75" stroke-width="2"/>
+    <text x="0" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="24" fill="#ffffff" fill-opacity="0.82" letter-spacing="2">CHAMBERS OF AK</text>
+    <text x="1" y="66" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#d4af37" letter-spacing="2.8">ADVOCATES &amp; LEGAL CONSULTANTS</text>
+  </g>
+  <path d="M1020 64 C1082 120 1118 196 1124 286" fill="none" stroke="#d4af37" stroke-opacity="0.25" stroke-width="2"/>
+  <path d="M86 77 C168 54 244 56 318 82" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="2"/>
+</svg>
