@@ -1,3 +1,10 @@
+## 2026-05-20 IST - Normalize sitewide page titles
+- Updated the homepage title to a brand-led title: `Chambers of AK | Advocates & Legal Consultants`.
+- Normalized root pages to page-specific titles such as `About | Chambers of AK`, `Practice Areas | Chambers of AK`, `Contact | Chambers of AK` and `Legal Insights | Chambers of AK`.
+- Normalized practice, service and article pages to use their own H1/page topic followed by `| Chambers of AK`.
+- Updated matching Open Graph and Twitter title tags where present.
+- Preserved existing meta descriptions and substantive SEO content.
+
 ## 2026-05-20 IST - Create Citadel Practice Services Page template v1
 - Added `assets/js/themes/citadel-of-kang/modules/pages/practice-page.js` as the reusable Citadel Practice / Services Page Template controller.
 - Marked `practice.html` as a Citadel Practice Page implementation.
