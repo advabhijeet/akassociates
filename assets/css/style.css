@@ -2963,3 +2963,110 @@ body.insights-list-active .insights-category-section {
   color: #ffffff !important;
 }
 /* END CITADEL DARK PILL IDLE STATE OVERRIDE */
+
+/* Footer internal-link symmetry fix v1 */
+.foot {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.8fr) minmax(520px, 1.7fr) minmax(280px, 1fr);
+  grid-template-areas:
+    "copy links social"
+    "copy links disc";
+  align-items: start;
+  column-gap: clamp(2rem, 5vw, 6rem);
+  row-gap: 1rem;
+}
+
+.foot-copy {
+  grid-area: copy;
+  align-self: center;
+}
+
+.foot-links-grouped {
+  grid-area: links;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(120px, 1fr));
+  align-items: start;
+  justify-items: center;
+  gap: clamp(1.2rem, 3vw, 3.5rem);
+  width: 100%;
+}
+
+.foot-link-group {
+  display: grid;
+  justify-items: center;
+  gap: 0.56rem;
+  min-width: 0;
+  text-align: center;
+}
+
+.foot-link-heading {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.foot-social {
+  grid-area: social;
+  justify-self: end;
+  align-self: end;
+}
+
+.foot-disc {
+  grid-area: disc;
+  justify-self: end;
+  max-width: 420px;
+  text-align: left;
+}
+
+@media (max-width: 1180px) {
+  .foot {
+    grid-template-columns: minmax(160px, 0.65fr) minmax(420px, 1.35fr);
+    grid-template-areas:
+      "copy links"
+      "social links"
+      "disc links";
+    column-gap: clamp(1.5rem, 4vw, 3rem);
+  }
+
+  .foot-links-grouped {
+    grid-template-columns: repeat(3, minmax(120px, 1fr));
+  }
+
+  .foot-social,
+  .foot-disc {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 860px) {
+  .foot {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "copy"
+      "links"
+      "social"
+      "disc";
+    justify-items: center;
+    text-align: center;
+  }
+
+  .foot-copy,
+  .foot-social,
+  .foot-disc {
+    justify-self: center;
+    text-align: center;
+  }
+
+  .foot-links-grouped {
+    grid-template-columns: repeat(2, minmax(130px, 1fr));
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 520px) {
+  .foot-links-grouped {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}

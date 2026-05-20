@@ -1,3 +1,8 @@
+## 2026-05-20 IST - Refine footer symmetry after internal-link cleanup
+- Added grid-based footer layout rules after the footer internal-link cleanup.
+- Balanced copyright, grouped navigation, social icons and disclaimer across desktop widths.
+- Added responsive footer stacking rules for tablet and mobile layouts.
+
 ## 2026-05-20 IST - Create Footer Internal-Link Cleanup v1
 - Updated production page footers with a concise Practice link group.
 - Added footer links to the five active practice pillars: MSME Recovery, Arbitration, Commercial Recovery, RERA / Property and Cheque Bounce.

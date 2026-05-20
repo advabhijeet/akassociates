@@ -24,3 +24,18 @@ The Practice group must point to the five active practice pillars:
 5. Cheque Bounce
 
 Preview/demo HTML files should be excluded from production footer cleanup patches unless intentionally updated.
+
+## Footer symmetry fix v1
+
+Footer layout uses a grid-based structure after Footer Internal-Link Cleanup v1.
+
+Desktop footer areas:
+
+- copyright on the left;
+- grouped footer navigation in the centre;
+- social icons and disclaimer on the right.
+
+Responsive behaviour:
+
+- below medium desktop widths, the layout becomes two-column;
+- below tablet/mobile widths, the footer stacks cleanly and centres each group.
