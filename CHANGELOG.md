@@ -1,3 +1,7 @@
+﻿## 2026-05-20 IST - Record Search Appearance MSME roadmap
+- Added `docs/planning/SEARCH_APPEARANCE_MSME_TOPICAL_AUTHORITY_ROADMAP.md`.
+- Recorded the sitelink-readiness plan, MSME/arbitration topical-authority strategy, internal-linking approach and future hub-page roadmap.
+- Documented competitor observations from NB Associates at a strategic level without copying content.
 ## 2026-05-20 IST - Clean service-page taxonomy and fix robots feed directive
 - Removed the invalid `Feed:` directive from `robots.txt`; RSS discovery now remains through HTML alternate links.
 - Added RSS alternate discovery links to the homepage and Legal Insights page.
@@ -168,3 +172,4 @@
 - Bumped public stylesheet cache references to `style.css?v=theme-package-5` and the pill module import to `pills.css?v=pills-v2`.
 ## 2026-05-16 IST - Add Citadel-wide grouped pill system
 - Added a reusable Citadel pill module for category, tag, technical and meta/filter/action pills.
+
