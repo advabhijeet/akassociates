@@ -3,7 +3,7 @@
   <channel>
     <title>Chambers of AK Legal Insights</title>
     <link>https://chambersofak.in/legal-updates.html</link>
-    <description>Informational legal insights from Chambers of AK on constitutional law, cheque bounce, MSME, RERA, arbitration, commercial recovery, property and civil litigation matters.</description>
+    <description>Informational legal insights from Chambers of AK on constitutional law, arbitration, commercial recovery, property, RERA, MSME and civil litigation matters.</description>
     <language>en-IN</language>
     <lastBuildDate>Wed, 20 May 2026 00:00:00 +0530</lastBuildDate>
     <atom:link href="https://chambersofak.in/feed.xml" rel="self" type="application/rss+xml" />
@@ -13,12 +13,20 @@
     <category>Legal Insights</category>
     <ttl>1440</ttl>
     <item>
+      <title>Section 34 Arbitration Limitation: 3 Months + 30 Days Rule</title>
+      <link>https://chambersofak.in/updates/section-34-arbitration-limitation-3-months-30-days.html</link>
+      <guid isPermaLink="true">https://chambersofak.in/updates/section-34-arbitration-limitation-3-months-30-days.html</guid>
+      <pubDate>Wed, 20 May 2026 00:00:00 +0530</pubDate>
+      <category>Arbitration</category>
+      <description>Practical guide to Section 34 arbitration limitation, calendar-month counting, court holidays, delay condonation and recent Supreme Court cases.</description>
+    </item>
+    <item>
       <title>UAPA Bail and Article 21: Supreme Court 2026 Explained</title>
       <link>https://chambersofak.in/updates/uapa-bail-section-43d5-supreme-court-2026.html</link>
       <guid isPermaLink="true">https://chambersofak.in/updates/uapa-bail-section-43d5-supreme-court-2026.html</guid>
       <pubDate>Wed, 20 May 2026 00:00:00 +0530</pubDate>
       <category>Criminal Law</category>
-      <description>Detailed legal analysis of UAPA bail jurisprudence, Section 43D(5), Watali, K.A. Najeeb, Delhi riots bail litigation, Andrabi, Article 21 and prolonged pre-trial incarceration.</description>
+      <description>Legal analysis of UAPA bail jurisprudence, Section 43D(5), Article 21, speedy trial and recent Supreme Court developments.</description>
     </item>
     <item>
       <title>Sabarimala Case: 9-Judge Bench 2026 Explained</title>
@@ -26,7 +34,7 @@
       <guid isPermaLink="true">https://chambersofak.in/updates/sabarimala-case-9-judge-bench-2026.html</guid>
       <pubDate>Tue, 19 May 2026 00:00:00 +0530</pubDate>
       <category>Constitutional Law</category>
-      <description>Detailed explainer on the Sabarimala case, the 2018 judgment, the review reference and the nine-judge Bench hearings reserved on 14 May 2026.</description>
+      <description>Explainer on the Sabarimala case, 2018 judgment, review reference and nine-judge Bench hearings reserved on 14 May 2026.</description>
     </item>
     <item>
       <title>Arbitration Notice Before Claim</title>
@@ -34,7 +42,7 @@
       <guid isPermaLink="true">https://chambersofak.in/updates/arbitration-notice-before-claim.html</guid>
       <pubDate>Sat, 16 May 2026 00:00:00 +0530</pubDate>
       <category>Arbitration</category>
-      <description>Clause-first guide to arbitration notice before claim: Section 21 invocation, limitation, appointment procedure, interim relief and document preparation before arbitration begins.</description>
+      <description>Clause-first guide to Section 21 invocation, limitation, appointment procedure, interim relief and document preparation before arbitration begins.</description>
     </item>
     <item>
       <title>Property Title Search Before Purchase in India</title>
@@ -42,39 +50,7 @@
       <guid isPermaLink="true">https://chambersofak.in/updates/property-title-search-before-purchase-india.html</guid>
       <pubDate>Wed, 13 May 2026 00:00:00 +0530</pubDate>
       <category>Property</category>
-      <description>Document-first guide to property title search before purchase in India: title-chain papers, revenue records, municipal records, encumbrance checks, litigation searches and state-wise record examples.</description>
-    </item>
-    <item>
-      <title>Case Brief: Can Non-Reportable Judgments Be Published Online?</title>
-      <link>https://chambersofak.in/updates/non-reportable-judgments-online-publication-case-brief.html</link>
-      <guid isPermaLink="true">https://chambersofak.in/updates/non-reportable-judgments-online-publication-case-brief.html</guid>
-      <pubDate>Fri, 08 May 2026 00:00:00 +0530</pubDate>
-      <category>Case Brief</category>
-      <description>Gujarat High Court case brief on non-reportable judgments, online publication, public court records and the distinction between online availability and formal law reporting.</description>
-    </item>
-    <item>
-      <title>SARFAESI Auction Sale Challenge: Documents And Rule 9(4) Timeline</title>
-      <link>https://chambersofak.in/updates/sarfaesi-auction-sale-challenge-documents.html</link>
-      <guid isPermaLink="true">https://chambersofak.in/updates/sarfaesi-auction-sale-challenge-documents.html</guid>
-      <pubDate>Fri, 08 May 2026 00:00:00 +0530</pubDate>
-      <category>SARFAESI</category>
-      <description>Document-first guide to SARFAESI auction sale challenge: demand notice, possession notice, auction terms, Rule 9(4) balance consideration, sale certificate, redemption record and DRT/DRAT preparation.</description>
-    </item>
-    <item>
-      <title>Summary Judgment in Commercial Suits | Order XIII-A CPC</title>
-      <link>https://chambersofak.in/updates/summary-judgment-commercial-suits-order-xiii-a.html</link>
-      <guid isPermaLink="true">https://chambersofak.in/updates/summary-judgment-commercial-suits-order-xiii-a.html</guid>
-      <pubDate>Thu, 07 May 2026 00:00:00 +0530</pubDate>
-      <category>Commercial Recovery</category>
-      <description>Document-first guide to summary judgment in commercial suits under Order XIII-A CPC: pleadings, documents, real prospect test and enquiry checklist.</description>
-    </item>
-    <item>
-      <title>MSME Facilitation Council Process For Delayed Payment Claims</title>
-      <link>https://chambersofak.in/updates/msme-facilitation-council-process.html</link>
-      <guid isPermaLink="true">https://chambersofak.in/updates/msme-facilitation-council-process.html</guid>
-      <pubDate>Thu, 07 May 2026 00:00:00 +0530</pubDate>
-      <category>MSME</category>
-      <description>General guide to MSME Facilitation Council process for delayed payment claims: Udyam records, invoice documents, conciliation, arbitration, interest, buyer response and enforcement preparation.</description>
+      <description>Document-first guide to title-chain, revenue, municipal, encumbrance and litigation checks before buying property in India.</description>
     </item>
   </channel>
 </rss>
