@@ -3,15 +3,23 @@
   <channel>
     <title>Chambers of AK Legal Insights</title>
     <link>https://chambersofak.in/legal-updates.html</link>
-    <description>Informational legal insights from Chambers of AK on constitutional law, arbitration, commercial recovery, property, RERA, MSME and civil litigation matters.</description>
+    <description>Informational legal insights from Chambers of AK on constitutional law, criminal law, arbitration, commercial recovery, property, RERA, MSME and civil litigation matters.</description>
     <language>en-IN</language>
-    <lastBuildDate>Wed, 20 May 2026 00:00:00 +0530</lastBuildDate>
+    <lastBuildDate>Thu, 21 May 2026 00:00:00 +0530</lastBuildDate>
     <atom:link href="https://chambersofak.in/feed.xml" rel="self" type="application/rss+xml" />
     <managingEditor>chambersofakadmin@gmail.com (Chambers of AK)</managingEditor>
     <webMaster>chambersofakadmin@gmail.com (Chambers of AK)</webMaster>
     <copyright>2026 Chambers of AK - Advocates &amp; Legal Consultants</copyright>
     <category>Legal Insights</category>
     <ttl>1440</ttl>
+    <item>
+      <title>PMLA Cognizance After BNSS: Pre-Hearing Rule</title>
+      <link>https://chambersofak.in/updates/pmla-complaint-pre-cognizance-hearing-bnss.html</link>
+      <guid isPermaLink="true">https://chambersofak.in/updates/pmla-complaint-pre-cognizance-hearing-bnss.html</guid>
+      <pubDate>Thu, 21 May 2026 00:00:00 +0530</pubDate>
+      <category>Criminal Law</category>
+      <description>Legal explainer on pre-cognizance hearing of accused in PMLA complaints when cognizance is taken after BNSS came into force.</description>
+    </item>
     <item>
       <title>Section 34 Arbitration Limitation: 3 Months + 30 Days Rule</title>
       <link>https://chambersofak.in/updates/section-34-arbitration-limitation-3-months-30-days.html</link>
