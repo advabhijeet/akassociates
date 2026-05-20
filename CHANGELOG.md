@@ -1,3 +1,10 @@
+## 2026-05-20 IST - Create Footer Internal-Link Cleanup v1
+- Updated production page footers with a concise Practice link group.
+- Added footer links to the five active practice pillars: MSME Recovery, Arbitration, Commercial Recovery, RERA / Property and Cheque Bounce.
+- Kept Main, Resources and Legal footer groups concise for clearer site navigation and sitelink readiness.
+- Excluded preview/demo HTML files from the production footer update.
+- Recorded the implementation in Search Appearance and Global Shell documentation.
+
 ## 2026-05-20 IST - Create Practice Hub Related Articles Block v1
 - Strengthened the `practice.html` Related Insights By Area block.
 - Grouped supporting articles under the five active practice pillars.

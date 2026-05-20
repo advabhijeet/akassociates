@@ -326,3 +326,10 @@ For every new major page or article:
 - Added clearer article clusters for MSME Recovery, Arbitration, Commercial / Consumer Recovery, RERA / Property and Cheque Bounce.
 - Added stronger links from the Practice hub to priority MSME and arbitration articles, including Section 34 limitation.
 - Updated sitemap lastmod for the Practice page.
+
+### 2026-05-20 - Footer Internal-Link Cleanup v1
+
+- Added a sitelink-friendly Practice group to production page footers.
+- Linked the footer to the five active practice pillars: MSME Recovery, Arbitration, Commercial Recovery, RERA / Property and Cheque Bounce.
+- Kept Main, Resources and Legal groups concise for clearer crawlable navigation.
+- Excluded preview/demo HTML files from the production footer update.
