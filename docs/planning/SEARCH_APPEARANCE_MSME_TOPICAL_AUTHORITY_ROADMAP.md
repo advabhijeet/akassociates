@@ -312,3 +312,10 @@ For every new major page or article:
 - Kept the existing URL to avoid creating a competing MSME hub URL.
 - Added route-map structure, Bihar/Patna-first positioning, related service links and related legal insights.
 - Updated sitemap lastmod for the MSME hub and Practice page.
+
+### 2026-05-20 - Arbitration Hub v1
+
+- Strengthened `practice/arbitration.html` as the Arbitration Hub.
+- Kept the existing URL to avoid creating a competing arbitration hub URL.
+- Added route-map structure, Bihar/Patna-first positioning, MSME-arbitration overlap, related service links and related legal insights.
+- Updated sitemap lastmod for the Arbitration hub and Practice page.

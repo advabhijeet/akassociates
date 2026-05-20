@@ -1,3 +1,11 @@
+## 2026-05-20 IST - Create Arbitration Hub v1
+- Strengthened `practice/arbitration.html` as the central Arbitration Hub.
+- Added an Arbitration Route Map, key-stage structure and MSME arbitration overlap note.
+- Refined Patna/Bihar-first positioning while preserving selected Delhi/Supreme Court-linked stage language.
+- Updated related service and article links, including Section 34 limitation and MSME Facilitation Council resources.
+- Updated the Practice page arbitration related-insights block.
+- Updated sitemap lastmod entries and recorded the implementation in planning/template docs.
+
 ## 2026-05-20 IST - Fix tablet shell theme toggle breakpoint
 - Aligned the Global Shell desktop topbar breakpoint with the CSS mobile drawer breakpoint.
 - Changed the Global Shell topbar media query from `min-width: 769px` to `min-width: 761px`.

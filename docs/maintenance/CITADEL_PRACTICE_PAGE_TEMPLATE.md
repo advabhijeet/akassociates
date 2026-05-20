@@ -162,3 +162,9 @@ These pages may remain available for continuity, but should point users and craw
 `practice/msme-disputes.html` is the current MSME Recovery Hub. Do not create a second competing MSME hub URL unless the site architecture is intentionally changed.
 
 The hub should remain Patna/Bihar-first, with related links to MSME service pages, arbitration overlap articles, MSEFC process resources and the structured case enquiry page.
+
+## Arbitration Hub v1
+
+`practice/arbitration.html` is the current Arbitration Hub. Do not create a second competing arbitration hub URL unless the site architecture is intentionally changed.
+
+The hub should remain Patna/Bihar-first, with related links to arbitration service pages, Section 21/Section 34 resources, MSME-arbitration overlap content and the structured case enquiry page.
