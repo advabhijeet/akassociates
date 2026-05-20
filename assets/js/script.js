@@ -115,18 +115,18 @@
   window.sessionStorage.removeItem(storageKey);
 })();
 
-// Citadel Global Shell v1 loader
+// Citadel Global Shell v2 loader
 (function () {
   if (window.CitadelGlobalShell) return;
 
-  const scriptId = 'citadel-global-shell-v1';
+  const scriptId = 'citadel-global-shell-v2';
   if (document.getElementById(scriptId)) return;
 
   const assetPrefix = window.location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
   const script = document.createElement('script');
 
   script.id = scriptId;
-  script.src = `${assetPrefix}assets/js/themes/citadel-of-kang/modules/shell/global-shell.js?v=global-shell-v1`;
+  script.src = `${assetPrefix}assets/js/themes/citadel-of-kang/modules/shell/global-shell.js?v=global-shell-v2`;
   script.defer = true;
   document.body.appendChild(script);
 })();

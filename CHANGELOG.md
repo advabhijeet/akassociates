@@ -1,3 +1,10 @@
+## 2026-05-20 IST - Fix tablet shell theme toggle breakpoint
+- Aligned the Global Shell desktop topbar breakpoint with the CSS mobile drawer breakpoint.
+- Changed the Global Shell topbar media query from `min-width: 769px` to `min-width: 761px`.
+- Fixed the 761px-768px tablet dead zone where the desktop nav appeared without the topbar theme toggle.
+- Bumped the Global Shell loader to `global-shell-v2`.
+- Bumped sitewide script references to `script.js?v=citadel-live-16`.
+
 ## 2026-05-20 IST - Create MSME Recovery Hub v1
 - Strengthened `practice/msme-disputes.html` as the central MSME Recovery Hub.
 - Updated page title/meta/social titles from MSME delayed payment disputes to MSME Recovery.

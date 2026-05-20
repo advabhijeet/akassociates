@@ -70,7 +70,7 @@
     const menuButton = nav.querySelector('.menu-toggle') || document.createElement('button');
     const backdrop = document.querySelector('.menu-backdrop') || document.createElement('button');
     let topBar = document.querySelector('.site-topbar');
-    const desktopMedia = window.matchMedia('(min-width: 769px)');
+    const desktopMedia = window.matchMedia('(min-width: 761px)');
     let lockedScrollY = 0;
     let isPageScrollLocked = false;
 
