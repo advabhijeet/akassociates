@@ -72,3 +72,16 @@ Desktop remains:
 - left: disclaimer and social icons;
 - centre: grouped footer navigation;
 - right: copyright.
+
+## Footer mobile hierarchy hard override v4
+
+A final mobile-only override is placed at the end of `assets/css/style.css` to force the intended footer hierarchy at `max-width: 760px`.
+
+Mobile order:
+
+1. disclaimer;
+2. social icons;
+3. Main / Practice / Resources / Legal grouped links;
+4. copyright.
+
+This override exists because older footer layout rules may otherwise keep the grouped navigation above the disclaimer on mobile.

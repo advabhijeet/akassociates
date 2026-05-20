@@ -3098,3 +3098,64 @@ body.insights-list-active .insights-category-section {
     gap: 1.25rem;
   }
 }
+
+/* Footer mobile hierarchy hard override v4 */
+@media (max-width: 760px) {
+  .foot {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-template-areas:
+      "disc"
+      "social"
+      "links"
+      "copy" !important;
+    justify-items: center !important;
+    align-items: start !important;
+    row-gap: 1.35rem !important;
+    text-align: center !important;
+  }
+
+  .foot-disc {
+    grid-area: disc !important;
+    justify-self: center !important;
+    order: 1 !important;
+    max-width: 520px !important;
+    text-align: center !important;
+  }
+
+  .foot-social {
+    grid-area: social !important;
+    justify-self: center !important;
+    order: 2 !important;
+  }
+
+  .foot-links-grouped {
+    grid-area: links !important;
+    order: 3 !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(130px, 1fr)) !important;
+    justify-items: center !important;
+    max-width: 560px !important;
+    width: 100% !important;
+  }
+
+  .foot-link-group {
+    justify-items: center !important;
+    text-align: center !important;
+  }
+
+  .foot-copy {
+    grid-area: copy !important;
+    justify-self: center !important;
+    order: 4 !important;
+    max-width: 260px !important;
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .foot-links-grouped {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+}

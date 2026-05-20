@@ -1,3 +1,8 @@
+## 2026-05-20 IST - Force mobile footer hierarchy
+- Added a final mobile-only CSS override for the footer.
+- Forced mobile footer order to disclaimer, social icons, grouped navigation and copyright.
+- Preserved the desktop and tablet footer layout rules from the footer internal-link cleanup.
+
 ## 2026-05-20 IST - Refine footer mobile hierarchy
 - Adjusted mobile footer order to show disclaimer first, then social icons, then grouped navigation, then copyright.
 - Preserved desktop layout with disclaimer/social on the left, grouped links in the centre and copyright on the right.
