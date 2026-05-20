@@ -156,3 +156,9 @@ These pages may remain available for continuity, but should point users and craw
 3. Commercial / Consumer Recovery
 4. RERA / Property
 5. Cheque Bounce
+
+## MSME Recovery Hub v1
+
+`practice/msme-disputes.html` is the current MSME Recovery Hub. Do not create a second competing MSME hub URL unless the site architecture is intentionally changed.
+
+The hub should remain Patna/Bihar-first, with related links to MSME service pages, arbitration overlap articles, MSEFC process resources and the structured case enquiry page.

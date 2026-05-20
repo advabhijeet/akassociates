@@ -1,4 +1,12 @@
-﻿## 2026-05-20 IST - Record Search Appearance MSME roadmap
+## 2026-05-20 IST - Create MSME Recovery Hub v1
+- Strengthened `practice/msme-disputes.html` as the central MSME Recovery Hub.
+- Updated page title/meta/social titles from MSME delayed payment disputes to MSME Recovery.
+- Added an MSME Recovery Route Map and hub usage note.
+- Refined Patna/Bihar-first location language and removed broad UP/Delhi NCR phrasing from the hub.
+- Updated related service and article links, including the Section 34 limitation guide.
+- Updated sitemap lastmod entries and recorded the implementation in planning/template docs.
+
+## 2026-05-20 IST - Record Search Appearance MSME roadmap
 - Added `docs/planning/SEARCH_APPEARANCE_MSME_TOPICAL_AUTHORITY_ROADMAP.md`.
 - Recorded the sitelink-readiness plan, MSME/arbitration topical-authority strategy, internal-linking approach and future hub-page roadmap.
 - Documented competitor observations from NB Associates at a strategic level without copying content.
@@ -172,4 +180,3 @@
 - Bumped public stylesheet cache references to `style.css?v=theme-package-5` and the pill module import to `pills.css?v=pills-v2`.
 ## 2026-05-16 IST - Add Citadel-wide grouped pill system
 - Added a reusable Citadel pill module for category, tag, technical and meta/filter/action pills.
-

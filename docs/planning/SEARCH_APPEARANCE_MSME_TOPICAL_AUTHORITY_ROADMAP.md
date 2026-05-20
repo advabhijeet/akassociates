@@ -303,3 +303,12 @@ For every new major page or article:
 - Keep Delhi/Supreme Court as secondary signal.
 - Use Noida/Ghaziabad/Allahabad High Court only where contextually justified.
 - Maintain non-solicitation and no advocate-client relationship disclaimers.
+
+## Implementation Log
+
+### 2026-05-20 - MSME Recovery Hub v1
+
+- Strengthened `practice/msme-disputes.html` as the MSME Recovery Hub.
+- Kept the existing URL to avoid creating a competing MSME hub URL.
+- Added route-map structure, Bihar/Patna-first positioning, related service links and related legal insights.
+- Updated sitemap lastmod for the MSME hub and Practice page.
