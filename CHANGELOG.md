@@ -1,3 +1,9 @@
+## 2026-05-20 IST - Create Practice Hub Related Articles Block v1
+- Strengthened the `practice.html` Related Insights By Area block.
+- Grouped supporting articles under the five active practice pillars.
+- Added stronger MSME and arbitration internal links, including Section 34 limitation.
+- Updated sitemap lastmod for the Practice page and recorded the implementation in planning/template docs.
+
 ## 2026-05-20 IST - Create Arbitration Hub v1
 - Strengthened `practice/arbitration.html` as the central Arbitration Hub.
 - Added an Arbitration Route Map, key-stage structure and MSME arbitration overlap note.

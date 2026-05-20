@@ -319,3 +319,10 @@ For every new major page or article:
 - Kept the existing URL to avoid creating a competing arbitration hub URL.
 - Added route-map structure, Bihar/Patna-first positioning, MSME-arbitration overlap, related service links and related legal insights.
 - Updated sitemap lastmod for the Arbitration hub and Practice page.
+
+### 2026-05-20 - Practice Hub Related Articles Block v1
+
+- Strengthened the `practice.html` Related Insights By Area block.
+- Added clearer article clusters for MSME Recovery, Arbitration, Commercial / Consumer Recovery, RERA / Property and Cheque Bounce.
+- Added stronger links from the Practice hub to priority MSME and arbitration articles, including Section 34 limitation.
+- Updated sitemap lastmod for the Practice page.

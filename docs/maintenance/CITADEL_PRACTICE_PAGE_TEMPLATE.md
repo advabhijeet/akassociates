@@ -168,3 +168,15 @@ The hub should remain Patna/Bihar-first, with related links to MSME service page
 `practice/arbitration.html` is the current Arbitration Hub. Do not create a second competing arbitration hub URL unless the site architecture is intentionally changed.
 
 The hub should remain Patna/Bihar-first, with related links to arbitration service pages, Section 21/Section 34 resources, MSME-arbitration overlap content and the structured case enquiry page.
+
+## Practice Hub Related Articles Block v1
+
+The Practice page should maintain a related-articles block grouped by the five active practice pillars:
+
+1. MSME Recovery
+2. Arbitration
+3. Commercial / Consumer Recovery
+4. RERA / Property
+5. Cheque Bounce
+
+Each group should link to the strongest supporting articles and should avoid broad/non-priority practice signals.
