@@ -1,3 +1,11 @@
+## 2026-05-20 IST - Clean service-page taxonomy and fix robots feed directive
+- Removed the invalid `Feed:` directive from `robots.txt`; RSS discovery now remains through HTML alternate links.
+- Added RSS alternate discovery links to the homepage and Legal Insights page.
+- Noindexed and canonicalized broad/non-priority service pages including civil litigation, broad property dispute, Gurugram RERA and broad Bihar-UP-Delhi-NCR RERA pages.
+- Removed retired/non-priority service URLs and `feed.xml` from `sitemap.xml`.
+- Cleaned the Practice page Focused Search Pages section to promote only the current five-pillar practice taxonomy and priority locations.
+- Recorded Service Page Taxonomy Cleanup v1 in the Practice / Services template documentation.
+
 ## 2026-05-20 IST - Normalize sitewide page titles
 - Updated the homepage title to a brand-led title: `Chambers of AK | Advocates & Legal Consultants`.
 - Normalized root pages to page-specific titles such as `About | Chambers of AK`, `Practice Areas | Chambers of AK`, `Contact | Chambers of AK` and `Legal Insights | Chambers of AK`.

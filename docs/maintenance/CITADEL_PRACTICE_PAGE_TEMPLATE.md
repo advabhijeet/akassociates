@@ -136,3 +136,23 @@ Browser-check:
 - mobile layout works
 - light mode works
 - dark mode works
+
+## Service Page Taxonomy Cleanup v1
+
+Broad or non-priority service pages should not be promoted as active SEO pages.
+
+Retired/noindexed page groups:
+
+- broad civil litigation pages;
+- broad property-only pages;
+- Gurugram RERA page;
+- broad Bihar-UP-Delhi-NCR RERA wording;
+- standalone property/civil-suits practice page.
+
+These pages may remain available for continuity, but should point users and crawlers toward the current five-pillar taxonomy:
+
+1. MSME Recovery
+2. Arbitration
+3. Commercial / Consumer Recovery
+4. RERA / Property
+5. Cheque Bounce
