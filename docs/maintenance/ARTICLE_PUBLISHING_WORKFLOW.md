@@ -1,10 +1,10 @@
-# Article Publishing Workflow v2
+# Article Publishing Workflow v3
 
 This workflow defines how to publish a new Chambers of AK legal insight under `updates/` after the Citadel reusable module architecture was introduced.
 
 ## Current Architecture
 
-Article publishing now uses reusable shared modules and JSON metadata:
+Article publishing uses reusable shared modules and JSON metadata:
 
 ```text
 Article metadata source: assets/data/insights-registry.json
@@ -26,8 +26,9 @@ Do not manually copy Article Footer HTML into articles.
 - Do not use unverifiable superlatives such as `best`, `top` or `guaranteed result`.
 - Maintain the black/white/gold premium boutique legal brand style through Citadel theme modules.
 - Keep the homepage firm-focused.
+- Keep article pages publication-ready and reader-facing only.
+- Keep internal workflow notes out of article pages.
 - Update `CHANGELOG.md` or a status note after meaningful changes.
-- Use the one-command manual patch workflow when large shared files are risky to update directly.
 
 ## Files To Consider For Every New Article
 
@@ -63,10 +64,26 @@ Each article under `updates/` should include:
 - `article.article-body` content container;
 - at least three direct `h2` headings when Article Index is desired;
 - `data-article-category` and `data-article-tags` fallback metadata on `article.article-body`;
-- internal links to relevant practice/service pages;
+- featured image/thumbnail where appropriate, without explanatory thumbnail captions/details in the article body;
+- internal links to relevant practice/service pages only where genuinely useful;
 - official reference links where needed;
-- structured enquiry or document-preparation section;
-- non-solicitation / informational note.
+- a visible last-updated line after the conclusion in this exact format: `Last updated on: DD/MM/YYYY at HH:MM`;
+- article disclaimer block where appropriate.
+
+## Article Body Exclusions
+
+Do not include the following inside article pages:
+
+```text
+- enquiry or CTA blocks inside the article body;
+- article-status, research-status, publication-status or workflow-status boxes;
+- explanations of the thumbnail generation process;
+- thumbnail-detail captions such as composition, brand-colour or copyright notes;
+- internal source-pack notes or internal publication notes;
+- internal checklists intended only for the publisher.
+```
+
+These items may be recorded in documentation, GitHub commits, research folders or status notes, but not in the public article body.
 
 ## Recommended Article Structure
 
@@ -76,19 +93,36 @@ Use this structure unless the topic requires a different layout:
 1. Page hero
 2. Article meta row
 3. Short article summary
-4. Why this topic matters
-5. When the issue usually arises
-6. Key dates / limitation / timeline
-7. Documents to keep ready
-8. Procedure or forum route
-9. Claimant / respondent / buyer / seller / accused / complainant perspective, where relevant
-10. Common mistakes
-11. Enquiry format
-12. Useful internal pages
-13. Official references
-14. CTA to case enquiry
-15. Non-solicitation note
+4. Featured image without caption or with only a necessary public-facing caption
+5. Executive summary / introduction
+6. Background
+7. Legal framework / statutory framework
+8. Case-law or procedural analysis
+9. Key issues / practical implications
+10. Conclusion
+11. Last updated on: DD/MM/YYYY at HH:MM
+12. Useful internal pages, if genuinely helpful
+13. References / Sources
+14. Disclaimer
 ```
+
+Do not place `References / Sources` before the conclusion unless the article format specifically requires it.
+
+## Last Updated Rule
+
+Every new or materially updated article must include a visible line after the conclusion:
+
+```html
+<p class="article-last-updated"><strong>Last updated on:</strong> DD/MM/YYYY at HH:MM</p>
+```
+
+Rules:
+
+- Use 24-hour time.
+- Use Indian local time unless a different timezone is expressly needed.
+- Place it after the conclusion and before references/internal links/disclaimer.
+- It is a reader-facing maintenance marker, not an internal status note.
+- Update the matching `article:modified_time`, sitemap `lastmod`, feed `lastBuildDate` and registry freshness metadata where relevant.
 
 ## Registry JSON Entry
 
@@ -113,7 +147,7 @@ Add one item near the top of `assets/data/insights-registry.json`:
 Registry rules:
 
 - `href` must exist.
-- `category` should normally be `Case Brief`, `Checklist`, `Practical Guide`, `Procedure Note` or `Legal Update`.
+- `category` should normally be `Case Brief`, `Checklist`, `Practical Guide`, `Procedure Note`, `Legal Update`, `Constitutional Law` or `Criminal Law`, as contextually appropriate.
 - `title` should be concise enough for cards.
 - `excerpt` should be informational and non-solicitational.
 - `tags` should support discovery and related-article matching.
@@ -166,16 +200,10 @@ Link from the article to:
 - relevant practice page;
 - relevant service page, if one exists;
 - related legal update articles;
-- case enquiry page;
-- document checklist page, if useful.
+- document checklist page, if useful;
+- disclaimer page, if appropriate.
 
-Where contextually useful, link back to the new article from:
-
-- relevant practice page;
-- relevant service page;
-- related article pages.
-
-Do not over-link. Links should be useful and natural.
+Do not over-link. Links should be useful and natural. Do not add enquiry/CTA blocks inside article pages.
 
 ## Legal Language Rules
 
@@ -263,13 +291,14 @@ After deployment:
 - open the article URL;
 - confirm Article Index appears when there are at least three h2 headings;
 - confirm Article Footer appears once;
+- confirm no enquiry/CTA block, article-status note or thumbnail-detail caption appears in the public article body;
+- confirm the last-updated line appears after the conclusion in `DD/MM/YYYY at HH:MM` format;
 - open homepage and confirm latest article cards load from the registry/feed flow;
 - open `legal-updates.html` and test filters/search;
 - open `feed.xml` and confirm feed item appears;
 - open `sitemap.xml` and confirm article URL appears;
 - test light mode and dark mode;
-- test mobile layout;
-- test CTA links.
+- test mobile layout.
 
 ## Google Search Console Checklist
 
@@ -345,6 +374,7 @@ Rules:
 - Keep legal-updates.html as a lightweight module host with a no-script/RSS fallback.
 - Static category blocks may remain as curated fallback/editorial sections, but the main latest directory should stay registry-first.
 ```
+
 ## Registry-Driven Insights Category Sections
 
 Do not manually add cards to the `legal-updates.html` category sections. The lower category blocks are rendered from `assets/data/insights-registry.json` through the Citadel Insights Directory section module.
