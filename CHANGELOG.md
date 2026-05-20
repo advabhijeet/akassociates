@@ -1,3 +1,8 @@
+## 2026-05-20 IST - Refine footer symmetry with left disclaimer layout
+- Adjusted footer layout so desktop view places disclaimer and social icons on the left, grouped navigation in the centre and copyright on the right.
+- Added balanced tablet two-column rules.
+- Preserved centred stacked footer layout on mobile.
+
 ## 2026-05-20 IST - Refine footer symmetry after internal-link cleanup
 - Added grid-based footer layout rules after the footer internal-link cleanup.
 - Balanced copyright, grouped navigation, social icons and disclaimer across desktop widths.

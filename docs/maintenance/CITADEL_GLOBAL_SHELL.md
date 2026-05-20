@@ -39,3 +39,21 @@ Responsive behaviour:
 
 - below medium desktop widths, the layout becomes two-column;
 - below tablet/mobile widths, the footer stacks cleanly and centres each group.
+
+## Footer symmetry fix v2
+
+Footer layout after Footer Internal-Link Cleanup v1:
+
+Desktop:
+
+- left: disclaimer and social icons;
+- centre: Main / Practice / Resources / Legal grouped links;
+- right: copyright.
+
+Tablet:
+
+- two-column layout with disclaimer/social/copyright on the left and grouped links on the right.
+
+Mobile:
+
+- stacked centred layout.

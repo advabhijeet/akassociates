@@ -2964,30 +2964,46 @@ body.insights-list-active .insights-category-section {
 }
 /* END CITADEL DARK PILL IDLE STATE OVERRIDE */
 
-/* Footer internal-link symmetry fix v1 */
+/* Footer internal-link symmetry fix v2 */
 .foot {
   display: grid;
-  grid-template-columns: minmax(180px, 0.8fr) minmax(520px, 1.7fr) minmax(280px, 1fr);
+  grid-template-columns: minmax(280px, 0.95fr) minmax(560px, 1.7fr) minmax(190px, 0.7fr);
   grid-template-areas:
-    "copy links social"
-    "copy links disc";
-  align-items: start;
+    "disc links copy"
+    "social links copy";
+  align-items: center;
   column-gap: clamp(2rem, 5vw, 6rem);
-  row-gap: 1rem;
+  row-gap: 0.9rem;
+}
+
+.foot-disc {
+  grid-area: disc;
+  justify-self: start;
+  max-width: 430px;
+  text-align: left;
+}
+
+.foot-social {
+  grid-area: social;
+  justify-self: start;
+  align-self: start;
 }
 
 .foot-copy {
   grid-area: copy;
+  justify-self: end;
   align-self: center;
+  max-width: 240px;
+  text-align: right;
 }
 
 .foot-links-grouped {
   grid-area: links;
   display: grid;
-  grid-template-columns: repeat(4, minmax(120px, 1fr));
+  grid-template-columns: repeat(4, minmax(118px, 1fr));
   align-items: start;
   justify-items: center;
-  gap: clamp(1.2rem, 3vw, 3.5rem);
+  gap: clamp(1rem, 2.8vw, 3rem);
   width: 100%;
 }
 
@@ -3006,61 +3022,68 @@ body.insights-list-active .insights-category-section {
   text-transform: uppercase;
 }
 
-.foot-social {
-  grid-area: social;
-  justify-self: end;
-  align-self: end;
-}
-
-.foot-disc {
-  grid-area: disc;
-  justify-self: end;
-  max-width: 420px;
-  text-align: left;
-}
-
 @media (max-width: 1180px) {
   .foot {
-    grid-template-columns: minmax(160px, 0.65fr) minmax(420px, 1.35fr);
+    grid-template-columns: minmax(260px, 0.95fr) minmax(460px, 1.45fr);
     grid-template-areas:
-      "copy links"
+      "disc links"
       "social links"
-      "disc links";
+      "copy links";
+    align-items: start;
     column-gap: clamp(1.5rem, 4vw, 3rem);
   }
 
-  .foot-links-grouped {
-    grid-template-columns: repeat(3, minmax(120px, 1fr));
+  .foot-copy,
+  .foot-disc,
+  .foot-social {
+    justify-self: start;
+    text-align: left;
   }
 
-  .foot-social,
-  .foot-disc {
-    justify-self: start;
+  .foot-links-grouped {
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+    justify-items: start;
+  }
+
+  .foot-link-group {
+    justify-items: start;
+    text-align: left;
   }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 760px) {
   .foot {
     grid-template-columns: 1fr;
     grid-template-areas:
-      "copy"
       "links"
       "social"
-      "disc";
+      "disc"
+      "copy";
     justify-items: center;
-    text-align: center;
-  }
-
-  .foot-copy,
-  .foot-social,
-  .foot-disc {
-    justify-self: center;
+    row-gap: 1.4rem;
     text-align: center;
   }
 
   .foot-links-grouped {
     grid-template-columns: repeat(2, minmax(130px, 1fr));
+    justify-items: center;
     max-width: 560px;
+  }
+
+  .foot-link-group {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .foot-copy,
+  .foot-disc,
+  .foot-social {
+    justify-self: center;
+    text-align: center;
+  }
+
+  .foot-disc {
+    max-width: 520px;
   }
 }
 
