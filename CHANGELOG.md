@@ -1,3 +1,10 @@
+## 2026-05-20 IST - Remove public Article Index internal note
+- Removed the visible internal Article Index note from `article-index-direct-rail.js` where present.
+- Added a defensive CSS rule to hide any stale `.article-index-note` output.
+- Bumped Article Index JS/CSS cache references to `article-index-v22`.
+- Bumped article page stylesheet/script cache references to `theme-package-7` and `citadel-live-13`.
+- Updated article reusable module documentation to record that internal implementation notes must not be shown to readers.
+
 ## 2026-05-20 IST - Update article publishing rules and last-updated marker
 - Added visible `Last updated on: DD/MM/YYYY at HH:MM` markers after the conclusion in the UAPA bail and Sabarimala articles.
 - Removed public thumbnail caption/details from current article pages while retaining featured images and alt text.

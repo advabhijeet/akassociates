@@ -503,3 +503,7 @@ Boundary rule:
 - Global shell module owns site chrome behaviour.
 
 Do not move all page-template notes into this article document long-term. This document should eventually be narrowed to article-specific modules, while wider template notes should live in CITADEL_TEMPLATE_SYSTEM_ROADMAP.md and per-template documentation files.
+
+## Article Index public note removal
+
+The Article Index module must not show internal implementation notes to readers. The earlier note stating that the active tile changes when a heading becomes visible was removed from the public TOC UI. The module should remain functional without explanatory implementation text inside the rendered article page.

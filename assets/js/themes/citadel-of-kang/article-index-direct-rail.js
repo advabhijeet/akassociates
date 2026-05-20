@@ -1,6 +1,6 @@
 /* Citadel Article Index Direct Rail Module
-   Production behaviour promoted from the approved v20 preview.
-   Native page scroll only. No scroll capture. */
+   Production behaviour promoted from the approved baseline.
+   Native page scroll only. No scroll capture. No public internal notes. */
 (function () {
   var body = document.body;
   if (!body || body.getAttribute('data-citadel-article-index') === 'false') return;
@@ -68,10 +68,6 @@
   title.className = 'article-index-title';
   title.textContent = 'Article Index';
 
-  var note = document.createElement('p');
-  note.className = 'article-index-note';
-  note.textContent = 'The active tile changes as soon as a heading becomes visible on screen.';
-
   var progressWrap = document.createElement('div');
   progressWrap.className = 'article-index-progress';
   progressWrap.setAttribute('aria-hidden', 'true');
@@ -94,9 +90,7 @@
   backTop.href = '#top';
   backTop.textContent = 'Back to top ↑';
 
-  toc.appendChild(title);
-  toc.appendChild(note);
-  toc.appendChild(progressWrap);
+  toc.appendChild(title);  toc.appendChild(progressWrap);
   toc.appendChild(list);
   toc.appendChild(backTop);
 

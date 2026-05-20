@@ -409,3 +409,8 @@
     font-size: 0.78rem;
   }
 }
+
+/* Citadel Article Index public note suppression v22 */
+.article-index-note {
+  display: none !important;
+}
