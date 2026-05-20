@@ -1,3 +1,11 @@
+## 2026-05-20 IST - Create Citadel Practice Services Page template v1
+- Added `assets/js/themes/citadel-of-kang/modules/pages/practice-page.js` as the reusable Citadel Practice / Services Page Template controller.
+- Marked `practice.html` as a Citadel Practice Page implementation.
+- Marked pages under `practice/` and `services/` as Citadel practice-detail or service landing pages.
+- Updated the General Content Page loader so it does not attach to practice/service pages.
+- Added `docs/maintenance/CITADEL_PRACTICE_PAGE_TEMPLATE.md` and updated the Citadel Template System roadmap.
+- Bumped affected practice/service page script cache references to `script.js?v=citadel-live-14`.
+
 ## 2026-05-20 IST - Remove public Article Index internal note
 - Removed the visible internal Article Index note from `article-index-direct-rail.js` where present.
 - Added a defensive CSS rule to hide any stale `.article-index-note` output.

@@ -644,7 +644,7 @@ document.addEventListener('chambers:insights-registry-ready', hydrateInsightCard
 
 // Citadel General Content Page template loader
 (function () {
-  const specialPage = document.querySelector('[data-citadel-blog-page], [data-citadel-contact-page], [data-citadel-enquiry-page], article.article-body');
+  const specialPage = document.querySelector('[data-citadel-blog-page], [data-citadel-contact-page], [data-citadel-enquiry-page], [data-citadel-practice-page], [data-citadel-service-page], [data-citadel-practice-detail-page], article.article-body');
   const hasGeneralPage = document.querySelector('[data-citadel-general-page]');
   const hasGeneralStructure = document.querySelector('.page-hero') && (document.querySelector('.content-panel') || document.querySelector('.info-grid') || document.querySelector('.sec'));
   const generalPath = /(^|\/)(faq|process|courts|document-checklists|disclaimer|privacy-policy|terms)(\.html)?$/.test(window.location.pathname);
@@ -679,6 +679,26 @@ document.addEventListener('chambers:insights-registry-ready', hydrateInsightCard
 
   script.id = scriptId;
   script.src = `${assetPrefix}assets/js/themes/citadel-of-kang/modules/pages/home-page.js?v=home-page-v1`;
+  script.defer = true;
+  document.body.appendChild(script);
+})();
+
+
+// Citadel Practice / Services Page template loader
+(function () {
+  const hasPracticePage = document.querySelector('[data-citadel-practice-page], [data-citadel-service-page], [data-citadel-practice-detail-page]');
+  const isPracticePath = /(^|\/)practice\.html$/.test(window.location.pathname) || /(^|\/)(services|practice)\/.+\.html$/.test(window.location.pathname) || window.location.pathname === '/practice';
+
+  if ((!hasPracticePage && !isPracticePath) || window.CitadelPracticePage) return;
+
+  const scriptId = 'citadel-practice-page-v1';
+  if (document.getElementById(scriptId)) return;
+
+  const assetPrefix = window.location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
+  const script = document.createElement('script');
+
+  script.id = scriptId;
+  script.src = `${assetPrefix}assets/js/themes/citadel-of-kang/modules/pages/practice-page.js?v=practice-page-v1`;
   script.defer = true;
   document.body.appendChild(script);
 })();
