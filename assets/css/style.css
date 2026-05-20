@@ -2964,7 +2964,7 @@ body.insights-list-active .insights-category-section {
 }
 /* END CITADEL DARK PILL IDLE STATE OVERRIDE */
 
-/* Footer internal-link symmetry fix v2 */
+/* Footer internal-link symmetry fix v3 */
 .foot {
   display: grid;
   grid-template-columns: minmax(280px, 0.95fr) minmax(560px, 1.7fr) minmax(190px, 0.7fr);
@@ -3055,13 +3055,23 @@ body.insights-list-active .insights-category-section {
   .foot {
     grid-template-columns: 1fr;
     grid-template-areas:
-      "links"
-      "social"
       "disc"
+      "social"
+      "links"
       "copy";
     justify-items: center;
-    row-gap: 1.4rem;
+    row-gap: 1.35rem;
     text-align: center;
+  }
+
+  .foot-disc {
+    max-width: 520px;
+    justify-self: center;
+    text-align: center;
+  }
+
+  .foot-social {
+    justify-self: center;
   }
 
   .foot-links-grouped {
@@ -3075,15 +3085,10 @@ body.insights-list-active .insights-category-section {
     text-align: center;
   }
 
-  .foot-copy,
-  .foot-disc,
-  .foot-social {
+  .foot-copy {
     justify-self: center;
+    max-width: 260px;
     text-align: center;
-  }
-
-  .foot-disc {
-    max-width: 520px;
   }
 }
 

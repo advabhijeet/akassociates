@@ -1,3 +1,8 @@
+## 2026-05-20 IST - Refine footer mobile hierarchy
+- Adjusted mobile footer order to show disclaimer first, then social icons, then grouped navigation, then copyright.
+- Preserved desktop layout with disclaimer/social on the left, grouped links in the centre and copyright on the right.
+- Preserved balanced tablet two-column footer layout.
+
 ## 2026-05-20 IST - Refine footer symmetry with left disclaimer layout
 - Adjusted footer layout so desktop view places disclaimer and social icons on the left, grouped navigation in the centre and copyright on the right.
 - Added balanced tablet two-column rules.

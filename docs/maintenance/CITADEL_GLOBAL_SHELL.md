@@ -57,3 +57,18 @@ Tablet:
 Mobile:
 
 - stacked centred layout.
+
+## Footer mobile hierarchy v3
+
+Mobile footer order:
+
+1. disclaimer;
+2. social icons;
+3. Main / Practice / Resources / Legal grouped links;
+4. copyright.
+
+Desktop remains:
+
+- left: disclaimer and social icons;
+- centre: grouped footer navigation;
+- right: copyright.
