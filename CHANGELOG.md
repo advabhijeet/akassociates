@@ -245,3 +245,8 @@
 - Added black & white PNG social thumbnails for PMLA BNSS and UAPA Bail articles.
 - Updated article HTML, registry thumbnails and sitemap lastmod entries.
 - Left Section 34 Limitation coloured, following the alternating thumbnail pattern.
+
+## 2026-05-21 — Batch 2 remaining article thumbnails
+- Added article-specific raster thumbnails for Sabarimala, Arbitration Notice Before Claim and Property Title Search articles.
+- Updated OG/X social image paths, article body image paths where present, JSON-LD image references, registry thumbnails and sitemap lastmod entries.
+- Continued black & white / coloured thumbnail alternation rule.

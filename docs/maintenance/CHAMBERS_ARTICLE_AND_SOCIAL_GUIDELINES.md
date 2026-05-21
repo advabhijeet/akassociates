@@ -245,3 +245,13 @@ When new guidelines are added:
 2. update the article workflow/template docs if the rule affects implementation;
 3. update `CHANGELOG.md` or an appropriate status note;
 4. apply the rule consistently to future articles and, where requested, to existing articles.
+
+## Current Batch 2 Thumbnail Pattern
+
+`	ext
+Sabarimala — coloured
+Arbitration Notice Before Claim — black & white
+Property Title Search — coloured
+`
+
+All three use raster social preview images and topic-relevant painted / illustrated editorial treatment.
