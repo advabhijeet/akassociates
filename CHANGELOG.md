@@ -240,3 +240,8 @@
 - Added ssets/img/citadel/citadel-thumb-pmla-bnss-cognizance-bw.png as the black & white PMLA BNSS social thumbnail.
 - Updated the PMLA article, registry thumbnail and sitemap lastmod.
 - Left Section 34 Limitation coloured and UAPA Bail black & white, following the new alternating thumbnail pattern.
+
+## 2026-05-21 — Set PMLA and UAPA thumbnails to black and white
+- Added black & white PNG social thumbnails for PMLA BNSS and UAPA Bail articles.
+- Updated article HTML, registry thumbnails and sitemap lastmod entries.
+- Left Section 34 Limitation coloured, following the alternating thumbnail pattern.
