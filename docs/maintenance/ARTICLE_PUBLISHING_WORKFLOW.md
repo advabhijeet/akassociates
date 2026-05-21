@@ -119,7 +119,7 @@ Rules:
 - BlogPosting JSON-LD `image` should match the raster social image.
 - `assets/data/insights-registry.json` thumbnail should normally match the raster social image.
 - The article body featured image should normally use the same raster image unless there is a specific design reason to use a different body image.
-- Use 16:9 dimensions, preferably `1200 × 675` or `1920 × 1080`.
+- Use 16:9 dimensions, preferably `1200 Ã— 675` or `1920 Ã— 1080`.
 - X/Twitter, LinkedIn, Facebook and WhatsApp previews should be treated as target platforms.
 
 ## Article Image Style Rule
@@ -410,3 +410,29 @@ Article 4: coloured painted style
 `
 
 This rhythm is secondary to topic relevance. The image must first be legally and factually relatable to the article subject. Do not use random court, scale or document visuals if they do not fit the article.
+
+## ASCII-Safe Metadata Rule
+
+For article metadata, social card descriptions, registry excerpts and JSON-LD descriptions, use ASCII-safe punctuation.
+
+Avoid smart punctuation in these fields, including smart dashes, curly quotes and ellipsis. Prefer plain forms such as:
+
+```text
+Articles 25 and 26
+3 months + 30 days
+Section 34 - limitation
+```
+
+Run before every article commit:
+
+```powershell
+node --check tools/validate-article-encoding.js
+node tools/validate-article-encoding.js
+```
+
+If mojibake is detected, run:
+
+```powershell
+node --check tools/fix-article-encoding.js
+node tools/fix-article-encoding.js
+```

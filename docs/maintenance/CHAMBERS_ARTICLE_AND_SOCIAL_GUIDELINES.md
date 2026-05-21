@@ -1,4 +1,4 @@
-# Chambers of AK — Article, Thumbnail and Social Publishing Guidelines
+# Chambers of AK â€” Article, Thumbnail and Social Publishing Guidelines
 
 This document records the standing guidelines for Chambers of AK article publishing, research posts, social previews, thumbnails, social distribution copy and patch workflows.
 
@@ -105,7 +105,7 @@ Thumbnails must be:
 - not real judges or identifiable persons;
 - not inflammatory;
 - suitable for a professional legal publication;
-- social-card friendly, preferably `1200 × 675`.
+- social-card friendly, preferably `1200 Ã— 675`.
 
 Branding:
 
@@ -129,10 +129,10 @@ This rhythm is secondary to topic relevance. The image must first be legally and
 Current intended pattern for the latest article group:
 
 ```text
-PMLA BNSS — black & white
-Section 34 Limitation — coloured
-UAPA Bail — black & white
-Sabarimala — next suitable colour decision based on sequence and topic
+PMLA BNSS â€” black & white
+Section 34 Limitation â€” coloured
+UAPA Bail â€” black & white
+Sabarimala â€” next suitable colour decision based on sequence and topic
 ```
 
 ## 6. Topic-to-Image Guidance
@@ -144,7 +144,7 @@ PMLA / BNSS / cognizance:
 Supreme Court-style institutional visual, complaint file, procedural hearing, notice, court clock.
 
 Section 34 limitation:
-Arbitration file, calendar, clock, “3 months + 30 days”, Supreme Court guidance.
+Arbitration file, calendar, clock, â€œ3 months + 30 daysâ€, Supreme Court guidance.
 
 UAPA bail:
 Liberty, detention, Article 21, speedy trial, constitutional rights; avoid sensational prison imagery.
@@ -249,9 +249,9 @@ When new guidelines are added:
 ## Current Batch 2 Thumbnail Pattern
 
 `	ext
-Sabarimala — coloured
-Arbitration Notice Before Claim — black & white
-Property Title Search — coloured
+Sabarimala â€” coloured
+Arbitration Notice Before Claim â€” black & white
+Property Title Search â€” coloured
 `
 
 All three use raster social preview images and topic-relevant painted / illustrated editorial treatment.
@@ -265,3 +265,29 @@ Article thumbnails must have a painted / editorial legal-media feel with visual 
 ## Batch 2B Painted Correction
 
 Batch 2 thumbnails were corrected to use stronger painted editorial artwork rather than flat icon-like graphics. For article-card thumbnails, avoid placing small embedded headline text inside the image because the article card already displays the title separately.
+
+## ASCII-Safe Metadata Rule
+
+For article metadata, social card descriptions, registry excerpts and JSON-LD descriptions, use ASCII-safe punctuation.
+
+Avoid smart punctuation in these fields, including smart dashes, curly quotes and ellipsis. Prefer plain forms such as:
+
+```text
+Articles 25 and 26
+3 months + 30 days
+Section 34 - limitation
+```
+
+Run before every article commit:
+
+```powershell
+node --check tools/validate-article-encoding.js
+node tools/validate-article-encoding.js
+```
+
+If mojibake is detected, run:
+
+```powershell
+node --check tools/fix-article-encoding.js
+node tools/fix-article-encoding.js
+```

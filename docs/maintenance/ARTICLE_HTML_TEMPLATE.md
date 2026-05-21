@@ -68,7 +68,7 @@ Rules:
 - Do not use random legal props merely for decoration.
 - Do not use copyrighted news photographs.
 - Do not depict real judges, real identifiable persons or inflammatory imagery.
-- Use a 16:9 image, preferably 1200 × 675 px or 1920 × 1080 px.
+- Use a 16:9 image, preferably 1200 Ã— 675 px or 1920 Ã— 1080 px.
 - Use `.png`, `.jpg`, `.jpeg` or `.webp` for social preview compatibility.
 - The same raster image should normally be used for:
   - `og:image`
@@ -286,3 +286,29 @@ git diff --check
 ## Social Distribution Reminder
 
 When posting article links to LinkedIn, Facebook, WhatsApp Channel or X/Twitter, the social preview image must already be available as a public raster URL through the article's `og:image` and `twitter:image` tags.
+
+## ASCII-Safe Metadata Rule
+
+For article metadata, social card descriptions, registry excerpts and JSON-LD descriptions, use ASCII-safe punctuation.
+
+Avoid smart punctuation in these fields, including smart dashes, curly quotes and ellipsis. Prefer plain forms such as:
+
+```text
+Articles 25 and 26
+3 months + 30 days
+Section 34 - limitation
+```
+
+Run before every article commit:
+
+```powershell
+node --check tools/validate-article-encoding.js
+node tools/validate-article-encoding.js
+```
+
+If mojibake is detected, run:
+
+```powershell
+node --check tools/fix-article-encoding.js
+node tools/fix-article-encoding.js
+```

@@ -260,3 +260,9 @@
 - Replaced Batch 2A thumbnails with stronger painted editorial thumbnails for Sabarimala, Arbitration Notice Before Claim and Property Title Search.
 - Used new filenames to avoid browser/social-preview cache conflicts.
 - Updated article HTML metadata, registry thumbnails, sitemap lastmod and guideline notes.
+
+## 2026-05-21 - Final article encoding template fix
+- Repaired Sabarimala and UAPA mojibake from a clean origin/main base.
+- Added 	ools/fix-article-encoding.js and updated 	ools/validate-article-encoding.js.
+- Updated template, workflow and guidelines with ASCII-safe metadata and validation rules.
+- Updated sitemap lastmod for affected articles and legal updates page.
