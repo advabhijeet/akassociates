@@ -1,6 +1,6 @@
-# Article Publishing Workflow v3
+# Article Publishing Workflow v4
 
-This workflow defines how to publish a new Chambers of AK legal insight under `updates/` after the Citadel reusable module architecture was introduced.
+This workflow defines how to publish a new Chambers of AK legal insight under `updates/` using the reusable Citadel of Kang article architecture.
 
 ## Current Architecture
 
@@ -17,6 +17,7 @@ Template: docs/maintenance/ARTICLE_HTML_TEMPLATE.md
 Do not add article metadata to `assets/js/script.js`.
 Do not manually add Article Index script tags to new article pages.
 Do not manually copy Article Footer HTML into articles.
+Do not hard-code Chambers-only article rules outside the reusable Citadel article template structure.
 
 ## Core Principles
 
@@ -24,7 +25,9 @@ Do not manually copy Article Footer HTML into articles.
 - Do not use direct solicitation language.
 - Do not claim guaranteed outcomes.
 - Do not use unverifiable superlatives such as `best`, `top` or `guaranteed result`.
-- Maintain the black/white/gold premium boutique legal brand style through Citadel theme modules.
+- Maintain the premium legal editorial identity through Citadel theme modules.
+- Keep article visuals topic-relevant, not generic or random.
+- Use the official AK mark where article/social artwork includes Chambers branding.
 - Keep the homepage firm-focused.
 - Keep article pages publication-ready and reader-facing only.
 - Keep internal workflow notes out of article pages.
@@ -35,6 +38,7 @@ Do not manually copy Article Footer HTML into articles.
 ```text
 updates/<article-slug>.html
 assets/data/insights-registry.json
+assets/img/citadel/<article-thumbnail>.png|jpg|jpeg|webp
 sitemap.xml
 feed.xml
 practice/<relevant-practice-page>.html, if contextually useful
@@ -55,11 +59,13 @@ Each article under `updates/` should include:
 - meta description;
 - canonical URL;
 - Open Graph title/description/type/url/site/image tags;
-- Twitter card tags;
+- X/Twitter Card tags with `summary_large_image`;
+- direct public raster image URL for social cards;
 - favicon/manifest links;
 - current stylesheet link;
 - BlogPosting JSON-LD;
 - BreadcrumbList JSON-LD;
+- FAQPage JSON-LD where suitable;
 - `page-hero` section;
 - `article.article-body` content container;
 - at least three direct `h2` headings when Article Index is desired;
@@ -69,6 +75,75 @@ Each article under `updates/` should include:
 - official reference links where needed;
 - a visible last-updated line after the conclusion in this exact format: `Last updated on: DD/MM/YYYY at HH:MM`;
 - article disclaimer block where appropriate.
+
+## Mandatory Social Metadata Block
+
+Every article must include at least:
+
+```html
+<meta property="og:title" content="Article Title">
+<meta property="og:description" content="Short article summary">
+<meta property="og:image" content="https://chambersofak.in/path/to/thumbnail.png">
+<meta property="og:url" content="https://chambersofak.in/article-url.html">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Article Title">
+<meta name="twitter:description" content="Short article summary">
+<meta name="twitter:image" content="https://chambersofak.in/path/to/thumbnail.png">
+```
+
+Supporting tags should also remain:
+
+```html
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Chambers of AK">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta property="og:image:alt" content="Accurate image alt text">
+<link rel="canonical" href="https://chambersofak.in/article-url.html">
+```
+
+## Social Image Format Rule
+
+Use a raster image for social preview compatibility:
+
+```text
+Allowed: .png, .jpg, .jpeg, .webp
+Avoid for social previews: .svg
+```
+
+Rules:
+
+- `og:image` must not point to SVG.
+- `twitter:image` must not point to SVG.
+- BlogPosting JSON-LD `image` should match the raster social image.
+- `assets/data/insights-registry.json` thumbnail should normally match the raster social image.
+- The article body featured image should normally use the same raster image unless there is a specific design reason to use a different body image.
+- Use 16:9 dimensions, preferably `1200 × 675` or `1920 × 1080`.
+- X/Twitter, LinkedIn, Facebook and WhatsApp previews should be treated as target platforms.
+
+## Article Image Style Rule
+
+For current and future post/article/research images:
+
+- default to painted / illustrated editorial style;
+- include AK branding only through the official AK mark when branding is used;
+- ensure the image is directly related to the article topic;
+- do not use random legal props merely for decoration;
+- do not use copyrighted news photographs;
+- do not depict real judges or real identifiable persons;
+- avoid inflammatory imagery;
+- black/gold accents are allowed but not mandatory for every topic;
+- choose palette and composition based on the article subject while keeping the overall professional legal-editorial standard.
+
+Examples:
+
+```text
+PMLA / BNSS / cognizance: Supreme Court-style institutional visual, complaint file, hearing notice, procedural clock.
+Section 34 limitation: arbitration law book, calendar, 3 months + 30 days, clock/hourglass, Supreme Court guidance.
+UAPA bail: liberty, detention, constitutional rights, speedy trial, but avoid sensational prison imagery.
+Sabarimala: respectful temple / constitutional balance / equality visual language.
+```
 
 ## Article Body Exclusions
 
@@ -147,26 +222,13 @@ Add one item near the top of `assets/data/insights-registry.json`:
 Registry rules:
 
 - `href` must exist.
-- `category` should normally be `Case Brief`, `Checklist`, `Practical Guide`, `Procedure Note`, `Legal Update`, `Constitutional Law` or `Criminal Law`, as contextually appropriate.
+- `category` should normally be `Case Brief`, `Checklist`, `Practical Guide`, `Procedure Note`, `Legal Update`, `Constitutional Law`, `Criminal Law` or `Arbitration`, as contextually appropriate.
 - `title` should be concise enough for cards.
 - `excerpt` should be informational and non-solicitational.
+- `thumbnail` should be a public raster image path, not SVG.
 - `tags` should support discovery and related-article matching.
 - Long technical tags are permitted but should be used sparingly.
 - Keep JSON valid: no trailing commas.
-
-## Category And Pill Rules
-
-The Citadel pill system groups pills by purpose:
-
-```text
-Category pills: content type, strongest visual identity
-Tag pills: topic discovery, lighter visual identity
-Technical tag pills: long statutory/topic tags, same tag family with wider handling
-Meta pills: date/status labels, muted
-Filter/action pills: clickable filters and pagination controls
-```
-
-Do not create one-off colors for individual categories such as only `Checklist` or only `Case Brief`. Visual differences should be by pill group, not by label.
 
 ## Sitemap Entry
 
@@ -240,50 +302,6 @@ git diff --check
 [xml](Get-Content feed.xml -Raw)
 ```
 
-Run JSON-LD validation:
-
-```powershell
-$ErrorActionPreference = 'Stop'
-$count = 0
-Get-ChildItem -Recurse -Filter *.html | Where-Object { $_.FullName -notlike '*\.git\*' } | ForEach-Object {
-  $html = Get-Content -LiteralPath $_.FullName -Raw
-  $matches = [regex]::Matches($html, '<script type="application/ld\+json">\s*(.*?)\s*</script>', [System.Text.RegularExpressions.RegexOptions]::Singleline)
-  foreach ($match in $matches) {
-    try {
-      $null = $match.Groups[1].Value | ConvertFrom-Json
-      $count++
-    } catch {
-      Write-Output "JSON-LD error in $($_.FullName)"
-      throw
-    }
-  }
-}
-"JSON-LD blocks parsed: $count"
-```
-
-Run internal reference check:
-
-```powershell
-$ErrorActionPreference='Stop'
-$root=(Get-Location).Path
-$missing=@()
-Get-ChildItem -Recurse -Filter *.html | Where-Object { $_.FullName -notlike '*\.git\*' } | ForEach-Object {
-  $file=$_.FullName
-  $dir=Split-Path $file -Parent
-  $html=Get-Content -LiteralPath $file -Raw
-  $matches=[regex]::Matches($html, '(?:href|src)="([^"]+)"')
-  foreach($m in $matches){
-    $ref=$m.Groups[1].Value
-    if($ref -match '^(https?:|mailto:|tel:|#|javascript:|data:)'){ continue }
-    $clean=$ref -replace '\?.*$',''
-    if($clean.StartsWith('/')){ $target=Join-Path $root $clean.TrimStart('/') } else { $target=Join-Path $dir $clean }
-    if(-not (Test-Path -LiteralPath $target)){ $missing += "$(Resolve-Path -LiteralPath $file -Relative): $ref" }
-  }
-}
-if($missing.Count){ $missing | ForEach-Object { Write-Output $_ }; exit 1 }
-'Internal href/src references ok'
-```
-
 ## Live Check Checklist
 
 After deployment:
@@ -293,6 +311,9 @@ After deployment:
 - confirm Article Footer appears once;
 - confirm no enquiry/CTA block, article-status note or thumbnail-detail caption appears in the public article body;
 - confirm the last-updated line appears after the conclusion in `DD/MM/YYYY at HH:MM` format;
+- confirm `og:image` and `twitter:image` point to the raster social image;
+- confirm the social image URL opens directly in browser;
+- test the URL preview on X/Twitter, LinkedIn, Facebook and WhatsApp where possible;
 - open homepage and confirm latest article cards load from the registry/feed flow;
 - open `legal-updates.html` and test filters/search;
 - open `feed.xml` and confirm feed item appears;
@@ -315,6 +336,8 @@ Prepare drafts for:
 
 ```text
 LinkedIn Page
+Facebook Page
+X/Twitter
 WhatsApp Channel
 Newsletter / Email
 ```
@@ -374,17 +397,3 @@ Rules:
 - Keep legal-updates.html as a lightweight module host with a no-script/RSS fallback.
 - Static category blocks may remain as curated fallback/editorial sections, but the main latest directory should stay registry-first.
 ```
-
-## Registry-Driven Insights Category Sections
-
-Do not manually add cards to the `legal-updates.html` category sections. The lower category blocks are rendered from `assets/data/insights-registry.json` through the Citadel Insights Directory section module.
-
-When publishing a new article, update:
-
-```text
-assets/data/insights-registry.json
-sitemap.xml
-feed.xml
-```
-
-Then run validation. The category sections should update automatically based on category and tag metadata.
