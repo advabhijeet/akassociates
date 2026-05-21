@@ -228,3 +228,10 @@
 - Bumped public stylesheet cache references to `style.css?v=theme-package-5` and the pill module import to `pills.css?v=pills-v2`.
 ## 2026-05-16 IST - Add Citadel-wide grouped pill system
 - Added a reusable Citadel pill module for category, tag, technical and meta/filter/action pills.
+
+## 2026-05-21 — Batch 1 social preview raster patch v3
+- Synced repository from origin before patching.
+- Replaced SVG social preview references with raster PNG thumbnails for PMLA, Section 34 and UAPA articles.
+- Updated article HTML social metadata, featured image references and BlogPosting image references.
+- Updated insights registry thumbnails and sitemap lastmod entries.
+- Applied Citadel social-card raster-image rule in live article files.
