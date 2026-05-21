@@ -235,3 +235,8 @@
 - Updated article HTML social metadata, featured image references and BlogPosting image references.
 - Updated insights registry thumbnails and sitemap lastmod entries.
 - Applied Citadel social-card raster-image rule in live article files.
+
+## 2026-05-21 — Set PMLA thumbnail to black and white
+- Added ssets/img/citadel/citadel-thumb-pmla-bnss-cognizance-bw.png as the black & white PMLA BNSS social thumbnail.
+- Updated the PMLA article, registry thumbnail and sitemap lastmod.
+- Left Section 34 Limitation coloured and UAPA Bail black & white, following the new alternating thumbnail pattern.

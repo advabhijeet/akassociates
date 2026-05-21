@@ -397,3 +397,16 @@ Rules:
 - Keep legal-updates.html as a lightweight module host with a no-script/RSS fallback.
 - Static category blocks may remain as curated fallback/editorial sections, but the main latest directory should stay registry-first.
 ```
+
+## Thumbnail Alternation Rule
+
+For article and social thumbnails, use an alternating editorial rhythm where appropriate:
+
+`	ext
+Article 1: black & white / monochrome painted style
+Article 2: coloured painted style
+Article 3: black & white / monochrome painted style
+Article 4: coloured painted style
+`
+
+This rhythm is secondary to topic relevance. The image must first be legally and factually relatable to the article subject. Do not use random court, scale or document visuals if they do not fit the article.
