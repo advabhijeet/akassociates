@@ -277,3 +277,8 @@
 - Added article-specific raster thumbnails for Non-Reportable Judgments Online, SARFAESI Auction Sale Challenge and Summary Judgment in Commercial Suits.
 - Updated OG/X social image paths, JSON-LD image references, registry thumbnails and sitemap lastmod entries.
 - Continued the black and white / coloured / black and white thumbnail rhythm using painted editorial legal-media artwork.
+
+## 2026-05-22 - Batch 4 approved-style thumbnails
+- Added approved reference-style thumbnails for MSME Documents Checklist, MSME Delayed Payment and Bihar RERA Complaint.
+- Upserted missing OG/X image tags for older article pages using Node-based patching.
+- Updated JSON-LD image references, registry thumbnails and sitemap lastmod entries.

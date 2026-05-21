@@ -316,3 +316,7 @@ Summary Judgment in Commercial Suits - black and white painted/editorial
 `
 
 These thumbnails must remain topic-specific legal-media artwork, not flat vector-icon graphics or generic legal props.
+
+## Approved Reference Thumbnail Rule
+
+For Chambers article thumbnails, use the approved watercolour legal-news style: large readable serif headline on the left, content-based legal/business scene on the right, ivory/navy/gold/muted-red palette, detailed foreground documents or legal props, 1200 x 675 raster output, and no unnecessary branding block unless specifically requested.
