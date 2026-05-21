@@ -255,3 +255,8 @@
 - Replaced flat/generic Batch 2 thumbnails with more painterly editorial thumbnails for Sabarimala, Arbitration Notice Before Claim and Property Title Search.
 - Used new image filenames to avoid social platform cache conflicts.
 - Updated article HTML metadata, registry thumbnails, sitemap lastmod and guideline notes.
+
+## 2026-05-21 — Batch 2B painted editorial correction
+- Replaced Batch 2A thumbnails with stronger painted editorial thumbnails for Sabarimala, Arbitration Notice Before Claim and Property Title Search.
+- Used new filenames to avoid browser/social-preview cache conflicts.
+- Updated article HTML metadata, registry thumbnails, sitemap lastmod and guideline notes.

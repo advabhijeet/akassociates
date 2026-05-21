@@ -261,3 +261,7 @@ All three use raster social preview images and topic-relevant painted / illustra
 Do not use flat vector-icon, template-style infographic, generic courthouse graphic, generic document icon, or random legal-prop thumbnails for Chambers of AK articles.
 
 Article thumbnails must have a painted / editorial legal-media feel with visual depth, texture, topic-specific composition and social-card suitability. Topic relevance comes first; black & white / colour alternation is secondary.
+
+## Batch 2B Painted Correction
+
+Batch 2 thumbnails were corrected to use stronger painted editorial artwork rather than flat icon-like graphics. For article-card thumbnails, avoid placing small embedded headline text inside the image because the article card already displays the title separately.
