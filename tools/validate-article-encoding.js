@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /*
-  Validate Chambers of AK article metadata and registry text for encoding safety.
+  Chambers of AK - full article encoding validator.
 */
 const fs = require('fs');
 const path = require('path');
@@ -12,38 +12,68 @@ const registryPath = path.join(root, 'assets', 'data', 'insights-registry.json')
 
 const read = (file) => fs.readFileSync(file, 'utf8');
 const walk = (dir) => !fs.existsSync(dir) ? [] : fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
-  const fullPath = path.join(dir, entry.name);
-  return entry.isDirectory() ? walk(fullPath) : fullPath;
+  const full = path.join(dir, entry.name);
+  return entry.isDirectory() ? walk(full) : full;
 });
 const rel = (file) => path.relative(root, file).replace(/\\/g, '/');
 
 const errors = [];
 const warnings = [];
 
-const badCharPatterns = [
-  { re: /\u00c3/g, label: 'possible mojibake U+00C3' },
-  { re: /\u00c2/g, label: 'possible mojibake U+00C2' },
-  { re: /\u00e2/g, label: 'possible mojibake U+00E2' },
-  { re: /\ufffd/g, label: 'replacement character U+FFFD' }
+const mojibakePatterns = [
+  { re: /\u00C3/g, label: 'U+00C3 / likely mojibake marker' },
+  { re: /\u00C2/g, label: 'U+00C2 / likely mojibake marker' },
+  { re: /\u00E2/g, label: 'U+00E2 / likely mojibake marker' },
+  { re: /\uFFFD/g, label: 'U+FFFD replacement character' }
 ];
 
 const smartPunctuationPatterns = [
   { re: /[\u2013\u2014]/g, label: 'smart dash; use ASCII hyphen or words such as "and"' },
   { re: /[\u2018\u2019]/g, label: 'smart apostrophe; use ASCII apostrophe' },
-  { re: /[\u201c\u201d]/g, label: 'smart quote; use ASCII quote' },
+  { re: /[\u201C\u201D]/g, label: 'smart quote; use ASCII quote' },
   { re: /\u2026/g, label: 'ellipsis; use three periods or rewrite' }
 ];
 
-const decodeHtml = (value) => String(value || '')
-  .replace(/&amp;/g, '&')
-  .replace(/&quot;/g, '"')
-  .replace(/&#39;/g, "'")
-  .replace(/&lt;/g, '<')
-  .replace(/&gt;/g, '>');
+function decodeHtml(value) {
+  return String(value || '')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>');
+}
 
-const collectArticleMetadata = (html, fileLabel) => {
+function firstSnippet(text, re) {
+  re.lastIndex = 0;
+  const match = re.exec(text);
+  re.lastIndex = 0;
+  if (!match) return '';
+  const index = match.index;
+  return text.slice(Math.max(0, index - 70), Math.min(text.length, index + 140)).replace(/\s+/g, ' ');
+}
+
+function checkMojibake(fileLabel, field, text) {
+  for (const { re, label } of mojibakePatterns) {
+    if (re.test(text)) {
+      errors.push(fileLabel + ' ' + field + ' contains ' + label + ': ' + firstSnippet(text, re));
+      re.lastIndex = 0;
+    }
+  }
+}
+
+function checkSmartMetadata(fileLabel, field, text) {
+  for (const { re, label } of smartPunctuationPatterns) {
+    const matches = text.match(re);
+    if (matches) {
+      const message = fileLabel + ' ' + field + ' contains ' + label + ': ' + [...new Set(matches)].join(' ');
+      if (strict) errors.push(message);
+      else warnings.push(message);
+    }
+  }
+}
+
+function collectMetadataFields(html) {
   const values = [];
-
   const title = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
   if (title) values.push({ field: 'title', value: title[1] });
 
@@ -76,48 +106,47 @@ const collectArticleMetadata = (html, fileLabel) => {
         });
       });
     } catch (error) {
-      warnings.push(fileLabel + ' JSON-LD parse warning: ' + error.message);
+      warnings.push('JSON-LD parse warning: ' + error.message);
     }
   });
 
   return values.map((item) => ({ field: item.field, value: decodeHtml(item.value) }));
-};
-
-const checkText = (fileLabel, field, value) => {
-  const text = String(value || '');
-  badCharPatterns.forEach(({ re, label }) => {
-    if (text.match(re)) errors.push(fileLabel + ' ' + field + ' contains ' + label);
-  });
-  smartPunctuationPatterns.forEach(({ re, label }) => {
-    const matches = text.match(re);
-    if (matches) {
-      const message = fileLabel + ' ' + field + ' contains ' + label + ': ' + [...new Set(matches)].join(' ');
-      if (strict) errors.push(message);
-      else warnings.push(message);
-    }
-  });
-};
+}
 
 const articleFiles = walk(updatesDir).filter((file) => file.endsWith('.html'));
-articleFiles.forEach((file) => {
+for (const file of articleFiles) {
   const html = read(file);
   const label = rel(file);
-  collectArticleMetadata(html, label).forEach(({ field, value }) => checkText(label, field, value));
-});
+
+  checkMojibake(label, 'full-html', html);
+
+  for (const { field, value } of collectMetadataFields(html)) {
+    checkMojibake(label, field, value);
+    checkSmartMetadata(label, field, value);
+  }
+}
 
 if (fs.existsSync(registryPath)) {
   try {
     const registry = JSON.parse(read(registryPath));
-    if (Array.isArray(registry)) {
+    if (!Array.isArray(registry)) {
+      errors.push('assets/data/insights-registry.json must contain a JSON array');
+    } else {
       registry.forEach((item, index) => {
         const label = 'assets/data/insights-registry.json item ' + (index + 1) + (item && item.href ? ' (' + item.href + ')' : '');
         ['title', 'excerpt', 'category', 'date'].forEach((field) => {
-          if (item && item[field]) checkText(label, field, item[field]);
+          if (!item || !item[field]) return;
+          const value = String(item[field]);
+          checkMojibake(label, field, value);
+          checkSmartMetadata(label, field, value);
         });
-        if (item && Array.isArray(item.tags)) item.tags.forEach((tag, tagIndex) => checkText(label, 'tags[' + tagIndex + ']', tag));
+        if (item && Array.isArray(item.tags)) {
+          item.tags.forEach((tag, tagIndex) => {
+            checkMojibake(label, 'tags[' + tagIndex + ']', String(tag));
+            checkSmartMetadata(label, 'tags[' + tagIndex + ']', String(tag));
+          });
+        }
       });
-    } else {
-      errors.push('assets/data/insights-registry.json must contain a JSON array');
     }
   } catch (error) {
     errors.push('Could not parse assets/data/insights-registry.json: ' + error.message);
@@ -135,5 +164,6 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log('Article encoding validation passed: ' + articleFiles.length + ' article file(s) checked.');
+console.log('Full article encoding validation passed.');
+console.log('Article files checked: ' + articleFiles.length);
 if (warnings.length && !strict) console.log('Run with --strict to fail on smart punctuation in metadata/card fields.');

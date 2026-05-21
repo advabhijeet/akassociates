@@ -266,3 +266,9 @@
 - Added 	ools/fix-article-encoding.js and updated 	ools/validate-article-encoding.js.
 - Updated template, workflow and guidelines with ASCII-safe metadata and validation rules.
 - Updated sitemap lastmod for affected articles and legal updates page.
+
+## 2026-05-21 - Full article-body encoding audit v2
+- Upgraded 	ools/validate-article-encoding.js to scan full article HTML files, not only metadata/card fields.
+- Upgraded 	ools/fix-article-encoding.js to repair mojibake across all updates/*.html article files.
+- Ran full-body encoding fixer and validator across all article pages.
+- Updated workflow/template/guidelines to require full article-body encoding audit before article commits.

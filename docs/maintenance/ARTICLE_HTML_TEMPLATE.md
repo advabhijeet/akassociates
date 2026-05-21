@@ -68,7 +68,7 @@ Rules:
 - Do not use random legal props merely for decoration.
 - Do not use copyrighted news photographs.
 - Do not depict real judges, real identifiable persons or inflammatory imagery.
-- Use a 16:9 image, preferably 1200 Ã— 675 px or 1920 Ã— 1080 px.
+- Use a 16:9 image, preferably 1200 Ãƒâ€” 675 px or 1920 Ãƒâ€” 1080 px.
 - Use `.png`, `.jpg`, `.jpeg` or `.webp` for social preview compatibility.
 - The same raster image should normally be used for:
   - `og:image`
@@ -312,3 +312,18 @@ If mojibake is detected, run:
 node --check tools/fix-article-encoding.js
 node tools/fix-article-encoding.js
 ```
+
+## Full Article-Body Encoding Audit Rule
+
+Encoding validation must scan the full article HTML body, not only metadata or registry cards.
+
+Before every article commit, run:
+
+```powershell
+node --check tools/fix-article-encoding.js
+node tools/fix-article-encoding.js
+node --check tools/validate-article-encoding.js
+node tools/validate-article-encoding.js
+```
+
+The validator must fail if any article file under `updates/` contains common mojibake markers such as broken UTF-8 / Windows-1252 artefacts.

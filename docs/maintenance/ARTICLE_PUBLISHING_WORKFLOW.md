@@ -119,7 +119,7 @@ Rules:
 - BlogPosting JSON-LD `image` should match the raster social image.
 - `assets/data/insights-registry.json` thumbnail should normally match the raster social image.
 - The article body featured image should normally use the same raster image unless there is a specific design reason to use a different body image.
-- Use 16:9 dimensions, preferably `1200 Ã— 675` or `1920 Ã— 1080`.
+- Use 16:9 dimensions, preferably `1200 Ãƒâ€” 675` or `1920 Ãƒâ€” 1080`.
 - X/Twitter, LinkedIn, Facebook and WhatsApp previews should be treated as target platforms.
 
 ## Article Image Style Rule
@@ -436,3 +436,18 @@ If mojibake is detected, run:
 node --check tools/fix-article-encoding.js
 node tools/fix-article-encoding.js
 ```
+
+## Full Article-Body Encoding Audit Rule
+
+Encoding validation must scan the full article HTML body, not only metadata or registry cards.
+
+Before every article commit, run:
+
+```powershell
+node --check tools/fix-article-encoding.js
+node tools/fix-article-encoding.js
+node --check tools/validate-article-encoding.js
+node tools/validate-article-encoding.js
+```
+
+The validator must fail if any article file under `updates/` contains common mojibake markers such as broken UTF-8 / Windows-1252 artefacts.
