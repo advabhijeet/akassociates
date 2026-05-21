@@ -255,3 +255,9 @@ Property Title Search — coloured
 `
 
 All three use raster social preview images and topic-relevant painted / illustrated editorial treatment.
+
+## No Generic Graphic-Art Thumbnail Rule
+
+Do not use flat vector-icon, template-style infographic, generic courthouse graphic, generic document icon, or random legal-prop thumbnails for Chambers of AK articles.
+
+Article thumbnails must have a painted / editorial legal-media feel with visual depth, texture, topic-specific composition and social-card suitability. Topic relevance comes first; black & white / colour alternation is secondary.

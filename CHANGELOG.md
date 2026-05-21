@@ -250,3 +250,8 @@
 - Added article-specific raster thumbnails for Sabarimala, Arbitration Notice Before Claim and Property Title Search articles.
 - Updated OG/X social image paths, article body image paths where present, JSON-LD image references, registry thumbnails and sitemap lastmod entries.
 - Continued black & white / coloured thumbnail alternation rule.
+
+## 2026-05-21 — Batch 2A editorial thumbnail correction
+- Replaced flat/generic Batch 2 thumbnails with more painterly editorial thumbnails for Sabarimala, Arbitration Notice Before Claim and Property Title Search.
+- Used new image filenames to avoid social platform cache conflicts.
+- Updated article HTML metadata, registry thumbnails, sitemap lastmod and guideline notes.
