@@ -306,3 +306,13 @@ node tools/validate-article-encoding.js
 ```
 
 The validator must fail if any article file under `updates/` contains common mojibake markers such as broken UTF-8 / Windows-1252 artefacts.
+
+## Current Batch 3 Painted Thumbnail Pattern
+
+`	ext
+Non-Reportable Judgments Online - black and white painted/editorial
+SARFAESI Auction Sale Challenge - coloured painted/editorial
+Summary Judgment in Commercial Suits - black and white painted/editorial
+`
+
+These thumbnails must remain topic-specific legal-media artwork, not flat vector-icon graphics or generic legal props.

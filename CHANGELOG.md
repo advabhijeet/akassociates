@@ -272,3 +272,8 @@
 - Upgraded 	ools/fix-article-encoding.js to repair mojibake across all updates/*.html article files.
 - Ran full-body encoding fixer and validator across all article pages.
 - Updated workflow/template/guidelines to require full article-body encoding audit before article commits.
+
+## 2026-05-21 - Batch 3 painted editorial thumbnails
+- Added article-specific raster thumbnails for Non-Reportable Judgments Online, SARFAESI Auction Sale Challenge and Summary Judgment in Commercial Suits.
+- Updated OG/X social image paths, JSON-LD image references, registry thumbnails and sitemap lastmod entries.
+- Continued the black and white / coloured / black and white thumbnail rhythm using painted editorial legal-media artwork.
