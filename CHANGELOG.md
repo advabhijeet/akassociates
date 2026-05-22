@@ -1,3 +1,8 @@
+## 2026-05-23 IST - Add MSME Facilitation Council article thumbnail
+- Added a standalone 1200 x 675 watercolour legal-news thumbnail for the MSME Facilitation Council process article.
+- Updated the article Open Graph, Twitter/X and JSON-LD image references.
+- Updated the Insights registry thumbnail and sitemap lastmod for the article.
+
 ## 2026-05-22 IST - Tighten social package approval rules
 - Updated the social media distribution workflow with an explicit preview-to-final consistency rule for downloadable ZIP packages.
 - Clarified that generated packages may use only official user-approved Chambers of AK logo assets, such as `assets/img/logo-navbar.png`, and must not invent alternate AK branding.
