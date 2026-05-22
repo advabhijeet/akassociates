@@ -49,9 +49,11 @@ ADVOCATES & LEGAL CONSULTANTS
 chambersofak.in
 ```
 
-Use only the user-provided **official AK monogram logo** as the branding mark in generated packages.
+Use only the user-provided **official AK monogram logo** as the branding mark in generated packages, such as `assets/img/logo-navbar.png` or another user-approved official logo asset.
 
 Do not create, substitute or hallucinate any alternate logo, emblem, seal, crest or monogram.
+
+Do not generate, redraw or invent Chambers of AK branding, AK monograms, seals or logos inside social creatives. If the correct logo is not available or cannot be safely placed, omit the logo and use only neutral article text or `chambersofak.in` where appropriate.
 
 Avoid phrases such as:
 
@@ -131,6 +133,14 @@ Done.
 
 [Download the Chambers of AK Package](sandbox:/mnt/data/package_name.zip)
 ```
+
+## Preview-To-Final Consistency Rule
+
+When a visual preview is shown to the user and approved, the final ZIP/package must contain those exact approved assets.
+
+Do not silently regenerate, replace, restyle or substitute final images after approval.
+
+If any correction is required after approval, show the revised preview first and wait for approval before packaging.
 
 ## Thumbnail-First Visual Rule
 

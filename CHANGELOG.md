@@ -1,3 +1,7 @@
+## 2026-05-22 IST - Tighten social package approval rules
+- Updated the social media distribution workflow with an explicit preview-to-final consistency rule for downloadable ZIP packages.
+- Clarified that generated packages may use only official user-approved Chambers of AK logo assets, such as `assets/img/logo-navbar.png`, and must not invent alternate AK branding.
+
 ## 2026-05-20 IST - Force mobile footer hierarchy
 - Added a final mobile-only CSS override for the footer.
 - Forced mobile footer order to disclaimer, social icons, grouped navigation and copyright.
