@@ -1,9 +1,3 @@
-## 2026-05-22 IST - Update Batch 6 articles with approved scalable thumbnails
-- Added eight Batch 6 Citadel article thumbnails at 1200 x 675 using the approved legal-news editorial artwork.
-- Updated Batch 6 article Open Graph, Twitter/X and JSON-LD image references.
-- Updated Batch 6 registry thumbnails and sitemap lastmod entries.
-- Recorded the Batch 6 thumbnail pattern in the article and social publishing guidelines.
-
 ## 2026-05-22 IST - Tighten social package approval rules
 - Updated the social media distribution workflow with an explicit preview-to-final consistency rule for downloadable ZIP packages.
 - Clarified that generated packages may use only official user-approved Chambers of AK logo assets, such as `assets/img/logo-navbar.png`, and must not invent alternate AK branding.

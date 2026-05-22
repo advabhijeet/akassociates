@@ -324,20 +324,3 @@ For Chambers article thumbnails, use the approved watercolour legal-news style: 
 ## Third Approved Thumbnail Style Rule
 
 For Chambers article thumbnails, use the third approved style when requested: wide watercolour legal-news card, large readable serif headline on the left, content-specific court/legal/business illustration on the right, ivory/navy/gold/muted-red colour palette, bottom law/procedure/practice strip where appropriate, and 1200 x 675 raster output.
-
-## Current Batch 6 Scalable Thumbnail Pattern
-
-Batch 6 thumbnails use the approved watercolour legal-news editorial style with large readable serif headlines, content-specific legal/business scenes, ivory/navy/gold/muted-red palette and 1200 x 675 raster output.
-
-```text
-MSME Facilitation Council Process - council process, invoices, Udyam records and delayed-payment documents
-Cheque Bounce Defence After Summons - complaint papers, summons, defence notes and NI Act materials
-Commercial Recovery Before Suit - contracts, invoices, ledgers and litigation strategy papers
-RERA Refund Or Interest - delayed-possession project papers, buyer file and possession timeline
-Arbitration Clause Checklist - contract clause page, checklist notes and arbitration law materials
-Cheque Bounce 30 Days - dishonoured cheque, calendar timeline and demand notice papers
-Cheque Notice Limitation - limitation calendar, dispatch proof and Section 138 complaint papers
-MSME 45-Day Payment Rule - invoices, payment timeline and statutory compliance documents
-```
-
-Keep Batch 6 thumbnails scalable and safe-area friendly: no important headline text, document detail or legal prop should sit at the extreme image edges.
