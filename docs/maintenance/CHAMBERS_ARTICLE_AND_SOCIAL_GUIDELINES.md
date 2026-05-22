@@ -320,3 +320,7 @@ These thumbnails must remain topic-specific legal-media artwork, not flat vector
 ## Approved Reference Thumbnail Rule
 
 For Chambers article thumbnails, use the approved watercolour legal-news style: large readable serif headline on the left, content-based legal/business scene on the right, ivory/navy/gold/muted-red palette, detailed foreground documents or legal props, 1200 x 675 raster output, and no unnecessary branding block unless specifically requested.
+
+## Third Approved Thumbnail Style Rule
+
+For Chambers article thumbnails, use the third approved style when requested: wide watercolour legal-news card, large readable serif headline on the left, content-specific court/legal/business illustration on the right, ivory/navy/gold/muted-red colour palette, bottom law/procedure/practice strip where appropriate, and 1200 x 675 raster output.

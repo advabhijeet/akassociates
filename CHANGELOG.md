@@ -282,3 +282,7 @@
 - Added approved reference-style thumbnails for MSME Documents Checklist, MSME Delayed Payment and Bihar RERA Complaint.
 - Upserted missing OG/X image tags for older article pages using Node-based patching.
 - Updated JSON-LD image references, registry thumbnails and sitemap lastmod entries.
+
+## 2026-05-22 - Batch 5 third-style thumbnails
+- Updated Non-Reportable Judgments, SARFAESI Auction Sale Challenge and Summary Judgment articles with third-style watercolour legal-news thumbnails.
+- Updated OG/X social image paths, JSON-LD image references, registry thumbnails and sitemap lastmod entries.
