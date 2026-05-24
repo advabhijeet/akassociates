@@ -1,3 +1,10 @@
+## 2026-05-24 IST - Audit and update UAPA bail article
+- Updated the UAPA bail article title, summary, modified date and current-position framing.
+- Sharpened the discussion of Section 43D(5), Article 21, Watali, K.A. Najeeb, Gulfisha Fatima and Syed Iftikhar Andrabi.
+- Removed internal research-pack wording from public article text and references.
+- Moved References / Sources after the Conclusion to match the current article publishing workflow.
+- Updated the insights registry entry, RSS feed metadata and sitemap lastmod for the article.
+
 ## 2026-05-24 IST - Consolidate roadmap and archive superseded documentation
 - Added `docs/PROJECT_ROADMAP.md` as the master roadmap for Chambers of AK, Citadel of Kang, Citadel Manager, article publishing, SEO, thumbnails and future Client Portal work.
 - Added `docs/maintenance/ACTIVE_DOCUMENTATION_INDEX.md` to identify active documentation and reduce confusion.
