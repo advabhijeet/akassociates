@@ -119,7 +119,7 @@ Rules:
 - BlogPosting JSON-LD `image` should match the raster social image.
 - `assets/data/insights-registry.json` thumbnail should normally match the raster social image.
 - The article body featured image should normally use the same raster image unless there is a specific design reason to use a different body image.
-- Use 16:9 dimensions, preferably `1200 Ãƒâ€” 675` or `1920 Ãƒâ€” 1080`.
+- Use 16:9 dimensions, preferably `1200 x 675` or `1920 x 1080`.
 - X/Twitter, LinkedIn, Facebook and WhatsApp previews should be treated as target platforms.
 
 ## Article Image Style Rule

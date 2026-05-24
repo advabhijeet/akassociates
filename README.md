@@ -450,3 +450,18 @@ The detailed maintenance checklist is in `docs/maintenance/LEGAL_DOCUMENTATION_M
 
 This repository contains brand assets, copy, images and website materials for Chambers of AK. Do not reuse the branding, legal copy, photographs or website assets without permission from the owner.
 
+## Project Roadmap And Documentation
+
+The current master roadmap is maintained at:
+
+```text
+docs/PROJECT_ROADMAP.md
+```
+
+The active maintenance documentation index is maintained at:
+
+```text
+docs/maintenance/ACTIVE_DOCUMENTATION_INDEX.md
+```
+
+Older duplicate planning/checkpoint documents may be archived under `docs/archive/superseded-maintenance/` and should not be treated as current operating instructions.

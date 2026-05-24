@@ -1,4 +1,4 @@
-# Chambers of AK Ã¢â‚¬â€ Article, Thumbnail and Social Publishing Guidelines
+# Chambers of AK - Article, Thumbnail and Social Publishing Guidelines
 
 This document records the standing guidelines for Chambers of AK article publishing, research posts, social previews, thumbnails, social distribution copy and patch workflows.
 
@@ -105,7 +105,7 @@ Thumbnails must be:
 - not real judges or identifiable persons;
 - not inflammatory;
 - suitable for a professional legal publication;
-- social-card friendly, preferably `1200 Ãƒâ€” 675`.
+- social-card friendly, preferably `1200 x 675`.
 
 Branding:
 
@@ -129,10 +129,10 @@ This rhythm is secondary to topic relevance. The image must first be legally and
 Current intended pattern for the latest article group:
 
 ```text
-PMLA BNSS Ã¢â‚¬â€ black & white
-Section 34 Limitation Ã¢â‚¬â€ coloured
-UAPA Bail Ã¢â‚¬â€ black & white
-Sabarimala Ã¢â‚¬â€ next suitable colour decision based on sequence and topic
+PMLA BNSS - black & white
+Section 34 Limitation - coloured
+UAPA Bail - black & white
+Sabarimala - next suitable colour decision based on sequence and topic
 ```
 
 ## 6. Topic-to-Image Guidance
@@ -144,7 +144,7 @@ PMLA / BNSS / cognizance:
 Supreme Court-style institutional visual, complaint file, procedural hearing, notice, court clock.
 
 Section 34 limitation:
-Arbitration file, calendar, clock, Ã¢â‚¬Å“3 months + 30 daysÃ¢â‚¬Â, Supreme Court guidance.
+Arbitration file, calendar, clock, "3 months + 30 days", Supreme Court guidance.
 
 UAPA bail:
 Liberty, detention, Article 21, speedy trial, constitutional rights; avoid sensational prison imagery.
@@ -249,9 +249,9 @@ When new guidelines are added:
 ## Current Batch 2 Thumbnail Pattern
 
 `	ext
-Sabarimala Ã¢â‚¬â€ coloured
-Arbitration Notice Before Claim Ã¢â‚¬â€ black & white
-Property Title Search Ã¢â‚¬â€ coloured
+Sabarimala - coloured
+Arbitration Notice Before Claim - black & white
+Property Title Search - coloured
 `
 
 All three use raster social preview images and topic-relevant painted / illustrated editorial treatment.

@@ -68,7 +68,7 @@ Rules:
 - Do not use random legal props merely for decoration.
 - Do not use copyrighted news photographs.
 - Do not depict real judges, real identifiable persons or inflammatory imagery.
-- Use a 16:9 image, preferably 1200 Ãƒâ€” 675 px or 1920 Ãƒâ€” 1080 px.
+- Use a 16:9 image, preferably 1200 x 675 px or 1920 x 1080 px.
 - Use `.png`, `.jpg`, `.jpeg` or `.webp` for social preview compatibility.
 - The same raster image should normally be used for:
   - `og:image`

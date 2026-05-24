@@ -1,3 +1,10 @@
+## 2026-05-24 IST - Consolidate roadmap and archive superseded documentation
+- Added `docs/PROJECT_ROADMAP.md` as the master roadmap for Chambers of AK, Citadel of Kang, Citadel Manager, article publishing, SEO, thumbnails and future Client Portal work.
+- Added `docs/maintenance/ACTIVE_DOCUMENTATION_INDEX.md` to identify active documentation and reduce confusion.
+- Moved superseded planning/checkpoint documents into `docs/archive/superseded-maintenance/`.
+- Preserved archived documents for historical reference while removing them from active maintenance flow.
+- Cleaned common mojibake patterns in markdown documentation.
+
 ## 2026-05-23 IST - Add MSME Facilitation Council article thumbnail
 - Added a standalone 1200 x 675 watercolour legal-news thumbnail for the MSME Facilitation Council process article.
 - Updated the article Open Graph, Twitter/X and JSON-LD image references.
