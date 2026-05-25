@@ -40,8 +40,11 @@ Internal documentation should follow this structure:
 
 ```text
 docs/
+  PROJECT_ROADMAP.md
   README.md
   REPOSITORY_ORGANIZATION.md
+  archive/
+    superseded-maintenance/
   audits/
     WEBSITE_REPOSITORY_AUDIT_2026-05-06.md
   codex/
@@ -50,9 +53,12 @@ docs/
   google/
     GOOGLE_SETUP.md
   maintenance/
+    ACTIVE_DOCUMENTATION_INDEX.md
     LEGAL_DOCUMENTATION_MAINTENANCE.md
   planning/
+    ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md
     SEO_GROWTH_AGENDA.md
+    SEARCH_APPEARANCE_MSME_TOPICAL_AUTHORITY_ROADMAP.md
     TEAM_PAGE_AGENDA.md
   seo/
     SEO_CONTENT_BATCH_2026-05-05.md
@@ -65,13 +71,16 @@ docs/
 - Repository overview and operating rules: `README.md`.
 - Chronological change record: `CHANGELOG.md`.
 - Documentation index: `docs/README.md`.
+- Active roadmap and product direction: `docs/PROJECT_ROADMAP.md`.
+- Active documentation inventory and archive pointers: `docs/maintenance/ACTIVE_DOCUMENTATION_INDEX.md`.
 - Repository audits: `docs/audits/`.
 - Codex handoff and prompt rules: `docs/codex/`.
 - Google platform setup: `docs/google/`.
 - Legal/documentation maintenance checklists: `docs/maintenance/`.
-- Forward-looking plans: `docs/planning/`.
+- Forward-looking plans: `docs/planning/`, unless consolidated into `docs/PROJECT_ROADMAP.md`.
 - Historical SEO batch records: `docs/seo/`.
 - In-repository wiki mirror: `docs/wiki/`.
+- Superseded documentation retained for historical reference: `docs/archive/superseded-maintenance/`.
 
 ## Cleanup Rule
 

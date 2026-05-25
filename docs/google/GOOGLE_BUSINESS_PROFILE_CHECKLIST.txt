@@ -1,6 +1,6 @@
 CHAMBERS OF AK - GOOGLE BUSINESS PROFILE CHECKLIST
 Roadmap Step 2: Local Search And Google Business Readiness
-Last updated: May 4, 2026
+Last updated: May 25, 2026
 
 Purpose:
 Use this checklist while creating or improving the Google Business Profile for Chambers of AK. Keep the profile details consistent with the website so Google and potential clients receive the same business signals.
@@ -22,6 +22,9 @@ Core Profile Details:
 - Personal LinkedIn profile: https://www.linkedin.com/in/abhijeetk03/
 - WhatsApp Business Profile status: Ready
 - WhatsApp Channel: https://whatsapp.com/channel/0029VbCmf6M9sBIHqiTPIz33
+- Facebook Page: https://www.facebook.com/people/Chambers-of-AK/61589415432367/
+- Instagram Page: https://www.instagram.com/chambersofak/
+- X / Twitter: https://x.com/chambersofak
 
 Profile Setup Steps:
 1. Sign in with the Google account that should own the profile.
@@ -58,6 +61,7 @@ Ongoing Maintenance:
 - Check profile accuracy monthly.
 - Post useful, informational updates connected to website legal updates.
 - Keep phone, email and website links current.
+- Keep public social profile links aligned with the website Contact page, homepage structured data and social media distribution workflow.
 - Review Google Search Console and Analytics performance after profile traffic begins.
 - Keep the public Google Business Profile URL in homepage LegalService structured data as sameAs.
 - Keep the Google review request URL available from the Contact page only with neutral genuine-review wording.

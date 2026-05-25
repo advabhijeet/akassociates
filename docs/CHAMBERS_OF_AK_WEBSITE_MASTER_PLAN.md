@@ -1,10 +1,17 @@
 # Chambers of AK Website Master Plan
 
-Last updated: 2026-05-09
+Last updated: 2026-05-25
 
-This document is the primary working source of truth for the Chambers of AK website repository.
+This older master plan is retained as historical website context.
 
-Use it before making website, content, SEO, documentation, or Codex-related changes.
+For current roadmap, active documentation status, Citadel product direction, article workflow, SEO, thumbnail and future portal planning, start with:
+
+```text
+docs/PROJECT_ROADMAP.md
+docs/maintenance/ACTIVE_DOCUMENTATION_INDEX.md
+```
+
+Use this file only where it is consistent with those newer active documents.
 
 ## 1. Project Identity
 

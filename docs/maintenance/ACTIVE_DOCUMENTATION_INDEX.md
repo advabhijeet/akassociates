@@ -1,6 +1,6 @@
 # Active Documentation Index
 
-Last consolidated: 2026-05-24
+Last consolidated: 2026-05-25
 
 Use this index to avoid duplicate or conflicting documentation.
 
@@ -55,6 +55,13 @@ Use this index to avoid duplicate or conflicting documentation.
 ## Active SEO / Planning Docs
 
 - `docs/planning/SEARCH_APPEARANCE_MSME_TOPICAL_AUTHORITY_ROADMAP.md`
+
+## Active Legal / Operations Docs
+
+- `docs/maintenance/LEGAL_DOCUMENTATION_MAINTENANCE.md`
+- `docs/maintenance/SOCIAL_MEDIA_DISTRIBUTION_WORKFLOW.md`
+- `docs/google/GOOGLE_SETUP.md`
+- `docs/google/GOOGLE_BUSINESS_PROFILE_CHECKLIST.txt`
 
 ## Archived / Superseded Docs
 

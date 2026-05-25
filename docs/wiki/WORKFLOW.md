@@ -10,6 +10,17 @@ This document mirrors the practical GitHub Wiki notes for the Chambers of AK web
 - Tagline: `Advocates & Legal Consultants`
 - Change log: `CHANGELOG.md`
 - Latest audit: `docs/audits/WEBSITE_REPOSITORY_AUDIT_2026-05-06.md`
+- Active roadmap: `docs/PROJECT_ROADMAP.md`
+- Active documentation index: `docs/maintenance/ACTIVE_DOCUMENTATION_INDEX.md`
+
+Official public profile inventory:
+
+- Firm LinkedIn: `https://www.linkedin.com/company/chambersofak`
+- WhatsApp Channel: `https://whatsapp.com/channel/0029VbCmf6M9sBIHqiTPIz33`
+- Facebook Page: `https://www.facebook.com/people/Chambers-of-AK/61589415432367/`
+- Instagram Page: `https://www.instagram.com/chambersofak/`
+- X / Twitter: `https://x.com/chambersofak`
+- Google Business Profile: `https://share.google/GhBO4etH9rEE2tWMe`
 
 ## Website Purpose
 

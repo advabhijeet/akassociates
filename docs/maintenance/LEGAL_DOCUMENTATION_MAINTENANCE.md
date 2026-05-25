@@ -36,6 +36,7 @@ Update or review `disclaimer.html` when:
 - New contact, enquiry, consultation or lead-generation flows are added.
 - Branding or professional positioning changes.
 - Team/founder/profile presentation changes.
+- Official social profile links are added, removed, renamed or surfaced on the Contact page, footer/topbar shell, structured data or social distribution workflow.
 - Bar Council of India or professional conduct requirements materially change.
 
 Key points to preserve:
@@ -51,6 +52,7 @@ Key points to preserve:
 Update or review `privacy-policy.html` when:
 
 - Contact forms, WhatsApp links, email links, phone links, LinkedIn links, EmailJS/direct-send delivery, or enquiry tools change.
+- Facebook, Instagram, X / Twitter or other social profile links are added to the visitor journey.
 - Google Tag Manager, Google Analytics, AdSense, pixels, cookies or other tracking tools are added, removed or materially reconfigured.
 - The website starts collecting new categories of information.
 - A third-party platform is added to the visitor journey.

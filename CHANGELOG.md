@@ -1,3 +1,12 @@
+## 2026-05-25 IST - Align legal docs with public social links
+- Added official Facebook, Instagram and X / Twitter links to the Contact page public profile section.
+- Updated homepage LegalService `sameAs` structured data for the official public social profile inventory.
+- Refreshed disclaimer, privacy policy and terms language for the expanded social/contact channel set.
+- Updated sitemap lastmod entries for homepage, contact and legal-policy pages.
+- Updated README, Google setup notes, Google Business Profile checklist, legal/documentation maintenance guidance and wiki workflow with the current social-link inventory.
+- Reconciled documentation index and repository organization notes with the 2026-05-24 roadmap consolidation and active documentation index.
+- Validation note: source-level review performed; local shell validation could not run because the Windows sandbox command runner failed to start PowerShell.
+
 ## 2026-05-24 IST - Audit and update UAPA bail article
 - Updated the UAPA bail article title, summary, modified date and current-position framing.
 - Sharpened the discussion of Section 43D(5), Article 21, Watali, K.A. Najeeb, Gulfisha Fatima and Syed Iftikhar Andrabi.

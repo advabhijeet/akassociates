@@ -7,8 +7,11 @@ This folder keeps internal planning, audit, maintenance and handoff material sep
 ```text
 docs/
   CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md
+  PROJECT_ROADMAP.md
   README.md
   REPOSITORY_ORGANIZATION.md
+  archive/
+    superseded-maintenance/
   audits/
     WEBSITE_REPOSITORY_AUDIT_2026-05-06.md
   codex/
@@ -17,10 +20,10 @@ docs/
   google/
     GOOGLE_SETUP.md
   maintenance/
+    ACTIVE_DOCUMENTATION_INDEX.md
     LEGAL_DOCUMENTATION_MAINTENANCE.md
   planning/
     ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md
-    NEXT_WEBSITE_UPGRADE_AGENDA.md
     SEO_GROWTH_AGENDA.md
     TEAM_PAGE_AGENDA.md
   seo/
@@ -31,15 +34,17 @@ docs/
 
 ## Documentation Map
 
-- `CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md` - primary working source of truth for current website state, roadmap and operating rules.
+- `PROJECT_ROADMAP.md` - primary active roadmap for current website state, Citadel product direction, article workflow, SEO, thumbnails and future portal work.
+- `maintenance/ACTIVE_DOCUMENTATION_INDEX.md` - active documentation index and archived/superseded documentation pointer.
+- `CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md` - older website master plan retained as a reference; do not treat it as newer than `PROJECT_ROADMAP.md`.
 - `REPOSITORY_ORGANIZATION.md` - intended repository/documentation structure and cleanup rules.
 - `audits/WEBSITE_REPOSITORY_AUDIT_2026-05-06.md` - website and repository audit before the next development stage.
 - `codex/HANDOFF.md` - active and completed handoff notes for work that requires Codex or local validation.
 - `codex/PROMPT_RULE.md` - standing rule and prompt template for future Codex handoffs.
 - `google/GOOGLE_SETUP.md` - Google Search Console, GTM, GA4, Google Business Profile and AdSense notes.
 - `maintenance/LEGAL_DOCUMENTATION_MAINTENANCE.md` - checklist for keeping public legal pages and project documentation aligned with site changes.
+- `maintenance/SOCIAL_MEDIA_DISTRIBUTION_WORKFLOW.md` - official social channel inventory, social-package workflow and non-solicitation posting rules.
 - `planning/ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md` - AdSense rejection/readiness plan and article-only subtle ad placement rules.
-- `planning/NEXT_WEBSITE_UPGRADE_AGENDA.md` - ordered next-stage upgrade plan, including validation follow-up, practice-page strengthening, pending articles and Insights distribution workflow.
 - `planning/SEO_GROWTH_AGENDA.md` - primary SEO roadmap and remaining growth work.
 - `planning/TEAM_PAGE_AGENDA.md` - future `team.html` planning note.
 - `seo/SEO_CONTENT_BATCH_2026-05-05.md` - historical Batch 1 SEO content record.
@@ -62,6 +67,8 @@ If the GitHub Wiki is later enabled/reachable, sync it manually from:
 
 - `README.md`
 - `CHANGELOG.md`
+- `docs/PROJECT_ROADMAP.md`
+- `docs/maintenance/ACTIVE_DOCUMENTATION_INDEX.md`
 - `docs/wiki/WORKFLOW.md`
 - `docs/planning/SEO_GROWTH_AGENDA.md`
 - `docs/planning/NEXT_WEBSITE_UPGRADE_AGENDA.md`

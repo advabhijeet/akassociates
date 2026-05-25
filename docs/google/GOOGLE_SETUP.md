@@ -71,9 +71,12 @@ Current external profile status:
 - Personal LinkedIn profile: https://www.linkedin.com/in/abhijeetk03/
 - WhatsApp Business Profile: ready and linked through `https://wa.me/919471214118`.
 - WhatsApp Channel: https://whatsapp.com/channel/0029VbCmf6M9sBIHqiTPIz33
+- Facebook Page: https://www.facebook.com/people/Chambers-of-AK/61589415432367/
+- Instagram Page: https://www.instagram.com/chambersofak/
+- X / Twitter: https://x.com/chambersofak
 - Administrative Gmail: chambersofakadmin@gmail.com
 
-The public Google Business Profile URL should remain in homepage LegalService structured data as `sameAs`. The review request link may be shown on the Contact page, but should not be used with incentives or language that suggests paid, rewarded or non-genuine reviews.
+The public Google Business Profile URL and official public social profile URLs should remain in homepage LegalService structured data as `sameAs`. The review request link may be shown on the Contact page, but should not be used with incentives or language that suggests paid, rewarded or non-genuine reviews.
 
 Profile setup reference:
 

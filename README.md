@@ -248,8 +248,11 @@ Current official public social links:
 
 - Firm LinkedIn Page: [https://www.linkedin.com/company/chambersofak](https://www.linkedin.com/company/chambersofak)
 - WhatsApp Channel: [https://whatsapp.com/channel/0029VbCmf6M9sBIHqiTPIz33](https://whatsapp.com/channel/0029VbCmf6M9sBIHqiTPIz33)
+- Facebook Page: [https://www.facebook.com/people/Chambers-of-AK/61589415432367/](https://www.facebook.com/people/Chambers-of-AK/61589415432367/)
+- Instagram Page: [https://www.instagram.com/chambersofak/](https://www.instagram.com/chambersofak/)
+- X / Twitter: [https://x.com/chambersofak](https://x.com/chambersofak)
 
-The contact page also links the advocate LinkedIn profile, Google Business Profile and Google review request URL. Generated social icons in the desktop topbar, mobile drawer and footer are controlled by the Citadel global shell loaded through `assets/js/script.js`.
+The contact page also links the advocate LinkedIn profile, Google Business Profile and Google review request URL. Generated social icons in the desktop topbar, mobile drawer and footer are controlled by the Citadel global shell loaded through `assets/js/script.js`; keep the shell, Contact page, homepage `sameAs` structured data, Google setup notes and social publishing workflow aligned when social links change.
 
 ## Change Tracking Policy
 
@@ -272,10 +275,12 @@ Every meaningful modification must update the changelog with:
 | `CHANGELOG.md` | Date/time change tracking |
 | `docs/README.md` | Documentation index |
 | `docs/REPOSITORY_ORGANIZATION.md` | Repository/documentation structure rules |
+| `docs/PROJECT_ROADMAP.md` | Master roadmap and product direction |
 | `docs/audits/WEBSITE_REPOSITORY_AUDIT_2026-05-06.md` | Current repository and website audit |
 | `docs/codex/HANDOFF.md` | Codex handoff and connector-limit notes |
 | `docs/codex/PROMPT_RULE.md` | Codex prompt template and handoff rule |
 | `docs/google/GOOGLE_SETUP.md` | Google Search Console, GTM, GA4, GBP and AdSense notes |
+| `docs/maintenance/ACTIVE_DOCUMENTATION_INDEX.md` | Active documentation index and archive pointer |
 | `docs/maintenance/LEGAL_DOCUMENTATION_MAINTENANCE.md` | Legal/documentation maintenance checklist |
 | `docs/planning/ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md` | AdSense readiness and article-only subtle ads plan |
 | `docs/planning/SEO_GROWTH_AGENDA.md` | SEO roadmap and pending work |
@@ -309,7 +314,7 @@ HTML pages reference CSS and JavaScript with version query strings, for example:
 
 ```html
 assets/css/style.css?v=theme-package-5
-assets/js/script.js?v=citadel-live-11
+assets/js/script.js?v=citadel-live-16
 ```
 
 When changing shared CSS or JavaScript, update the query string across HTML pages so browsers and mobile devices fetch the latest files.
