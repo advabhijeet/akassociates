@@ -324,3 +324,9 @@ For Chambers article thumbnails, use the approved watercolour legal-news style: 
 ## Third Approved Thumbnail Style Rule
 
 For Chambers article thumbnails, use the third approved style when requested: wide watercolour legal-news card, large readable serif headline on the left, content-specific court/legal/business illustration on the right, ivory/navy/gold/muted-red colour palette, bottom law/procedure/practice strip where appropriate, and 1200 x 675 raster output.
+
+## Article Thumbnail-Style Standardization v1
+
+Approved article thumbnails should follow a clean painted/editorial legal scene style. Use topic-specific legal props in the foreground and court/forum/document context in the background. Avoid large headline overlays, key-point strips, heavy branding blocks, generic flat-vector graphics, Canva-style checklist posters and isolated icons.
+
+Use 1200 x 675 PNG output. Keep important documents, seals, legal props and visual focus inside a safe central area so thumbnails remain attractive on homepage cards, Legal Updates cards, article pages, recommended article cards and social previews.

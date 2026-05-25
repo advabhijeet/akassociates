@@ -1,3 +1,9 @@
+## 2026-05-25 IST - Update UAPA article thumbnail to approved standard
+- Added the approved Article Thumbnail-Style Standardization v1 image for the UAPA bail article.
+- Updated UAPA article OG image, Twitter/X image, JSON-LD image, featured image and registry thumbnail references.
+- Updated article modified metadata and sitemap lastmod for the UAPA article.
+- Documented the clean painted/editorial article thumbnail standard without large headline overlays.
+
 ## 2026-05-25 IST - Align legal docs with public social links
 - Added official Facebook, Instagram and X / Twitter links to the Contact page public profile section.
 - Updated homepage LegalService `sameAs` structured data for the official public social profile inventory.
