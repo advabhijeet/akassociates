@@ -1,36 +1,55 @@
 # Citadel of Kang Theme
 
-Citadel of Kang is the standalone modular theme direction that evolved from the Chambers of AK production theme system.
+Last reconciled: 2026-05-26
 
-Chambers of AK remains the first real-world implementation and test site. Future theme work should treat Citadel of Kang as a reusable theme package that can be adapted to other websites without hardcoding Chambers-specific content, routes or branding.
+Citadel of Kang is the modular frontend theme direction that evolved from the Chambers of AK production theme system.
 
-## Status
+Chambers of AK remains the first real-world implementation and test site. Future Citadel work should treat the current site as the production reference while keeping reusable theme logic separate from Chambers-specific content, routes, analytics IDs, contact values and legal materials.
 
-Current status: initialized as a theme architecture direction.
+## Current Status
 
-Production site status:
+Current status: production-active inside Chambers of AK.
+
+Production reality:
 
 - Chambers of AK currently runs on the Citadel-derived live theme.
-- Existing production files should not be renamed in a rushed patch.
-- Renaming and restructuring should be performed through a single controlled PowerShell 7-compatible patch after the modular architecture is finalized.
-- Theme development may temporarily happen inside this repository because the current assets, implementation constraints and visual source material are here.
-- Live website rollout should happen only after the theme work is reviewed and applied through a controlled patch.
+- `assets/css/style.css` is the public CSS entry point.
+- `assets/css/themes/citadel-of-ak.css` is the active Chambers implementation theme package.
+- `assets/js/script.js` is the public JavaScript entry point.
+- Multiple Citadel modules are production-loaded from `assets/js/themes/citadel-of-kang/`.
+- Existing production files should not be renamed or split in a rushed patch.
+- Future restructuring must be performed through a controlled PowerShell 7-compatible patch after the modular architecture and validation coverage are stable.
 
-## Temporary Development Repository Rule
+Production-active module inventory is maintained in:
 
-This repository is a temporary development and staging ground for Citadel of Kang only because Chambers of AK is the first implementation and the required assets already exist here.
+```text
+docs/maintenance/CITADEL_PRODUCTION_MODULE_INVENTORY.md
+```
+
+## Product Boundary
+
+```text
+Chambers of AK = production public law-firm website.
+Citadel of Kang = frontend theme pack and public module system.
+Citadel Manager / Website CMS = separate future admin/content-management product.
+Chambers Client Portal = separate future secure client/matter portal.
+```
+
+Citadel of Kang may provide public frontend behaviour, CSS, template semantics, article modules, listing modules and UI components. It must not contain admin credentials, repository write tokens, private client/matter data, CMS backend logic or fake frontend-only admin security.
+
+## Repository Role
+
+This repository is the Chambers of AK production website repository. It is also the temporary development and proving ground for Citadel of Kang because Chambers is the first implementation and the required assets already exist here.
 
 Long-term rule:
 
 ```text
-Develop and validate Citadel of Kang here first.
-Roll it out to Chambers of AK only after review.
-After the theme is stable and final enough, extract Citadel of Kang into a fresh standalone repository.
+Develop and validate Citadel modules here first.
+Keep Chambers-specific implementation details clearly marked.
+Extract reusable Citadel of Kang code into a clean standalone repository only after production behaviour is stable.
 ```
 
-The future standalone repository should contain the reusable theme package, cleaned documentation, modular CSS/JS files, examples and licensing/distribution notes. It should not carry unnecessary Chambers-specific content, legal articles, analytics IDs, private configuration, sitemap/feed files or law-firm-only implementation details.
-
-This repository must continue to remain the Chambers of AK website repository after extraction.
+The future standalone repository should contain the reusable theme package, cleaned documentation, modular CSS/JS files, neutral examples and licensing/distribution notes. It should not carry Chambers legal articles, Chambers contact details, analytics IDs, AdSense IDs, sitemap/feed files, private configuration or law-firm-only implementation details.
 
 ## Naming
 
@@ -40,7 +59,7 @@ Standalone theme name:
 Citadel of Kang
 ```
 
-Current Chambers implementation may continue to use existing file names temporarily until the migration patch is applied.
+Current Chambers implementation may continue to use existing file names temporarily until a controlled migration patch is approved.
 
 Recommended future namespace:
 
@@ -54,9 +73,10 @@ Recommended module cache key pattern:
 
 ```text
 citadel-kang-core-1
+citadel-kang-global-shell-1
 citadel-kang-article-index-1
-citadel-kang-navigation-1
-citadel-kang-social-1
+citadel-kang-article-footer-1
+citadel-kang-blog-page-1
 ```
 
 ## Design Principles
@@ -66,10 +86,11 @@ Citadel of Kang must be:
 1. Modular.
 2. Reusable.
 3. Brand-adaptable.
-4. Route-agnostic.
+4. Route-agnostic where practical.
 5. Safe to disable module-by-module.
 6. Suitable for static websites first.
-7. Capable of later packaging as a standalone commercial or WordPress-compatible theme in a separate repository.
+7. Capable of later packaging as a standalone theme in a separate repository.
+8. Clear about what is reusable Citadel code and what is Chambers implementation code.
 
 ## Chambers of AK Relationship
 
@@ -77,15 +98,61 @@ Chambers of AK is the first implementation of Citadel of Kang.
 
 This means:
 
-- Chambers of AK can provide the first real production constraints.
-- Chambers-specific content, legal disclaimers, social links, analytics IDs and branding assets must stay separate from reusable theme logic.
-- The theme should not depend on `/updates/*.html`, `chambersofak.in`, law-firm-specific language, or any specific article route.
-- Chambers of AK may use default modules, but other websites must be able to opt in or opt out cleanly.
-- The theme may be developed here temporarily, but final reusable distribution should be moved to a clean repository after rollout.
+- Chambers provides the first real production constraints.
+- Chambers-specific content, legal disclaimers, social links, analytics IDs, public contact values and branding assets must stay separate from reusable theme logic where practical.
+- The reusable theme should not depend on `chambersofak.in`, law-firm-only language, Google Tag Manager IDs, EmailJS values, or any one article route.
+- Chambers may use implementation-specific modules or values, but those must be documented before standalone extraction.
+- The current repository remains the Chambers public website after any later Citadel extraction.
 
-## Proposed Folder Structure
+## Current Production Architecture
 
-Future modular structure:
+Current public CSS entry point:
+
+```text
+assets/css/style.css
+```
+
+Current active Chambers implementation theme:
+
+```text
+assets/css/themes/citadel-of-ak.css
+```
+
+Current Citadel module CSS imported by `style.css`:
+
+```text
+assets/css/themes/citadel-of-kang/modules/article-index.css
+assets/css/themes/citadel-of-kang/modules/pills.css
+```
+
+Current public JavaScript entry point:
+
+```text
+assets/js/script.js
+```
+
+Current production-loaded module families include:
+
+```text
+global shell / navigation / topbar / drawer / footer social
+theme controller and theme toggle wiring
+article index
+article footer
+insights registry and card helper
+latest insights section
+insights directory section
+blog / legal insights page controller
+contact page template
+enquiry page template
+enquiry/form behaviour
+general content page template
+homepage template
+practice / services page template
+```
+
+## Current Folder Structure
+
+Current production-relevant structure:
 
 ```text
 assets/
@@ -95,6 +162,30 @@ assets/
 │     ├─ chambers-ak.css
 │     ├─ citadel-of-ak.css
 │     └─ citadel-of-kang/
+│        └─ modules/
+│           ├─ article-index.css
+│           └─ pills.css
+└─ js/
+   ├─ script.js
+   └─ themes/
+      └─ citadel-of-kang/
+         ├─ article-index-direct-rail.js
+         ├─ article-footer.js
+         └─ modules/
+            ├─ blog/
+            ├─ forms/
+            ├─ pages/
+            ├─ sections/
+            └─ shell/
+```
+
+Future modular structure may still become:
+
+```text
+assets/
+├─ css/
+│  └─ themes/
+│     └─ citadel-of-kang/
 │        ├─ core.css
 │        ├─ tokens.css
 │        ├─ layout.css
@@ -103,14 +194,7 @@ assets/
 │        ├─ pages.css
 │        ├─ components.css
 │        └─ modules/
-│           ├─ article-index.css
-│           ├─ insights-filter.css
-│           ├─ social-bar.css
-│           ├─ theme-toggle.css
-│           └─ reveal.css
-│
 └─ js/
-   ├─ script.js
    └─ themes/
       └─ citadel-of-kang/
          ├─ core.js
@@ -123,17 +207,17 @@ assets/
          └─ reveal.js
 ```
 
-The current `citadel` folder can be treated as an intermediate namespace. The final migration should use a consistent `citadel-of-kang` namespace.
+But the future structure must not be forced onto the live site until the production module inventory, contracts and validation commands are reconciled.
 
 ## Module Categories
 
-Core theme modules:
+Core/theme modules:
 
 ```text
 tokens
 base reset
 layout grid
-navigation
+navigation / global shell
 footer
 typography
 buttons
@@ -142,115 +226,86 @@ forms
 legal/content pages
 ```
 
-Optional feature modules:
+Production feature modules:
 
 ```text
 article index
-insights filter
-social bar
-live clock
+article footer
+insights registry/cards
+latest insights section
+insights directory section
+blog page/filtering/pagination
+contact/enquiry templates
 theme toggle
-homepage reveal animation
+reveal behaviour
 conversion tracking hooks
-schema helpers
+```
+
+Future / not-yet-separated modules:
+
+```text
+reading time
+reading progress as standalone module
+social bar as standalone module
+theme toggle as standalone module
+seo/schema helpers
+related content as standalone module
 ```
 
 ## Module Activation Rules
 
-Modules must not rely only on URL paths.
+Modules should prefer markup/data attributes over hardcoded route-only activation.
 
-Preferred activation pattern:
+Preferred activation examples:
 
 ```html
-<body data-citadel-article-index="true">
+<main data-citadel-home-page>
+<main data-citadel-blog-page>
+<article class="article-body" data-citadel-article-index>
 ```
 
-Disable pattern:
+Disable example:
 
 ```html
 <body data-citadel-article-index="false">
 ```
 
-Article-level opt-in:
-
-```html
-<article class="article-body" data-citadel-article-index>
-```
-
-Fallback activation can be used where safe, for example:
+Safe fallback activation is allowed where the code can no-op safely, for example:
 
 ```text
-Run on article.article-body when the page contains 3 or more direct h2 headings.
+Run Article Index on article.article-body only when 3 or more direct h2 headings exist.
+Run a page-template module only when expected page markup exists.
+Run a listing module only when the registry and target grid both exist.
 ```
-
-Avoid hardcoded route-only logic such as:
-
-```text
-/updates/*.html only
-```
-
-because future users may use:
-
-```text
-/blog/
-/articles/
-insights/
-news/
-legal-updates/
-post/
-any custom route
-```
-
-## Article Index Module
-
-The Article Index is the first formal Citadel of Kang feature module.
-
-Feature objective:
-
-```text
-Generate a navigable article index from long-form article headings while preserving a premium editorial layout.
-```
-
-Expected behaviour:
-
-- Auto-generate index from direct `h2` headings.
-- Skip pages with fewer than 3 headings.
-- Desktop: fixed/sticky left-side index rail.
-- Mobile/tablet: index appears below the article hero before the article body.
-- Active state follows the latest visible heading.
-- Include reading progress indicator.
-- Include Back to top link.
-- Support dark/light theme states.
-- Support explicit opt-in and opt-out attributes.
 
 ## Implementation Boundary
 
 Do not rename current live production theme files casually.
 
-A future PowerShell 7-compatible migration patch should perform:
+A future controlled migration patch should perform:
 
 1. Sync latest main.
-2. Create final Citadel of Kang folder structure.
-3. Move/split theme CSS into modular files.
-4. Move/split JS into modular files.
-5. Keep `assets/css/style.css` as the active public entry point.
-6. Keep `assets/js/script.js` as the active public entry point.
+2. Confirm the active module inventory.
+3. Create final Citadel folder structure if required.
+4. Move/split CSS and JS only after module contracts are reconciled.
+5. Keep `assets/css/style.css` as the active public CSS entry point.
+6. Keep `assets/js/script.js` as the active public JS entry point until a reviewed loader replacement exists.
 7. Preserve `assets/css/themes/chambers-ak.css` as rollback fallback.
-8. Remove temporary/misplaced generic article-index files if present.
-9. Remove the noindex article-index preview page after production rollout.
-10. Update documentation and changelog.
-11. Validate with `node --check`, `git diff --check`, and manual live checks.
+8. Mark or extract Chambers-specific implementation values before standalone distribution.
+9. Update documentation and changelog.
+10. Validate with Node syntax checks, `git diff --check`, and manual browser checks.
 
 ## Extraction Plan
 
-After Citadel of Kang is sufficiently stable and rolled out on Chambers of AK, create a fresh standalone repository for the theme.
+After Citadel of Kang is sufficiently stable and rolled out on Chambers of AK, create a fresh standalone repository for the reusable theme.
 
 That future repository should include:
 
 - modular CSS and JS source files;
 - theme documentation;
 - sample pages;
-- usage examples for module activation and disabling;
+- module activation examples;
+- disable/no-op examples;
 - branding-token examples;
 - changelog/versioning notes;
 - license/distribution notes once decided.
@@ -260,12 +315,12 @@ That future repository should exclude:
 - Chambers of AK legal articles;
 - Chambers-specific contact details;
 - Chambers-specific social links;
-- Google Analytics/GTM/AdSense IDs;
+- Google Analytics, GTM, AdSense or EmailJS IDs;
 - sitemap/feed files from this site;
 - private or law-firm-only implementation details.
 
 ## Repository Rule
 
-Commercial, WordPress or distributable packaged versions of Citadel of Kang must be handled in a separate repository and separate chat unless the user expressly instructs otherwise.
+Commercial, WordPress or distributable packaged versions of Citadel of Kang must be handled in a separate repository and separate implementation thread unless expressly instructed otherwise.
 
 This repository remains the Chambers of AK website repository.
