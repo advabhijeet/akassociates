@@ -1,6 +1,6 @@
 # Chambers of AK - Master Roadmap
 
-Last consolidated: 2026-05-24
+Last consolidated: 2026-05-26
 
 This is the single active roadmap for the Chambers of AK website, Citadel of Kang theme system, Citadel Manager / Website CMS product direction, article publishing workflow, SEO roadmap, thumbnail workflow and future Client Portal direction.
 
@@ -204,6 +204,40 @@ Known Batch 6 pending items:
 - Cheque Bounce 30 Days.
 - Cheque Bounce Notice Limitation.
 - MSME 45 Days Payment Rule.
+
+### Phase 4.5 - Sitewide SEO Stabilization Hotfix
+
+Goal: close existing SEO leakage before Search Appearance expansion, future service-page creation or new content batches.
+
+Tasks:
+
+1. Fix wrong self-canonical configuration on live service landing pages, especially property-dispute and civil-litigation service pages.
+2. Confirm sitemap parity for every corrected service page.
+3. Complete remaining Batch 6 article metadata, including OG image, Twitter image, JSON-LD image, article:modified_time, dateModified and registry thumbnail fields.
+4. Add static non-JavaScript article links to legal-updates.html so the Legal Insights hub is not dependent only on JavaScript-rendered cards.
+5. Expand feed.xml so it better reflects the active article registry and works as a meaningful fallback discovery source.
+6. Add tools/validate-seo-sitewide.js to enforce title, robots, canonical, OG URL, sitemap, article-image, registry-thumbnail, feed and /index.html-link checks.
+7. Update CHANGELOG.md and relevant active documentation after the patch.
+
+Execution order:
+
+```text
+1. Canonical cleanup + sitemap parity.
+2. Remaining Batch 6 metadata/thumbnails.
+3. Static Legal Updates fallback links.
+4. RSS/feed expansion.
+5. Sitewide SEO validator.
+6. Search Console reinspection and selective indexing requests.
+```
+
+Validation:
+
+```powershell
+node tools/validate-article-encoding.js
+node tools/validate-insights-registry.js --strict
+node tools/validate-seo-sitewide.js
+git diff --check
+```
 
 ### Phase 5 - Search Appearance / SEO Track
 
