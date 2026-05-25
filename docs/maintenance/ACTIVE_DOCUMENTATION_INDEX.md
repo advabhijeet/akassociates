@@ -1,6 +1,6 @@
 # Active Documentation Index
 
-Last consolidated: 2026-05-25
+Last consolidated: 2026-05-26
 
 Use this index to avoid duplicate or conflicting documentation.
 
@@ -14,6 +14,7 @@ Use this index to avoid duplicate or conflicting documentation.
 
 - `docs/maintenance/THEME_SYSTEM.md`
 - `docs/maintenance/CITADEL_OF_KANG_THEME.md`
+- `docs/maintenance/CITADEL_PRODUCTION_MODULE_INVENTORY.md`
 - `docs/maintenance/CITADEL_GLOBAL_SHELL.md`
 - `docs/maintenance/CITADEL_MODULE_CONTRACTS.md`
 - `docs/maintenance/CITADEL_PUBLIC_CONFIG_SCHEMA.md`
