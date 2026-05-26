@@ -1,6 +1,6 @@
 # Citadel Production Finalization Checklist
 
-Last created: 2026-05-26
+Last updated: 2026-05-26
 
 This checklist tracks Phase 1 - Citadel Production Finalization v1 for the Chambers of AK website.
 
@@ -70,6 +70,46 @@ Confirm the following are recorded as production-active or transitional in the m
 - [x] Practice / Services template.
 - [x] Conversion event helper.
 - [x] Reveal helper.
+
+## Automated Validation
+
+### GitHub Actions Workflow
+
+- [x] Add `.github/workflows/validation.yml`.
+- [ ] Confirm the first `Chambers Validation` workflow run passes on GitHub Actions.
+- [ ] If the workflow fails, inspect the failing step and patch only the minimum required fix.
+
+Current workflow coverage:
+
+```text
+JavaScript syntax checks for production entry/module files
+Article encoding validation
+Insights registry strict validation
+Git whitespace validation
+```
+
+### Local Validation Commands
+
+Run locally where possible:
+
+```powershell
+node --check .\assets\js\script.js
+node --check .\assets\js\themes\citadel-of-kang\modules\shell\global-shell.js
+node --check .\assets\js\themes\citadel-of-kang\article-index-direct-rail.js
+node --check .\assets\js\themes\citadel-of-kang\article-footer.js
+node --check .\assets\js\themes\citadel-of-kang\modules\sections\latest-insights-section.js
+node --check .\assets\js\themes\citadel-of-kang\modules\sections\insights-directory-section.js
+node --check .\assets\js\themes\citadel-of-kang\modules\blog\blog-page.js
+node --check .\assets\js\themes\citadel-of-kang\modules\forms\enquiry-form.js
+node --check .\assets\js\themes\citadel-of-kang\modules\pages\home-page.js
+node --check .\assets\js\themes\citadel-of-kang\modules\pages\practice-page.js
+node --check .\assets\js\themes\citadel-of-kang\modules\pages\contact-page.js
+node --check .\assets\js\themes\citadel-of-kang\modules\pages\enquiry-page.js
+node --check .\assets\js\themes\citadel-of-kang\modules\pages\general-content-page.js
+node .\tools\validate-article-encoding.js
+node .\tools\validate-insights-registry.js --strict
+git diff --check
+```
 
 ## Manual Production Audit Checklist
 
@@ -149,29 +189,6 @@ Confirm the following are recorded as production-active or transitional in the m
 - [ ] No fake frontend-only admin/security page is introduced.
 - [ ] Chambers-specific values are documented before any future Citadel extraction.
 
-## Validation Commands
-
-Run locally where possible:
-
-```powershell
-node --check .\assets\js\script.js
-node --check .\assets\js\themes\citadel-of-kang\modules\shell\global-shell.js
-node --check .\assets\js\themes\citadel-of-kang\article-index-direct-rail.js
-node --check .\assets\js\themes\citadel-of-kang\article-footer.js
-node --check .\assets\js\themes\citadel-of-kang\modules\sections\latest-insights-section.js
-node --check .\assets\js\themes\citadel-of-kang\modules\sections\insights-directory-section.js
-node --check .\assets\js\themes\citadel-of-kang\modules\blog\blog-page.js
-node --check .\assets\js\themes\citadel-of-kang\modules\forms\enquiry-form.js
-node --check .\assets\js\themes\citadel-of-kang\modules\pages\home-page.js
-node --check .\assets\js\themes\citadel-of-kang\modules\pages\practice-page.js
-node --check .\assets\js\themes\citadel-of-kang\modules\pages\contact-page.js
-node --check .\assets\js\themes\citadel-of-kang\modules\pages\enquiry-page.js
-node --check .\assets\js\themes\citadel-of-kang\modules\pages\general-content-page.js
-node .\tools\validate-article-encoding.js
-node .\tools\validate-insights-registry.js --strict
-git diff --check
-```
-
 ## Smoke-Test Pages
 
 ```text
@@ -189,10 +206,11 @@ updates/uapa-bail-section-43d5-supreme-court-2026.html
 
 ## Remaining Phase 1 Work
 
-- [ ] Run local syntax/registry validation.
+- [ ] Confirm GitHub Actions workflow passes.
+- [ ] Run local syntax/registry validation where practical.
 - [ ] Complete manual browser smoke checks.
 - [ ] Record validation results in the Phase 1 issue.
-- [ ] Add final `CHANGELOG.md` entry for Phase 1 documentation reconciliation and checklist creation.
+- [x] Add final `CHANGELOG.md` entry for Phase 1 documentation reconciliation and checklist creation.
 - [ ] Decide whether Phase 1 can be marked complete or whether small documentation follow-ups remain.
 
 ## Next Roadmap Step After Phase 1
