@@ -1,3 +1,10 @@
+## 2026-05-26 IST - Add GitHub Actions validation workflow
+- Added `.github/workflows/validation.yml` for repository validation on push, pull request and manual workflow dispatch.
+- The workflow runs Node.js 20 syntax checks for the active Citadel JavaScript entry/module files.
+- The workflow runs article encoding validation, strict Insights registry validation and Git whitespace validation.
+- Updated `docs/maintenance/theme/CITADEL_PRODUCTION_FINALIZATION_CHECKLIST.md` to record the workflow as part of Phase 1 validation.
+- Documentation/CI-only change: no CSS, JavaScript behaviour, HTML pages, SEO metadata, sitemap, feed, article content or thumbnail assets were changed.
+
 ## 2026-05-26 IST - Reconcile Phase 1 Citadel production documentation
 - Reconciled production status and boundaries for Citadel template/module documentation, including Contact Page, Enquiry Page, General Content Page, Homepage, Practice / Services, Enquiry/Form and the Citadel production finalization checklist.
 - Added `docs/maintenance/modules/enquiry-form.md` as the production module contract for copy-to-clipboard, structured enquiry form, WhatsApp/Gmail fallback and EmailJS direct-send behaviour.
