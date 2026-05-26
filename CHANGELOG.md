@@ -1,3 +1,10 @@
+## 2026-05-26 IST - Organize maintenance documentation folders
+- Reorganized `docs/maintenance/` into purpose-based subfolders for standards, theme, templates, modules, publishing, product and operations documentation.
+- Added `docs/maintenance/README.md` as the maintenance folder map and rule for future documentation placement.
+- Updated `docs/maintenance/ACTIVE_DOCUMENTATION_INDEX.md` to point to the new active documentation paths.
+- Preserved archived/superseded documentation under `docs/archive/superseded-maintenance/`.
+- Documentation-only change: no CSS, JavaScript behaviour, HTML pages, SEO metadata, sitemap, feed, article content or thumbnail assets were changed.
+
 ## 2026-05-25 IST - Update UAPA article thumbnail to approved standard
 - Added the approved Article Thumbnail-Style Standardization v1 image for the UAPA bail article.
 - Updated UAPA article OG image, Twitter/X image, JSON-LD image, featured image and registry thumbnail references.
@@ -301,13 +308,13 @@
 
 ## 2026-05-21 - Final article encoding template fix
 - Repaired Sabarimala and UAPA mojibake from a clean origin/main base.
-- Added 	ools/fix-article-encoding.js and updated 	ools/validate-article-encoding.js.
+- Added \tools/fix-article-encoding.js and updated \tools/validate-article-encoding.js.
 - Updated template, workflow and guidelines with ASCII-safe metadata and validation rules.
 - Updated sitemap lastmod for affected articles and legal updates page.
 
 ## 2026-05-21 - Full article-body encoding audit v2
-- Upgraded 	ools/validate-article-encoding.js to scan full article HTML files, not only metadata/card fields.
-- Upgraded 	ools/fix-article-encoding.js to repair mojibake across all updates/*.html article files.
+- Upgraded \tools/validate-article-encoding.js to scan full article HTML files, not only metadata/card fields.
+- Upgraded \tools/fix-article-encoding.js to repair mojibake across all updates/*.html article files.
 - Ran full-body encoding fixer and validator across all article pages.
 - Updated workflow/template/guidelines to require full article-body encoding audit before article commits.
 
