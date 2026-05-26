@@ -1,0 +1,75 @@
+name: Chambers Validation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: chambers-validation-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate repository
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Show runtime versions
+        run: |
+          node --version
+          npm --version
+          git --version
+
+      - name: JavaScript syntax checks
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          files=(
+            "assets/js/script.js"
+            "assets/js/themes/citadel-of-kang/modules/shell/global-shell.js"
+            "assets/js/themes/citadel-of-kang/article-index-direct-rail.js"
+            "assets/js/themes/citadel-of-kang/article-footer.js"
+            "assets/js/themes/citadel-of-kang/modules/sections/latest-insights-section.js"
+            "assets/js/themes/citadel-of-kang/modules/sections/insights-directory-section.js"
+            "assets/js/themes/citadel-of-kang/modules/blog/blog-page.js"
+            "assets/js/themes/citadel-of-kang/modules/forms/enquiry-form.js"
+            "assets/js/themes/citadel-of-kang/modules/pages/home-page.js"
+            "assets/js/themes/citadel-of-kang/modules/pages/practice-page.js"
+            "assets/js/themes/citadel-of-kang/modules/pages/contact-page.js"
+            "assets/js/themes/citadel-of-kang/modules/pages/enquiry-page.js"
+            "assets/js/themes/citadel-of-kang/modules/pages/general-content-page.js"
+          )
+
+          for file in "${files[@]}"; do
+            if [[ ! -f "$file" ]]; then
+              echo "Missing expected JavaScript file: $file" >&2
+              exit 1
+            fi
+            node --check "$file"
+          done
+
+      - name: Article encoding validation
+        run: node tools/validate-article-encoding.js
+
+      - name: Insights registry validation
+        run: node tools/validate-insights-registry.js --strict
+
+      - name: Whitespace validation
+        run: git diff --check
