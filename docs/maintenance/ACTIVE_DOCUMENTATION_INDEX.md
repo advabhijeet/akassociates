@@ -48,6 +48,7 @@ Use this index to avoid duplicate or conflicting documentation.
 ## Active Module Notes
 
 - `docs/maintenance/modules/article-index.md`
+- `docs/maintenance/modules/article-footer.md`
 - `docs/maintenance/modules/navigation.md`
 - `docs/maintenance/modules/reading-time.md`
 - `docs/maintenance/modules/reading-progress.md`
