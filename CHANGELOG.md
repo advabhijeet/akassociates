@@ -1,3 +1,9 @@
+## 2026-05-26 IST - Clean documentation references after maintenance reorganization
+- Added `docs/maintenance/standards/ONE_COMMAND_MANUAL_PATCH_STANDARD.md` to the organized standards folder.
+- Removed the old flat `docs/maintenance/ONE_COMMAND_MANUAL_PATCH_STANDARD.md` path.
+- Updated `docs/maintenance/ACTIVE_DOCUMENTATION_INDEX.md` to include the one-command manual patch standard under Active Standards Docs.
+- Documentation-only change: no CSS, JavaScript behaviour, HTML pages, SEO metadata, sitemap, feed, article content or thumbnail assets were changed.
+
 ## 2026-05-26 IST - Organize maintenance documentation folders
 - Reorganized `docs/maintenance/` into purpose-based subfolders for standards, theme, templates, modules, publishing, product and operations documentation.
 - Added `docs/maintenance/README.md` as the maintenance folder map and rule for future documentation placement.
