@@ -76,8 +76,8 @@ Confirm the following are recorded as production-active or transitional in the m
 ### GitHub Actions Workflow
 
 - [x] Add `.github/workflows/validation.yml`.
-- [ ] Confirm the first `Chambers Validation` workflow run passes on GitHub Actions.
-- [ ] If the workflow fails, inspect the failing step and patch only the minimum required fix.
+- [x] Confirm the first `Chambers Validation` workflow runs pass on GitHub Actions.
+- [x] If the workflow fails, inspect the failing step and patch only the minimum required fix. No failure observed in first visible runs.
 
 Current workflow coverage:
 
@@ -206,7 +206,7 @@ updates/uapa-bail-section-43d5-supreme-court-2026.html
 
 ## Remaining Phase 1 Work
 
-- [ ] Confirm GitHub Actions workflow passes.
+- [x] Confirm GitHub Actions workflow passes.
 - [ ] Run local syntax/registry validation where practical.
 - [ ] Complete manual browser smoke checks.
 - [ ] Record validation results in the Phase 1 issue.
