@@ -27,6 +27,7 @@ Use this index to avoid duplicate or conflicting documentation.
 - `docs/maintenance/standards/CITADEL_MOBILE_COMPATIBILITY_RULE.md`
 - `docs/maintenance/standards/CITADEL_ZERO_TOLERANCE_CODE_STANDARD.md`
 - `docs/maintenance/standards/CHAMBERS_OF_AK_ZERO_TOLERANCE_WEBSITE_STANDARD.md`
+- `docs/maintenance/standards/ONE_COMMAND_MANUAL_PATCH_STANDARD.md`
 
 ## Active Template Docs
 
