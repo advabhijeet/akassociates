@@ -20,6 +20,7 @@ Use this index to avoid duplicate or conflicting documentation.
 - `docs/maintenance/theme/CITADEL_MODULE_CONTRACTS.md`
 - `docs/maintenance/theme/CITADEL_PUBLIC_CONFIG_SCHEMA.md`
 - `docs/maintenance/theme/CITADEL_LOCAL_VALIDATION.md`
+- `docs/maintenance/theme/CITADEL_PRODUCTION_FINALIZATION_CHECKLIST.md`
 
 ## Active Standards Docs
 
@@ -55,6 +56,7 @@ Use this index to avoid duplicate or conflicting documentation.
 - `docs/maintenance/modules/article-index.md`
 - `docs/maintenance/modules/article-footer.md`
 - `docs/maintenance/modules/navigation.md`
+- `docs/maintenance/modules/enquiry-form.md`
 - `docs/maintenance/modules/reading-time.md`
 - `docs/maintenance/modules/reading-progress.md`
 - `docs/maintenance/modules/article-comments.md`
