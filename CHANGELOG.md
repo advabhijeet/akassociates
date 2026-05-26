@@ -1,3 +1,10 @@
+## 2026-05-26 IST - Reconcile Phase 1 Citadel production documentation
+- Reconciled production status and boundaries for Citadel template/module documentation, including Contact Page, Enquiry Page, General Content Page, Homepage, Practice / Services, Enquiry/Form and the Citadel production finalization checklist.
+- Added `docs/maintenance/modules/enquiry-form.md` as the production module contract for copy-to-clipboard, structured enquiry form, WhatsApp/Gmail fallback and EmailJS direct-send behaviour.
+- Added `docs/maintenance/theme/CITADEL_PRODUCTION_FINALIZATION_CHECKLIST.md` to track desktop/tablet/mobile, light/dark, Global Shell, Article, Blog/Insights and Contact/Enquiry smoke checks.
+- Updated `docs/maintenance/ACTIVE_DOCUMENTATION_INDEX.md` to include the Enquiry/Form module contract and Citadel Production Finalization Checklist.
+- Documentation-only change: no CSS, JavaScript behaviour, HTML pages, SEO metadata, sitemap, feed, article content or thumbnail assets were changed.
+
 ## 2026-05-26 IST - Clean documentation references after maintenance reorganization
 - Added `docs/maintenance/standards/ONE_COMMAND_MANUAL_PATCH_STANDARD.md` to the organized standards folder.
 - Removed the old flat `docs/maintenance/ONE_COMMAND_MANUAL_PATCH_STANDARD.md` path.
