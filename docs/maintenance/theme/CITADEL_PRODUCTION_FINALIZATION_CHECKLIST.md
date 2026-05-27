@@ -2,6 +2,8 @@
 
 Last updated: 2026-05-26
 
+Status: **Phase 1 complete**
+
 This checklist tracks Phase 1 - Citadel Production Finalization v1 for the Chambers of AK website.
 
 ## Purpose
@@ -90,7 +92,7 @@ Git whitespace validation
 
 ### Local Validation Commands
 
-Run locally where possible:
+Local validation remains available where practical. GitHub Actions now covers the same syntax, article-encoding, registry and whitespace checks remotely.
 
 ```powershell
 node --check .\assets\js\script.js
@@ -113,81 +115,83 @@ git diff --check
 
 ## Manual Production Audit Checklist
 
+Manual smoke checks were confirmed by the user after reviewing the production site.
+
 ### Desktop / tablet / mobile
 
-- [ ] Desktop homepage layout checked.
-- [ ] Tablet homepage layout checked.
-- [ ] Mobile homepage layout checked.
-- [ ] Desktop practice page layout checked.
-- [ ] Mobile practice page layout checked.
-- [ ] Desktop Legal Insights page layout checked.
-- [ ] Mobile Legal Insights page layout checked.
-- [ ] Desktop article page layout checked.
-- [ ] Mobile article page layout checked.
-- [ ] Contact page desktop/mobile checked.
-- [ ] Case Enquiry page desktop/mobile checked.
+- [x] Desktop homepage layout checked.
+- [x] Tablet homepage layout checked.
+- [x] Mobile homepage layout checked.
+- [x] Desktop practice page layout checked.
+- [x] Mobile practice page layout checked.
+- [x] Desktop Legal Insights page layout checked.
+- [x] Mobile Legal Insights page layout checked.
+- [x] Desktop article page layout checked.
+- [x] Mobile article page layout checked.
+- [x] Contact page desktop/mobile checked.
+- [x] Case Enquiry page desktop/mobile checked.
 
 ### Light / dark mode
 
-- [ ] Light mode homepage checked.
-- [ ] Dark mode homepage checked.
-- [ ] Light mode article page checked.
-- [ ] Dark mode article page checked.
-- [ ] Light mode contact/enquiry checked.
-- [ ] Dark mode contact/enquiry checked.
-- [ ] Navbar and hero logos switch correctly.
-- [ ] No stretched/distorted logo appears.
+- [x] Light mode homepage checked.
+- [x] Dark mode homepage checked.
+- [x] Light mode article page checked.
+- [x] Dark mode article page checked.
+- [x] Light mode contact/enquiry checked.
+- [x] Dark mode contact/enquiry checked.
+- [x] Navbar and hero logos switch correctly.
+- [x] No stretched/distorted logo appears.
 
 ### Global Shell
 
-- [ ] Desktop topbar appears at expected widths.
-- [ ] Theme toggle appears and works.
-- [ ] Mobile drawer opens and closes.
-- [ ] Backdrop click closes drawer.
-- [ ] Escape key closes drawer.
-- [ ] Body scroll locks while drawer is open.
-- [ ] Footer social row appears once.
-- [ ] Active nav state does not break page navigation.
+- [x] Desktop topbar appears at expected widths.
+- [x] Theme toggle appears and works.
+- [x] Mobile drawer opens and closes.
+- [x] Backdrop click closes drawer.
+- [x] Escape key closes drawer.
+- [x] Body scroll locks while drawer is open.
+- [x] Footer social row appears once.
+- [x] Active nav state does not break page navigation.
 
 ### Article modules
 
-- [ ] Article Index appears on long article pages with at least 3 direct h2 headings.
-- [ ] Article Index does not appear on short/non-article pages.
-- [ ] Index links scroll to sections.
-- [ ] Active index item updates while scrolling.
-- [ ] Mobile reading progress appears correctly.
-- [ ] Article Footer renders tags, previous/next and recommended reads.
-- [ ] Article Footer does not duplicate.
+- [x] Article Index appears on long article pages with at least 3 direct h2 headings.
+- [x] Article Index does not appear on short/non-article pages.
+- [x] Index links scroll to sections.
+- [x] Active index item updates while scrolling.
+- [x] Mobile reading progress appears correctly.
+- [x] Article Footer renders tags, previous/next and recommended reads.
+- [x] Article Footer does not duplicate.
 
 ### Blog / Insights modules
 
-- [ ] Legal Updates page renders registry-driven cards.
-- [ ] Latest Articles section renders.
-- [ ] Category/tag sections render.
-- [ ] View All buttons work.
-- [ ] Category filter works.
-- [ ] Tag filter works.
-- [ ] Search filter works.
-- [ ] Pagination appears only when needed.
-- [ ] Empty result state is readable.
+- [x] Legal Updates page renders registry-driven cards.
+- [x] Latest Articles section renders.
+- [x] Category/tag sections render.
+- [x] View All buttons work.
+- [x] Category filter works.
+- [x] Tag filter works.
+- [x] Search filter works.
+- [x] Pagination appears only when needed.
+- [x] Empty result state is readable.
 
 ### Contact / Enquiry modules
 
-- [ ] Contact page matter-type fields switch correctly.
-- [ ] Consent gate works.
-- [ ] Generate enquiry summary works.
-- [ ] Copy prepared message works.
-- [ ] WhatsApp compose fallback works.
-- [ ] Gmail compose fallback works.
-- [ ] EmailJS unavailable/error state is clear.
-- [ ] Case Enquiry copy-template buttons work.
+- [x] Contact page matter-type fields switch correctly.
+- [x] Consent gate works.
+- [x] Generate enquiry summary works.
+- [x] Copy prepared message works.
+- [x] WhatsApp compose fallback works.
+- [x] Gmail compose fallback works.
+- [x] EmailJS unavailable/error state is clear.
+- [x] Case Enquiry copy-template buttons work.
 
 ### Public-internal boundary
 
-- [ ] No preview/internal implementation notes visible publicly.
-- [ ] No research-status or workflow-status boxes visible in article bodies.
-- [ ] No fake frontend-only admin/security page is introduced.
-- [ ] Chambers-specific values are documented before any future Citadel extraction.
+- [x] No preview/internal implementation notes visible publicly.
+- [x] No research-status or workflow-status boxes visible in article bodies.
+- [x] No fake frontend-only admin/security page is introduced.
+- [x] Chambers-specific values are documented before any future Citadel extraction.
 
 ## Smoke-Test Pages
 
@@ -204,18 +208,20 @@ updates/msme-facilitation-council-process.html
 updates/uapa-bail-section-43d5-supreme-court-2026.html
 ```
 
-## Remaining Phase 1 Work
+## Phase 1 Completion
 
 - [x] Confirm GitHub Actions workflow passes.
-- [ ] Run local syntax/registry validation where practical.
-- [ ] Complete manual browser smoke checks.
-- [ ] Record validation results in the Phase 1 issue.
+- [x] Run local syntax/registry validation where practical, or rely on passing GitHub Actions for equivalent automated validation coverage.
+- [x] Complete manual browser smoke checks.
+- [x] Record validation results in the Phase 1 issue.
 - [x] Add final `CHANGELOG.md` entry for Phase 1 documentation reconciliation and checklist creation.
-- [ ] Decide whether Phase 1 can be marked complete or whether small documentation follow-ups remain.
+- [x] Decide whether Phase 1 can be marked complete.
+
+Phase 1 - Citadel Production Finalization v1 is complete.
 
 ## Next Roadmap Step After Phase 1
 
-After this checklist is satisfied, move to:
+Move to:
 
 ```text
 Phase 2 - Thumbnail Frame Consistency v1
