@@ -90,7 +90,8 @@
   backTop.href = '#top';
   backTop.textContent = 'Back to top ↑';
 
-  toc.appendChild(title);  toc.appendChild(progressWrap);
+  toc.appendChild(title);
+  toc.appendChild(progressWrap);
   toc.appendChild(list);
   toc.appendChild(backTop);
 
@@ -117,10 +118,10 @@
   var topbar = document.querySelector('.site-topbar');
   var clickIntent = null;
   var clickTimer = null;
+  var lastActiveId = headings[0].id;
   var anchorOffset = function () {
     return navSpace() + 72;
   };
-
 
   var getScrollY = function () {
     return window.pageYOffset || document.documentElement.scrollTop || 0;
@@ -138,11 +139,30 @@
     if (mobileBar) mobileBar.style.width = Math.max(8, safe) + '%';
   };
 
+  var ensureActiveVisible = function (link) {
+    if (!link || window.innerWidth <= 920) return;
+    var linkRect = link.getBoundingClientRect();
+    var tocRect = toc.getBoundingClientRect();
+    var safeTop = tocRect.top + 58;
+    var safeBottom = tocRect.bottom - 34;
+
+    if (linkRect.top < safeTop || linkRect.bottom > safeBottom) {
+      var targetTop = link.offsetTop - (toc.clientHeight * 0.45) + (link.clientHeight * 0.5);
+      toc.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
+    }
+  };
+
   var activateById = function (id) {
+    var activeLink = null;
     links.forEach(function (link) {
       var linkId = decodeURIComponent((link.getAttribute('href') || '').replace(/^#/, ''));
-      link.classList.toggle('is-active', linkId === id);
+      var isActive = linkId === id;
+      link.classList.toggle('is-active', isActive);
+      if (isActive) activeLink = link;
     });
+
+    if (id) lastActiveId = id;
+    ensureActiveVisible(activeLink);
   };
 
   var holdClickIntent = function () {
@@ -167,14 +187,20 @@
       return;
     }
 
-    var topLine = navSpace() + 28;
-    var bottomLine = window.innerHeight * 0.82;
-    var current = headings[0];
+    var line = navSpace() + Math.min(220, Math.max(92, window.innerHeight * 0.22));
+    var current = null;
 
     headings.forEach(function (heading) {
       var rect = heading.getBoundingClientRect();
-      if (rect.top <= bottomLine && rect.bottom >= topLine) current = heading;
+      if (rect.top <= line) current = heading;
     });
+
+    if (!current) {
+      current = headings.find(function (heading) {
+        var rect = heading.getBoundingClientRect();
+        return rect.top >= navSpace() && rect.top <= window.innerHeight * 0.72;
+      }) || document.getElementById(lastActiveId) || headings[0];
+    }
 
     if (current) activateById(current.id);
   };
