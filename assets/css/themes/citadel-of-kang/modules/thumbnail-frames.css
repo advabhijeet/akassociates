@@ -86,16 +86,14 @@
   .article-index-toc {
     max-height: calc(100vh - var(--nav-space, 108px) - 44px);
     overflow-y: auto;
+    overflow-x: hidden;
     overscroll-behavior: contain;
-    scrollbar-gutter: stable;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
   .article-index-toc::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  .article-index-toc::-webkit-scrollbar-thumb {
-    border-radius: 999px;
-    background: rgba(var(--rgb-gold), 0.42);
+    width: 0;
+    height: 0;
   }
 }
