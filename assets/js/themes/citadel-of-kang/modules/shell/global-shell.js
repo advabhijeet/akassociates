@@ -61,6 +61,19 @@
     return '<button class="theme-mode-toggle" type="button" data-theme-mode-toggle aria-pressed="false" aria-label="Switch to Dark mode"><span class="theme-mode-track" aria-hidden="true"><span class="theme-mode-icon theme-mode-sun">☀</span><span class="theme-mode-thumb"></span><span class="theme-mode-icon theme-mode-moon">☾</span></span><span class="sr-only">Toggle Citadel color mode</span></button>';
   };
 
+  const loadThumbnailFrameStyles = () => {
+    const styleId = 'citadel-thumbnail-frames-v1';
+    if (document.getElementById(styleId)) return;
+
+    const assetPrefix = window.location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
+    const link = document.createElement('link');
+
+    link.id = styleId;
+    link.rel = 'stylesheet';
+    link.href = `${assetPrefix}assets/css/themes/citadel-of-kang/modules/thumbnail-frames.css?v=thumbnail-frames-v1`;
+    document.head.appendChild(link);
+  };
+
   const initNav = () => {
     const nav = document.querySelector('.nav');
     if (!nav) return;
@@ -398,6 +411,7 @@
   };
 
   const init = () => {
+    loadThumbnailFrameStyles();
     initNav();
     initFooter();
     initLiveClocks();
