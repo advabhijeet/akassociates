@@ -1,0 +1,75 @@
+/*
+  Citadel thumbnail frame consistency v1.
+  Keeps approved 1200 x 675 article artwork visible across cards and article figures.
+*/
+:root {
+  --citadel-thumbnail-ratio: 16 / 9;
+  --citadel-thumbnail-bg: rgba(var(--rgb-white), 0.72);
+  --citadel-thumbnail-border: rgba(var(--rgb-gold), 0.28);
+}
+
+[data-theme^="citadel-of-ak-dark"],
+[data-theme="dark"] {
+  --citadel-thumbnail-bg: rgba(0, 0, 0, 0.34);
+  --citadel-thumbnail-border: rgba(var(--rgb-gold), 0.42);
+}
+
+.insight-card-media {
+  display: block !important;
+  width: 100%;
+  aspect-ratio: var(--citadel-thumbnail-ratio);
+  height: auto !important;
+  min-height: 0 !important;
+  flex: 0 0 auto;
+  border: 1px solid var(--citadel-thumbnail-border);
+  background-color: var(--citadel-thumbnail-bg);
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
+}
+
+.update-item.update-item-link .insight-card-media {
+  margin: 0 0 1.1rem !important;
+}
+
+.home-latest-grid .insight-card-media,
+[data-theme^="citadel-of-ak"] .home-latest-grid .insight-card-media {
+  height: auto !important;
+}
+
+.insights-page .update-item.update-item-link .insight-card-media,
+[data-theme^="citadel-of-ak"] .insights-page .update-item.update-item-link .insight-card-media {
+  min-height: 0 !important;
+  height: auto !important;
+  margin: 0 !important;
+  border-right: 1px solid var(--citadel-thumbnail-border);
+  border-bottom: 1px solid var(--citadel-thumbnail-border);
+  align-self: start;
+}
+
+@media (min-width: 760px) {
+  .insights-page .update-item.update-item-link .insight-card-media {
+    grid-row: 1 / span 5;
+  }
+}
+
+@media (max-width: 759px) {
+  .insights-page .update-item.update-item-link .insight-card-media,
+  [data-theme^="citadel-of-ak"] .insights-page .update-item.update-item-link .insight-card-media {
+    margin: -0.35rem -0.35rem 1.2rem !important;
+    border-right: 0;
+  }
+}
+
+.article-featured-figure {
+  aspect-ratio: var(--citadel-thumbnail-ratio);
+  background: var(--citadel-thumbnail-bg) !important;
+}
+
+.article-featured-figure img {
+  width: 100%;
+  height: 100% !important;
+  object-fit: contain;
+  object-position: center;
+  background: var(--citadel-thumbnail-bg);
+}
