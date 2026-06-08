@@ -1,4 +1,4 @@
-/* Citadel thumbnail frame consistency v2. */
+/* Citadel thumbnail frame consistency v3. */
 :root {
   --citadel-thumbnail-ratio: 16 / 9;
   --citadel-thumbnail-bg: rgba(var(--rgb-white), 0.72);
@@ -10,6 +10,23 @@
 [data-theme="dark"] {
   --citadel-thumbnail-bg: rgba(0, 0, 0, 0.34);
   --citadel-thumbnail-border: rgba(var(--rgb-gold), 0.42);
+}
+
+[data-theme^="citadel-of-ak"] body.has-citadel-article-thumb .page-hero {
+  background:
+    linear-gradient(90deg, rgba(var(--rgb-white), 0.94) 0%, rgba(var(--rgb-white), 0.78) 48%, rgba(var(--rgb-white), 0.22) 100%),
+    url("../../img/citadel/citadel-tribunal-room.webp") center / cover no-repeat !important;
+}
+
+[data-theme^="citadel-of-ak-dark"] body.has-citadel-article-thumb .page-hero,
+[data-theme="dark"] body.has-citadel-article-thumb .page-hero {
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.96) 0%, rgba(0, 0, 0, 0.9) 46%, rgba(0, 0, 0, 0.54) 100%),
+    var(--citadel-marble-bg) center top / cover fixed no-repeat !important;
+}
+
+[data-theme^="citadel-of-ak"] body.has-citadel-article-thumb .page-hero p {
+  margin-inline: auto !important;
 }
 
 .insight-card-media {
