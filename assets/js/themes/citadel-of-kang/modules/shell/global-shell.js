@@ -61,17 +61,32 @@
     return '<button class="theme-mode-toggle" type="button" data-theme-mode-toggle aria-pressed="false" aria-label="Switch to Dark mode"><span class="theme-mode-track" aria-hidden="true"><span class="theme-mode-icon theme-mode-sun">☀</span><span class="theme-mode-thumb"></span><span class="theme-mode-icon theme-mode-moon">☾</span></span><span class="sr-only">Toggle Citadel color mode</span></button>';
   };
 
+  const assetPrefix = () => (window.location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '');
+
   const loadThumbnailFrameStyles = () => {
-    const styleId = 'citadel-thumbnail-frames-v1';
+    const styleId = 'citadel-thumbnail-frames-v5';
     if (document.getElementById(styleId)) return;
 
-    const assetPrefix = window.location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
     const link = document.createElement('link');
 
     link.id = styleId;
     link.rel = 'stylesheet';
-    link.href = `${assetPrefix}assets/css/themes/citadel-of-kang/modules/thumbnail-frames.css?v=thumbnail-frames-v1`;
+    link.href = `${assetPrefix()}assets/css/themes/citadel-of-kang/modules/thumbnail-frames.css?v=thumbnail-frames-v5`;
     document.head.appendChild(link);
+  };
+
+  const loadArticleFeaturedImageModule = () => {
+    if (!document.querySelector('article.article-body, article.ck-article, article[data-citadel-article-index]')) return;
+    if (window.CitadelArticleFeaturedImage) return;
+
+    const scriptId = 'citadel-article-featured-image-v1';
+    if (document.getElementById(scriptId)) return;
+
+    const script = document.createElement('script');
+    script.id = scriptId;
+    script.src = `${assetPrefix()}assets/js/themes/citadel-of-kang/modules/articles/article-featured-image.js?v=article-featured-image-v1`;
+    script.defer = true;
+    document.body.appendChild(script);
   };
 
   const initNav = () => {
@@ -412,6 +427,7 @@
 
   const init = () => {
     loadThumbnailFrameStyles();
+    loadArticleFeaturedImageModule();
     initNav();
     initFooter();
     initLiveClocks();
