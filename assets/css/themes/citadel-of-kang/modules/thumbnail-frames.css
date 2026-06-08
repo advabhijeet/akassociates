@@ -1,4 +1,4 @@
-/* Citadel thumbnail frame consistency v4. */
+/* Citadel thumbnail frame consistency v5. */
 :root {
   --citadel-thumbnail-ratio: 16 / 9;
   --citadel-thumbnail-bg: rgba(var(--rgb-white), 0.72);
@@ -12,12 +12,15 @@
   --citadel-thumbnail-border: rgba(var(--rgb-gold), 0.42);
 }
 
+[data-theme^="citadel-of-ak"] body:has(article.article-body) .page-hero,
 [data-theme^="citadel-of-ak"] body.has-citadel-article-thumb .page-hero {
   background:
     linear-gradient(90deg, rgba(var(--rgb-white), 0.94) 0%, rgba(var(--rgb-white), 0.78) 48%, rgba(var(--rgb-white), 0.22) 100%),
     var(--citadel-marble-bg) center top / cover fixed no-repeat !important;
 }
 
+[data-theme^="citadel-of-ak-dark"] body:has(article.article-body) .page-hero,
+[data-theme="dark"] body:has(article.article-body) .page-hero,
 [data-theme^="citadel-of-ak-dark"] body.has-citadel-article-thumb .page-hero,
 [data-theme="dark"] body.has-citadel-article-thumb .page-hero {
   background:
@@ -25,6 +28,7 @@
     var(--citadel-marble-bg) center top / cover fixed no-repeat !important;
 }
 
+[data-theme^="citadel-of-ak"] body:has(article.article-body) .page-hero p,
 [data-theme^="citadel-of-ak"] body.has-citadel-article-thumb .page-hero p {
   margin-inline: auto !important;
 }
