@@ -1,4 +1,4 @@
-/* Citadel thumbnail frame consistency v3. */
+/* Citadel thumbnail frame consistency v4. */
 :root {
   --citadel-thumbnail-ratio: 16 / 9;
   --citadel-thumbnail-bg: rgba(var(--rgb-white), 0.72);
@@ -15,7 +15,7 @@
 [data-theme^="citadel-of-ak"] body.has-citadel-article-thumb .page-hero {
   background:
     linear-gradient(90deg, rgba(var(--rgb-white), 0.94) 0%, rgba(var(--rgb-white), 0.78) 48%, rgba(var(--rgb-white), 0.22) 100%),
-    url("../../img/citadel/citadel-tribunal-room.webp") center / cover no-repeat !important;
+    var(--citadel-marble-bg) center top / cover fixed no-repeat !important;
 }
 
 [data-theme^="citadel-of-ak-dark"] body.has-citadel-article-thumb .page-hero,
