@@ -1,7 +1,7 @@
 /*
-  Citadel Article Featured Image module v1.
-  Inserts the approved registry thumbnail into article pages as a body featured image.
-  Article hero backgrounds stay clean and do not reuse article thumbnail artwork.
+  Citadel Article Featured Image module v2.
+  Uses the approved registry thumbnail as the article hero background and article body featured image.
+  The old/default hero background remains only as the pre-hydration fallback.
 */
 (function () {
   const MODULE_NAME = 'CitadelArticleFeaturedImage';
@@ -39,6 +39,16 @@
     return `${assetPrefix()}${raw}`;
   };
 
+  const absoluteAssetUrl = (value) => {
+    const normalized = normalizeAssetUrl(value);
+    if (!normalized) return '';
+    try {
+      return new URL(normalized, window.location.href).href;
+    } catch (error) {
+      return normalized;
+    }
+  };
+
   const registryItems = (items) => (
     Array.isArray(items) ? items : (Array.isArray(window.chambersInsightsRegistry) ? window.chambersInsightsRegistry : [])
   );
@@ -72,8 +82,16 @@
     fallbackParent.insertBefore(node, fallbackParent.firstElementChild || null);
   };
 
-  const ensureFigure = (article, item) => {
-    const thumbnail = normalizeAssetUrl(item?.thumbnail || item?.thumb || fallbackImage());
+  const ensureHeroBackground = (imageUrl) => {
+    const heroImage = absoluteAssetUrl(imageUrl);
+    if (!heroImage) return;
+
+    document.documentElement.style.setProperty('--citadel-page-hero-image', `url("${heroImage}")`);
+    document.body?.classList.add('has-citadel-article-thumb', 'has-citadel-featured-hero');
+  };
+
+  const ensureFigure = (article, item, imageUrl) => {
+    const thumbnail = normalizeAssetUrl(imageUrl || item?.thumbnail || item?.thumb || fallbackImage());
     if (!thumbnail) return null;
 
     let figure = article.querySelector(FEATURED_SELECTOR) || article.querySelector('.article-featured-figure');
@@ -112,11 +130,14 @@
     if (!article) return;
 
     const item = currentRegistryItem(items) || {};
-    const figure = ensureFigure(article, item);
+    const imageUrl = item?.thumbnail || item?.thumb || fallbackImage();
+
+    ensureHeroBackground(imageUrl);
+
+    const figure = ensureFigure(article, item, imageUrl);
     if (!figure) return;
 
-    document.documentElement.style.removeProperty('--citadel-page-hero-image');
-    document.body?.classList.add('has-citadel-article-thumb', 'has-citadel-featured-image');
+    document.body?.classList.add('has-citadel-featured-image');
     article.dataset.citadelFeaturedImageReady = 'true';
   };
 
