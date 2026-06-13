@@ -142,7 +142,7 @@ const hasMojibake = (html) => mojibakePatterns.some((re) => {
   return re.test(html);
 });
 
-const internalNoteRe = /(?:TODO|FIXME|INTERNAL|DRAFT|research-status|article-status|publication-status|do not publish|private note)/i;
+const internalNoteRe = /(?:\bTODO\b|\bFIXME\b|\bINTERNAL\b|\bDRAFT\b|research-status|article-status|publication-status|do not publish|private note)/i;
 const lastUpdatedRe = /(?:Last\s+updated\s+on|article-last-updated|Updated\s+\d{1,2}\s+[A-Z][a-z]+\s+\d{4}|Updated\s+\d{1,2}\/\d{1,2}\/\d{4})/i;
 const referencesRe = /(?:<h2[^>]*>\s*(?:References|Sources|Legal Sources)|class=["'][^"']*references-list\b|References\s*\/\s*Sources)/i;
 const disclaimerRe = /(?:disclaimer|not\s+legal\s+advice|general\s+information|for\s+informational\s+purposes)/i;
