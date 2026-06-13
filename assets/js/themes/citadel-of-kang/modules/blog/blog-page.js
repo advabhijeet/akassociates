@@ -14,7 +14,7 @@
   const ROOT_SELECTOR = '[data-citadel-blog-page]';
   const SECTION_SELECTOR = '[data-citadel-blog-section]';
   const DEFAULT_SECTION_LIMIT = 3;
-  const DEFAULT_PAGE_SIZE = 10;
+  const DEFAULT_PAGE_SIZE = 25;
 
   let currentPage = 1;
   let resultsMode = null;
@@ -442,7 +442,7 @@
 
     if (ui.status) {
       const label = root()?.dataset.blogLabel || root()?.dataset.citadelBlogLabel || 'Articles';
-      ui.status.textContent = `Showing default ${label} view. Each section shows the latest 3 articles.`;
+      ui.status.textContent = `Showing default ${label} view. The full directory is shown first; section blocks below remain grouped by topic.`;
     }
   };
 
