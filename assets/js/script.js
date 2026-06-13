@@ -321,7 +321,7 @@ window.ChambersInsightsRegistryReady = Promise.resolve(window.chambersInsightsRe
     });
 
   const assetPrefix = window.location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
-  const registryUrl = assetPrefix + 'assets/data/insights-registry.json?v=registry-2';
+  const registryUrl = assetPrefix + 'assets/data/insights-registry.json?v=registry-3';
 
   window.ChambersInsightsRegistryReady = loadRegistryAsync(registryUrl);
 })();
@@ -525,7 +525,7 @@ document.addEventListener('chambers:insights-registry-ready', hydrateInsightCard
   const page = document.querySelector('[data-citadel-blog-page]');
   if (!page || window.CitadelBlogPage) return;
 
-  const scriptId = 'citadel-blog-page-v1';
+  const scriptId = 'citadel-blog-page-v2';
   if (document.getElementById(scriptId)) return;
 
   const assetPrefix = window.location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
