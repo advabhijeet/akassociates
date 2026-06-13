@@ -321,7 +321,7 @@ window.ChambersInsightsRegistryReady = Promise.resolve(window.chambersInsightsRe
     });
 
   const assetPrefix = window.location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
-  const registryUrl = assetPrefix + 'assets/data/insights-registry.json?v=registry-5';
+  const registryUrl = assetPrefix + 'assets/data/insights-registry.json?v=registry-6';
 
   window.ChambersInsightsRegistryReady = loadRegistryAsync(registryUrl);
 })();
@@ -532,7 +532,7 @@ document.addEventListener('chambers:insights-registry-ready', hydrateInsightCard
   const script = document.createElement('script');
 
   script.id = scriptId;
-  script.src = `${assetPrefix}assets/js/themes/citadel-of-kang/modules/blog/blog-page.js?v=blog-page-v3`;
+  script.src = `${assetPrefix}assets/js/themes/citadel-of-kang/modules/blog/blog-page.js?v=blog-page-v4`;
   script.defer = true;
   document.body.appendChild(script);
 })();

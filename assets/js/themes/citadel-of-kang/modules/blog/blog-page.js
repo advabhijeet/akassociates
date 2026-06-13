@@ -14,7 +14,7 @@
   const ROOT_SELECTOR = '[data-citadel-blog-page]';
   const SECTION_SELECTOR = '[data-citadel-blog-section]';
   const DEFAULT_SECTION_LIMIT = 3;
-  const DEFAULT_PAGE_SIZE = 25;
+  const DEFAULT_PAGE_SIZE = 10;
 
   let currentPage = 1;
   let resultsMode = null;
