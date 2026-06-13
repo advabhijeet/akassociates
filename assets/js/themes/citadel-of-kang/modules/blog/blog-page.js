@@ -442,7 +442,7 @@
 
     if (ui.status) {
       const label = root()?.dataset.blogLabel || root()?.dataset.citadelBlogLabel || 'Articles';
-      ui.status.textContent = `Showing default ${label} view. The full directory is shown first; section blocks below remain grouped by topic.`;
+      ui.status.textContent = `Showing default ${label} view. Each section shows the latest 3 articles.`;
     }
   };
 
