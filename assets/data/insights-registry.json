@@ -326,7 +326,8 @@
       "Limitation",
       "Demand Notice",
       "Section 138"
-    ]
+    ],
+    "thumbnail": "assets/img/citadel/citadel-thumb-cheque-ni-act.webp"
   },
   {
     "href": "updates/rera-delayed-possession-bihar.html",
@@ -340,7 +341,8 @@
       "Delayed Possession",
       "Refund",
       "Interest"
-    ]
+    ],
+    "thumbnail": "assets/img/citadel/citadel-thumb-rera-property.webp"
   },
   {
     "href": "updates/commercial-suit-documents-checklist.html",
@@ -355,7 +357,8 @@
       "Contracts",
       "Invoices",
       "Limitation"
-    ]
+    ],
+    "thumbnail": "assets/img/citadel/citadel-thumb-commercial-recovery.webp"
   },
   {
     "href": "updates/property-injunction-suit-documents.html",
@@ -369,7 +372,8 @@
       "Civil Suit",
       "Documents",
       "Possession"
-    ]
+    ],
+    "thumbnail": "assets/img/citadel/citadel-thumb-rera-property.webp"
   },
   {
     "href": "updates/section-34-arbitration-award-challenge.html",
