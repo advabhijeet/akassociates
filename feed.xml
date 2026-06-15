@@ -1,64 +1,210 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Chambers of AK Legal Insights</title>
-    <link>https://chambersofak.in/legal-updates.html</link>
-    <description>Informational legal insights from Chambers of AK on constitutional law, criminal law, arbitration, commercial recovery, property, RERA, MSME and civil litigation matters.</description>
-    <language>en-IN</language>
-    <lastBuildDate>Sun, 24 May 2026 00:00:00 +0530</lastBuildDate>
-    <atom:link href="https://chambersofak.in/feed.xml" rel="self" type="application/rss+xml" />
-    <managingEditor>chambersofakadmin@gmail.com (Chambers of AK)</managingEditor>
-    <webMaster>chambersofakadmin@gmail.com (Chambers of AK)</webMaster>
-    <copyright>2026 Chambers of AK - Advocates &amp; Legal Consultants</copyright>
-    <category>Legal Insights</category>
-    <ttl>1440</ttl>
-    <item>
-      <title>PMLA Cognizance After BNSS: Pre-Hearing Rule</title>
-      <link>https://chambersofak.in/updates/pmla-complaint-pre-cognizance-hearing-bnss.html</link>
-      <guid isPermaLink="true">https://chambersofak.in/updates/pmla-complaint-pre-cognizance-hearing-bnss.html</guid>
-      <pubDate>Thu, 21 May 2026 00:00:00 +0530</pubDate>
-      <category>Criminal Law</category>
-      <description>Legal explainer on pre-cognizance hearing of accused in PMLA complaints when cognizance is taken after BNSS came into force.</description>
-    </item>
-    <item>
-      <title>Section 34 Arbitration Limitation: 3 Months + 30 Days Rule</title>
-      <link>https://chambersofak.in/updates/section-34-arbitration-limitation-3-months-30-days.html</link>
-      <guid isPermaLink="true">https://chambersofak.in/updates/section-34-arbitration-limitation-3-months-30-days.html</guid>
-      <pubDate>Wed, 20 May 2026 00:00:00 +0530</pubDate>
-      <category>Arbitration</category>
-      <description>Practical guide to Section 34 arbitration limitation, calendar-month counting, court holidays, delay condonation and recent Supreme Court cases.</description>
-    </item>
-    <item>
-      <title>UAPA Bail, Section 43D(5) and Article 21</title>
-      <link>https://chambersofak.in/updates/uapa-bail-section-43d5-supreme-court-2026.html</link>
-      <guid isPermaLink="true">https://chambersofak.in/updates/uapa-bail-section-43d5-supreme-court-2026.html</guid>
-      <pubDate>Wed, 20 May 2026 00:00:00 +0530</pubDate>
-      <category>Criminal Law</category>
-      <description>Updated legal analysis of UAPA bail, Section 43D(5), Article 21, Watali, K.A. Najeeb, Gulfisha Fatima and Syed Iftikhar Andrabi.</description>
-    </item>
-    <item>
-      <title>Sabarimala Case: 9-Judge Bench 2026 Explained</title>
-      <link>https://chambersofak.in/updates/sabarimala-case-9-judge-bench-2026.html</link>
-      <guid isPermaLink="true">https://chambersofak.in/updates/sabarimala-case-9-judge-bench-2026.html</guid>
-      <pubDate>Tue, 19 May 2026 00:00:00 +0530</pubDate>
-      <category>Constitutional Law</category>
-      <description>Explainer on the Sabarimala case, 2018 judgment, review reference and nine-judge Bench hearings reserved on 14 May 2026.</description>
-    </item>
-    <item>
-      <title>Arbitration Notice Before Claim</title>
-      <link>https://chambersofak.in/updates/arbitration-notice-before-claim.html</link>
-      <guid isPermaLink="true">https://chambersofak.in/updates/arbitration-notice-before-claim.html</guid>
-      <pubDate>Sat, 16 May 2026 00:00:00 +0530</pubDate>
-      <category>Arbitration</category>
-      <description>Clause-first guide to Section 21 invocation, limitation, appointment procedure, interim relief and document preparation before arbitration begins.</description>
-    </item>
-    <item>
-      <title>Property Title Search Before Purchase in India</title>
-      <link>https://chambersofak.in/updates/property-title-search-before-purchase-india.html</link>
-      <guid isPermaLink="true">https://chambersofak.in/updates/property-title-search-before-purchase-india.html</guid>
-      <pubDate>Wed, 13 May 2026 00:00:00 +0530</pubDate>
-      <category>Property</category>
-      <description>Document-first guide to title-chain, revenue, municipal, encumbrance and litigation checks before buying property in India.</description>
-    </item>
-  </channel>
+<rss version="2.0">
+<channel>
+  <title>Chambers of AK Legal Updates</title>
+  <link>https://chambersofak.in/legal-updates.html</link>
+  <description>Legal updates, procedural guides, case notes and document checklists from Chambers of AK.</description>
+  <language>en-IN</language>
+  <lastBuildDate>Mon, 15 Jun 2026 15:35:24 GMT</lastBuildDate>
+  <item>
+    <title>PMLA Cognizance After BNSS: Pre-Hearing Rule</title>
+    <link>https://chambersofak.in/updates/pmla-complaint-pre-cognizance-hearing-bnss.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/pmla-complaint-pre-cognizance-hearing-bnss.html</guid>
+    <description>Legal explainer on pre-cognizance hearing of accused in PMLA complaints when cognizance is taken after BNSS came into force.</description>
+    <category>Criminal Law</category>
+    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Section 34 Arbitration Limitation: 3 Months + 30 Days Rule</title>
+    <link>https://chambersofak.in/updates/section-34-arbitration-limitation-3-months-30-days.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/section-34-arbitration-limitation-3-months-30-days.html</guid>
+    <description>Practical guide to Section 34 arbitration limitation, calendar-month counting, court holidays, delay condonation and recent Supreme Court cases.</description>
+    <category>Arbitration</category>
+    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>UAPA Bail, Section 43D(5) and Article 21</title>
+    <link>https://chambersofak.in/updates/uapa-bail-section-43d5-supreme-court-2026.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/uapa-bail-section-43d5-supreme-court-2026.html</guid>
+    <description>Updated legal analysis of UAPA bail, Section 43D(5), Article 21, Watali, K.A. Najeeb, Gulfisha Fatima and Syed Iftikhar Andrabi.</description>
+    <category>Criminal Law</category>
+    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Sabarimala Case: 9-Judge Bench 2026 Explained</title>
+    <link>https://chambersofak.in/updates/sabarimala-case-9-judge-bench-2026.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/sabarimala-case-9-judge-bench-2026.html</guid>
+    <description>Detailed explainer on the Sabarimala case, the 2018 judgment, the review reference and the nine-judge Bench hearings reserved on 14 May 2026.</description>
+    <category>Constitutional Law</category>
+    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Arbitration notice before claim</title>
+    <link>https://chambersofak.in/updates/arbitration-notice-before-claim.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/arbitration-notice-before-claim.html</guid>
+    <description>Clause-first guide to Section 21 invocation, limitation, appointment procedure, interim relief and document preparation before arbitration begins.</description>
+    <category>Procedure Note</category>
+    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Property title search before purchase in India</title>
+    <link>https://chambersofak.in/updates/property-title-search-before-purchase-india.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/property-title-search-before-purchase-india.html</guid>
+    <description>Document-first guide to title-chain, revenue, municipal, encumbrance and litigation checks before buying property in India.</description>
+    <category>Checklist</category>
+    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Can non-reportable judgments be published online?</title>
+    <link>https://chambersofak.in/updates/non-reportable-judgments-online-publication-case-brief.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/non-reportable-judgments-online-publication-case-brief.html</guid>
+    <description>Gujarat High Court case brief on non-reportable judgments, online publication and public court records.</description>
+    <category>Case Brief</category>
+    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>SARFAESI auction sale challenge: documents and Rule 9(4) timeline</title>
+    <link>https://chambersofak.in/updates/sarfaesi-auction-sale-challenge-documents.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/sarfaesi-auction-sale-challenge-documents.html</guid>
+    <description>Supreme Court case brief on auction-sale finality, balance consideration, redemption and DRT/DRAT records.</description>
+    <category>Case Brief</category>
+    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Summary judgment in commercial suits under Order XIII-A CPC</title>
+    <link>https://chambersofak.in/updates/summary-judgment-commercial-suits-order-xiii-a.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/summary-judgment-commercial-suits-order-xiii-a.html</guid>
+    <description>Supreme Court case brief on pleadings, documents, real prospect test and mini-trial caution.</description>
+    <category>Case Brief</category>
+    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>MSME Facilitation Council process for delayed payments</title>
+    <link>https://chambersofak.in/updates/msme-facilitation-council-process.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/msme-facilitation-council-process.html</guid>
+    <description>Udyam records, invoices, 45-day issue, conciliation, arbitration, interest and enforcement preparation.</description>
+    <category>Procedure Note</category>
+    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Cheque bounce case after summons: defence preparation</title>
+    <link>https://chambersofak.in/updates/cheque-bounce-defence-after-summons.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/cheque-bounce-defence-after-summons.html</guid>
+    <description>Complaint papers, summons, notice proof, liability review, settlement and court-stage preparation.</description>
+    <category>Practical Guide</category>
+    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>MSME delayed payment documents checklist</title>
+    <link>https://chambersofak.in/updates/msme-documents-checklist.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/msme-documents-checklist.html</guid>
+    <description>Udyam records, invoice-wise summaries, purchase orders, delivery proof, ledgers and communications.</description>
+    <category>Checklist</category>
+    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Before filing a commercial recovery suit</title>
+    <link>https://chambersofak.in/updates/commercial-recovery-before-suit.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/commercial-recovery-before-suit.html</guid>
+    <description>Contract clauses, invoice ledgers, limitation, pre-filing issues and dispute records.</description>
+    <category>Practical Guide</category>
+    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Delayed possession: refund or interest?</title>
+    <link>https://chambersofak.in/updates/rera-refund-interest-delayed-possession.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/rera-refund-interest-delayed-possession.html</guid>
+    <description>Relief selection, project documents, possession timelines and forum location in RERA disputes.</description>
+    <category>Practical Guide</category>
+    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Arbitration clause checklist before a dispute</title>
+    <link>https://chambersofak.in/updates/arbitration-clause-checklist.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/arbitration-clause-checklist.html</guid>
+    <description>Seat, venue, appointment, notice, interim relief, enforcement and papers to preserve.</description>
+    <category>Checklist</category>
+    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Cheque bounce: 30-day notice timeline</title>
+    <link>https://chambersofak.in/updates/cheque-bounce-30-days.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/cheque-bounce-30-days.html</guid>
+    <description>A practical date-chart approach for cheque dishonour notices, limitation and complaint preparation.</description>
+    <category>Practical Guide</category>
+    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>MSME delayed payment claims: first review</title>
+    <link>https://chambersofak.in/updates/msme-delayed-payment.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/msme-delayed-payment.html</guid>
+    <description>How to organize invoices, Udyam records, delivery proof and buyer communications for MSME delayed payment claims.</description>
+    <category>Practical Guide</category>
+    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Bihar RERA complaint preparation</title>
+    <link>https://chambersofak.in/updates/bihar-rera-complaint.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/bihar-rera-complaint.html</guid>
+    <description>A document-first approach to delayed possession, refund, interest and builder dispute complaints.</description>
+    <category>Practical Guide</category>
+    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Cheque bounce notice and limitation</title>
+    <link>https://chambersofak.in/updates/cheque-bounce-notice-limitation.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/cheque-bounce-notice-limitation.html</guid>
+    <description>Key dates to track before filing or defending a Section 138 cheque bounce complaint.</description>
+    <category>Procedure Note</category>
+    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>MSME 45-day payment rule</title>
+    <link>https://chambersofak.in/updates/msme-45-days-payment-rule.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/msme-45-days-payment-rule.html</guid>
+    <description>Document and date preparation for MSME delayed payment claims and buyer responses.</description>
+    <category>Legal Update</category>
+    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Section 138 cheque bounce limitation</title>
+    <link>https://chambersofak.in/updates/section-138-cheque-bounce-limitation.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/section-138-cheque-bounce-limitation.html</guid>
+    <description>Limitation, demand notice and complaint timelines in cheque dishonour matters.</description>
+    <category>Procedure Note</category>
+    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>RERA delayed possession in Bihar</title>
+    <link>https://chambersofak.in/updates/rera-delayed-possession-bihar.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/rera-delayed-possession-bihar.html</guid>
+    <description>Refund, interest and possession relief considerations in delayed possession matters.</description>
+    <category>Practical Guide</category>
+    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Commercial suit documents checklist</title>
+    <link>https://chambersofak.in/updates/commercial-suit-documents-checklist.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/commercial-suit-documents-checklist.html</guid>
+    <description>Contracts, invoices, ledger records, notices, admissions, limitation and forum-preparation checklist for business recovery.</description>
+    <category>Checklist</category>
+    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Property injunction suit documents</title>
+    <link>https://chambersofak.in/updates/property-injunction-suit-documents.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/property-injunction-suit-documents.html</guid>
+    <description>Possession, title, site photographs, notices and urgent-court preparation in property injunction suits.</description>
+    <category>Checklist</category>
+    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>Section 34 arbitration award challenge</title>
+    <link>https://chambersofak.in/updates/section-34-arbitration-award-challenge.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/section-34-arbitration-award-challenge.html</guid>
+    <description>Limitation, grounds, record preparation and court-stage considerations for award challenges.</description>
+    <category>Procedure Note</category>
+    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+  </item>
+</channel>
 </rss>
