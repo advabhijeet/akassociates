@@ -25,15 +25,7 @@ const APPROVED_NON_INDEXABLE = new Map([
       reason: 'Approved noindex regional RERA duplicate until rewritten as a unique hub.',
       canonical: 'https://chambersofak.in/services/rera-lawyer-patna.html'
     }
-  ],
-  [
-    'services/rera-lawyer-gurugram.html',
-    {
-      reason: 'Approved noindex RERA duplicate until unique Gurugram page is rewritten.',
-      canonical: 'https://chambersofak.in/practice/rera-property.html'
-    }
-  ]
-]);
+  ],]);
 
 const errors = [];
 const warnings = [];
