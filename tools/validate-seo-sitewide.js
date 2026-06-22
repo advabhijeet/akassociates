@@ -18,13 +18,6 @@ const APPROVED_NON_INDEXABLE = new Map([
       reason: 'Intentional noindex redirect stub to Delhi NCR MSME service page.',
       canonical: 'https://chambersofak.in/services/msme-recovery-lawyer-delhi-ncr.html'
     }
-  ],
-  [
-    'services/rera-lawyer-bihar-up-delhi-ncr.html',
-    {
-      reason: 'Approved noindex regional RERA duplicate until rewritten as a unique hub.',
-      canonical: 'https://chambersofak.in/services/rera-lawyer-patna.html'
-    }
   ],]);
 
 const errors = [];
