@@ -23,6 +23,17 @@ const APPROVED_NON_INDEXABLE = new Map([
 const errors = [];
 const warnings = [];
 
+const RERA_LEGALSERVICE_REQUIRED = new Set([
+  'practice/rera-property.html',
+  'services/rera-lawyer-patna.html',
+  'services/rera-lawyer-noida.html',
+  'services/rera-lawyer-gurugram.html',
+  'services/rera-lawyer-bihar-up-delhi-ncr.html',
+  'services/rera-refund-interest-lawyer.html',
+  'services/rera-delayed-possession-lawyer.html'
+]);
+
+
 function rel(file) {
   return file.replace(ROOT + path.sep, '').replace(/\\/g, '/');
 }
@@ -259,6 +270,19 @@ for (const file of htmlFiles) {
   }
 
   if (/href=["'][^"']*\/index\.html(?:[#?][^"']*)?["']/i.test(html)) {
+
+  if (RERA_LEGALSERVICE_REQUIRED.has(relPath) && isIndexable(html, relPath)) {
+    const reraJsonLd = flattenJsonLd(getJsonLdBlocks(html));
+    const hasLegalService = reraJsonLd.some((item) => {
+      const type = item['@type'];
+      return type === 'LegalService' || (Array.isArray(type) && type.includes('LegalService'));
+    });
+
+    if (!hasLegalService) {
+      errors.push(`${relPath}: RERA page missing LegalService JSON-LD.`);
+    }
+  }
+
     errors.push(`${relPath}: internal link points to /index.html.`);
   }
 
