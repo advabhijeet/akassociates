@@ -271,6 +271,19 @@ for (const file of htmlFiles) {
 
   if (/href=["'][^"']*\/index\.html(?:[#?][^"']*)?["']/i.test(html)) {
 
+
+  if (relPath.startsWith('services/') && isIndexable(html, relPath)) {
+    const serviceJsonLd = flattenJsonLd(getJsonLdBlocks(html));
+    const hasServiceLegalService = serviceJsonLd.some((item) => {
+      const type = item['@type'];
+      return type === 'LegalService' || (Array.isArray(type) && type.includes('LegalService'));
+    });
+
+    if (!hasServiceLegalService) {
+      errors.push(`${relPath}: indexable service page missing LegalService JSON-LD.`);
+    }
+  }
+
   if (RERA_LEGALSERVICE_REQUIRED.has(relPath) && isIndexable(html, relPath)) {
     const reraJsonLd = flattenJsonLd(getJsonLdBlocks(html));
     const hasLegalService = reraJsonLd.some((item) => {
