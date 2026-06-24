@@ -282,6 +282,24 @@ for (const file of htmlFiles) {
     if (!hasServiceLegalService) {
       errors.push(`${relPath}: indexable service page missing LegalService JSON-LD.`);
     }
+
+    const hasServiceFaqPage = serviceJsonLd.some((item) => {
+      const type = item['@type'];
+      return type === 'FAQPage' || (Array.isArray(type) && type.includes('FAQPage'));
+    });
+
+    if (!hasServiceFaqPage) {
+      errors.push(`${relPath}: indexable service page missing FAQPage JSON-LD.`);
+    }
+
+    const hasServiceBreadcrumbList = serviceJsonLd.some((item) => {
+      const type = item['@type'];
+      return type === 'BreadcrumbList' || (Array.isArray(type) && type.includes('BreadcrumbList'));
+    });
+
+    if (!hasServiceBreadcrumbList) {
+      errors.push(`${relPath}: indexable service page missing BreadcrumbList JSON-LD.`);
+    }
   }
 
   if (RERA_LEGALSERVICE_REQUIRED.has(relPath) && isIndexable(html, relPath)) {
