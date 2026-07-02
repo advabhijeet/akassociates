@@ -321,7 +321,7 @@ window.ChambersInsightsRegistryReady = Promise.resolve(window.chambersInsightsRe
     });
 
   const assetPrefix = window.location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
-  const registryUrl = assetPrefix + 'assets/data/insights-registry.json?v=registry-9';
+  const registryUrl = assetPrefix + 'assets/data/insights-registry.json?v=registry-10';
 
   window.ChambersInsightsRegistryReady = loadRegistryAsync(registryUrl);
 })();
@@ -706,6 +706,9 @@ document.addEventListener('chambers:insights-registry-ready', hydrateInsightCard
 
 // Homepage registry-driven latest insights renderer
 (function () {
+  const homeRegistryVersion = 'registry-10';
+  const renderSource = 'registry-direct-v5';
+
   const normalizeThumbUrl = (thumb) => {
     if (!thumb) return '';
     if (/^(https?:|data:|\/)/i.test(thumb)) return thumb;
@@ -719,66 +722,6 @@ document.addEventListener('chambers:insights-registry-ready', hydrateInsightCard
     if (normalized.includes('procedure')) return 'tag-procedure-note';
     if (normalized.includes('guide')) return 'tag-guide';
     return 'tag-legal-update';
-  };
-
-  const fallbackCard = (item) => {
-    const card = document.createElement('a');
-    card.className = 'update-item update-item-link';
-    card.href = item.href || 'legal-updates.html';
-    card.dataset.category = item.category || '';
-    card.dataset.tags = (item.tags || []).join(', ');
-
-    const thumb = normalizeThumbUrl(item.thumbnail || item.thumb || '');
-    if (thumb) {
-      card.dataset.thumb = thumb;
-      const media = document.createElement('span');
-      media.className = 'insight-card-media';
-      media.setAttribute('aria-hidden', 'true');
-      media.style.backgroundImage = 'url("' + thumb + '")';
-      card.appendChild(media);
-    }
-
-    const badge = document.createElement('span');
-    badge.className = 'update-tag ' + categoryClass(item.category);
-    badge.textContent = item.category || 'Insight';
-    card.appendChild(badge);
-
-    const title = document.createElement('div');
-    title.className = 'update-title';
-    title.textContent = item.title || 'Legal insight';
-    card.appendChild(title);
-
-    const excerpt = document.createElement('div');
-    excerpt.className = 'update-excerpt';
-    excerpt.textContent = item.excerpt || '';
-    card.appendChild(excerpt);
-
-    const date = document.createElement('div');
-    date.className = 'update-date';
-    date.textContent = item.date || '';
-    card.appendChild(date);
-
-    const tags = document.createElement('div');
-    tags.className = 'insight-card-tags';
-    tags.setAttribute('aria-label', 'Article tags');
-    (item.tags || []).slice(0, 4).forEach((tag) => {
-      const span = document.createElement('span');
-      span.textContent = tag;
-      tags.appendChild(span);
-    });
-    card.appendChild(tags);
-
-    return card;
-  };
-
-  const buildCard = (item) => {
-    if (
-      window.ChambersInsightCards &&
-      typeof window.ChambersInsightCards.buildCard === 'function'
-    ) {
-      return window.ChambersInsightCards.buildCard(item);
-    }
-    return fallbackCard(item);
   };
 
   const dateScoreForHomeInsight = (item) => {
@@ -836,9 +779,84 @@ document.addEventListener('chambers:insights-registry-ready', hydrateInsightCard
       .map((entry) => entry.item);
   };
 
-  const renderHomeInsights = (items) => {
+  const buildFallbackCard = (item) => {
+    const card = document.createElement('a');
+    card.className = 'update-item update-item-link home-latest-card';
+    card.href = item.href || 'legal-updates.html';
+    card.dataset.category = item.category || '';
+    card.dataset.tags = (item.tags || []).join(', ');
+    card.dataset.homeLatestCard = 'true';
+
+    const thumb = normalizeThumbUrl(item.thumbnail || item.thumb || '');
+    if (thumb) {
+      card.dataset.thumb = thumb;
+      const media = document.createElement('span');
+      media.className = 'insight-card-media';
+      media.setAttribute('aria-hidden', 'true');
+      media.style.backgroundImage = 'url("' + thumb + '")';
+      card.appendChild(media);
+    }
+
+    const badge = document.createElement('span');
+    badge.className = 'update-tag ' + categoryClass(item.category);
+    badge.textContent = item.category || 'Insight';
+    card.appendChild(badge);
+
+    const title = document.createElement('div');
+    title.className = 'update-title';
+    title.textContent = item.title || 'Legal insight';
+    card.appendChild(title);
+
+    const excerpt = document.createElement('div');
+    excerpt.className = 'update-excerpt';
+    excerpt.textContent = item.excerpt || '';
+    card.appendChild(excerpt);
+
+    const date = document.createElement('div');
+    date.className = 'update-date';
+    date.textContent = item.date || '';
+    card.appendChild(date);
+
+    const tags = document.createElement('div');
+    tags.className = 'insight-card-tags';
+    tags.setAttribute('aria-label', 'Article tags');
+    (item.tags || []).slice(0, 4).forEach((tag) => {
+      const span = document.createElement('span');
+      span.textContent = tag;
+      tags.appendChild(span);
+    });
+    card.appendChild(tags);
+
+    return card;
+  };
+
+  const buildHomeCard = (item) => {
+    let card = null;
+
+    if (
+      window.ChambersInsightCards &&
+      typeof window.ChambersInsightCards.buildCard === 'function'
+    ) {
+      card = window.ChambersInsightCards.buildCard(item);
+      card.classList.add('home-latest-card');
+      card.dataset.homeLatestCard = 'true';
+
+      const media = card.querySelector(':scope > .insight-card-media');
+      if (media && item.thumbnail) {
+        const thumb = normalizeThumbUrl(item.thumbnail);
+        card.dataset.thumb = thumb;
+        media.style.backgroundImage = 'url("' + thumb + '")';
+      }
+
+      return card;
+    }
+
+    return buildFallbackCard(item);
+  };
+
+  const renderHomeLatestGrid = (items) => {
     const grids = document.querySelectorAll('[data-home-insights-auto][data-home-insights-limit]');
-    if (!grids.length) return;
+    if (!grids.length) return false;
 
     const sortedItems = latestHomeItems(items);
 
@@ -847,24 +865,54 @@ document.addEventListener('chambers:insights-registry-ready', hydrateInsightCard
       const selected = sortedItems.slice(0, Number.isFinite(limit) ? limit : 3);
 
       grid.innerHTML = '';
+      grid.dataset.homeLatestRenderedSource = renderSource;
+      grid.dataset.homeLatestRenderedCount = String(selected.length);
+
       selected.forEach((item) => {
-        grid.appendChild(buildCard(item));
+        grid.appendChild(buildHomeCard(item));
       });
     });
+
+    return true;
   };
 
-  const initHomeInsights = () => {
-    const ready = window.ChambersInsightsRegistryReady || Promise.resolve(window.chambersInsightsRegistry || []);
-    ready.then(renderHomeInsights).catch(() => renderHomeInsights(window.chambersInsightsRegistry || []));
+  const loadHomeRegistry = () => {
+    const assetPrefix = window.location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
+    const registryUrl = assetPrefix + 'assets/data/insights-registry.json?v=' + homeRegistryVersion;
+
+    return fetch(registryUrl, { cache: 'no-store' })
+      .then((response) => {
+        if (!response.ok) throw new Error('Homepage registry request failed');
+        return response.json();
+      });
+  };
+
+  const initHomeLatest = () => {
+    if (!document.querySelector('[data-home-insights-auto][data-home-insights-limit]')) return;
+
+    const fallbackRegistry = () => window.chambersInsightsRegistry || window.CitadelArticleRegistry || [];
+
+    loadHomeRegistry()
+      .then((items) => {
+        renderHomeLatestGrid(items);
+        window.ChambersHomeLatestItems = latestHomeItems(items).slice(0, 3);
+        window.ChambersHomeLatestRenderSource = renderSource;
+
+        window.setTimeout(() => renderHomeLatestGrid(items), 350);
+        window.setTimeout(() => renderHomeLatestGrid(items), 1200);
+      })
+      .catch((error) => {
+        console.warn('Homepage latest registry renderer fallback:', error);
+        const fallbackItems = fallbackRegistry();
+        renderHomeLatestGrid(fallbackItems);
+        window.ChambersHomeLatestItems = latestHomeItems(fallbackItems).slice(0, 3);
+        window.ChambersHomeLatestRenderSource = renderSource + '-fallback';
+      });
   };
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initHomeInsights, { once: true });
+    document.addEventListener('DOMContentLoaded', initHomeLatest, { once: true });
   } else {
-    initHomeInsights();
+    initHomeLatest();
   }
-
-  document.addEventListener('chambers:insights-registry-ready', (event) => {
-    renderHomeInsights(event.detail && event.detail.items);
-  });
 })();

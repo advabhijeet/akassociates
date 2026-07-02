@@ -3188,3 +3188,20 @@ body.insights-list-active .insights-category-section {
   background-repeat: no-repeat;
   background-size: contain;
 }
+
+
+/* Citadel homepage latest cards frame fix */
+.home-latest-grid .home-latest-card .insight-card-media,
+.home-latest-grid .update-item .insight-card-media {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 0;
+  height: auto;
+  margin: 0 0 1rem;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  background-color: rgba(var(--rgb-ink), 0.26);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
