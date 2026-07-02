@@ -321,7 +321,7 @@ window.ChambersInsightsRegistryReady = Promise.resolve(window.chambersInsightsRe
     });
 
   const assetPrefix = window.location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
-  const registryUrl = assetPrefix + 'assets/data/insights-registry.json?v=registry-7';
+  const registryUrl = assetPrefix + 'assets/data/insights-registry.json?v=registry-8';
 
   window.ChambersInsightsRegistryReady = loadRegistryAsync(registryUrl);
 })();
