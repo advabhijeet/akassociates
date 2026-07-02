@@ -321,7 +321,7 @@ window.ChambersInsightsRegistryReady = Promise.resolve(window.chambersInsightsRe
     });
 
   const assetPrefix = window.location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
-  const registryUrl = assetPrefix + 'assets/data/insights-registry.json?v=registry-8';
+  const registryUrl = assetPrefix + 'assets/data/insights-registry.json?v=registry-9';
 
   window.ChambersInsightsRegistryReady = loadRegistryAsync(registryUrl);
 })();
@@ -781,15 +781,70 @@ document.addEventListener('chambers:insights-registry-ready', hydrateInsightCard
     return fallbackCard(item);
   };
 
+  const dateScoreForHomeInsight = (item) => {
+    const raw = String(
+      item?.dateModified ||
+      item?.modified ||
+      item?.datePublished ||
+      item?.published ||
+      item?.date ||
+      ''
+    ).trim();
+
+    if (!raw) return 0;
+
+    const parsed = Date.parse(raw);
+    if (!Number.isNaN(parsed)) return parsed;
+
+    const monthMap = {
+      january: 0,
+      february: 1,
+      march: 2,
+      april: 3,
+      may: 4,
+      june: 5,
+      july: 6,
+      august: 7,
+      september: 8,
+      october: 9,
+      november: 10,
+      december: 11
+    };
+
+    const match = raw.toLowerCase().match(/\b(january|february|march|april|may|june|july|august|september|october|november|december)\s+(20\d{2})\b/);
+
+    if (match) {
+      return Date.UTC(Number(match[2]), monthMap[match[1]], 1);
+    }
+
+    return 0;
+  };
+
+  const latestHomeItems = (items) => {
+    const safeItems = Array.isArray(items) ? items.filter((item) => item && item.href && item.title) : [];
+
+    return safeItems
+      .map((item, index) => ({
+        item,
+        index,
+        score: dateScoreForHomeInsight(item)
+      }))
+      .sort((a, b) => {
+        if (b.score !== a.score) return b.score - a.score;
+        return a.index - b.index;
+      })
+      .map((entry) => entry.item);
+  };
+
   const renderHomeInsights = (items) => {
     const grids = document.querySelectorAll('[data-home-insights-auto][data-home-insights-limit]');
     if (!grids.length) return;
 
-    const safeItems = Array.isArray(items) ? items.filter((item) => item && item.href && item.title) : [];
+    const sortedItems = latestHomeItems(items);
 
     grids.forEach((grid) => {
       const limit = Number.parseInt(grid.getAttribute('data-home-insights-limit') || '3', 10);
-      const selected = safeItems.slice(0, Number.isFinite(limit) ? limit : 3);
+      const selected = sortedItems.slice(0, Number.isFinite(limit) ? limit : 3);
 
       grid.innerHTML = '';
       selected.forEach((item) => {
