@@ -3159,3 +3159,21 @@ body.insights-list-active .insights-category-section {
     gap: 1.25rem !important;
   }
 }
+
+/* Citadel article featured image safe-fit */
+.article-featured-figure {
+  margin: 0 0 2rem;
+  border: 1px solid rgba(var(--rgb-ink), 0.12);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--color-white);
+  box-shadow: 0 18px 42px rgba(var(--rgb-ink), 0.08);
+}
+
+.article-featured-figure img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}

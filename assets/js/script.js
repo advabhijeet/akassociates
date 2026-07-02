@@ -702,3 +702,114 @@ document.addEventListener('chambers:insights-registry-ready', hydrateInsightCard
   script.defer = true;
   document.body.appendChild(script);
 })();
+
+
+// Homepage registry-driven latest insights renderer
+(function () {
+  const normalizeThumbUrl = (thumb) => {
+    if (!thumb) return '';
+    if (/^(https?:|data:|\/)/i.test(thumb)) return thumb;
+    return thumb.replace(/^\.\//, '');
+  };
+
+  const categoryClass = (category) => {
+    const normalized = (category || '').toLowerCase();
+    if (normalized.includes('case')) return 'tag-case-brief';
+    if (normalized.includes('checklist')) return 'tag-checklist';
+    if (normalized.includes('procedure')) return 'tag-procedure-note';
+    if (normalized.includes('guide')) return 'tag-guide';
+    return 'tag-legal-update';
+  };
+
+  const fallbackCard = (item) => {
+    const card = document.createElement('a');
+    card.className = 'update-item update-item-link';
+    card.href = item.href || 'legal-updates.html';
+    card.dataset.category = item.category || '';
+    card.dataset.tags = (item.tags || []).join(', ');
+
+    const thumb = normalizeThumbUrl(item.thumbnail || item.thumb || '');
+    if (thumb) {
+      card.dataset.thumb = thumb;
+      const media = document.createElement('span');
+      media.className = 'insight-card-media';
+      media.setAttribute('aria-hidden', 'true');
+      media.style.backgroundImage = 'url("' + thumb + '")';
+      card.appendChild(media);
+    }
+
+    const badge = document.createElement('span');
+    badge.className = 'update-tag ' + categoryClass(item.category);
+    badge.textContent = item.category || 'Insight';
+    card.appendChild(badge);
+
+    const title = document.createElement('div');
+    title.className = 'update-title';
+    title.textContent = item.title || 'Legal insight';
+    card.appendChild(title);
+
+    const excerpt = document.createElement('div');
+    excerpt.className = 'update-excerpt';
+    excerpt.textContent = item.excerpt || '';
+    card.appendChild(excerpt);
+
+    const date = document.createElement('div');
+    date.className = 'update-date';
+    date.textContent = item.date || '';
+    card.appendChild(date);
+
+    const tags = document.createElement('div');
+    tags.className = 'insight-card-tags';
+    tags.setAttribute('aria-label', 'Article tags');
+    (item.tags || []).slice(0, 4).forEach((tag) => {
+      const span = document.createElement('span');
+      span.textContent = tag;
+      tags.appendChild(span);
+    });
+    card.appendChild(tags);
+
+    return card;
+  };
+
+  const buildCard = (item) => {
+    if (
+      window.ChambersInsightCards &&
+      typeof window.ChambersInsightCards.buildCard === 'function'
+    ) {
+      return window.ChambersInsightCards.buildCard(item);
+    }
+    return fallbackCard(item);
+  };
+
+  const renderHomeInsights = (items) => {
+    const grids = document.querySelectorAll('[data-home-insights-auto][data-home-insights-limit]');
+    if (!grids.length) return;
+
+    const safeItems = Array.isArray(items) ? items.filter((item) => item && item.href && item.title) : [];
+
+    grids.forEach((grid) => {
+      const limit = Number.parseInt(grid.getAttribute('data-home-insights-limit') || '3', 10);
+      const selected = safeItems.slice(0, Number.isFinite(limit) ? limit : 3);
+
+      grid.innerHTML = '';
+      selected.forEach((item) => {
+        grid.appendChild(buildCard(item));
+      });
+    });
+  };
+
+  const initHomeInsights = () => {
+    const ready = window.ChambersInsightsRegistryReady || Promise.resolve(window.chambersInsightsRegistry || []);
+    ready.then(renderHomeInsights).catch(() => renderHomeInsights(window.chambersInsightsRegistry || []));
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHomeInsights, { once: true });
+  } else {
+    initHomeInsights();
+  }
+
+  document.addEventListener('chambers:insights-registry-ready', (event) => {
+    renderHomeInsights(event.detail && event.detail.items);
+  });
+})();
