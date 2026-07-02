@@ -3166,7 +3166,8 @@ body.insights-list-active .insights-category-section {
   border: 1px solid rgba(var(--rgb-ink), 0.12);
   border-radius: 4px;
   overflow: hidden;
-  background: var(--color-white);
+  background: rgba(var(--rgb-white), 0.94);
+  padding: 10px;
   box-shadow: 0 18px 42px rgba(var(--rgb-ink), 0.08);
 }
 
@@ -3175,5 +3176,15 @@ body.insights-list-active .insights-category-section {
   width: 100%;
   max-width: 100%;
   height: auto;
+  border-radius: 2px;
   object-fit: contain;
+}
+
+
+/* Citadel insight card thumbnail safe-fit */
+.insight-card-media {
+  background-color: rgba(var(--rgb-white), 0.94);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
