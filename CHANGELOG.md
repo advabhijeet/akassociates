@@ -1,3 +1,11 @@
+## 2026-07-10 IST - Add registry-driven static Insights snapshots
+- Added `tools/sync-static-insight-cards.js` to generate crawlable article cards from the Insights registry.
+- Added static latest-article cards to the homepage and Legal Insights editorial sections.
+- Regenerated the complete static Legal Insights index from the registry.
+- Preserved JavaScript enhancement: live registry renderers replace the static snapshot after page load.
+- Added a GitHub Actions synchronization check so stale static snapshots fail validation.
+- Updated homepage and Legal Insights sitemap modification dates.
+
 ## 2026-07-10 IST - Publish RERA complaint drafting guide
 - Added `updates/rera-complaint-drafting-documents-reliefs.html` using the Citadel article structure.
 - Added complete canonical, Open Graph, Twitter and BlogPosting/Breadcrumb structured-data metadata.

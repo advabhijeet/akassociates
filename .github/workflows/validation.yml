@@ -55,6 +55,7 @@ jobs:
             "assets/js/themes/citadel-of-kang/modules/pages/contact-page.js"
             "assets/js/themes/citadel-of-kang/modules/pages/enquiry-page.js"
             "assets/js/themes/citadel-of-kang/modules/pages/general-content-page.js"
+            "tools/sync-static-insight-cards.js"
             "tools/audit-articles-structure.js"
           )
 
@@ -71,6 +72,9 @@ jobs:
 
       - name: Insights registry validation
         run: node tools/validate-insights-registry.js --strict
+
+      - name: Static Insights synchronization validation
+        run: node tools/sync-static-insight-cards.js --check
 
       - name: Phase 3 article structure audit
         run: node tools/audit-articles-structure.js --strict
