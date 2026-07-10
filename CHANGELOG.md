@@ -1,3 +1,11 @@
+## 2026-07-10 IST - Publish SARFAESI notice reply guide
+- Added `updates/sarfaesi-notice-reply-documents.html` as a document-first Section 13(2) and Section 13(3A) borrower-response guide.
+- Added canonical, Open Graph, Twitter and BlogPosting/Breadcrumb metadata.
+- Used the approved 1200 x 675 SARFAESI notice reply featured image.
+- Added the article to the Insights registry, sitemap and RSS feed.
+- Added a contextual inbound link from the existing SARFAESI auction-sale article.
+- Regenerated the crawlable homepage, Legal Insights cards and complete static article index.
+
 ## 2026-07-10 IST - Add registry-driven static Insights snapshots
 - Added `tools/sync-static-insight-cards.js` to generate crawlable article cards from the Insights registry.
 - Added static latest-article cards to the homepage and Legal Insights editorial sections.
