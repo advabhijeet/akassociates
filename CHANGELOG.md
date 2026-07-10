@@ -1,3 +1,11 @@
+## 2026-07-10 IST - Publish RERA complaint drafting guide
+- Added `updates/rera-complaint-drafting-documents-reliefs.html` using the Citadel article structure.
+- Added complete canonical, Open Graph, Twitter and BlogPosting/Breadcrumb structured-data metadata.
+- Used the approved 1200 x 675 RERA complaint drafting featured image.
+- Added the article to the Insights registry, sitemap and RSS feed.
+- Added contextual internal links from the existing RERA complaint, delayed-possession and promoter-reply guides.
+- Scheduled a live post-publication SEO and visual audit after GitHub Pages deployment.
+
 ## 2026-05-26 IST - Add Phase 2 thumbnail frame consistency module
 - Added `assets/css/themes/citadel-of-kang/modules/thumbnail-frames.css` to standardize insight-card and article-featured thumbnail frames.
 - Updated the Global Shell loader to attach the thumbnail frame CSS module sitewide using cache key `thumbnail-frames-v1`.
