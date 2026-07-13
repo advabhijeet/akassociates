@@ -1,3 +1,12 @@
+## 2026-07-13 IST - Publish commercial contract review checklist
+- Added `updates/commercial-contract-review-checklist.html` as a pre-signing commercial agreement review guide.
+- Covered party identity, authority, scope, acceptance, change control, payment, indemnity, liability, IP, confidentiality, termination, force majeure, execution and dispute clauses.
+- Added canonical, Open Graph, Twitter and BlogPosting/Breadcrumb metadata.
+- Used the approved logo-free 1200 x 675 commercial contract review featured image.
+- Added the article to the Insights registry, sitemap and RSS feed.
+- Added contextual inbound links from the arbitration clause checklist, commercial recovery guide, commercial suit checklist and commercial recovery practice hub.
+- Regenerated crawlable Homepage and Legal Insights snapshots.
+
 ## 2026-07-11 IST - Publish Section 9 arbitration interim relief guide
 - Added `updates/section-9-arbitration-interim-relief.html` as a procedure-focused guide to court interim measures under Section 9.
 - Covered the pre-arbitration 90-day commencement requirement, Section 17 transition, jurisdiction, documents, urgency, security, preservation and appeal framework.
