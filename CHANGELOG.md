@@ -1,3 +1,12 @@
+## 2026-07-11 IST - Publish Section 9 arbitration interim relief guide
+- Added `updates/section-9-arbitration-interim-relief.html` as a procedure-focused guide to court interim measures under Section 9.
+- Covered the pre-arbitration 90-day commencement requirement, Section 17 transition, jurisdiction, documents, urgency, security, preservation and appeal framework.
+- Added canonical, Open Graph, Twitter and BlogPosting/Breadcrumb metadata.
+- Used the approved 1200 x 675 Section 9 featured image.
+- Added the article to the Insights registry, sitemap and RSS feed.
+- Added contextual inbound links from the arbitration notice guide, arbitration clause checklist and arbitration practice hub.
+- Regenerated crawlable Homepage and Legal Insights snapshots.
+
 ## 2026-07-10 IST - Publish SARFAESI notice reply guide
 - Added `updates/sarfaesi-notice-reply-documents.html` as a document-first Section 13(2) and Section 13(3A) borrower-response guide.
 - Added canonical, Open Graph, Twitter and BlogPosting/Breadcrumb metadata.
