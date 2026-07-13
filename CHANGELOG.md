@@ -1,3 +1,9 @@
+## 2026-07-13 IST - Fix Citadel Global Shell asset resolver
+- Restored the missing browser asset-root and asset-URL helpers used by Global Shell.
+- Advanced the Global Shell module cache version to v5 and the public-config bootstrap version to v2.
+- Added validator coverage for the Global Shell resolver contract.
+- Advanced the shared public cache key to `site-20260713-b5h1`.
+
 ## 2026-07-13 IST - Restart and modularize Chambers Citadel
 - Tagged the pre-restart production baseline as `chambers-citadel-v1` at `47e8c6ed07ed2a053a46a39f3779d60fa6059edf`.
 - Added public-safe Citadel configuration and a machine-readable production module manifest.

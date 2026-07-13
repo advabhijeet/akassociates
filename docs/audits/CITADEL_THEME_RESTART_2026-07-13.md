@@ -67,3 +67,15 @@ git diff --check
 ```
 
 Browser smoke checks cover desktop, mobile, light mode, dark mode, Homepage modules and article modules.
+
+## Post-release Global Shell hotfix
+
+The first live CDP verification found that the Global Shell module object loaded but navigation initialization stopped before `initNav()`. The module referenced `assetUrl(...)` while the helper declaration was absent.
+
+The hotfix:
+
+- restores `assetRoot()` and `assetUrl()`;
+- advances Global Shell to `global-shell-v5`;
+- advances the config bootstrap token to `config-v2`;
+- advances the public cache key to `site-20260713-b5h1`;
+- adds validator coverage for the resolver contract.

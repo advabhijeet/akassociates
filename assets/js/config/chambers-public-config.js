@@ -91,9 +91,9 @@
     },
     modules: {
       "globalShell": {
-            "id": "citadel-global-shell-v4",
+            "id": "citadel-global-shell-v5",
             "path": "assets/js/themes/citadel-of-kang/modules/shell/global-shell.js",
-            "version": "global-shell-v4",
+            "version": "global-shell-v5",
             "guard": "CitadelGlobalShell",
             "owner": "Global shell and navigation chrome",
             "activation": "All public pages"

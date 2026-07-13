@@ -1,5 +1,5 @@
 /*
-  Citadel Global Shell module v4.
+  Citadel Global Shell module v5.
   Owns reusable site chrome behaviours: social links, topbar, theme toggle wiring,
   mobile drawer, footer social row, smooth anchors and active nav state.
   Brand/content values can later move to navigation/footer/site-settings registries.
@@ -53,6 +53,8 @@
   };
 
   const assetPrefix = () => (window.location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '');
+  const assetRoot = () => window.ChambersAssetRoot || new URL(assetPrefix(), window.location.href).href;
+  const assetUrl = (assetPath) => new URL(assetPath, assetRoot()).href;
 
   const loadThumbnailFrameStyles = () => {
     const entry = moduleConfig.thumbnailFrames;

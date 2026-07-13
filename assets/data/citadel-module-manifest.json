@@ -14,7 +14,7 @@
       "status": "production",
       "owner": "Public-safe site and module configuration",
       "path": "assets/js/config/chambers-public-config.js",
-      "version": "config-v1",
+      "version": "config-v2",
       "loadedBy": "assets/js/script.js"
     },
     {
@@ -46,9 +46,9 @@
     {
       "key": "globalShell",
       "status": "production",
-      "id": "citadel-global-shell-v4",
+      "id": "citadel-global-shell-v5",
       "path": "assets/js/themes/citadel-of-kang/modules/shell/global-shell.js",
-      "version": "global-shell-v4",
+      "version": "global-shell-v5",
       "guard": "CitadelGlobalShell",
       "owner": "Global shell and navigation chrome",
       "activation": "All public pages",

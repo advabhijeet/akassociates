@@ -192,6 +192,19 @@ for (const migratedValue of [
   }
 }
 
+for (const resolverMarker of [
+  "const assetRoot = () =>",
+  "const assetUrl = (assetPath) =>"
+]) {
+  if (!globalShell.includes(resolverMarker)) {
+    errors.push(`Global Shell asset resolver marker is missing: ${resolverMarker}`);
+  }
+}
+
+if (!globalShell.includes("new URL(assetUrl(entry.path))")) {
+  errors.push("Global Shell does not use the configured asset resolver.");
+}
+
 const enquiryForm = exists("assets/js/themes/citadel-of-kang/modules/forms/enquiry-form.js") ? read("assets/js/themes/citadel-of-kang/modules/forms/enquiry-form.js") : "";
 for (const migratedValue of [
   "rivGZ1UliuSkSgFdm",
