@@ -1,4 +1,4 @@
-/* Citadel thumbnail frame consistency v6. */
+/* Citadel thumbnail frame consistency v7. */
 :root {
   --citadel-thumbnail-ratio: 16 / 9;
   --citadel-thumbnail-bg: rgba(var(--rgb-white), 0.72);
@@ -117,4 +117,20 @@
     width: 0;
     height: 0;
   }
+}
+
+.insight-card-media {
+  position: relative;
+  overflow: hidden;
+  background-image: none !important;
+}
+
+.insight-card-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: var(--citadel-thumbnail-ratio);
+  object-fit: contain;
+  object-position: center;
+  background: var(--citadel-thumbnail-bg);
 }

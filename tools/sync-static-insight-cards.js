@@ -246,7 +246,7 @@ function renderCard(item, indent, eol, options = {}) {
 
   if (thumbnail) {
     lines.push(
-      `${indent}  <span class="insight-card-media" aria-hidden="true" style="background-image: url('${escapeAttribute(thumbnail)}');"></span>`
+      `${indent}  <span class="insight-card-media" aria-hidden="true"><img class="insight-card-image" src="${escapeAttribute(thumbnail)}" alt="" loading="lazy" decoding="async"></span>`
     );
   }
 

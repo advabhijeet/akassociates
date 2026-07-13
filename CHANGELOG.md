@@ -1,3 +1,14 @@
+## 2026-07-13 IST - Optimize article assets and frontend rendering
+- Converted active 1200 x 675 article thumbnails from large PNG files to size-controlled JPEG derivatives and updated registry, article metadata and featured-image references.
+- Backed up original image sources locally before removing them from the active repository.
+- Removed verified unreferenced image variants and the duplicate favicon asset where safe.
+- Replaced CSS-background Insight card media with native lazy image elements in static and dynamic card rendering.
+- Removed the obsolete duplicate Homepage registry renderer.
+- Normalized shared public CSS and JavaScript cache keys to `site-20260713-b3`.
+- Reduced the Global Shell clock from one-second to one-minute updates.
+- Added `tools/validate-public-assets.js` and enabled it in Chambers Validation.
+- Advanced the active roadmap to service-page consolidation.
+
 ## 2026-07-13 IST - Consolidate active documentation and archive stale status notes
 - Rewrote the repository, documentation, roadmap and organization entry points against the July 2026 production state.
 - Reconciled Chambers Citadel v1, active Citadel modules and paused standalone extraction in theme documentation and namespace READMEs.

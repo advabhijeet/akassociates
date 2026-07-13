@@ -115,18 +115,18 @@
   window.sessionStorage.removeItem(storageKey);
 })();
 
-// Citadel Global Shell v2 loader
+// Citadel Global Shell v3 loader
 (function () {
   if (window.CitadelGlobalShell) return;
 
-  const scriptId = 'citadel-global-shell-v2';
+  const scriptId = 'citadel-global-shell-v3';
   if (document.getElementById(scriptId)) return;
 
   const assetPrefix = window.location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
   const script = document.createElement('script');
 
   script.id = scriptId;
-  script.src = `${assetPrefix}assets/js/themes/citadel-of-kang/modules/shell/global-shell.js?v=global-shell-v2`;
+  script.src = `${assetPrefix}assets/js/themes/citadel-of-kang/modules/shell/global-shell.js?v=global-shell-v3`;
   script.defer = true;
   document.body.appendChild(script);
 })();
@@ -380,7 +380,22 @@ window.ChambersInsightCards = (function () {
       card.insertBefore(media, card.firstChild);
     }
 
-    media.style.backgroundImage = `url("${thumb}")`;
+    let image = media.querySelector(':scope > img.insight-card-image');
+    if (!image) {
+      image = document.createElement('img');
+      image.className = 'insight-card-image';
+      image.alt = '';
+      image.loading = 'lazy';
+      image.decoding = 'async';
+      image.draggable = false;
+      media.replaceChildren(image);
+    }
+
+    if (image.getAttribute('src') !== thumb) {
+      image.setAttribute('src', thumb);
+    }
+
+    media.style.backgroundImage = '';
     return media;
   };
 
@@ -701,218 +716,4 @@ document.addEventListener('chambers:insights-registry-ready', hydrateInsightCard
   script.src = `${assetPrefix}assets/js/themes/citadel-of-kang/modules/pages/practice-page.js?v=practice-page-v1`;
   script.defer = true;
   document.body.appendChild(script);
-})();
-
-
-// Homepage registry-driven latest insights renderer
-(function () {
-  const homeRegistryVersion = 'registry-10';
-  const renderSource = 'registry-direct-v5';
-
-  const normalizeThumbUrl = (thumb) => {
-    if (!thumb) return '';
-    if (/^(https?:|data:|\/)/i.test(thumb)) return thumb;
-    return thumb.replace(/^\.\//, '');
-  };
-
-  const categoryClass = (category) => {
-    const normalized = (category || '').toLowerCase();
-    if (normalized.includes('case')) return 'tag-case-brief';
-    if (normalized.includes('checklist')) return 'tag-checklist';
-    if (normalized.includes('procedure')) return 'tag-procedure-note';
-    if (normalized.includes('guide')) return 'tag-guide';
-    return 'tag-legal-update';
-  };
-
-  const dateScoreForHomeInsight = (item) => {
-    const raw = String(
-      item?.dateModified ||
-      item?.modified ||
-      item?.datePublished ||
-      item?.published ||
-      item?.date ||
-      ''
-    ).trim();
-
-    if (!raw) return 0;
-
-    const parsed = Date.parse(raw);
-    if (!Number.isNaN(parsed)) return parsed;
-
-    const monthMap = {
-      january: 0,
-      february: 1,
-      march: 2,
-      april: 3,
-      may: 4,
-      june: 5,
-      july: 6,
-      august: 7,
-      september: 8,
-      october: 9,
-      november: 10,
-      december: 11
-    };
-
-    const match = raw.toLowerCase().match(/\b(january|february|march|april|may|june|july|august|september|october|november|december)\s+(20\d{2})\b/);
-
-    if (match) {
-      return Date.UTC(Number(match[2]), monthMap[match[1]], 1);
-    }
-
-    return 0;
-  };
-
-  const latestHomeItems = (items) => {
-    const safeItems = Array.isArray(items) ? items.filter((item) => item && item.href && item.title) : [];
-
-    return safeItems
-      .map((item, index) => ({
-        item,
-        index,
-        score: dateScoreForHomeInsight(item)
-      }))
-      .sort((a, b) => {
-        if (b.score !== a.score) return b.score - a.score;
-        return a.index - b.index;
-      })
-      .map((entry) => entry.item);
-  };
-
-  const buildFallbackCard = (item) => {
-    const card = document.createElement('a');
-    card.className = 'update-item update-item-link home-latest-card';
-    card.href = item.href || 'legal-updates.html';
-    card.dataset.category = item.category || '';
-    card.dataset.tags = (item.tags || []).join(', ');
-    card.dataset.homeLatestCard = 'true';
-
-    const thumb = normalizeThumbUrl(item.thumbnail || item.thumb || '');
-    if (thumb) {
-      card.dataset.thumb = thumb;
-      const media = document.createElement('span');
-      media.className = 'insight-card-media';
-      media.setAttribute('aria-hidden', 'true');
-      media.style.backgroundImage = 'url("' + thumb + '")';
-      card.appendChild(media);
-    }
-
-    const badge = document.createElement('span');
-    badge.className = 'update-tag ' + categoryClass(item.category);
-    badge.textContent = item.category || 'Insight';
-    card.appendChild(badge);
-
-    const title = document.createElement('div');
-    title.className = 'update-title';
-    title.textContent = item.title || 'Legal insight';
-    card.appendChild(title);
-
-    const excerpt = document.createElement('div');
-    excerpt.className = 'update-excerpt';
-    excerpt.textContent = item.excerpt || '';
-    card.appendChild(excerpt);
-
-    const date = document.createElement('div');
-    date.className = 'update-date';
-    date.textContent = item.date || '';
-    card.appendChild(date);
-
-    const tags = document.createElement('div');
-    tags.className = 'insight-card-tags';
-    tags.setAttribute('aria-label', 'Article tags');
-    (item.tags || []).slice(0, 4).forEach((tag) => {
-      const span = document.createElement('span');
-      span.textContent = tag;
-      tags.appendChild(span);
-    });
-    card.appendChild(tags);
-
-    return card;
-  };
-
-  const buildHomeCard = (item) => {
-    let card = null;
-
-    if (
-      window.ChambersInsightCards &&
-      typeof window.ChambersInsightCards.buildCard === 'function'
-    ) {
-      card = window.ChambersInsightCards.buildCard(item);
-      card.classList.add('home-latest-card');
-      card.dataset.homeLatestCard = 'true';
-
-      const media = card.querySelector(':scope > .insight-card-media');
-      if (media && item.thumbnail) {
-        const thumb = normalizeThumbUrl(item.thumbnail);
-        card.dataset.thumb = thumb;
-        media.style.backgroundImage = 'url("' + thumb + '")';
-      }
-
-      return card;
-    }
-
-    return buildFallbackCard(item);
-  };
-
-  const renderHomeLatestGrid = (items) => {
-    const grids = document.querySelectorAll('[data-home-insights-auto][data-home-insights-limit]');
-    if (!grids.length) return false;
-
-    const sortedItems = latestHomeItems(items);
-
-    grids.forEach((grid) => {
-      const limit = Number.parseInt(grid.getAttribute('data-home-insights-limit') || '3', 10);
-      const selected = sortedItems.slice(0, Number.isFinite(limit) ? limit : 3);
-
-      grid.innerHTML = '';
-      grid.dataset.homeLatestRenderedSource = renderSource;
-      grid.dataset.homeLatestRenderedCount = String(selected.length);
-
-      selected.forEach((item) => {
-        grid.appendChild(buildHomeCard(item));
-      });
-    });
-
-    return true;
-  };
-
-  const loadHomeRegistry = () => {
-    const assetPrefix = window.location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '';
-    const registryUrl = assetPrefix + 'assets/data/insights-registry.json?v=' + homeRegistryVersion;
-
-    return fetch(registryUrl, { cache: 'no-store' })
-      .then((response) => {
-        if (!response.ok) throw new Error('Homepage registry request failed');
-        return response.json();
-      });
-  };
-
-  const initHomeLatest = () => {
-    if (!document.querySelector('[data-home-insights-auto][data-home-insights-limit]')) return;
-
-    const fallbackRegistry = () => window.chambersInsightsRegistry || window.CitadelArticleRegistry || [];
-
-    loadHomeRegistry()
-      .then((items) => {
-        renderHomeLatestGrid(items);
-        window.ChambersHomeLatestItems = latestHomeItems(items).slice(0, 3);
-        window.ChambersHomeLatestRenderSource = renderSource;
-
-        window.setTimeout(() => renderHomeLatestGrid(items), 350);
-        window.setTimeout(() => renderHomeLatestGrid(items), 1200);
-      })
-      .catch((error) => {
-        console.warn('Homepage latest registry renderer fallback:', error);
-        const fallbackItems = fallbackRegistry();
-        renderHomeLatestGrid(fallbackItems);
-        window.ChambersHomeLatestItems = latestHomeItems(fallbackItems).slice(0, 3);
-        window.ChambersHomeLatestRenderSource = renderSource + '-fallback';
-      });
-  };
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initHomeLatest, { once: true });
-  } else {
-    initHomeLatest();
-  }
 })();

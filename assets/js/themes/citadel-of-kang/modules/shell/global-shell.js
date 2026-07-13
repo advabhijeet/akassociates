@@ -1,5 +1,5 @@
 /*
-  Citadel Global Shell module v1.
+  Citadel Global Shell module v3.
   Owns reusable site chrome behaviours: social links, topbar, theme toggle wiring,
   mobile drawer, footer social row, smooth anchors and active nav state.
   Brand/content values can later move to navigation/footer/site-settings registries.
@@ -42,7 +42,6 @@
     year: 'numeric',
     hour: '2-digit',
     minute: '2-digit',
-    second: '2-digit',
     hour12: true,
   });
 
@@ -64,14 +63,14 @@
   const assetPrefix = () => (window.location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '');
 
   const loadThumbnailFrameStyles = () => {
-    const styleId = 'citadel-thumbnail-frames-v5';
+    const styleId = 'citadel-thumbnail-frames-v7';
     if (document.getElementById(styleId)) return;
 
     const link = document.createElement('link');
 
     link.id = styleId;
     link.rel = 'stylesheet';
-    link.href = `${assetPrefix()}assets/css/themes/citadel-of-kang/modules/thumbnail-frames.css?v=thumbnail-frames-v5`;
+    link.href = `${assetPrefix()}assets/css/themes/citadel-of-kang/modules/thumbnail-frames.css?v=thumbnail-frames-v7`;
     document.head.appendChild(link);
   };
 
@@ -351,7 +350,7 @@
   const initLiveClocks = () => {
     if (!document.querySelector('[data-ak-clock]')) return;
     updateLiveClocks();
-    window.setInterval(updateLiveClocks, 1000);
+    window.setInterval(updateLiveClocks, 60000);
   };
 
   const initSmoothAnchors = () => {
