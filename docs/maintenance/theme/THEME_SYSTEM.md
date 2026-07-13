@@ -4,24 +4,49 @@ Last reconciled: **13 July 2026**
 
 ## Current baseline
 
-The public website uses **Chambers Citadel v1**, a Citadel-derived production implementation.
+The public website uses **Chambers Citadel v1.1**.
 
 ```text
-CSS entry: assets/css/style.css
-JS entry:  assets/js/script.js
-
-Active visual theme:
-assets/css/themes/citadel-of-ak.css
-
-Rollback fallback:
-assets/css/themes/chambers-ak.css
+Baseline tag: chambers-citadel-v1
+Public CSS: assets/css/style.css
+Public JS: assets/js/script.js
+Public config: assets/js/config/chambers-public-config.js
+Module manifest: assets/data/citadel-module-manifest.json
 ```
 
-Every public page loads the shared CSS and JavaScript entries. Theme and module behavior should not be reimplemented page-by-page.
+The public bootstrap is now an orchestrator rather than a monolithic implementation.
+
+## Runtime sequence
+
+```text
+assets/js/script.js
+  -> assets/js/config/chambers-public-config.js
+  -> assets/js/runtime/core-runtime.js
+  -> assets/js/runtime/insights-runtime.js
+  -> assets/js/runtime/module-loader.js
+  -> conditionally activated feature modules
+```
+
+The sequence is dependency-ordered. Feature modules read paths and versions from the public config and no-op when relevant markup is absent.
+
+## Public configuration
+
+The config contains only browser-public values:
+
+- canonical host and project-path values;
+- public brand and contact details;
+- public social links;
+- theme names, logo paths and font URL;
+- public conversion-event names;
+- EmailJS public identifiers;
+- Insights registry and fallback artwork paths;
+- module paths, IDs, versions and guards.
+
+It must never contain passwords, private tokens, client or matter data, repository write credentials or payment secrets.
 
 ## Production CSS
 
-Directly imported by `assets/css/style.css`:
+Direct imports:
 
 ```text
 assets/css/themes/citadel-of-ak.css
@@ -29,106 +54,38 @@ assets/css/themes/citadel-of-kang/modules/article-index.css
 assets/css/themes/citadel-of-kang/modules/pills.css
 ```
 
-Dynamically loaded where applicable:
-
-```text
-assets/css/themes/citadel-of-kang/modules/thumbnail-frames.css
-```
-
-The active visual theme owns fonts, colors, surfaces, borders, shadows, light/dark tokens and legacy aliases.
-
-## Production JavaScript
-
-The public bootstrap is:
-
-```text
-assets/js/script.js
-```
-
-It loads or coordinates:
-
-```text
-assets/js/themes/citadel-of-kang/modules/shell/global-shell.js
-assets/js/themes/citadel-of-kang/article-index-direct-rail.js
-assets/js/themes/citadel-of-kang/article-footer.js
-assets/js/themes/citadel-of-kang/modules/articles/article-featured-image.js
-assets/js/themes/citadel-of-kang/modules/sections/latest-insights-section.js
-assets/js/themes/citadel-of-kang/modules/sections/insights-directory-section.js
-assets/js/themes/citadel-of-kang/modules/blog/blog-page.js
-assets/js/themes/citadel-of-kang/modules/forms/enquiry-form.js
-assets/js/themes/citadel-of-kang/modules/pages/home-page.js
-assets/js/themes/citadel-of-kang/modules/pages/practice-page.js
-assets/js/themes/citadel-of-kang/modules/pages/contact-page.js
-assets/js/themes/citadel-of-kang/modules/pages/enquiry-page.js
-assets/js/themes/citadel-of-kang/modules/pages/general-content-page.js
-```
+Global Shell loads the configured thumbnail-frame stylesheet.
 
 ## Theme modes
-
-Supported document themes:
 
 ```text
 data-theme="citadel-of-ak"
 data-theme="citadel-of-ak-dark"
 ```
 
-User preference is persisted in local storage. The theme controller swaps light/dark logo assets and synchronizes desktop and mobile toggles.
+Mode preference remains in local storage. Theme state, logo switching and toggle labels are owned by the core runtime.
 
-## Public/development boundary
+## Production/theme-lab boundary
 
-The repository contains additional Citadel files that are dormant experiments or future extraction material. Their presence does not make them production dependencies.
+Production assets remain under `assets/`. Dormant and duplicate experiments are retained under `docs/theme-lab/runtime-assets/`, which is excluded from GitHub Pages.
 
-Production status is defined by:
+The active machine-readable boundary is `assets/data/citadel-module-manifest.json`.
 
-1. `assets/css/style.css` imports;
-2. `assets/js/script.js` loaders;
-3. `docs/maintenance/theme/CITADEL_PRODUCTION_MODULE_INVENTORY.md`;
-4. GitHub Actions syntax coverage.
+## Rollback
 
-The internal theme reference page is excluded from the public Pages build. Preview files are not public marketing pages.
-
-## Current limitations
-
-- `assets/js/script.js` still owns several transitional responsibilities.
-- Chambers-specific social links, logo paths, analytics events and enquiry values remain embedded in production modules.
-- public-safe config migration is not complete.
-- dormant and production Citadel files share the same broad namespace.
-- cache-version strings are not yet normalized.
-
-These are Theme Restart tasks, not reasons to destabilize the live site during documentation cleanup.
-
-## Change rules
-
-- Keep `assets/css/style.css` and `assets/js/script.js` as public entry points until reviewed replacements exist.
-- Do not remove `assets/css/themes/chambers-ak.css` without a tagged rollback baseline.
-- Add or reuse tokens before hard-coding new visual values.
-- Keep Chambers-specific values documented before standalone extraction.
-- Update cache keys consistently when shared assets change.
-- Run automated validators and desktop/mobile/light/dark smoke checks.
-- Record every theme change in `CHANGELOG.md`.
+The pre-restart production baseline is tagged `chambers-citadel-v1`. Use the safe branch-based process in `docs/maintenance/theme/CITADEL_V1_ROLLBACK.md`; do not force-reset `main` during diagnosis.
 
 ## Validation
 
 ```powershell
-node --check assets/js/script.js
-node --check assets/js/themes/citadel-of-kang/modules/shell/global-shell.js
-node --check assets/js/themes/citadel-of-kang/article-index-direct-rail.js
-node --check assets/js/themes/citadel-of-kang/article-footer.js
+node tools/validate-citadel-runtime.js
+node tools/validate-public-assets.js
 node tools/validate-seo-sitewide.js
 node tools/validate-deployment-boundary.js
 node tools/validate-documentation.js
 git diff --check
 ```
 
-## Next theme step
+## Standalone extraction
 
-After repository, asset and service-page cleanup:
-
-```text
-Tag Chambers Citadel v1.
-Create an active module manifest.
-Separate production and theme-lab files.
-Remove confirmed duplicates.
-Split the bootstrap.
-Resume public-safe configuration and standalone extraction.
-```
+Neutral extraction work resumes under `docs/theme-lab/standalone-extraction/`. Promotion into a standalone repository remains a later controlled phase after reusable modules are separated from Chambers-specific markup and legal-content assumptions.

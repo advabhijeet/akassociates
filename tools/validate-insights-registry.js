@@ -9,6 +9,7 @@ const path = require('path');
 const root = process.cwd();
 const strict = process.argv.includes('--strict');
 const scriptPath = path.join(root, 'assets', 'js', 'script.js');
+const insightsRuntimePath = path.join(root, 'assets', 'js', 'runtime', 'insights-runtime.js');
 const registryPath = path.join(root, 'assets', 'data', 'insights-registry.json');
 const updatesDir = path.join(root, 'updates');
 
@@ -39,6 +40,10 @@ if (!fs.existsSync(scriptPath)) {
   errors.push(`Missing script.js at ${path.relative(root, scriptPath)}`);
 }
 
+if (!fs.existsSync(insightsRuntimePath)) {
+  errors.push(`Missing Insights runtime at ${path.relative(root, insightsRuntimePath)}`);
+}
+
 if (!fs.existsSync(registryPath)) {
   errors.push(`Missing insights registry JSON at ${path.relative(root, registryPath)}`);
 }
@@ -64,8 +69,24 @@ if (fs.existsSync(scriptPath)) {
     errors.push('assets/js/script.js still appears to contain an inline registry object array');
   }
 
-  if (!/ChambersInsightsRegistryReady/.test(script) || !/assets\/data\/insights-registry\.json/.test(script)) {
-    errors.push('assets/js/script.js is missing the JSON registry loader');
+  if (!/assets\/js\/runtime\/insights-runtime\.js/.test(script)) {
+    errors.push('assets/js/script.js is missing the split Insights runtime dependency');
+  }
+}
+
+if (fs.existsSync(insightsRuntimePath)) {
+  const insightsRuntime = read(insightsRuntimePath);
+
+  if (/window\.chambersInsightsRegistry\s*=\s*\[\s*\{/m.test(insightsRuntime)) {
+    errors.push('assets/js/runtime/insights-runtime.js still appears to contain an inline registry object array');
+  }
+
+  const hasReadyPromise = /ChambersInsightsRegistryReady/.test(insightsRuntime);
+  const hasRegistryPath = /assets\/data\/insights-registry\.json/.test(insightsRuntime);
+  const hasNetworkLoader = /fetch\s*\(/.test(insightsRuntime);
+
+  if (!hasReadyPromise || !hasRegistryPath || !hasNetworkLoader) {
+    errors.push('assets/js/runtime/insights-runtime.js is missing the JSON registry loader');
   }
 }
 

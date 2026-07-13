@@ -19,11 +19,12 @@ Use this file to identify the current instruction source and avoid relying on hi
 | Document | Status |
 |---|---|
 | `docs/maintenance/theme/THEME_SYSTEM.md` | Production |
-| `docs/maintenance/theme/CITADEL_OF_KANG_THEME.md` | Production direction |
+| `docs/maintenance/theme/CITADEL_OF_KANG_THEME.md` | Extraction active |
 | `docs/maintenance/theme/CITADEL_PRODUCTION_MODULE_INVENTORY.md` | Production |
+| `docs/maintenance/theme/CITADEL_V1_ROLLBACK.md` | Production rollback |
 | `docs/maintenance/theme/CITADEL_GLOBAL_SHELL.md` | Production |
 | `docs/maintenance/theme/CITADEL_MODULE_CONTRACTS.md` | Active standard |
-| `docs/maintenance/theme/CITADEL_PUBLIC_CONFIG_SCHEMA.md` | Planned foundation |
+| `docs/maintenance/theme/CITADEL_PUBLIC_CONFIG_SCHEMA.md` | Production configuration |
 | `docs/maintenance/theme/CITADEL_LOCAL_VALIDATION.md` | Active validation |
 | `docs/maintenance/theme/CITADEL_PRODUCTION_FINALIZATION_CHECKLIST.md` | Completed Phase 1 record |
 
@@ -95,6 +96,7 @@ docs/archive/superseded-maintenance/
 docs/archive/status-snapshots/
 docs/archive/monitoring-snapshots/
 docs/archive/historical-planning/
+docs/theme-lab/
 ```
 
 Archived documents are not current operating instructions and are excluded from active-document validation.

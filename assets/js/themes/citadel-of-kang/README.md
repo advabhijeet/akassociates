@@ -2,11 +2,19 @@
 
 Last reconciled: **13 July 2026**
 
-This directory contains both production-loaded Citadel modules and dormant/theme-lab files.
+This public namespace now contains production-active Citadel JavaScript only. Dormant experiments and superseded duplicates were moved to `docs/theme-lab/runtime-assets/`, which is excluded from GitHub Pages deployment.
 
-## Production-active files
+## Public entry and runtime
 
-Loaded through `assets/js/script.js`:
+```text
+assets/js/script.js
+assets/js/config/chambers-public-config.js
+assets/js/runtime/core-runtime.js
+assets/js/runtime/insights-runtime.js
+assets/js/runtime/module-loader.js
+```
+
+## Production feature modules
 
 ```text
 article-index-direct-rail.js
@@ -24,26 +32,17 @@ modules/sections/insights-directory-section.js
 modules/shell/global-shell.js
 ```
 
-The exact inventory is maintained in `docs/maintenance/theme/CITADEL_PRODUCTION_MODULE_INVENTORY.md`.
+The machine-readable source of truth is `assets/data/citadel-module-manifest.json`.
 
-## Dormant/theme-lab files
+## Ownership rules
 
-Files such as `core.js`, `navigation.js`, `article-index.js`, `reading-time.js` and `reading-progress.js` are not production dependencies unless the public bootstrap explicitly loads them.
+- `assets/js/script.js` only orchestrates dependency-ordered runtime loading.
+- Core runtime owns canonical redirect, theme state, conversion tracking and reveal behavior.
+- Insights runtime owns the registry, legacy-filter compatibility and card helpers.
+- Module loader owns conditional feature-module loading and version lookup.
+- Global Shell owns navigation chrome and article featured-image/style handoff.
+- Each feature module must no-op safely when its required markup is absent.
 
-Do not infer production status from directory location alone.
+## Standalone boundary
 
-## Module rules
-
-Production or future reusable modules must:
-
-- activate through explicit markup/config or a safe feature test;
-- no-op safely when required markup is absent;
-- avoid private credentials and client/matter data;
-- document Chambers-specific values;
-- support keyboard, focus and reduced-motion requirements;
-- avoid unnecessary global listeners and repeated DOM work;
-- pass syntax and repository validation.
-
-## Current boundary
-
-This is still a Chambers production namespace, not a clean standalone distribution. Standalone extraction is paused until production and theme-lab files are separated and a module manifest exists.
+This remains a Chambers production implementation. Reusable extraction work resumes from `docs/theme-lab/standalone-extraction/`; no private credentials, client data or repository write capability may enter the public runtime.

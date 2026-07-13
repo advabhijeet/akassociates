@@ -1,11 +1,16 @@
 /*
-  Citadel Enquiry/Form module v1.
+  Citadel Enquiry/Form module v2.
   Owns copy-to-clipboard enquiry templates and structured contact/case enquiry form behaviour.
   This keeps form logic out of the global script and prepares Contact/Enquiry templates.
 */
 (function () {
   const MODULE_NAME = 'CitadelEnquiryForm';
   if (window[MODULE_NAME]?.initialized) return;
+
+  const publicConfig = window.ChambersPublicConfig || {};
+  const contactConfig = publicConfig.contact || {};
+  const integrationConfig = publicConfig.integrations || {};
+
   window[MODULE_NAME] = { initialized: true };
 
 // Case enquiry copy-to-clipboard templates
@@ -67,11 +72,7 @@
   const form = document.querySelector('[data-contact-dynamic-form]');
   if (!form) return;
 
-  const emailJsConfig = {
-    publicKey: 'rivGZ1UliuSkSgFdm',
-    serviceId: 'chambersofak',
-    templateId: 'contactformtempid'
-  };
+  const emailJsConfig = integrationConfig.emailjs || {};
 
   const matterSelect = form.querySelector('[data-matter-type]');
   const matterGroups = Array.from(form.querySelectorAll('[data-matter-fields]'));
@@ -156,15 +157,16 @@
 
   const buildWhatsAppComposeUrl = (message) => {
     const params = new URLSearchParams({ text: message });
-    return `https://wa.me/919471214118?${params.toString()}`;
+    const number = contactConfig.whatsappNumber || '';
+    return `https://wa.me/${number}?${params.toString()}`;
   };
 
   const buildGmailComposeUrl = (message) => {
     const composeParams = new URLSearchParams({
       view: 'cm',
       fs: '1',
-      to: 'chambersofakadmin@gmail.com',
-      su: 'Chambers of AK - Structured Enquiry',
+      to: contactConfig.email || '',
+      su: contactConfig.enquirySubject || 'Structured Enquiry',
       body: message
     });
 

@@ -2,75 +2,36 @@
 
 Last reconciled: **13 July 2026**
 
-Citadel of Kang is the reusable frontend direction derived from the Chambers of AK production implementation.
+Citadel of Kang is the reusable frontend direction proven through the Chambers of AK production implementation.
 
 ## Status
 
 ```text
-Chambers Citadel v1: production
-Reusable Citadel modules: partially production-proven
-Standalone Citadel package: paused
+Chambers Citadel v1 baseline: tagged
+Chambers Citadel v1.1 runtime: production
+Reusable Citadel modules: production-proven inside Chambers
+Standalone extraction: resumed in theme lab
 Citadel Manager / CMS: planned
 Client Portal: separate future product
 ```
 
-The Chambers repository remains the production website and current proving ground. It is not yet a clean distributable Citadel package.
-
-## Product boundary
-
-```text
-Chambers of AK
-  Public legal website, content, branding, analytics and enquiry operations.
-
-Citadel of Kang
-  Public frontend theme and reusable module system.
-
-Citadel Manager
-  Future authenticated/local content and configuration manager.
-
-Client Portal
-  Separate secure matter/document product.
-```
-
-Citadel frontend files must not contain private credentials, client/matter data, repository write tokens or fake frontend-only access control.
-
-## Production reality
-
-Current public entries:
+## Production architecture
 
 ```text
 assets/css/style.css
 assets/js/script.js
+assets/js/config/chambers-public-config.js
+assets/js/runtime/core-runtime.js
+assets/js/runtime/insights-runtime.js
+assets/js/runtime/module-loader.js
+assets/data/citadel-module-manifest.json
 ```
 
-Current Chambers theme:
-
-```text
-assets/css/themes/citadel-of-ak.css
-```
-
-Production Citadel module families:
-
-```text
-Global Shell
-Article Index
-Article Footer
-article featured image
-thumbnail frames
-pills/tags
-Insights registry/cards
-latest Insights
-Insights directory
-blog page
-contact/enquiry behavior
-semantic page modules
-```
-
-See `docs/maintenance/theme/CITADEL_PRODUCTION_MODULE_INVENTORY.md` for exact files.
+The public bootstrap is dependency-ordered and declarative. Feature modules are enabled by markup/route conditions and read their public paths and versions from configuration.
 
 ## Reusable-design rules
 
-A reusable Citadel module should be:
+A reusable Citadel module must be:
 
 1. configurable;
 2. safe to disable;
@@ -78,51 +39,45 @@ A reusable Citadel module should be:
 4. accessible;
 5. performance-conscious;
 6. free of private data;
-7. explicit about Chambers-specific overrides;
-8. covered by validation and manual smoke checks.
+7. explicit about implementation-specific overrides;
+8. covered by automated validation and browser smoke tests.
 
-## Chambers-specific implementation currently present
+## Chambers implementation boundary
 
-The following must be generalized before standalone extraction:
+Public Chambers values now live in `assets/js/config/chambers-public-config.js`. Reusable modules should consume those values rather than embedding social URLs, contact details, canonical-host assumptions or public integration identifiers.
+
+Legal-site-specific copy, route taxonomy, article data and analytics semantics still require neutral adapters before standalone distribution.
+
+## Theme-lab boundary
+
+Dormant experiments and superseded duplicates are retained under:
 
 ```text
-Chambers social URLs
-Chambers logo paths
-chambersofak.in redirect logic
-GTM/dataLayer event naming
-EmailJS public integration values
-Chambers article routes/default thumbnails
-legal-site-specific labels and copy
+docs/theme-lab/runtime-assets/
 ```
 
-## Paused extraction work
+Neutral extraction planning and sample configuration are under:
 
-Standalone extraction is paused while the repository completes:
+```text
+docs/theme-lab/standalone-extraction/
+```
 
-1. documentation consolidation;
-2. asset/performance cleanup;
-3. service-page consolidation;
-4. active module-manifest creation;
-5. production/theme-lab separation;
-6. bootstrap modularization;
-7. public-safe configuration.
+Neither path is part of the public Pages artifact.
 
 ## Extraction target
 
 A future standalone repository may contain:
 
-```text
-neutral tokens and theme variants
-reusable CSS/JS modules
-module contracts
-activation/no-op examples
-neutral demonstrations
-accessibility and performance checks
-versioning and licensing notes
-```
+- neutral tokens and theme variants;
+- reusable CSS and JavaScript modules;
+- module contracts and a manifest;
+- activation/no-op examples;
+- public-safe configuration samples;
+- accessibility, performance and visual-smoke checks;
+- versioning and licensing notes.
 
-It must exclude Chambers legal content, contact details, analytics identifiers, sitemap/feed files and private operational material.
+It must exclude Chambers legal content, private operational material, repository credentials and client or matter information.
 
 ## Change boundary
 
-Do not rename, split or relocate active production files merely to match an ideal future directory tree. Migration must be controlled, validated and independently reversible.
+Production promotion remains controlled and independently reversible. The pre-restart baseline is tagged `chambers-citadel-v1`; rollback instructions are in `docs/maintenance/theme/CITADEL_V1_ROLLBACK.md`.

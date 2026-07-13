@@ -43,6 +43,10 @@ jobs:
 
           files=(
             "assets/js/script.js"
+            "assets/js/config/chambers-public-config.js"
+            "assets/js/runtime/core-runtime.js"
+            "assets/js/runtime/insights-runtime.js"
+            "assets/js/runtime/module-loader.js"
             "assets/js/themes/citadel-of-kang/modules/shell/global-shell.js"
             "assets/js/themes/citadel-of-kang/article-index-direct-rail.js"
             "assets/js/themes/citadel-of-kang/article-footer.js"
@@ -62,6 +66,7 @@ jobs:
             "tools/validate-documentation.js"
             "tools/validate-public-assets.js"
             "tools/validate-service-consolidation.js"
+            "tools/validate-citadel-runtime.js"
           )
 
           for file in "${files[@]}"; do
@@ -98,6 +103,9 @@ jobs:
 
       - name: Service-page consolidation validation
         run: node tools/validate-service-consolidation.js
+
+      - name: Citadel runtime validation
+        run: node tools/validate-citadel-runtime.js
 
       - name: Whitespace validation
         run: git diff --check

@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = process.cwd();
-const CACHE_KEY = "site-20260713-b3";
+const CACHE_KEY = "site-20260713-b5";
 const MAX_THUMBNAIL_BYTES = 450 * 1024;
 const errors = [];
 const warnings = [];
@@ -179,6 +179,10 @@ for (const relPath of htmlFiles) {
 
 for (const required of [
   "assets/js/script.js",
+  "assets/js/config/chambers-public-config.js",
+  "assets/js/runtime/core-runtime.js",
+  "assets/js/runtime/insights-runtime.js",
+  "assets/js/runtime/module-loader.js",
   "assets/js/themes/citadel-of-kang/modules/shell/global-shell.js",
   "assets/css/themes/citadel-of-kang/modules/thumbnail-frames.css",
   "tools/sync-static-insight-cards.js"
@@ -189,12 +193,25 @@ for (const required of [
 }
 
 const productionScript = read("assets/js/script.js");
-if (productionScript.includes("Homepage registry-driven latest insights renderer")) {
+const insightsRuntime = read("assets/js/runtime/insights-runtime.js");
+
+if (insightsRuntime.includes("Homepage registry-driven latest insights renderer")) {
   errors.push("Duplicate legacy Homepage renderer is still present.");
 }
 
-if (!productionScript.includes("img.insight-card-image")) {
-  errors.push("Native card-image hydration is missing from assets/js/script.js.");
+if (!insightsRuntime.includes("img.insight-card-image")) {
+  errors.push("Native card-image hydration is missing from the Insights runtime.");
+}
+
+for (const bootstrapPath of [
+  "assets/js/config/chambers-public-config.js",
+  "assets/js/runtime/core-runtime.js",
+  "assets/js/runtime/insights-runtime.js",
+  "assets/js/runtime/module-loader.js"
+]) {
+  if (!productionScript.includes(bootstrapPath)) {
+    errors.push(`Public bootstrap is missing runtime dependency: ${bootstrapPath}`);
+  }
 }
 
 const globalShell = read("assets/js/themes/citadel-of-kang/modules/shell/global-shell.js");

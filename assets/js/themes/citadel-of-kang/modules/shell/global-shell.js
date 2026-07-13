@@ -1,5 +1,5 @@
 /*
-  Citadel Global Shell module v3.
+  Citadel Global Shell module v4.
   Owns reusable site chrome behaviours: social links, topbar, theme toggle wiring,
   mobile drawer, footer social row, smooth anchors and active nav state.
   Brand/content values can later move to navigation/footer/site-settings registries.
@@ -8,19 +8,11 @@
   const MODULE_NAME = 'CitadelGlobalShell';
   if (window[MODULE_NAME]?.initialized) return;
 
-  const socialLinks = [
-    {
-      label: 'Firm LinkedIn',
-      href: 'https://www.linkedin.com/company/chambersofak',
-      icon: 'linkedin',
-    },
-    {
-      label: 'WhatsApp Channel',
-      href: 'https://whatsapp.com/channel/0029VbCmf6M9sBIHqiTPIz33',
-      icon: 'whatsapp',
-      modifier: 'is-channel',
-    },
-  ];
+  const publicConfig = window.ChambersPublicConfig || {};
+  const siteConfig = publicConfig.site || {};
+  const moduleConfig = publicConfig.modules || {};
+
+  const socialLinks = Array.isArray(publicConfig.social) ? publicConfig.social : [];
 
   const socialIconSvg = {
     linkedin: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.6 8.7V19H3.2V8.7h3.4zm.2-3.2c0 1-.7 1.7-1.9 1.7-1.1 0-1.8-.7-1.8-1.7 0-1 .7-1.8 1.9-1.8 1.1 0 1.8.7 1.8 1.8zM20.8 12.7V19h-3.4v-5.9c0-1.5-.5-2.5-1.8-2.5-1 0-1.5.6-1.8 1.3-.1.2-.1.6-.1.9V19h-3.4V8.7h3.4v1.5c.4-.7 1.3-1.8 3.2-1.8 2.4 0 4 1.5 4 4.3z"/></svg>',
@@ -34,8 +26,8 @@
     return `<a class="ak-social-icon${modifier}" href="${link.href}" target="_blank" rel="noopener" aria-label="${link.label}" title="${link.label}">${icon}<span class="sr-only">${link.label}</span></a>`;
   }).join('');
 
-  const clockFormatter = new Intl.DateTimeFormat('en-IN', {
-    timeZone: 'Asia/Kolkata',
+  const clockFormatter = new Intl.DateTimeFormat(siteConfig.locale || 'en-IN', {
+    timeZone: siteConfig.timeZone || 'Asia/Kolkata',
     weekday: 'short',
     day: '2-digit',
     month: 'short',
@@ -50,7 +42,7 @@
     const formatted = clockFormatter.format(now).replace(/\s+/g, ' ');
 
     document.querySelectorAll('[data-ak-clock]').forEach((clock) => {
-      clock.textContent = `Patna, India ${formatted}`;
+      clock.textContent = `${siteConfig.locationLabel || 'Local time'} ${formatted}`;
       clock.setAttribute('dateTime', now.toISOString());
     });
   };
@@ -63,27 +55,33 @@
   const assetPrefix = () => (window.location.pathname.split('/').filter(Boolean).length > 1 ? '../' : '');
 
   const loadThumbnailFrameStyles = () => {
-    const styleId = 'citadel-thumbnail-frames-v7';
-    if (document.getElementById(styleId)) return;
+    const entry = moduleConfig.thumbnailFrames;
+    if (!entry?.id || !entry?.path) return;
+    if (document.getElementById(entry.id)) return;
 
     const link = document.createElement('link');
-
-    link.id = styleId;
+    link.id = entry.id;
     link.rel = 'stylesheet';
-    link.href = `${assetPrefix()}assets/css/themes/citadel-of-kang/modules/thumbnail-frames.css?v=thumbnail-frames-v7`;
+    const styleUrl = new URL(assetUrl(entry.path));
+    styleUrl.searchParams.set('v', entry.version || publicConfig.release || '1');
+    link.href = styleUrl.href;
     document.head.appendChild(link);
   };
 
   const loadArticleFeaturedImageModule = () => {
     if (!document.querySelector('article.article-body, article.ck-article, article[data-citadel-article-index]')) return;
-    if (window.CitadelArticleFeaturedImage) return;
 
-    const scriptId = 'citadel-article-featured-image-v1';
-    if (document.getElementById(scriptId)) return;
+    const entry = moduleConfig.articleFeaturedImage;
+    if (!entry?.id || !entry?.path) return;
+    if (entry.guard && window[entry.guard]) return;
+    if (document.getElementById(entry.id)) return;
 
     const script = document.createElement('script');
-    script.id = scriptId;
-    script.src = `${assetPrefix()}assets/js/themes/citadel-of-kang/modules/articles/article-featured-image.js?v=article-featured-image-v1`;
+    script.id = entry.id;
+    const moduleUrl = new URL(assetUrl(entry.path));
+    moduleUrl.searchParams.set('v', entry.version || publicConfig.release || '1');
+    script.src = moduleUrl.href;
+    script.async = false;
     script.defer = true;
     document.body.appendChild(script);
   };
@@ -118,7 +116,7 @@
       topBar = document.createElement('div');
       topBar.className = 'site-topbar';
       topBar.innerHTML = `
-        <div class="topbar-label">Chambers of AK</div>
+        <div class="topbar-label">${siteConfig.name || "Site"}</div>
         <div class="topbar-actions">
           <div class="ak-social topbar-social" aria-label="Social links">${createSocialLinksMarkup()}</div>
           ${createThemeToggleMarkup()}

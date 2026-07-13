@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "1.0.0",
+  "release": "citadel-sample-0.1.0",
+  "canonical": {
+    "origin": "https://example.com",
+    "host": "example.com",
+    "duplicateHost": "",
+    "projectPath": ""
+  },
+  "site": {
+    "name": "Example Site",
+    "locale": "en",
+    "timeZone": "UTC",
+    "locationLabel": "UTC"
+  },
+  "contact": {
+    "phoneDisplay": "",
+    "whatsappNumber": "",
+    "email": "",
+    "enquirySubject": "Website Enquiry"
+  },
+  "social": [],
+  "theme": {
+    "selected": "citadel",
+    "defaultMode": "light",
+    "allowedPreviewThemes": [
+      "citadel",
+      "citadel-dark"
+    ],
+    "previewStorageKey": "citadelThemePreview",
+    "modeStorageKey": "citadelColorMode",
+    "lightThemeName": "citadel",
+    "darkThemeName": "citadel-dark",
+    "lightThemeColor": "#111111",
+    "darkThemeColor": "#000000",
+    "fontsUrl": "",
+    "logos": {
+      "navDark": "",
+      "heroDark": ""
+    }
+  },
+  "analytics": {
+    "conversionEvents": {}
+  },
+  "integrations": {
+    "emailjs": {
+      "publicKey": "",
+      "serviceId": "",
+      "templateId": ""
+    }
+  },
+  "insights": {
+    "registryPath": "",
+    "registryVersion": "1",
+    "thumbnailBase": "",
+    "defaultThumbnail": "",
+    "defaultDate": "",
+    "fallbackThumbnails": {}
+  },
+  "modules": {}
+}

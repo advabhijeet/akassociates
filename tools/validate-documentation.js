@@ -17,6 +17,8 @@ const CORE_DOCS = [
   "docs/maintenance/theme/THEME_SYSTEM.md",
   "docs/maintenance/theme/CITADEL_OF_KANG_THEME.md",
   "docs/maintenance/theme/CITADEL_PRODUCTION_MODULE_INVENTORY.md",
+  "docs/maintenance/theme/CITADEL_PUBLIC_CONFIG_SCHEMA.md",
+  "docs/maintenance/theme/CITADEL_V1_ROLLBACK.md",
   "docs/maintenance/publishing/CHAMBERS_ARTICLE_AND_SOCIAL_GUIDELINES.md",
   "assets/css/themes/citadel-of-kang/README.md",
   "assets/js/themes/citadel-of-kang/README.md",
@@ -222,12 +224,12 @@ const jsThemeReadme = "assets/js/themes/citadel-of-kang/README.md";
 if (exists(jsThemeReadme)) {
   const content = read(jsThemeReadme);
 
-  if (!content.includes("Production-active files")) {
-    errors.push(`${jsThemeReadme}: production-active file section missing.`);
+  if (!content.includes("production-active Citadel JavaScript only")) {
+    errors.push(`${jsThemeReadme}: production-only namespace statement missing.`);
   }
 
-  if (content.includes("Not currently loaded by assets/js/script.js")) {
-    errors.push(`${jsThemeReadme}: obsolete non-live statement remains.`);
+  if (content.includes("Dormant/theme-lab files")) {
+    errors.push(`${jsThemeReadme}: obsolete mixed-namespace section remains.`);
   }
 }
 
@@ -235,12 +237,12 @@ const cssThemeReadme = "assets/css/themes/citadel-of-kang/README.md";
 if (exists(cssThemeReadme)) {
   const content = read(cssThemeReadme);
 
-  if (!content.includes("Production-active CSS")) {
-    errors.push(`${cssThemeReadme}: production-active CSS section missing.`);
+  if (!content.includes("production-active Citadel CSS only")) {
+    errors.push(`${cssThemeReadme}: production-only namespace statement missing.`);
   }
 
-  if (content.includes("Not currently imported by assets/css/style.css")) {
-    errors.push(`${cssThemeReadme}: obsolete non-live statement remains.`);
+  if (content.includes("Dormant/theme-lab CSS")) {
+    errors.push(`${cssThemeReadme}: obsolete mixed-namespace section remains.`);
   }
 }
 
@@ -270,6 +272,7 @@ if (exists(roadmapPath)) {
     "Repository Cleanup Batch 2",
     "Repository Cleanup Batch 3",
     "Repository Cleanup Batch 4",
+    "Repository Cleanup Batch 5",
     "Citadel Theme Restart",
   ]) {
     if (!content.includes(required)) {

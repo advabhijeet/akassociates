@@ -136,39 +136,37 @@ Completed on 13 July 2026.
 - differentiated Noida/UP RERA and Gurugram/HRERA pages using authority-specific portal and record checks;
 - added service-page consolidation validation to CI.
 
-## Current phase
-
 ### Repository Cleanup Batch 5 — Citadel Theme Restart
 
-Goals:
+Completed on 13 July 2026.
 
-1. tag the current baseline as `Chambers Citadel v1`;
-2. create an active production-module manifest;
-3. separate production modules from dormant theme-lab code;
-4. remove confirmed duplicate legacy implementations;
-5. split the monolithic bootstrap into explicit modules;
-6. normalize public configuration and module versioning;
-7. resume standalone Citadel extraction.
+- tagged the pre-restart production baseline as `chambers-citadel-v1`;
+- created public-safe configuration and a machine-readable production module manifest;
+- split the public JavaScript bootstrap into config, core, Insights and loader runtimes;
+- centralized feature-module paths, IDs and versions;
+- migrated Global Shell and enquiry integration values into public configuration;
+- moved 18 dormant or duplicate files outside the public asset tree;
+- retained the previous Chambers theme as a documented rollback fallback;
+- resumed neutral standalone extraction work under `docs/theme-lab/standalone-extraction/`;
+- added Citadel runtime validation to GitHub Actions.
 
-Completion condition:
+## Current phase
 
-```text
-Every production module has one documented owner and entry point.
-Dormant experiments are outside the public runtime tree.
-Duplicate legacy implementations are removed or explicitly retained.
-The Chambers baseline has a release tag and rollback note.
-All validators and visual checks pass.
-```
+### Content Resumption Checkpoint
+
+1. inspect Search Console coverage after deployment-boundary and service consolidation changes;
+2. confirm the three consolidated service URLs are being recrawled toward their retained canonicals;
+3. review Core Web Vitals after thumbnail and runtime optimization;
+4. confirm no runtime or theme-lab asset errors appear in browser and Pages logs;
+5. resume the controlled Article 6–10 publishing run.
 
 ## Next phases
 
-### Content resumption checkpoint
+### Controlled Article 6–10 Run
 
-After Batches 4 and 5:
-
-1. run Search Console and indexing review;
-2. confirm service-page consolidation;
-3. resume the controlled Article 6–10 run;
+1. publish one article at a time through the established validation workflow;
+2. use topic-specific, logo-free 1200 × 675 artwork;
+3. maintain registry, sitemap, RSS and structured-data parity;
 4. pause after Article 10 for indexing, cannibalisation and internal-link analysis.
 
 ## SEO and reachability track

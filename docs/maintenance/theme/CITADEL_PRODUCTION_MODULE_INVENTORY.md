@@ -2,94 +2,83 @@
 
 Last updated: **13 July 2026**
 
-This document records production reality for Chambers Citadel v1. A file is production-active only when it is imported or loaded through the public CSS/JavaScript entry points.
+This document records production reality for **Chambers Citadel v1.1** after Theme Restart.
+
+## Release baseline
+
+```text
+Baseline tag:    chambers-citadel-v1
+Baseline commit: 47e8c6ed07ed2a053a46a39f3779d60fa6059edf
+Current release: chambers-citadel-1.1.0
+```
+
+The baseline tag points to the last pre-restart production state. Rollback instructions are maintained in `docs/maintenance/theme/CITADEL_V1_ROLLBACK.md`.
 
 ## Public entry points
 
 ```text
 CSS: assets/css/style.css
 JS:  assets/js/script.js
+Config: assets/js/config/chambers-public-config.js
+Manifest: assets/data/citadel-module-manifest.json
 ```
 
-## Active production inventory
+## Runtime ownership
 
-| Layer/module | Status | Current file(s) | Notes |
-|---|---|---|---|
-| Shared layout/components | Production | `assets/css/style.css` | Public CSS entry and shared rules |
-| Chambers Citadel theme | Production | `assets/css/themes/citadel-of-ak.css` | Active light/dark Chambers theme |
-| Rollback theme | Fallback | `assets/css/themes/chambers-ak.css` | Retain until tagged baseline and rollback process exist |
-| Article Index CSS | Production | `assets/css/themes/citadel-of-kang/modules/article-index.css` | Rail, responsive index and progress states |
-| Pills/tags CSS | Production | `assets/css/themes/citadel-of-kang/modules/pills.css` | Shared category/tag presentation |
-| Thumbnail frames | Production | `assets/css/themes/citadel-of-kang/modules/thumbnail-frames.css` | Loaded by Global Shell |
-| Public bootstrap | Production | `assets/js/script.js` | Theme, registry, analytics and module loaders |
-| Global Shell | Production | `assets/js/themes/citadel-of-kang/modules/shell/global-shell.js` | Topbar, drawer, footer social, nav behavior |
-| Article Index | Production | `assets/js/themes/citadel-of-kang/article-index-direct-rail.js` | Direct-H2 index and reading progress |
-| Article Footer | Production | `assets/js/themes/citadel-of-kang/article-footer.js` | Tags, previous/next and recommendations |
-| Featured image | Production | `assets/js/themes/citadel-of-kang/modules/articles/article-featured-image.js` | Article image handling |
-| Latest Insights | Production | `assets/js/themes/citadel-of-kang/modules/sections/latest-insights-section.js` | Homepage/latest cards |
-| Insights Directory | Production | `assets/js/themes/citadel-of-kang/modules/sections/insights-directory-section.js` | Registry-driven directory sections |
-| Blog controller | Production | `assets/js/themes/citadel-of-kang/modules/blog/blog-page.js` | Filters, search, pagination and editorial sections |
-| Enquiry/Form | Production, Chambers layer | `assets/js/themes/citadel-of-kang/modules/forms/enquiry-form.js` | Includes Chambers integration values |
-| Homepage semantics | Production | `assets/js/themes/citadel-of-kang/modules/pages/home-page.js` | Page hooks |
-| Practice semantics | Production | `assets/js/themes/citadel-of-kang/modules/pages/practice-page.js` | Practice/service hooks |
-| Contact semantics | Production | `assets/js/themes/citadel-of-kang/modules/pages/contact-page.js` | Contact hooks |
-| Enquiry semantics | Production | `assets/js/themes/citadel-of-kang/modules/pages/enquiry-page.js` | Enquiry hooks |
-| General-content semantics | Production | `assets/js/themes/citadel-of-kang/modules/pages/general-content-page.js` | FAQ/process/policy hooks |
-| Registry/card helper | Production, embedded | `assets/js/script.js`, `assets/data/insights-registry.json` | Transitional embedded implementation |
-| Theme controller | Production, embedded | `assets/js/script.js` | Light/dark mode and logo switching |
-| Conversion events | Production, embedded | `assets/js/script.js` | Chambers GTM/dataLayer behavior |
-| Reveal helper | Production, embedded | `assets/js/script.js` | Homepage reveal behavior |
+| Runtime | Owner | Path |
+|---|---|---|
+| Bootstrap | Dependency-ordered runtime loading only | `assets/js/script.js` |
+| Public config | Public identity, contact, theme, analytics, integration and module values | `assets/js/config/chambers-public-config.js` |
+| Core runtime | Canonical redirect, theme state, conversion events and reveal behavior | `assets/js/runtime/core-runtime.js` |
+| Insights runtime | Registry loading, compatibility filter and card helpers | `assets/js/runtime/insights-runtime.js` |
+| Module loader | Conditional feature-module activation and version lookup | `assets/js/runtime/module-loader.js` |
 
-## Dormant/theme-lab inventory
+## Production feature modules
 
-The following files may be useful for future extraction but are not current production dependencies unless an active entry point begins loading them:
+| Module | Owner | Path |
+|---|---|---|
+| Global Shell | Navigation chrome, mobile drawer, social row and clock | `assets/js/themes/citadel-of-kang/modules/shell/global-shell.js` |
+| Article Index | Direct-H2 index rail and reading progress | `assets/js/themes/citadel-of-kang/article-index-direct-rail.js` |
+| Article Footer | Tags, previous/next and recommended reads | `assets/js/themes/citadel-of-kang/article-footer.js` |
+| Featured Image | Article featured-image handling | `assets/js/themes/citadel-of-kang/modules/articles/article-featured-image.js` |
+| Latest Insights | Homepage latest cards | `assets/js/themes/citadel-of-kang/modules/sections/latest-insights-section.js` |
+| Insights Directory | Directory section rendering | `assets/js/themes/citadel-of-kang/modules/sections/insights-directory-section.js` |
+| Blog controller | Filters, search and pagination | `assets/js/themes/citadel-of-kang/modules/blog/blog-page.js` |
+| Enquiry/Form | Copy and structured enquiry behavior | `assets/js/themes/citadel-of-kang/modules/forms/enquiry-form.js` |
+| Homepage semantics | Homepage hooks | `assets/js/themes/citadel-of-kang/modules/pages/home-page.js` |
+| Practice semantics | Practice and service hooks | `assets/js/themes/citadel-of-kang/modules/pages/practice-page.js` |
+| Contact semantics | Contact hooks | `assets/js/themes/citadel-of-kang/modules/pages/contact-page.js` |
+| Enquiry semantics | Case-enquiry hooks | `assets/js/themes/citadel-of-kang/modules/pages/enquiry-page.js` |
+| General-content semantics | FAQ/process/policy hooks | `assets/js/themes/citadel-of-kang/modules/pages/general-content-page.js` |
+
+## Production CSS
+
+| Layer | Path |
+|---|---|
+| Shared rules | `assets/css/style.css` |
+| Chambers Citadel theme | `assets/css/themes/citadel-of-ak.css` |
+| Article Index | `assets/css/themes/citadel-of-kang/modules/article-index.css` |
+| Pills/tags | `assets/css/themes/citadel-of-kang/modules/pills.css` |
+| Thumbnail frames | `assets/css/themes/citadel-of-kang/modules/thumbnail-frames.css` |
+| Rollback fallback | `assets/css/themes/chambers-ak.css` |
+
+## Theme-lab boundary
+
+The former dormant and duplicate files no longer sit in the public asset tree. They are retained under:
 
 ```text
-assets/js/themes/citadel-of-kang/core.js
-assets/js/themes/citadel-of-kang/navigation.js
-assets/js/themes/citadel-of-kang/article-index.js
-assets/js/themes/citadel-of-kang/reading-time.js
-assets/js/themes/citadel-of-kang/reading-progress.js
-assets/js/themes/citadel/article-index.js
-
-assets/css/themes/citadel-of-kang/index.css
-assets/css/themes/citadel-of-kang/tokens.css
-assets/css/themes/citadel-of-kang/core.css
-assets/css/themes/citadel-of-kang/layout.css
-assets/css/themes/citadel-of-kang/typography.css
-assets/css/themes/citadel-of-kang/navigation.css
-assets/css/themes/citadel-of-kang/footer.css
-assets/css/themes/citadel-of-kang/components.css
-assets/css/themes/citadel-of-kang/pages.css
-assets/css/themes/citadel-of-kang/modules/reading-time.css
-assets/css/themes/citadel-of-kang/modules/reading-progress.css
-assets/css/themes/citadel/modules/article-index.css
+docs/theme-lab/runtime-assets/
 ```
 
-Do not delete these during documentation consolidation. Relocation/removal requires Theme Restart comparison and smoke testing.
+The machine-readable manifest records every original path, archive path and classification.
 
-## Chambers-specific flags
+## Promotion rule
 
-Generalize before standalone extraction:
+A new Citadel module is production-active only when:
 
-- social URLs and labels in Global Shell;
-- logo paths and canonical redirect logic;
-- GTM/dataLayer event names;
-- EmailJS and contact values;
-- Chambers route/default-thumbnail assumptions;
-- law-firm-specific labels.
-
-## Validation coverage
-
-GitHub Actions syntax-checks active JavaScript files and runs article, registry, static-sync, structure, SEO, deployment-boundary and documentation validators.
-
-## Next inventory step
-
-During Theme Restart:
-
-1. create a machine-readable module manifest;
-2. identify one owner for each behavior;
-3. move dormant/theme-lab code outside the public asset tree;
-4. remove confirmed duplicates;
-5. split embedded bootstrap responsibilities;
-6. tag the production baseline.
+1. it exists in the public runtime tree;
+2. it is listed in `assets/data/citadel-module-manifest.json`;
+3. it has one documented owner;
+4. its path and version exist in public configuration where applicable;
+5. GitHub Actions syntax-checks it;
+6. `tools/validate-citadel-runtime.js` passes.

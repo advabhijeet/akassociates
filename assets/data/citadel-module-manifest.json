@@ -1,0 +1,334 @@
+{
+  "schemaVersion": "1.0.0",
+  "release": "chambers-citadel-1.1.0",
+  "baselineTag": "chambers-citadel-v1",
+  "baselineCommit": "47e8c6ed07ed2a053a46a39f3779d60fa6059edf",
+  "publicEntryPoints": {
+    "css": "assets/css/style.css",
+    "javascript": "assets/js/script.js",
+    "publicConfig": "assets/js/config/chambers-public-config.js"
+  },
+  "runtimeModules": [
+    {
+      "key": "publicConfig",
+      "status": "production",
+      "owner": "Public-safe site and module configuration",
+      "path": "assets/js/config/chambers-public-config.js",
+      "version": "config-v1",
+      "loadedBy": "assets/js/script.js"
+    },
+    {
+      "key": "coreRuntime",
+      "status": "production",
+      "owner": "Canonical redirect, theme, conversion and reveal behavior",
+      "path": "assets/js/runtime/core-runtime.js",
+      "version": "core-runtime-v1",
+      "loadedBy": "assets/js/script.js"
+    },
+    {
+      "key": "insightsRuntime",
+      "status": "production",
+      "owner": "Insights registry, compatibility filter and card helpers",
+      "path": "assets/js/runtime/insights-runtime.js",
+      "version": "insights-runtime-v1",
+      "loadedBy": "assets/js/script.js"
+    },
+    {
+      "key": "moduleLoader",
+      "status": "production",
+      "owner": "Declarative conditional module loading",
+      "path": "assets/js/runtime/module-loader.js",
+      "version": "module-loader-v1",
+      "loadedBy": "assets/js/script.js"
+    }
+  ],
+  "featureModules": [
+    {
+      "key": "globalShell",
+      "status": "production",
+      "id": "citadel-global-shell-v4",
+      "path": "assets/js/themes/citadel-of-kang/modules/shell/global-shell.js",
+      "version": "global-shell-v4",
+      "guard": "CitadelGlobalShell",
+      "owner": "Global shell and navigation chrome",
+      "activation": "All public pages",
+      "loadedBy": "assets/js/runtime/module-loader.js"
+    },
+    {
+      "key": "latestInsights",
+      "status": "production",
+      "id": "citadel-latest-insights-section-v2",
+      "path": "assets/js/themes/citadel-of-kang/modules/sections/latest-insights-section.js",
+      "version": "latest-insights-section-v2",
+      "guard": "CitadelLatestInsights",
+      "owner": "Homepage latest-insights cards",
+      "activation": "[data-citadel-latest-insights] or [data-home-insights-limit]",
+      "loadedBy": "assets/js/runtime/module-loader.js"
+    },
+    {
+      "key": "insightsDirectory",
+      "status": "production",
+      "id": "citadel-insights-directory-section-v3",
+      "path": "assets/js/themes/citadel-of-kang/modules/sections/insights-directory-section.js",
+      "version": "insights-directory-section-v3",
+      "guard": "CitadelInsightsDirectorySection",
+      "owner": "Legal Insights directory sections",
+      "activation": "[data-citadel-insights-directory]",
+      "loadedBy": "assets/js/runtime/module-loader.js"
+    },
+    {
+      "key": "blogPage",
+      "status": "production",
+      "id": "citadel-blog-page-v5",
+      "path": "assets/js/themes/citadel-of-kang/modules/blog/blog-page.js",
+      "version": "blog-page-v5",
+      "guard": "CitadelBlogPage",
+      "owner": "Legal Insights filtering, search and pagination",
+      "activation": "[data-citadel-blog-page]",
+      "loadedBy": "assets/js/runtime/module-loader.js"
+    },
+    {
+      "key": "articleIndex",
+      "status": "production",
+      "id": "citadel-article-index-v23",
+      "path": "assets/js/themes/citadel-of-kang/article-index-direct-rail.js",
+      "version": "article-index-v23",
+      "guard": "",
+      "owner": "Article index rail and reading progress",
+      "activation": "Article with at least three direct H2 headings",
+      "loadedBy": "assets/js/runtime/module-loader.js"
+    },
+    {
+      "key": "articleFooter",
+      "status": "production",
+      "id": "citadel-article-footer-v3",
+      "path": "assets/js/themes/citadel-of-kang/article-footer.js",
+      "version": "article-footer-v3",
+      "guard": "CitadelArticleFooter",
+      "owner": "Article tags, navigation and recommendations",
+      "activation": "article.article-body",
+      "loadedBy": "assets/js/runtime/module-loader.js"
+    },
+    {
+      "key": "enquiryForm",
+      "status": "production",
+      "id": "citadel-enquiry-form-v2",
+      "path": "assets/js/themes/citadel-of-kang/modules/forms/enquiry-form.js",
+      "version": "enquiry-form-v2",
+      "guard": "CitadelEnquiryForm",
+      "owner": "Copy templates and structured enquiry form",
+      "activation": "[data-copy-target] or [data-contact-dynamic-form]",
+      "loadedBy": "assets/js/runtime/module-loader.js"
+    },
+    {
+      "key": "contactPage",
+      "status": "production",
+      "id": "citadel-contact-page-v2",
+      "path": "assets/js/themes/citadel-of-kang/modules/pages/contact-page.js",
+      "version": "contact-page-v2",
+      "guard": "CitadelContactPage",
+      "owner": "Contact-page semantic hooks",
+      "activation": "Contact page",
+      "loadedBy": "assets/js/runtime/module-loader.js"
+    },
+    {
+      "key": "enquiryPage",
+      "status": "production",
+      "id": "citadel-enquiry-page-v2",
+      "path": "assets/js/themes/citadel-of-kang/modules/pages/enquiry-page.js",
+      "version": "enquiry-page-v2",
+      "guard": "CitadelEnquiryPage",
+      "owner": "Case-enquiry page semantic hooks",
+      "activation": "Case-enquiry page",
+      "loadedBy": "assets/js/runtime/module-loader.js"
+    },
+    {
+      "key": "generalContentPage",
+      "status": "production",
+      "id": "citadel-general-content-page-v2",
+      "path": "assets/js/themes/citadel-of-kang/modules/pages/general-content-page.js",
+      "version": "general-content-page-v2",
+      "guard": "CitadelGeneralContentPage",
+      "owner": "General information and policy page hooks",
+      "activation": "General content pages",
+      "loadedBy": "assets/js/runtime/module-loader.js"
+    },
+    {
+      "key": "homePage",
+      "status": "production",
+      "id": "citadel-home-page-v2",
+      "path": "assets/js/themes/citadel-of-kang/modules/pages/home-page.js",
+      "version": "home-page-v2",
+      "guard": "CitadelHomePage",
+      "owner": "Homepage semantic hooks",
+      "activation": "Homepage",
+      "loadedBy": "assets/js/runtime/module-loader.js"
+    },
+    {
+      "key": "practicePage",
+      "status": "production",
+      "id": "citadel-practice-page-v2",
+      "path": "assets/js/themes/citadel-of-kang/modules/pages/practice-page.js",
+      "version": "practice-page-v2",
+      "guard": "CitadelPracticePage",
+      "owner": "Practice and service page semantic hooks",
+      "activation": "Practice and service pages",
+      "loadedBy": "assets/js/runtime/module-loader.js"
+    },
+    {
+      "key": "articleFeaturedImage",
+      "status": "production",
+      "id": "citadel-article-featured-image-v2",
+      "path": "assets/js/themes/citadel-of-kang/modules/articles/article-featured-image.js",
+      "version": "article-featured-image-v2",
+      "guard": "CitadelArticleFeaturedImage",
+      "owner": "Article featured-image handling",
+      "activation": "Article pages, loaded by Global Shell",
+      "loadedBy": "assets/js/themes/citadel-of-kang/modules/shell/global-shell.js"
+    },
+    {
+      "key": "thumbnailFrames",
+      "status": "production",
+      "id": "citadel-thumbnail-frames-v8",
+      "path": "assets/css/themes/citadel-of-kang/modules/thumbnail-frames.css",
+      "version": "thumbnail-frames-v8",
+      "guard": "",
+      "owner": "Article and card thumbnail frames",
+      "activation": "Loaded by Global Shell",
+      "loadedBy": "assets/js/themes/citadel-of-kang/modules/shell/global-shell.js"
+    }
+  ],
+  "styles": [
+    {
+      "key": "base",
+      "status": "production",
+      "owner": "Shared layout and component rules",
+      "path": "assets/css/style.css",
+      "version": "site-20260713-b5",
+      "loadedBy": "Public HTML"
+    },
+    {
+      "key": "theme",
+      "status": "production",
+      "owner": "Chambers Citadel light and dark visual theme",
+      "path": "assets/css/themes/citadel-of-ak.css",
+      "version": "theme-1",
+      "loadedBy": "assets/css/style.css"
+    },
+    {
+      "key": "articleIndexStyles",
+      "status": "production",
+      "owner": "Article index rail presentation",
+      "path": "assets/css/themes/citadel-of-kang/modules/article-index.css",
+      "version": "article-index-v22",
+      "loadedBy": "assets/css/style.css"
+    },
+    {
+      "key": "pills",
+      "status": "production",
+      "owner": "Shared category and tag pills",
+      "path": "assets/css/themes/citadel-of-kang/modules/pills.css",
+      "version": "pills-v2",
+      "loadedBy": "assets/css/style.css"
+    }
+  ],
+  "rollback": {
+    "fallbackTheme": "assets/css/themes/chambers-ak.css",
+    "instructions": "docs/maintenance/theme/CITADEL_V1_ROLLBACK.md"
+  },
+  "themeLab": {
+    "root": "docs/theme-lab/runtime-assets",
+    "files": [
+      {
+        "source": "assets/js/themes/citadel-of-kang/core.js",
+        "archivedPath": "docs/theme-lab/runtime-assets/assets/js/themes/citadel-of-kang/core.js",
+        "classification": "dormant-experiment"
+      },
+      {
+        "source": "assets/js/themes/citadel-of-kang/navigation.js",
+        "archivedPath": "docs/theme-lab/runtime-assets/assets/js/themes/citadel-of-kang/navigation.js",
+        "classification": "dormant-experiment"
+      },
+      {
+        "source": "assets/js/themes/citadel-of-kang/article-index.js",
+        "archivedPath": "docs/theme-lab/runtime-assets/assets/js/themes/citadel-of-kang/article-index.js",
+        "classification": "legacy-duplicate"
+      },
+      {
+        "source": "assets/js/themes/citadel-of-kang/reading-time.js",
+        "archivedPath": "docs/theme-lab/runtime-assets/assets/js/themes/citadel-of-kang/reading-time.js",
+        "classification": "dormant-experiment"
+      },
+      {
+        "source": "assets/js/themes/citadel-of-kang/reading-progress.js",
+        "archivedPath": "docs/theme-lab/runtime-assets/assets/js/themes/citadel-of-kang/reading-progress.js",
+        "classification": "dormant-experiment"
+      },
+      {
+        "source": "assets/js/themes/citadel/article-index.js",
+        "archivedPath": "docs/theme-lab/runtime-assets/assets/js/themes/citadel/article-index.js",
+        "classification": "legacy-duplicate"
+      },
+      {
+        "source": "assets/css/themes/citadel-of-kang/index.css",
+        "archivedPath": "docs/theme-lab/runtime-assets/assets/css/themes/citadel-of-kang/index.css",
+        "classification": "dormant-experiment"
+      },
+      {
+        "source": "assets/css/themes/citadel-of-kang/tokens.css",
+        "archivedPath": "docs/theme-lab/runtime-assets/assets/css/themes/citadel-of-kang/tokens.css",
+        "classification": "dormant-experiment"
+      },
+      {
+        "source": "assets/css/themes/citadel-of-kang/core.css",
+        "archivedPath": "docs/theme-lab/runtime-assets/assets/css/themes/citadel-of-kang/core.css",
+        "classification": "dormant-experiment"
+      },
+      {
+        "source": "assets/css/themes/citadel-of-kang/layout.css",
+        "archivedPath": "docs/theme-lab/runtime-assets/assets/css/themes/citadel-of-kang/layout.css",
+        "classification": "dormant-experiment"
+      },
+      {
+        "source": "assets/css/themes/citadel-of-kang/typography.css",
+        "archivedPath": "docs/theme-lab/runtime-assets/assets/css/themes/citadel-of-kang/typography.css",
+        "classification": "dormant-experiment"
+      },
+      {
+        "source": "assets/css/themes/citadel-of-kang/navigation.css",
+        "archivedPath": "docs/theme-lab/runtime-assets/assets/css/themes/citadel-of-kang/navigation.css",
+        "classification": "dormant-experiment"
+      },
+      {
+        "source": "assets/css/themes/citadel-of-kang/footer.css",
+        "archivedPath": "docs/theme-lab/runtime-assets/assets/css/themes/citadel-of-kang/footer.css",
+        "classification": "dormant-experiment"
+      },
+      {
+        "source": "assets/css/themes/citadel-of-kang/components.css",
+        "archivedPath": "docs/theme-lab/runtime-assets/assets/css/themes/citadel-of-kang/components.css",
+        "classification": "dormant-experiment"
+      },
+      {
+        "source": "assets/css/themes/citadel-of-kang/pages.css",
+        "archivedPath": "docs/theme-lab/runtime-assets/assets/css/themes/citadel-of-kang/pages.css",
+        "classification": "dormant-experiment"
+      },
+      {
+        "source": "assets/css/themes/citadel-of-kang/modules/reading-time.css",
+        "archivedPath": "docs/theme-lab/runtime-assets/assets/css/themes/citadel-of-kang/modules/reading-time.css",
+        "classification": "dormant-experiment"
+      },
+      {
+        "source": "assets/css/themes/citadel-of-kang/modules/reading-progress.css",
+        "archivedPath": "docs/theme-lab/runtime-assets/assets/css/themes/citadel-of-kang/modules/reading-progress.css",
+        "classification": "dormant-experiment"
+      },
+      {
+        "source": "assets/css/themes/citadel/modules/article-index.css",
+        "archivedPath": "docs/theme-lab/runtime-assets/assets/css/themes/citadel/modules/article-index.css",
+        "classification": "legacy-duplicate"
+      }
+    ]
+  }
+}

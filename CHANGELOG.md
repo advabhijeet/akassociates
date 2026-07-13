@@ -1,3 +1,14 @@
+## 2026-07-13 IST - Restart and modularize Chambers Citadel
+- Tagged the pre-restart production baseline as `chambers-citadel-v1` at `47e8c6ed07ed2a053a46a39f3779d60fa6059edf`.
+- Added public-safe Citadel configuration and a machine-readable production module manifest.
+- Split the monolithic public bootstrap into explicit config, core, Insights and module-loader runtimes.
+- Centralized feature-module paths, IDs and cache versions.
+- Migrated Global Shell and enquiry-form public values into browser-safe configuration.
+- Moved 18 dormant or duplicate theme files outside the public asset tree into `docs/theme-lab/runtime-assets/`.
+- Added rollback documentation and resumed neutral standalone extraction work.
+- Added `tools/validate-citadel-runtime.js` and enabled it in Chambers Validation.
+- Advanced the roadmap to the content-resumption checkpoint.
+
 ## 2026-07-13 IST - Consolidate overlapping location service pages
 - Consolidated the Bihar cheque-bounce, property-dispute and civil-litigation pages into stronger Patna-and-Bihar canonical pages while preserving former URLs as noindex redirect stubs.
 - Removed the three redirect-source URLs from the sitemap and public internal-link graph.
