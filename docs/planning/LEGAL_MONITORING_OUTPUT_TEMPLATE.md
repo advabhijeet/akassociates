@@ -8,7 +8,7 @@ Use this together with:
 docs/planning/LEGAL_SOURCE_WATCHLIST.md
 docs/planning/LEGAL_MONITORING_AND_ORIGINAL_ARTICLE_WORKFLOW.md
 docs/planning/CONTENT_CALENDAR_AND_TOPIC_QUEUE.md
-docs/maintenance/ARTICLE_PUBLISHING_WORKFLOW.md
+docs/maintenance/publishing/ARTICLE_PUBLISHING_WORKFLOW.md
 ```
 
 ## Purpose

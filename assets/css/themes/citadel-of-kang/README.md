@@ -1,50 +1,46 @@
-# Citadel of Kang CSS Theme Pack
+# Citadel of Kang CSS Namespace
 
-This folder is the non-live development namespace for the **Citadel of Kang** theme pack.
+Last reconciled: **13 July 2026**
 
-Citadel of Kang is intended to become a reusable modular theme. Chambers of AK is the first implementation, but this folder should not contain Chambers-only content, analytics IDs, private configuration or route-specific assumptions.
+This directory contains production module CSS together with dormant/future extraction files.
 
-## Status
+## Production-active CSS
 
-```text
-Development namespace only.
-Not currently imported by assets/css/style.css.
-Not active on the live website until a future controlled rollout patch.
-```
-
-## Planned Structure
+Imported directly by `assets/css/style.css`:
 
 ```text
-citadel-of-kang/
-├─ index.css
-├─ tokens.css
-├─ core.css
-├─ layout.css
-├─ typography.css
-├─ navigation.css
-├─ footer.css
-├─ components.css
-├─ pages.css
-└─ modules/
-   ├─ article-index.css
-   ├─ insights-filter.css
-   ├─ social-bar.css
-   ├─ theme-toggle.css
-   └─ reveal.css
+modules/article-index.css
+modules/pills.css
 ```
 
-## Design Rule
-
-Reusable first. Chambers-compatible second.
-
-Do not hardcode:
+Loaded dynamically by the Global Shell:
 
 ```text
-chambersofak.in
-Chambers of AK content
-law-firm-only language
-GTM / Analytics / AdSense IDs
-specific article routes such as /updates/*.html only
+modules/thumbnail-frames.css
 ```
 
-Site-specific values must be supplied by implementation config or override files.
+The active Chambers visual theme itself remains:
+
+```text
+assets/css/themes/citadel-of-ak.css
+```
+
+## Dormant/theme-lab CSS
+
+Files such as `index.css`, `tokens.css`, `core.css`, `layout.css`, `typography.css`, `navigation.css`, `footer.css`, `components.css`, `pages.css`, `modules/reading-time.css` and `modules/reading-progress.css` are not production dependencies unless an active entry imports them.
+
+Do not infer production status from directory location alone.
+
+## Design boundary
+
+Reusable Citadel CSS should not hardcode:
+
+- Chambers-only content or routes;
+- analytics or advertising identifiers;
+- private configuration;
+- law-firm-only labels;
+- assets that cannot be replaced through implementation overrides.
+
+## Current status
+
+The namespace is transitional. Production and theme-lab files will be separated during Theme Restart after repository, asset and service-page cleanup.

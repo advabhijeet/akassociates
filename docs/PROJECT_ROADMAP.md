@@ -1,391 +1,226 @@
-# Chambers of AK - Master Roadmap
+# Chambers of AK — Master Roadmap
 
-Last consolidated: 2026-05-26
+Last consolidated: **13 July 2026**
 
-This is the single active roadmap for the Chambers of AK website, Citadel of Kang theme system, Citadel Manager / Website CMS product direction, article publishing workflow, SEO roadmap, thumbnail workflow and future Client Portal direction.
+This is the single active roadmap for the Chambers of AK public website, the Citadel-derived frontend, article publishing, SEO operations and future product work.
 
-Use this file first before relying on older planning documents.
+## Product boundaries
 
-## Product Layers
+### Chambers of AK public website
 
-### 1. Chambers of AK Public Website
+**Status:** production.
 
-Purpose: production static website for Chambers of AK.
+The repository owns the public static website, Chambers-specific branding and content, legal articles, practice/service pages, enquiry flows, discovery files, analytics integrations and compliance pages.
 
-Status: active production implementation.
+### Chambers Citadel v1
 
-Includes:
+**Status:** production baseline.
 
-- public pages;
-- practice pages;
-- service pages;
-- legal updates/articles;
-- contact and enquiry flows;
-- sitemap/feed;
-- Search Console/SEO operations;
-- Chambers-specific branding, copy, links and compliance content.
+This is the current Citadel-derived Chambers implementation. It includes the active visual theme, light/dark modes, Global Shell, article modules, Insights modules and page-template modules.
 
-### 2. Citadel of Kang Theme Pack
+### Citadel of Kang theme pack
 
-Purpose: reusable frontend theme system.
+**Status:** partially implemented inside this repository; standalone extraction paused.
 
-Status: active inside Chambers of AK implementation, but not yet extracted into a standalone repository.
+Reusable modules are being proven in production, but the repository still mixes active Chambers-specific code, reusable candidates and dormant theme-lab files. Extraction resumes only after cleanup and module-manifest work.
 
-Includes:
+### Citadel Manager / Website CMS
 
-- visual theme tokens;
-- layout system;
-- typography;
-- navigation and footer patterns;
-- cards/forms/components;
-- article index;
-- article footer;
-- insights/listing modules;
-- theme toggle;
-- social bar;
-- future reading-time and reading-progress modules;
-- module contracts and accessibility rules.
+**Status:** planned; not built.
 
-Does not include:
+A real manager requires authenticated local or server-side tooling. Do not create a public static admin page protected only by frontend JavaScript.
 
-- admin login;
-- content database;
-- secret keys;
-- public write tokens;
-- client portal private data;
-- CMS backend.
+### Chambers Client Portal
 
-### 3. Citadel Manager / Website CMS
+**Status:** future separate secure product.
 
-Purpose: future admin-only website management product.
+It requires authentication, authorization, secure storage, audit logging and private matter/document controls. It is not part of the public theme.
 
-Status: planned; not yet built.
+## Production baseline
 
-It will eventually provide a WordPress-like but custom management experience:
+The following are live:
 
-- admin login;
-- dashboard;
-- site settings;
-- theme switching;
-- theme customization;
-- page editor;
-- article/post editor;
-- media manager;
-- menu builder;
-- footer builder;
-- plugin/module manager;
-- SEO settings;
-- publish/preview workflow;
-- roles;
-- backup/export tools.
+1. Custom-domain GitHub Pages deployment.
+2. Controlled deployment boundary through `_config.yml`.
+3. Chambers Citadel light/dark visual theme.
+4. Global Shell, desktop topbar, mobile drawer and grouped footer.
+5. Article Index, reading progress behavior and Article Footer.
+6. Registry-driven Homepage and Legal Insights sections.
+7. Crawlable static Insights snapshots.
+8. Blog filtering, category/tag views, search and pagination.
+9. Contact and structured enquiry flows.
+10. Practice, service and general-content semantic modules.
+11. Article thumbnail frame and featured-image handling.
+12. Central registry, sitemap and full RSS parity.
+13. Sitewide SEO, registry, encoding, structure and deployment validators.
+14. Branded custom 404 page.
+15. Thirty published articles.
 
-Security rule: do not create a public static /admin page protected only by frontend JavaScript. A real admin dashboard must use local-only tooling, GitHub authentication, a protected backend, or another proper authentication model.
+## Completed phases
 
-### 4. Chambers Client Portal
+### Phase 0 — Initial repository/documentation organization
 
-Purpose: separate secure client/matter portal.
+Completed in May 2026. Older maintenance plans were moved to the superseded archive and an active documentation index was created.
 
-Status: future product; not part of the theme or public website.
+### Phase 1 — Citadel Production Finalization v1
 
-Requires:
+Completed. Production modules, responsive behavior, light/dark mode, Global Shell, article modules, Insights modules and enquiry modules were reconciled and smoke-tested.
 
-- real authentication;
-- authorization;
-- secure storage;
-- audit logs;
-- private client/matter/document controls.
+### Phase 2 — Thumbnail Frame Consistency v1
 
-## Current Production Baseline
+Completed. Article and card frames use a consistent 16:9 treatment and approved artwork remains visible without destructive cropping.
 
-Completed or substantially implemented:
+### Phase 3 — Article Structure Audit v1
 
-1. Citadel Global Shell.
-2. Blog / Legal Insights template.
-3. Contact Page template.
-4. Enquiry Page template.
-5. General Content Page template.
-6. Homepage template.
-7. Practice / Services template.
-8. MSME Recovery Hub v1.
-9. Arbitration Hub v1.
-10. Practice Hub Related Articles Block v1.
-11. Footer Internal-Link Cleanup v1.
-12. Footer mobile hierarchy fix.
-13. Article Index module.
-14. Article Footer module.
-15. Pill/tag system.
-16. Article publishing workflow v4.
-17. Article social-preview/thumbnail rules.
-18. Article encoding validator.
-19. Batch 4 article thumbnails.
-20. Batch 5 article thumbnails.
-21. Standalone MSME Facilitation Council thumbnail.
+Completed as a repeatable audit tool. The historic batch labels inside the audit tool still require cleanup during a later tooling refinement.
 
-## Immediate Roadmap
+### Phase 4/4.5 — Article and SEO stabilization
 
-### Phase 0 - Repo and documentation hygiene
+Substantially completed:
 
-1. Sync local repo with latest main.
-2. Remove or ignore local patch-backups.
-3. Fix documentation encoding/mojibake.
-4. Consolidate scattered roadmaps into this master roadmap.
-5. Archive superseded roadmap/checkpoint documents.
-6. Maintain an active documentation index.
+- article metadata/social images normalized;
+- registry, sitemap and RSS brought into parity;
+- static non-JavaScript Insights links generated;
+- sitewide SEO validator added;
+- Article 1-5 publishing run completed;
+- structured-data image parity added;
+- service-page schema validation repaired.
 
-### Phase 1 - Citadel Production Finalization v1
+One known article-structure item remains: the promoter-reply RERA article needs a formal References / Sources section.
 
-Goal: formally mark Citadel of Kang as production-active for Chambers of AK and audit the live implementation.
+### Repository Cleanup Batch 1 — Deployment Boundary and Validator Integrity
 
-Tasks:
+Completed on 13 July 2026.
 
-1. Reconcile Citadel documentation with current production reality.
-2. Confirm active production modules.
-3. Audit desktop/tablet/mobile layouts.
-4. Audit light/dark mode.
-5. Audit header, drawer, footer, topbar and theme toggle.
-6. Audit Article Index and Article Footer.
-7. Audit template hooks and module no-op behaviour.
-8. Confirm no preview/internal notes are visible publicly.
-9. Record remaining theme work.
-10. Create a production finalization checklist.
+- internal documents, previews and tools removed from the public Pages artifact;
+- custom 404 added;
+- service-schema validator defect fixed;
+- sitewide SEO validation added to CI;
+- two legacy BlogPosting image mismatches corrected.
 
-### Phase 2 - Thumbnail Frame Consistency v1
+## Current phase
 
-Goal: make article thumbnails visible and consistent on every frame size.
+### Repository Cleanup Batch 2 — Documentation Consolidation
 
-Tasks:
+Goals:
 
-1. Standardize 16:9 thumbnail frames.
-2. Prevent unwanted cropping in article cards.
-3. Use contain-style treatment where full image visibility matters.
-4. Add premium neutral background/border where letterboxing appears.
-5. Audit homepage insight cards.
-6. Audit Legal Updates listing cards.
-7. Audit filtered/list-mode result cards.
-8. Audit article featured images.
-9. Audit article footer recommended cards.
-10. Audit mobile, tablet, desktop, light mode and dark mode.
+1. update repository and documentation entry points;
+2. reconcile roadmap and theme status with production;
+3. repair stale documentation paths;
+4. remove control-character/mojibake defects;
+5. archive completed status and monitoring snapshots;
+6. add documentation validation to CI.
 
-### Phase 3 - Article Structure + Thumbnail Audit v1
-
-Goal: audit all old articles and classify what needs migration.
-
-Tasks:
-
-1. Scan every updates/*.html article.
-2. Identify missing featured thumbnails.
-3. Identify generic social preview fallbacks.
-4. Identify SVG social images.
-5. Identify old article structures.
-6. Identify missing article.article-body containers.
-7. Identify missing data-article-category and data-article-tags.
-8. Identify missing BlogPosting JSON-LD.
-9. Identify missing BreadcrumbList JSON-LD.
-10. Identify missing last-updated line.
-11. Identify missing references/disclaimer.
-12. Identify internal/publication notes visible to readers.
-13. Identify encoding issues.
-14. Classify articles into update batches.
-
-### Phase 4 - Article cleanup batches
-
-1. Batch A - metadata/social image fixes.
-2. Batch B - featured thumbnail additions.
-3. Batch C - old structure migration.
-4. Batch D - last-updated/references/disclaimer normalization.
-5. Batch E - remaining Batch 6 thumbnails.
-
-Known Batch 6 pending items:
-
-- Cheque Bounce Defence After Summons.
-- Commercial Recovery Before Suit.
-- RERA Refund / Interest / Delayed Possession.
-- Arbitration Clause Checklist.
-- Cheque Bounce 30 Days.
-- Cheque Bounce Notice Limitation.
-- MSME 45 Days Payment Rule.
-
-### Phase 4.5 - Sitewide SEO Stabilization Hotfix
-
-Goal: close existing SEO leakage before Search Appearance expansion, future service-page creation or new content batches.
-
-Tasks:
-
-1. Fix wrong self-canonical configuration on live service landing pages, especially property-dispute and civil-litigation service pages.
-2. Confirm sitemap parity for every corrected service page.
-3. Complete remaining Batch 6 article metadata, including OG image, Twitter image, JSON-LD image, article:modified_time, dateModified and registry thumbnail fields.
-4. Add static non-JavaScript article links to legal-updates.html so the Legal Insights hub is not dependent only on JavaScript-rendered cards.
-5. Expand feed.xml so it better reflects the active article registry and works as a meaningful fallback discovery source.
-6. Add tools/validate-seo-sitewide.js to enforce title, robots, canonical, OG URL, sitemap, article-image, registry-thumbnail, feed and /index.html-link checks.
-7. Update CHANGELOG.md and relevant active documentation after the patch.
-
-Execution order:
+Completion condition:
 
 ```text
-1. Canonical cleanup + sitemap parity.
-2. Remaining Batch 6 metadata/thumbnails.
-3. Static Legal Updates fallback links.
-4. RSS/feed expansion.
-5. Sitewide SEO validator.
-6. Search Console reinspection and selective indexing requests.
+Active documentation paths resolve.
+No control-character or known mojibake defect remains.
+Theme READMEs describe production reality.
+Historical status snapshots are outside active planning.
+Documentation validation passes locally and in CI.
 ```
 
-Validation:
+## Next phases
 
-```powershell
-node tools/validate-article-encoding.js
-node tools/validate-insights-registry.js --strict
-node tools/validate-seo-sitewide.js
-git diff --check
-```
+### Repository Cleanup Batch 3 — Asset and Performance Cleanup
 
-### Phase 5 - Search Appearance / SEO Track
+1. verify and remove unreferenced image variants;
+2. remove duplicate favicon assets;
+3. generate optimized WebP/JPEG article derivatives;
+4. replace CSS-background card media with lazy image elements where practical;
+5. add image byte-size validation;
+6. normalize CSS/JS cache keys;
+7. remove duplicate Homepage rendering responsibility;
+8. reduce unnecessary continuous timers and late font discovery.
 
-1. Breadcrumb Schema Rollout v1.
-2. Article-to-Hub Internal Linking v1.
-3. Sitemap Final Hygiene Pass v1.
-4. Search Console Indexing Checklist Update.
+### Repository Cleanup Batch 4 — Service-Page Consolidation
 
-### Phase 6 - Remaining Practice Authority Hubs
+1. review high-similarity location-page clusters;
+2. retain separate pages only where jurisdiction, forum, documents or procedure are genuinely distinct;
+3. consolidate or redirect weak variants;
+4. update internal links, sitemap and schema;
+5. prohibit new thin location pages.
 
-1. Commercial / Consumer Recovery Hub v1.
-2. RERA / Property Hub v1.
-3. Cheque Bounce Hub v1.
-4. MSME article cluster expansion.
-5. Arbitration article cluster expansion.
+### Repository Cleanup Batch 5 — Citadel Theme Restart
 
-### Phase 7 - Conversion and Enquiry Optimization
+1. tag the current baseline as `Chambers Citadel v1`;
+2. create an active module manifest;
+3. separate production modules from theme-lab code;
+4. remove confirmed duplicate legacy implementations;
+5. split the monolithic bootstrap into explicit modules;
+6. normalize public configuration and cache versioning;
+7. resume standalone Citadel extraction.
 
-1. Practice-specific enquiry flows.
-2. MSME enquiry variant.
-3. Arbitration enquiry variant.
-4. Cheque Bounce enquiry variant.
-5. RERA / Property enquiry variant.
-6. Commercial Recovery enquiry variant.
-7. Better checklist/download flows.
-8. Thank-you / next-step page.
+### Content resumption checkpoint
 
-### Phase 8 - Config-Driven Citadel Foundation
+After Batches 2-5:
 
-Goal: prepare the public website for future manager/admin control without exposing secrets.
+1. run Search Console/indexing review;
+2. confirm service-page consolidation;
+3. resume the controlled Article 6-10 run;
+4. pause after Article 10 for indexing, cannibalisation and internal-link analysis.
 
-Tasks:
+## SEO and reachability track
 
-1. Create public-safe config schema.
-2. Move social links to config.
-3. Move navigation links to config.
-4. Move footer links to config.
-5. Move practice/service metadata to data files.
-6. Move site identity settings to config.
-7. Add module enable/disable settings.
-8. Keep all config public-safe.
+After cleanup:
 
-Possible future config file:
+1. inspect indexed versus submitted URLs;
+2. request removal/re-crawl of formerly exposed internal-document URLs where needed;
+3. monitor 404 and coverage reports;
+4. strengthen practice/article topical clusters;
+5. improve source presentation and legal-review dates;
+6. assess Core Web Vitals after image optimization;
+7. avoid duplicate service/location intent.
 
-```text
-assets/config/chambers-public.config.json
-```
+## Conversion and enquiry track
 
-### Phase 9 - Local Admin Generator v1
+Future work:
 
-Goal: first admin/content UI without creating a public attack surface.
+- practice-specific enquiry variants;
+- clearer post-submission next steps;
+- direct form-send analytics event;
+- downloadable checklists only where legally and operationally appropriate;
+- accessibility and error-state review.
 
-Model:
+## Future product track
 
-- local tool;
-- admin edits theme/content settings;
-- tool exports JSON and/or PowerShell patch;
-- admin applies patch manually.
+### Config-driven Citadel foundation
 
-Features:
+Move public-safe identity, navigation, footer, social and module settings into an explicit configuration layer without exposing secrets.
 
-1. Article form UI.
-2. Page metadata editor.
-3. Thumbnail/media selector.
-4. SEO metadata fields.
-5. Registry generator.
-6. Sitemap/feed generator.
-7. PowerShell patch exporter.
-8. Desktop/mobile/dark preview.
+### Local Admin Generator
 
-### Phase 10 - GitHub-Authenticated Admin App
+Potential first management tool:
 
-Goal: protected admin dashboard that can safely commit changes.
+- local article form;
+- metadata and registry generation;
+- thumbnail selection;
+- sitemap/feed generation;
+- preview;
+- controlled patch export.
 
-Features:
+### Authenticated manager
 
-1. GitHub OAuth or GitHub App authentication.
-2. Protected dashboard.
-3. Draft/publish workflow.
-4. Commit changes securely.
-5. Media upload workflow.
-6. Rollback/history.
-7. Role protection.
+Only after proper GitHub OAuth/GitHub App or protected backend architecture is selected.
 
-### Phase 11 - Full Citadel Manager / Website CMS
+### Standalone theme repository
 
-Features:
+Extract only reusable, neutral modules after production code is separated from Chambers-specific values.
 
-1. Dashboard.
-2. Page/article editor.
-3. Theme Manager.
-4. Media Manager.
-5. SEO Manager.
-6. Menu/Footer Builder.
-7. Plugin/Module Manager.
-8. Template Manager.
-9. Publish/export/deploy adapter.
-10. Backup/restore history.
+### Client Portal
 
-### Phase 12 - Standalone Citadel of Kang Repository
+Separate project after security, data model and operational requirements are defined.
 
-Goal: extract reusable theme pack after Chambers implementation is stable.
+## Standing principles
 
-Include:
-
-- assets/css/themes/citadel-of-kang/**;
-- assets/js/themes/citadel-of-kang/**;
-- neutral demo pages;
-- theme.json or equivalent schema;
-- module usage docs;
-- activation examples;
-- accessibility checklist;
-- performance checklist;
-- changelog.
-
-Exclude:
-
-- Chambers articles;
-- Chambers logo assets unless licensed for demo;
-- GTM/AdSense/Analytics IDs;
-- contact details;
-- Chambers legal disclaimers;
-- sitemap/feed files;
-- Citadel Manager backend;
-- Client Portal private code.
-
-### Phase 13 - Client Portal Product
-
-Goal: separate secure product for clients/matters.
-
-Potential features:
-
-1. Client login.
-2. Matter records.
-3. Document exchange.
-4. Case updates.
-5. Secure storage.
-6. Audit logs.
-7. Optional website/CMS connector.
-
-## Active Principles
-
-1. Chambers of AK remains the public website repository.
-2. Citadel of Kang remains theme-pack focused.
-3. Citadel Manager remains a separate future admin/CMS product.
-4. Client Portal remains a separate secure product.
-5. No public static admin panel with fake frontend-only security.
-6. Public config must never contain passwords, tokens or write credentials.
-7. Prefer reusable modules over page-by-page fixes.
-8. Preserve Chambers black/white/gold identity and legal-compliance boundaries.
-9. Keep old reference docs archived, not active.
+1. Public URLs remain stable unless a redirect/consolidation plan exists.
+2. Internal documentation and tools remain outside the public artifact.
+3. No frontend-only fake security.
+4. Public configuration contains no credentials or private matter data.
+5. Production behavior takes precedence over obsolete documentation.
+6. Reusable modules are preferred over page-by-page patches.
+7. Legal accuracy and source quality take precedence over publishing volume.
+8. Article thumbnails remain topic-specific, editorial and logo-free.
+9. The fallback theme remains until a documented rollback baseline exists.
+10. Every meaningful change is validated, committed separately and recorded in `CHANGELOG.md`.

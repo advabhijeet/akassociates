@@ -14,7 +14,7 @@ Every prompt should tell Codex to read these first:
 - `docs/codex/HANDOFF.md`
 - `docs/wiki/WORKFLOW.md`
 - `docs/planning/SEO_GROWTH_AGENDA.md`
-- `docs/maintenance/LEGAL_DOCUMENTATION_MAINTENANCE.md`
+- `docs/maintenance/operations/LEGAL_DOCUMENTATION_MAINTENANCE.md`
 - `docs/audits/WEBSITE_REPOSITORY_AUDIT_2026-05-06.md`
 
 ## Required Rules For Codex
@@ -60,7 +60,7 @@ Before making changes, sync with the latest main branch and read:
 - docs/codex/HANDOFF.md
 - docs/wiki/WORKFLOW.md
 - docs/planning/SEO_GROWTH_AGENDA.md
-- docs/maintenance/LEGAL_DOCUMENTATION_MAINTENANCE.md
+- docs/maintenance/operations/LEGAL_DOCUMENTATION_MAINTENANCE.md
 - docs/audits/WEBSITE_REPOSITORY_AUDIT_2026-05-06.md
 
 Complete the active handoff items in docs/codex/HANDOFF.md. If there are no active handoff items, perform only the specific task requested by the user.
@@ -96,7 +96,7 @@ Read first:
 - docs/README.md
 - docs/codex/HANDOFF.md
 - docs/wiki/WORKFLOW.md
-- docs/maintenance/LEGAL_DOCUMENTATION_MAINTENANCE.md
+- docs/maintenance/operations/LEGAL_DOCUMENTATION_MAINTENANCE.md
 - docs/audits/WEBSITE_REPOSITORY_AUDIT_2026-05-06.md
 - docs/planning/SEO_GROWTH_AGENDA.md
 

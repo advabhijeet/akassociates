@@ -1,332 +1,179 @@
-# Chambers of AK - Article, Thumbnail and Social Publishing Guidelines
+# Chambers of AK — Article, Thumbnail and Social Publishing Guidelines
 
-This document records the standing guidelines for Chambers of AK article publishing, research posts, social previews, thumbnails, social distribution copy and patch workflows.
+Last reconciled: **13 July 2026**
 
-These rules apply to current and future Chambers of AK articles unless expressly changed. When a new guideline is added later, this document must be updated along with the relevant workflow/template files.
+This document records the current standing rules for legal articles, featured images, social metadata, distribution copy and controlled publication packages.
 
 Related files:
 
 ```text
-docs/maintenance/ARTICLE_HTML_TEMPLATE.md
-docs/maintenance/ARTICLE_PUBLISHING_WORKFLOW.md
+docs/maintenance/publishing/ARTICLE_HTML_TEMPLATE.md
+docs/maintenance/publishing/ARTICLE_PUBLISHING_WORKFLOW.md
+docs/maintenance/publishing/ARTICLE_REUSABLE_MODULES.md
 assets/data/insights-registry.json
-CHANGELOG.md
 ```
 
-## 1. Article Publishing Standard
+## 1. Article standard
 
-Every new article must follow the reusable Citadel of Kang article workflow, not a one-off hardcoded page fix.
+Every article should include:
 
-Each article should include:
+- unique SEO title and meta description;
+- stable slug and self-canonical URL;
+- accurate H1/H2/H3 hierarchy;
+- concise article summary;
+- visible last-reviewed or last-updated date;
+- topic-specific featured image;
+- References / Sources section;
+- informational disclaimer;
+- useful contextual internal links;
+- BlogPosting and Breadcrumb structured data;
+- sitemap, RSS and registry entries;
+- synchronized Homepage and Legal Insights snapshots.
 
-- SEO title;
-- meta description;
-- clean URL slug;
-- canonical URL;
-- article summary;
-- proper H1, H2 and H3 structure;
-- featured image;
-- references / sources section;
-- disclaimer;
-- useful internal links;
-- visible last-updated line in the format `Last updated on: DD/MM/YYYY at HH:MM`;
-- sitemap entry;
-- RSS feed entry;
-- `assets/data/insights-registry.json` entry;
-- changelog or status note where appropriate.
+A clock time is not mandatory in the visible update line unless operationally useful. The date must be clear and truthful.
 
-Article pages must not include:
+## 2. Public/internal boundary
+
+Do not expose:
+
+- research-status or workflow-status boxes;
+- source-pack notes;
+- thumbnail-generation instructions;
+- internal approval notes;
+- repository paths or patch instructions;
+- unsupported claims about outcomes.
+
+One restrained end-of-article informational enquiry block is permitted. Repeated, intrusive or promotional CTA blocks are not.
+
+## 3. Source and legal-accuracy rule
+
+- Prefer official statutes, rules, judgments, orders and authority websites.
+- Do not invent case numbers, benches, paragraph numbers, quotes or holdings.
+- Distinguish reported developments from signed judgments/orders.
+- Use cautious language where the legal or factual position is unsettled.
+- Review time-sensitive legal articles when statutes, rules or case law change.
+- Legal accuracy takes precedence over keyword density or publishing frequency.
+
+## 4. Metadata parity
+
+For every registered article, these must identify the same approved article image:
 
 ```text
-- enquiry / CTA blocks inside the article body;
-- article-status, research-status or workflow-status boxes;
-- thumbnail generation notes;
-- internal source-pack notes;
-- publisher-only checklist content;
-- internal implementation notes meant only for repository maintenance.
+registry thumbnail
+og:image
+twitter:image
+BlogPosting.image
 ```
 
-Article disclaimer blocks are allowed and should remain where appropriate.
-
-## 2. Mandatory Open Graph and X/Twitter Metadata
-
-Every current and future article page must include at least:
-
-```html
-<meta property="og:title" content="Article Title">
-<meta property="og:description" content="Short article summary">
-<meta property="og:image" content="https://chambersofak.in/path/to/thumbnail.png">
-<meta property="og:url" content="https://chambersofak.in/article-url.html">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Article Title">
-<meta name="twitter:description" content="Short article summary">
-<meta name="twitter:image" content="https://chambersofak.in/path/to/thumbnail.png">
-```
-
-Also keep supporting tags:
-
-```html
-<meta property="og:type" content="article">
-<meta property="og:site_name" content="Chambers of AK">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="675">
-<meta property="og:image:alt" content="Accurate image alt text">
-<link rel="canonical" href="https://chambersofak.in/article-url.html">
-```
-
-## 3. Social Image Format Rule
-
-For social previews, use only raster images:
+Required social dimensions:
 
 ```text
-Allowed: .png, .jpg, .jpeg, .webp
-Avoid for social cards: .svg
+1200 x 675
 ```
 
-This applies to:
-
-- `og:image`;
-- `twitter:image`;
-- BlogPosting JSON-LD `image`;
-- featured image where possible;
-- `assets/data/insights-registry.json` thumbnail.
-
-Reason: X/Twitter, LinkedIn, Facebook and WhatsApp handle raster images more reliably than SVG.
-
-## 4. Thumbnail Style Guidelines
-
-Thumbnails must be:
-
-- topic-relevant;
-- painted / illustrated editorial style by default;
-- not random legal props;
-- not copied from news websites;
-- not real judges or identifiable persons;
-- not inflammatory;
-- suitable for a professional legal publication;
-- social-card friendly, preferably `1200 x 675`.
-
-Branding:
-
-- use the official AK mark where branding is included;
-- do not create random alternate logos;
-- black/gold accents are allowed but not mandatory.
-
-## 5. Thumbnail Colour Alternation Rule
-
-For article and social thumbnails, use this editorial rhythm where suitable:
+Use raster output for social cards:
 
 ```text
-Article 1: black & white / monochrome painted style
-Article 2: coloured painted style
-Article 3: black & white / monochrome painted style
-Article 4: coloured painted style
+PNG
+JPEG
+WebP
 ```
 
-This rhythm is secondary to topic relevance. The image must first be legally and factually relatable to the article subject.
+Do not use SVG as an Open Graph or Twitter article image.
 
-Current intended pattern for the latest article group:
+## 5. Permanent thumbnail branding rule
+
+Article thumbnails must not contain:
 
 ```text
-PMLA BNSS - black & white
-Section 34 Limitation - coloured
-UAPA Bail - black & white
-Sabarimala - next suitable colour decision based on sequence and topic
+Chambers of AK logo
+AK monogram
+firm name
+company branding block
+watermark
+signature
 ```
 
-## 6. Topic-to-Image Guidance
+Brand identity belongs to the website shell and social account, not inside the editorial artwork.
 
-Use image concepts that match the subject matter:
+## 6. Thumbnail visual standard
 
-```text
-PMLA / BNSS / cognizance:
-Supreme Court-style institutional visual, complaint file, procedural hearing, notice, court clock.
+Use:
 
-Section 34 limitation:
-Arbitration file, calendar, clock, "3 months + 30 days", Supreme Court guidance.
+- topic-specific painted/editorial legal scenes;
+- restrained ivory, black, navy, gold, grey and muted-red palettes where suitable;
+- clear foreground documents, court/forum context or transaction-specific objects;
+- central safe-area composition;
+- readable detail at card size;
+- 1200 x 675 raster output.
 
-UAPA bail:
-Liberty, detention, Article 21, speedy trial, constitutional rights; avoid sensational prison imagery.
+Avoid:
 
-Sabarimala:
-Respectful temple silhouette, constitutional balance, equality, religious freedom.
+- generic flat-vector icons;
+- random gavels, handshakes or scales unrelated to the subject;
+- copied news artwork;
+- identifiable judges or private persons;
+- sensational imagery;
+- Canva-style poster/checklist layouts;
+- heavy text strips;
+- unnecessary embedded headlines.
 
-Property title search:
-Land record, registry file, title chain, map, due-diligence/search theme.
+Embedded title text is exceptional and must be specifically approved. The default is artwork without a large headline overlay.
 
-Arbitration notice:
-Contract clause, notice document, arbitration table, timeline.
-```
+## 7. Encoding and punctuation
 
-## 7. Citadel Template Structure Rule
+Metadata, registry excerpts and structured-data descriptions should use stable UTF-8 and conservative punctuation.
 
-Recurring article, thumbnail or social-preview rules should be implemented through the reusable Citadel template/documentation structure.
-
-Update these files where relevant:
-
-```text
-docs/maintenance/ARTICLE_HTML_TEMPLATE.md
-docs/maintenance/ARTICLE_PUBLISHING_WORKFLOW.md
-docs/maintenance/CHAMBERS_ARTICLE_AND_SOCIAL_GUIDELINES.md
-```
-
-Do not treat recurring rules as isolated hardcoded fixes for one article.
-
-## 8. ZIP Patch and PowerShell Package Rules
-
-When preparing ZIP patches:
-
-- ZIP should be downloadable to the user's Downloads folder;
-- one PowerShell command should extract and run the patch;
-- script should use the user's repo path by default:
+Run:
 
 ```powershell
-C:\Users\abhik\Documents\Codex\2026-05-02\https-github-com-advabhijeet-akassociates-can
+node tools/validate-article-encoding.js
+node tools/validate-documentation.js
 ```
 
-- script should sync from `origin/main` unless told not to;
-- script should create backups before editing;
-- script should validate JSON / XML / git diff;
-- script should commit and push unless `-NoCommit` or `-NoPush` is used.
+Do not permit mojibake, replacement characters or hidden control characters.
 
-PowerShell interpolation rule:
+## 8. Publication package standard
+
+A controlled package should:
+
+1. require the expected starting commit;
+2. refuse a dirty or unexpected working tree;
+3. edit only a declared file set;
+4. validate before staging;
+5. inspect staged files;
+6. commit and push only after successful validation;
+7. wait for GitHub Actions and Pages;
+8. perform an appropriate live check;
+9. use `${Variable}` when PowerShell text immediately follows a variable name.
+
+Avoid broad `git add -A` unless preflight guarantees a clean tree and the post-patch allowed-file set is verified.
+
+## 9. Required publication checks
 
 ```powershell
-${Path}:
+node tools/validate-article-encoding.js
+node tools/validate-insights-registry.js --strict
+node tools/sync-static-insight-cards.js --check
+node tools/audit-articles-structure.js --strict
+node tools/validate-seo-sitewide.js
+node tools/validate-deployment-boundary.js
+node tools/validate-documentation.js
+git diff --check
 ```
 
-Use the above instead of:
+## 10. Social distribution
 
-```powershell
-$Path:
-```
+Prepare platform-specific copy for the active channels when publication distribution is requested.
 
-whenever a colon follows a variable in a string.
+Every post should remain informational and include an appropriate non-solicitation/legal-information qualifier. Avoid promises, urgency tactics and outcome claims.
 
-## 9. Social Distribution Rule
+## 11. Maintenance
 
-For each article, prepare platform-specific copy for:
-
-```text
-LinkedIn Page
-Facebook Page
-X / Twitter
-WhatsApp Channel
-Newsletter / Email, where needed
-```
-
-Each post should include:
-
-```text
-For general information only. Not legal advice or solicitation.
-```
-
-Distribution copy should be informative and non-solicitational.
-
-## 10. Legal Content Accuracy Rule
-
-For legal articles:
-
-- do not invent case numbers, bench composition, paragraph numbers, quotes or holdings;
-- use cautious wording where a source is uncertain;
-- clearly distinguish reported developments from signed judgments/orders;
-- cite primary sources first where available;
-- use legal reporting only as secondary support;
-- avoid sensationalism;
-- maintain professional Indian legal blog tone;
-- preserve doctrinal accuracy over keyword stuffing.
-
-## 11. Maintenance Rule
-
-When new guidelines are added:
+When these rules change:
 
 1. update this document;
-2. update the article workflow/template docs if the rule affects implementation;
-3. update `CHANGELOG.md` or an appropriate status note;
-4. apply the rule consistently to future articles and, where requested, to existing articles.
-
-## Current Batch 2 Thumbnail Pattern
-
-`	ext
-Sabarimala - coloured
-Arbitration Notice Before Claim - black & white
-Property Title Search - coloured
-`
-
-All three use raster social preview images and topic-relevant painted / illustrated editorial treatment.
-
-## No Generic Graphic-Art Thumbnail Rule
-
-Do not use flat vector-icon, template-style infographic, generic courthouse graphic, generic document icon, or random legal-prop thumbnails for Chambers of AK articles.
-
-Article thumbnails must have a painted / editorial legal-media feel with visual depth, texture, topic-specific composition and social-card suitability. Topic relevance comes first; black & white / colour alternation is secondary.
-
-## Batch 2B Painted Correction
-
-Batch 2 thumbnails were corrected to use stronger painted editorial artwork rather than flat icon-like graphics. For article-card thumbnails, avoid placing small embedded headline text inside the image because the article card already displays the title separately.
-
-## ASCII-Safe Metadata Rule
-
-For article metadata, social card descriptions, registry excerpts and JSON-LD descriptions, use ASCII-safe punctuation.
-
-Avoid smart punctuation in these fields, including smart dashes, curly quotes and ellipsis. Prefer plain forms such as:
-
-```text
-Articles 25 and 26
-3 months + 30 days
-Section 34 - limitation
-```
-
-Run before every article commit:
-
-```powershell
-node --check tools/validate-article-encoding.js
-node tools/validate-article-encoding.js
-```
-
-If mojibake is detected, run:
-
-```powershell
-node --check tools/fix-article-encoding.js
-node tools/fix-article-encoding.js
-```
-
-## Full Article-Body Encoding Audit Rule
-
-Encoding validation must scan the full article HTML body, not only metadata or registry cards.
-
-Before every article commit, run:
-
-```powershell
-node --check tools/fix-article-encoding.js
-node tools/fix-article-encoding.js
-node --check tools/validate-article-encoding.js
-node tools/validate-article-encoding.js
-```
-
-The validator must fail if any article file under `updates/` contains common mojibake markers such as broken UTF-8 / Windows-1252 artefacts.
-
-## Current Batch 3 Painted Thumbnail Pattern
-
-`	ext
-Non-Reportable Judgments Online - black and white painted/editorial
-SARFAESI Auction Sale Challenge - coloured painted/editorial
-Summary Judgment in Commercial Suits - black and white painted/editorial
-`
-
-These thumbnails must remain topic-specific legal-media artwork, not flat vector-icon graphics or generic legal props.
-
-## Approved Reference Thumbnail Rule
-
-For Chambers article thumbnails, use the approved watercolour legal-news style: large readable serif headline on the left, content-based legal/business scene on the right, ivory/navy/gold/muted-red palette, detailed foreground documents or legal props, 1200 x 675 raster output, and no unnecessary branding block unless specifically requested.
-
-## Third Approved Thumbnail Style Rule
-
-For Chambers article thumbnails, use the third approved style when requested: wide watercolour legal-news card, large readable serif headline on the left, content-specific court/legal/business illustration on the right, ivory/navy/gold/muted-red colour palette, bottom law/procedure/practice strip where appropriate, and 1200 x 675 raster output.
-
-## Article Thumbnail-Style Standardization v1
-
-Approved article thumbnails should follow a clean painted/editorial legal scene style. Use topic-specific legal props in the foreground and court/forum/document context in the background. Avoid large headline overlays, key-point strips, heavy branding blocks, generic flat-vector graphics, Canva-style checklist posters and isolated icons.
-
-Use 1200 x 675 PNG output. Keep important documents, seals, legal props and visual focus inside a safe central area so thumbnails remain attractive on homepage cards, Legal Updates cards, article pages, recommended article cards and social previews.
+2. update the article template/workflow where implementation changes;
+3. update validators where the rule is machine-checkable;
+4. update `CHANGELOG.md`;
+5. apply the new rule to future articles and to existing articles only through a controlled migration.

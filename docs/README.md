@@ -1,95 +1,100 @@
-# Repository Documents
+# Chambers of AK Documentation
 
-This folder keeps internal planning, audit, maintenance and handoff material separate from the public website files.
+Last consolidated: **13 July 2026**
 
-## Current Folder Map
+This directory contains internal project documentation. It is excluded from the public GitHub Pages artifact through `_config.yml`.
+
+## Sources of truth
+
+Use these documents in this order:
+
+1. `docs/PROJECT_ROADMAP.md` — current state, completed work and next phases.
+2. `docs/maintenance/ACTIVE_DOCUMENTATION_INDEX.md` — active-document inventory and status.
+3. `README.md` — repository and operating overview.
+4. `CHANGELOG.md` — chronological implementation record.
+
+When an older document conflicts with these files, the newer active document controls.
+
+## Folder map
 
 ```text
 docs/
-  CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md
   PROJECT_ROADMAP.md
   README.md
   REPOSITORY_ORGANIZATION.md
-  archive/
-    superseded-maintenance/
-  audits/
-    WEBSITE_REPOSITORY_AUDIT_2026-05-06.md
-  codex/
-    HANDOFF.md
-    PROMPT_RULE.md
-  google/
-    GOOGLE_SETUP.md
+
   maintenance/
+    README.md
     ACTIVE_DOCUMENTATION_INDEX.md
-    LEGAL_DOCUMENTATION_MAINTENANCE.md
+    modules/
+    operations/
+    product/
+    publishing/
+    standards/
+    templates/
+    theme/
+
   planning/
-    ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md
-    SEO_GROWTH_AGENDA.md
-    TEAM_PAGE_AGENDA.md
+    Current supporting plans, content queues and monitoring standards.
+
+  google/
+    Search Console, analytics, business profile and AdSense notes.
+
+  codex/
+    Handoff and local-execution rules.
+
   seo/
-    SEO_CONTENT_BATCH_2026-05-05.md
+    Historical content-batch records.
+
+  audits/
+    Dated repository and website audits.
+
+  archive/
+    Superseded plans, checkpoints and historical status snapshots.
+
   wiki/
-    WORKFLOW.md
+    In-repository workflow mirror.
 ```
 
-## Documentation Map
+## Documentation status classes
 
-- `PROJECT_ROADMAP.md` - primary active roadmap for current website state, Citadel product direction, article workflow, SEO, thumbnails and future portal work.
-- `maintenance/ACTIVE_DOCUMENTATION_INDEX.md` - active documentation index and archived/superseded documentation pointer.
-- `CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md` - older website master plan retained as a reference; do not treat it as newer than `PROJECT_ROADMAP.md`.
-- `REPOSITORY_ORGANIZATION.md` - intended repository/documentation structure and cleanup rules.
-- `audits/WEBSITE_REPOSITORY_AUDIT_2026-05-06.md` - website and repository audit before the next development stage.
-- `codex/HANDOFF.md` - active and completed handoff notes for work that requires Codex or local validation.
-- `codex/PROMPT_RULE.md` - standing rule and prompt template for future Codex handoffs.
-- `google/GOOGLE_SETUP.md` - Google Search Console, GTM, GA4, Google Business Profile and AdSense notes.
-- `maintenance/LEGAL_DOCUMENTATION_MAINTENANCE.md` - checklist for keeping public legal pages and project documentation aligned with site changes.
-- `maintenance/SOCIAL_MEDIA_DISTRIBUTION_WORKFLOW.md` - official social channel inventory, social-package workflow and non-solicitation posting rules.
-- `planning/ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md` - AdSense rejection/readiness plan and article-only subtle ad placement rules.
-- `planning/SEO_GROWTH_AGENDA.md` - primary SEO roadmap and remaining growth work.
-- `planning/TEAM_PAGE_AGENDA.md` - future `team.html` planning note.
-- `seo/SEO_CONTENT_BATCH_2026-05-05.md` - historical Batch 1 SEO content record.
-- `wiki/WORKFLOW.md` - repository-side wiki/workflow mirror for structure, deployment, SEO, analytics, legal review, maintenance and validation.
+- **Production:** describes currently deployed behavior.
+- **Active operations:** used for current publishing, legal maintenance, SEO or distribution work.
+- **Planned:** future work that has not been implemented.
+- **Historical:** retained only for context; not an instruction source.
 
-Root-level documentation:
+The status of each active document is recorded in `docs/maintenance/ACTIVE_DOCUMENTATION_INDEX.md`.
 
-- `../README.md` - main repository documentation and operating rules.
-- `../CHANGELOG.md` - chronological record of meaningful website, repository and documentation changes.
+## Public/deployment boundary
 
-## Documentation Status
+Internal Markdown, planning files, previews and tools must not be deployed as public pages. The boundary is validated by:
 
-The repository treats `CHANGELOG.md` as mandatory after every meaningful modification. Any future website, SEO, tracking, branding, legal-positioning, page-structure or documentation change should update the changelog during the same work cycle.
+```powershell
+node tools/validate-deployment-boundary.js
+node tools/validate-documentation.js
+```
 
-## Wiki Sync Status
+## Archiving rule
 
-The GitHub Wiki could not be accessed through the connector state during the 2026-05-06 audit. Until the GitHub Wiki is reachable, use `wiki/WORKFLOW.md` as the canonical wiki mirror inside the repository.
+Do not leave completed one-off status notes in `docs/planning/`.
 
-If the GitHub Wiki is later enabled/reachable, sync it manually from:
+Move them to an appropriate archive directory:
 
-- `README.md`
-- `CHANGELOG.md`
-- `docs/PROJECT_ROADMAP.md`
-- `docs/maintenance/ACTIVE_DOCUMENTATION_INDEX.md`
-- `docs/wiki/WORKFLOW.md`
-- `docs/planning/SEO_GROWTH_AGENDA.md`
-- `docs/planning/NEXT_WEBSITE_UPGRADE_AGENDA.md`
-- `docs/planning/ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md`
-- `docs/maintenance/LEGAL_DOCUMENTATION_MAINTENANCE.md`
+```text
+docs/archive/status-snapshots/
+docs/archive/monitoring-snapshots/
+docs/archive/historical-planning/
+docs/archive/superseded-maintenance/
+```
 
-## Root Files That Should Stay At The Site Root
+Archived files may preserve old paths and commands. They are historical records and are excluded from active-document validation.
 
-- `index.html` and top-level public pages keep their current URLs for GitHub Pages and Google indexing.
-- `CNAME`, `robots.txt`, `sitemap.xml`, `ads.txt`, and `google3164979181871a1d.html` must stay at the root because external services look for them there.
-- `assets/`, `practice/`, `services/`, and `updates/` are public website folders.
+## Change rule
 
-## Change Workflow
+When documentation is added, moved or materially changed:
 
-When adding future internal notes, place them under the correct `docs/` subfolder. When adding public pages, place them in the appropriate public folder and update `sitemap.xml`.
-
-When changing website structure, tracking, contact methods, social links, branding, professional positioning or enquiry flows, also review:
-
-- root `README.md`;
-- `CHANGELOG.md`;
-- `disclaimer.html`;
-- `privacy-policy.html`;
-- `terms.html`;
-- the maintenance checklist in `docs/maintenance/`.
+1. update `docs/maintenance/ACTIVE_DOCUMENTATION_INDEX.md` where applicable;
+2. update `docs/PROJECT_ROADMAP.md` if project status changed;
+3. update `CHANGELOG.md`;
+4. run `node tools/validate-documentation.js`;
+5. confirm internal documents remain excluded from deployment.

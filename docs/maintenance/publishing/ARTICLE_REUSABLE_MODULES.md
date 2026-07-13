@@ -7,8 +7,8 @@ This document records the reusable article architecture for the Citadel article 
 It should be read with:
 
 ```text
-docs/maintenance/ARTICLE_PUBLISHING_WORKFLOW.md
-docs/maintenance/ARTICLE_HTML_TEMPLATE.md
+docs/maintenance/publishing/ARTICLE_PUBLISHING_WORKFLOW.md
+docs/maintenance/publishing/ARTICLE_HTML_TEMPLATE.md
 docs/planning/CHAMBERS_OF_AK_PLATFORM_V2_ROADMAP.md
 ```
 
@@ -315,7 +315,7 @@ All pill styling must remain compatible with Citadel light mode, Citadel dark mo
 
 ## Article Publishing Template v2
 
-Future article publishing must use `docs/maintenance/ARTICLE_HTML_TEMPLATE.md` and `docs/maintenance/ARTICLE_PUBLISHING_WORKFLOW.md` as the operating instructions for Citadel reusable article pages.
+Future article publishing must use `docs/maintenance/publishing/ARTICLE_HTML_TEMPLATE.md` and `docs/maintenance/publishing/ARTICLE_PUBLISHING_WORKFLOW.md` as the operating instructions for Citadel reusable article pages.
 
 The template now assumes:
 
@@ -462,7 +462,7 @@ The module owns latest sections, category sections, tag sections, default 3-card
 The wider template migration is recorded in:
 
 ```text
-docs/maintenance/CITADEL_TEMPLATE_SYSTEM_ROADMAP.md
+docs/PROJECT_ROADMAP.md
 ```
 
 Going forward, reusable page behaviour should be promoted to Citadel template modules instead of being patched page-by-page. Chambers of AK should remain an implementation of Citadel, not the naming source for generic module architecture.

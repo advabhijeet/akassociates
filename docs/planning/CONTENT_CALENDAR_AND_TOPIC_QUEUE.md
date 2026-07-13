@@ -171,8 +171,8 @@ Avoid topics that:
 Use:
 
 ```text
-docs/maintenance/ARTICLE_PUBLISHING_WORKFLOW.md
-docs/maintenance/ARTICLE_HTML_TEMPLATE.md
+docs/maintenance/publishing/ARTICLE_PUBLISHING_WORKFLOW.md
+docs/maintenance/publishing/ARTICLE_HTML_TEMPLATE.md
 ```
 
 Every article should update:

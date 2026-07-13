@@ -165,8 +165,8 @@ Avoid:
 After a monitored item is approved for publication, follow:
 
 ```text
-docs/maintenance/ARTICLE_PUBLISHING_WORKFLOW.md
-docs/maintenance/ARTICLE_HTML_TEMPLATE.md
+docs/maintenance/publishing/ARTICLE_PUBLISHING_WORKFLOW.md
+docs/maintenance/publishing/ARTICLE_HTML_TEMPLATE.md
 ```
 
 Update:

@@ -232,7 +232,7 @@ Update the following documents after the visual/layout patch:
 
 ```text
 docs/maintenance/CASE_BRIEF_TEMPLATE.md
-docs/maintenance/ARTICLE_PUBLISHING_WORKFLOW.md
+docs/maintenance/publishing/ARTICLE_PUBLISHING_WORKFLOW.md
 docs/planning/CONTENT_CALENDAR_AND_TOPIC_QUEUE.md
 docs/codex/HANDOFF.md
 ```

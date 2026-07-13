@@ -262,7 +262,7 @@ Do not add Team to navigation, footer or sitemap before approval.
 Before any new website feature patch:
 
 ```text
-Check docs/CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md.
+Check docs/archive/historical-planning/CHAMBERS_OF_AK_WEBSITE_MASTER_PLAN.md.
 Check this upgrade agenda.
 Confirm current stable checkpoint.
 Update CHANGELOG.md after meaningful modifications.

@@ -51,7 +51,7 @@ Core focus areas include:
 
 - Static HTML pages.
 - CSS in `assets/css/style.css`.
-- Active theme package in `assets/css/themes/citadel-of-ak.css`; see `docs/maintenance/THEME_SYSTEM.md` before changing sitewide colors, fonts, surfaces, borders, shadows or tag/category colors.
+- Active theme package in `assets/css/themes/citadel-of-ak.css`; see `docs/maintenance/theme/THEME_SYSTEM.md` before changing sitewide colors, fonts, surfaces, borders, shadows or tag/category colors.
 - Previous/fallback theme package lives in `assets/css/themes/chambers-ak.css`.
 - Citadel images live in `assets/img/citadel/`. The folder includes article thumbnails plus the light/dark marble textures used by the Citadel page surface. New articles should get a content-specific thumbnail so homepage cards, Insights cards and Citadel article hero backgrounds stay synced.
 - Citadel dark mode is controlled by `assets/js/script.js` and the topbar/mobile drawer toggle.
@@ -256,7 +256,7 @@ When the website changes, review whether these need updates:
 - `privacy-policy.html`
 - `terms.html`
 
-The detailed checklist remains in `docs/maintenance/LEGAL_DOCUMENTATION_MAINTENANCE.md`.
+The detailed checklist remains in `docs/maintenance/operations/LEGAL_DOCUMENTATION_MAINTENANCE.md`.
 
 ## Deployment Workflow
 

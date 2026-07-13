@@ -5,8 +5,8 @@ This document is the reusable Citadel article template standard for Chambers of 
 Use this with:
 
 ```text
-docs/maintenance/ARTICLE_PUBLISHING_WORKFLOW.md
-docs/maintenance/ARTICLE_REUSABLE_MODULES.md
+docs/maintenance/publishing/ARTICLE_PUBLISHING_WORKFLOW.md
+docs/maintenance/publishing/ARTICLE_REUSABLE_MODULES.md
 assets/data/insights-registry.json
 ```
 

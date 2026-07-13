@@ -2,471 +2,222 @@
 
 Official static website repository for **Chambers of AK - Advocates & Legal Consultants**.
 
-Live site: [https://chambersofak.in](https://chambersofak.in)  
-Repository: [advabhijeet/akassociates](https://github.com/advabhijeet/akassociates)
+- Live site: https://chambersofak.in
+- Repository: `advabhijeet/akassociates`
+- Production branch: `main`
+- Current public article count: **30**
+- Current production baseline: **Chambers Citadel v1**
 
-## Current Status
+## Current status
 
-The website is a static, multi-page GitHub Pages site for Chambers of AK. It is positioned as a **firm/team-focused legal website**, not an individual portfolio page.
+The public site is stable and deployed through GitHub Pages. The July 2026 repository audit identified deployment-boundary, documentation, asset-weight and duplicated-content work. Cleanup Batch 1 is complete: internal documentation, preview pages and repository tools are excluded from the public Pages build, the sitewide SEO validator is enforced in CI, and a branded 404 page is active.
 
-Current positioning:
-
-- Homepage hero is firm-focused and no longer displays the founder portrait.
-- Homepage includes a firm-level About section.
-- `about.html` is firm/team-focused, with founder details retained only as institutional context.
-- `practice.html` works as the main **Expertise & Practice Areas** page.
-- Broader expertise includes civil litigation, property due diligence, title search, DRT, SARFAESI, MSME, RERA, arbitration, cheque bounce, commercial contracts, private documentation, land-acquisition-linked disputes, taxation-aware review and trademark/IP advisory.
-- Future `team.html` page is planned, but should only be added when team-member details are ready.
+New article publication remains paused until the cleanup sequence reaches the content-resumption checkpoint.
 
 ## Technology
 
-- Static HTML5 pages.
-- CSS3 custom styling in `assets/css/style.css`.
-- Vanilla JavaScript in `assets/js/script.js`.
-- EmailJS browser SDK on `contact.html` for the direct structured enquiry send flow.
-- GitHub Pages hosting from the `main` branch.
-- Custom domain through `CNAME`.
-- Google Tag Manager for analytics and lead-event tracking.
-- SEO metadata, sitemap, robots.txt, Open Graph, Twitter cards and JSON-LD structured data.
+- Static HTML5 pages
+- Shared CSS entry: `assets/css/style.css`
+- Shared JavaScript entry: `assets/js/script.js`
+- Active visual theme: `assets/css/themes/citadel-of-ak.css`
+- Citadel production modules under `assets/css/themes/citadel-of-kang/` and `assets/js/themes/citadel-of-kang/`
+- Central article registry: `assets/data/insights-registry.json`
+- GitHub Pages with custom domain through `CNAME`
+- Google Tag Manager and EmailJS browser integration
+- No package-manager dependency for normal content edits
 
-There is no build step and no package manager requirement for normal edits.
+GitHub Pages performs the hosting build, but `_config.yml` excludes internal repository material from the public artifact.
 
-## Folder Structure
-
-```text
-.
-|-- index.html
-|-- about.html
-|-- contact.html
-|-- practice.html
-|-- case-enquiry.html
-|-- courts.html
-|-- legal-updates.html
-|-- document-checklists.html
-|-- faq.html
-|-- process.html
-|-- privacy-policy.html
-|-- terms.html
-|-- disclaimer.html
-|-- assets/
-|   |-- css/style.css
-|   |-- css/themes/chambers-ak.css
-|   |-- js/script.js
-|   |-- img/
-|   `-- img/citadel/
-|-- practice/
-|-- services/
-|-- updates/
-|-- docs/
-|   |-- README.md
-|   |-- REPOSITORY_ORGANIZATION.md
-|   |-- audits/
-|   |-- codex/
-|   |-- google/
-|   |-- maintenance/
-|   |-- planning/
-|   |-- seo/
-|   `-- wiki/
-|-- CHANGELOG.md
-|-- CNAME
-|-- robots.txt
-|-- sitemap.xml
-|-- ads.txt
-|-- google3164979181871a1d.html
-`-- site.webmanifest
-```
-
-## Key Public Pages
-
-| Page | Purpose |
-| --- | --- |
-| `index.html` | Homepage and primary firm landing page |
-| `about.html` | Firm profile, team-level expertise and institutional background |
-| `practice.html` | Main expertise and practice-area overview |
-| `case-enquiry.html` | Structured case enquiry and consultation preparation |
-| `contact.html` | Contact, WhatsApp, email and profile links |
-| `legal-updates.html` | Index of legal update articles |
-| `document-checklists.html` | Document preparation guidance |
-| `courts.html` | Courts, tribunals and forums information |
-| `faq.html` | Frequently asked questions |
-| `process.html` | Matter-handling process overview |
-| `privacy-policy.html` | Privacy policy |
-| `terms.html` | Website terms and conditions |
-| `disclaimer.html` | Legal website disclaimer |
-
-## Main Content Groups
-
-### Practice / Expertise Pages
-
-Detailed practice pages live under `practice/` and support the main expertise page:
-
-- Cheque bounce / Section 138 NI Act.
-- MSME delayed payment disputes.
-- Commercial recovery and business dues.
-- RERA and builder-buyer disputes.
-- Arbitration.
-- Property and civil suits.
-
-### Service Landing Pages
-
-High-intent landing pages live under `services/`. These pages should be specific, document-led and non-duplicative. Current clusters include:
-
-- Cheque bounce: Bihar, Patna, Delhi NCR.
-- MSME recovery: Bihar, Patna, Delhi NCR.
-- RERA: Patna, Noida, Gurugram, Bihar/UP/Delhi NCR.
-- Commercial recovery: Bihar, Patna.
-- Property disputes and civil litigation: Bihar and Patna.
-- Arbitration: Bihar.
-
-### Legal Updates
-
-Legal updates and guides live under `updates/`. They should be informational, non-promissory and internally linked to related practice pages, service pages, checklists and the enquiry page.
-
-## Important Root Files
-
-These files must remain at the repository root because external services look for them there:
-
-- `CNAME` - GitHub Pages custom domain: `chambersofak.in`.
-- `robots.txt` - crawler rules and sitemap reference.
-- `sitemap.xml` - submitted to Google Search Console.
-- `ads.txt` - AdSense publisher declaration.
-- `google3164979181871a1d.html` - Google site verification file.
-- favicon files - browser favicon discovery.
-- `site.webmanifest` - browser/PWA metadata.
-
-## Branding
-
-Primary brand name:
+## Public website structure
 
 ```text
-Chambers of AK
+index.html
+about.html
+practice.html
+case-enquiry.html
+contact.html
+courts.html
+legal-updates.html
+document-checklists.html
+faq.html
+process.html
+disclaimer.html
+privacy-policy.html
+terms.html
+404.html
+
+practice/
+services/
+updates/
+
+assets/
+  css/
+  data/
+  img/
+  js/
 ```
 
-Tagline:
+Public discovery and platform files remain at the root:
 
 ```text
-Advocates & Legal Consultants
+CNAME
+robots.txt
+sitemap.xml
+feed.xml
+ads.txt
+site.webmanifest
+google3164979181871a1d.html
+favicon files
 ```
 
-Main brand colors:
+## Internal repository structure
 
 ```text
-Black: #000000 / #111111
-White: #ffffff
-Gold accent: #d4af37
+docs/       Internal documentation; excluded from the public Pages build.
+preview/    Historical UI experiments; excluded from deployment.
+tools/      Validation, publishing and maintenance scripts; excluded from deployment.
+.github/    GitHub Actions workflows.
 ```
 
-The shared site design is packaged as a CSS theme:
+Do not place a public page under an excluded path.
 
-```text
-assets/css/themes/citadel-of-ak.css
-```
+## Deployment boundary
 
-`assets/css/style.css` imports the active theme and contains shared layout/component rules. To swap visual themes, create a replacement theme file with the same CSS custom properties, update the import at the top of `style.css`, and bump the stylesheet cache string across public HTML pages.
+`_config.yml` is the source of truth for GitHub Pages exclusions. Internal documentation, previews, tools, repository notes and theme-development configuration must not become public web pages.
 
-Theme maintenance reference:
-
-```text
-docs/maintenance/THEME_SYSTEM.md
-```
-
-Available theme packages:
-
-```text
-Active: assets/css/themes/citadel-of-ak.css
-Fallback / previous: assets/css/themes/chambers-ak.css
-Theme reference hub: theme-preview-citadel-of-ak.html
-Citadel media assets: assets/img/citadel/
-Dark mode: use the Dark mode button in the desktop topbar or mobile drawer.
-```
-
-Design direction: modern boutique legal brand, black/white base, gold accent, serif monogram/logotype, premium but restrained.
-
-Logo, founder profile and brand assets are stored in `assets/img/`. Dark-mode logo variants are `assets/img/primary-logo-dark.png` and `assets/img/logo-navbar-dark.png`; keep light/dark navbar logos on the same `620x115` canvas to prevent size shifts. Citadel thumbnails and light/dark marble surface textures are stored in `assets/img/citadel/`; new article thumbnails should be generated or selected per article so homepage, Insights cards and article hero backgrounds stay synced.
-
-## SEO Setup
-
-The website includes:
-
-- Unique page titles and meta descriptions where updated.
-- Canonical URLs using `https://chambersofak.in/...`.
-- Open Graph and Twitter preview metadata.
-- Logo-based social preview image.
-- JSON-LD structured data where appropriate.
-- `robots.txt` pointing to `sitemap.xml`.
-- Sitemap submitted through Google Search Console.
-- Search-focused landing pages under `services/`.
-- Informational practice pages under `practice/`.
-- Legal update pages under `updates/`.
-
-When adding a public page:
-
-1. Add the HTML file in the correct folder.
-2. Add a unique `<title>` and meta description.
-3. Add a canonical URL using `https://chambersofak.in/...`.
-4. Add Open Graph/Twitter metadata.
-5. Add JSON-LD structured data where useful.
-6. Link the page from a relevant index, practice page or hub.
-7. Add the URL to `sitemap.xml`.
-8. Update `CHANGELOG.md` with date, time, files and summary.
-9. Update relevant documentation in `README.md`, `docs/` and wiki/mirror docs.
-10. Request indexing in Google Search Console after deployment if the page is important.
-
-## Analytics and Marketing Setup
-
-Google Tag Manager is installed across the site.
-
-```text
-GTM Container ID: GTM-5GMHQTJJ
-GA4 Measurement ID: G-DCP7MK6V0V
-AdSense Publisher ID: pub-6935574990807827
-```
-
-GA4 should be controlled through GTM to avoid duplicate page-view tracking.
-
-Tracked interaction events include important lead-link actions such as WhatsApp clicks, email clicks, phone clicks, case enquiry clicks and contact clicks. The direct EmailJS `Send Enquiry` button is part of contact-form delivery; add and document a separate GTM data-layer event before treating direct form sends as a GA4 conversion.
-
-AdSense readiness is documented in `docs/planning/ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md`. If AdSense is approved and enabled, ads should be limited to article-style legal information pages, remain subtle, and should not appear on homepage, contact, case enquiry, practice/service landing pages or policy/trust pages.
-
-## Contact Form Delivery
-
-`contact.html` includes a dynamic matter-type enquiry form. It prepares a structured message, supports direct Send Enquiry delivery through the EmailJS browser SDK, and keeps WhatsApp, Gmail and copy-prepared-message fallbacks available. Visitor-entered form details are sent through EmailJS only when the visitor chooses the direct send option.
-
-Current public EmailJS configuration:
-
-```text
-Public Key: rivGZ1UliuSkSgFdm
-Service ID: chambersofak
-Template ID: contactformtempid
-```
-
-Do not add, request, expose or commit any EmailJS private key.
-
-## Social Profiles
-
-Current official public social links:
-
-- Firm LinkedIn Page: [https://www.linkedin.com/company/chambersofak](https://www.linkedin.com/company/chambersofak)
-- WhatsApp Channel: [https://whatsapp.com/channel/0029VbCmf6M9sBIHqiTPIz33](https://whatsapp.com/channel/0029VbCmf6M9sBIHqiTPIz33)
-- Facebook Page: [https://www.facebook.com/people/Chambers-of-AK/61589415432367/](https://www.facebook.com/people/Chambers-of-AK/61589415432367/)
-- Instagram Page: [https://www.instagram.com/chambersofak/](https://www.instagram.com/chambersofak/)
-- X / Twitter: [https://x.com/chambersofak](https://x.com/chambersofak)
-
-The contact page also links the advocate LinkedIn profile, Google Business Profile and Google review request URL. Generated social icons in the desktop topbar, mobile drawer and footer are controlled by the Citadel global shell loaded through `assets/js/script.js`; keep the shell, Contact page, homepage `sameAs` structured data, Google setup notes and social publishing workflow aligned when social links change.
-
-## Change Tracking Policy
-
-`CHANGELOG.md` is the primary chronological record for repository changes.
-
-Every meaningful modification must update the changelog with:
-
-- date;
-- time and timezone where known;
-- changed files;
-- summary;
-- validation or follow-up notes;
-- commit hash after commit, if available.
-
-## Documentation Map
-
-| File | Purpose |
-| --- | --- |
-| `README.md` | Repository overview and operating rules |
-| `CHANGELOG.md` | Date/time change tracking |
-| `docs/README.md` | Documentation index |
-| `docs/REPOSITORY_ORGANIZATION.md` | Repository/documentation structure rules |
-| `docs/PROJECT_ROADMAP.md` | Master roadmap and product direction |
-| `docs/audits/WEBSITE_REPOSITORY_AUDIT_2026-05-06.md` | Current repository and website audit |
-| `docs/codex/HANDOFF.md` | Codex handoff and connector-limit notes |
-| `docs/codex/PROMPT_RULE.md` | Codex prompt template and handoff rule |
-| `docs/google/GOOGLE_SETUP.md` | Google Search Console, GTM, GA4, GBP and AdSense notes |
-| `docs/maintenance/ACTIVE_DOCUMENTATION_INDEX.md` | Active documentation index and archive pointer |
-| `docs/maintenance/LEGAL_DOCUMENTATION_MAINTENANCE.md` | Legal/documentation maintenance checklist |
-| `docs/planning/ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md` | AdSense readiness and article-only subtle ads plan |
-| `docs/planning/SEO_GROWTH_AGENDA.md` | SEO roadmap and pending work |
-| `docs/planning/TEAM_PAGE_AGENDA.md` | Future Team page plan |
-| `docs/seo/SEO_CONTENT_BATCH_2026-05-05.md` | Historical Batch 1 SEO content record |
-| `docs/wiki/WORKFLOW.md` | In-repository wiki/workflow mirror |
-
-## PowerShell 7 Manual Patch Environment
-
-Preferred shell for local manual patching and validation is PowerShell 7 (`pwsh`). Run patch and validation scripts from the repository root unless a patch package README states otherwise. Avoid staging untracked `.wiki-clone/` or `.wiki-work/` folders during manual patch work.
-
-ChatGPT connector note: if ChatGPT cannot directly and safely patch, validate, commit and push through its available GitHub connector, it should prepare a manual patch package or update `docs/codex/HANDOFF.md` for Codex. Local Windows workspace changes require Codex/local execution or the documented manual patch workflow.
-
-## Local Preview
-
-Because this is a static site, pages can be opened directly in a browser. For a cleaner local preview, run a small local server from the repository root:
+Validate the boundary with:
 
 ```powershell
-python -m http.server 8000
+node tools/validate-deployment-boundary.js
 ```
 
-Then open:
+A new public path must be added to the correct public directory and must not be added to the exclusion list.
+
+## Citadel theme status
+
+### Live
+
+- Chambers Citadel visual theme and light/dark modes
+- Global Shell, topbar, mobile drawer and footer
+- Article Index and Article Footer
+- Thumbnail frame and featured-image modules
+- Registry-driven Homepage and Legal Insights sections
+- Blog filters, category/tag views and pagination
+- Contact, enquiry and semantic page modules
+
+### Paused
+
+- clean standalone Citadel of Kang extraction
+- public-safe configuration migration
+- module registry/version consolidation
+- Citadel Manager / CMS
+- standalone theme repository
+
+The active production inventory is documented in:
 
 ```text
-http://localhost:8000/
+docs/maintenance/theme/CITADEL_PRODUCTION_MODULE_INVENTORY.md
 ```
 
-## Cache Busting
+The old `assets/css/themes/chambers-ak.css` file remains a rollback fallback until a later controlled cleanup explicitly removes it.
 
-HTML pages reference CSS and JavaScript with version query strings, for example:
+## Article publishing
 
-```html
-assets/css/style.css?v=theme-package-5
-assets/js/script.js?v=citadel-live-16
+Every article must update the complete publication surface:
+
+```text
+updates/<slug>.html
+assets/data/insights-registry.json
+sitemap.xml
+feed.xml
+index.html static snapshot
+legal-updates.html static snapshot
+CHANGELOG.md
 ```
 
-When changing shared CSS or JavaScript, update the query string across HTML pages so browsers and mobile devices fetch the latest files.
+Required checks include canonical and social metadata, BlogPosting/Breadcrumb schema, approved 1200 x 675 article artwork, source/references, internal links and a visible review date.
 
-## Quality Checks
+Standing thumbnail rule:
 
-Before pushing changes, run these checks where possible.
+```text
+Do not place the Chambers of AK logo, monogram, firm name or branding block inside article thumbnails.
+```
 
-JavaScript syntax:
+Publishing documentation:
+
+```text
+docs/maintenance/publishing/ARTICLE_PUBLISHING_WORKFLOW.md
+docs/maintenance/publishing/ARTICLE_HTML_TEMPLATE.md
+docs/maintenance/publishing/ARTICLE_REUSABLE_MODULES.md
+docs/maintenance/publishing/CHAMBERS_ARTICLE_AND_SOCIAL_GUIDELINES.md
+```
+
+## Required validation
+
+Run from the repository root:
 
 ```powershell
-node --check assets\js\script.js
-```
-
-Git whitespace check:
-
-```powershell
+node --check assets/js/script.js
+node tools/validate-article-encoding.js
+node tools/validate-insights-registry.js --strict
+node tools/sync-static-insight-cards.js --check
+node tools/audit-articles-structure.js --strict
+node tools/validate-seo-sitewide.js
+node tools/validate-deployment-boundary.js
+node tools/validate-documentation.js
 git diff --check
 ```
 
-Internal link/source check:
+The same critical checks run through `.github/workflows/validation.yml`.
 
-```powershell
-$ErrorActionPreference='Stop'
-$root=(Get-Location).Path
-$missing=@()
-Get-ChildItem -Recurse -Filter *.html | Where-Object { $_.FullName -notlike '*\.git\*' } | ForEach-Object {
-  $file=$_.FullName
-  $dir=Split-Path $file -Parent
-  $html=Get-Content -LiteralPath $file -Raw
-  $matches=[regex]::Matches($html, '(?:href|src)="([^"]+)"')
-  foreach($m in $matches){
-    $ref=$m.Groups[1].Value
-    if($ref -match '^(https?:|mailto:|tel:|#|javascript:|data:)'){ continue }
-    $clean=$ref -replace '\?.*$',''
-    if($clean.StartsWith('/')){ $target=Join-Path $root $clean.TrimStart('/') } else { $target=Join-Path $dir $clean }
-    if(-not (Test-Path -LiteralPath $target)){ $missing += "$(Resolve-Path -LiteralPath $file -Relative): $ref" }
-  }
-}
-if($missing.Count){ $missing | ForEach-Object { Write-Output $_ }; exit 1 }
-'Internal href/src references ok'
-```
+## Change workflow
 
-JSON-LD validation:
+1. Synchronize with `origin/main`.
+2. Confirm the working tree is clean.
+3. Make one scoped change.
+4. Run the applicable validators.
+5. Inspect the diff and staged-file set.
+6. Update `CHANGELOG.md`.
+7. Commit and push.
+8. Confirm `Chambers Validation` and GitHub Pages deployment.
+9. Perform a live smoke test where public behavior changed.
 
-```powershell
-$ErrorActionPreference = 'Stop'
-$count = 0
-Get-ChildItem -Recurse -Filter *.html | Where-Object { $_.FullName -notlike '*\.git\*' } | ForEach-Object {
-  $html = Get-Content -LiteralPath $_.FullName -Raw
-  $matches = [regex]::Matches($html, '<script type="application/ld\+json">\s*(.*?)\s*</script>', [System.Text.RegularExpressions.RegexOptions]::Singleline)
-  foreach ($match in $matches) {
-    $null = $match.Groups[1].Value | ConvertFrom-Json
-    $count++
-  }
-}
-"JSON-LD blocks parsed: $count"
-```
+Avoid force-pushing public history. Use a separate commit for each independently reversible change.
 
+## Documentation
 
-### Local GitHub Account Selection
-
-When applying manual patch packages from a local machine with multiple GitHub accounts connected, use the `advabhijeet` account and GitHub noreply email `281193757+advabhijeet@users.noreply.github.com` for this repository.
-
-Recommended local setup:
-
-```powershell
-git config user.name "advabhijeet"
-git config user.email "281193757+advabhijeet@users.noreply.github.com"
-git config --global credential.https://github.com.useHttpPath true
-gh auth switch --hostname github.com --user advabhijeet
-gh auth status --active --hostname github.com
-```
-
-If GitHub CLI is not available, choose the `advabhijeet` account if Git Credential Manager prompts during `git push`.
-
-## Deployment
-
-Deployment is handled by GitHub Pages from the `main` branch.
-
-Basic workflow:
-
-```powershell
-git status
-git add -A
-git commit -m "Describe the change"
-git push origin main
-```
-
-After pushing, GitHub Pages may take a short time to redeploy.
-
-## Rollback
-
-Every meaningful change should be committed separately so rollback is simple.
-
-To inspect recent versions:
-
-```powershell
-git log --oneline -10
-```
-
-To revert a specific commit without deleting history:
-
-```powershell
-git revert <commit-hash>
-git push origin main
-```
-
-Avoid force-pushing or resetting public history unless there is a specific reason.
-
-## Maintenance Rules
-
-- Keep public website files at the root or in public folders such as `practice/`, `services/` and `updates/`.
-- Keep internal planning notes inside the correct `docs/` subfolder.
-- Keep legal disclaimer, privacy policy and terms linked from the footer.
-- Keep social preview image as a logo/brand image, not a personal profile photo.
-- Keep the homepage firm-focused.
-- Move detailed individual profiles to the future `team.html` page.
-- Re-check mobile navigation after header, social or menu changes.
-- Re-test important click events in GTM Preview after contact CTA changes.
-- Re-test EmailJS direct-send, WhatsApp, Gmail and copy fallbacks after contact-form or enquiry-form module changes.
-- Update `sitemap.xml` whenever adding, removing, renaming or moving indexed pages.
-- Update `CHANGELOG.md` after every meaningful modification.
-
-## Documentation Update Policy
-
-Documentation and legal-policy pages should be reviewed as part of every meaningful website change.
-
-- Update `README.md` when site structure, deployment, tracking IDs, cache-busting versions, domains, branding, positioning or maintenance workflow changes.
-- Update `docs/` when SEO, Google, analytics, business profile, operational setup or handoff state changes.
-- Review `disclaimer.html`, `privacy-policy.html` and `terms.html` when contact methods, enquiry flows, analytics/tracking, AdSense/advertising, social links, third-party tools, branding or professional positioning changes.
-- Update `sitemap.xml` when public indexed pages are added, removed, renamed or moved.
-- Update `CHANGELOG.md` for every meaningful change.
-
-The detailed maintenance checklist is in `docs/maintenance/LEGAL_DOCUMENTATION_MAINTENANCE.md`.
-
-## License and Rights
-
-This repository contains brand assets, copy, images and website materials for Chambers of AK. Do not reuse the branding, legal copy, photographs or website assets without permission from the owner.
-
-## Project Roadmap And Documentation
-
-The current master roadmap is maintained at:
+Start here:
 
 ```text
 docs/PROJECT_ROADMAP.md
-```
-
-The active maintenance documentation index is maintained at:
-
-```text
 docs/maintenance/ACTIVE_DOCUMENTATION_INDEX.md
+docs/README.md
+CHANGELOG.md
 ```
 
-Older duplicate planning/checkpoint documents may be archived under `docs/archive/superseded-maintenance/` and should not be treated as current operating instructions.
+The active documentation index distinguishes production documentation, active operations, future planning and archived history. Historical status snapshots are not current operating instructions.
+
+## Current cleanup sequence
+
+1. **Completed:** Deployment Boundary and Validator Integrity.
+2. **Current:** Documentation Consolidation.
+3. **Next:** Asset and Performance Cleanup.
+4. **Then:** Service-Page Consolidation.
+5. **Then:** Citadel Theme Restart.
+6. **After cleanup:** resume the controlled Article 6-10 publishing run.
+
+## Maintenance rules
+
+- Keep public URLs stable.
+- Keep internal material under excluded repository paths.
+- Do not create thin location pages without distinct jurisdictional value.
+- Keep legal and policy pages aligned with enquiry, tracking and advertising changes.
+- Update sitemap, feed and registry together.
+- Keep article thumbnails topic-specific, editorial and logo-free.
+- Re-test desktop/mobile and light/dark behavior after shared theme changes.
+- Preserve the rollback theme until the production baseline is tagged and documented.
+- Update `CHANGELOG.md` after every meaningful modification.
+
+## Rights
+
+Brand assets, legal copy, article artwork and website materials belong to Chambers of AK and may not be reused without permission.

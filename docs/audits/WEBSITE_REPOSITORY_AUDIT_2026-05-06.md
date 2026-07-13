@@ -150,13 +150,13 @@ Do not delete documentation blindly. The current useful docs are:
 - `docs/codex/HANDOFF.md`
 - `docs/codex/PROMPT_RULE.md`
 - `docs/google/GOOGLE_SETUP.md`
-- `docs/maintenance/LEGAL_DOCUMENTATION_MAINTENANCE.md`
+- `docs/maintenance/operations/LEGAL_DOCUMENTATION_MAINTENANCE.md`
 - `docs/planning/SEO_GROWTH_AGENDA.md`
 - `docs/planning/TEAM_PAGE_AGENDA.md`
 - `docs/seo/SEO_CONTENT_BATCH_2026-05-05.md`
 - `docs/wiki/WORKFLOW.md`
 
-The obsolete `docs/seo/SEO_BATCH_2_PLAN.md` was removed because Batch 2 is complete and tracked through the changelog, audit and SEO agenda.
+The obsolete the former SEO Batch 2 plan was removed because Batch 2 is complete and tracked through the changelog, audit and SEO agenda.
 
 ## Required Operating Rule Going Forward
 

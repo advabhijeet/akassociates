@@ -11,7 +11,7 @@ Article metadata source: assets/data/insights-registry.json
 Article Index: auto-loaded by assets/js/script.js
 Article Footer: auto-loaded by assets/js/script.js
 Pill system: assets/css/themes/citadel-of-kang/modules/pills.css
-Template: docs/maintenance/ARTICLE_HTML_TEMPLATE.md
+Template: docs/maintenance/publishing/ARTICLE_HTML_TEMPLATE.md
 ```
 
 Do not add article metadata to `assets/js/script.js`.

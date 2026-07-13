@@ -1,98 +1,119 @@
 # Repository Organization
 
-This document records the intended repository structure for the Chambers of AK website.
+Last updated: **13 July 2026**
 
-## Public Website Files
+This document defines the file-placement and deployment boundaries for the Chambers of AK repository.
 
-These files and folders are public website assets and should not be moved without a deliberate URL migration plan:
+## Public website files
 
-- `index.html`
-- `about.html`
-- `practice.html`
-- `case-enquiry.html`
-- `contact.html`
-- `courts.html`
-- `legal-updates.html`
-- `document-checklists.html`
-- `faq.html`
-- `process.html`
-- `disclaimer.html`
-- `privacy-policy.html`
-- `terms.html`
-- `assets/`
-- `practice/`
-- `services/`
-- `updates/`
+Public indexed or user-facing pages belong only in approved public locations:
 
-Root infrastructure files that must stay at repository root:
+```text
+root public HTML pages
+practice/
+services/
+updates/
+required files under assets/
+```
 
-- `CNAME`
-- `robots.txt`
-- `sitemap.xml`
-- `ads.txt`
-- `google3164979181871a1d.html`
-- `site.webmanifest`
-- favicon files
+Stable root infrastructure:
 
-## Documentation Structure
+```text
+CNAME
+robots.txt
+sitemap.xml
+feed.xml
+ads.txt
+site.webmanifest
+google3164979181871a1d.html
+favicon files
+_config.yml
+```
 
-Internal documentation should follow this structure:
+Do not move or rename indexed public files without a redirect, canonical, sitemap and internal-link migration plan.
+
+## Internal files
+
+```text
+docs/       Internal documentation and planning.
+preview/    Historical design and module experiments.
+tools/      Validators, generators and maintenance scripts.
+.github/    CI and repository automation.
+```
+
+`_config.yml` excludes internal material from GitHub Pages. `tools/validate-deployment-boundary.js` enforces the exclusion contract.
+
+## Documentation layout
 
 ```text
 docs/
   PROJECT_ROADMAP.md
   README.md
   REPOSITORY_ORGANIZATION.md
-  archive/
-    superseded-maintenance/
-  audits/
-    WEBSITE_REPOSITORY_AUDIT_2026-05-06.md
-  codex/
-    HANDOFF.md
-    PROMPT_RULE.md
-  google/
-    GOOGLE_SETUP.md
+
   maintenance/
     ACTIVE_DOCUMENTATION_INDEX.md
-    LEGAL_DOCUMENTATION_MAINTENANCE.md
+    README.md
+    modules/
+    operations/
+    product/
+    publishing/
+    standards/
+    templates/
+    theme/
+
   planning/
-    ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md
-    SEO_GROWTH_AGENDA.md
-    SEARCH_APPEARANCE_MSME_TOPICAL_AUTHORITY_ROADMAP.md
-    TEAM_PAGE_AGENDA.md
+  google/
+  codex/
   seo/
-    SEO_CONTENT_BATCH_2026-05-05.md
+  audits/
   wiki/
-    WORKFLOW.md
+
+  archive/
+    superseded-maintenance/
+    status-snapshots/
+    monitoring-snapshots/
+    historical-planning/
 ```
 
-## File Placement Rules
+## Placement rules
 
-- Repository overview and operating rules: `README.md`.
-- Chronological change record: `CHANGELOG.md`.
-- Documentation index: `docs/README.md`.
-- Active roadmap and product direction: `docs/PROJECT_ROADMAP.md`.
-- Active documentation inventory and archive pointers: `docs/maintenance/ACTIVE_DOCUMENTATION_INDEX.md`.
-- Repository audits: `docs/audits/`.
-- Codex handoff and prompt rules: `docs/codex/`.
-- Google platform setup: `docs/google/`.
-- Legal/documentation maintenance checklists: `docs/maintenance/`.
-- Forward-looking plans: `docs/planning/`, unless consolidated into `docs/PROJECT_ROADMAP.md`.
-- Historical SEO batch records: `docs/seo/`.
-- In-repository wiki mirror: `docs/wiki/`.
-- Superseded documentation retained for historical reference: `docs/archive/superseded-maintenance/`.
+- Current roadmap: `docs/PROJECT_ROADMAP.md`.
+- Active document inventory: `docs/maintenance/ACTIVE_DOCUMENTATION_INDEX.md`.
+- Theme production reality: `docs/maintenance/theme/`.
+- Article publishing: `docs/maintenance/publishing/`.
+- Legal/social operations: `docs/maintenance/operations/`.
+- Future product concepts: `docs/maintenance/product/`.
+- Current supporting plans: `docs/planning/`.
+- Dated audits: `docs/audits/`.
+- Completed one-off status notes: `docs/archive/status-snapshots/`.
+- Completed monitoring outputs: `docs/archive/monitoring-snapshots/`.
+- Superseded roadmaps/checkpoints: `docs/archive/`.
 
-## Cleanup Rule
+Do not place one-off completion logs in active planning after the related work is closed.
 
-Do not delete documentation unless it is obsolete and superseded by a clearer file.
+## Asset rules
 
-When deleting documentation:
+Production assets belong under `assets/`. Source artwork, discarded variants and theme-lab material should not remain in the public asset tree indefinitely. Asset relocation/removal must be reference-checked and validated.
 
-1. Confirm the information is duplicated or outdated.
-2. Preserve useful historical facts in `CHANGELOG.md` or a surviving planning/audit document.
-3. Update internal references.
-4. Record the deletion in `CHANGELOG.md`.
+## Change rules
 
-## Changelog Requirement
+1. Start from a clean working tree.
+2. Make one scoped change.
+3. Validate changed public and internal surfaces.
+4. Update `CHANGELOG.md`.
+5. Inspect the staged-file set.
+6. Commit and deploy.
+7. Confirm GitHub Actions and any required live checks.
 
-Every meaningful repository or website change must update `CHANGELOG.md` during the same work cycle.
+## Deletion/archive rule
+
+Delete only when a file is:
+
+- unreferenced;
+- duplicated;
+- obsolete;
+- preserved by Git history;
+- not needed for rollback or evidence.
+
+Prefer archival relocation when historical context may still be useful. Record deletion or archival in `CHANGELOG.md`.

@@ -1,3 +1,12 @@
+## 2026-07-13 IST - Consolidate active documentation and archive stale status notes
+- Rewrote the repository, documentation, roadmap and organization entry points against the July 2026 production state.
+- Reconciled Chambers Citadel v1, active Citadel modules and paused standalone extraction in theme documentation and namespace READMEs.
+- Replaced stale pre-reorganization maintenance-document paths with their current folder locations.
+- Rewrote the article/thumbnail/social guidelines, removed the control-character defect and locked the logo-free article-thumbnail rule.
+- Archived 15 completed status notes, 4 dated monitoring outputs and the superseded website master plan.
+- Added `tools/validate-documentation.js` and added documentation validation to GitHub Actions.
+- Internal documentation remains excluded from the public GitHub Pages artifact.
+
 ## 2026-07-13 IST - Harden public deployment boundary and SEO validation
 - Added `_config.yml` to stop GitHub Pages from publishing internal documentation, preview files, tools, repository notes and theme-development README/config files.
 - Added a branded noindex `404.html` with safe navigation back to active public sections.
