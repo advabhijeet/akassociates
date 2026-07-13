@@ -57,6 +57,8 @@ jobs:
             "assets/js/themes/citadel-of-kang/modules/pages/general-content-page.js"
             "tools/sync-static-insight-cards.js"
             "tools/audit-articles-structure.js"
+            "tools/validate-seo-sitewide.js"
+            "tools/validate-deployment-boundary.js"
           )
 
           for file in "${files[@]}"; do
@@ -78,6 +80,12 @@ jobs:
 
       - name: Phase 3 article structure audit
         run: node tools/audit-articles-structure.js --strict
+
+      - name: Sitewide SEO validation
+        run: node tools/validate-seo-sitewide.js
+
+      - name: Deployment boundary validation
+        run: node tools/validate-deployment-boundary.js
 
       - name: Whitespace validation
         run: git diff --check

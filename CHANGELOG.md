@@ -1,3 +1,13 @@
+## 2026-07-13 IST - Harden public deployment boundary and SEO validation
+- Added `_config.yml` to stop GitHub Pages from publishing internal documentation, preview files, tools, repository notes and theme-development README/config files.
+- Added a branded noindex `404.html` with safe navigation back to active public sections.
+- Fixed the control-flow defect that prevented normal service-page and RERA schema validation in `tools/validate-seo-sitewide.js`.
+- Added registry, Open Graph, Twitter and BlogPosting image-parity enforcement for every registered article.
+- Corrected BlogPosting images for the Bihar RERA complaint and MSME delayed-payment articles.
+- Added `tools/validate-deployment-boundary.js`.
+- Added sitewide SEO and deployment-boundary validation to the Chambers Validation workflow.
+- No public indexed URL, sitemap entry, feed entry or article registry entry was removed.
+
 ## 2026-07-13 IST - Publish commercial contract review checklist
 - Added `updates/commercial-contract-review-checklist.html` as a pre-signing commercial agreement review guide.
 - Covered party identity, authority, scope, acceptance, change control, payment, indemnity, liability, IP, confidentiality, termination, force majeure, execution and dispute clauses.

@@ -13,12 +13,20 @@ const EXCLUDED_HTML_FILES = new Set([
 
 const APPROVED_NON_INDEXABLE = new Map([
   [
+    '404.html',
+    {
+      reason: 'Custom error page.',
+      canonical: 'https://chambersofak.in/404.html'
+    }
+  ],
+  [
     'services/msme-recovery-lawyer-delhi.html',
     {
       reason: 'Intentional noindex redirect stub to Delhi NCR MSME service page.',
       canonical: 'https://chambersofak.in/services/msme-recovery-lawyer-delhi-ncr.html'
     }
-  ],]);
+  ]
+]);
 
 const errors = [];
 const warnings = [];
@@ -133,6 +141,15 @@ function flattenJsonLd(node, out = []) {
     if (node['@graph']) flattenJsonLd(node['@graph'], out);
   }
   return out;
+}
+
+function jsonLdImageUrl(image) {
+  if (!image) return null;
+  if (typeof image === 'string') return image;
+  if (typeof image === 'object') {
+    return image.url || image.contentUrl || image['@id'] || null;
+  }
+  return null;
 }
 
 function collectHtmlFiles() {
@@ -270,7 +287,8 @@ for (const file of htmlFiles) {
   }
 
   if (/href=["'][^"']*\/index\.html(?:[#?][^"']*)?["']/i.test(html)) {
-
+    errors.push(`${relPath}: internal link points to /index.html.`);
+  }
 
   if (relPath.startsWith('services/') && isIndexable(html, relPath)) {
     const serviceJsonLd = flattenJsonLd(getJsonLdBlocks(html));
@@ -312,9 +330,6 @@ for (const file of htmlFiles) {
     if (!hasLegalService) {
       errors.push(`${relPath}: RERA page missing LegalService JSON-LD.`);
     }
-  }
-
-    errors.push(`${relPath}: internal link points to /index.html.`);
   }
 
   if (relPath.startsWith('updates/')) {
@@ -377,6 +392,35 @@ for (const item of registryItems) {
 
   if (thumbnail && !exists(thumbnail)) {
     errors.push(`Registry thumbnail missing file: ${thumbnail}`);
+  }
+
+  if (href && thumbnail && href.startsWith('updates/') && exists(href)) {
+    const articleHtml = read(path.join(ROOT, href));
+    const expectedThumbnailUrl = `${SITE}/${thumbnail.replace(/^\/+/, '')}`;
+    const ogImages = getMetaContentByProperty(articleHtml, 'og:image');
+    const twitterImages = getMetaContentByName(articleHtml, 'twitter:image');
+
+    currentFileForWarning = href;
+    const articleJsonLd = flattenJsonLd(getJsonLdBlocks(articleHtml));
+    const blogPostingImages = articleJsonLd
+      .filter((entry) => {
+        const type = entry['@type'];
+        return type === 'BlogPosting' || (Array.isArray(type) && type.includes('BlogPosting'));
+      })
+      .map((entry) => jsonLdImageUrl(entry.image))
+      .filter(Boolean);
+
+    if (ogImages.length !== 1 || ogImages[0] !== expectedThumbnailUrl) {
+      errors.push(`${href}: registry thumbnail does not match og:image. Expected ${expectedThumbnailUrl}.`);
+    }
+
+    if (twitterImages.length !== 1 || twitterImages[0] !== expectedThumbnailUrl) {
+      errors.push(`${href}: registry thumbnail does not match twitter:image. Expected ${expectedThumbnailUrl}.`);
+    }
+
+    if (!blogPostingImages.includes(expectedThumbnailUrl)) {
+      errors.push(`${href}: registry thumbnail does not match BlogPosting.image. Expected ${expectedThumbnailUrl}.`);
+    }
   }
 }
 

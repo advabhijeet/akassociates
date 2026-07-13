@@ -1,0 +1,16 @@
+url: "https://chambersofak.in"
+baseurl: ""
+
+exclude:
+  - docs
+  - preview
+  - tools
+  - README.md
+  - CHANGELOG.md
+  - SECURITY.md
+  - DEPLOYMENT.txt
+  - article-index-rollout-report.txt
+  - theme-preview-citadel-of-ak.html
+  - assets/config
+  - assets/css/themes/citadel-of-kang/README.md
+  - assets/js/themes/citadel-of-kang/README.md
