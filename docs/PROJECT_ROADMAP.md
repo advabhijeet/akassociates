@@ -124,47 +124,43 @@ Completed on 13 July 2026.
 - Global Shell clock reduced from per-second to per-minute updates;
 - public-asset validation added to CI.
 
-## Current phase
-
 ### Repository Cleanup Batch 4 — Service-Page Consolidation
 
-Goals:
+Completed on 13 July 2026.
 
-1. review high-similarity location-page clusters;
-2. retain separate pages only where jurisdiction, forum, documents or procedure are genuinely distinct;
-3. consolidate, redirect or noindex weaker variants;
-4. update internal links, sitemap and structured data;
-5. prohibit new thin location pages;
-6. preserve stable public URLs through explicit redirect decisions.
+- consolidated three overlapping Bihar service pages into stronger Patna-and-Bihar canonical pages;
+- preserved the former URLs as noindex redirect stubs;
+- removed redirect sources from the sitemap and public internal-link graph;
+- changed visible internal SEO labels to user-facing legal labels;
+- differentiated Delhi NCR cheque-bounce preparation from Patna and Bihar;
+- differentiated Noida/UP RERA and Gurugram/HRERA pages using authority-specific portal and record checks;
+- added service-page consolidation validation to CI.
 
-Priority clusters:
-
-- cheque-bounce Bihar and Delhi NCR;
-- RERA Noida and Gurugram;
-- property-dispute Bihar and Patna;
-- civil-litigation Bihar and Patna.
-
-Completion condition:
-
-```text
-Every retained location page has materially distinct local value.
-Consolidated pages have complete redirect and internal-link handling.
-Sitemap and canonical signals reflect the final structure.
-No new thin location-page template is allowed.
-All validators pass.
-```
-
-## Next phases
+## Current phase
 
 ### Repository Cleanup Batch 5 — Citadel Theme Restart
 
+Goals:
+
 1. tag the current baseline as `Chambers Citadel v1`;
-2. create an active module manifest;
-3. separate production modules from theme-lab code;
+2. create an active production-module manifest;
+3. separate production modules from dormant theme-lab code;
 4. remove confirmed duplicate legacy implementations;
 5. split the monolithic bootstrap into explicit modules;
 6. normalize public configuration and module versioning;
 7. resume standalone Citadel extraction.
+
+Completion condition:
+
+```text
+Every production module has one documented owner and entry point.
+Dormant experiments are outside the public runtime tree.
+Duplicate legacy implementations are removed or explicitly retained.
+The Chambers baseline has a release tag and rollback note.
+All validators and visual checks pass.
+```
+
+## Next phases
 
 ### Content resumption checkpoint
 

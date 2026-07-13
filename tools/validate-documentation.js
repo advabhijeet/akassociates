@@ -269,6 +269,7 @@ if (exists(roadmapPath)) {
     "Repository Cleanup Batch 1",
     "Repository Cleanup Batch 2",
     "Repository Cleanup Batch 3",
+    "Repository Cleanup Batch 4",
     "Citadel Theme Restart",
   ]) {
     if (!content.includes(required)) {

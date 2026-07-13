@@ -25,7 +25,29 @@ const APPROVED_NON_INDEXABLE = new Map([
       reason: 'Intentional noindex redirect stub to Delhi NCR MSME service page.',
       canonical: 'https://chambersofak.in/services/msme-recovery-lawyer-delhi-ncr.html'
     }
-  ]
+  ],
+
+  [
+    'services/cheque-bounce-lawyer-bihar.html',
+    {
+      reason: 'Consolidated Bihar cheque-bounce service page redirects to the Patna and Bihar canonical page.',
+      canonical: 'https://chambersofak.in/services/cheque-bounce-lawyer-patna.html'
+    }
+  ],
+  [
+    'services/property-dispute-lawyer-bihar.html',
+    {
+      reason: 'Consolidated Bihar property-dispute service page redirects to the Patna and Bihar canonical page.',
+      canonical: 'https://chambersofak.in/services/property-dispute-lawyer-patna.html'
+    }
+  ],
+  [
+    'services/civil-litigation-lawyer-bihar.html',
+    {
+      reason: 'Consolidated Bihar civil-litigation service page redirects to the Patna and Bihar canonical page.',
+      canonical: 'https://chambersofak.in/services/civil-litigation-lawyer-patna.html'
+    }
+  ],
 ]);
 
 const errors = [];

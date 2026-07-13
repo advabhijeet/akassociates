@@ -1,3 +1,12 @@
+## 2026-07-13 IST - Consolidate overlapping location service pages
+- Consolidated the Bihar cheque-bounce, property-dispute and civil-litigation pages into stronger Patna-and-Bihar canonical pages while preserving former URLs as noindex redirect stubs.
+- Removed the three redirect-source URLs from the sitemap and public internal-link graph.
+- Replaced visible “High Intent Search Page” labels with user-facing legal labels.
+- Added distinct Delhi NCR cheque-bounce forum-record guidance.
+- Added authority-specific UP RERA and HRERA Gurugram portal-record guidance to the Noida and Gurugram pages.
+- Added `tools/validate-service-consolidation.js` and enabled it in Chambers Validation.
+- Advanced the active roadmap to Cleanup Batch 5 — Citadel Theme Restart.
+
 ## 2026-07-13 IST - Optimize article assets and frontend rendering
 - Converted active 1200 x 675 article thumbnails from large PNG files to size-controlled JPEG derivatives and updated registry, article metadata and featured-image references.
 - Backed up original image sources locally before removing them from the active repository.

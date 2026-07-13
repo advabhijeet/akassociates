@@ -61,6 +61,7 @@ jobs:
             "tools/validate-deployment-boundary.js"
             "tools/validate-documentation.js"
             "tools/validate-public-assets.js"
+            "tools/validate-service-consolidation.js"
           )
 
           for file in "${files[@]}"; do
@@ -94,6 +95,9 @@ jobs:
 
       - name: Public asset validation
         run: node tools/validate-public-assets.js
+
+      - name: Service-page consolidation validation
+        run: node tools/validate-service-consolidation.js
 
       - name: Whitespace validation
         run: git diff --check
