@@ -1,5 +1,5 @@
 /*
-  Chambers Citadel public configuration v1.
+  Chambers Citadel public configuration v2.
   Every value in this file is intentionally public and safe for browser delivery.
 */
 (function () {
@@ -54,8 +54,8 @@
       darkThemeColor: "#000000",
       fontsUrl: "https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Lato:wght@400;700;900&display=swap",
       logos: {
-        navDark: "assets/img/logo-navbar-dark.png?v=dark-2",
-        heroDark: "assets/img/primary-logo-dark.png?v=dark-1"
+        navDark: "assets/img/performance/logo-navbar-dark-480.jpg?v=pa1",
+        heroDark: "assets/img/performance/primary-logo-dark-720.jpg?v=pa1"
       }
     },
     analytics: {
@@ -76,7 +76,7 @@
     },
     insights: {
       registryPath: "assets/data/insights-registry.json",
-      registryVersion: "registry-11",
+      registryVersion: "registry-12",
       thumbnailBase: "assets/img/citadel/",
       defaultThumbnail: "assets/img/citadel/citadel-legal-documents-card.webp",
       defaultDate: "May 2026",

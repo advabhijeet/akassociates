@@ -237,7 +237,7 @@ function renderCard(item, indent, eol, options = {}) {
     ? item.tags.map(normalize).filter(Boolean)
     : [];
 
-  const thumbnail = normalize(item.thumbnail || item.thumb);
+  const thumbnail = normalize(item.cardThumbnail || item.thumbnail || item.thumb);
   const lines = [];
 
   lines.push(
@@ -246,7 +246,7 @@ function renderCard(item, indent, eol, options = {}) {
 
   if (thumbnail) {
     lines.push(
-      `${indent}  <span class="insight-card-media" aria-hidden="true"><img class="insight-card-image" src="${escapeAttribute(thumbnail)}" alt="" loading="lazy" decoding="async"></span>`
+      `${indent}  <span class="insight-card-media" aria-hidden="true"><img class="insight-card-image" src="${escapeAttribute(thumbnail)}" alt="" width="640" height="360" loading="lazy" decoding="async"></span>`
     );
   }
 

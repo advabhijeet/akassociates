@@ -65,6 +65,7 @@ jobs:
             "tools/validate-deployment-boundary.js"
             "tools/validate-documentation.js"
             "tools/validate-public-assets.js"
+            "tools/validate-performance-remediation.js"
             "tools/validate-service-consolidation.js"
             "tools/validate-citadel-runtime.js"
           )
@@ -100,6 +101,9 @@ jobs:
 
       - name: Public asset validation
         run: node tools/validate-public-assets.js
+
+      - name: Performance and accessibility remediation validation
+        run: node tools/validate-performance-remediation.js
 
       - name: Service-page consolidation validation
         run: node tools/validate-service-consolidation.js

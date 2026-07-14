@@ -3205,3 +3205,95 @@ body.insights-list-active .insights-category-section {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+
+/* PERFORMANCE_ACCESSIBILITY_REMEDIATION_V1
+   Targeted improvements derived from the 2026-07-14 Lighthouse mobile and desktop audits.
+*/
+:root[data-theme="citadel-of-ak"],
+[data-theme="citadel-of-ak"] {
+  --accessible-gold-text: #755b00;
+  --accessible-gold-on-dark: #e6c364;
+}
+
+:root[data-theme="citadel-of-ak-dark"],
+[data-theme="citadel-of-ak-dark"] {
+  --accessible-gold-text: #e6c364;
+  --accessible-gold-on-dark: #e6c364;
+}
+
+[data-theme^="citadel-of-ak"] .hero-eyebrow,
+[data-theme^="citadel-of-ak"] .sec-label,
+[data-theme^="citadel-of-ak"] .practice-num,
+[data-theme^="citadel-of-ak"] .update-date,
+[data-theme^="citadel-of-ak"] .home-view-more,
+[data-theme^="citadel-of-ak"] .founder-photo-card span,
+[data-theme^="citadel-of-ak"] .hero-portrait span,
+[data-theme^="citadel-of-ak"] .profile-card span {
+  color: var(--accessible-gold-text);
+}
+
+[data-theme^="citadel-of-ak"] .site-topbar .topbar-label,
+[data-theme^="citadel-of-ak"] .site-topbar .live-clock,
+[data-theme^="citadel-of-ak"] .site-topbar .ak-social-icon,
+[data-theme^="citadel-of-ak"] .site-topbar .theme-mode-toggle {
+  color: var(--accessible-gold-on-dark);
+}
+
+[data-theme^="citadel-of-ak"] .s .btn-gold {
+  color: #000000;
+}
+
+[data-theme^="citadel-of-ak"] .s .btn-gold:hover,
+[data-theme^="citadel-of-ak"] .s .btn-gold:focus-visible {
+  color: #ffffff;
+}
+
+[data-theme^="citadel-of-ak"] .s .home-view-more {
+  border-color: currentColor;
+}
+
+[data-theme^="citadel-of-ak"] .nav-links a,
+[data-theme^="citadel-of-ak"] .nav-cta,
+[data-theme^="citadel-of-ak"] .home-view-more {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+}
+
+[data-theme^="citadel-of-ak"] .nav-links {
+  gap: clamp(0.7rem, 1.25vw, 1.4rem);
+}
+
+[data-theme^="citadel-of-ak"] .foot-links a {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  [data-theme^="citadel-of-ak"] .drawer-nav a,
+  [data-theme^="citadel-of-ak"] .drawer-contact a,
+  [data-theme^="citadel-of-ak"] .foot-links a {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+  }
+}
+
+@media (max-width: 760px) {
+  :root[data-theme="citadel-of-ak"],
+  [data-theme="citadel-of-ak"] {
+    --citadel-marble-bg: linear-gradient(145deg, #ffffff, #f3f3f3);
+  }
+
+  :root[data-theme="citadel-of-ak-dark"],
+  [data-theme="citadel-of-ak-dark"] {
+    --citadel-marble-bg: linear-gradient(145deg, #000000, #101010);
+  }
+
+  [data-theme^="citadel-of-ak"] .home-firm-meta .meta-item {
+    backdrop-filter: none;
+  }
+}

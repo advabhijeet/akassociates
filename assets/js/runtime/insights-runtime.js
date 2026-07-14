@@ -1,5 +1,5 @@
 /*
-  Chambers Citadel Insights runtime v1.
+  Chambers Citadel Insights runtime v2.
   Owns legacy filter compatibility, registry loading and shared card rendering.
 */
 (function () {
@@ -180,11 +180,15 @@ window.ChambersInsightCards = (function () {
     return (isNestedPage ? '../' : '') + thumb.replace(/^\.\//, '');
   };
 
+  const cardThumbnailFor = (item) =>
+    item?.cardThumbnail || item?.thumbnail || item?.thumb || thumbnailFor(item);
+
   const ensureCardMedia = (card, item) => {
     if (!card) return null;
 
-    const thumb = normalizeThumbUrl(card.dataset.thumb || item?.thumbnail || item?.thumb || thumbnailFor(item));
+    const thumb = normalizeThumbUrl(item?.cardThumbnail || card.dataset.cardThumb || card.dataset.thumb || item?.thumbnail || item?.thumb || thumbnailFor(item));
     card.dataset.thumb = thumb;
+    card.dataset.cardThumb = thumb;
 
     let media = card.querySelector(':scope > .insight-card-media');
     if (!media) {
@@ -199,6 +203,8 @@ window.ChambersInsightCards = (function () {
       image = document.createElement('img');
       image.className = 'insight-card-image';
       image.alt = '';
+      image.width = 640;
+      image.height = 360;
       image.loading = 'lazy';
       image.decoding = 'async';
       image.draggable = false;
@@ -239,7 +245,8 @@ window.ChambersInsightCards = (function () {
     card.href = item.href;
     card.dataset.category = item.category || '';
     card.dataset.tags = (item.tags || []).join(', ');
-    card.dataset.thumb = normalizeThumbUrl(item.thumbnail || item.thumb || thumbnailFor(item));
+    card.dataset.thumb = normalizeThumbUrl(cardThumbnailFor(item));
+    card.dataset.cardThumb = card.dataset.thumb;
     ensureCardMedia(card, item);
 
     const badge = document.createElement('span');

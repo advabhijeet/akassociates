@@ -18,7 +18,7 @@
     {
       id: 'chambers-public-config-v1',
       path: 'assets/js/config/chambers-public-config.js',
-      version: 'config-v2'
+      version: 'config-v3'
     },
     {
       id: 'citadel-core-runtime-v1',
@@ -26,9 +26,9 @@
       version: 'core-runtime-v1'
     },
     {
-      id: 'citadel-insights-runtime-v1',
+      id: 'citadel-insights-runtime-v2',
       path: 'assets/js/runtime/insights-runtime.js',
-      version: 'insights-runtime-v1'
+      version: 'insights-runtime-v2'
     },
     {
       id: 'citadel-module-loader-v1',

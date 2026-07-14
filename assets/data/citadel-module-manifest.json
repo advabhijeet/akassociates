@@ -14,7 +14,7 @@
       "status": "production",
       "owner": "Public-safe site and module configuration",
       "path": "assets/js/config/chambers-public-config.js",
-      "version": "config-v2",
+      "version": "config-v3",
       "loadedBy": "assets/js/script.js"
     },
     {
@@ -30,7 +30,7 @@
       "status": "production",
       "owner": "Insights registry, compatibility filter and card helpers",
       "path": "assets/js/runtime/insights-runtime.js",
-      "version": "insights-runtime-v1",
+      "version": "insights-runtime-v2",
       "loadedBy": "assets/js/script.js"
     },
     {
@@ -204,7 +204,7 @@
       "status": "production",
       "owner": "Shared layout and component rules",
       "path": "assets/css/style.css",
-      "version": "site-20260713-b5",
+      "version": "site-20260714-pa1",
       "loadedBy": "Public HTML"
     },
     {

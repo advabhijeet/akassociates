@@ -1,3 +1,12 @@
+## 2026-07-14 IST - Optimize Homepage performance and accessibility
+- Added optimized light/dark hero and navigation logo derivatives with explicit intrinsic dimensions and high-priority Homepage discovery.
+- Added 640 x 360 card-only derivatives for active JPEG article thumbnails while preserving the 1200 x 675 article/social originals.
+- Added early preload discovery for Citadel CSS dependencies and the Homepage hero logo.
+- Improved gold-text contrast and expanded primary navigation/touch targets without changing the content structure.
+- Replaced the mobile marble image request with a CSS-only surface while retaining the desktop visual treatment.
+- Added `tools/validate-performance-remediation.js` and enabled it in Chambers Validation.
+- Advanced the shared public cache key to `site-20260714-pa1`.
+
 ## 2026-07-13 IST - Fix Citadel Global Shell asset resolver
 - Restored the missing browser asset-root and asset-URL helpers used by Global Shell.
 - Advanced the Global Shell module cache version to v5 and the public-config bootstrap version to v2.

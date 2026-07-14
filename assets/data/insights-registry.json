@@ -15,7 +15,8 @@
       "Dispute Resolution",
       "Documents"
     ],
-    "thumbnail": "assets/img/citadel/citadel-thumb-commercial-contract-review-checklist.jpg"
+    "thumbnail": "assets/img/citadel/citadel-thumb-commercial-contract-review-checklist.jpg",
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-commercial-contract-review-checklist-640.jpg"
   },
   {
     "href": "updates/section-9-arbitration-interim-relief.html",
@@ -32,7 +33,8 @@
       "Section 17",
       "Documents"
     ],
-    "thumbnail": "assets/img/citadel/citadel-thumb-section-9-arbitration-interim-relief.jpg"
+    "thumbnail": "assets/img/citadel/citadel-thumb-section-9-arbitration-interim-relief.jpg",
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-section-9-arbitration-interim-relief-640.jpg"
   },
   {
     "href": "updates/sarfaesi-notice-reply-documents.html",
@@ -48,7 +50,8 @@
       "DRT",
       "Documents"
     ],
-    "thumbnail": "assets/img/citadel/citadel-thumb-sarfaesi-notice-reply-documents.jpg"
+    "thumbnail": "assets/img/citadel/citadel-thumb-sarfaesi-notice-reply-documents.jpg",
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-sarfaesi-notice-reply-documents-640.jpg"
   },
   {
     "href": "updates/rera-complaint-drafting-documents-reliefs.html",
@@ -63,7 +66,8 @@
       "Reliefs",
       "Builder Dispute"
     ],
-    "thumbnail": "assets/img/citadel/citadel-thumb-rera-complaint-drafting-documents-reliefs.jpg"
+    "thumbnail": "assets/img/citadel/citadel-thumb-rera-complaint-drafting-documents-reliefs.jpg",
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-rera-complaint-drafting-documents-reliefs-640.jpg"
   },
   {
     "href": "updates/reply-to-rera-complaint-builder-promoter.html",
@@ -78,7 +82,8 @@
       "Delayed Possession",
       "Refund"
     ],
-    "thumbnail": "assets/img/citadel/citadel-thumb-rera-promoter-reply-v3.jpg"
+    "thumbnail": "assets/img/citadel/citadel-thumb-rera-promoter-reply-v3.jpg",
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-rera-promoter-reply-v3-640.jpg"
   },
   {
     "href": "updates/pmla-complaint-pre-cognizance-hearing-bnss.html",
@@ -95,7 +100,8 @@
       "Special Court",
       "Enforcement Directorate",
       "Supreme Court"
-    ]
+    ],
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-pmla-bnss-cognizance-bw-640.jpg"
   },
   {
     "href": "updates/section-34-arbitration-limitation-3-months-30-days.html",
@@ -112,7 +118,8 @@
       "Limitation Act",
       "Supreme Court",
       "3 Months + 30 Days"
-    ]
+    ],
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-section34-limitation-640.jpg"
   },
   {
     "href": "updates/uapa-bail-section-43d5-supreme-court-2026.html",
@@ -132,7 +139,8 @@
       "Constitutional Law",
       "K.A. Najeeb",
       "Watali"
-    ]
+    ],
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-uapa-bail-2026-standard-v1-640.jpg"
   },
   {
     "href": "updates/sabarimala-case-9-judge-bench-2026.html",
@@ -149,7 +157,8 @@
       "Gender Equality",
       "Essential Religious Practices",
       "Articles 25 and 26"
-    ]
+    ],
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-sabarimala-2026-painted-v2-640.jpg"
   },
   {
     "href": "updates/arbitration-notice-before-claim.html",
@@ -165,7 +174,8 @@
       "Appointment",
       "Limitation",
       "Interim Relief"
-    ]
+    ],
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-arbitration-notice-before-claim-painted-bw-v2-640.jpg"
   },
   {
     "href": "updates/property-title-search-before-purchase-india.html",
@@ -181,7 +191,8 @@
       "Checklist",
       "Transfer of Property Act",
       "Registration Act"
-    ]
+    ],
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-property-title-search-painted-v2-640.jpg"
   },
   {
     "href": "updates/non-reportable-judgments-online-publication-case-brief.html",
@@ -197,7 +208,8 @@
       "Court Records",
       "Article 226"
     ],
-    "thumbnail": "assets/img/citadel/citadel-thumb-non-reportable-judgments-third-style.jpg"
+    "thumbnail": "assets/img/citadel/citadel-thumb-non-reportable-judgments-third-style.jpg",
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-non-reportable-judgments-third-style-640.jpg"
   },
   {
     "href": "updates/sarfaesi-auction-sale-challenge-documents.html",
@@ -213,7 +225,8 @@
       "Supreme Court",
       "Rule 9(4)"
     ],
-    "thumbnail": "assets/img/citadel/citadel-thumb-sarfaesi-auction-sale-third-style.jpg"
+    "thumbnail": "assets/img/citadel/citadel-thumb-sarfaesi-auction-sale-third-style.jpg",
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-sarfaesi-auction-sale-third-style-640.jpg"
   },
   {
     "href": "updates/summary-judgment-commercial-suits-order-xiii-a.html",
@@ -229,7 +242,8 @@
       "Supreme Court",
       "Commercial Recovery"
     ],
-    "thumbnail": "assets/img/citadel/citadel-thumb-summary-judgment-commercial-suits-third-style.jpg"
+    "thumbnail": "assets/img/citadel/citadel-thumb-summary-judgment-commercial-suits-third-style.jpg",
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-summary-judgment-commercial-suits-third-style-640.jpg"
   },
   {
     "href": "updates/msme-facilitation-council-process.html",
@@ -244,7 +258,8 @@
       "Conciliation",
       "Arbitration"
     ],
-    "thumbnail": "assets/img/citadel/citadel-thumb-msme-facilitation-council-process-batch6-v2.jpg"
+    "thumbnail": "assets/img/citadel/citadel-thumb-msme-facilitation-council-process-batch6-v2.jpg",
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-msme-facilitation-council-process-batch6-v2-640.jpg"
   },
   {
     "href": "updates/cheque-bounce-defence-after-summons.html",
@@ -259,7 +274,8 @@
       "Defence Preparation",
       "Section 138"
     ],
-    "thumbnail": "assets/img/citadel/citadel-thumb-cheque-bounce-defence-after-summons-batch6-v2.jpg"
+    "thumbnail": "assets/img/citadel/citadel-thumb-cheque-bounce-defence-after-summons-batch6-v2.jpg",
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-cheque-bounce-defence-after-summons-batch6-v2-640.jpg"
   },
   {
     "href": "updates/msme-documents-checklist.html",
@@ -274,7 +290,8 @@
       "Delayed Payment",
       "Udyam"
     ],
-    "thumbnail": "assets/img/citadel/citadel-thumb-msme-documents-checklist-approved-style.jpg"
+    "thumbnail": "assets/img/citadel/citadel-thumb-msme-documents-checklist-approved-style.jpg",
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-msme-documents-checklist-approved-style-640.jpg"
   },
   {
     "href": "updates/commercial-recovery-before-suit.html",
@@ -289,7 +306,8 @@
       "Limitation",
       "Commercial Courts"
     ],
-    "thumbnail": "assets/img/citadel/citadel-thumb-commercial-recovery-before-suit-batch6-v2.jpg"
+    "thumbnail": "assets/img/citadel/citadel-thumb-commercial-recovery-before-suit-batch6-v2.jpg",
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-commercial-recovery-before-suit-batch6-v2-640.jpg"
   },
   {
     "href": "updates/rera-refund-interest-delayed-possession.html",
@@ -304,7 +322,8 @@
       "Interest",
       "Builder Dispute"
     ],
-    "thumbnail": "assets/img/citadel/citadel-thumb-rera-refund-interest-delayed-possession-batch6-v2.jpg"
+    "thumbnail": "assets/img/citadel/citadel-thumb-rera-refund-interest-delayed-possession-batch6-v2.jpg",
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-rera-refund-interest-delayed-possession-batch6-v2-640.jpg"
   },
   {
     "href": "updates/arbitration-clause-checklist.html",
@@ -319,7 +338,8 @@
       "Venue",
       "Interim Relief"
     ],
-    "thumbnail": "assets/img/citadel/citadel-thumb-arbitration-clause-checklist-batch6-v2.jpg"
+    "thumbnail": "assets/img/citadel/citadel-thumb-arbitration-clause-checklist-batch6-v2.jpg",
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-arbitration-clause-checklist-batch6-v2-640.jpg"
   },
   {
     "href": "updates/cheque-bounce-30-days.html",
@@ -334,7 +354,8 @@
       "Limitation",
       "Section 138"
     ],
-    "thumbnail": "assets/img/citadel/citadel-thumb-cheque-bounce-30-days-batch6-v2.jpg"
+    "thumbnail": "assets/img/citadel/citadel-thumb-cheque-bounce-30-days-batch6-v2.jpg",
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-cheque-bounce-30-days-batch6-v2-640.jpg"
   },
   {
     "href": "updates/msme-delayed-payment.html",
@@ -348,7 +369,8 @@
       "MSEFC",
       "Udyam"
     ],
-    "thumbnail": "assets/img/citadel/citadel-thumb-msme-delayed-payment-approved-style.jpg"
+    "thumbnail": "assets/img/citadel/citadel-thumb-msme-delayed-payment-approved-style.jpg",
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-msme-delayed-payment-approved-style-640.jpg"
   },
   {
     "href": "updates/bihar-rera-complaint.html",
@@ -363,7 +385,8 @@
       "Delayed Possession",
       "Refund"
     ],
-    "thumbnail": "assets/img/citadel/citadel-thumb-bihar-rera-complaint-approved-style.jpg"
+    "thumbnail": "assets/img/citadel/citadel-thumb-bihar-rera-complaint-approved-style.jpg",
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-bihar-rera-complaint-approved-style-640.jpg"
   },
   {
     "href": "updates/cheque-bounce-notice-limitation.html",
@@ -378,7 +401,8 @@
       "Limitation",
       "Section 138"
     ],
-    "thumbnail": "assets/img/citadel/citadel-thumb-cheque-bounce-notice-limitation-batch6-v2.jpg"
+    "thumbnail": "assets/img/citadel/citadel-thumb-cheque-bounce-notice-limitation-batch6-v2.jpg",
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-cheque-bounce-notice-limitation-batch6-v2-640.jpg"
   },
   {
     "href": "updates/msme-45-days-payment-rule.html",
@@ -393,7 +417,8 @@
       "Income Tax",
       "Udyam"
     ],
-    "thumbnail": "assets/img/citadel/citadel-thumb-msme-45-days-payment-rule-batch6-v2.jpg"
+    "thumbnail": "assets/img/citadel/citadel-thumb-msme-45-days-payment-rule-batch6-v2.jpg",
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-msme-45-days-payment-rule-batch6-v2-640.jpg"
   },
   {
     "href": "updates/section-138-cheque-bounce-limitation.html",
@@ -408,7 +433,8 @@
       "Demand Notice",
       "Section 138"
     ],
-    "thumbnail": "assets/img/citadel/citadel-thumb-cheque-bounce-notice-limitation-batch6-v2.jpg"
+    "thumbnail": "assets/img/citadel/citadel-thumb-cheque-bounce-notice-limitation-batch6-v2.jpg",
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-cheque-bounce-notice-limitation-batch6-v2-640.jpg"
   },
   {
     "href": "updates/rera-delayed-possession-bihar.html",
@@ -423,7 +449,8 @@
       "Refund",
       "Interest"
     ],
-    "thumbnail": "assets/img/citadel/citadel-thumb-rera-refund-interest-delayed-possession-batch6-v2.jpg"
+    "thumbnail": "assets/img/citadel/citadel-thumb-rera-refund-interest-delayed-possession-batch6-v2.jpg",
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-rera-refund-interest-delayed-possession-batch6-v2-640.jpg"
   },
   {
     "href": "updates/commercial-suit-documents-checklist.html",
@@ -439,7 +466,8 @@
       "Invoices",
       "Limitation"
     ],
-    "thumbnail": "assets/img/citadel/citadel-thumb-commercial-recovery-before-suit-batch6-v2.jpg"
+    "thumbnail": "assets/img/citadel/citadel-thumb-commercial-recovery-before-suit-batch6-v2.jpg",
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-commercial-recovery-before-suit-batch6-v2-640.jpg"
   },
   {
     "href": "updates/property-injunction-suit-documents.html",
@@ -454,7 +482,8 @@
       "Documents",
       "Possession"
     ],
-    "thumbnail": "assets/img/citadel/citadel-thumb-property-title-search-painted-v2.jpg"
+    "thumbnail": "assets/img/citadel/citadel-thumb-property-title-search-painted-v2.jpg",
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-property-title-search-painted-v2-640.jpg"
   },
   {
     "href": "updates/section-34-arbitration-award-challenge.html",
@@ -468,6 +497,7 @@
       "Award Challenge",
       "Limitation"
     ],
-    "thumbnail": "assets/img/citadel/citadel-thumb-section34-limitation.jpg"
+    "thumbnail": "assets/img/citadel/citadel-thumb-section34-limitation.jpg",
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-section34-limitation-640.jpg"
   }
 ]

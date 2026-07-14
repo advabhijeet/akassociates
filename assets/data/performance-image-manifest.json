@@ -1,0 +1,268 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-07-14T23:25:40.5622346+05:30",
+  "generator": "System.Drawing",
+  "entries": [
+    {
+      "kind": "hero-light",
+      "source": "assets/img/primary-logo.png",
+      "output": "assets/img/performance/primary-logo-720.jpg",
+      "width": 720,
+      "height": 380,
+      "sourceBytes": 315552,
+      "outputBytes": 21613
+    },
+    {
+      "kind": "hero-dark",
+      "source": "assets/img/primary-logo-dark.png",
+      "output": "assets/img/performance/primary-logo-dark-720.jpg",
+      "width": 720,
+      "height": 380,
+      "sourceBytes": 524935,
+      "outputBytes": 25503
+    },
+    {
+      "kind": "nav-light",
+      "source": "assets/img/logo-navbar.png",
+      "output": "assets/img/performance/logo-navbar-480.jpg",
+      "width": 480,
+      "height": 89,
+      "sourceBytes": 43630,
+      "outputBytes": 5902
+    },
+    {
+      "kind": "nav-dark",
+      "source": "assets/img/logo-navbar-dark.png",
+      "output": "assets/img/performance/logo-navbar-dark-480.jpg",
+      "width": 480,
+      "height": 89,
+      "sourceBytes": 52752,
+      "outputBytes": 6161
+    },
+    {
+      "kind": "card",
+      "source": "assets/img/citadel/citadel-thumb-commercial-contract-review-checklist.jpg",
+      "output": "assets/img/citadel/cards/citadel-thumb-commercial-contract-review-checklist-640.jpg",
+      "width": 640,
+      "height": 360,
+      "sourceBytes": 198248,
+      "outputBytes": 51779
+    },
+    {
+      "kind": "card",
+      "source": "assets/img/citadel/citadel-thumb-section-9-arbitration-interim-relief.jpg",
+      "output": "assets/img/citadel/cards/citadel-thumb-section-9-arbitration-interim-relief-640.jpg",
+      "width": 640,
+      "height": 360,
+      "sourceBytes": 250119,
+      "outputBytes": 62853
+    },
+    {
+      "kind": "card",
+      "source": "assets/img/citadel/citadel-thumb-sarfaesi-notice-reply-documents.jpg",
+      "output": "assets/img/citadel/cards/citadel-thumb-sarfaesi-notice-reply-documents-640.jpg",
+      "width": 640,
+      "height": 360,
+      "sourceBytes": 225833,
+      "outputBytes": 55963
+    },
+    {
+      "kind": "card",
+      "source": "assets/img/citadel/citadel-thumb-rera-complaint-drafting-documents-reliefs.jpg",
+      "output": "assets/img/citadel/cards/citadel-thumb-rera-complaint-drafting-documents-reliefs-640.jpg",
+      "width": 640,
+      "height": 360,
+      "sourceBytes": 220317,
+      "outputBytes": 55161
+    },
+    {
+      "kind": "card",
+      "source": "assets/img/citadel/citadel-thumb-rera-promoter-reply-v3.jpg",
+      "output": "assets/img/citadel/cards/citadel-thumb-rera-promoter-reply-v3-640.jpg",
+      "width": 640,
+      "height": 360,
+      "sourceBytes": 223839,
+      "outputBytes": 55323
+    },
+    {
+      "kind": "card",
+      "source": "assets/img/citadel/citadel-thumb-pmla-bnss-cognizance-bw.jpg",
+      "output": "assets/img/citadel/cards/citadel-thumb-pmla-bnss-cognizance-bw-640.jpg",
+      "width": 640,
+      "height": 360,
+      "sourceBytes": 181675,
+      "outputBytes": 43576
+    },
+    {
+      "kind": "card",
+      "source": "assets/img/citadel/citadel-thumb-section34-limitation.jpg",
+      "output": "assets/img/citadel/cards/citadel-thumb-section34-limitation-640.jpg",
+      "width": 640,
+      "height": 360,
+      "sourceBytes": 193250,
+      "outputBytes": 49761
+    },
+    {
+      "kind": "card",
+      "source": "assets/img/citadel/citadel-thumb-uapa-bail-2026-standard-v1.jpg",
+      "output": "assets/img/citadel/cards/citadel-thumb-uapa-bail-2026-standard-v1-640.jpg",
+      "width": 640,
+      "height": 360,
+      "sourceBytes": 182651,
+      "outputBytes": 44145
+    },
+    {
+      "kind": "card",
+      "source": "assets/img/citadel/citadel-thumb-sabarimala-2026-painted-v2.jpg",
+      "output": "assets/img/citadel/cards/citadel-thumb-sabarimala-2026-painted-v2-640.jpg",
+      "width": 640,
+      "height": 360,
+      "sourceBytes": 107618,
+      "outputBytes": 34859
+    },
+    {
+      "kind": "card",
+      "source": "assets/img/citadel/citadel-thumb-arbitration-notice-before-claim-painted-bw-v2.jpg",
+      "output": "assets/img/citadel/cards/citadel-thumb-arbitration-notice-before-claim-painted-bw-v2-640.jpg",
+      "width": 640,
+      "height": 360,
+      "sourceBytes": 104376,
+      "outputBytes": 34922
+    },
+    {
+      "kind": "card",
+      "source": "assets/img/citadel/citadel-thumb-property-title-search-painted-v2.jpg",
+      "output": "assets/img/citadel/cards/citadel-thumb-property-title-search-painted-v2-640.jpg",
+      "width": 640,
+      "height": 360,
+      "sourceBytes": 125453,
+      "outputBytes": 41487
+    },
+    {
+      "kind": "card",
+      "source": "assets/img/citadel/citadel-thumb-non-reportable-judgments-third-style.jpg",
+      "output": "assets/img/citadel/cards/citadel-thumb-non-reportable-judgments-third-style-640.jpg",
+      "width": 640,
+      "height": 360,
+      "sourceBytes": 182387,
+      "outputBytes": 52437
+    },
+    {
+      "kind": "card",
+      "source": "assets/img/citadel/citadel-thumb-sarfaesi-auction-sale-third-style.jpg",
+      "output": "assets/img/citadel/cards/citadel-thumb-sarfaesi-auction-sale-third-style-640.jpg",
+      "width": 640,
+      "height": 360,
+      "sourceBytes": 190546,
+      "outputBytes": 53819
+    },
+    {
+      "kind": "card",
+      "source": "assets/img/citadel/citadel-thumb-summary-judgment-commercial-suits-third-style.jpg",
+      "output": "assets/img/citadel/cards/citadel-thumb-summary-judgment-commercial-suits-third-style-640.jpg",
+      "width": 640,
+      "height": 360,
+      "sourceBytes": 178511,
+      "outputBytes": 49808
+    },
+    {
+      "kind": "card",
+      "source": "assets/img/citadel/citadel-thumb-msme-facilitation-council-process-batch6-v2.jpg",
+      "output": "assets/img/citadel/cards/citadel-thumb-msme-facilitation-council-process-batch6-v2-640.jpg",
+      "width": 640,
+      "height": 360,
+      "sourceBytes": 215134,
+      "outputBytes": 53232
+    },
+    {
+      "kind": "card",
+      "source": "assets/img/citadel/citadel-thumb-cheque-bounce-defence-after-summons-batch6-v2.jpg",
+      "output": "assets/img/citadel/cards/citadel-thumb-cheque-bounce-defence-after-summons-batch6-v2-640.jpg",
+      "width": 640,
+      "height": 360,
+      "sourceBytes": 252082,
+      "outputBytes": 60551
+    },
+    {
+      "kind": "card",
+      "source": "assets/img/citadel/citadel-thumb-msme-documents-checklist-approved-style.jpg",
+      "output": "assets/img/citadel/cards/citadel-thumb-msme-documents-checklist-approved-style-640.jpg",
+      "width": 640,
+      "height": 360,
+      "sourceBytes": 139112,
+      "outputBytes": 44214
+    },
+    {
+      "kind": "card",
+      "source": "assets/img/citadel/citadel-thumb-commercial-recovery-before-suit-batch6-v2.jpg",
+      "output": "assets/img/citadel/cards/citadel-thumb-commercial-recovery-before-suit-batch6-v2-640.jpg",
+      "width": 640,
+      "height": 360,
+      "sourceBytes": 248263,
+      "outputBytes": 57382
+    },
+    {
+      "kind": "card",
+      "source": "assets/img/citadel/citadel-thumb-rera-refund-interest-delayed-possession-batch6-v2.jpg",
+      "output": "assets/img/citadel/cards/citadel-thumb-rera-refund-interest-delayed-possession-batch6-v2-640.jpg",
+      "width": 640,
+      "height": 360,
+      "sourceBytes": 259055,
+      "outputBytes": 61556
+    },
+    {
+      "kind": "card",
+      "source": "assets/img/citadel/citadel-thumb-arbitration-clause-checklist-batch6-v2.jpg",
+      "output": "assets/img/citadel/cards/citadel-thumb-arbitration-clause-checklist-batch6-v2-640.jpg",
+      "width": 640,
+      "height": 360,
+      "sourceBytes": 221641,
+      "outputBytes": 55074
+    },
+    {
+      "kind": "card",
+      "source": "assets/img/citadel/citadel-thumb-cheque-bounce-30-days-batch6-v2.jpg",
+      "output": "assets/img/citadel/cards/citadel-thumb-cheque-bounce-30-days-batch6-v2-640.jpg",
+      "width": 640,
+      "height": 360,
+      "sourceBytes": 227525,
+      "outputBytes": 55315
+    },
+    {
+      "kind": "card",
+      "source": "assets/img/citadel/citadel-thumb-msme-delayed-payment-approved-style.jpg",
+      "output": "assets/img/citadel/cards/citadel-thumb-msme-delayed-payment-approved-style-640.jpg",
+      "width": 640,
+      "height": 360,
+      "sourceBytes": 136407,
+      "outputBytes": 43675
+    },
+    {
+      "kind": "card",
+      "source": "assets/img/citadel/citadel-thumb-bihar-rera-complaint-approved-style.jpg",
+      "output": "assets/img/citadel/cards/citadel-thumb-bihar-rera-complaint-approved-style-640.jpg",
+      "width": 640,
+      "height": 360,
+      "sourceBytes": 133051,
+      "outputBytes": 41761
+    },
+    {
+      "kind": "card",
+      "source": "assets/img/citadel/citadel-thumb-cheque-bounce-notice-limitation-batch6-v2.jpg",
+      "output": "assets/img/citadel/cards/citadel-thumb-cheque-bounce-notice-limitation-batch6-v2-640.jpg",
+      "width": 640,
+      "height": 360,
+      "sourceBytes": 240857,
+      "outputBytes": 58836
+    },
+    {
+      "kind": "card",
+      "source": "assets/img/citadel/citadel-thumb-msme-45-days-payment-rule-batch6-v2.jpg",
+      "output": "assets/img/citadel/cards/citadel-thumb-msme-45-days-payment-rule-batch6-v2-640.jpg",
+      "width": 640,
+      "height": 360,
+      "sourceBytes": 253653,
+      "outputBytes": 60886
+    }
+  ]
+}
