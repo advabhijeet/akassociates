@@ -1,3 +1,9 @@
+## 2026-07-15 IST - Fix Homepage runtime performance regressions
+- Preserved optimized 640 x 360 card thumbnails when Latest Insights refreshes Homepage cards from the RSS feed.
+- Moved decorative marble image URLs behind a desktop-only media query so mobile browsers no longer request the marble asset.
+- Advanced the public cache key to `site-20260715-pa2`, the public config to `config-v4`, the theme stylesheet to `theme-2` and Latest Insights to v3.
+- Extended the performance validator to cover feed-card derivative propagation and responsive marble gating.
+
 ## 2026-07-14 IST - Optimize Homepage performance and accessibility
 - Added optimized light/dark hero and navigation logo derivatives with explicit intrinsic dimensions and high-priority Homepage discovery.
 - Added 640 x 360 card-only derivatives for active JPEG article thumbnails while preserving the 1200 x 675 article/social originals.

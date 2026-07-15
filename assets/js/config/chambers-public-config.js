@@ -1,11 +1,11 @@
 /*
-  Chambers Citadel public configuration v2.
+  Chambers Citadel public configuration v3.
   Every value in this file is intentionally public and safe for browser delivery.
 */
 (function () {
   const config = {
     schemaVersion: "1.0.0",
-    release: "chambers-citadel-1.1.0",
+    release: "chambers-citadel-1.1.1",
     baselineTag: "chambers-citadel-v1",
     canonical: {
       origin: "https://chambersofak.in",
@@ -99,9 +99,9 @@
             "activation": "All public pages"
       },
       "latestInsights": {
-            "id": "citadel-latest-insights-section-v2",
+            "id": "citadel-latest-insights-section-v3",
             "path": "assets/js/themes/citadel-of-kang/modules/sections/latest-insights-section.js",
-            "version": "latest-insights-section-v2",
+            "version": "latest-insights-section-v3",
             "guard": "CitadelLatestInsights",
             "owner": "Homepage latest-insights cards",
             "activation": "[data-citadel-latest-insights] or [data-home-insights-limit]"

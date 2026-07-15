@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "release": "chambers-citadel-1.1.0",
+  "release": "chambers-citadel-1.1.1",
   "baselineTag": "chambers-citadel-v1",
   "baselineCommit": "47e8c6ed07ed2a053a46a39f3779d60fa6059edf",
   "publicEntryPoints": {
@@ -14,7 +14,7 @@
       "status": "production",
       "owner": "Public-safe site and module configuration",
       "path": "assets/js/config/chambers-public-config.js",
-      "version": "config-v3",
+      "version": "config-v4",
       "loadedBy": "assets/js/script.js"
     },
     {
@@ -57,9 +57,9 @@
     {
       "key": "latestInsights",
       "status": "production",
-      "id": "citadel-latest-insights-section-v2",
+      "id": "citadel-latest-insights-section-v3",
       "path": "assets/js/themes/citadel-of-kang/modules/sections/latest-insights-section.js",
-      "version": "latest-insights-section-v2",
+      "version": "latest-insights-section-v3",
       "guard": "CitadelLatestInsights",
       "owner": "Homepage latest-insights cards",
       "activation": "[data-citadel-latest-insights] or [data-home-insights-limit]",
@@ -204,7 +204,7 @@
       "status": "production",
       "owner": "Shared layout and component rules",
       "path": "assets/css/style.css",
-      "version": "site-20260714-pa1",
+      "version": "site-20260715-pa2",
       "loadedBy": "Public HTML"
     },
     {
@@ -212,7 +212,7 @@
       "status": "production",
       "owner": "Chambers Citadel light and dark visual theme",
       "path": "assets/css/themes/citadel-of-ak.css",
-      "version": "theme-1",
+      "version": "theme-2",
       "loadedBy": "assets/css/style.css"
     },
     {

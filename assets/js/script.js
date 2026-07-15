@@ -1,5 +1,5 @@
 /*
-  Chambers Citadel public bootstrap v1.1.
+  Chambers Citadel public bootstrap v1.2.
   This entry point only loads explicit runtime modules in dependency order.
 */
 (function () {
@@ -18,7 +18,7 @@
     {
       id: 'chambers-public-config-v1',
       path: 'assets/js/config/chambers-public-config.js',
-      version: 'config-v3'
+      version: 'config-v4'
     },
     {
       id: 'citadel-core-runtime-v1',

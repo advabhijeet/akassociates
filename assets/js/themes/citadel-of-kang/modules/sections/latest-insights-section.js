@@ -1,5 +1,5 @@
 /*
-  Citadel Latest Insights Section module v1.
+  Citadel Latest Insights Section module v2.
   Renders a Latest Insights section from registry/feed data and de-duplicates by normalized href
   before applying the visible card limit. This is Citadel-level behaviour and supports
   both future [data-citadel-latest-insights] markup and the legacy homepage
@@ -112,6 +112,7 @@
         tags: registryItem?.tags || (feedCategory ? [feedCategory] : []),
         thumb: registryItem?.thumb || registryItem?.thumbnail,
         thumbnail: registryItem?.thumbnail,
+        cardThumbnail: registryItem?.cardThumbnail,
       };
     })).filter((item) => item.href && item.title);
   };

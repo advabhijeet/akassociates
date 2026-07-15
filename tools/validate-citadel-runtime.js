@@ -57,7 +57,7 @@ try {
 }
 
 if (manifest) {
-  if (manifest.release !== "chambers-citadel-1.1.0") {
+  if (manifest.release !== "chambers-citadel-1.1.1") {
     errors.push(`Manifest release mismatch: ${manifest.release}`);
   }
 
@@ -111,7 +111,7 @@ if (manifest) {
 }
 
 if (publicConfig) {
-  if (publicConfig.release !== "chambers-citadel-1.1.0") {
+  if (publicConfig.release !== "chambers-citadel-1.1.1") {
     errors.push(`Public config release mismatch: ${publicConfig.release}`);
   }
 

@@ -36,3 +36,10 @@ Search Console had insufficient Chrome UX Report traffic for field Core Web Vita
 The repository validator confirms asset dimensions, file sizes, HTML hooks, cache versions and runtime integration. The live verifier renders every sitemap page in desktop and mobile modes and exercises navigation, theme, Contact enquiry preparation and Legal Insights filtering.
 
 A fresh PageSpeed Insights run remains necessary because Lighthouse scores depend on the remote test environment and cannot be guaranteed by repository validation alone.
+
+## Runtime follow-up — 2026-07-15
+
+- Corrected the RSS-driven Homepage card refresh so registry `cardThumbnail` derivatives remain active after feed rendering.
+- Reworked Citadel marble variables to be gradient-first and enabled marble image URLs only from 761 px upward.
+- Classified the prior zero-height desktop navigation and dark-logo timing findings as verifier false positives; the corrected live verifier now measures visible primary links and waits for image replacement completion.
+- Cache and module versions advanced for deterministic propagation.

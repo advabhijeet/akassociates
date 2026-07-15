@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = process.cwd();
-const CACHE_KEY = "site-20260714-pa1";
+const CACHE_KEY = "site-20260715-pa2";
 const errors = [];
 const warnings = [];
 
@@ -176,6 +176,8 @@ const publicConfig = read("assets/js/config/chambers-public-config.js");
 const bootstrap = read("assets/js/script.js");
 const insightsRuntime = read("assets/js/runtime/insights-runtime.js");
 const staticSync = read("tools/sync-static-insight-cards.js");
+const latestInsights = read("assets/js/themes/citadel-of-kang/modules/sections/latest-insights-section.js");
+const themeCss = read("assets/css/themes/citadel-of-ak.css");
 const workflow = read(".github/workflows/validation.yml");
 const moduleManifest = JSON.parse(read("assets/data/citadel-module-manifest.json"));
 
@@ -244,7 +246,7 @@ for (const marker of [
 }
 
 for (const marker of [
-  "config-v3",
+  "config-v4",
   "insights-runtime-v2"
 ]) {
   if (!bootstrap.includes(marker)) {
@@ -255,13 +257,39 @@ for (const marker of [
 for (const marker of [
   "assets/img/performance/logo-navbar-dark-480.jpg?v=pa1",
   "assets/img/performance/primary-logo-dark-720.jpg?v=pa1",
-  'registryVersion: "registry-12"'
+  'registryVersion: "registry-12"',
+  "latest-insights-section-v3"
 ]) {
   if (!publicConfig.includes(marker)) {
     errors.push(`Public config performance marker is missing: ${marker}`);
   }
 }
 
+
+for (const marker of [
+  "Citadel Latest Insights Section module v2.",
+  "cardThumbnail: registryItem?.cardThumbnail"
+]) {
+  if (!latestInsights.includes(marker)) {
+    errors.push(`Latest Insights runtime hotfix marker is missing: ${marker}`);
+  }
+}
+
+for (const marker of [
+  "--citadel-marble-bg: linear-gradient(145deg, #ffffff, #f3f3f3);",
+  "--citadel-marble-bg: linear-gradient(145deg, #000000, #101010);",
+  "@media (min-width: 761px)",
+  'url("/assets/img/citadel/citadel-marble-light.webp")',
+  'url("/assets/img/citadel/citadel-marble-dark.webp")'
+]) {
+  if (!themeCss.includes(marker)) {
+    errors.push(`Responsive marble-gating marker is missing: ${marker}`);
+  }
+}
+
+if (!style.startsWith('@import url("./themes/citadel-of-ak.css?v=theme-2");')) {
+  errors.push("Shared stylesheet does not import the responsive theme version.");
+}
 if (!workflow.includes("node tools/validate-performance-remediation.js")) {
   errors.push("Chambers Validation does not run the performance remediation validator.");
 }
@@ -269,8 +297,10 @@ if (!workflow.includes("node tools/validate-performance-remediation.js")) {
 const publicConfigRuntime = moduleManifest.runtimeModules.find((entry) => entry.key === "publicConfig");
 const insightsRuntimeEntry = moduleManifest.runtimeModules.find((entry) => entry.key === "insightsRuntime");
 const baseStyle = moduleManifest.styles.find((entry) => entry.key === "base");
+const themeStyle = moduleManifest.styles.find((entry) => entry.key === "theme");
+const latestInsightsEntry = moduleManifest.featureModules.find((entry) => entry.key === "latestInsights");
 
-if (publicConfigRuntime?.version !== "config-v3") {
+if (publicConfigRuntime?.version !== "config-v4") {
   errors.push(`Manifest publicConfig version mismatch: ${publicConfigRuntime?.version}`);
 }
 if (insightsRuntimeEntry?.version !== "insights-runtime-v2") {
@@ -280,6 +310,16 @@ if (baseStyle?.version !== CACHE_KEY) {
   errors.push(`Manifest base-style version mismatch: ${baseStyle?.version}`);
 }
 
+
+if (themeStyle?.version !== "theme-2") {
+  errors.push(`Manifest theme-style version mismatch: ${themeStyle?.version}`);
+}
+if (latestInsightsEntry?.id !== "citadel-latest-insights-section-v3") {
+  errors.push(`Manifest latest-Insights id mismatch: ${latestInsightsEntry?.id}`);
+}
+if (latestInsightsEntry?.version !== "latest-insights-section-v3") {
+  errors.push(`Manifest latest-Insights version mismatch: ${latestInsightsEntry?.version}`);
+}
 const htmlFiles = collectPublicHtml();
 let stylePageCount = 0;
 let navLogoCount = 0;
@@ -299,7 +339,7 @@ for (const relPath of htmlFiles) {
     }
 
     for (const preload of [
-      "assets/css/themes/citadel-of-ak.css?v=theme-1",
+      "assets/css/themes/citadel-of-ak.css?v=theme-2",
       "assets/css/themes/citadel-of-kang/modules/article-index.css?v=article-index-v22",
       "assets/css/themes/citadel-of-kang/modules/pills.css?v=pills-v2"
     ]) {
