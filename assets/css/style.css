@@ -3297,3 +3297,12 @@ body.insights-list-active .insights-category-section {
     backdrop-filter: none;
   }
 }
+
+/* MOBILE_NAV_CONTACT_CTA_FIX_V1
+   The primary Contact CTA is desktop-only. Mobile users access Contact inside the navigation drawer.
+*/
+@media (max-width: 760px) {
+  .nav > .nav-cta {
+    display: none;
+  }
+}
