@@ -1,4 +1,4 @@
-/* Citadel thumbnail frame consistency v7. */
+/* Citadel thumbnail frame consistency v9. */
 :root {
   --citadel-thumbnail-ratio: 16 / 9;
   --citadel-thumbnail-bg: rgba(var(--rgb-white), 0.72);
@@ -103,19 +103,20 @@
   }
 }
 
+/* The Article Index owns its own rail behaviour. Keep thumbnail styles from
+   turning the tray into an independently scrolling or clipped panel. */
 @media (min-width: 921px) {
+  .article-index-layout,
+  .article-index-rail,
   .article-index-toc {
-    max-height: calc(100vh - var(--nav-space, 108px) - 44px);
-    overflow-y: auto;
-    overflow-x: hidden;
-    overscroll-behavior: contain;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    overflow: visible !important;
   }
 
-  .article-index-toc::-webkit-scrollbar {
-    width: 0;
-    height: 0;
+  .article-index-toc {
+    max-height: none !important;
+    overscroll-behavior: auto;
+    scrollbar-width: auto;
+    -ms-overflow-style: auto;
   }
 }
 
