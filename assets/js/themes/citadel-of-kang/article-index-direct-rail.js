@@ -1,7 +1,9 @@
 /* Citadel Article Index Direct Rail Module
-   Production behaviour promoted from the approved baseline.
-   Native page scroll only. No scroll capture. No public internal notes. */
+   Production direct-rail behaviour.
+   Native page scroll only. No scroll capture. No internal tray scrolling. */
 (function () {
+  'use strict';
+
   var body = document.body;
   if (!body || body.getAttribute('data-citadel-article-index') === 'false') return;
 
@@ -116,12 +118,11 @@
     .filter(function (link) { return link.getAttribute('href') !== '#top'; });
   var nav = document.querySelector('.nav, [data-citadel-navigation-root], header[role="banner"]');
   var topbar = document.querySelector('.site-topbar');
+  var reducedMotionQuery = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
   var clickIntent = null;
   var clickTimer = null;
   var lastActiveId = headings[0].id;
-  var anchorOffset = function () {
-    return navSpace() + 72;
-  };
+  var activeLink = links[0] || null;
 
   var getScrollY = function () {
     return window.pageYOffset || document.documentElement.scrollTop || 0;
@@ -133,36 +134,35 @@
     return Math.ceil(topbarHeight + navHeight);
   };
 
+  var anchorOffset = function () {
+    return navSpace() + 72;
+  };
+
+  var preferredScrollBehavior = function () {
+    return reducedMotionQuery && reducedMotionQuery.matches ? 'auto' : 'smooth';
+  };
+
   var setProgress = function (pct) {
     var safe = Math.min(100, Math.max(0, pct));
     progress.style.width = safe + '%';
     if (mobileBar) mobileBar.style.width = Math.max(8, safe) + '%';
   };
 
-  var ensureActiveVisible = function (link) {
-    if (!link || window.innerWidth <= 920) return;
-    var linkRect = link.getBoundingClientRect();
-    var tocRect = toc.getBoundingClientRect();
-    var safeTop = tocRect.top + 58;
-    var safeBottom = tocRect.bottom - 34;
-
-    if (linkRect.top < safeTop || linkRect.bottom > safeBottom) {
-      var targetTop = link.offsetTop - (toc.clientHeight * 0.45) + (link.clientHeight * 0.5);
-      toc.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
-    }
-  };
-
   var activateById = function (id) {
-    var activeLink = null;
+    activeLink = null;
     links.forEach(function (link) {
       var linkId = decodeURIComponent((link.getAttribute('href') || '').replace(/^#/, ''));
       var isActive = linkId === id;
       link.classList.toggle('is-active', isActive);
-      if (isActive) activeLink = link;
+      if (isActive) {
+        activeLink = link;
+        link.setAttribute('aria-current', 'location');
+      } else {
+        link.removeAttribute('aria-current');
+      }
     });
 
     if (id) lastActiveId = id;
-    ensureActiveVisible(activeLink);
   };
 
   var holdClickIntent = function () {
@@ -191,8 +191,7 @@
     var current = null;
 
     headings.forEach(function (heading) {
-      var rect = heading.getBoundingClientRect();
-      if (rect.top <= line) current = heading;
+      if (heading.getBoundingClientRect().top <= line) current = heading;
     });
 
     if (!current) {
@@ -213,17 +212,41 @@
     document.documentElement.style.setProperty('--ck-mobile-reading-progress-top', Math.max(0, bottom - height) + 'px');
   };
 
+  var activeOffsetInsideToc = function () {
+    if (!activeLink) return null;
+    var linkRect = activeLink.getBoundingClientRect();
+    var tocRect = toc.getBoundingClientRect();
+    return {
+      top: linkRect.top - tocRect.top,
+      bottom: linkRect.bottom - tocRect.top
+    };
+  };
+
   var syncRail = function () {
+    if (toc.scrollTop !== 0) toc.scrollTop = 0;
+
     if (window.innerWidth <= 920) {
-      toc.style.transform = 'translate3d(0,0,0)';
+      toc.style.setProperty('transform', 'translate3d(0,0,0)', 'important');
       return;
     }
 
     var articleTop = getScrollY() + article.getBoundingClientRect().top;
     var maxTravel = Math.max(0, article.offsetHeight - toc.offsetHeight);
     var desired = getScrollY() + navSpace() + 18 - articleTop;
+    var activeOffset = activeOffsetInsideToc();
+
+    if (activeOffset) {
+      var projectedTop = navSpace() + 18 + activeOffset.top;
+      var projectedBottom = navSpace() + 18 + activeOffset.bottom;
+      var safeTop = navSpace() + 58;
+      var safeBottom = window.innerHeight - 36;
+
+      if (projectedBottom > safeBottom) desired -= projectedBottom - safeBottom;
+      if (projectedTop < safeTop) desired += safeTop - projectedTop;
+    }
+
     desired = Math.min(maxTravel, Math.max(0, desired));
-    toc.style.transform = 'translate3d(0,' + Math.round(desired) + 'px,0)';
+    toc.style.setProperty('transform', 'translate3d(0,' + Math.round(desired) + 'px,0)', 'important');
   };
 
   var updateProgress = function () {
@@ -266,7 +289,10 @@
         requestUpdate();
       }, 1550);
 
-      window.scrollTo({ top: getScrollY() + target.getBoundingClientRect().top - anchorOffset(), behavior: 'smooth' });
+      window.scrollTo({
+        top: getScrollY() + target.getBoundingClientRect().top - anchorOffset(),
+        behavior: preferredScrollBehavior()
+      });
       window.setTimeout(requestUpdate, 80);
       window.setTimeout(requestUpdate, 260);
     });
@@ -275,9 +301,24 @@
   var observer = new MutationObserver(requestUpdate);
   observer.observe(body, { attributes: true, attributeFilter: ['class'] });
 
+  if (window.ResizeObserver) {
+    var resizeObserver = new ResizeObserver(requestUpdate);
+    resizeObserver.observe(article);
+    resizeObserver.observe(toc);
+  }
+
+  if (reducedMotionQuery) {
+    if (typeof reducedMotionQuery.addEventListener === 'function') {
+      reducedMotionQuery.addEventListener('change', requestUpdate);
+    } else if (typeof reducedMotionQuery.addListener === 'function') {
+      reducedMotionQuery.addListener(requestUpdate);
+    }
+  }
+
   window.addEventListener('scroll', requestUpdate, { passive: true });
   window.addEventListener('resize', requestUpdate);
   window.addEventListener('orientationchange', function () { window.setTimeout(requestUpdate, 160); });
   window.addEventListener('load', requestUpdate);
+  activateById(headings[0].id);
   window.setTimeout(requestUpdate, 0);
 })();
