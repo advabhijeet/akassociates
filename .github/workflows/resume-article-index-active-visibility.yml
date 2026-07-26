@@ -44,6 +44,57 @@ jobs:
           Path('/tmp/test_article_index_v25.cjs').write_bytes(base64.b64decode(payloads[1]))
           PY
             python3 /tmp/apply_article_index_v25.py
+            python3 - <<'PY'
+          from pathlib import Path
+
+          path = Path('assets/js/themes/citadel-of-kang/article-index-direct-rail.js')
+          text = path.read_text(encoding='utf-8')
+          start_marker = '  var activeOffsetInsideToc = function () {'
+          end_marker = '  var updateProgress = function () {'
+          start = text.find(start_marker)
+          end = text.find(end_marker, start)
+          if start < 0 or end < 0:
+              raise SystemExit('Active-aware syncRail replacement markers were not found')
+
+          replacement = '''  var syncRail = function () {
+            if (toc.scrollTop !== 0) toc.scrollTop = 0;
+
+            if (window.innerWidth <= 920) {
+              toc.style.setProperty('transform', 'translate3d(0,0,0)', 'important');
+              return;
+            }
+
+            var scrollY = getScrollY();
+            var railRect = rail.getBoundingClientRect();
+            var tocRect = toc.getBoundingClientRect();
+            var railTop = scrollY + railRect.top;
+            var maxTravel = Math.max(0, article.offsetHeight - toc.offsetHeight);
+            var desired = scrollY + navSpace() + 18 - railTop;
+            var currentTransform = tocRect.top - railRect.top;
+            var currentActive = toc.querySelector('a.is-active');
+
+            if (currentActive) {
+              var activeRect = currentActive.getBoundingClientRect();
+              var projectedShift = desired - currentTransform;
+              var projectedTop = activeRect.top + projectedShift;
+              var projectedBottom = activeRect.bottom + projectedShift;
+              var safeTop = navSpace() + 56;
+              var safeBottom = Math.max(safeTop + 72, window.innerHeight - 44);
+
+              if (projectedBottom > safeBottom) {
+                desired -= projectedBottom - safeBottom;
+              } else if (projectedTop < safeTop) {
+                desired += safeTop - projectedTop;
+              }
+            }
+
+            desired = Math.min(maxTravel, Math.max(0, desired));
+            toc.style.setProperty('transform', 'translate3d(0,' + Math.round(desired) + 'px,0)', 'important');
+          };
+
+'''
+          path.write_text(text[:start] + replacement + text[end:], encoding='utf-8', newline='\n')
+          PY
             node --check assets/js/themes/citadel-of-kang/article-index-direct-rail.js
             node --check assets/js/config/chambers-public-config.js
             node --check assets/js/script.js
