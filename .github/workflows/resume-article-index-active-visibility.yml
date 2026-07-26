@@ -75,12 +75,31 @@ jobs:
           npx playwright install --with-deps chromium >/dev/null
 
       - name: Run long-index visibility regression
+        id: browser_test
+        continue-on-error: true
         shell: bash
         run: |
           python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/cak-http.log 2>&1 &
           server_pid=$!
           trap 'kill "$server_pid" 2>/dev/null || true' EXIT
-          node /tmp/test_article_index_v25.cjs
+          node /tmp/test_article_index_v25.cjs > browser-v25.log 2>&1
+
+      - name: Upload browser regression log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: article-index-v25-browser-log
+          path: browser-v25.log
+          if-no-files-found: error
+          retention-days: 1
+
+      - name: Confirm browser regression
+        shell: bash
+        run: |
+          cat browser-v25.log
+          if [[ "${{ steps.browser_test.outcome }}" != "success" ]]; then
+            exit 1
+          fi
 
       - name: Run repository validators
         shell: bash
