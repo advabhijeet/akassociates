@@ -241,6 +241,43 @@
     window.requestAnimationFrame(update);
   };
 
+  var navTransitionFrame = null;
+  var followNavTransition = function () {
+    if (!nav || navTransitionFrame !== null) return;
+
+    var startedAt = window.performance && typeof window.performance.now === 'function'
+      ? window.performance.now()
+      : Date.now();
+    var currentTime = function () {
+      return window.performance && typeof window.performance.now === 'function'
+        ? window.performance.now()
+        : Date.now();
+    };
+    var step = function () {
+      requestUpdate();
+      if (currentTime() - startedAt < 360) {
+        navTransitionFrame = window.requestAnimationFrame(step);
+        return;
+      }
+
+      navTransitionFrame = null;
+      requestUpdate();
+    };
+
+    navTransitionFrame = window.requestAnimationFrame(step);
+  };
+
+  if (nav) {
+    var navClassObserver = new MutationObserver(function () {
+      requestUpdate();
+      followNavTransition();
+    });
+    navClassObserver.observe(nav, { attributes: true, attributeFilter: ['class'] });
+    nav.addEventListener('transitionrun', followNavTransition);
+    nav.addEventListener('transitionend', requestUpdate);
+    nav.addEventListener('transitioncancel', requestUpdate);
+  }
+
   links.forEach(function (link) {
     link.addEventListener('click', function (event) {
       var id = decodeURIComponent((link.getAttribute('href') || '').replace(/^#/, ''));
