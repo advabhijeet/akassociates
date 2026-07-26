@@ -33,8 +33,8 @@ jobs:
 
       - name: Install Playwright
         run: |
-          npm install --no-save --no-package-lock playwright@1.55.0
-          npx playwright install --with-deps chromium
+          npm install --silent --no-save --no-package-lock playwright@1.55.0 >/dev/null
+          npx playwright install --with-deps chromium >/dev/null
 
       - name: Verify live deployment and browser behavior
         run: node tools/live-verify-article-index-v24.cjs
