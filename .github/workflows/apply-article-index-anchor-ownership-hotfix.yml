@@ -1,0 +1,161 @@
+name: Apply Article Index Anchor Ownership Hotfix
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/apply-article-index-anchor-ownership-hotfix.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch-test-and-commit:
+    if: github.head_ref == 'agent/fix-article-index-anchor-ownership'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout fix branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      - name: Reserve Article Index anchor ownership
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          path = Path('assets/js/themes/citadel-of-kang/article-index-direct-rail.js')
+          text = path.read_text(encoding='utf-8')
+          needle = "    link.href = '#' + encodeURIComponent(heading.id);\n    link.textContent = (heading.textContent || '').trim().replace(/^\\d+\\.\\s*/, '');"
+          replacement = "    link.href = '#' + encodeURIComponent(heading.id);\n    link.dataset.citadelSmoothAnchorBound = 'true';\n    link.textContent = (heading.textContent || '').trim().replace(/^\\d+\\.\\s*/, '');"
+
+          if "link.dataset.citadelSmoothAnchorBound = 'true';" in text:
+              raise SystemExit('Article Index anchor ownership marker is already present')
+          if text.count(needle) != 1:
+              raise SystemExit(f'Expected one Article Index link marker, found {text.count(needle)}')
+
+          path.write_text(text.replace(needle, replacement, 1), encoding='utf-8', newline='\n')
+          PY
+
+          node --check assets/js/themes/citadel-of-kang/article-index-direct-rail.js
+
+      - name: Install Chromium test runtime
+        run: |
+          npm install --silent --no-save --no-package-lock playwright@1.55.0 >/dev/null
+          npx playwright install --with-deps chromium >/dev/null
+
+      - name: Run anchor ownership regression
+        shell: bash
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/cak-http.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+
+          node <<'NODE'
+          const { chromium } = require('playwright');
+
+          const assert = (condition, message, details) => {
+            if (!condition) throw new Error(`${message}\n${JSON.stringify(details, null, 2)}`);
+          };
+
+          const verifyMode = async (browser, reducedMotion) => {
+            const context = await browser.newContext({
+              viewport: { width: 1280, height: 720 },
+              reducedMotion,
+            });
+            const page = await context.newPage();
+            await page.goto('http://127.0.0.1:4173/updates/msme-facilitation-council-process.html', {
+              waitUntil: 'domcontentloaded',
+              timeout: 30000,
+            });
+            await page.waitForSelector('.article-index-toc a.is-active', { timeout: 15000 });
+            await page.waitForSelector('.site-topbar', { timeout: 10000 });
+            await page.waitForTimeout(250);
+
+            const mid = await page.evaluate(() => {
+              const article = document.querySelector('article[data-citadel-article-index], article.article-body, article.ck-article');
+              const top = window.scrollY + article.getBoundingClientRect().top;
+              return Math.round(top + Math.min(article.offsetHeight * 0.42, 1800));
+            });
+            await page.evaluate((y) => window.scrollTo(0, y), mid);
+            await page.waitForTimeout(650);
+
+            const preClick = await page.evaluate(() => {
+              const links = Array.from(document.querySelectorAll('.article-index-toc a[href^="#"]'))
+                .filter((link) => link.getAttribute('href') !== '#top');
+              const link = links[Math.min(links.length - 1, 4)];
+              return {
+                marker: link ? link.dataset.citadelSmoothAnchorBound : null,
+                href: link ? link.getAttribute('href') : null,
+              };
+            });
+            assert(preClick.marker === 'true', 'Article Index link did not reserve anchor ownership', preClick);
+
+            await page.evaluate(() => {
+              const links = Array.from(document.querySelectorAll('.article-index-toc a[href^="#"]'))
+                .filter((link) => link.getAttribute('href') !== '#top');
+              links[Math.min(links.length - 1, 4)].click();
+            });
+            await page.waitForTimeout(reducedMotion === 'reduce' ? 120 : 1800);
+
+            const result = await page.evaluate(() => {
+              const active = document.querySelector('.article-index-toc a.is-active');
+              const id = active ? decodeURIComponent(active.getAttribute('href').slice(1)) : null;
+              const target = id ? document.getElementById(id) : null;
+              const nav = document.querySelector('.nav');
+              const topbar = document.querySelector('.site-topbar');
+              const expected = (topbar ? topbar.getBoundingClientRect().height : 0)
+                + (nav ? nav.getBoundingClientRect().height : 88)
+                + 72;
+              return {
+                activeHref: active ? active.getAttribute('href') : null,
+                targetTop: target ? target.getBoundingClientRect().top : null,
+                expected,
+                tocScrollTop: document.querySelector('.article-index-toc').scrollTop,
+              };
+            });
+
+            assert(result.targetTop !== null && Math.abs(result.targetTop - result.expected) <= 8, 'Article Index anchor offset is incorrect', { reducedMotion, result });
+            assert(result.tocScrollTop === 0, 'Anchor click introduced internal tray scrolling', { reducedMotion, result });
+            await context.close();
+            return result;
+          };
+
+          (async () => {
+            const browser = await chromium.launch({ headless: true });
+            try {
+              const reduced = await verifyMode(browser, 'reduce');
+              const normal = await verifyMode(browser, 'no-preference');
+              console.log(JSON.stringify({ status: 'PASS', reduced, normal }, null, 2));
+            } finally {
+              await browser.close();
+            }
+          })().catch((error) => {
+            console.error(error.stack || error);
+            process.exit(1);
+          });
+          NODE
+
+      - name: Run repository validators
+        shell: bash
+        run: |
+          node tools/validate-public-assets.js
+          node tools/validate-performance-remediation.js
+          node tools/validate-citadel-runtime.js
+          node tools/validate-documentation.js
+          git diff --check
+
+      - name: Commit tested hotfix to branch
+        shell: bash
+        run: |
+          rm .github/workflows/apply-article-index-anchor-ownership-hotfix.yml
+          git config user.name "Chambers Automation"
+          git config user.email "actions@users.noreply.github.com"
+          git add assets/js/themes/citadel-of-kang/article-index-direct-rail.js .github/workflows/apply-article-index-anchor-ownership-hotfix.yml
+          git commit -m "Reserve Article Index anchor handling"
+          git push origin "HEAD:${GITHUB_HEAD_REF}"
