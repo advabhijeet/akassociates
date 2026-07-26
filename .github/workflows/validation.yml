@@ -60,6 +60,7 @@ jobs:
             "assets/js/themes/citadel-of-kang/modules/pages/enquiry-page.js"
             "assets/js/themes/citadel-of-kang/modules/pages/general-content-page.js"
             "tools/sync-static-insight-cards.js"
+            "tools/sync-rss-feed.js"
             "tools/audit-articles-structure.js"
             "tools/validate-seo-sitewide.js"
             "tools/validate-deployment-boundary.js"
@@ -86,6 +87,9 @@ jobs:
 
       - name: Static Insights synchronization validation
         run: node tools/sync-static-insight-cards.js --check
+
+      - name: RSS feed synchronization validation
+        run: node tools/sync-rss-feed.js --check
 
       - name: Phase 3 article structure audit
         run: node tools/audit-articles-structure.js --strict
