@@ -49,6 +49,11 @@ jobs:
               '"id: \'citadel-thumbnail-frames-v9\'"': '\'"id": "citadel-thumbnail-frames-v9"\'',
               '"version: \'thumbnail-frames-v9\'"': '\'"version": "thumbnail-frames-v9"\'',
               'await page.waitForTimeout(300);': 'await page.waitForTimeout(650);',
+              '  const end = await scrollToAndSnapshot(page, maximumScroll);': '''  let end = null;
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    const stableMaximumScroll = await page.evaluate(() => Math.max(0, document.documentElement.scrollHeight - window.innerHeight));
+    end = await scrollToAndSnapshot(page, stableMaximumScroll);
+  }''',
           }
           for old, new in replacements.items():
               if old not in text:
@@ -78,7 +83,7 @@ jobs:
         if: always()
         shell: bash
         run: |
-          tail -n 80 live-verification.log || true
+          tail -n 120 live-verification.log || true
           if [[ "${{ steps.live_check.outcome }}" != "success" ]]; then
             exit 1
           fi
