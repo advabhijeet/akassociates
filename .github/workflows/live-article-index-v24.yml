@@ -36,5 +36,28 @@ jobs:
           npm install --silent --no-save --no-package-lock playwright@1.55.0 >/dev/null
           npx playwright install --with-deps chromium >/dev/null
 
-      - name: Verify live deployment and browser behavior
-        run: node tools/live-verify-article-index-v24.cjs
+      - name: Run live verification
+        id: live_check
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          node tools/live-verify-article-index-v24.cjs > live-verification.log 2>&1
+
+      - name: Upload complete verification log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: article-index-v24-live-verification
+          path: live-verification.log
+          if-no-files-found: error
+          retention-days: 1
+
+      - name: Report verification result
+        if: always()
+        shell: bash
+        run: |
+          tail -n 40 live-verification.log || true
+          if [[ "${{ steps.live_check.outcome }}" != "success" ]]; then
+            exit 1
+          fi
