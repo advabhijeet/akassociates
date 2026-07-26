@@ -82,6 +82,7 @@
     var li = document.createElement('li');
     var link = document.createElement('a');
     link.href = '#' + encodeURIComponent(heading.id);
+    link.dataset.citadelSmoothAnchorBound = 'true';
     link.textContent = (heading.textContent || '').trim().replace(/^\d+\.\s*/, '');
     li.appendChild(link);
     list.appendChild(li);
