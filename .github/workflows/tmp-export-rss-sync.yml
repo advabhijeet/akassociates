@@ -1,0 +1,61 @@
+name: Export Registry-Driven RSS Files
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/tmp-export-rss-sync.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  generate-validate-export:
+    if: github.head_ref == 'agent/sync-rss-with-insights-registry'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout RSS branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/sync-rss-with-insights-registry
+
+      - name: Generate and validate RSS changes
+        run: |
+          node tools/tmp-finalize-rss-sync.js
+          node tools/sync-rss-feed.js
+          node --check tools/sync-rss-feed.js
+          node tools/sync-rss-feed.js --check
+          node tools/validate-public-assets.js
+          node tools/validate-documentation.js
+          node tools/validate-deployment-boundary.js
+          node tools/validate-performance-remediation.js
+          node tools/validate-article-encoding.js
+          node tools/validate-insights-registry.js --strict
+          node tools/sync-static-insight-cards.js --check
+          node tools/audit-articles-structure.js --strict
+          node tools/validate-seo-sitewide.js
+          node tools/validate-service-consolidation.js
+          node tools/validate-citadel-runtime.js
+          git diff --check
+
+      - name: Prepare output artifact
+        run: |
+          mkdir -p rss-output/.github/workflows
+          mkdir -p rss-output/docs/maintenance/publishing
+          mkdir -p rss-output/tools
+          cp .github/workflows/validation.yml rss-output/.github/workflows/validation.yml
+          cp CHANGELOG.md rss-output/CHANGELOG.md
+          cp docs/maintenance/publishing/ARTICLE_PUBLISHING_WORKFLOW.md rss-output/docs/maintenance/publishing/ARTICLE_PUBLISHING_WORKFLOW.md
+          cp feed.xml rss-output/feed.xml
+          cp tools/sync-rss-feed.js rss-output/tools/sync-rss-feed.js
+
+      - name: Upload validated RSS files
+        uses: actions/upload-artifact@v4
+        with:
+          name: registry-driven-rss-files
+          path: rss-output
+          if-no-files-found: error
+          retention-days: 1
