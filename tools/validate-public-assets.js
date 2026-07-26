@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = process.cwd();
-const CACHE_KEY = "site-20260726-article-index-v24-1";
+const CACHE_KEY = "site-20260726-article-index-v25-1";
 const MAX_THUMBNAIL_BYTES = 450 * 1024;
 const errors = [];
 const warnings = [];
@@ -211,6 +211,18 @@ for (const bootstrapPath of [
 ]) {
   if (!productionScript.includes(bootstrapPath)) {
     errors.push(`Public bootstrap is missing runtime dependency: ${bootstrapPath}`);
+  }
+}
+
+const articleIndex = read("assets/js/themes/citadel-of-kang/article-index-direct-rail.js");
+for (const marker of [
+  "var currentActive = toc.querySelector('a.is-active');",
+  "var projectedShift = desired - currentTransform;",
+  "projectedBottom > safeBottom",
+  "projectedTop < safeTop"
+]) {
+  if (!articleIndex.includes(marker)) {
+    errors.push(`Article Index active-visibility marker is missing: ${marker}`);
   }
 }
 

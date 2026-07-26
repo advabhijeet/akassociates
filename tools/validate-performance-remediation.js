@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = process.cwd();
-const CACHE_KEY = "site-20260726-article-index-v24-1";
+const CACHE_KEY = "site-20260726-article-index-v25-1";
 const errors = [];
 const warnings = [];
 
@@ -246,7 +246,7 @@ for (const marker of [
 }
 
 for (const marker of [
-  "config-v5",
+  "config-v6",
   "insights-runtime-v2"
 ]) {
   if (!bootstrap.includes(marker)) {
@@ -300,7 +300,7 @@ const baseStyle = moduleManifest.styles.find((entry) => entry.key === "base");
 const themeStyle = moduleManifest.styles.find((entry) => entry.key === "theme");
 const latestInsightsEntry = moduleManifest.featureModules.find((entry) => entry.key === "latestInsights");
 
-if (publicConfigRuntime?.version !== "config-v5") {
+if (publicConfigRuntime?.version !== "config-v6") {
   errors.push(`Manifest publicConfig version mismatch: ${publicConfigRuntime?.version}`);
 }
 if (insightsRuntimeEntry?.version !== "insights-runtime-v2") {
