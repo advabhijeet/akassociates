@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - '.github/workflows/apply-article-index-nav-transition-hotfix.yml'
+      - '.github/workflows/apply-article-index-nav-transition-hotfix-v2.yml'
 
 permissions:
   contents: write
@@ -27,68 +28,21 @@ jobs:
         shell: bash
         run: |
           python3 - <<'PY'
+          import base64
           from pathlib import Path
 
           path = Path('assets/js/themes/citadel-of-kang/article-index-direct-rail.js')
           text = path.read_text(encoding='utf-8')
-          needle = '''  var requestUpdate = function () {
-            if (ticking) return;
-            ticking = true;
-            window.requestAnimationFrame(update);
-          };
+          marker = "\n  links.forEach(function (link) {\n"
+          payload = 'CiAgdmFyIG5hdlRyYW5zaXRpb25GcmFtZSA9IG51bGw7CiAgdmFyIGZvbGxvd05hdlRyYW5zaXRpb24gPSBmdW5jdGlvbiAoKSB7CiAgICBpZiAoIW5hdiB8fCBuYXZUcmFuc2l0aW9uRnJhbWUgIT09IG51bGwpIHJldHVybjsKCiAgICB2YXIgc3RhcnRlZEF0ID0gd2luZG93LnBlcmZvcm1hbmNlICYmIHR5cGVvZiB3aW5kb3cucGVyZm9ybWFuY2Uubm93ID09PSAnZnVuY3Rpb24nCiAgICAgID8gd2luZG93LnBlcmZvcm1hbmNlLm5vdygpCiAgICAgIDogRGF0ZS5ub3coKTsKICAgIHZhciBjdXJyZW50VGltZSA9IGZ1bmN0aW9uICgpIHsKICAgICAgcmV0dXJuIHdpbmRvdy5wZXJmb3JtYW5jZSAmJiB0eXBlb2Ygd2luZG93LnBlcmZvcm1hbmNlLm5vdyA9PT0gJ2Z1bmN0aW9uJwogICAgICAgID8gd2luZG93LnBlcmZvcm1hbmNlLm5vdygpCiAgICAgICAgOiBEYXRlLm5vdygpOwogICAgfTsKICAgIHZhciBzdGVwID0gZnVuY3Rpb24gKCkgewogICAgICByZXF1ZXN0VXBkYXRlKCk7CiAgICAgIGlmIChjdXJyZW50VGltZSgpIC0gc3RhcnRlZEF0IDwgMzYwKSB7CiAgICAgICAgbmF2VHJhbnNpdGlvbkZyYW1lID0gd2luZG93LnJlcXVlc3RBbmltYXRpb25GcmFtZShzdGVwKTsKICAgICAgICByZXR1cm47CiAgICAgIH0KCiAgICAgIG5hdlRyYW5zaXRpb25GcmFtZSA9IG51bGw7CiAgICAgIHJlcXVlc3RVcGRhdGUoKTsKICAgIH07CgogICAgbmF2VHJhbnNpdGlvbkZyYW1lID0gd2luZG93LnJlcXVlc3RBbmltYXRpb25GcmFtZShzdGVwKTsKICB9OwoKICBpZiAobmF2KSB7CiAgICB2YXIgbmF2Q2xhc3NPYnNlcnZlciA9IG5ldyBNdXRhdGlvbk9ic2VydmVyKGZ1bmN0aW9uICgpIHsKICAgICAgcmVxdWVzdFVwZGF0ZSgpOwogICAgICBmb2xsb3dOYXZUcmFuc2l0aW9uKCk7CiAgICB9KTsKICAgIG5hdkNsYXNzT2JzZXJ2ZXIub2JzZXJ2ZShuYXYsIHsgYXR0cmlidXRlczogdHJ1ZSwgYXR0cmlidXRlRmlsdGVyOiBbJ2NsYXNzJ10gfSk7CiAgICBuYXYuYWRkRXZlbnRMaXN0ZW5lcigndHJhbnNpdGlvbnJ1bicsIGZvbGxvd05hdlRyYW5zaXRpb24pOwogICAgbmF2LmFkZEV2ZW50TGlzdGVuZXIoJ3RyYW5zaXRpb25lbmQnLCByZXF1ZXN0VXBkYXRlKTsKICAgIG5hdi5hZGRFdmVudExpc3RlbmVyKCd0cmFuc2l0aW9uY2FuY2VsJywgcmVxdWVzdFVwZGF0ZSk7CiAgfQo='
+          hotfix = base64.b64decode(payload).decode('utf-8')
 
-          links.forEach(function (link) {'''.replace('          ', '')
-          replacement = '''  var requestUpdate = function () {
-            if (ticking) return;
-            ticking = true;
-            window.requestAnimationFrame(update);
-          };
-
-          var navTransitionFrame = null;
-          var followNavTransition = function () {
-            if (!nav || navTransitionFrame !== null) return;
-
-            var startedAt = window.performance && typeof window.performance.now === 'function'
-              ? window.performance.now()
-              : Date.now();
-            var currentTime = function () {
-              return window.performance && typeof window.performance.now === 'function'
-                ? window.performance.now()
-                : Date.now();
-            };
-            var step = function () {
-              requestUpdate();
-              if (currentTime() - startedAt < 360) {
-                navTransitionFrame = window.requestAnimationFrame(step);
-                return;
-              }
-
-              navTransitionFrame = null;
-              requestUpdate();
-            };
-
-            navTransitionFrame = window.requestAnimationFrame(step);
-          };
-
-          if (nav) {
-            var navClassObserver = new MutationObserver(function () {
-              requestUpdate();
-              followNavTransition();
-            });
-            navClassObserver.observe(nav, { attributes: true, attributeFilter: ['class'] });
-            nav.addEventListener('transitionrun', followNavTransition);
-            nav.addEventListener('transitionend', requestUpdate);
-            nav.addEventListener('transitioncancel', requestUpdate);
-          }
-
-          links.forEach(function (link) {'''.replace('          ', '')
-
-          if needle not in text:
-              raise SystemExit('Expected Article Index insertion point not found')
           if 'var navTransitionFrame = null;' in text:
               raise SystemExit('Article Index nav-transition hotfix is already present')
+          if text.count(marker) != 1:
+              raise SystemExit(f'Expected one Article Index insertion marker, found {text.count(marker)}')
 
-          path.write_text(text.replace(needle, replacement, 1), encoding='utf-8', newline='\n')
+          path.write_text(text.replace(marker, hotfix + marker, 1), encoding='utf-8', newline='\n')
           PY
 
           node --check assets/js/themes/citadel-of-kang/article-index-direct-rail.js
@@ -107,28 +61,22 @@ jobs:
 
           node <<'NODE'
           const { chromium } = require('playwright');
-
-          const fail = (message, details) => {
-            throw new Error(`${message}\n${JSON.stringify(details, null, 2)}`);
-          };
-
-          const translateY = (transform) => {
-            if (!transform || transform === 'none') return 0;
-            const matrix = transform.match(/^matrix\((.+)\)$/);
+          const parseY = (value) => {
+            if (!value || value === 'none') return 0;
+            const matrix = value.match(/^matrix\((.+)\)$/);
             if (matrix) return Number(matrix[1].split(',')[5]);
-            const matrix3d = transform.match(/^matrix3d\((.+)\)$/);
-            if (matrix3d) return Number(matrix3d[1].split(',')[13]);
-            return 0;
+            const matrix3d = value.match(/^matrix3d\((.+)\)$/);
+            return matrix3d ? Number(matrix3d[1].split(',')[13]) : 0;
+          };
+          const assert = (condition, message, details) => {
+            if (!condition) throw new Error(`${message}\n${JSON.stringify(details, null, 2)}`);
           };
 
           (async () => {
             const browser = await chromium.launch({ headless: true });
             try {
               const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
-              await page.goto('http://127.0.0.1:4173/updates/msme-facilitation-council-process.html', {
-                waitUntil: 'domcontentloaded',
-                timeout: 30000,
-              });
+              await page.goto('http://127.0.0.1:4173/updates/msme-facilitation-council-process.html', { waitUntil: 'domcontentloaded', timeout: 30000 });
               await page.waitForSelector('.article-index-toc a.is-active', { timeout: 15000 });
               await page.waitForSelector('.site-topbar', { timeout: 10000 });
               await page.waitForTimeout(250);
@@ -136,14 +84,10 @@ jobs:
               const geometry = await page.evaluate(() => {
                 const article = document.querySelector('article[data-citadel-article-index], article.article-body, article.ck-article');
                 const rect = article.getBoundingClientRect();
-                return {
-                  articleTop: window.scrollY + rect.top,
-                  articleHeight: article.offsetHeight,
-                  maxScroll: document.documentElement.scrollHeight - window.innerHeight,
-                };
+                return { top: window.scrollY + rect.top, height: article.offsetHeight, max: document.documentElement.scrollHeight - window.innerHeight };
               });
-              const midY = Math.min(geometry.maxScroll, Math.round(geometry.articleTop + Math.min(geometry.articleHeight * 0.42, 1800)));
-              const deeperY = Math.min(geometry.maxScroll, Math.max(midY + 500, Math.round(geometry.articleTop + geometry.articleHeight * 0.68)));
+              const mid = Math.min(geometry.max, Math.round(geometry.top + Math.min(geometry.height * 0.42, 1800)));
+              const deeper = Math.min(geometry.max, Math.max(mid + 500, Math.round(geometry.top + geometry.height * 0.68)));
 
               const snapshot = () => page.evaluate(() => {
                 const toc = document.querySelector('.article-index-toc');
@@ -153,7 +97,6 @@ jobs:
                 const tocRect = toc.getBoundingClientRect();
                 const articleRect = article.getBoundingClientRect();
                 return {
-                  scrollY: window.scrollY,
                   transform: getComputedStyle(toc).transform,
                   tocScrollTop: toc.scrollTop,
                   tocTop: tocRect.top,
@@ -166,26 +109,22 @@ jobs:
                 };
               });
 
-              await page.evaluate((y) => window.scrollTo(0, y), midY);
+              await page.evaluate((y) => window.scrollTo(0, y), mid);
               await page.waitForTimeout(140);
-              const duringTransition = await snapshot();
-              const liveGap = duringTransition.tocTop - duringTransition.navBottom;
-              if (Math.abs(liveGap - 18) > 2) fail('Tray did not follow the compacting nav during transition', { liveGap, duringTransition });
+              const moving = await snapshot();
+              assert(Math.abs((moving.tocTop - moving.navBottom) - 18) <= 2, 'Tray is not aligned while nav compacts', moving);
 
               await page.waitForTimeout(520);
               const down = await snapshot();
-              await page.evaluate((y) => window.scrollTo(0, y), deeperY);
+              await page.evaluate((y) => window.scrollTo(0, y), deeper);
               await page.waitForTimeout(650);
-              await page.evaluate((y) => window.scrollTo(0, y), midY);
+              await page.evaluate((y) => window.scrollTo(0, y), mid);
               await page.waitForTimeout(650);
               const up = await snapshot();
-
-              const downY = translateY(down.transform);
-              const upY = translateY(up.transform);
-              if (Math.abs(downY - upY) > 1) fail('Stable downward/upward rail transforms differ', { downY, upY, down, up });
-              if (down.tocScrollTop !== 0 || up.tocScrollTop !== 0) fail('Internal Article Index scrolling detected', { down, up });
-              if (down.activeHref !== up.activeHref) fail('Active title became stale on upward scroll', { down, up });
-              if (down.scrollWidth > down.innerWidth) fail('Desktop horizontal overflow detected', down);
+              assert(Math.abs(parseY(down.transform) - parseY(up.transform)) <= 1, 'Stable down/up transforms differ', { down, up });
+              assert(down.tocScrollTop === 0 && up.tocScrollTop === 0, 'Internal tray scrolling detected', { down, up });
+              assert(down.activeHref === up.activeHref, 'Active heading is stale after upward scroll', { down, up });
+              assert(down.scrollWidth <= down.innerWidth, 'Horizontal overflow detected', down);
 
               let end = null;
               for (let attempt = 0; attempt < 3; attempt += 1) {
@@ -194,9 +133,8 @@ jobs:
                 await page.waitForTimeout(650);
                 end = await snapshot();
               }
-              if (Math.abs(end.tocDocumentBottom - end.articleDocumentBottom) > 2) fail('Tray did not clamp at article bottom', end);
-
-              console.log(JSON.stringify({ status: 'PASS', duringTransition, down, up, end }, null, 2));
+              assert(Math.abs(end.tocDocumentBottom - end.articleDocumentBottom) <= 2, 'Article-bottom clamp failed', end);
+              console.log(JSON.stringify({ status: 'PASS', moving, down, up, end }, null, 2));
             } finally {
               await browser.close();
             }
@@ -219,8 +157,9 @@ jobs:
         shell: bash
         run: |
           rm .github/workflows/apply-article-index-nav-transition-hotfix.yml
+          rm .github/workflows/apply-article-index-nav-transition-hotfix-v2.yml
           git config user.name "Chambers Automation"
           git config user.email "actions@users.noreply.github.com"
-          git add assets/js/themes/citadel-of-kang/article-index-direct-rail.js .github/workflows/apply-article-index-nav-transition-hotfix.yml
+          git add assets/js/themes/citadel-of-kang/article-index-direct-rail.js .github/workflows/apply-article-index-nav-transition-hotfix.yml .github/workflows/apply-article-index-nav-transition-hotfix-v2.yml
           git commit -m "Keep Article Index aligned during nav transition"
           git push origin "HEAD:${GITHUB_HEAD_REF}"
