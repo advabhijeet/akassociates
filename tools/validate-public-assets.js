@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = process.cwd();
-const CACHE_KEY = "site-20260715-pa2";
+const CACHE_KEY = "site-20260726-article-index-v24-1";
 const MAX_THUMBNAIL_BYTES = 450 * 1024;
 const errors = [];
 const warnings = [];

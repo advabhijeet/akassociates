@@ -1,6 +1,6 @@
 # Module Contract: Citadel Article Index
 
-Last reconciled: 2026-05-26
+Last reconciled: 2026-07-26
 
 ## Summary
 
@@ -9,7 +9,7 @@ Last reconciled: 2026-05-26
 - Version: `1.0.0-production`
 - Status: `production`
 - Owner Product: `Citadel of Kang theme pack`
-- Chambers Cache Key: `article-index-v22`
+- Chambers Cache Key: `article-index-v24`
 
 ## Purpose
 
@@ -50,7 +50,7 @@ Loader: assets/js/script.js
 The module is production-loaded through `assets/js/script.js` using the script id:
 
 ```text
-citadel-article-index-v22
+citadel-article-index-v24
 ```
 
 Older references to `assets/js/themes/citadel-of-kang/article-index.js` are historical/non-current unless a future migration intentionally renames the production file.
@@ -95,7 +95,7 @@ The loader avoids duplicate injection when:
 ```text
 article already has data-citadel-article-index-ready="true"
 .article-index-layout already exists
-citadel-article-index-v22 script already exists
+citadel-article-index-v24 script already exists
 legacy article-index-direct-rail.js script tag already exists
 ```
 
@@ -116,7 +116,7 @@ Future public-safe config may use:
     "activeMode": "latest-visible-heading",
     "showProgress": true,
     "showBackToTop": true,
-    "desktopMode": "sticky-fixed-rail",
+    "desktopMode": "direct-rail",
     "mobileMode": "below-hero"
   }
 }
@@ -176,9 +176,17 @@ When activated and valid headings exist, the module currently:
 14. Updates active section while scrolling.
 15. Updates desktop and mobile reading progress.
 16. Keeps the rail synchronized with article/nav spacing on desktop.
-17. Uses smooth scroll for index clicks.
+17. Uses smooth scroll for index clicks, or immediate scroll when reduced motion is requested.
 18. Updates on scroll, resize, orientationchange and load.
 ```
+
+## Direct-Rail Behaviour Contract
+
+Above `920px`, the complete tray moves through `.article-index-rail` with the article. The tray begins aligned with the article, remains below the measured topbar/navigation area while room remains, stops at the article bottom, and leaves with the article. Page scroll is the only scrolling mechanism: the tray has no fixed maximum height, no independent vertical scrolling, and `toc.scrollTop` remains `0`.
+
+At `920px` and below, the rail transform is disabled and the index remains below the hero and before the article body. Horizontal overflow containment is mobile-only so long titles wrap without widening the page.
+
+Reduced-motion mode keeps the functional desktop positioning transform. It removes decorative link transitions and uses immediate anchor scrolling instead of smooth scrolling.
 
 ## Disable / No-Op Behaviour
 

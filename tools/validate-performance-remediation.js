@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = process.cwd();
-const CACHE_KEY = "site-20260715-pa2";
+const CACHE_KEY = "site-20260726-article-index-v24-1";
 const errors = [];
 const warnings = [];
 
@@ -246,7 +246,7 @@ for (const marker of [
 }
 
 for (const marker of [
-  "config-v4",
+  "config-v5",
   "insights-runtime-v2"
 ]) {
   if (!bootstrap.includes(marker)) {
@@ -300,7 +300,7 @@ const baseStyle = moduleManifest.styles.find((entry) => entry.key === "base");
 const themeStyle = moduleManifest.styles.find((entry) => entry.key === "theme");
 const latestInsightsEntry = moduleManifest.featureModules.find((entry) => entry.key === "latestInsights");
 
-if (publicConfigRuntime?.version !== "config-v4") {
+if (publicConfigRuntime?.version !== "config-v5") {
   errors.push(`Manifest publicConfig version mismatch: ${publicConfigRuntime?.version}`);
 }
 if (insightsRuntimeEntry?.version !== "insights-runtime-v2") {
@@ -340,8 +340,8 @@ for (const relPath of htmlFiles) {
 
     for (const preload of [
       "assets/css/themes/citadel-of-ak.css?v=theme-2",
-      "assets/css/themes/citadel-of-kang/modules/article-index.css?v=article-index-v22",
-      "assets/css/themes/citadel-of-kang/modules/pills.css?v=pills-v2"
+      "assets/css/themes/citadel-of-kang/modules/article-index.css?v=article-index-v24",
+      "assets/css/themes/citadel-of-kang/modules/pills.css?v=pills-v3"
     ]) {
       if (!html.includes(`rel="preload"`) || !html.includes(preload)) {
         errors.push(`${relPath}: CSS preload is missing: ${preload}`);

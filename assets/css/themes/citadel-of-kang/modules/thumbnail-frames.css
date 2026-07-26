@@ -103,23 +103,6 @@
   }
 }
 
-/* The Article Index owns its own rail behaviour. Keep thumbnail styles from
-   turning the tray into an independently scrolling or clipped panel. */
-@media (min-width: 921px) {
-  .article-index-layout,
-  .article-index-rail,
-  .article-index-toc {
-    overflow: visible !important;
-  }
-
-  .article-index-toc {
-    max-height: none !important;
-    overscroll-behavior: auto;
-    scrollbar-width: auto;
-    -ms-overflow-style: auto;
-  }
-}
-
 .insight-card-media {
   position: relative;
   overflow: hidden;

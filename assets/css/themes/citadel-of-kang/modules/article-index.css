@@ -235,8 +235,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .article-index-toc {
-    transform: none !important;
+  .article-index-toc a {
+    transition: none !important;
   }
 }
 
@@ -307,7 +307,7 @@
   }
 }
 
-/* Citadel Article Index mobile overflow fix v21 */
+/* Keep long titles shrinkable at every width. Overflow containment is mobile-only. */
 .article-index-layout,
 .article-index-rail,
 .article-index-toc,
@@ -319,13 +319,11 @@
 
 .article-index-layout {
   width: 100%;
-  overflow: hidden;
 }
 
 .article-index-rail,
 .article-index-toc {
   width: 100%;
-  overflow: hidden;
 }
 
 .article-index-toc ol,
@@ -350,6 +348,18 @@
   min-width: 0;
 }
 
+@media (min-width: 921px) {
+  .article-index-layout,
+  .article-index-rail,
+  .article-index-toc {
+    overflow: visible;
+  }
+
+  .article-index-toc {
+    max-height: none;
+  }
+}
+
 @media (max-width: 920px) {
   .article-index-layout {
     display: grid;
@@ -357,7 +367,7 @@
     width: 100%;
     max-width: 100%;
     gap: 1.15rem;
-    overflow: hidden;
+    overflow-x: clip;
   }
 
   .article-index-rail,
@@ -368,9 +378,15 @@
     max-width: 100%;
   }
 
+  .article-index-rail,
+  .article-index-toc {
+    overflow-x: clip;
+  }
+
   .article-index-toc {
     width: 100%;
     max-width: 100%;
+    max-height: none;
     padding: min(18px, 5vw);
     border-radius: 18px;
   }

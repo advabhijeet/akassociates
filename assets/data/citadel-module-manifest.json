@@ -14,7 +14,7 @@
       "status": "production",
       "owner": "Public-safe site and module configuration",
       "path": "assets/js/config/chambers-public-config.js",
-      "version": "config-v4",
+      "version": "config-v5",
       "loadedBy": "assets/js/script.js"
     },
     {
@@ -90,9 +90,9 @@
     {
       "key": "articleIndex",
       "status": "production",
-      "id": "citadel-article-index-v23",
+      "id": "citadel-article-index-v24",
       "path": "assets/js/themes/citadel-of-kang/article-index-direct-rail.js",
-      "version": "article-index-v23",
+      "version": "article-index-v24",
       "guard": "",
       "owner": "Article index rail and reading progress",
       "activation": "Article with at least three direct H2 headings",
@@ -189,9 +189,9 @@
     {
       "key": "thumbnailFrames",
       "status": "production",
-      "id": "citadel-thumbnail-frames-v8",
+      "id": "citadel-thumbnail-frames-v9",
       "path": "assets/css/themes/citadel-of-kang/modules/thumbnail-frames.css",
-      "version": "thumbnail-frames-v8",
+      "version": "thumbnail-frames-v9",
       "guard": "",
       "owner": "Article and card thumbnail frames",
       "activation": "Loaded by Global Shell",
@@ -204,7 +204,7 @@
       "status": "production",
       "owner": "Shared layout and component rules",
       "path": "assets/css/style.css",
-      "version": "site-20260715-pa2",
+      "version": "site-20260726-article-index-v24-1",
       "loadedBy": "Public HTML"
     },
     {
@@ -220,7 +220,7 @@
       "status": "production",
       "owner": "Article index rail presentation",
       "path": "assets/css/themes/citadel-of-kang/modules/article-index.css",
-      "version": "article-index-v22",
+      "version": "article-index-v24",
       "loadedBy": "assets/css/style.css"
     },
     {
@@ -228,7 +228,7 @@
       "status": "production",
       "owner": "Shared category and tag pills",
       "path": "assets/css/themes/citadel-of-kang/modules/pills.css",
-      "version": "pills-v2",
+      "version": "pills-v3",
       "loadedBy": "assets/css/style.css"
     }
   ],

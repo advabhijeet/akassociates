@@ -117,18 +117,16 @@
   var links = Array.prototype.slice.call(toc.querySelectorAll('a[href^="#"]'))
     .filter(function (link) { return link.getAttribute('href') !== '#top'; });
   var nav = document.querySelector('.nav, [data-citadel-navigation-root], header[role="banner"]');
-  var topbar = document.querySelector('.site-topbar');
   var reducedMotionQuery = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
   var clickIntent = null;
   var clickTimer = null;
-  var lastActiveId = headings[0].id;
-  var activeLink = links[0] || null;
 
   var getScrollY = function () {
     return window.pageYOffset || document.documentElement.scrollTop || 0;
   };
 
   var navSpace = function () {
+    var topbar = document.querySelector('.site-topbar');
     var topbarHeight = topbar ? topbar.getBoundingClientRect().height : 0;
     var navHeight = nav ? nav.getBoundingClientRect().height : 88;
     return Math.ceil(topbarHeight + navHeight);
@@ -149,20 +147,17 @@
   };
 
   var activateById = function (id) {
-    activeLink = null;
     links.forEach(function (link) {
       var linkId = decodeURIComponent((link.getAttribute('href') || '').replace(/^#/, ''));
       var isActive = linkId === id;
       link.classList.toggle('is-active', isActive);
       if (isActive) {
-        activeLink = link;
         link.setAttribute('aria-current', 'location');
       } else {
         link.removeAttribute('aria-current');
       }
     });
 
-    if (id) lastActiveId = id;
   };
 
   var holdClickIntent = function () {
@@ -194,12 +189,7 @@
       if (heading.getBoundingClientRect().top <= line) current = heading;
     });
 
-    if (!current) {
-      current = headings.find(function (heading) {
-        var rect = heading.getBoundingClientRect();
-        return rect.top >= navSpace() && rect.top <= window.innerHeight * 0.72;
-      }) || document.getElementById(lastActiveId) || headings[0];
-    }
+    if (!current) current = headings[0];
 
     if (current) activateById(current.id);
   };
@@ -210,16 +200,6 @@
     var bottom = nav.getBoundingClientRect().bottom;
     document.documentElement.style.setProperty('--ck-mobile-reading-progress-height', height + 'px');
     document.documentElement.style.setProperty('--ck-mobile-reading-progress-top', Math.max(0, bottom - height) + 'px');
-  };
-
-  var activeOffsetInsideToc = function () {
-    if (!activeLink) return null;
-    var linkRect = activeLink.getBoundingClientRect();
-    var tocRect = toc.getBoundingClientRect();
-    return {
-      top: linkRect.top - tocRect.top,
-      bottom: linkRect.bottom - tocRect.top
-    };
   };
 
   var syncRail = function () {
@@ -233,18 +213,6 @@
     var articleTop = getScrollY() + article.getBoundingClientRect().top;
     var maxTravel = Math.max(0, article.offsetHeight - toc.offsetHeight);
     var desired = getScrollY() + navSpace() + 18 - articleTop;
-    var activeOffset = activeOffsetInsideToc();
-
-    if (activeOffset) {
-      var projectedTop = navSpace() + 18 + activeOffset.top;
-      var projectedBottom = navSpace() + 18 + activeOffset.bottom;
-      var safeTop = navSpace() + 58;
-      var safeBottom = window.innerHeight - 36;
-
-      if (projectedBottom > safeBottom) desired -= projectedBottom - safeBottom;
-      if (projectedTop < safeTop) desired += safeTop - projectedTop;
-    }
-
     desired = Math.min(maxTravel, Math.max(0, desired));
     toc.style.setProperty('transform', 'translate3d(0,' + Math.round(desired) + 'px,0)', 'important');
   };
@@ -305,6 +273,7 @@
     var resizeObserver = new ResizeObserver(requestUpdate);
     resizeObserver.observe(article);
     resizeObserver.observe(toc);
+    if (nav) resizeObserver.observe(nav);
   }
 
   if (reducedMotionQuery) {

@@ -1,6 +1,6 @@
 @import url("./themes/citadel-of-ak.css?v=theme-2");
-@import url("./themes/citadel-of-kang/modules/article-index.css?v=article-index-v22");
-@import url("./themes/citadel-of-kang/modules/pills.css?v=pills-v2");
+@import url("./themes/citadel-of-kang/modules/article-index.css?v=article-index-v24");
+@import url("./themes/citadel-of-kang/modules/pills.css?v=pills-v3");
 
 :root {
   --page-gutter: clamp(8px, 1.15vw, 18px);

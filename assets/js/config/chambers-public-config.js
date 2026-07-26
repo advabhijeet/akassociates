@@ -123,9 +123,9 @@
             "activation": "[data-citadel-blog-page]"
       },
       "articleIndex": {
-            "id": "citadel-article-index-v23",
+            "id": "citadel-article-index-v24",
             "path": "assets/js/themes/citadel-of-kang/article-index-direct-rail.js",
-            "version": "article-index-v23",
+            "version": "article-index-v24",
             "guard": "",
             "owner": "Article index rail and reading progress",
             "activation": "Article with at least three direct H2 headings"
@@ -195,9 +195,9 @@
             "activation": "Article pages, loaded by Global Shell"
       },
       "thumbnailFrames": {
-            "id": "citadel-thumbnail-frames-v8",
+            "id": "citadel-thumbnail-frames-v9",
             "path": "assets/css/themes/citadel-of-kang/modules/thumbnail-frames.css",
-            "version": "thumbnail-frames-v8",
+            "version": "thumbnail-frames-v9",
             "guard": "",
             "owner": "Article and card thumbnail frames",
             "activation": "Loaded by Global Shell"
