@@ -1,3 +1,9 @@
+## 2026-07-26 IST - Generate RSS from the Insights Registry
+- Added `tools/sync-rss-feed.js` to generate `feed.xml` from the Insights Registry and article BlogPosting dates.
+- Added deterministic latest-first ordering, duplicate protection, registry parity and Media RSS image metadata.
+- Added RSS synchronization to Chambers Validation and the article-publishing workflow.
+- Regenerated the feed so every registered article is represented consistently.
+
 ## 2026-07-15 IST - Fix Homepage runtime performance regressions
 - Preserved optimized 640 x 360 card thumbnails when Latest Insights refreshes Homepage cards from the RSS feed.
 - Moved decorative marble image URLs behind a desktop-only media query so mobile browsers no longer request the marble asset.

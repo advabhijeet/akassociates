@@ -1,249 +1,481 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
 <channel>
   <title>Chambers of AK Legal Updates</title>
   <link>https://chambersofak.in/legal-updates.html</link>
   <description>Legal updates, procedural guides, case notes and document checklists from Chambers of AK.</description>
   <language>en-IN</language>
-  <lastBuildDate>Mon, 13 Jul 2026 08:30:00 GMT</lastBuildDate>
+  <lastBuildDate>Sun, 12 Jul 2026 18:30:00 GMT</lastBuildDate>
+  <atom:link href="https://chambersofak.in/feed.xml" rel="self" type="application/rss+xml" />
+  <generator>Chambers of AK Insights Registry</generator>
   <item>
-    <title>Commercial Contract Review Checklist: Clauses, Risks and Documents</title>
+    <title>Commercial contract review checklist: clauses, risks and documents</title>
     <link>https://chambersofak.in/updates/commercial-contract-review-checklist.html</link>
     <guid isPermaLink="true">https://chambersofak.in/updates/commercial-contract-review-checklist.html</guid>
     <description>A practical pre-signing checklist for reviewing parties, scope, payment, indemnity, liability, termination, IP, confidentiality and dispute provisions.</description>
+    <pubDate>Sun, 12 Jul 2026 18:30:00 GMT</pubDate>
     <category>Checklist</category>
-    <pubDate>Mon, 13 Jul 2026 08:30:00 GMT</pubDate>
+    <category>Commercial Contracts</category>
+    <category>Contract Review</category>
+    <category>Payment Terms</category>
+    <category>Indemnity</category>
+    <category>Limitation of Liability</category>
+    <category>Termination</category>
+    <category>Dispute Resolution</category>
+    <category>Documents</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-commercial-contract-review-checklist.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-commercial-contract-review-checklist-640.jpg" width="640" height="360" />
   </item>
   <item>
-    <title>Section 9 Arbitration Interim Relief: Documents, Urgency and Court Strategy</title>
+    <title>Section 9 arbitration interim relief: documents, urgency and court strategy</title>
     <link>https://chambersofak.in/updates/section-9-arbitration-interim-relief.html</link>
     <guid isPermaLink="true">https://chambersofak.in/updates/section-9-arbitration-interim-relief.html</guid>
     <description>A practical guide to court timing, the 90-day commencement rule, Section 17, evidence, security and urgent protection under Section 9.</description>
+    <pubDate>Fri, 10 Jul 2026 18:30:00 GMT</pubDate>
     <category>Procedure Note</category>
-    <pubDate>Sat, 11 Jul 2026 16:30:00 GMT</pubDate>
+    <category>Arbitration</category>
+    <category>Section 9</category>
+    <category>Interim Relief</category>
+    <category>Court Jurisdiction</category>
+    <category>Urgency</category>
+    <category>Section 17</category>
+    <category>Documents</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-section-9-arbitration-interim-relief.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-section-9-arbitration-interim-relief-640.jpg" width="640" height="360" />
   </item>
   <item>
-    <title>SARFAESI Notice Reply: Documents, Objections and Borrower Strategy</title>
+    <title>SARFAESI notice reply: documents, objections and borrower strategy</title>
     <link>https://chambersofak.in/updates/sarfaesi-notice-reply-documents.html</link>
     <guid isPermaLink="true">https://chambersofak.in/updates/sarfaesi-notice-reply-documents.html</guid>
-    <description>A document-first guide to reviewing a Section 13(2) demand notice, reconciling the account and preparing objections under Section 13(3A).</description>
+    <description>A document-first guide to reviewing a Section 13(2) demand notice, reconciling the loan account and preparing objections under Section 13(3A).</description>
+    <pubDate>Thu, 09 Jul 2026 18:30:00 GMT</pubDate>
     <category>Practical Guide</category>
-    <pubDate>Fri, 10 Jul 2026 13:00:00 GMT</pubDate>
+    <category>SARFAESI</category>
+    <category>Banking Recovery</category>
+    <category>Demand Notice</category>
+    <category>Borrower Defence</category>
+    <category>DRT</category>
+    <category>Documents</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-sarfaesi-notice-reply-documents.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-sarfaesi-notice-reply-documents-640.jpg" width="640" height="360" />
   </item>
   <item>
-    <title>RERA Complaint Drafting: Documents, Reliefs and Legal Strategy</title>
+    <title>RERA complaint drafting: documents, reliefs and legal strategy</title>
     <link>https://chambersofak.in/updates/rera-complaint-drafting-documents-reliefs.html</link>
     <guid isPermaLink="true">https://chambersofak.in/updates/rera-complaint-drafting-documents-reliefs.html</guid>
     <description>A document-first guide to structuring facts, legal grounds, annexures and relief-specific prayers in a RERA complaint.</description>
+    <pubDate>Thu, 09 Jul 2026 18:30:00 GMT</pubDate>
     <category>Practical Guide</category>
-    <pubDate>Fri, 10 Jul 2026 06:30:00 GMT</pubDate>
+    <category>RERA</category>
+    <category>Complaint Drafting</category>
+    <category>Documents</category>
+    <category>Reliefs</category>
+    <category>Builder Dispute</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-rera-complaint-drafting-documents-reliefs.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-rera-complaint-drafting-documents-reliefs-640.jpg" width="640" height="360" />
+  </item>
+  <item>
+    <title>Reply to RERA complaint by builder or promoter</title>
+    <link>https://chambersofak.in/updates/reply-to-rera-complaint-builder-promoter.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/reply-to-rera-complaint-builder-promoter.html</guid>
+    <description>A promoter-side guide to preparing a structured reply to RERA complaints, including documents, delay reasons, payment defaults, possession offer and settlement strategy.</description>
+    <pubDate>Wed, 01 Jul 2026 18:30:00 GMT</pubDate>
+    <category>Practical Guide</category>
+    <category>RERA</category>
+    <category>Builder Defence</category>
+    <category>Promoter</category>
+    <category>Delayed Possession</category>
+    <category>Refund</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-rera-promoter-reply-v3.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-rera-promoter-reply-v3-640.jpg" width="640" height="360" />
   </item>
   <item>
     <title>PMLA Cognizance After BNSS: Pre-Hearing Rule</title>
     <link>https://chambersofak.in/updates/pmla-complaint-pre-cognizance-hearing-bnss.html</link>
     <guid isPermaLink="true">https://chambersofak.in/updates/pmla-complaint-pre-cognizance-hearing-bnss.html</guid>
     <description>Legal explainer on pre-cognizance hearing of accused in PMLA complaints when cognizance is taken after BNSS came into force.</description>
+    <pubDate>Wed, 20 May 2026 18:30:00 GMT</pubDate>
     <category>Criminal Law</category>
-    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+    <category>PMLA</category>
+    <category>BNSS</category>
+    <category>Section 223 BNSS</category>
+    <category>Pre-Cognizance Hearing</category>
+    <category>Special Court</category>
+    <category>Enforcement Directorate</category>
+    <category>Supreme Court</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-pmla-bnss-cognizance-bw.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-pmla-bnss-cognizance-bw-640.jpg" width="640" height="360" />
   </item>
   <item>
     <title>Section 34 Arbitration Limitation: 3 Months + 30 Days Rule</title>
     <link>https://chambersofak.in/updates/section-34-arbitration-limitation-3-months-30-days.html</link>
     <guid isPermaLink="true">https://chambersofak.in/updates/section-34-arbitration-limitation-3-months-30-days.html</guid>
     <description>Practical guide to Section 34 arbitration limitation, calendar-month counting, court holidays, delay condonation and recent Supreme Court cases.</description>
+    <pubDate>Tue, 19 May 2026 18:30:00 GMT</pubDate>
     <category>Arbitration</category>
-    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+    <category>Section 34</category>
+    <category>Arbitration Limitation</category>
+    <category>Delay Condonation</category>
+    <category>Arbitral Award</category>
+    <category>Limitation Act</category>
+    <category>Supreme Court</category>
+    <category>3 Months + 30 Days</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-section34-limitation.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-section34-limitation-640.jpg" width="640" height="360" />
   </item>
   <item>
     <title>UAPA Bail, Section 43D(5) and Article 21</title>
     <link>https://chambersofak.in/updates/uapa-bail-section-43d5-supreme-court-2026.html</link>
     <guid isPermaLink="true">https://chambersofak.in/updates/uapa-bail-section-43d5-supreme-court-2026.html</guid>
     <description>Updated legal analysis of UAPA bail, Section 43D(5), Article 21, Watali, K.A. Najeeb, Gulfisha Fatima and Syed Iftikhar Andrabi.</description>
+    <pubDate>Tue, 19 May 2026 18:30:00 GMT</pubDate>
     <category>Criminal Law</category>
-    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+    <category>UAPA</category>
+    <category>Bail</category>
+    <category>Section 43D(5)</category>
+    <category>Supreme Court</category>
+    <category>Article 21</category>
+    <category>Speedy Trial</category>
+    <category>Constitutional Law</category>
+    <category>K.A. Najeeb</category>
+    <category>Watali</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-uapa-bail-2026-standard-v1.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-uapa-bail-2026-standard-v1-640.jpg" width="640" height="360" />
   </item>
   <item>
     <title>Sabarimala Case: 9-Judge Bench 2026 Explained</title>
     <link>https://chambersofak.in/updates/sabarimala-case-9-judge-bench-2026.html</link>
     <guid isPermaLink="true">https://chambersofak.in/updates/sabarimala-case-9-judge-bench-2026.html</guid>
     <description>Detailed explainer on the Sabarimala case, the 2018 judgment, the review reference and the nine-judge Bench hearings reserved on 14 May 2026.</description>
+    <pubDate>Mon, 18 May 2026 18:30:00 GMT</pubDate>
     <category>Constitutional Law</category>
-    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+    <category>Sabarimala</category>
+    <category>Supreme Court</category>
+    <category>Constitution Bench</category>
+    <category>Religious Freedom</category>
+    <category>Gender Equality</category>
+    <category>Essential Religious Practices</category>
+    <category>Articles 25 and 26</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-sabarimala-2026-painted-v2.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-sabarimala-2026-painted-v2-640.jpg" width="640" height="360" />
   </item>
   <item>
     <title>Arbitration notice before claim</title>
     <link>https://chambersofak.in/updates/arbitration-notice-before-claim.html</link>
     <guid isPermaLink="true">https://chambersofak.in/updates/arbitration-notice-before-claim.html</guid>
     <description>Clause-first guide to Section 21 invocation, limitation, appointment procedure, interim relief and document preparation before arbitration begins.</description>
+    <pubDate>Fri, 15 May 2026 18:30:00 GMT</pubDate>
     <category>Procedure Note</category>
-    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+    <category>Arbitration</category>
+    <category>Notice</category>
+    <category>Section 21</category>
+    <category>Appointment</category>
+    <category>Limitation</category>
+    <category>Interim Relief</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-arbitration-notice-before-claim-painted-bw-v2.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-arbitration-notice-before-claim-painted-bw-v2-640.jpg" width="640" height="360" />
   </item>
   <item>
     <title>Property title search before purchase in India</title>
     <link>https://chambersofak.in/updates/property-title-search-before-purchase-india.html</link>
     <guid isPermaLink="true">https://chambersofak.in/updates/property-title-search-before-purchase-india.html</guid>
     <description>Document-first guide to title-chain, revenue, municipal, encumbrance and litigation checks before buying property in India.</description>
+    <pubDate>Tue, 12 May 2026 18:30:00 GMT</pubDate>
     <category>Checklist</category>
-    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+    <category>Property</category>
+    <category>Due Diligence</category>
+    <category>Title Search</category>
+    <category>Transfer of Property Act</category>
+    <category>Registration Act</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-property-title-search-painted-v2.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-property-title-search-painted-v2-640.jpg" width="640" height="360" />
   </item>
   <item>
     <title>Can non-reportable judgments be published online?</title>
     <link>https://chambersofak.in/updates/non-reportable-judgments-online-publication-case-brief.html</link>
     <guid isPermaLink="true">https://chambersofak.in/updates/non-reportable-judgments-online-publication-case-brief.html</guid>
     <description>Gujarat High Court case brief on non-reportable judgments, online publication and public court records.</description>
+    <pubDate>Thu, 07 May 2026 18:30:00 GMT</pubDate>
     <category>Case Brief</category>
-    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+    <category>High Court</category>
+    <category>Gujarat High Court</category>
+    <category>Online Publication</category>
+    <category>Judgment Reporting</category>
+    <category>Court Records</category>
+    <category>Article 226</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-non-reportable-judgments-third-style.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-non-reportable-judgments-third-style-640.jpg" width="640" height="360" />
   </item>
   <item>
     <title>SARFAESI auction sale challenge: documents and Rule 9(4) timeline</title>
     <link>https://chambersofak.in/updates/sarfaesi-auction-sale-challenge-documents.html</link>
     <guid isPermaLink="true">https://chambersofak.in/updates/sarfaesi-auction-sale-challenge-documents.html</guid>
     <description>Supreme Court case brief on auction-sale finality, balance consideration, redemption and DRT/DRAT records.</description>
+    <pubDate>Thu, 07 May 2026 18:30:00 GMT</pubDate>
     <category>Case Brief</category>
-    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+    <category>SARFAESI</category>
+    <category>DRT</category>
+    <category>Banking Recovery</category>
+    <category>Auction Sale</category>
+    <category>Supreme Court</category>
+    <category>Rule 9(4)</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-sarfaesi-auction-sale-third-style.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-sarfaesi-auction-sale-third-style-640.jpg" width="640" height="360" />
   </item>
   <item>
     <title>Summary judgment in commercial suits under Order XIII-A CPC</title>
     <link>https://chambersofak.in/updates/summary-judgment-commercial-suits-order-xiii-a.html</link>
     <guid isPermaLink="true">https://chambersofak.in/updates/summary-judgment-commercial-suits-order-xiii-a.html</guid>
     <description>Supreme Court case brief on pleadings, documents, real prospect test and mini-trial caution.</description>
+    <pubDate>Wed, 06 May 2026 18:30:00 GMT</pubDate>
     <category>Case Brief</category>
-    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+    <category>Commercial Courts</category>
+    <category>CPC</category>
+    <category>Order XIII-A</category>
+    <category>Summary Judgment</category>
+    <category>Supreme Court</category>
+    <category>Commercial Recovery</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-summary-judgment-commercial-suits-third-style.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-summary-judgment-commercial-suits-third-style-640.jpg" width="640" height="360" />
   </item>
   <item>
     <title>MSME Facilitation Council process for delayed payments</title>
     <link>https://chambersofak.in/updates/msme-facilitation-council-process.html</link>
     <guid isPermaLink="true">https://chambersofak.in/updates/msme-facilitation-council-process.html</guid>
     <description>Udyam records, invoices, 45-day issue, conciliation, arbitration, interest and enforcement preparation.</description>
+    <pubDate>Wed, 06 May 2026 18:30:00 GMT</pubDate>
     <category>Procedure Note</category>
-    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+    <category>MSME</category>
+    <category>MSEFC</category>
+    <category>Delayed Payment</category>
+    <category>Conciliation</category>
+    <category>Arbitration</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-msme-facilitation-council-process-batch6-v2.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-msme-facilitation-council-process-batch6-v2-640.jpg" width="640" height="360" />
   </item>
   <item>
     <title>Cheque bounce case after summons: defence preparation</title>
     <link>https://chambersofak.in/updates/cheque-bounce-defence-after-summons.html</link>
     <guid isPermaLink="true">https://chambersofak.in/updates/cheque-bounce-defence-after-summons.html</guid>
     <description>Complaint papers, summons, notice proof, liability review, settlement and court-stage preparation.</description>
+    <pubDate>Wed, 06 May 2026 18:30:00 GMT</pubDate>
     <category>Practical Guide</category>
-    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
-  </item>
-  <item>
-    <title>MSME delayed payment documents checklist</title>
-    <link>https://chambersofak.in/updates/msme-documents-checklist.html</link>
-    <guid isPermaLink="true">https://chambersofak.in/updates/msme-documents-checklist.html</guid>
-    <description>Udyam records, invoice-wise summaries, purchase orders, delivery proof, ledgers and communications.</description>
-    <category>Checklist</category>
-    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
-  </item>
-  <item>
-    <title>Before filing a commercial recovery suit</title>
-    <link>https://chambersofak.in/updates/commercial-recovery-before-suit.html</link>
-    <guid isPermaLink="true">https://chambersofak.in/updates/commercial-recovery-before-suit.html</guid>
-    <description>Contract clauses, invoice ledgers, limitation, pre-filing issues and dispute records.</description>
-    <category>Practical Guide</category>
-    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
-  </item>
-  <item>
-    <title>Delayed possession: refund or interest?</title>
-    <link>https://chambersofak.in/updates/rera-refund-interest-delayed-possession.html</link>
-    <guid isPermaLink="true">https://chambersofak.in/updates/rera-refund-interest-delayed-possession.html</guid>
-    <description>Relief selection, project documents, possession timelines and forum location in RERA disputes.</description>
-    <category>Practical Guide</category>
-    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
-  </item>
-  <item>
-    <title>Arbitration clause checklist before a dispute</title>
-    <link>https://chambersofak.in/updates/arbitration-clause-checklist.html</link>
-    <guid isPermaLink="true">https://chambersofak.in/updates/arbitration-clause-checklist.html</guid>
-    <description>Seat, venue, appointment, notice, interim relief, enforcement and papers to preserve.</description>
-    <category>Checklist</category>
-    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
-  </item>
-  <item>
-    <title>Cheque bounce: 30-day notice timeline</title>
-    <link>https://chambersofak.in/updates/cheque-bounce-30-days.html</link>
-    <guid isPermaLink="true">https://chambersofak.in/updates/cheque-bounce-30-days.html</guid>
-    <description>A practical date-chart approach for cheque dishonour notices, limitation and complaint preparation.</description>
-    <category>Practical Guide</category>
-    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
-  </item>
-  <item>
-    <title>MSME delayed payment claims: first review</title>
-    <link>https://chambersofak.in/updates/msme-delayed-payment.html</link>
-    <guid isPermaLink="true">https://chambersofak.in/updates/msme-delayed-payment.html</guid>
-    <description>How to organize invoices, Udyam records, delivery proof and buyer communications for MSME delayed payment claims.</description>
-    <category>Practical Guide</category>
-    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
-  </item>
-  <item>
-    <title>Bihar RERA complaint preparation</title>
-    <link>https://chambersofak.in/updates/bihar-rera-complaint.html</link>
-    <guid isPermaLink="true">https://chambersofak.in/updates/bihar-rera-complaint.html</guid>
-    <description>A document-first approach to delayed possession, refund, interest and builder dispute complaints.</description>
-    <category>Practical Guide</category>
-    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
-  </item>
-  <item>
-    <title>Cheque bounce notice and limitation</title>
-    <link>https://chambersofak.in/updates/cheque-bounce-notice-limitation.html</link>
-    <guid isPermaLink="true">https://chambersofak.in/updates/cheque-bounce-notice-limitation.html</guid>
-    <description>Key dates to track before filing or defending a Section 138 cheque bounce complaint.</description>
-    <category>Procedure Note</category>
-    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
-  </item>
-  <item>
-    <title>MSME 45-day payment rule</title>
-    <link>https://chambersofak.in/updates/msme-45-days-payment-rule.html</link>
-    <guid isPermaLink="true">https://chambersofak.in/updates/msme-45-days-payment-rule.html</guid>
-    <description>Document and date preparation for MSME delayed payment claims and buyer responses.</description>
-    <category>Legal Update</category>
-    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
-  </item>
-  <item>
-    <title>Section 138 cheque bounce limitation</title>
-    <link>https://chambersofak.in/updates/section-138-cheque-bounce-limitation.html</link>
-    <guid isPermaLink="true">https://chambersofak.in/updates/section-138-cheque-bounce-limitation.html</guid>
-    <description>Limitation, demand notice and complaint timelines in cheque dishonour matters.</description>
-    <category>Procedure Note</category>
-    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
-  </item>
-  <item>
-    <title>RERA delayed possession in Bihar</title>
-    <link>https://chambersofak.in/updates/rera-delayed-possession-bihar.html</link>
-    <guid isPermaLink="true">https://chambersofak.in/updates/rera-delayed-possession-bihar.html</guid>
-    <description>Refund, interest and possession relief considerations in delayed possession matters.</description>
-    <category>Practical Guide</category>
-    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
-  </item>
-  <item>
-    <title>Commercial suit documents checklist</title>
-    <link>https://chambersofak.in/updates/commercial-suit-documents-checklist.html</link>
-    <guid isPermaLink="true">https://chambersofak.in/updates/commercial-suit-documents-checklist.html</guid>
-    <description>Contracts, invoices, ledger records, notices, admissions, limitation and forum-preparation checklist for business recovery.</description>
-    <category>Checklist</category>
-    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
-  </item>
-  <item>
-    <title>Property injunction suit documents</title>
-    <link>https://chambersofak.in/updates/property-injunction-suit-documents.html</link>
-    <guid isPermaLink="true">https://chambersofak.in/updates/property-injunction-suit-documents.html</guid>
-    <description>Possession, title, site photographs, notices and urgent-court preparation in property injunction suits.</description>
-    <category>Checklist</category>
-    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+    <category>NI Act</category>
+    <category>Cheque Bounce</category>
+    <category>Summons</category>
+    <category>Defence Preparation</category>
+    <category>Section 138</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-cheque-bounce-defence-after-summons-batch6-v2.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-cheque-bounce-defence-after-summons-batch6-v2-640.jpg" width="640" height="360" />
   </item>
   <item>
     <title>Section 34 arbitration award challenge</title>
     <link>https://chambersofak.in/updates/section-34-arbitration-award-challenge.html</link>
     <guid isPermaLink="true">https://chambersofak.in/updates/section-34-arbitration-award-challenge.html</guid>
     <description>Limitation, grounds, record preparation and court-stage considerations for award challenges.</description>
+    <pubDate>Tue, 05 May 2026 18:30:00 GMT</pubDate>
     <category>Procedure Note</category>
-    <pubDate>Thu, 30 Apr 2026 18:30:00 GMT</pubDate>
+    <category>Arbitration</category>
+    <category>Section 34</category>
+    <category>Award Challenge</category>
+    <category>Limitation</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-section34-limitation.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-section34-limitation-640.jpg" width="640" height="360" />
   </item>
   <item>
-    <title>Reply to RERA Complaint by Builder or Promoter: Documents, Defence and Strategy</title>
-    <link>https://chambersofak.in/updates/reply-to-rera-complaint-builder-promoter.html</link>
-    <guid>https://chambersofak.in/updates/reply-to-rera-complaint-builder-promoter.html</guid>
-    <pubDate>Thu, 02 Jul 2026 00:00:00 +0530</pubDate>
-    <description>A promoter-side guide to preparing a structured reply to RERA complaints, including documents, delay reasons, payment defaults, possession offer and settlement strategy.</description>
+    <title>MSME delayed payment documents checklist</title>
+    <link>https://chambersofak.in/updates/msme-documents-checklist.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/msme-documents-checklist.html</guid>
+    <description>Udyam records, invoice-wise summaries, purchase orders, delivery proof, ledgers and communications.</description>
+    <pubDate>Mon, 04 May 2026 18:30:00 GMT</pubDate>
+    <category>Checklist</category>
+    <category>MSME</category>
+    <category>MSEFC</category>
+    <category>Documents</category>
+    <category>Delayed Payment</category>
+    <category>Udyam</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-msme-documents-checklist-approved-style.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-msme-documents-checklist-approved-style-640.jpg" width="640" height="360" />
+  </item>
+  <item>
+    <title>Before filing a commercial recovery suit</title>
+    <link>https://chambersofak.in/updates/commercial-recovery-before-suit.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/commercial-recovery-before-suit.html</guid>
+    <description>Contract clauses, invoice ledgers, limitation, pre-filing issues and dispute records.</description>
+    <pubDate>Mon, 04 May 2026 18:30:00 GMT</pubDate>
+    <category>Practical Guide</category>
+    <category>Commercial Recovery</category>
+    <category>Contracts</category>
+    <category>Invoices</category>
+    <category>Limitation</category>
+    <category>Commercial Courts</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-commercial-recovery-before-suit-batch6-v2.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-commercial-recovery-before-suit-batch6-v2-640.jpg" width="640" height="360" />
+  </item>
+  <item>
+    <title>Delayed possession: refund or interest?</title>
+    <link>https://chambersofak.in/updates/rera-refund-interest-delayed-possession.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/rera-refund-interest-delayed-possession.html</guid>
+    <description>Relief selection, project documents, possession timelines and forum location in RERA disputes.</description>
+    <pubDate>Mon, 04 May 2026 18:30:00 GMT</pubDate>
+    <category>Practical Guide</category>
+    <category>RERA</category>
+    <category>Delayed Possession</category>
+    <category>Refund</category>
+    <category>Interest</category>
+    <category>Builder Dispute</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-rera-refund-interest-delayed-possession-batch6-v2.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-rera-refund-interest-delayed-possession-batch6-v2-640.jpg" width="640" height="360" />
+  </item>
+  <item>
+    <title>Arbitration clause checklist before a dispute</title>
+    <link>https://chambersofak.in/updates/arbitration-clause-checklist.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/arbitration-clause-checklist.html</guid>
+    <description>Seat, venue, appointment, notice, interim relief, enforcement and papers to preserve.</description>
+    <pubDate>Mon, 04 May 2026 18:30:00 GMT</pubDate>
+    <category>Checklist</category>
+    <category>Arbitration</category>
+    <category>Contract</category>
+    <category>Seat</category>
+    <category>Venue</category>
+    <category>Interim Relief</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-arbitration-clause-checklist-batch6-v2.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-arbitration-clause-checklist-batch6-v2-640.jpg" width="640" height="360" />
+  </item>
+  <item>
+    <title>MSME delayed payment claims: first review</title>
+    <link>https://chambersofak.in/updates/msme-delayed-payment.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/msme-delayed-payment.html</guid>
+    <description>How to organize invoices, Udyam records, delivery proof and buyer communications for MSME delayed payment claims.</description>
+    <pubDate>Mon, 04 May 2026 18:30:00 GMT</pubDate>
+    <category>Practical Guide</category>
+    <category>MSME</category>
+    <category>Delayed Payment</category>
+    <category>MSEFC</category>
+    <category>Udyam</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-msme-delayed-payment-approved-style.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-msme-delayed-payment-approved-style-640.jpg" width="640" height="360" />
+  </item>
+  <item>
+    <title>Bihar RERA complaint preparation</title>
+    <link>https://chambersofak.in/updates/bihar-rera-complaint.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/bihar-rera-complaint.html</guid>
+    <description>A document-first approach to delayed possession, refund, interest and builder dispute complaints.</description>
+    <pubDate>Mon, 04 May 2026 18:30:00 GMT</pubDate>
+    <category>Practical Guide</category>
+    <category>RERA</category>
+    <category>Bihar</category>
+    <category>Builder Dispute</category>
+    <category>Delayed Possession</category>
+    <category>Refund</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-bihar-rera-complaint-approved-style.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-bihar-rera-complaint-approved-style-640.jpg" width="640" height="360" />
+  </item>
+  <item>
+    <title>Cheque bounce notice and limitation</title>
+    <link>https://chambersofak.in/updates/cheque-bounce-notice-limitation.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/cheque-bounce-notice-limitation.html</guid>
+    <description>Key dates to track before filing or defending a Section 138 cheque bounce complaint.</description>
+    <pubDate>Mon, 04 May 2026 18:30:00 GMT</pubDate>
+    <category>Procedure Note</category>
+    <category>NI Act</category>
+    <category>Cheque Bounce</category>
+    <category>Notice</category>
+    <category>Limitation</category>
+    <category>Section 138</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-cheque-bounce-notice-limitation-batch6-v2.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-cheque-bounce-notice-limitation-batch6-v2-640.jpg" width="640" height="360" />
+  </item>
+  <item>
+    <title>MSME 45-day payment rule</title>
+    <link>https://chambersofak.in/updates/msme-45-days-payment-rule.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/msme-45-days-payment-rule.html</guid>
+    <description>Document and date preparation for MSME delayed payment claims and buyer responses.</description>
+    <pubDate>Mon, 04 May 2026 18:30:00 GMT</pubDate>
+    <category>Legal Update</category>
+    <category>MSME</category>
+    <category>Delayed Payment</category>
+    <category>45-Day Rule</category>
+    <category>Income Tax</category>
+    <category>Udyam</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-msme-45-days-payment-rule-batch6-v2.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-msme-45-days-payment-rule-batch6-v2-640.jpg" width="640" height="360" />
+  </item>
+  <item>
+    <title>Section 138 cheque bounce limitation</title>
+    <link>https://chambersofak.in/updates/section-138-cheque-bounce-limitation.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/section-138-cheque-bounce-limitation.html</guid>
+    <description>Limitation, demand notice and complaint timelines in cheque dishonour matters.</description>
+    <pubDate>Mon, 04 May 2026 18:30:00 GMT</pubDate>
+    <category>Procedure Note</category>
+    <category>NI Act</category>
+    <category>Cheque Bounce</category>
+    <category>Limitation</category>
+    <category>Demand Notice</category>
+    <category>Section 138</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-cheque-bounce-notice-limitation-batch6-v2.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-cheque-bounce-notice-limitation-batch6-v2-640.jpg" width="640" height="360" />
+  </item>
+  <item>
+    <title>RERA delayed possession in Bihar</title>
+    <link>https://chambersofak.in/updates/rera-delayed-possession-bihar.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/rera-delayed-possession-bihar.html</guid>
+    <description>Refund, interest and possession relief considerations in delayed possession matters.</description>
+    <pubDate>Mon, 04 May 2026 18:30:00 GMT</pubDate>
+    <category>Practical Guide</category>
+    <category>RERA</category>
+    <category>Bihar</category>
+    <category>Delayed Possession</category>
+    <category>Refund</category>
+    <category>Interest</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-rera-refund-interest-delayed-possession-batch6-v2.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-rera-refund-interest-delayed-possession-batch6-v2-640.jpg" width="640" height="360" />
+  </item>
+  <item>
+    <title>Commercial suit documents checklist</title>
+    <link>https://chambersofak.in/updates/commercial-suit-documents-checklist.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/commercial-suit-documents-checklist.html</guid>
+    <description>Contracts, invoices, ledger records, notices, admissions, limitation and forum-preparation checklist for business recovery.</description>
+    <pubDate>Mon, 04 May 2026 18:30:00 GMT</pubDate>
+    <category>Checklist</category>
+    <category>Commercial Recovery</category>
+    <category>Commercial Courts</category>
+    <category>Documents</category>
+    <category>Contracts</category>
+    <category>Invoices</category>
+    <category>Limitation</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-commercial-recovery-before-suit-batch6-v2.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-commercial-recovery-before-suit-batch6-v2-640.jpg" width="640" height="360" />
+  </item>
+  <item>
+    <title>Property injunction suit documents</title>
+    <link>https://chambersofak.in/updates/property-injunction-suit-documents.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/property-injunction-suit-documents.html</guid>
+    <description>Possession, title, site photographs, notices and urgent-court preparation in property injunction suits.</description>
+    <pubDate>Mon, 04 May 2026 18:30:00 GMT</pubDate>
+    <category>Checklist</category>
+    <category>Property</category>
+    <category>Injunction</category>
+    <category>Civil Suit</category>
+    <category>Documents</category>
+    <category>Possession</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-property-title-search-painted-v2.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-property-title-search-painted-v2-640.jpg" width="640" height="360" />
+  </item>
+  <item>
+    <title>Cheque bounce: 30-day notice timeline</title>
+    <link>https://chambersofak.in/updates/cheque-bounce-30-days.html</link>
+    <guid isPermaLink="true">https://chambersofak.in/updates/cheque-bounce-30-days.html</guid>
+    <description>A practical date-chart approach for cheque dishonour notices, limitation and complaint preparation.</description>
+    <pubDate>Sun, 03 May 2026 18:30:00 GMT</pubDate>
+    <category>Practical Guide</category>
+    <category>NI Act</category>
+    <category>Cheque Bounce</category>
+    <category>Demand Notice</category>
+    <category>Limitation</category>
+    <category>Section 138</category>
+    <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-cheque-bounce-30-days-batch6-v2.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
+    <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-cheque-bounce-30-days-batch6-v2-640.jpg" width="640" height="360" />
   </item>
 </channel>
 </rss>
