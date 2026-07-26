@@ -14,7 +14,7 @@
       "status": "production",
       "owner": "Public-safe site and module configuration",
       "path": "assets/js/config/chambers-public-config.js",
-      "version": "config-v5",
+      "version": "config-v6",
       "loadedBy": "assets/js/script.js"
     },
     {
@@ -90,9 +90,9 @@
     {
       "key": "articleIndex",
       "status": "production",
-      "id": "citadel-article-index-v24",
+      "id": "citadel-article-index-v25",
       "path": "assets/js/themes/citadel-of-kang/article-index-direct-rail.js",
-      "version": "article-index-v24",
+      "version": "article-index-v25",
       "guard": "",
       "owner": "Article index rail and reading progress",
       "activation": "Article with at least three direct H2 headings",
@@ -204,7 +204,7 @@
       "status": "production",
       "owner": "Shared layout and component rules",
       "path": "assets/css/style.css",
-      "version": "site-20260726-article-index-v24-1",
+      "version": "site-20260726-article-index-v25-1",
       "loadedBy": "Public HTML"
     },
     {

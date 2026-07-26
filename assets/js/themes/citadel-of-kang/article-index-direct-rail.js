@@ -211,9 +211,30 @@
       return;
     }
 
-    var articleTop = getScrollY() + article.getBoundingClientRect().top;
+    var scrollY = getScrollY();
+    var railRect = rail.getBoundingClientRect();
+    var tocRect = toc.getBoundingClientRect();
+    var railTop = scrollY + railRect.top;
     var maxTravel = Math.max(0, article.offsetHeight - toc.offsetHeight);
-    var desired = getScrollY() + navSpace() + 18 - articleTop;
+    var desired = scrollY + navSpace() + 18 - railTop;
+    var currentTransform = tocRect.top - railRect.top;
+    var currentActive = toc.querySelector('a.is-active');
+
+    if (currentActive) {
+      var activeRect = currentActive.getBoundingClientRect();
+      var projectedShift = desired - currentTransform;
+      var projectedTop = activeRect.top + projectedShift;
+      var projectedBottom = activeRect.bottom + projectedShift;
+      var safeTop = navSpace() + 56;
+      var safeBottom = Math.max(safeTop + 72, window.innerHeight - 44);
+
+      if (projectedBottom > safeBottom) {
+        desired -= projectedBottom - safeBottom;
+      } else if (projectedTop < safeTop) {
+        desired += safeTop - projectedTop;
+      }
+    }
+
     desired = Math.min(maxTravel, Math.max(0, desired));
     toc.style.setProperty('transform', 'translate3d(0,' + Math.round(desired) + 'px,0)', 'important');
   };

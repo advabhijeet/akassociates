@@ -9,7 +9,7 @@ Last reconciled: 2026-07-26
 - Version: `1.0.0-production`
 - Status: `production`
 - Owner Product: `Citadel of Kang theme pack`
-- Chambers Cache Key: `article-index-v24`
+- Chambers Cache Key: `article-index-v25`
 
 ## Purpose
 
@@ -50,7 +50,7 @@ Loader: assets/js/script.js
 The module is production-loaded through `assets/js/script.js` using the script id:
 
 ```text
-citadel-article-index-v24
+citadel-article-index-v25
 ```
 
 Older references to `assets/js/themes/citadel-of-kang/article-index.js` are historical/non-current unless a future migration intentionally renames the production file.
@@ -95,7 +95,7 @@ The loader avoids duplicate injection when:
 ```text
 article already has data-citadel-article-index-ready="true"
 .article-index-layout already exists
-citadel-article-index-v24 script already exists
+citadel-article-index-v25 script already exists
 legacy article-index-direct-rail.js script tag already exists
 ```
 
@@ -182,7 +182,7 @@ When activated and valid headings exist, the module currently:
 
 ## Direct-Rail Behaviour Contract
 
-Above `920px`, the complete tray moves through `.article-index-rail` with the article. The tray begins aligned with the article, remains below the measured topbar/navigation area while room remains, stops at the article bottom, and leaves with the article. Page scroll is the only scrolling mechanism: the tray has no fixed maximum height, no independent vertical scrolling, and `toc.scrollTop` remains `0`.
+Above `920px`, the complete tray moves through `.article-index-rail` with the article. The tray begins aligned with the article, remains below the measured topbar/navigation area while room remains, and shifts as one unit when necessary to keep the active heading link inside a safe viewport band. That movement reverses while scrolling upward. The tray stops at the article bottom and leaves with the article. Page scroll is the only scrolling mechanism: the tray has no fixed maximum height, no independent vertical scrolling, and `toc.scrollTop` remains `0`.
 
 At `920px` and below, the rail transform is disabled and the index remains below the hero and before the article body. Horizontal overflow containment is mobile-only so long titles wrap without widening the page.
 
@@ -394,7 +394,7 @@ Manual checks:
 
 ```text
 Desktop: index stays visible until final heading/article end.
-Desktop: active item reaches the last heading.
+Desktop: active item reaches the last heading and remains visible when the complete index is taller than the viewport.
 Desktop: rail does not overlap nav/topbar.
 Mobile: index appears below hero and before body.
 Mobile: mobile reading progress appears under the nav area.
