@@ -24,25 +24,50 @@ jobs:
           fetch-depth: 0
 
       - name: Extract and apply stored v25 patch
+        id: patch
+        continue-on-error: true
         shell: bash
         run: |
-          python3 - <<'PY'
+          set +e
+          {
+            python3 - <<'PY'
           import base64
           import re
           from pathlib import Path
 
           workflow = Path('.github/workflows/apply-article-index-active-visibility.yml').read_text(encoding='utf-8')
           payloads = re.findall(r"echo '([A-Za-z0-9+/=]+)' \| base64 -d > /tmp/[^\n]+", workflow)
+          print(f'Found {len(payloads)} stored payloads')
           if len(payloads) != 2:
               raise SystemExit(f'Expected two stored payloads, found {len(payloads)}')
           Path('/tmp/apply_article_index_v25.py').write_bytes(base64.b64decode(payloads[0]))
           Path('/tmp/test_article_index_v25.cjs').write_bytes(base64.b64decode(payloads[1]))
           PY
+            python3 /tmp/apply_article_index_v25.py
+            node --check assets/js/themes/citadel-of-kang/article-index-direct-rail.js
+            node --check assets/js/config/chambers-public-config.js
+            node --check assets/js/script.js
+          } > resume-v25.log 2>&1
+          status=$?
+          echo "exit_status=$status" >> resume-v25.log
+          exit $status
 
-          python3 /tmp/apply_article_index_v25.py
-          node --check assets/js/themes/citadel-of-kang/article-index-direct-rail.js
-          node --check assets/js/config/chambers-public-config.js
-          node --check assets/js/script.js
+      - name: Upload resume diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: article-index-v25-resume-log
+          path: resume-v25.log
+          if-no-files-found: error
+          retention-days: 1
+
+      - name: Confirm patch success
+        shell: bash
+        run: |
+          cat resume-v25.log
+          if [[ "${{ steps.patch.outcome }}" != "success" ]]; then
+            exit 1
+          fi
 
       - name: Install Chromium test runtime
         run: |
