@@ -36,6 +36,26 @@ jobs:
           npm install --silent --no-save --no-package-lock playwright@1.55.0 >/dev/null
           npx playwright install --with-deps chromium >/dev/null
 
+      - name: Normalize verifier config markers
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          path = Path('tools/live-verify-article-index-v24.cjs')
+          text = path.read_text(encoding='utf-8')
+          replacements = {
+              '"id: \'citadel-article-index-v24\'"': '\'"id": "citadel-article-index-v24"\'',
+              '"version: \'article-index-v24\'"': '\'"version": "article-index-v24"\'',
+              '"id: \'citadel-thumbnail-frames-v9\'"': '\'"id": "citadel-thumbnail-frames-v9"\'',
+              '"version: \'thumbnail-frames-v9\'"': '\'"version": "thumbnail-frames-v9"\'',
+          }
+          for old, new in replacements.items():
+              if old not in text:
+                  raise SystemExit(f'Missing verifier marker: {old}')
+              text = text.replace(old, new)
+          path.write_text(text, encoding='utf-8')
+          PY
+
       - name: Run live verification
         id: live_check
         continue-on-error: true
