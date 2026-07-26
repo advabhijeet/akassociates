@@ -1,0 +1,51 @@
+name: Persist Registry-Driven RSS
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/tmp-persist-rss-sync.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  persist-tested-files:
+    if: github.head_ref == 'agent/sync-rss-with-insights-registry'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout RSS branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/sync-rss-with-insights-registry
+          fetch-depth: 0
+
+      - name: Generate and validate RSS changes
+        run: |
+          node tools/tmp-finalize-rss-sync.js
+          node tools/sync-rss-feed.js
+          node --check tools/sync-rss-feed.js
+          node tools/sync-rss-feed.js --check
+          node tools/validate-public-assets.js
+          node tools/validate-documentation.js
+          node tools/validate-deployment-boundary.js
+          node tools/validate-performance-remediation.js
+          node tools/validate-article-encoding.js
+          node tools/validate-insights-registry.js --strict
+          node tools/sync-static-insight-cards.js --check
+          node tools/audit-articles-structure.js --strict
+          node tools/validate-seo-sitewide.js
+          node tools/validate-service-consolidation.js
+          node tools/validate-citadel-runtime.js
+          git diff --check
+
+      - name: Commit production RSS files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/workflows/validation.yml CHANGELOG.md docs/maintenance/publishing/ARTICLE_PUBLISHING_WORKFLOW.md feed.xml tools/sync-rss-feed.js
+          git commit -m "Generate RSS from the Insights Registry"
+          git push origin HEAD:agent/sync-rss-with-insights-registry
