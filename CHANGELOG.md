@@ -1,3 +1,10 @@
+## 2026-07-28 IST - Rewrite Section 21 arbitration commencement guide
+- Rewrote the established `updates/arbitration-notice-before-claim.html` page instead of creating a competing Section 21 URL.
+- Distinguished statutory commencement from tribunal constitution and the Section 11 appointment-failure timeline.
+- Added receipt and service-proof guidance, limitation analysis, party-agreed commencement rules, later-claim and counterclaim treatment, and current Supreme Court cautions.
+- Preserved the original publication date, canonical URL and approved article/card images while updating the modification date and sitemap freshness.
+- Refreshed registry metadata and regenerated static Insights and RSS outputs.
+
 ## 2026-07-28 IST - Rewrite Section 15 MSMED Act payment guide
 - Rewrote the established `updates/msme-45-days-payment-rule.html` page instead of creating a competing Section 15 URL.
 - Distinguished the written payment-date rule, the 45-day ceiling and the appointed-day mechanism where no payment date is agreed in writing.
