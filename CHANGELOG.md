@@ -1,3 +1,10 @@
+## 2026-07-28 IST - Publish Section 12A pre-institution mediation guide
+- Published `updates/section-12a-commercial-courts-pre-institution-mediation.html` as a standalone Section 12A authority page without replacing the broader commercial-recovery checklist.
+- Explained mandatory PIMS, the urgent-interim-relief exception, non-starter procedure, limitation exclusion and settlement enforceability.
+- Added current Supreme Court guidance from `Patil Automation` and `Yamini Manohar` and practical applicant/respondent document checklists.
+- Reused the approved commercial-recovery article/card images and added the page to the Insights Registry and sitemap.
+- Regenerated homepage/Insights static cards and the registry-driven RSS feed.
+
 ## 2026-07-28 IST - Rewrite Section 21 arbitration commencement guide
 - Rewrote the established `updates/arbitration-notice-before-claim.html` page instead of creating a competing Section 21 URL.
 - Distinguished statutory commencement from tribunal constitution and the Section 11 appointment-failure timeline.
