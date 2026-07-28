@@ -1,3 +1,10 @@
+## 2026-07-28 IST - Rewrite Section 15 MSMED Act payment guide
+- Rewrote the established `updates/msme-45-days-payment-rule.html` page instead of creating a competing Section 15 URL.
+- Distinguished the written payment-date rule, the 45-day ceiling and the appointed-day mechanism where no payment date is agreed in writing.
+- Added acceptance, deemed-acceptance, written-objection, registration-timing and invoice-wise record guidance.
+- Preserved the original publication date, canonical URL and approved Batch 6 article/card images while updating the modification date and sitemap freshness.
+- Removed the unrelated Income Tax tag, refreshed registry metadata, and regenerated static Insights and RSS outputs.
+
 ## 2026-07-26 IST - Generate RSS from the Insights Registry
 - Added `tools/sync-rss-feed.js` to generate `feed.xml` from the Insights Registry and article BlogPosting dates.
 - Added deterministic latest-first ordering, duplicate protection, registry parity and Media RSS image metadata.
