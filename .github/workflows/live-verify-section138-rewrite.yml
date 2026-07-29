@@ -1,0 +1,42 @@
+name: Live Section 138 Rewrite Verification
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: live-section138-verification-${{ github.event.pull_request.head.ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify-live-site:
+    name: verify-live-site
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'agent/live-verify-section138-rewrite'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout verification branch
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Chromium test runtime
+        run: |
+          set -euo pipefail
+          PLAYWRIGHT_ROOT="$RUNNER_TEMP/section138-live-playwright"
+          mkdir -p "$PLAYWRIGHT_ROOT"
+          npm install --prefix "$PLAYWRIGHT_ROOT" playwright@latest
+          "$PLAYWRIGHT_ROOT/node_modules/.bin/playwright" install --with-deps chromium
+
+      - name: Verify live Section 138 rewrite
+        env:
+          NODE_PATH: ${{ runner.temp }}/section138-live-playwright/node_modules
+        run: node .github/scripts/verify-live-section138-rewrite.js
