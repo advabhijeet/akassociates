@@ -1,3 +1,10 @@
+## 2026-07-29 IST - Rewrite Section 138 NI Act authority guide
+- Rewrote the established `updates/section-138-cheque-bounce-limitation.html` page as the principal Section 138 authority guide without creating a competing overview URL.
+- Separated the complete statutory ingredients and procedure from the narrower first-30-days, notice/service and post-summons articles.
+- Added legally enforceable debt, Sections 118 and 139 presumptions, security-cheque treatment, jurisdiction, company liability, interim compensation, compounding and appeal guidance.
+- Preserved the canonical URL, original publication date and approved article/card images while updating modification metadata and sitemap freshness.
+- Refreshed Insights Registry metadata and regenerated static Insights and RSS outputs.
+
 ## 2026-07-28 IST - Publish Section 12A pre-institution mediation guide
 - Published `updates/section-12a-commercial-courts-pre-institution-mediation.html` as a standalone Section 12A authority page without replacing the broader commercial-recovery checklist.
 - Explained mandatory PIMS, the urgent-interim-relief exception, non-starter procedure, limitation exclusion and settlement enforceability.
