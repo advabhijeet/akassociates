@@ -1,0 +1,36 @@
+name: Live Section 18 RERA Verification
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: live-section18-rera-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  verify-live-site:
+    if: github.event.pull_request.head.ref == 'agent/live-verify-section18-rera-rewrite'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout verification branch
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Chromium test runtime
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Verify live Section 18 rewrite
+        run: node tools/tmp-live-verify-section18.js
