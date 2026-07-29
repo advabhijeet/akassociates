@@ -1,3 +1,10 @@
+## 2026-07-29 IST - Rewrite Section 18 RERA relief guide
+- Rewrote the established `updates/rera-refund-interest-delayed-possession.html` page as the principal Section 18 authority guide without creating a competing overview URL.
+- Distinguished refund with prescribed interest, monthly delay interest for an allottee who remains in the project, and separately adjudicated compensation.
+- Added payment-wise interest guidance, possession and occupancy-certificate review, promoter/allottee default analysis, forum choice and current Supreme Court authorities.
+- Preserved the canonical URL, original publication date and approved article/card images while updating modification metadata and sitemap freshness.
+- Refreshed Insights Registry metadata and regenerated static Insights and RSS outputs.
+
 ## 2026-07-29 IST - Rewrite Section 138 NI Act authority guide
 - Rewrote the established `updates/section-138-cheque-bounce-limitation.html` page as the principal Section 138 authority guide without creating a competing overview URL.
 - Separated the complete statutory ingredients and procedure from the narrower first-30-days, notice/service and post-summons articles.
