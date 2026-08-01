@@ -1,0 +1,39 @@
+name: Live Section 16 Publication Verification
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+permissions:
+  contents: read
+
+concurrency:
+  group: live-section16-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  verify-live-site:
+    if: github.event.pull_request.head.ref == 'agent/live-verify-section16-publication'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout verification branch
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Chromium test runtime
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Verify live Section 16 publication
+        run: node .github/scripts/verify-live-section16.js
