@@ -1,3 +1,10 @@
+## 2026-08-01 IST - Publish Section 16 MSMED compound interest guide
+- Published `updates/section-16-msmed-act-compound-interest.html` as a standalone Section 16 authority page without replacing the Section 15 payment-deadline or MSEFC procedure pages.
+- Explained three times RBI Bank Rate, monthly rests, rate-period segmentation, invoice-wise start dates, part payments and transparent calculation assumptions.
+- Added Section 22 disclosure, Section 23 tax treatment, Section 19 pre-deposit and practical supplier/buyer evidence checklists.
+- Reused the approved Section 15 article/card images and added the page to the Insights Registry and sitemap.
+- Regenerated homepage/Insights static cards and the registry-driven RSS feed.
+
 ## 2026-07-29 IST - Rewrite Section 18 RERA relief guide
 - Rewrote the established `updates/rera-refund-interest-delayed-possession.html` page as the principal Section 18 authority guide without creating a competing overview URL.
 - Distinguished refund with prescribed interest, monthly delay interest for an allottee who remains in the project, and separately adjudicated compensation.
