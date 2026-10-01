@@ -233,6 +233,10 @@ function renderCard(item, indent, eol, options = {}) {
     classes.push("home-latest-card");
   }
 
+  if (options.result) {
+    classes.push("insights-result-item", "insights-list-card");
+  }
+
   const tags = Array.isArray(item.tags)
     ? item.tags.map(normalize).filter(Boolean)
     : [];
@@ -403,50 +407,26 @@ function syncBlogGrid(
   );
 }
 
-function renderStaticIndexItem(item, indent) {
-  const tags = Array.isArray(item.tags)
-    ? item.tags.map(normalize).filter(Boolean).slice(0, 4)
-    : [];
-
-  const metadata = [
-    normalize(item.category),
-    tags.join(", ")
-  ].filter(Boolean).join(" &middot; ");
-
-  return `${indent}<li data-static-insights-entry="true"><a href="${escapeAttribute(item.href)}">${escapeHtml(item.title)}</a>${metadata ? `<span> &mdash; ${metadata}</span>` : ""}</li>`;
-}
-
-function syncStaticIndex(html, items) {
-  const section = findElementRange(
-    html,
-    "section",
-    (openingTag) =>
-      openingTag.includes("data-static-insights-index")
-  );
-
-  if (!section) {
-    throw new Error(
-      "Could not locate the Static Legal Updates Index section."
-    );
-  }
-
+function syncStaticDirectory(html, items) {
   const list = findElementRange(
     html,
-    "ul",
+    "div",
     (openingTag) =>
-      openingTag.includes("static-insights-index-list"),
-    section.openingEnd,
-    section.closingStart
+      openingTag.includes("data-citadel-blog-results-list")
   );
+
+  if (!list) {
+    throw new Error(
+      "Could not locate the Legal Insights directory results list."
+    );
+  }
 
   return replaceElementContent(
     html,
     list,
-    "COMPLETE_INDEX",
+    "LEGAL_DIRECTORY",
     (indent, eol) =>
-      items
-        .map((item) => renderStaticIndexItem(item, indent))
-        .join(eol)
+      renderCards(items, indent, eol, { result: true })
   );
 }
 
@@ -512,7 +492,7 @@ function syncInsightsPage(html, items) {
     focusedUpdates
   );
 
-  output = syncStaticIndex(output, items);
+  output = syncStaticDirectory(output, items);
 
   return {
     html: output,
@@ -521,7 +501,7 @@ function syncInsightsPage(html, items) {
       caseBriefs: caseBriefs.length,
       guides: guides.length,
       focusedUpdates: focusedUpdates.length,
-      completeIndex: items.length
+      directory: items.length
     }
   };
 }
@@ -576,7 +556,7 @@ if (checkOnly) {
   }
 
   console.log(
-    `Static Insights synchronization passed: ${homepageResult.count} homepage card(s), ${insightsResult.counts.latest} latest card(s), ${insightsResult.counts.caseBriefs} case brief card(s), ${insightsResult.counts.guides} guide card(s), ${insightsResult.counts.focusedUpdates} focused update card(s), ${insightsResult.counts.completeIndex} complete-index link(s).`
+    `Static Insights synchronization passed: ${homepageResult.count} homepage card(s), ${insightsResult.counts.latest} latest card(s), ${insightsResult.counts.caseBriefs} case brief card(s), ${insightsResult.counts.guides} guide card(s), ${insightsResult.counts.focusedUpdates} focused update card(s), ${insightsResult.counts.directory} directory card(s).`
   );
 
   process.exit(0);
@@ -605,5 +585,5 @@ console.log(
   `- Legal Insights focused updates: ${insightsResult.counts.focusedUpdates}`
 );
 console.log(
-  `- Complete static article index: ${insightsResult.counts.completeIndex}`
+  `- Legal Insights static directory cards: ${insightsResult.counts.directory}`
 );
