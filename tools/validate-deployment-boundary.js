@@ -64,6 +64,8 @@ const forbiddenPublicCopyPhrases = [
   "source pack includes",
   "Google AdSense readiness files or scripts",
   "enabled after approval",
+  "data-static-insights-index",
+  "static-insights-index-list",
 ];
 
 const excludedPublicCopyRoots = new Set([
