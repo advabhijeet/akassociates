@@ -1,5 +1,5 @@
 ## 2026-10-01 IST - Remove internal-facing copy from public pages
-- Reworked the Legal Insights fallback into a reader-facing collapsed complete archive while preserving raw-HTML article links for progressive enhancement and crawlability.
+- Removed the separate Legal Insights archive/fallback block and placed the complete registry as normal article cards in the raw Latest Articles HTML; JavaScript progressively enhances the page back to the default three-card editorial view with filtering and pagination.
 - Removed public-facing SEO/editorial implementation language such as search intent, website positioning, crawler explanations, priority-page wording and template references.
 - Cleaned research-process wording from the Section 34 limitation and Sabarimala articles without changing their substantive legal content.
 - Removed a duplicate cheque-bounce service card and repaired a broken related-reading sentence on the property-dispute service page.

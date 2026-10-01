@@ -403,55 +403,8 @@ function syncBlogGrid(
   );
 }
 
-function renderStaticIndexItem(item, indent) {
-  const tags = Array.isArray(item.tags)
-    ? item.tags.map(normalize).filter(Boolean).slice(0, 4)
-    : [];
-
-  const metadata = [
-    normalize(item.category),
-    tags.join(", ")
-  ].filter(Boolean).join(" &middot; ");
-
-  return `${indent}<li data-static-insights-entry="true"><a href="${escapeAttribute(item.href)}">${escapeHtml(item.title)}</a>${metadata ? `<span> &mdash; ${metadata}</span>` : ""}</li>`;
-}
-
-function syncStaticIndex(html, items) {
-  const section = findElementRange(
-    html,
-    "section",
-    (openingTag) =>
-      openingTag.includes("data-static-insights-index")
-  );
-
-  if (!section) {
-    throw new Error(
-      "Could not locate the Static Legal Updates Index section."
-    );
-  }
-
-  const list = findElementRange(
-    html,
-    "ul",
-    (openingTag) =>
-      openingTag.includes("static-insights-index-list"),
-    section.openingEnd,
-    section.closingStart
-  );
-
-  return replaceElementContent(
-    html,
-    list,
-    "COMPLETE_INDEX",
-    (indent, eol) =>
-      items
-        .map((item) => renderStaticIndexItem(item, indent))
-        .join(eol)
-  );
-}
-
 function syncInsightsPage(html, items) {
-  const latestItems = items.slice(0, 3);
+  const latestItems = items;
 
   const caseBriefs = filterSectionItems(items, {
     categories: "Case Brief"
@@ -512,7 +465,6 @@ function syncInsightsPage(html, items) {
     focusedUpdates
   );
 
-  output = syncStaticIndex(output, items);
 
   return {
     html: output,
@@ -521,7 +473,7 @@ function syncInsightsPage(html, items) {
       caseBriefs: caseBriefs.length,
       guides: guides.length,
       focusedUpdates: focusedUpdates.length,
-      completeIndex: items.length
+      staticArticleCards: latestItems.length
     }
   };
 }
@@ -576,7 +528,7 @@ if (checkOnly) {
   }
 
   console.log(
-    `Static Insights synchronization passed: ${homepageResult.count} homepage card(s), ${insightsResult.counts.latest} latest card(s), ${insightsResult.counts.caseBriefs} case brief card(s), ${insightsResult.counts.guides} guide card(s), ${insightsResult.counts.focusedUpdates} focused update card(s), ${insightsResult.counts.completeIndex} complete-index link(s).`
+    `Static Insights synchronization passed: ${homepageResult.count} homepage card(s), ${insightsResult.counts.latest} latest card(s), ${insightsResult.counts.caseBriefs} case brief card(s), ${insightsResult.counts.guides} guide card(s), ${insightsResult.counts.focusedUpdates} focused update card(s), ${insightsResult.counts.staticArticleCards} crawlable article card(s) in the raw Latest Articles grid.`
   );
 
   process.exit(0);
@@ -605,5 +557,5 @@ console.log(
   `- Legal Insights focused updates: ${insightsResult.counts.focusedUpdates}`
 );
 console.log(
-  `- Complete static article index: ${insightsResult.counts.completeIndex}`
+  `- Raw Latest Articles crawlable cards: ${insightsResult.counts.staticArticleCards}`
 );
