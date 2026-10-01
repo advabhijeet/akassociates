@@ -1,10 +1,12 @@
-## 2026-08-01 IST - Publish Section 16 MSMED compound interest guide
-
 ## 2026-10-01 IST - Remove internal-facing copy from public pages
 - Reworked the Legal Insights fallback into a reader-facing collapsed complete archive while preserving raw-HTML article links for progressive enhancement and crawlability.
 - Removed public-facing SEO/editorial implementation language such as search intent, website positioning, crawler explanations, priority-page wording and template references.
 - Cleaned research-process wording from the Section 34 limitation and Sabarimala articles without changing their substantive legal content.
 - Removed a duplicate cheque-bounce service card and repaired a broken related-reading sentence on the property-dispute service page.
+- Reworded the conditional advertising disclosure in the Privacy Policy to remove internal AdSense readiness/approval language.
+- Added deployment validation that fails if known internal/editorial phrases reappear in publishable HTML.
+
+## 2026-08-01 IST - Publish Section 16 MSMED compound interest guide
 - Published `updates/section-16-msmed-act-compound-interest.html` as a standalone Section 16 authority page without replacing the Section 15 payment-deadline or MSEFC procedure pages.
 - Explained three times RBI Bank Rate, monthly rests, rate-period segmentation, invoice-wise start dates, part payments and transparent calculation assumptions.
 - Added Section 22 disclosure, Section 23 tax treatment, Section 19 pre-deposit and practical supplier/buyer evidence checklists.

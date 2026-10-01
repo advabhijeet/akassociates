@@ -43,6 +43,74 @@ const requiredExclusions = [
   "assets/js/themes/citadel-of-kang/README.md",
 ];
 
+
+const forbiddenPublicCopyPhrases = [
+  "For Search Visibility",
+  "Static Legal Updates Index",
+  "Google can understand the content cluster",
+  "crawlers that do not rely on JavaScript-rendered cards",
+  "website-positioning",
+  "Broad UP positioning is intentionally avoided",
+  "Focused Search Pages",
+  "Priority page for",
+  "The search intent here is practical",
+  "This page supports searches for",
+  "This page is written for people searching for",
+  "This page is written for businesses searching for",
+  "priority pillars on this website",
+  "generic city-page template",
+  "repository research materials",
+  "publication-preparation support",
+  "source pack includes",
+  "Google AdSense readiness files or scripts",
+  "enabled after approval",
+];
+
+const excludedPublicCopyRoots = new Set([
+  ".git",
+  ".github",
+  "docs",
+  "preview",
+  "tools",
+  "node_modules",
+]);
+
+function collectPublicHtmlFiles(currentDir = ROOT, relativeDir = "") {
+  const output = [];
+
+  for (const entry of fs.readdirSync(currentDir, { withFileTypes: true })) {
+    const relPath = relativeDir
+      ? path.posix.join(relativeDir, entry.name)
+      : entry.name;
+    const absolutePath = path.join(currentDir, entry.name);
+
+    if (entry.isDirectory()) {
+      const rootSegment = relPath.split("/")[0];
+
+      if (excludedPublicCopyRoots.has(rootSegment)) {
+        continue;
+      }
+
+      output.push(
+        ...collectPublicHtmlFiles(absolutePath, relPath)
+      );
+      continue;
+    }
+
+    if (!entry.isFile() || !relPath.endsWith(".html")) {
+      continue;
+    }
+
+    if (relPath === "theme-preview-citadel-of-ak.html") {
+      continue;
+    }
+
+    output.push(relPath);
+  }
+
+  return output;
+}
+
 const configPath = path.join(ROOT, "_config.yml");
 
 if (!fs.existsSync(configPath)) {
@@ -90,6 +158,21 @@ for (const relPath of requiredPublicFiles) {
   }
 }
 
+
+const publicHtmlFiles = collectPublicHtmlFiles();
+
+for (const relPath of publicHtmlFiles) {
+  const html = fs.readFileSync(path.join(ROOT, relPath), "utf8");
+
+  for (const phrase of forbiddenPublicCopyPhrases) {
+    if (html.includes(phrase)) {
+      errors.push(
+        `${relPath}: internal/editorial public-copy phrase must not be published: "${phrase}".`
+      );
+    }
+  }
+}
+
 const notFoundPath = path.join(ROOT, "404.html");
 
 if (fs.existsSync(notFoundPath)) {
@@ -121,6 +204,7 @@ if (fs.existsSync(sitemapPath)) {
 console.log("Deployment boundary validation summary:");
 console.log(`- Required public files: ${requiredPublicFiles.length}`);
 console.log(`- Required exclusions: ${requiredExclusions.length}`);
+console.log(`- Public HTML files checked for internal copy: ${publicHtmlFiles.length}`);
 console.log(`- Errors: ${errors.length}`);
 
 if (errors.length) {
