@@ -1,3 +1,8 @@
+## 2026-10-01 IST - Strengthen discovery for priority indexed pages
+- Added direct top-level Practice links to the Property Dispute and Civil Litigation Patna service pages after Search Console showed stale May noindex crawl records despite the current pages being indexable.
+- Added contextual links from the MSME practice hub to the Section 16 MSMED Act compound-interest guide to reinforce discovery and topical relevance.
+- No title, canonical or substantive legal-content changes were made in this pass.
+
 ## 2026-10-01 IST - Remove internal-facing copy from public pages
 - Removed the separate Legal Insights archive/fallback block and placed the complete registry as normal article cards in the raw Latest Articles HTML; JavaScript progressively enhances the page back to the default three-card editorial view with filtering and pagination.
 - Removed public-facing SEO/editorial implementation language such as search intent, website positioning, crawler explanations, priority-page wording and template references.
