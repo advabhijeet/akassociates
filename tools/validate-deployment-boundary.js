@@ -173,6 +173,21 @@ for (const relPath of publicHtmlFiles) {
   }
 }
 
+const insightsPath = path.join(ROOT, "legal-updates.html");
+
+if (fs.existsSync(insightsPath)) {
+  const insightsHtml = fs.readFileSync(insightsPath, "utf8");
+
+  if (insightsHtml.includes("data-static-insights-index")) {
+    errors.push("legal-updates.html must not publish a separate static Insights index section.");
+  }
+
+  if (!insightsHtml.includes("STATIC_INSIGHTS:LEGAL_DIRECTORY:START") ||
+      !insightsHtml.includes("data-citadel-blog-results-list")) {
+    errors.push("legal-updates.html must keep the full crawlable article directory in the normal Insights results list.");
+  }
+}
+
 const notFoundPath = path.join(ROOT, "404.html");
 
 if (fs.existsSync(notFoundPath)) {
