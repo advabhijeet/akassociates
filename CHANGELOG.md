@@ -1,3 +1,11 @@
+## 2026-10-01 IST - Search Console opportunity optimization pass
+- Used settled Search Console data through 2026-09-28 to prioritize existing pages already receiving impressions rather than publish competing new URLs.
+- Strengthened property-title content around property chain documents and refreshed the page modification metadata.
+- Aligned the MSME Facilitation Council page with MSEFC terminology and added contextual Section 16 compound-interest links.
+- Aligned the commercial-recovery guide with money-recovery-suit intent and added a transaction-record preparation paragraph.
+- Refined search snippets for Section 9 arbitration, RERA complaint drafting and SARFAESI auction-sale challenge pages without changing their canonical URLs.
+- Refreshed sitemap modification dates for the six edited pages.
+
 ## 2026-10-01 IST - Strengthen discovery for priority indexed pages
 - Added direct top-level Practice links to the Property Dispute and Civil Litigation Patna service pages after Search Console showed stale May noindex crawl records despite the current pages being indexable.
 - Added contextual links from the MSME practice hub to the Section 16 MSMED Act compound-interest guide to reinforce discovery and topical relevance.
