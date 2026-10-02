@@ -1,15 +1,15 @@
 # Module Contract: Citadel Enquiry/Form
 
-Last reconciled: 2026-05-26
+Last reconciled: 2026-10-02
 
 ## Summary
 
 - Module ID: `enquiry-form`
 - Module Name: `Citadel Enquiry/Form`
-- Version: `1.0.0-production`
+- Version: `1.1.0-production`
 - Status: `production`
 - Owner Product: `Citadel of Kang theme pack with Chambers implementation values`
-- Chambers Cache Key: `enquiry-form-v1`
+- Chambers Cache Key: `enquiry-form-v3`
 
 ## Purpose
 
@@ -28,7 +28,7 @@ Related pages: contact.html, case-enquiry.html
 The module is production-loaded through `assets/js/script.js` using the script id:
 
 ```text
-citadel-enquiry-form-v1
+citadel-enquiry-form-v3
 ```
 
 ## Activation
@@ -65,6 +65,7 @@ copy prepared message behaviour
 consent gate for direct send
 direct EmailJS send path
 EmailJS loading/error/success status messages
+privacy-safe `enquiry_submit` data-layer event after confirmed EmailJS success
 ```
 
 ## Current Chambers-Specific Implementation Values
@@ -170,6 +171,8 @@ focus states remain visible in light and dark mode
 The module sends form data through EmailJS only when the visitor uses the direct send option after acknowledging the consent/notice flow.
 
 The module also prepares WhatsApp, Gmail and copy routes for user-controlled transmission.
+
+The successful direct-send analytics event is limited to the event name, a generic form name, submission method and page path. It must not include the visitor's name, phone, email, message text or matter-specific form values.
 
 Do not add silent background submission, hidden analytics payloads containing form message text, or private key exposure.
 

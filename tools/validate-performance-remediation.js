@@ -246,7 +246,7 @@ for (const marker of [
 }
 
 for (const marker of [
-  "config-v6",
+  "config-v7",
   "insights-runtime-v2"
 ]) {
   if (!bootstrap.includes(marker)) {
@@ -300,7 +300,7 @@ const baseStyle = moduleManifest.styles.find((entry) => entry.key === "base");
 const themeStyle = moduleManifest.styles.find((entry) => entry.key === "theme");
 const latestInsightsEntry = moduleManifest.featureModules.find((entry) => entry.key === "latestInsights");
 
-if (publicConfigRuntime?.version !== "config-v6") {
+if (publicConfigRuntime?.version !== "config-v7") {
   errors.push(`Manifest publicConfig version mismatch: ${publicConfigRuntime?.version}`);
 }
 if (insightsRuntimeEntry?.version !== "insights-runtime-v2") {

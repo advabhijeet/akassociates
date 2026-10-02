@@ -64,7 +64,8 @@
         phone: "phone_click",
         email: "email_click",
         case_enquiry: "case_enquiry_click",
-        contact: "contact_click"
+        contact: "contact_click",
+        enquiry_submit: "enquiry_submit"
       }
     },
     integrations: {
@@ -139,9 +140,9 @@
             "activation": "article.article-body"
       },
       "enquiryForm": {
-            "id": "citadel-enquiry-form-v2",
+            "id": "citadel-enquiry-form-v3",
             "path": "assets/js/themes/citadel-of-kang/modules/forms/enquiry-form.js",
-            "version": "enquiry-form-v2",
+            "version": "enquiry-form-v3",
             "guard": "CitadelEnquiryForm",
             "owner": "Copy templates and structured enquiry form",
             "activation": "[data-copy-target] or [data-contact-dynamic-form]"

@@ -187,7 +187,7 @@ Future work:
 
 - practice-specific enquiry variants;
 - clearer post-submission next steps;
-- direct form-send analytics event;
+- conversion attribution and post-submission reporting after GTM/GA4 verification;
 - downloadable checklists only where legally and operationally appropriate;
 - accessibility and error-state review.
 

@@ -18,7 +18,7 @@
     {
       id: 'chambers-public-config-v1',
       path: 'assets/js/config/chambers-public-config.js',
-      version: 'config-v6'
+      version: 'config-v7'
     },
     {
       id: 'citadel-core-runtime-v1',

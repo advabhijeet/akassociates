@@ -40,16 +40,17 @@ Supported event names:
 - `email_click`
 - `case_enquiry_click`
 - `contact_click`
+- `enquiry_submit` (successful direct EmailJS enquiry only)
 
-Current event payload keys:
+Current link-event payload keys:
 
 - `link_text`
 - `link_target`
 - `page_path`
 
-In GTM, create Custom Event triggers for these event names, or use a single regular-expression Custom Event trigger that matches the five names above. Then create GA4 Event tags that send the same event names into GA4. Re-test GTM Preview whenever `assets/js/script.js` changes around enquiry links or event tracking.
+The successful direct EmailJS send path also pushes `enquiry_submit` only after EmailJS resolves successfully. Its analytics payload is deliberately limited to `form_name`, `submission_method`, and `page_path`; it does not send the visitor's name, phone, email, message text, or matter-specific form values to the data layer.
 
-The direct EmailJS `Send Enquiry` button on `contact.html` is a form delivery action, not one of the five data-layer events above. If direct form-send conversion tracking is needed, add an explicit form-send data-layer event in the enquiry form module, update this list, and re-test GA4/GTM before treating it as a conversion.
+In GTM, create Custom Event triggers for these event names, or use a single regular-expression Custom Event trigger that matches the six names above. Then create GA4 Event tags that send the same event names into GA4. Configure `enquiry_submit` as a GA4 key event if successful direct enquiries should be counted as conversions. Re-test GTM Preview whenever `assets/js/script.js` or the enquiry-form module changes around event tracking.
 
 ## Google Business Profile
 

@@ -1,5 +1,5 @@
 /*
-  Citadel Enquiry/Form module v2.
+  Citadel Enquiry/Form module v3.
   Owns copy-to-clipboard enquiry templates and structured contact/case enquiry form behaviour.
   This keeps form logic out of the global script and prepares Contact/Enquiry templates.
 */
@@ -10,6 +10,7 @@
   const publicConfig = window.ChambersPublicConfig || {};
   const contactConfig = publicConfig.contact || {};
   const integrationConfig = publicConfig.integrations || {};
+  const enquirySubmitEventName = publicConfig.analytics?.conversionEvents?.enquiry_submit || 'enquiry_submit';
 
   window[MODULE_NAME] = { initialized: true };
 
@@ -155,6 +156,17 @@
     statusMessage.hidden = !message;
   };
 
+  const trackSuccessfulEnquirySubmit = () => {
+    if (!window.dataLayer) return;
+
+    window.dataLayer.push({
+      event: enquirySubmitEventName,
+      form_name: 'structured_enquiry',
+      submission_method: 'emailjs',
+      page_path: window.location.pathname
+    });
+  };
+
   const buildWhatsAppComposeUrl = (message) => {
     const params = new URLSearchParams({ text: message });
     const number = contactConfig.whatsappNumber || '';
@@ -291,6 +303,7 @@
       );
 
       setStatus('Enquiry sent successfully. Chambers of AK will review the message and respond as appropriate.', 'success');
+      trackSuccessfulEnquirySubmit();
     } catch (error) {
       sendButton.disabled = false;
       setStatus('Could not send directly right now. Please use WhatsApp, Gmail, or copy the prepared message.', 'error');

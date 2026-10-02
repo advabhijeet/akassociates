@@ -190,14 +190,15 @@ Important lead interactions should be tracked through GTM/GA4, including:
 - Phone clicks.
 - Case enquiry clicks.
 - Contact page actions.
+- Successful direct enquiry submissions.
 
-Current data layer event names are `whatsapp_click`, `phone_click`, `email_click`, `case_enquiry_click` and `contact_click`.
+Current data layer event names are `whatsapp_click`, `phone_click`, `email_click`, `case_enquiry_click`, `contact_click` and `enquiry_submit`. The `enquiry_submit` event fires only after a successful EmailJS response and must not contain the visitor's name, phone, email, message text or matter-specific form values.
 
 Avoid installing GA4 both directly and through GTM at the same time, because that can double-count page views.
 
 ### Contact Form Delivery
 
-`contact.html` includes a dynamic matter-type enquiry form. It prepares a structured message, supports direct Send Enquiry delivery through EmailJS, and preserves WhatsApp, Gmail and copy-prepared-message fallbacks.
+`contact.html` includes a dynamic matter-type enquiry form. It prepares a structured message, supports direct Send Enquiry delivery through EmailJS, preserves WhatsApp, Gmail and copy-prepared-message fallbacks, and emits a privacy-safe `enquiry_submit` data-layer event after a successful direct send.
 
 Do not add, request, expose or commit any EmailJS private key.
 
