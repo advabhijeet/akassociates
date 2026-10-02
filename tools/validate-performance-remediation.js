@@ -246,7 +246,7 @@ for (const marker of [
 }
 
 for (const marker of [
-  "config-v6",
+  "config-v7",
   "insights-runtime-v2"
 ]) {
   if (!bootstrap.includes(marker)) {
