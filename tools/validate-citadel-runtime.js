@@ -138,6 +138,11 @@ if (publicConfig) {
     }
   }
 
+  const conversionEvents = publicConfig.analytics?.conversionEvents || {};
+  if (conversionEvents.enquiry_submit !== "enquiry_submit") {
+    errors.push("Public config must expose the enquiry_submit conversion event.");
+  }
+
   const serialized = JSON.stringify(publicConfig);
   for (const forbidden of [
     /"password"\s*:/i,
@@ -213,6 +218,18 @@ for (const migratedValue of [
 ]) {
   if (enquiryForm.includes(migratedValue)) {
     errors.push(`Enquiry module still hardcodes public config value: ${migratedValue}`);
+  }
+}
+
+for (const marker of [
+  "enquirySubmitEventName",
+  "window.dataLayer.push({",
+  "form_name: 'structured_enquiry'",
+  "submission_method: 'emailjs'",
+  "trackSuccessfulEnquirySubmit();"
+]) {
+  if (!enquiryForm.includes(marker)) {
+    errors.push(`Enquiry submission analytics marker is missing: ${marker}`);
   }
 }
 
