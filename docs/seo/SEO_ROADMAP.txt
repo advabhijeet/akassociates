@@ -126,7 +126,7 @@ Priority: High.
 - Add clear enquiry prompts on practice pages.
 - Add short document checklists to reduce back-and-forth.
 - Track clicks on WhatsApp, phone, email, case enquiry and contact links through GTM data layer events.
-- Do not treat EmailJS direct form-send as a GA4 conversion unless a separate data-layer event is added and documented.
+- Successful EmailJS direct sends emit the privacy-safe `enquiry_submit` data-layer event. Configure the matching GTM/GA4 event and mark it as a key event before using it as a conversion metric.
 
 Phase 7 - Trust Signals
 Priority: Medium.
