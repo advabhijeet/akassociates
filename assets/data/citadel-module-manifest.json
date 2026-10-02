@@ -14,7 +14,7 @@
       "status": "production",
       "owner": "Public-safe site and module configuration",
       "path": "assets/js/config/chambers-public-config.js",
-      "version": "config-v6",
+      "version": "config-v7",
       "loadedBy": "assets/js/script.js"
     },
     {
@@ -112,9 +112,9 @@
     {
       "key": "enquiryForm",
       "status": "production",
-      "id": "citadel-enquiry-form-v2",
+      "id": "citadel-enquiry-form-v3",
       "path": "assets/js/themes/citadel-of-kang/modules/forms/enquiry-form.js",
-      "version": "enquiry-form-v2",
+      "version": "enquiry-form-v3",
       "guard": "CitadelEnquiryForm",
       "owner": "Copy templates and structured enquiry form",
       "activation": "[data-copy-target] or [data-contact-dynamic-form]",
