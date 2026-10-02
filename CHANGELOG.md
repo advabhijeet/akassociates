@@ -1,3 +1,10 @@
+## 2026-10-02 IST - Track successful direct enquiry submissions
+- Added a privacy-safe `enquiry_submit` data-layer event that fires only after EmailJS confirms a successful direct enquiry send.
+- Limited the event payload to a generic form name, submission method and page path; no visitor identity, contact details, message text or matter-specific form values are sent in this event.
+- Bumped the public-config and enquiry-form cache versions and added Citadel runtime validation coverage for the new event.
+- Updated Google/GTM workflow documentation and the Privacy Policy to reflect successful-form conversion measurement.
+- GA4 reporting through GSC Wizard still requires Analytics scope to be connected for the authenticated account before conversion performance can be read in ChatGPT.
+
 ## 2026-10-01 IST - Search Console opportunity optimization pass
 - Used settled Search Console data through 2026-09-28 to prioritize existing pages already receiving impressions rather than publish competing new URLs.
 - Strengthened property-title content around property chain documents and refreshed the page modification metadata.
