@@ -1,3 +1,13 @@
+## 2026-10-03 IST - Strengthen MSME Bihar and Delhi acquisition cluster
+- Repositioned the MSME practice hub around plain-English delayed-payment and MSEFC guidance with Bihar and Delhi as the two priority commercial markets.
+- Corrected MSEFC forum wording to reflect the operative Section 18 supplier-location rule instead of implying that buyer location or NCR geography alone determines the Council.
+- Added current limitation safeguards from the Supreme Court's 2025 Sonali Power Equipments decision and flagged registration timing as an unsettled Supreme Court issue after the 2025 NBCC judgment referred the conflict with earlier cases to a larger Bench.
+- Strengthened the Patna, Bihar and Delhi NCR MSME service pages with clearer search intent, regional differentiation, official references, internal links and enquiry paths.
+- Distinguished Delhi NCR as a commercial region rather than a single MSEFC jurisdiction and linked the official Government of NCT of Delhi MSEFC resource.
+- Recorded the 2026 MSMED Amendment Act commencement caveat so amended provisions are not treated as operative without checking the applicable Gazette notification.
+- Refreshed sitemap modification dates for the four edited MSME core pages and updated the MSME content queue.
+- Preserved all canonical URLs; the existing noindex Delhi redirect stub remains unchanged.
+
 ## 2026-10-02 IST - Track successful direct enquiry submissions
 - Added a privacy-safe `enquiry_submit` data-layer event that fires only after EmailJS confirms a successful direct enquiry send.
 - Limited the event payload to a generic form name, submission method and page path; no visitor identity, contact details, message text or matter-specific form values are sent in this event.
