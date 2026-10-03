@@ -1,5 +1,5 @@
 CHAMBERS OF AK - SEARCH VISIBILITY AND CLIENT ACQUISITION ROADMAP
-Last updated: May 17, 2026
+Last updated: October 3, 2026
 
 Goal:
 Improve discoverability for high-intent legal searches while keeping the website compliant, useful, and conversion-focused. The site should help potential clients quickly understand practice focus, jurisdiction fit, required documents, and how to make a clean enquiry.
@@ -45,6 +45,13 @@ Phase 3 - Practice Priority Clusters
 Priority: Very high.
 
 Cluster 1: MSME Recovery
+Priority 1 acquisition cluster.
+- Treat Bihar and Delhi as equal commercial acquisition markets for MSME recovery, while keeping physical-location and forum statements factually accurate.
+- Use one common MSME authority cluster for nationwide legal questions; use Bihar/Patna and Delhi NCR service pages as regional conversion destinations.
+- Create separate Bihar/Delhi articles only where procedure, MSEFC forum or regional search intent is genuinely distinct.
+- Fact-check statutory provisions, commencement status, current Supreme Court/High Court authority and official MSEFC material before publication.
+- Write for non-lawyers first: answer the practical question, explain the legal rule, then show documents, procedure, risks and next steps.
+- Optimize for organic discovery without duplicating search intent or creating doorway/location copies.
 - MSME recovery lawyer Patna
 - MSME recovery lawyer Bihar
 - MSME recovery lawyer Delhi
