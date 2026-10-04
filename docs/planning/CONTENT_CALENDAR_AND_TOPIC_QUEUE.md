@@ -42,10 +42,12 @@ High-intent future topics:
 
 ### MSME Delayed Payment
 
-High-intent future topics:
-
+Published authority pages:
 - Section 19 MSMED Act: 75% pre-deposit before an award challenge.
 - Limitation in MSME delayed-payment claims: conciliation vs arbitration.
+
+High-intent future topics:
+
 - Which MSEFC has jurisdiction when supplier and buyer are in different States?
 - Buyer response and defence before an MSEFC.
 - What happens after an MSEFC award: challenge, deposit and enforcement.
