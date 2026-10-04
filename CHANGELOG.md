@@ -1,3 +1,12 @@
+## 2026-10-04 IST - Publish MSME limitation and Section 18 guide
+- Published `updates/msme-limitation-period-section-18-conciliation-arbitration.html` as the central plain-English authority page for MSME delayed-payment limitation.
+- Distinguished the Limitation Act starting points for goods sold without fixed credit, goods sold on fixed credit, work done and other contractual claims instead of presenting a universal three-years-from-invoice rule.
+- Applied the Supreme Court's 2025 `Sonali Power Equipments` holding: time-barred claims may enter Section 18(2) conciliation for settlement, while the Limitation Act applies to Section 18(3) arbitration.
+- Explained written acknowledgments, part-payments, Section 22 balance-sheet disclosures and written promises concerning time-barred debt with primary statutory references.
+- Recorded the current commencement caution for Section 62 of the Mediation Act, 2023 and the MSMED (Amendment) Act, 2026 before using future mediation terminology.
+- Linked the guide from the MSME and Arbitration hubs, the Patna/Bihar/Delhi NCR MSME service pages, the MSEFC process guide and the Section 19 pre-deposit guide.
+- Added the article to the Insights Registry and sitemap and advanced the MSME topic queue; static Insights and RSS outputs are synchronized from the existing generators.
+
 ## 2026-10-04 IST - Publish Section 19 MSMED pre-deposit authority guide
 - Published `updates/section-19-msmed-act-75-percent-pre-deposit.html` as the central plain-English guide to the 75% pre-deposit for MSEFC award challenges.
 - Explained the mandatory percentage, supplier exception, instalment relief, deposit-amount calculation, Section 34 limitation, separate stay requirement and treatment of deposited funds.
