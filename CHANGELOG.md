@@ -1,3 +1,13 @@
+## 2026-10-04 IST - Publish Section 19 MSMED pre-deposit authority guide
+- Published `updates/section-19-msmed-act-75-percent-pre-deposit.html` as the central plain-English guide to the 75% pre-deposit for MSEFC award challenges.
+- Explained the mandatory percentage, supplier exception, instalment relief, deposit-amount calculation, Section 34 limitation, separate stay requirement and treatment of deposited funds.
+- Added Supreme Court authority from `Gujarat State Disaster Management Authority v. Aska Equipments`, `Tirupati Steels` and the 2025 `Tamil Nadu Cements` larger-Bench reference on writ/alternative-remedy questions.
+- Separated the currently operative Section 19 from the substituted text in the MSMED (Amendment) Act, 2026 and recorded the requirement to verify a commencement notification before applying the amended provision.
+- Corrected the older Section 15 and Section 16 articles so registration timing reflects the unsettled 2025 `NBCC (India) Ltd.` larger-Bench reference rather than presenting the earlier rule as finally settled.
+- Linked the new authority page from the MSME practice hub and the Patna, Bihar and Delhi NCR MSME service pages.
+- Reused the approved MSEFC editorial artwork and card derivative; no new canonical service URL or location doorway page was created.
+- Added the article to the Insights Registry and sitemap; static Insights and RSS outputs are synchronized from their existing generators.
+
 ## 2026-10-03 IST - Strengthen MSME Bihar and Delhi acquisition cluster
 - Repositioned the MSME practice hub around plain-English delayed-payment and MSEFC guidance with Bihar and Delhi as the two priority commercial markets.
 - Corrected MSEFC forum wording to reflect the operative Section 18 supplier-location rule instead of implying that buyer location or NCR geography alone determines the Council.
