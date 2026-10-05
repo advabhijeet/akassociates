@@ -1,3 +1,12 @@
+## 2026-10-05 IST - Publish inter-State MSEFC jurisdiction guide
+- Published `updates/msefc-jurisdiction-supplier-buyer-different-states.html` as the central practical guide to Section 18 territorial jurisdiction where the supplier and buyer are in different States.
+- Explained the presently operative Section 18(4) supplier-location rule and separated it from ordinary cause-of-action analysis.
+- Distinguished MSEFC reference jurisdiction from the later Section 34 supervisory-court question, using `Satinder Mahajan` and the Delhi High Court Division Bench seat/jurisdiction line of authority.
+- Added `Mahakali Foods` on the overriding Section 18 mechanism, `Total Application Software` on the position where MSEFC has not been invoked, and the September 2026 `Shri Krishan Grit Co.` decision on supplier location/registration.
+- Recorded the transition caution for Section 62 of the Mediation Act, 2023 and the MSMED (Amendment) Act, 2026; future official-address wording is not treated as operative without commencement.
+- Linked the guide from the MSME and Arbitration hubs, the Patna/Bihar/Delhi NCR MSME pages, the MSEFC process guide, the limitation guide and the Section 19 guide.
+- Added the article to the Insights Registry and sitemap and advanced the MSME topic queue; homepage/Insights static snapshots and RSS are synchronized.
+
 ## 2026-10-04 IST - Publish MSME limitation and Section 18 guide
 - Published `updates/msme-limitation-period-section-18-conciliation-arbitration.html` as the central plain-English authority page for MSME delayed-payment limitation.
 - Distinguished the Limitation Act starting points for goods sold without fixed credit, goods sold on fixed credit, work done and other contractual claims instead of presenting a universal three-years-from-invoice rule.
