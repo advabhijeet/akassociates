@@ -50,9 +50,9 @@ Published authority pages:
 - What happens after an MSEFC award: challenge, deposit and enforcement.
 - Bihar MSEFC filing and procedure guide.
 - Delhi MSEFC filing and procedure guide.
+- How to prepare an MSME delayed-payment claim.
 
 High-intent future topics:
-- How to prepare an MSME delayed-payment claim.
 - MSME interest calculation: documents and caution points.
 - MSME Samadhaan filing checklist.
 - MSME delayed payment vs civil suit vs arbitration.
