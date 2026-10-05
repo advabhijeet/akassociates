@@ -1,3 +1,13 @@
+## 2026-10-05 IST - Publish Delhi MSEFC filing and procedure guide
+- Published `updates/delhi-msefc-filing-procedure-msme-delayed-payment.html` as the Delhi-specific filing and procedure authority page for MSME delayed-payment references.
+- Grounded the procedural sections in the Delhi Micro and Small Enterprises Facilitation Council Rules, 2007, including monthly Council meetings, claim particulars, affidavit/court-fee requirement, simultaneous buyer service, 15-day buyer response plus limited extension, scrutiny, conciliation, arbitration, experts/evidence and award procedure.
+- Added the current Government of NCT of Delhi Industries Department MSEFC contact at Udyog Sadan, Patparganj and distinguished the Department contact from the particular Council assigned to a reference.
+- Recorded the 2020-21 GNCTD reconstitution history of the earlier single Council into eleven councils while cautioning that the current public Department page reviewed does not provide a live council-wise allocation table.
+- Integrated current Ministry of MSME Samadhaan guidance on online/physical filing, case conversion, work-order requirement, oral-order affidavit and multiple-invoice upload, and current RAMP material distinguishing Samadhaan from the developing end-to-end MSE-ODR system.
+- Avoided importing another State's processing-fee rule into Delhi; the 2007 Delhi Rules reviewed contain an affidavit/court-fee requirement but no separate state processing-fee formula.
+- Linked the guide from the MSME and Arbitration hubs, Delhi NCR service page, MSEFC process, jurisdiction, buyer-response and Bihar filing guides.
+- Added the article to the Insights Registry and sitemap, synchronized RSS and static Insights snapshots, and advanced the MSME content queue.
+
 ## 2026-10-05 IST - Publish Bihar MSEFC filing and procedure guide
 - Published `updates/bihar-msefc-filing-procedure-msme-delayed-payment.html` as the Bihar-specific filing and procedure authority page for MSME delayed-payment references.
 - Grounded the local procedure in the Government of Bihar Micro and Small Enterprises Facilitation Council Rules, 2007, including Council headquarters, claim particulars, simultaneous buyer service, buyer-response time, scrutiny, conciliation, arbitration, quorum and processing-fee wording.
