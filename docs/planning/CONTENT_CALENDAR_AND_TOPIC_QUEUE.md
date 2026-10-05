@@ -47,9 +47,9 @@ Published authority pages:
 - Limitation in MSME delayed-payment claims: conciliation vs arbitration.
 - MSEFC jurisdiction when supplier and buyer are in different States.
 - Buyer response and defence before an MSEFC.
+- What happens after an MSEFC award: challenge, deposit and enforcement.
 
 High-intent future topics:
-- What happens after an MSEFC award: challenge, deposit and enforcement.
 - Bihar MSEFC filing and procedure guide, based on current official material.
 - Delhi MSEFC filing and procedure guide, based on current Government of NCT of Delhi material.
 - How to prepare an MSME delayed-payment claim.
