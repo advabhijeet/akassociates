@@ -1,5 +1,24 @@
 [
   {
+    "href": "updates/msme-interest-calculation-documents-caution-points.html",
+    "category": "Practical Guide",
+    "title": "MSME interest calculation: documents and caution points",
+    "excerpt": "Practical Section 16 calculation guide covering Section 15 due dates, historical RBI Bank Rate periods, monthly rests, part-payments, invoice allocation and audit checks.",
+    "date": "October 2026",
+    "tags": [
+      "MSME",
+      "MSMED Act",
+      "Section 16",
+      "Interest Calculation",
+      "RBI Bank Rate",
+      "Monthly Rests",
+      "Delayed Payment",
+      "Documents"
+    ],
+    "thumbnail": "assets/img/citadel/citadel-thumb-msme-45-days-payment-rule-batch6-v2.jpg",
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-msme-45-days-payment-rule-batch6-v2-640.jpg"
+  },
+  {
     "href": "updates/prepare-msme-delayed-payment-claim.html",
     "category": "Practical Guide",
     "title": "How to prepare an MSME delayed-payment claim",
