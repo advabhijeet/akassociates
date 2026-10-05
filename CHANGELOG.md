@@ -1,3 +1,12 @@
+## 2026-10-05 IST - Publish MSEFC buyer response and defence guide
+- Published `updates/msefc-notice-buyer-reply-defences-documents.html` as the buyer-side practical guide for responding to Section 18 delayed-payment proceedings.
+- Structured the response around procedural stage, supplier identity and registration, territorial jurisdiction, invoice-wise reconciliation, acceptance objections, performance disputes, payments, limitation and Section 16 interest.
+- Added Supreme Court authority from `Silpi Industries` on counterclaim/set-off, `Jharkhand Urja Vikas Nigam` on the mandatory distinction between conciliation and arbitration, `Mahakali Foods` on the statutory Section 18 framework and `Sonali Power` on limitation.
+- Treated registration timing cautiously after the 2025 `NBCC (India) Ltd.` larger-Bench reference and recorded the 2026 Delhi High Court approach rather than presenting late registration as an automatic threshold defence.
+- Added current procedural examples concerning ex parte participation and defective conciliation, including `Shri Chain Perfumery Works` and `Wapcos Ltd. v. Virgo Aqua`.
+- Linked the guide from the MSME and Arbitration hubs, Patna/Bihar/Delhi NCR service pages and the jurisdiction, limitation, Section 16, Section 19 and MSEFC process guides.
+- Added the article to the Insights Registry and sitemap, synchronized RSS and static Insights snapshots, and advanced the MSME content queue.
+
 ## 2026-10-05 IST - Publish inter-State MSEFC jurisdiction guide
 - Published `updates/msefc-jurisdiction-supplier-buyer-different-states.html` as the central practical guide to Section 18 territorial jurisdiction where the supplier and buyer are in different States.
 - Explained the presently operative Section 18(4) supplier-location rule and separated it from ordinary cause-of-action analysis.
