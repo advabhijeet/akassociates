@@ -49,9 +49,9 @@ Published authority pages:
 - Buyer response and defence before an MSEFC.
 - What happens after an MSEFC award: challenge, deposit and enforcement.
 - Bihar MSEFC filing and procedure guide.
+- Delhi MSEFC filing and procedure guide.
 
 High-intent future topics:
-- Delhi MSEFC filing and procedure guide, based on current Government of NCT of Delhi material.
 - How to prepare an MSME delayed-payment claim.
 - MSME interest calculation: documents and caution points.
 - MSME Samadhaan filing checklist.
