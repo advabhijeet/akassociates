@@ -1,5 +1,25 @@
 [
   {
+    "href": "updates/prepare-msme-delayed-payment-claim.html",
+    "category": "Practical Guide",
+    "title": "How to prepare an MSME delayed-payment claim",
+    "excerpt": "Build a defensible MSEFC claim from supplier status, jurisdiction, invoice schedules, Section 15 due dates, payments, Section 16 interest, limitation and evidence.",
+    "date": "October 2026",
+    "tags": [
+      "MSME",
+      "MSEFC",
+      "MSMED Act",
+      "Claim Preparation",
+      "Section 15",
+      "Section 16",
+      "Limitation",
+      "Documents",
+      "Samadhaan"
+    ],
+    "thumbnail": "assets/img/citadel/citadel-thumb-msme-documents-checklist-approved-style.jpg",
+    "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-msme-documents-checklist-approved-style-640.jpg"
+  },
+  {
     "href": "updates/delhi-msefc-filing-procedure-msme-delayed-payment.html",
     "category": "Practical Guide",
     "title": "Delhi MSEFC filing and procedure: MSME delayed payment guide",
