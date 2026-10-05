@@ -1,3 +1,12 @@
+## 2026-10-05 IST - Publish Bihar MSEFC filing and procedure guide
+- Published `updates/bihar-msefc-filing-procedure-msme-delayed-payment.html` as the Bihar-specific filing and procedure authority page for MSME delayed-payment references.
+- Grounded the local procedure in the Government of Bihar Micro and Small Enterprises Facilitation Council Rules, 2007, including Council headquarters, claim particulars, simultaneous buyer service, buyer-response time, scrutiny, conciliation, arbitration, quorum and processing-fee wording.
+- Integrated current Ministry of MSME Samadhaan guidance on online filing, physical applications, work-order requirements, oral-order affidavit, multiple-invoice upload and Council contact through the acknowledgement.
+- Added practical cautions against treating portal acceptance as a ruling on limitation, supplier status or registration timing.
+- Preserved the current 2026 statutory-transition caution and avoided applying uncommenced future Section 18 wording.
+- Linked the guide from the MSME hub, Bihar and Patna service pages, the MSEFC process, jurisdiction and buyer-response guides.
+- Added the article to the Insights Registry and sitemap, synchronized RSS and static Insights snapshots, and advanced the MSME queue to the Delhi MSEFC filing and procedure guide.
+
 ## 2026-10-05 IST - Publish post-award MSEFC challenge and enforcement guide
 - Published `updates/after-msefc-award-challenge-deposit-stay-enforcement.html` as the central post-award MSME roadmap for Section 34 challenge, Section 19 deposit, Section 36 stay and execution.
 - Explained the strict Section 34 three-month plus further-thirty-day limitation framework and separated the award-receipt date from the date printed on the award.
