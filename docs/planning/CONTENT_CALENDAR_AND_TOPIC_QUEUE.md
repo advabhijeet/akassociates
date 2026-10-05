@@ -51,9 +51,9 @@ Published authority pages:
 - Bihar MSEFC filing and procedure guide.
 - Delhi MSEFC filing and procedure guide.
 - How to prepare an MSME delayed-payment claim.
+- MSME interest calculation: documents and caution points.
 
 High-intent future topics:
-- MSME interest calculation: documents and caution points.
 - MSME Samadhaan filing checklist.
 - MSME delayed payment vs civil suit vs arbitration.
 
