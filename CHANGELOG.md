@@ -1,3 +1,12 @@
+## 2026-10-05 IST - Publish MSME delayed-payment claim preparation guide
+- Published `updates/prepare-msme-delayed-payment-claim.html` as the master claim-construction guide for MSME delayed-payment references.
+- Structured the preparation workflow around supplier/entity chronology, supplier-side jurisdiction, a master invoice schedule, Section 15 due-date analysis, supply/service proof, payment reconciliation, Section 16 interest, limitation, acknowledgments/part-payments, chronology, pleading structure and relief.
+- Clarified that invoice date is not automatically the statutory payment due date and linked the calculation back to acceptance, deemed acceptance, written objections and written payment terms.
+- Integrated Ministry of MSME Samadhaan guidance on work orders, oral-order affidavit, multiple-invoice upload, Council conversion of portal applications and physical filing.
+- Kept principal, statutory interest and any other contractual relief separate and added a practical annexure order and buyer-defence stress test before filing.
+- Linked the guide from the MSME hub, documents checklist, Section 15, Section 16, limitation, MSEFC process, Bihar/Delhi filing guides and the older delayed-payment overview.
+- Added the article to the Insights Registry and sitemap, synchronized RSS and static Insights snapshots, and advanced the MSME content queue.
+
 ## 2026-10-05 IST - Publish Delhi MSEFC filing and procedure guide
 - Published `updates/delhi-msefc-filing-procedure-msme-delayed-payment.html` as the Delhi-specific filing and procedure authority page for MSME delayed-payment references.
 - Grounded the procedural sections in the Delhi Micro and Small Enterprises Facilitation Council Rules, 2007, including monthly Council meetings, claim particulars, affidavit/court-fee requirement, simultaneous buyer service, 15-day buyer response plus limited extension, scrutiny, conciliation, arbitration, experts/evidence and award procedure.
