@@ -1,3 +1,11 @@
+## 2026-10-05 IST - Publish MSME interest calculation guide
+- Published `updates/msme-interest-calculation-documents-caution-points.html` as the practical Section 16 calculation and audit guide for MSME delayed-payment claims.
+- Separated calculation methodology from the existing Section 16 authority page and focused on due-date inputs, principal reconciliation, historical RBI Bank Rate periods, monthly rests, part-payments, payment allocation, credits and reproducible worksheets.
+- Used the latest official RBI current-rates page located for this update, dated 6 August 2026, only as a dated illustration of a 5.50% Bank Rate / 16.50% Section 16 multiple, with an express warning against applying that percentage to historical periods without verification.
+- Added a historical Bank Rate timeline structure, invoice-level summary, methodology note, buyer-side audit checks, spreadsheet version control and rounding cautions.
+- Linked the guide from the MSME hub, Section 15, Section 16, claim-preparation, documents, limitation, MSEFC process and Bihar/Delhi filing guides.
+- Added the article to the Insights Registry and sitemap, synchronized RSS and static Insights snapshots, and advanced the MSME content queue.
+
 ## 2026-10-05 IST - Publish MSME delayed-payment claim preparation guide
 - Published `updates/prepare-msme-delayed-payment-claim.html` as the master claim-construction guide for MSME delayed-payment references.
 - Structured the preparation workflow around supplier/entity chronology, supplier-side jurisdiction, a master invoice schedule, Section 15 due-date analysis, supply/service proof, payment reconciliation, Section 16 interest, limitation, acknowledgments/part-payments, chronology, pleading structure and relief.
