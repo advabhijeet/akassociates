@@ -1,3 +1,13 @@
+## 2026-10-05 IST - Publish post-award MSEFC challenge and enforcement guide
+- Published `updates/after-msefc-award-challenge-deposit-stay-enforcement.html` as the central post-award MSME roadmap for Section 34 challenge, Section 19 deposit, Section 36 stay and execution.
+- Explained the strict Section 34 three-month plus further-thirty-day limitation framework and separated the award-receipt date from the date printed on the award.
+- Incorporated `Gayatri Balasamy` on the limited power to modify arbitral awards under Sections 34 and 37 rather than presenting Section 34 as an all-or-nothing remedy.
+- Applied `Aska Equipments` and `Tirupati Steels` on the mandatory 75% Section 19 pre-deposit and the July 2026 Rajasthan High Court decision in `Anamika Conductors` on deposit timing, reasonable time and instalments.
+- Distinguished the Section 19 deposit from a Section 36 stay and explained that a pending Section 34 challenge does not by itself stop enforcement.
+- Added supplier-side execution, release-of-deposit, continuing-interest and Section 37 planning, while retaining the current commencement caution for the MSMED (Amendment) Act, 2026.
+- Linked the guide from the MSME and Arbitration hubs, Patna/Bihar/Delhi NCR service pages and the buyer-response, jurisdiction, limitation, Section 19 and Section 34 guides.
+- Added the article to the Insights Registry and sitemap, synchronized RSS and static Insights snapshots, and advanced the MSME content queue.
+
 ## 2026-10-05 IST - Publish MSEFC buyer response and defence guide
 - Published `updates/msefc-notice-buyer-reply-defences-documents.html` as the buyer-side practical guide for responding to Section 18 delayed-payment proceedings.
 - Structured the response around procedural stage, supplier identity and registration, territorial jurisdiction, invoice-wise reconciliation, acceptance objections, performance disputes, payments, limitation and Section 16 interest.
