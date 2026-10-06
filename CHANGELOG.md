@@ -1,3 +1,12 @@
+## 2026-10-06 IST - Publish MSME Samadhaan filing checklist
+- Published `updates/msme-samadhaan-filing-checklist.html` as the portal-and-follow-up checklist for delayed-payment applications.
+- Reconciled current Ministry of MSME RAMP guidance using valid Udyam Registration with legacy UAM-era FAQ wording instead of silently carrying old registration terminology forward.
+- Structured the checklist around claimant identity, supplier-side jurisdiction, invoice/claim reconciliation, Section 15 due dates, Section 16 interest, limitation, work-order requirements, oral-order affidavit, multiple-invoice PDF preparation, buyer identity and pre-submit audit.
+- Explained that Samadhaan is the filing/routing interface; the concerned MSEFC converts the application into a regular reference/claim case and handles the dispute.
+- Added post-submission controls for acknowledgement preservation, Council identification, status follow-up, physical filing/service requirements, case-folder structure and version control.
+- Preserved State-specific procedure by linking to the Bihar and Delhi MSEFC filing guides and cautioned against treating central portal filing as satisfaction of every local procedural requirement.
+- Added the article to the Insights Registry and sitemap, synchronized RSS and static Insights snapshots, linked it from the MSME hub, claim-preparation, documents, MSEFC-process and State filing guides, and advanced the MSME content queue.
+
 ## 2026-10-05 IST - Publish MSME interest calculation guide
 - Published `updates/msme-interest-calculation-documents-caution-points.html` as the practical Section 16 calculation and audit guide for MSME delayed-payment claims.
 - Separated calculation methodology from the existing Section 16 authority page and focused on due-date inputs, principal reconciliation, historical RBI Bank Rate periods, monthly rests, part-payments, payment allocation, credits and reproducible worksheets.
