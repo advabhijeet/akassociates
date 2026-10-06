@@ -1,3 +1,12 @@
+## 2026-10-06 IST - Publish RERA delayed-possession complaint checklist
+- Published `updates/rera-delayed-possession-complaint-checklist.html` as the pre-filing checklist for delayed-possession complaints under Section 18 RERA.
+- Structured the file around promoter/project identity, contractual possession date, grace period, regulatory extensions, force majeure, allottee payments, project status, occupancy/completion certificate, possession offer and relief election.
+- Separated the two Section 18 outcomes—withdrawal with refund/interest and continuation with the unit plus delay interest—and separately treated compensation under Sections 71/72.
+- Incorporated `Newtech Promoters` on refund/interest versus compensation jurisdiction, `Imperia Structures` on concurrent consumer remedies, `Ireo Grace` on prolonged delay and refund, and 2026 Bombay High Court guidance on the statutory force-majeure definition.
+- Added practical payment reconciliation, possession-date worksheet, annexure sequence, promoter-defence audit, State-specific form/fee warning and Bihar cross-links.
+- Linked the checklist from the RERA practice hub, Section 18 relief guide, RERA complaint-drafting guide, Bihar delayed-possession guide and promoter-reply guide.
+- Added the article to the Insights Registry and sitemap, synchronized RSS and static Insights snapshots, and advanced the RERA content queue.
+
 ## 2026-10-06 IST - Publish MSME forum comparison guide
 - Published `updates/msme-delayed-payment-vs-civil-suit-vs-arbitration.html` as the decision guide comparing MSEFC, ordinary civil/commercial recovery and contractual arbitration.
 - Distinguished forum availability before and after a Section 18 trigger: recent Delhi and Bombay High Court authority permits contractual arbitration where MSEFC has not been invoked, while `Mahakali Foods` requires the statutory mechanism to take precedence once Section 18 is triggered.
