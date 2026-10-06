@@ -52,9 +52,9 @@ Published authority pages:
 - Delhi MSEFC filing and procedure guide.
 - How to prepare an MSME delayed-payment claim.
 - MSME interest calculation: documents and caution points.
+- MSME Samadhaan filing checklist.
 
 High-intent future topics:
-- MSME Samadhaan filing checklist.
 - MSME delayed payment vs civil suit vs arbitration.
 
 ### RERA / Builder-Buyer Disputes
