@@ -1,3 +1,12 @@
+## 2026-10-06 IST - Publish MSME forum comparison guide
+- Published `updates/msme-delayed-payment-vs-civil-suit-vs-arbitration.html` as the decision guide comparing MSEFC, ordinary civil/commercial recovery and contractual arbitration.
+- Distinguished forum availability before and after a Section 18 trigger: recent Delhi and Bombay High Court authority permits contractual arbitration where MSEFC has not been invoked, while `Mahakali Foods` requires the statutory mechanism to take precedence once Section 18 is triggered.
+- Added the civil/commercial suit route using the Bombay High Court Full Bench decision in `Sonali Power Equipment` and supporting High Court authority that MSMED does not expressly or impliedly oust ordinary civil-court jurisdiction.
+- Incorporated Section 12A pre-institution mediation for qualifying commercial suits, counterclaim/set-off in Section 18(3) arbitration under `Silpi Industries`, limitation across routes, interim-relief comparison, costs and post-decision enforcement.
+- Warned against parallel/duplicative proceedings and framed the forum decision as an early strategic election rather than a post-filing optimisation exercise.
+- Linked the guide from the MSME, Commercial Recovery and Arbitration hubs, the MSEFC process, Samadhaan checklist and Section 12A commercial-courts guide.
+- Added the article to the Insights Registry and sitemap, synchronized RSS and static Insights snapshots, and completed the current MSME high-intent queue.
+
 ## 2026-10-06 IST - Publish MSME Samadhaan filing checklist
 - Published `updates/msme-samadhaan-filing-checklist.html` as the portal-and-follow-up checklist for delayed-payment applications.
 - Reconciled current Ministry of MSME RAMP guidance using valid Udyam Registration with legacy UAM-era FAQ wording instead of silently carrying old registration terminology forward.
