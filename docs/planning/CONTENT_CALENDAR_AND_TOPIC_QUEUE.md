@@ -62,10 +62,9 @@ High-intent future topics:
 Published authority pages:
 - RERA delayed possession complaint checklist.
 - RERA refund vs possession: document review points.
+- Builder-buyer agreement clauses to check before complaint.
 
 High-intent future topics:
-
-- Builder-buyer agreement clauses to check before complaint.
 - RERA execution/enforcement after order.
 - Homebuyer documents before filing RERA complaint.
 - RERA complaint in Bihar: preparation and common mistakes.
