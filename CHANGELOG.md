@@ -1,3 +1,9 @@
+## 2026-10-08 IST - Publish homebuyer RERA documents and payment evidence checklist
+- Added `updates/rera-homebuyer-documents-before-complaint.html` as a distinct homebuyer evidence-file preparation article, complementing existing RERA complaint drafting, delayed possession and agreement reviews.
+- Covered parties and project identity, Section 13 and agreement records, payment reconciliation, home loan disbursements, possession/OC documents, demands, buyer defaults, cancellation, digital communications, chronology and annexures.
+- Cited the RERA Act, Bihar Rules 36-37 and official Bihar portal manual; flagged 2026 General Regulations notification and preserved non-solicitation policy.
+- Prepared registry, static Insights cards, RSS, sitemap and internal links for synchronization.
+
 ## 2026-10-08 IST - Publish RERA Section 40 enforcement guide
 - Published `updates/rera-execution-enforcement-after-order.html` covering monetary recovery under Section 40(1) and act-based enforcement under Section 40(2).
 - Included `Newtech Promoters` on refund principal and interest recovery, appellate stay and Section 43(5) pre-deposit distinctions, and recovery-certificate follow-up.
