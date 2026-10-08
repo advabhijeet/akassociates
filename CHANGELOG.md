@@ -1,3 +1,13 @@
+## 2026-10-08 IST - Publish RERA refund versus possession document review guide
+- Published `updates/rera-refund-vs-possession-document-review.html` as the relief-election decision guide following the delayed-possession complaint checklist.
+- Distinguished withdrawal with refund and prescribed interest under Section 18(1) from retention of the unit with delay interest under its proviso, using `Newtech Promoters` and the current Act.
+- Added a side-by-side decision table and separate document sets for refund and possession, with contractual possession date, grace period, extensions, allottee defaults, interest worksheet, occupancy/completion certificate, readiness, settlement terms and practical enforcement considerations.
+- Addressed home-loan disbursements, security/mortgage release and loan closure as independent documentary questions; did not imply that a RERA refund order automatically extinguishes loan liability.
+- Incorporated the Supreme Court's 2026 `Parsvnath Developers v. Mohit Khirbat` consumer-law analysis of statutory certification and lawful handover without importing the consumer award's rate into RERA interest calculations.
+- Kept compensation separate from statutory refund/interest and linked the proper Authority versus Adjudicating Officer distinction; noted concurrent consumer remedies subject to avoiding double recovery.
+- Added the guide to the Insights Registry, sitemap, RSS, homepage and Legal Insights snapshots and linked it from the RERA practice hub, Section 18 relief, delayed-possession checklist, complaint drafting, Bihar RERA and promoter-side reply pages.
+- Advanced the RERA queue to the builder-buyer agreement clause review topic.
+
 ## 2026-10-06 IST - Publish RERA delayed-possession complaint checklist
 - Published `updates/rera-delayed-possession-complaint-checklist.html` as the pre-filing checklist for delayed-possession complaints under Section 18 RERA.
 - Structured the file around promoter/project identity, contractual possession date, grace period, regulatory extensions, force majeure, allottee payments, project status, occupancy/completion certificate, possession offer and relief election.
