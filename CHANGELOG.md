@@ -1,3 +1,9 @@
+## 2026-10-08 IST - Publish RERA Section 40 enforcement guide
+- Published `updates/rera-execution-enforcement-after-order.html` covering monetary recovery under Section 40(1) and act-based enforcement under Section 40(2).
+- Included `Newtech Promoters` on refund principal and interest recovery, appellate stay and Section 43(5) pre-deposit distinctions, and recovery-certificate follow-up.
+- Added Bihar-specific coverage of Rules 25 and 26 and recent execution orders; flagged the September 2026 General Regulations update before using earlier execution forms.
+- Updated the Insights registry, sitemap, RSS, homepage, Legal Insights and RERA internal links; advanced the queue to homebuyer document preparation.
+
 ## 2026-10-08 IST - Publish builder-buyer agreement clause review for RERA complaints
 - Published `updates/builder-buyer-agreement-clauses-before-rera-complaint.html` as the contract audit guide for allottees preparing RERA proceedings.
 - Reviewed 24 agreement categories, including correct promoter/project identity, Section 13 advance and registered agreement, agreement form, carpet area, price/additional charges, milestone demands, possession trigger/grace/force majeure, statutory interest, refund, cancellation/forfeiture, unilateral plan changes, amenities, OC/CC, defect liability, conveyance, maintenance, transfers, forum clauses, notices and marketing representations.
