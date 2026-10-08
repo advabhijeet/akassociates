@@ -1,3 +1,11 @@
+## 2026-10-08 IST - Publish builder-buyer agreement clause review for RERA complaints
+- Published `updates/builder-buyer-agreement-clauses-before-rera-complaint.html` as the contract audit guide for allottees preparing RERA proceedings.
+- Reviewed 24 agreement categories, including correct promoter/project identity, Section 13 advance and registered agreement, agreement form, carpet area, price/additional charges, milestone demands, possession trigger/grace/force majeure, statutory interest, refund, cancellation/forfeiture, unilateral plan changes, amenities, OC/CC, defect liability, conveyance, maintenance, transfers, forum clauses, notices and marketing representations.
+- Grounded the statutory issues in Sections 2, 11 to 19, 31, 71 and 72 of RERA and distinguished Supreme Court consumer-law observations on one-sided clauses in `Pioneer Urban` and `Ireo Grace` from RERA-specific relief and rates.
+- Added a 24-row clause-to-documents-and-issue matrix, annexure sequence, complaint-paragraph mapping, buyer-default stress test and separate treatment of refund/possession/interest and compensation.
+- Linked the article from the RERA practice hub, delayed-possession checklist, refund-versus-possession guide, Section 18 refund guide, complaint drafting, Bihar filing, Bihar delayed-possession and promoter response pages.
+- Registered the article, synchronized sitemap/RSS and homepage/Legal Insights snapshots, and advanced the RERA queue to enforcement after order.
+
 ## 2026-10-08 IST - Publish RERA refund versus possession document review guide
 - Published `updates/rera-refund-vs-possession-document-review.html` as the relief-election decision guide following the delayed-possession complaint checklist.
 - Distinguished withdrawal with refund and prescribed interest under Section 18(1) from retention of the unit with delay interest under its proviso, using `Newtech Promoters` and the current Act.
