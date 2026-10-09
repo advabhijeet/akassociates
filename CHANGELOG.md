@@ -1,3 +1,9 @@
+## 2026-10-09 IST - Rebuild Bihar RERA complaint filing guide for Search Console review
+- Retained the existing canonical URL `updates/bihar-rera-complaint.html` and its approved illustration, substantially replacing the short cross-State overview with a Bihar-specific procedural guide.
+- Verified Bihar Rules 36 and 37 (Form M/Form N), official login instructions and Rs 1,000 online fee; distinguished Supreme Court `Newtech Promoters` treatment of statutory refund/delay interest and compensation from simplified portal wording.
+- Covered project verification, Section 31 forum selection, payment evidence, declarations, document indexing, online filing, Registry scrutiny, notices/hearings, 2026 General Regulations and Section 40 post-order enforcement.
+- Synchronised article, registry, static Insights cards, RSS, sitemap and source references without changing the original publication date. Actual Google indexing is not guaranteed by republication.
+
 ## 2026-10-08 IST - Publish homebuyer RERA documents and payment evidence checklist
 - Added `updates/rera-homebuyer-documents-before-complaint.html` as a distinct homebuyer evidence-file preparation article, complementing existing RERA complaint drafting, delayed possession and agreement reviews.
 - Covered parties and project identity, Section 13 and agreement records, payment reconciliation, home loan disbursements, possession/OC documents, demands, buyer defaults, cancellation, digital communications, chronology and annexures.
