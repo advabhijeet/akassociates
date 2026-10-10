@@ -1,3 +1,9 @@
+## 2026-10-10 IST - Rebuild older MSME delayed-payment guide for indexing review
+- Kept `updates/msme-delayed-payment.html` and its approved raster thumbnail; replaced the short Romanised Hindi title and broad English overview with a distinctive English first-response guide for unpaid micro/small suppliers.
+- Covered Section 2(n) eligibility and registration-timing uncertainty (Silpi Industries and NBCC larger-Bench referral), Section 2(b)/15 appointed day and the written 45-day ceiling, Section 16 interest, invoice/payment reconciliation, evidence, legal reminders, Section 18/MSEFC, Samadhaan and buyer objections.
+- Flagged the 2026 MSMED Amendment Act commencement-notification requirement instead of assuming changes operative from assent; retained the historical 2026-05-05 publication date and made the update date visible and consistent.
+- Synchronized article metadata, registry, static Insights cards, RSS, sitemap and related-source navigation; no new URL, no redirect and no indexing guarantee.
+
 ## 2026-10-09 IST - Rebuild Bihar RERA complaint filing guide for Search Console review
 - Retained the existing canonical URL `updates/bihar-rera-complaint.html` and its approved illustration, substantially replacing the short cross-State overview with a Bihar-specific procedural guide.
 - Verified Bihar Rules 36 and 37 (Form M/Form N), official login instructions and Rs 1,000 online fee; distinguished Supreme Court `Newtech Promoters` treatment of statutory refund/delay interest and compensation from simplified portal wording.
