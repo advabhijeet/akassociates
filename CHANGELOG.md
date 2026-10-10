@@ -1,3 +1,11 @@
+## 2026-10-10 IST - Strengthen Bihar arbitration service page for indexing review
+- Rebuilt `services/arbitration-lawyer-bihar.html` while preserving its URL, self-canonical, theme, LegalService schema type and service-page structure.
+- Replaced broad service copy with Bihar/Patna-specific forum selection: Sections 2(1)(e), 9, 11, 17, 21, 34 and 36 of the Arbitration Act, Commercial Courts Act Section 10 and the effect of seat versus hearing venue.
+- Clarified that domestic Section 11 appointment may lie before Patna High Court where jurisdiction exists; interim measures and award challenges may require the competent district/Commercial Court.
+- Linked Patna High Court's Arbitration Centre Rules 2023 (gazetted May 2024) and rules directory without asserting that the Centre is a mandatory forum for all arbitrations.
+- Added a forum table, stage-specific evidence, Section 34 deadline and Section 36 no-automatic-stay cautions, MSMED Act statutory distinction, sources, internal links and synchronized FAQ/LegalService descriptions.
+- Updated sitemap lastmod; no new article or RSS registry entry because this is a service page. Google indexing outcome remains independent of publication.
+
 ## 2026-10-10 IST - Rework cross-State RERA forum-selection service guide
 - Rebuilt `services/rera-lawyer-bihar-up-delhi-ncr.html` without changing its URL, canonical, theme or established service page structure.
 - Distinguished project-linked territorial jurisdiction for Bihar, UP (Noida, Greater Noida, Ghaziabad), Delhi NCT, and the two Haryana RERA authorities: Gurugram district versus remaining Haryana districts via Panchkula.
