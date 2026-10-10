@@ -1,3 +1,9 @@
+## 2026-10-10 IST - Rebuild Section 138 demand-notice guide for indexing review
+- Retained `updates/cheque-bounce-notice-limitation.html`, its approved thumbnail, original May 2026 publication date and self-canonical; changed the page's focus from a generic date checklist to notice drafting, exact demand amount, postal service and separate Section 138/142 statutory periods.
+- Cited the Supreme Court's 2025 `Kaveri Plastics` ruling on a materially incorrect cheque-amount demand, `Suman Sethi` on severable claims, `C.C. Alavi Haji` on rebuttable registered-post service, and `Saketh`/`Econ Antri` on complaint limitation.
+- Added a notice audit, cheque-wise evidence timeline, actual receipt and one-calendar-month computation example, drawer response, errors to avoid and reciprocal specialist links without duplicating the broader Section 138 article.
+- Updated article/JSON-LD metadata, Insights registry, static listing, RSS feed, sitemap lastmod and legal sources. No claim that republication guarantees Google indexing.
+
 ## 2026-10-10 IST - Rebuild older MSME delayed-payment guide for indexing review
 - Kept `updates/msme-delayed-payment.html` and its approved raster thumbnail; replaced the short Romanised Hindi title and broad English overview with a distinctive English first-response guide for unpaid micro/small suppliers.
 - Covered Section 2(n) eligibility and registration-timing uncertainty (Silpi Industries and NBCC larger-Bench referral), Section 2(b)/15 appointed day and the written 45-day ceiling, Section 16 interest, invoice/payment reconciliation, evidence, legal reminders, Section 18/MSEFC, Samadhaan and buyer objections.
