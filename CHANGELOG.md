@@ -1,3 +1,10 @@
+## 2026-10-10 IST - Rework cross-State RERA forum-selection service guide
+- Rebuilt `services/rera-lawyer-bihar-up-delhi-ncr.html` without changing its URL, canonical, theme or established service page structure.
+- Distinguished project-linked territorial jurisdiction for Bihar, UP (Noida, Greater Noida, Ghaziabad), Delhi NCT, and the two Haryana RERA authorities: Gurugram district versus remaining Haryana districts via Panchkula.
+- Explained the difference between a geographic Delhi NCR label and a legally competent RERA forum, separate UP RERA regional offices, project/phase and promoter verification, unregistered project issues, and the Supreme Court's Newtech distinction between statutory refund/delay interest and compensation.
+- Added a district-to-authority table, primary-source portal links, updated FAQ/LegalService schema, document and filing checks, and contextual links to existing RERA guides; updated sitemap lastmod.
+- This substantive update follows Google's crawled-not-indexed report and does not guarantee that the page will enter Google Search.
+
 ## 2026-10-10 IST - Rebuild Section 138 demand-notice guide for indexing review
 - Retained `updates/cheque-bounce-notice-limitation.html`, its approved thumbnail, original May 2026 publication date and self-canonical; changed the page's focus from a generic date checklist to notice drafting, exact demand amount, postal service and separate Section 138/142 statutory periods.
 - Cited the Supreme Court's 2025 `Kaveri Plastics` ruling on a materially incorrect cheque-amount demand, `Suman Sethi` on severable claims, `C.C. Alavi Haji` on rebuttable registered-post service, and `Saketh`/`Econ Antri` on complaint limitation.
