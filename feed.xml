@@ -5,7 +5,7 @@
   <link>https://chambersofak.in/legal-updates.html</link>
   <description>Legal updates, procedural guides, case notes and document checklists from Chambers of AK.</description>
   <language>en-IN</language>
-  <lastBuildDate>Sat, 10 Oct 2026 06:29:00 GMT</lastBuildDate>
+  <lastBuildDate>Sat, 10 Oct 2026 11:00:00 GMT</lastBuildDate>
   <atom:link href="https://chambersofak.in/feed.xml" rel="self" type="application/rss+xml" />
   <generator>Chambers of AK Insights Registry</generator>
   <item>
@@ -707,17 +707,19 @@
     <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-bihar-rera-complaint-approved-style-640.jpg" width="640" height="360" />
   </item>
   <item>
-    <title>Cheque bounce notice and limitation</title>
+    <title>Cheque bounce legal notice: drafting, service and limitation</title>
     <link>https://chambersofak.in/updates/cheque-bounce-notice-limitation.html</link>
     <guid isPermaLink="true">https://chambersofak.in/updates/cheque-bounce-notice-limitation.html</guid>
-    <description>Key dates to track before filing or defending a Section 138 cheque bounce complaint.</description>
+    <description>A notice-specific Section 138 guide: cheque-amount demand, thirty-day notice limit, registered-post service proof, fifteen-day payment window and complaint limitation.</description>
     <pubDate>Mon, 04 May 2026 18:30:00 GMT</pubDate>
     <category>Procedure Note</category>
     <category>NI Act</category>
-    <category>Cheque Bounce</category>
-    <category>Notice</category>
-    <category>Limitation</category>
     <category>Section 138</category>
+    <category>Demand Notice</category>
+    <category>Service of Notice</category>
+    <category>Limitation</category>
+    <category>Section 142</category>
+    <category>Cheque Bounce</category>
     <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-cheque-bounce-notice-limitation-batch6-v2.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
     <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-cheque-bounce-notice-limitation-batch6-v2-640.jpg" width="640" height="360" />
   </item>
