@@ -1,3 +1,9 @@
+## 2026-10-10 IST - Audit and reconcile Section 15 MSMED payment rule page metadata
+- Audited `updates/msme-45-days-payment-rule.html` after the September 2026 Search Console crawl report; the October 4 statutory rewrite was already substantive and correctly separated the 15-day appointed-day mechanism and written 45-day ceiling. No new general rewrite was needed.
+- Corrected the visibly stale “Updated July 2026” marker; aligned BlogPosting headline and breadcrumb with the existing H1, set the actual October 10 revision timestamp, and added a direct link to the dedicated Section 16 compound-interest guide.
+- Preserved existing canonical, content framing, site design, original May 2026 publication date and illustration; synchronized Insights Registry, static article cards, RSS and sitemap lastmod.
+- This is maintenance and consistency remediation; it does not imply a recent Google crawl or guarantee indexing.
+
 ## 2026-10-10 IST - Strengthen Bihar arbitration service page for indexing review
 - Rebuilt `services/arbitration-lawyer-bihar.html` while preserving its URL, self-canonical, theme, LegalService schema type and service-page structure.
 - Replaced broad service copy with Bihar/Patna-specific forum selection: Sections 2(1)(e), 9, 11, 17, 21, 34 and 36 of the Arbitration Act, Commercial Courts Act Section 10 and the effect of seat versus hearing venue.
