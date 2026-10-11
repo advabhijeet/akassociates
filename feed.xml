@@ -5,7 +5,7 @@
   <link>https://chambersofak.in/legal-updates.html</link>
   <description>Legal updates, procedural guides, case notes and document checklists from Chambers of AK.</description>
   <language>en-IN</language>
-  <lastBuildDate>Sun, 11 Oct 2026 14:46:00 GMT</lastBuildDate>
+  <lastBuildDate>Sun, 11 Oct 2026 15:47:00 GMT</lastBuildDate>
   <atom:link href="https://chambersofak.in/feed.xml" rel="self" type="application/rss+xml" />
   <generator>Chambers of AK Insights Registry</generator>
   <item>
@@ -491,7 +491,7 @@
     <title>Section 21 Arbitration Act: notice, receipt and commencement</title>
     <link>https://chambersofak.in/updates/arbitration-notice-before-claim.html</link>
     <guid isPermaLink="true">https://chambersofak.in/updates/arbitration-notice-before-claim.html</guid>
-    <description>When arbitration commences by receipt, what the invocation request should identify, and how Section 21 interacts with limitation and Section 11.</description>
+    <description>When arbitration begins under Section 21: provable receipt, the invoking request, Section 43 limitation, Section 11 appointment and claims raised later under Section 23.</description>
     <pubDate>Fri, 15 May 2026 18:30:00 GMT</pubDate>
     <category>Procedure Note</category>
     <category>Arbitration</category>
@@ -500,6 +500,7 @@
     <category>Commencement</category>
     <category>Limitation</category>
     <category>Section 11</category>
+    <category>Section 23</category>
     <media:content url="https://chambersofak.in/assets/img/citadel/citadel-thumb-arbitration-notice-before-claim-painted-bw-v2.jpg" medium="image" type="image/jpeg" width="1200" height="675" />
     <media:thumbnail url="https://chambersofak.in/assets/img/citadel/cards/citadel-thumb-arbitration-notice-before-claim-painted-bw-v2-640.jpg" width="640" height="360" />
   </item>
