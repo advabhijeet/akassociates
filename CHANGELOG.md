@@ -1,3 +1,10 @@
+## 2026-10-11 IST - Refresh comprehensive Section 138 NI Act guide for indexing review
+- Audited `updates/section-138-cheque-bounce-limitation.html` against the revised notice/service guide, first-thirty-days checklist and post-summons defence note; retained all four URLs with distinct search intent and no content consolidation.
+- Added Supreme Court's `Dashrathbhai Trikambhai Patel` (2022) analysis of part-payment after cheque issuance and before presentation, instrument endorsement under Section 56, and its separate role from post-dishonour payment.
+- Updated the concise Section 138 notice discussion with `Kaveri Plastics`, 2025 INSC 1133, on the exact cheque amount in the written demand; directed readers to the focused notice/service guide.
+- Synchronized the BlogPosting headline and breadcrumb with existing H1, refreshed visible and structured modification dates, preserved 2026-05-05 datePublished and approved article image, and added official Supreme Court PDF sources.
+- Updated registry summary/date/tags, static Insights listing, RSS and sitemap lastmod; article remains on its self-canonical URL and Google indexing is not guaranteed.
+
 ## 2026-10-10 IST - Audit and reconcile Section 15 MSMED payment rule page metadata
 - Audited `updates/msme-45-days-payment-rule.html` after the September 2026 Search Console crawl report; the October 4 statutory rewrite was already substantive and correctly separated the 15-day appointed-day mechanism and written 45-day ceiling. No new general rewrite was needed.
 - Corrected the visibly stale “Updated July 2026” marker; aligned BlogPosting headline and breadcrumb with the existing H1, set the actual October 10 revision timestamp, and added a direct link to the dedicated Section 16 compound-interest guide.
