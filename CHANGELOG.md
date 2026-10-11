@@ -1,3 +1,10 @@
+## 2026-10-11 IST - Update Sabarimala nine-judge reference case-status review
+- Updated `updates/sabarimala-case-9-judge-bench-2026.html` while retaining the original 19 May 2026 publication date, approved image, canonical and detailed May hearing chronology.
+- Added a prominent 11 October 2026 status review explaining that the nine-judge reference was reserved on 14 May 2026 and no subsequently published final nine-judge verdict was identified in the materials reviewed.
+- Distinguished Supreme Court Observer's pending case tracker from a Hindustan Times report dated 1 October 2026 about Justice B. V. Nagarathna beginning to draft an opinion; no future pronouncement date was asserted as fact.
+- Changed the headline and SEO metadata to cover the 2018 ruling and 2026 status, without describing any final 2026 decision as delivered; aligned BlogPosting and breadcrumb schema, revised dates, registry and static Insights/RSS entries.
+- Updated sitemap lastmod; Google indexing cannot be inferred from publication or general search-engine results.
+
 ## 2026-10-11 IST - Refresh comprehensive Section 138 NI Act guide for indexing review
 - Audited `updates/section-138-cheque-bounce-limitation.html` against the revised notice/service guide, first-thirty-days checklist and post-summons defence note; retained all four URLs with distinct search intent and no content consolidation.
 - Added Supreme Court's `Dashrathbhai Trikambhai Patel` (2022) analysis of part-payment after cheque issuance and before presentation, instrument endorsement under Section 56, and its separate role from post-dishonour payment.
