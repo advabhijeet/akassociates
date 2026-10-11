@@ -1,3 +1,10 @@
+## 2026-10-11 IST - Review and update Section 21 arbitration commencement article
+- Completed audit of `updates/arbitration-notice-before-claim.html`, the final substantive page from the initial Search Console crawled-but-not-indexed review queue; kept existing URL and approved image rather than rewriting the comprehensive guide.
+- Added a receipt-date illustration under Section 21 and cross-referenced `ASF Buildtech`, 2025 INSC 616, for how Section 21 commencement and Section 23 claims/counterclaims differ, with official Supreme Court PDF link.
+- Retained and reviewed coverage of `Adavya Projects` (2025) and `Bhagheeratha Engineering` (2026), distinguishing default commencement, notice scope and the fact-sensitive effects of absence/non-service.
+- Corrected stale visible July 2026 update metadata; aligned JSON-LD and breadcrumb headline with H1, preserved original May 2026 publication date and strengthened the Bihar arbitration-service crosslink.
+- Synchronized Insights registry, static listings, RSS and sitemap lastmod without claiming Search Console indexing or a new Google crawl.
+
 ## 2026-10-11 IST - Update Sabarimala nine-judge reference case-status review
 - Updated `updates/sabarimala-case-9-judge-bench-2026.html` while retaining the original 19 May 2026 publication date, approved image, canonical and detailed May hearing chronology.
 - Added a prominent 11 October 2026 status review explaining that the nine-judge reference was reserved on 14 May 2026 and no subsequently published final nine-judge verdict was identified in the materials reviewed.
