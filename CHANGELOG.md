@@ -1,3 +1,11 @@
+## 2026-10-13 IST - Rebuild Delhi NCR Section 138 cheque-bounce jurisdiction service guide
+- Reworked the existing `services/cheque-bounce-lawyer-delhi-ncr.html` page after it newly appeared in the October GSC crawled-but-not-indexed export; preserved existing canonical URL, site design, legal-service metadata identity, and contact options.
+- Replaced the ~640-word generic location/checklist page with a ~1,800-word, document-led, non-solicitational Delhi NCR forum guide, distinguishing Delhi courts from Noida/Ghaziabad (UP) and Gurugram/Faridabad (Haryana).
+- Explained account-based Section 142(2)(a) payee home-branch and non-account Section 142(2)(b) drawer-branch jurisdiction, Section 142A(2) same-drawer/pending-complaint exception, practical multi-state examples and a bank-branch evidence checklist.
+- Cited official India Code and Supreme Court authorities including `Prakash Chimanlal Sheth` (2025 INSC 897), `Jai Balaji Industries v. HEG` (2025 INSC 1362), and `Kaveri Plastics` (2025 INSC 1133), with direct judgment links.
+- Reconciled FAQPage structured data with four visible FAQs, updated SEO/social titles and descriptions and breadcrumb and LegalService JSON-LD, preserved Patna practice-base disclosure and added specialist article cross-links.
+- Updated sitemap lastmod to 2026-10-13; GSC indexing requires separate live URL inspection/request and cannot be inferred from publication.
+
 ## 2026-10-11 IST - Review and update Section 21 arbitration commencement article
 - Completed audit of `updates/arbitration-notice-before-claim.html`, the final substantive page from the initial Search Console crawled-but-not-indexed review queue; kept existing URL and approved image rather than rewriting the comprehensive guide.
 - Added a receipt-date illustration under Section 21 and cross-referenced `ASF Buildtech`, 2025 INSC 616, for how Section 21 commencement and Section 23 claims/counterclaims differ, with official Supreme Court PDF link.
