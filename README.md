@@ -5,14 +5,19 @@ Official static website repository for **Chambers of AK - Advocates & Legal Cons
 - Live site: https://chambersofak.in
 - Repository: `advabhijeet/akassociates`
 - Production branch: `main`
-- Current public article count: **30**
+- Current public article count: **48** (registry snapshot verified 16 October 2026)
 - Current production baseline: **Chambers Citadel v1**
 
 ## Current status
 
-The public site is stable and deployed through GitHub Pages. The July 2026 repository audit identified deployment-boundary, documentation, asset-weight and duplicated-content work. Cleanup Batch 1 is complete: internal documentation, preview pages and repository tools are excluded from the public Pages build, the sitewide SEO validator is enforced in CI, and a branded 404 page is active.
+**Documentation reconciled: 16 October 2026.** The public website is in production on GitHub Pages, using Chambers Citadel v1. The July deployment-boundary, documentation, asset/performance, service-consolidation and theme-runtime cleanup batches were completed; continued legal-content and service-page work appears in later commits through 13 October 2026.
 
-New article publication remains paused until the cleanup sequence reaches the content-resumption checkpoint.
+- Publishing **is active**, not paused. The Insights registry contains 48 entries, the RSS feed contains 48 items and the sitemap currently contains 83 URLs; these are repository counts, **not** Google-indexed-page counts.
+- The publishing workflow uses the central article registry, static Insights links, RSS, sitemap, relevant schema and thumbnail references, and repository validation.
+- The next operational checkpoint is a **fresh Google Search Console indexing and search-performance review**, followed by selective improvements to existing content. Prior Search Console counts are historical until reverified.
+- The baseline project-status document is `docs/PROJECT_ROADMAP.md`; `CHANGELOG.md` is the more current chronological record. See `docs/maintenance/ACTIVE_DOCUMENTATION_INDEX.md` for status categories.
+
+**Status boundary:** Repository and code checks do not establish live search indexing, Core Web Vitals results or successful external account approvals. Do not present them as confirmed without current evidence.
 
 ## Technology
 
@@ -105,21 +110,15 @@ A new public path must be added to the correct public directory and must not be 
 - Blog filters, category/tag views and pagination
 - Contact, enquiry and semantic page modules
 
-### Paused
+### Deferred or separate products
 
-- clean standalone Citadel of Kang extraction
-- public-safe configuration migration
-- module registry/version consolidation
-- Citadel Manager / CMS
-- standalone theme repository
+- **Deferred:** extracting and packaging a standalone, neutral Citadel of Kang theme repository. The public-safe configuration and module/runtime groundwork were completed in July; this does **not** mean a standalone theme release is completed.
+- **Planned, not implemented:** Citadel Manager / authenticated CMS and a separate secure client portal.
+- **Planned:** article comments and independently activated reading-time module. Existing article reading-progress behavior is already part of the production baseline, but its standalone extraction remains planned.
+- **Conditional:** AdSense article-only monetisation, after account approval and compliance checks.
+- **Waiting for approved inputs:** Team page / named team profiles.
 
-The active production inventory is documented in:
-
-```text
-docs/maintenance/theme/CITADEL_PRODUCTION_MODULE_INVENTORY.md
-```
-
-The old `assets/css/themes/chambers-ak.css` file remains a rollback fallback until a later controlled cleanup explicitly removes it.
+These deferrals do **not** pause routine article publication or fixes to the production website.
 
 ## Article publishing
 
@@ -197,14 +196,15 @@ CHANGELOG.md
 
 The active documentation index distinguishes production documentation, active operations, future planning and archived history. Historical status snapshots are not current operating instructions.
 
-## Current cleanup sequence
+## Current operating sequence
 
-1. **Completed:** Deployment Boundary and Validator Integrity.
-2. **Current:** Documentation Consolidation.
-3. **Next:** Asset and Performance Cleanup.
-4. **Then:** Service-Page Consolidation.
-5. **Then:** Citadel Theme Restart.
-6. **After cleanup:** resume the controlled Article 6-10 publishing run.
+1. **Completed (July 2026):** deployment boundary, documentation consolidation, asset/performance cleanup, service-page consolidation and Citadel runtime restart.
+2. **Completed subsequently:** controlled article publication resumed; SEO/legal-content revisions and enquiry-form tracking continued, as recorded in `CHANGELOG.md`.
+3. **Current:** assess indexing, impressions, CTR and page-level search demand in Search Console; validate live performance and enquiry-event reporting.
+4. **Next:** refresh underperforming existing pages, select new article topics not already published, and maintain legal-source quality.
+5. **Conditional / future:** approve any additional service pages based on distinct demand; plan CMS, portal and standalone theme work as separate products.
+
+Do not apply obsolete cleanup-stage pauses from historical plans. See `docs/PROJECT_ROADMAP.md` for the current workstream/status table.
 
 ## Maintenance rules
 
