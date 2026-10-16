@@ -2,6 +2,8 @@
 
 This document records future Chambers of AK content priorities for legal insights, service pages and SEO growth.
 
+**Queue reconciliation: 16 October 2026.** The central registry has **48 published article entries** and the RSS feed has 48 items. Publication is active; this queue is a selection aid, not a commitment to publish every topic or a standing pause. Before drafting, check the live registry for equivalent coverage under a different slug. Search Console metrics remain **unverified** until a fresh account export/review.
+
 ## Purpose
 
 Create a controlled content pipeline so future website updates are not random. Topics should be selected based on:
@@ -193,20 +195,42 @@ Every article should update:
 - Search Console indexing status;
 - planning/changelog documentation.
 
-## Current Next Topic Candidates
+## Latest queue reconciliation (16 October 2026)
 
-Recommended next legal insight topics:
+The five prior "next" candidates have **already been published by topic**, so none should remain in a to-publish queue:
 
-1. `updates/sarfaesi-notice-reply-documents.html`
-2. `updates/property-title-search-before-purchase.html`
-3. `updates/commercial-contract-review-checklist.html`
-4. `updates/section-9-arbitration-interim-relief.html`
-5. `updates/rera-execution-after-order.html`
+| Previously proposed topic | Published page / current status |
+| --- | --- |
+| SARFAESI notice reply / supporting documents | `updates/sarfaesi-notice-reply-documents.html` — published |
+| Property title search before purchase | `updates/property-title-search-before-purchase-india.html` — published (different slug) |
+| Commercial contract review checklist | `updates/commercial-contract-review-checklist.html` — published |
+| Section 9 arbitration interim relief | `updates/section-9-arbitration-interim-relief.html` — published |
+| RERA enforcement after order | `updates/rera-execution-enforcement-after-order.html` — published (different slug) |
 
-Recommended next service-page candidates:
+The current **48** registry entries include new MSME statutory/procedural pieces and RERA homebuyer checklists. Updates to existing pages remain legitimate; avoid duplicating their search intent with near-identical new URLs.
 
-1. `services/property-title-search-bihar.html`
-2. `services/real-estate-due-diligence-bihar.html`
-3. `services/drt-lawyer-patna.html`
-4. `services/sarfaesi-lawyer-bihar.html`
-5. `services/commercial-contract-lawyer-patna.html`
+### Candidate topics to evaluate after the next Search Console review
+
+These are **unapproved research candidates**, not scheduled publication commitments. Verify legal authorities, search demand and overlap before drafting:
+
+1. Cheque bounce settlement/compounding: documentation and court-stage considerations.
+2. Section 141 NI Act: company, director and signatory liability in cheque-bounce cases.
+3. Section 11 Arbitration Act: appointment application preparation and notice record.
+4. Section 17 Arbitration Act: tribunal interim measures and document checklist.
+5. DRT/SARFAESI Section 17 challenge: timeline and evidence checklist.
+6. Property mutation versus title: what Bihar land records establish and what they do not.
+
+**Selection rule:** first inspect Search Console query/page data and compare existing titles, headings and canonical pages; prioritise strengthening published content where demand overlaps.
+
+### Service-page proposals — awaiting approval and demand evidence
+
+The eight URLs in the `Priority Service Pages` section above remain **candidates**, not approved production work. Do not create thin or near-identical jurisdiction pages merely to increase sitemap volume. Distinct procedure, authority and forum coverage must justify each proposed service page.
+
+### Monthly publishing/validation handoff
+
+1. Export the latest Search Console Page Indexing data and URL drilldowns; preserve date and source. If account access is unavailable, record the blocker rather than inventing numbers.
+2. Compare impressions, clicks, CTR and queries against published registry URLs.
+3. Check relevant statutes, judgments, notifications and court/forum procedure from primary sources.
+4. Select the minimum distinct and useful article/service work needed; obtain any required approval.
+5. Update article, registry, static hub, RSS, sitemap, structured data, `CHANGELOG.md` and this queue together.
+6. Validate repository files and separately document any manual/live search indexing or browser checks.
