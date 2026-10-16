@@ -100,9 +100,11 @@ The official registry currently contains **48** article entries, the RSS feed **
 
 ## Historical and superseded planning
 
-- `docs/planning/NEXT_WEBSITE_UPGRADE_AGENDA.md`: May 2026 sequence; **historical**, not a present work queue.
-- `docs/planning/SEO_GROWTH_AGENDA.md`: May 2026 SEO checklist; **historical**, superseded by the October roadmap and content queue.
-- `docs/maintenance/audits/PHASE_4A_BATCH6_PLAN.md`: completed Batch 6 metadata scope; historical even though its heading still says active planning.
+- `docs/planning/NEXT_WEBSITE_UPGRADE_AGENDA.md`: compatibility pointer to `docs/archive/historical-planning/NEXT_WEBSITE_UPGRADE_AGENDA_2026-05.md`.
+- `docs/planning/SEO_GROWTH_AGENDA.md`: compatibility pointer to `docs/archive/historical-planning/SEO_GROWTH_AGENDA_2026-05.md`.
+- `docs/maintenance/audits/PHASE_4A_BATCH6_PLAN.md`: compatibility pointer to `docs/archive/historical-planning/PHASE_4A_BATCH6_PLAN_2026-07.md`.
+
+All three archived documents are **historical**, not current work queues. The original paths remain as short pointers to avoid breaking old references.
 - `docs/codex/HANDOFF.md` is the single current Codex-only handoff after reconciliation; the May completion records under it remain historical.
 
 Do not infer a live pause from old plans. The active publication and Google follow-up statuses appear in the master roadmap.
