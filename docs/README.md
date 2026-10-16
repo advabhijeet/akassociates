@@ -1,6 +1,6 @@
 # Chambers of AK Documentation
 
-Last consolidated: **13 July 2026**
+Last reconciled: **16 October 2026**
 
 This directory contains internal project documentation. It is excluded from the public GitHub Pages artifact through `_config.yml`.
 
@@ -13,7 +13,7 @@ Use these documents in this order:
 3. `README.md` — repository and operating overview.
 4. `CHANGELOG.md` — chronological implementation record.
 
-When an older document conflicts with these files, the newer active document controls.
+When older documents conflict with current repository facts, the 16 October 2026 status in `docs/PROJECT_ROADMAP.md`, the live registry and the latest `CHANGELOG.md` control. Historical May/July plans have been archived with compatibility pointers; do not carry forward old publishing pauses or article counts.
 
 ## Folder map
 

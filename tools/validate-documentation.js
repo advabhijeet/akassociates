@@ -266,8 +266,15 @@ const roadmapPath = "docs/PROJECT_ROADMAP.md";
 if (exists(roadmapPath)) {
   const content = read(roadmapPath);
 
+  // Require an explicit human-readable review date without freezing it to July 2026.
+  // The master roadmap is updated as the website grows, so a hardcoded snapshot date
+  // would incorrectly fail validation after a legitimate reconciliation.
+  const marker = content.match(/^Last (?:consolidated|reconciled): \*\*(\d{1,2} [A-Za-z]+ \d{4})\*\*/m);
+  if (!marker || Number.isNaN(Date.parse(marker[1] + " UTC"))) {
+    errors.push(`${roadmapPath}: missing or invalid dated consolidation/reconciliation marker.`);
+  }
+
   for (const required of [
-    "Last consolidated: **13 July 2026**",
     "Repository Cleanup Batch 1",
     "Repository Cleanup Batch 2",
     "Repository Cleanup Batch 3",

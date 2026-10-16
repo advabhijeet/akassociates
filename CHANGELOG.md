@@ -1,3 +1,13 @@
+## 2026-10-16 IST - Reconcile active documentation with October website operations
+- Documentation-only update: corrected the root README's obsolete article-publication pause, 30-article count and unfinished July cleanup sequence. Production publishing is active; registry and RSS each contain 48 article items, and sitemap contains 83 URLs in the inspected repository snapshot.
+- Updated `docs/PROJECT_ROADMAP.md` to classify production, active, externally unverified, conditional and deferred work. Kept Google indexing, Core Web Vitals, analytics reporting and AdSense approval separate from repository-level evidence.
+- Updated `docs/maintenance/ACTIVE_DOCUMENTATION_INDEX.md` and `docs/README.md` to reflect the current status hierarchy, active publishing and archival pointers.
+- Reconciled `docs/planning/CONTENT_CALENDAR_AND_TOPIC_QUEUE.md` against existing articles; all five previously proposed next subjects were already published (some under different slugs), so replaced them with research candidates pending Search Console/authority review.
+- Replaced the current Codex handoff state in `docs/codex/HANDOFF.md` with the October snapshot, preserving May completed work as historical notes and documenting external verification boundaries.
+- Archived the full older `NEXT_WEBSITE_UPGRADE_AGENDA.md`, `SEO_GROWTH_AGENDA.md` and `PHASE_4A_BATCH6_PLAN.md` under `docs/archive/historical-planning/`; preserved short compatibility pointers at original paths to avoid broken legacy links.
+- Updated `tools/validate-documentation.js` to accept a valid dated roadmap reconciliation marker rather than requiring the historical 13 July 2026 marker; this is a repository validation-tool fix, not a production feature change.
+- No public page, article body, sitemap, registry, CSS, production JavaScript, advertisement or deployment configuration was changed. Repository validation is tracked through branch/pull-request checks; this entry does not claim live-browser, Search Console or analytics verification.
+
 ## 2026-10-13 IST - Rebuild Delhi NCR Section 138 cheque-bounce jurisdiction service guide
 - Reworked the existing `services/cheque-bounce-lawyer-delhi-ncr.html` page after it newly appeared in the October GSC crawled-but-not-indexed export; preserved existing canonical URL, site design, legal-service metadata identity, and contact options.
 - Replaced the ~640-word generic location/checklist page with a ~1,800-word, document-led, non-solicitational Delhi NCR forum guide, distinguishing Delhi courts from Noida/Ghaziabad (UP) and Gurugram/Faridabad (Haryana).
