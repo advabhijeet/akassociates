@@ -269,7 +269,7 @@ if (exists(roadmapPath)) {
   // Require an explicit human-readable review date without freezing it to July 2026.
   // The master roadmap is updated as the website grows, so a hardcoded snapshot date
   // would incorrectly fail validation after a legitimate reconciliation.
-  const marker = content.match(/^Last (?:consolidated|reconciled): \\*\\*(\\d{1,2} [A-Za-z]+ \\d{4})\\*\\*/m);
+  const marker = content.match(/^Last (?:consolidated|reconciled): \*\*(\d{1,2} [A-Za-z]+ \d{4})\*\*/m);
   if (!marker || Number.isNaN(Date.parse(marker[1] + " UTC"))) {
     errors.push(`${roadmapPath}: missing or invalid dated consolidation/reconciliation marker.`);
   }
