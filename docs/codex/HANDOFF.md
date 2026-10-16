@@ -32,58 +32,53 @@ Rules:
 - Codex/local automation may perform browser smoke tests or live route checks when it has a functioning browser/network environment.
 - Record source checks, local smoke tests, live visual checks and manual user checks separately.
 
-## Active Handoff Items
+## Current handoff — 16 October 2026
 
-### AdSense approval and article-only ads readiness
+This supersedes the former **May 2026** "Current Repository State" and "Active Handoff Items" below. Completed May tasks have been retained in the historical section. Consult the latest `main`, `docs/PROJECT_ROADMAP.md`, `docs/maintenance/ACTIVE_DOCUMENTATION_INDEX.md` and `CHANGELOG.md` before any change.
 
-Status: Next active website workstream
+**Repository snapshot (main `ccdf7a0`, 13 October 2026):**
 
-- The 2026-05-10 AdSense email asked for application updates and pointed toward content readiness, especially insufficient content or content quality.
-- The visible dashboard is still in the account-not-approved onboarding view; do not ask the user to share Account information or Customer ID.
-- Public Privacy Policy, Disclaimer and Terms now include advertising/third-party ad technology language.
-- Future visible ads should be limited to article-style pages and kept subtle.
-- Do not add ads to homepage, contact, case enquiry, practice/service landing pages, policy pages or private-communication-focused screens.
-- Reference plan: `docs/planning/ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md`.
+- Chambers public website and Citadel v1 are in production.
+- The July deployment-boundary, asset/performance, service-consolidation, documentation and modularisation cleanup batches are complete.
+- Article publication has resumed: **48** entries in `assets/data/insights-registry.json`, **48** RSS items in `feed.xml`, and **83** sitemap URLs at the 16 October repository check. These are **not** verified Google-indexed counts.
+- Static Insight links, RSS generation, article metadata/thumbnail parity and sitewide validation are implemented. The original Batch 6 metadata fixes should not be reapplied without an audit.
+- A privacy-safe `enquiry_submit` tracking event was added after confirmed EmailJS success in October; check live analytics reporting separately.
+- Latest content maintenance includes updates on MSME, Section 138, Section 21 arbitration, RERA, Sabarimala and Delhi NCR cheque-bounce jurisdiction; latest observed `main` commit is `ccdf7a0`.
+- **Do not reinstate the obsolete README instruction to pause article publication.**
 
-Next:
+### Active: Search Console follow-up (external account evidence)
 
-1. Treat the issue as account/onboarding approval unless AdSense exposes a more specific reason later.
-2. Strengthen thin pages and short legacy articles before resubmission.
-3. Add official AdSense connection code only if required, and do not enable aggressive sitewide ad placement.
+1. Review the latest Page Indexing report, covering indexed/not-indexed URLs, crawled-but-not-indexed, duplicates, redirects and canonical selection.
+2. Review performance by page and query (impressions, clicks, CTR, search position) for the law firm's core legal practice clusters.
+3. Track changed or consolidated URLs without unnecessary canonical churn.
+4. Separate Search Console findings from code-level validations. If the connected reporting integration is not available, use a manual Search Console export or user-provided report; do not claim current counts.
 
-### Search Console follow-up
+### Active: content accuracy and targeted SEO maintenance
 
-Status: Manual/account follow-up after deployment or live recrawl
+- Prioritise source-verified changes to existing pages before creating competing keyword/intent pages.
+- Use `docs/planning/CONTENT_CALENDAR_AND_TOPIC_QUEUE.md`; its previous five "next topic" subjects are already published under actual registry slugs.
+- For new/updated articles, keep article HTML, Registry, static Insights cards, RSS, sitemap, image/schema, internal links and changelog in parity.
+- Preserve stable existing URLs, differentiable jurisdictional content and no-solicitation copy.
 
-Check Search Console for:
+### Awaiting verification: live UX and analytics
 
-- Breadcrumb enhancement detection after the sitewide breadcrumb pass.
-- Coverage/indexing status for recently changed hub pages.
-- Indexing status for newer legal insight articles.
-- Homepage duplicate canonical validation, without repeatedly changing the homepage while Google is still processing.
+- Test representative desktop/mobile routes, dark/light mode, article thumbnails and enquiry flow after material shared-module changes.
+- Confirm Core Web Vitals independently; code or asset optimisation does not prove passing CWV.
+- Confirm that GTM/GA4 records `enquiry_submit` after success, and verify attribution only with analytics evidence.
 
-## Current Repository State
+### Conditional: AdSense onboarding
 
-As of 2026-05-10:
+- The last saved AdSense plan is dated May 2026; **no current account approval is established by repository documentation**.
+- Preserve the article-only, restrained advertisement requirement; do not add ads elsewhere or claim approval.
+- Reassess only if account status/official review steps require changes; consult `docs/planning/ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md`.
 
-- Batch 1 SEO pages and article upgrades are complete.
-- Batch 2 service-page buildout is complete.
-- Optional `services/cheque-bounce-lawyer-delhi-ncr.html` is complete.
-- Search Console indexing has been requested for Batch 2 URLs.
-- Homepage, About page and Expertise page have been repositioned to firm/team-focused language.
-- Homepage founder portrait has been removed.
-- Future `team.html` page is planned in `docs/planning/TEAM_PAGE_AGENDA.md`.
-- `CHANGELOG.md` exists and must be updated after every meaningful modification.
-- `docs/audits/WEBSITE_REPOSITORY_AUDIT_2026-05-06.md` records the current audit.
-- Documentation has been reorganized into `docs/audits/`, `docs/codex/`, `docs/google/`, `docs/maintenance/`, `docs/planning/`, `docs/seo/`, and `docs/wiki/`.
-- Next-stage upgrade plan is recorded in `docs/planning/NEXT_WEBSITE_UPGRADE_AGENDA.md`.
-- Manual/local validation checks have passed for JavaScript syntax, git diff, sitemap XML, feed XML, JSON-LD and internal href/src references in recent maintenance passes.
-- Phase 4 practice-page strengthening is complete.
-- `sitemap.xml` records 2026-05-09 freshness for the strengthened practice pages and key hub pages.
-- Contact form direct EmailJS Send Enquiry is connected and uses Template ID `contactformtempid`; Contact cleanup is deployed and live-checked.
-- GitHub Wiki pages were refreshed from the local wiki working folders on 2026-05-09, then `.wiki-clone/` and `.wiki-work/` were removed from the local workspace. If similar folders appear again, do not commit them.
-- Insights category/tag polish is the active local patch after Contact stability validation.
-- AdSense readiness is now tracked as an article-only subtle ads workstream; see `docs/planning/ADSENSE_APPROVAL_AND_ARTICLE_ADS_PLAN.md`.
+### Deferred: separate product initiatives
+
+- Standalone Citadel theme extraction/release (production config/runtime groundwork already exists).
+- Authenticated Citadel Manager/CMS, secure Client Portal, moderated article comments and standalone reading-time module.
+- Team page until approved team details exist; future new service URLs until distinct need and indexing impact are reviewed.
+
+**Codex action rule:** use this handoff only when a local repository/browser/code operation cannot be performed safely in the connector. Once executed, update `CHANGELOG.md` and the master roadmap for changed project status; distinguish tests actually run from checks recommended for later.
 
 ## Completed Handoff Items
 
@@ -276,15 +271,13 @@ Status: Done
 - Preserved the user's scroll position and restored it when the drawer closes.
 - Added viewport-change safety for desktop resize.
 
-## Next Planned Work
+## Next Planned Work (October 2026)
 
-Recommended order:
+1. Run repository validation plus an explicit documentation-freshness review after this reconciliation.
+2. Complete the next Google Search Console coverage/performance check (account access or manual export required).
+3. Review excluded/recrawled URLs and any observed cannibalisation before commissioning new SEO pages.
+4. Verify live Core Web Vitals, representative pages and GTM/GA4 enquiry-event reporting.
+5. Refresh legal citations and article content where demonstrably necessary; publish only genuinely distinct approved topics.
+6. Retain planned CMS, client portal, standalone theme and comments work outside the current static-public-site delivery scope.
 
-1. Complete post-Phase-4 sitemap lastmod cleanup and local validation.
-2. Codex/local inspection of `.wiki-clone/` and `.wiki-work/`.
-3. Live desktop/mobile smoke validation.
-4. Review titles, meta descriptions, canonicals, footer links and CTAs.
-5. Create the two pending legal update articles.
-6. Prepare social/newsletter distribution copy for each new article.
-7. Improve Case Enquiry flow.
-8. Consider future service pages only after Search Console review.
+Older May 2026 tasks are listed above only as **completed historical handoff records**, not the current backlog.
