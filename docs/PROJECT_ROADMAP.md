@@ -1,6 +1,6 @@
 # Chambers of AK — Master Roadmap
 
-Last consolidated: **13 July 2026**
+Last reconciled: **16 October 2026** (repository main at `ccdf7a0`; counts are code-level, not Search Console indexing results)
 
 This is the single active roadmap for the Chambers of AK public website, the Chambers Citadel production frontend, article publishing, SEO operations and future product work.
 
@@ -20,9 +20,9 @@ The current Citadel-derived Chambers implementation includes the active visual t
 
 ### Citadel of Kang theme pack
 
-**Status:** partially implemented inside this repository; standalone extraction paused.
+**Status:** production configuration and runtime modules implemented inside Chambers; standalone theme packaging/extraction deferred.
 
-Reusable modules are being proven in production, but the repository still mixes active Chambers-specific code, reusable candidates and dormant theme-lab files. Standalone extraction resumes only after repository cleanup and module-manifest work.
+Public-safe configuration, a production module manifest and runtime segmentation were completed during July cleanup. A neutral standalone release has **not** been approved or delivered; continue to keep theme-development work outside the production asset boundary.
 
 ### Citadel Manager / Website CMS
 
@@ -54,7 +54,7 @@ The following are live:
 12. Central registry, sitemap and full RSS parity.
 13. Sitewide SEO, registry, encoding, structure, documentation, deployment and public-asset validators.
 14. Branded custom 404 page.
-15. Thirty published articles.
+15. Forty-eight published article entries in the registry as checked on 16 October 2026.
 16. Optimized JPEG article-thumbnail delivery with native lazy card images.
 
 ## Completed phases
@@ -150,24 +150,36 @@ Completed on 13 July 2026.
 - resumed neutral standalone extraction work under `docs/theme-lab/standalone-extraction/`;
 - added Citadel runtime validation to GitHub Actions.
 
-## Current phase
+## Current phase — October 2026 operating status
 
-### Content Resumption Checkpoint
+The July cleanup sequence and its original content-resumption checkpoint are **historically complete**. The repository has resumed article publication and content refreshes. The five-item Article 6–10 plan below is therefore **not an active publication ceiling or a pause condition**.
 
-1. inspect Search Console coverage after deployment-boundary and service consolidation changes;
-2. confirm the three consolidated service URLs are being recrawled toward their retained canonicals;
-3. review Core Web Vitals after thumbnail and runtime optimization;
-4. confirm no runtime or theme-lab asset errors appear in browser and Pages logs;
-5. resume the controlled Article 6–10 publishing run.
+| Workstream | Status | Evidence / next decision |
+| --- | --- | --- |
+| Chambers public website and Citadel v1 | Production | July cleanup batches completed; maintain and validate before shared changes. |
+| Article publishing and existing-page legal updates | Active | 48 registry articles, 48 feed items and 83 sitemap URLs at the 16 October 2026 repository check; topic selection should avoid duplicates. |
+| Technical SEO, static links and article metadata | Implemented; ongoing verification | Validators, static directory and synchronised feed exist; Search Console recrawl/coverage must be checked separately. |
+| Google indexing, search terms and CTR | Awaiting external evidence | Review Search Console URL status, impressions, queries and clicks; do not equate sitemap/registry totals with indexed URLs. |
+| Core Web Vitals and live mobile UX | Awaiting fresh verification | Recheck after image and runtime optimisation; do not infer pass from GitHub validation alone. |
+| Enquiry conversion reporting | Implemented; awaiting reporting validation | `enquiry_submit` event added after confirmed EmailJS success on 2 October 2026; verify GTM/GA4 capture and attribution. |
+| New practice/service location pages | Conditional | Require distinct jurisdictional usefulness and review of existing indexing/cannibalisation first. |
+| AdSense / article-only advertisements | Conditional on account approval | No approval or live ad placement established by this roadmap. |
+| Team page | Waiting for approved details | Do not publish or place in navigation/sitemap before approved profiles. |
+| Standalone Citadel theme | Deferred product | Production modularisation exists; a separate reusable theme release is not complete. |
+| Citadel Manager / CMS | Planned, not built | Requires an authenticated local/server-side design. |
+| Secure Client Portal | Future separate product | Requires security architecture, authenticated backend and private-data boundary. |
+| Native article comments / standalone reading-time | Planned | Do not infer production activation from module-contract documents. |
 
-## Next phases
+### Current execution order
 
-### Controlled Article 6–10 Run
+1. Reconcile core documentation and Codex handoff with the 48-article October baseline.
+2. Obtain fresh Search Console coverage and search-performance data. The connected third-party reporting subscription may be unavailable; use the Search Console interface/export if necessary.
+3. Verify live Core Web Vitals, internal links, enquiry tracking and representative page routes.
+4. Prioritise targeted improvements to existing MSME, NI Act, arbitration, RERA and recovery clusters based on actual performance and legal accuracy.
+5. Select next genuinely new content topics; retain registry / sitemap / RSS / metadata parity.
+6. Reassess additional service pages and separate-product development only after the relevant dependencies or approval.
 
-1. publish one article at a time through the established validation workflow;
-2. use topic-specific, logo-free 1200 × 675 artwork;
-3. maintain registry, sitemap, RSS and structured-data parity;
-4. pause after Article 10 for indexing, cannibalisation and internal-link analysis.
+**Closed historical milestone:** the controlled Article 6–10 publication run was the post-cleanup restart plan, not a present limit. Later registry publication exceeds that scope.
 
 ## SEO and reachability track
 
@@ -187,7 +199,7 @@ Future work:
 
 - practice-specific enquiry variants;
 - clearer post-submission next steps;
-- conversion attribution and post-submission reporting after GTM/GA4 verification;
+- verify conversion attribution and GTM/GA4 reporting for the privacy-safe `enquiry_submit` event introduced on 2 October 2026;
 - downloadable checklists only where legally and operationally appropriate;
 - accessibility and error-state review.
 
