@@ -5,7 +5,8 @@
 - Reconciled `docs/planning/CONTENT_CALENDAR_AND_TOPIC_QUEUE.md` against existing articles; all five previously proposed next subjects were already published (some under different slugs), so replaced them with research candidates pending Search Console/authority review.
 - Replaced the current Codex handoff state in `docs/codex/HANDOFF.md` with the October snapshot, preserving May completed work as historical notes and documenting external verification boundaries.
 - Archived the full older `NEXT_WEBSITE_UPGRADE_AGENDA.md`, `SEO_GROWTH_AGENDA.md` and `PHASE_4A_BATCH6_PLAN.md` under `docs/archive/historical-planning/`; preserved short compatibility pointers at original paths to avoid broken legacy links.
-- No public page, article body, sitemap, registry, CSS, JavaScript, advertisement or deployment configuration was changed. Repository validation is tracked separately through the branch/pull-request checks; this entry does not claim live-browser, Search Console or analytics verification.
+- Updated `tools/validate-documentation.js` to accept a valid dated roadmap reconciliation marker rather than requiring the historical 13 July 2026 marker; this is a repository validation-tool fix, not a production feature change.
+- No public page, article body, sitemap, registry, CSS, production JavaScript, advertisement or deployment configuration was changed. Repository validation is tracked through branch/pull-request checks; this entry does not claim live-browser, Search Console or analytics verification.
 
 ## 2026-10-13 IST - Rebuild Delhi NCR Section 138 cheque-bounce jurisdiction service guide
 - Reworked the existing `services/cheque-bounce-lawyer-delhi-ncr.html` page after it newly appeared in the October GSC crawled-but-not-indexed export; preserved existing canonical URL, site design, legal-service metadata identity, and contact options.
