@@ -1,0 +1,26 @@
+name: SEO and article integrity
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate published pages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verify article encoding
+        run: node tools/validate-article-encoding.js
+      - name: Verify article registry
+        run: node tools/validate-insights-registry.js --strict
+      - name: Verify sitewide search discovery
+        run: node tools/validate-seo-sitewide.js
