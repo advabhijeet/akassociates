@@ -5,7 +5,7 @@ This project uses the same public HTML pages, canonical URLs, and sitemap for or
 ## Confirmed repository state (20 October 2026)
 
 - The wildcard rule in `robots.txt` permits public crawling and advertises `sitemap.xml`.
-- `legal-updates.html` contains static HTML links for the 48 entries in `assets/data/insights-registry.json`, in addition to client-side enhancements.
+- `legal-updates.html` contains static HTML links for the 50 entries in `assets/data/insights-registry.json`, in addition to client-side enhancements.
 - `feed.xml` includes the registered updates, and `sitemap.xml` lists their canonical URLs.
 - Patna property-dispute and civil-litigation landing pages use self-canonicals.
 - The corresponding Bihar redirect stubs intentionally use `noindex` and point to the Patna canonical pages. Do not convert these into independently indexable pages without reviewing the consolidation strategy.
@@ -23,6 +23,8 @@ node tools/validate-seo-sitewide.js
 The sitewide validator checks page titles, approved noindex redirects, canonical/OG URLs, sitemap parity, article metadata and registry thumbnails, RSS article coverage, and static HTML article discovery. It now also checks for root crawl blocking rules in `robots.txt`.
 
 The GitHub Actions workflow `.github/workflows/seo-integrity.yml` runs these checks on pull requests and main-branch pushes. Check its result before merging significant publishing changes.
+
+For the correct baseline interpretation of Google's **dedicated Generative AI performance report (Search)**, see [Phase 4 measurement baseline (20 October 2026)](GENERATIVE_AI_VISIBILITY_BASELINE_2026-10-20.md). Its baseline is 378 generative AI feature impressions from 17 July to 16 October 2026; this is not clicks, traffic or citation proof in other assistants.
 
 ## Live verification outside the repository
 
