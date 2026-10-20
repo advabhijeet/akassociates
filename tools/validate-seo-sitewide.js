@@ -458,11 +458,64 @@ for (const url of registryUpdateLinks) {
   }
 }
 
+// Guard against accidental loss of crawlable HTML links when the
+// registry-driven Insights cards are regenerated.
+const hubPath = path.join(ROOT, 'legal-updates.html');
+let staticInsightCount = 0;
+if (!fs.existsSync(hubPath)) {
+  errors.push('legal-updates.html missing.');
+} else {
+  const hubHtml = read(hubPath);
+  const staticArticleHrefs = new Set((hubHtml.match(/<a\b[^>]*>/gi) || [])
+    .filter((tag) => /\bdata-static-insight-card=["']true["']/i.test(tag))
+    .map((tag) => getFirstAttr(tag, 'href'))
+    .filter(Boolean)
+    .map((href) => href.replace(/^\.\//, '').replace(/^\/+/, '').split(/[?#]/)[0]));
+  staticInsightCount = staticArticleHrefs.size;
+  const registeredHrefs = new Set(registryUpdateLinks.map((url) => url.slice((SITE + '/').length)));
+  for (const href of registeredHrefs) {
+    if (!staticArticleHrefs.has(href)) {
+      errors.push('legal-updates.html missing static HTML article link: ' + href);
+    }
+  }
+  for (const href of staticArticleHrefs) {
+    if (!registeredHrefs.has(href)) {
+      warnings.push('legal-updates.html static article link not in registry: ' + href);
+    }
+  }
+}
+
+// Verify that the root robots policy remains open to retrieval/search bots.
+// Site-level HTTP and firewall restrictions must be inspected separately.
+const robotsPath = path.join(ROOT, 'robots.txt');
+if (!fs.existsSync(robotsPath)) {
+  errors.push('robots.txt missing.');
+} else {
+  const robots = read(robotsPath);
+  if (!/Sitemap:\s*https:\/\/chambersofak\.in\/sitemap\.xml/i.test(robots)) {
+    errors.push('robots.txt missing canonical sitemap directive.');
+  }
+  const groups = robots.split(/\r?\n\s*\r?\n/).map((group) => group.trim());
+  const agents = ['*', 'Googlebot', 'Bingbot', 'OAI-SearchBot', 'PerplexityBot', 'Claude-SearchBot'];
+  for (const group of groups) {
+    const declared = [...group.matchAll(/^User-agent:\s*(.+)$/gim)].map((m) => m[1].trim().toLowerCase());
+    if (!declared.some((agent) => agents.some((expected) => agent === expected.toLowerCase()))) continue;
+    if (/^Disallow:\s*\/\s*$/mi.test(group)) {
+      errors.push('robots.txt contains a root crawl block for: ' + declared.join(', '));
+    }
+  }
+  if (!groups.some((group) => /^User-agent:\s*\*\s*$/mi.test(group) &&
+      /^Allow:\s*\/\s*$/mi.test(group))) {
+    errors.push('robots.txt missing general public-crawl allow rule.');
+  }
+}
+
 console.log('Sitewide SEO validation summary:');
 console.log(`- HTML files checked: ${htmlFiles.length}`);
 console.log(`- Sitemap URLs checked: ${sitemapUrls.size}`);
 console.log(`- Registry items checked: ${registryItems.length}`);
 console.log(`- RSS update links checked: ${feedLinks.size}`);
+console.log(`- Static HTML article links checked: ${staticInsightCount}`);
 console.log(`- Approved noindex exceptions: ${APPROVED_NON_INDEXABLE.size}`);
 console.log(`- Warnings: ${warnings.length}`);
 console.log(`- Errors: ${errors.length}`);
