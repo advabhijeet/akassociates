@@ -1,39 +1,49 @@
 # Bing, Yahoo, Copilot, and AI search discovery — Chambers of AK
 
-Last reviewed: 21 October 2026.
+Last reviewed: 21 October 2026. Bing Webmaster Tools site connection and sitemap submission confirmed by the site owner on this date; Bing sitemap processing and indexation remain unverified.
 
 ## Current repository configuration
 
 - Public crawl access explicitly permits `bingbot`, Googlebot, OAI-SearchBot, PerplexityBot, and Claude-SearchBot in `robots.txt`. The wildcard group remains open. This records intent; it does **not** prove firewall/CDN acceptance, successful crawling, indexing, or citations.
 - The canonical site sitemap remains `https://chambersofak.in/sitemap.xml`; the site also publishes `https://chambersofak.in/feed.xml`. The sitemap contains 85 URLs and the Insights registry lists 50 articles as of this review.
 - Registry-backed article discovery uses static HTML links in the Legal Updates hub (not JavaScript alone). Canonicals, article metadata, structured data, and sitemap parity are checked in repository validation.
-- No IndexNow integration or Bing Webmaster Tools verification token could be identified in the repository at review time. **Do not claim Bing is verified or IndexNow is enabled.** These services may also be configured outside the GitHub repository.
+- Bing Webmaster Tools site connection and canonical sitemap submission were confirmed by the owner on 21 October 2026. This does **not** establish Bing's successful processing or individual page indexation.
+- An IndexNow key file is now in the GitHub Pages root, and a GitHub Actions notifier has been configured for changed canonical HTML pages. Its first live delivery/IndexNow acceptance is **not yet verified**; do not claim successful submissions without Action logs and the Bing IndexNow report.
 
-## Priority 1 — establish Bing Webmaster Tools ownership and baseline
+## Priority 1 — Bing indexing and AI baseline (property and sitemap already connected)
 
-1. Open <https://www.bing.com/webmasters/> and sign in with the property owner's account.
-2. Check whether `https://chambersofak.in/` is already a verified site; avoid accidentally adding duplicate properties.
-3. If absent, import the verified site from Google Search Console, or verify via Bing-approved DNS/meta/file method. Never fabricate or publish a verification code.
-4. Submit the exact site sitemap `https://chambersofak.in/sitemap.xml` in **Sitemaps**. Optionally also submit `https://chambersofak.in/feed.xml`; Bing accepts RSS 2.0 alongside XML sitemaps. Confirm the reported processing status and last read date before treating ingestion as verified.
-5. Use Bing **URL Inspection** on the homepage, the Insights hub, and these new articles:
+1. Open <https://www.bing.com/webmasters/>. In **Sitemaps**, verify processing / last read for `https://chambersofak.in/sitemap.xml` rather than submitting the same file again.
+2. Inspect the homepage, Insights hub, and both new pages:
    - <https://chambersofak.in/updates/msefc-defective-goods-set-off-counterclaim.html>
    - <https://chambersofak.in/updates/section-34-partially-reasoned-award-challenge.html>
-6. Record indexing verdict, HTTP status, canonical, and any fetch/robots or markup warnings. Compare separate Bing *Search Performance* clicks/impressions for matching date windows. Do not treat page submission as proof of indexing.
-7. Review **AI Performance**, if available, for cited pages, grounding queries and citation trends across Bing AI experiences. The **Topics Portfolio (Beta)** feature announced 13 October 2026 may be useful for MSME and arbitration clusters when the property has sufficient data; report its figures as directional rather than a complete citation census.
+3. Record Bing's canonical selection, fetch status and indexed/not-indexed verdict. URL Inspection and an indexing request are separate from actual indexing.
+4. In **Search Performance**, export Bing clicks, impressions and indexed landing pages for a complete baseline period.
+5. In **AI Performance**, review total citations, cited URLs, grounding-query themes, and **Topics Portfolio (Beta)** where data is available. These are Bing-supported AI citation counts, not equivalent to Google GSC impressions. Low or missing citations are an honest baseline, not grounds to invent results.
 
-## Priority 2 — enable IndexNow for future genuine article changes
+## Priority 2 — IndexNow publication automation (code in this repository)
 
-Bing recommends IndexNow for real-time notification of updated/new/deleted URLs. It complements, not replaces, the canonical XML sitemap.
+The **IndexNow verification file** `5c688070aeba92b5256f3a4590fd4c6e.txt` is placed at the GitHub Pages root. It is a publicly readable ownership token, not an authentication secret. GitHub Pages must deploy it to:
+`https://chambersofak.in/5c688070aeba92b5256f3a4590fd4c6e.txt`.
 
-**Integration sequence (requires hosting ownership and confirmed deployment):**
+The notifier `tools/indexnow-notify.js` and GitHub Action `.github/workflows/indexnow.yml`:
 
-1. Check the Bing Webmaster Tools IndexNow tab and CDN/hosting service for an existing key or automatic integration **before generating another key**.
-2. If missing, generate a valid unique IndexNow key and publish its UTF-8 key verification file at the publicly accessible same-host location required by the [IndexNow documentation](https://www.bing.com/indexnow). Do not put credentials or unrelated secrets in repository files.
-3. After the live key file is reachable and verifiable, configure the site's publishing workflow or hosting integration to notify IndexNow of only genuinely created, updated, or deleted canonical URLs. The sitemap should remain the complete index.
-4. Verify accepted submissions and crawl/index status in Bing Webmaster Tools. Do not send a bulk one-off notification for all existing URLs without a change, and do not loop repeated notifications for unchanged pages.
-5. IndexNow submission does **not** guarantee crawl, ranking, indexing, or AI citation.
+- Select **only** newly added or modified public HTML files after a production push; deletions are not yet automated.
+- Ignore noncanonical and `noindex` pages and other source files.
+- Require the exact verification key file to be reachable on the live host; require the target article to be reachable with its declared canonical before submitting.
+- Send a single JSON POST to `https://api.indexnow.org/indexnow` listing eligible changed URLs, using the publicly hosted key location.
+- Accept 200 or 202 as notification receipt/validation pending. HTTP status acknowledgement is **not** proof of search-engine crawling or indexation.
+- Skip publication events which change only documentation, styling or workflow files.
 
-Bing discontinued anonymous sitemap ping submissions in 2022: do not implement `https://www.bing.com/ping?sitemap=...`.
+**One-time activation/first submission:**
+
+1. Once deployed, open the public key URL and confirm it displays only the 32-character key.
+2. In GitHub → Actions → **IndexNow changed-page notifications** → **Run workflow**, enter the two article URLs above separated by a comma (one manual run).
+3. Check that Action's output contains `IndexNow acknowledged 2 updated URL(s)` with HTTP 200 or 202; if it fails, inspect the key deployment and HTTP status rather than repeated manual submissions.
+4. Confirm the received URLs in Bing Webmaster Tools' **IndexNow** report. Later **real HTML changes on main** trigger the workflow automatically.
+
+GitHub Actions cannot be launched through the current GitHub connector, so do not claim the first manual run has occurred without separate proof. If Bing already shows a working alternative IndexNow integration, review duplicate senders before enabling further notification methods.
+
+Bing discontinued anonymous sitemap ping submissions in 2022. Keep the XML sitemap unchanged; IndexNow complements it, and neither guarantees indexation.
 
 ## Yahoo and downstream discoverability
 
