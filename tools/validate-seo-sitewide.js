@@ -496,7 +496,19 @@ if (!fs.existsSync(robotsPath)) {
     errors.push('robots.txt missing canonical sitemap directive.');
   }
   const groups = robots.split(/\r?\n\s*\r?\n/).map((group) => group.trim());
-  const agents = ['*', 'Googlebot', 'Bingbot', 'OAI-SearchBot', 'PerplexityBot', 'Claude-SearchBot'];
+  const requiredSearchAgents = ['Googlebot', 'bingbot', 'OAI-SearchBot', 'PerplexityBot', 'Claude-SearchBot'];
+  const agents = ['*', 'AdsBot-Google', ...requiredSearchAgents, 'ChatGPT-User', 'Perplexity-User', 'Claude-User'];
+  for (const requiredAgent of requiredSearchAgents) {
+    const matchingGroups = groups.filter((group) =>
+      [...group.matchAll(/^User-agent:\\s*(.+)$/gim)]
+        .some((m) => m[1].trim().toLowerCase() === requiredAgent.toLowerCase())
+    );
+    if (!matchingGroups.length) {
+      errors.push('robots.txt missing explicit search crawler group: ' + requiredAgent);
+    } else if (!matchingGroups.some((group) => /^Allow:\\s*\\/\\s*$/mi.test(group))) {
+      errors.push('robots.txt missing explicit public-crawl allowance: ' + requiredAgent);
+    }
+  }
   for (const group of groups) {
     const declared = [...group.matchAll(/^User-agent:\s*(.+)$/gim)].map((m) => m[1].trim().toLowerCase());
     if (!declared.some((agent) => agents.some((expected) => agent === expected.toLowerCase()))) continue;
