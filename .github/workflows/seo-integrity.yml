@@ -24,3 +24,7 @@ jobs:
         run: node tools/validate-insights-registry.js --strict
       - name: Verify sitewide search discovery
         run: node tools/validate-seo-sitewide.js
+      - name: Validate IndexNow notification script and key
+        run: |
+          node --check tools/indexnow-notify.js
+          node tools/indexnow-notify.js --check
