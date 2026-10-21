@@ -4,7 +4,7 @@ This project uses the same public HTML pages, canonical URLs, and sitemap for or
 
 ## Confirmed repository state (20 October 2026)
 
-- The wildcard rule in `robots.txt` permits public crawling and advertises `sitemap.xml`.
+- The wildcard rule in `robots.txt` permits public crawling and advertises `sitemap.xml`. Explicit rules additionally allow Googlebot, bingbot, OAI-SearchBot, PerplexityBot, Claude-SearchBot, and user-requested assistant fetchers; these rules do not independently establish actual crawl access through hosting/CDN filters.
 - `legal-updates.html` contains static HTML links for the 50 entries in `assets/data/insights-registry.json`, in addition to client-side enhancements.
 - `feed.xml` includes the registered updates, and `sitemap.xml` lists their canonical URLs.
 - Patna property-dispute and civil-litigation landing pages use self-canonicals.
@@ -35,6 +35,10 @@ Static files cannot establish whether the hosting/CDN firewall permits a crawler
 3. Review Google's Search Console indexing, Search generative AI inclusion controls, and AI performance reporting.
 4. Verify Bing Webmaster Tools and establish a baseline in AI Performance, where available.
 5. Compare consistent reporting windows over time. Google AI impressions are not equivalent to clicks, users, or confirmed quotations in the generated answer.
+
+## Bing, Yahoo, Microsoft Copilot
+
+The Bing/Yahoo/Copilot discovery and measurement workflow is documented in [BING_YAHOO_AI_SEARCH_SETUP.md](BING_YAHOO_AI_SEARCH_SETUP.md). As of 21 October 2026, Bing Webmaster Tools verification and IndexNow setup could not be established from repository files. Prefer Bing Webmaster Tools import from GSC, submit the canonical sitemap, inspect new article URLs, and capture Bing Search Performance plus the 2026 Bing AI Performance report. Do not use the deprecated anonymous Bing sitemap ping endpoint.
 
 ## Training crawler choice
 
