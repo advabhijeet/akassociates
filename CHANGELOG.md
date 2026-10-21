@@ -1,3 +1,11 @@
+## 2026-10-21 IST - Set up guarded IndexNow notifications for Bing discovery
+- Owner confirmed Bing Webmaster Tools site connection and submission of the canonical XML sitemap; Bing indexing and sitemap processing remain externally unverified.
+- Added a GitHub Pages root ownership-key verification file for IndexNow; the token must be confirmed reachable on the live domain after deployment.
+- Added `tools/indexnow-notify.js` and an opt-in manual / automatic GitHub Actions workflow for genuinely changed, indexable, self-canonical public HTML pages on the production branch.
+- Require live proof of the public verification key and reachable canonical pages before sending notifications. Do not notify redirects, `noindex` pages or non-public files. No private API credential is used.
+- Added offline IndexNow smoke checks to the existing SEO integrity workflow and documented first manual notification, response verification and Bing AI Performance baseline in the Bing/Yahoo setup guide.
+- IndexNow acknowledgement, GitHub CI and Search Console submissions must not be described as proof of indexation or AI citations.
+
 ## 2026-10-16 IST - Reconcile active documentation with October website operations
 - Documentation-only update: corrected the root README's obsolete article-publication pause, 30-article count and unfinished July cleanup sequence. Production publishing is active; registry and RSS each contain 48 article items, and sitemap contains 83 URLs in the inspected repository snapshot.
 - Updated `docs/PROJECT_ROADMAP.md` to classify production, active, externally unverified, conditional and deferred work. Kept Google indexing, Core Web Vitals, analytics reporting and AdSense approval separate from repository-level evidence.
