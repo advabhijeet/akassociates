@@ -1,0 +1,44 @@
+name: IndexNow changed-page notifications
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '*.html'
+      - 'updates/**'
+      - 'services/**'
+      - 'practice/**'
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: 'Optional comma- or newline-separated full URLs for manual notification'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  notify:
+    name: Notify IndexNow for published HTML URLs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout full repository history for a precise URL diff
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verify local IndexNow configuration
+        run: node tools/indexnow-notify.js --check
+      - name: Send only eligible, live canonical URL changes
+        env:
+          GITHUB_EVENT_BEFORE: ${{ github.event.before }}
+          INDEXNOW_MANUAL_URLS: ${{ inputs.urls }}
+        run: node tools/indexnow-notify.js
