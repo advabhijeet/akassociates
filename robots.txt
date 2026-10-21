@@ -1,10 +1,43 @@
+# Chambers of AK - public crawl policy
+# These explicit rules document discovery access, not a ranking or indexing guarantee.
+# Search and user-requested retrieval bots are distinct from model-training crawlers.
+
 User-agent: *
 Allow: /
 
+# Google Search and advertising crawler
 User-agent: Googlebot
 Allow: /
 
 User-agent: AdsBot-Google
 Allow: /
+
+# Bing Search, Microsoft Copilot discovery, and Bing-powered Yahoo results
+User-agent: bingbot
+Allow: /
+
+# AI search discovery
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+# User-requested page retrieval (some services may not apply robots.txt)
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# Model-training crawlers are not separately configured here.
+# The wildcard Allow: / policy remains unchanged for those crawlers.
+# A training opt-out would be a separate publisher decision.
 
 Sitemap: https://chambersofak.in/sitemap.xml
