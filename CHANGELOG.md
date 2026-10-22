@@ -1,3 +1,10 @@
+## 2026-10-22 IST - Resolve Bing URL Inspection metadata warnings on two new articles
+- Owner-supplied Bing Webmaster Tools screenshots confirmed both October guides indexed successfully. The MSEFC defective-goods article had a long-title warning; the partly reasoned Section 34 award article had title-length and description-length warnings.
+- Shortened HTML, Open Graph and Twitter titles while preserving the published article headings, actual legal content, canonical URLs and existing approved image assets.
+- Reduced the Section 34 article's search/social/JSON-LD description from 167 to 144 characters, keeping it accurate and on-topic; the other article's 154-character description was already acceptable.
+- Refreshed each affected article's truthful metadata modification date, sitemap lastmod and RSS lastBuildDate; original publication dates unchanged.
+- Bing's indexed snapshot may continue to show old metadata until recrawl. Neither indexed status nor resolved length warnings implies clicks, ranking improvements or AI citations.
+
 ## 2026-10-21 IST - Set up guarded IndexNow notifications for Bing discovery
 - Owner confirmed Bing Webmaster Tools site connection and submission of the canonical XML sitemap; Bing indexing and sitemap processing remain externally unverified.
 - Added a GitHub Pages root ownership-key verification file for IndexNow; the token must be confirmed reachable on the live domain after deployment.

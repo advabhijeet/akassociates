@@ -10,6 +10,14 @@ Last reviewed: 21 October 2026. Bing Webmaster Tools site connection and sitemap
 - Bing Webmaster Tools site connection and canonical sitemap submission were confirmed by the owner on 21 October 2026. This does **not** establish Bing's successful processing or individual page indexation.
 - An IndexNow key file is now in the GitHub Pages root, and a GitHub Actions notifier has been configured for changed canonical HTML pages. Its first live delivery/IndexNow acceptance is **not yet verified**; do not claim successful submissions without Action logs and the Bing IndexNow report.
 
+## 22 October 2026 — Bing URL Inspection confirmation
+
+The site owner supplied Bing Webmaster Tools URL Inspection screenshots showing **Indexed successfully / URL can appear on Bing** for both:
+- `updates/msefc-defective-goods-set-off-counterclaim.html`: one SEO/GEO warning, **Title too long**.
+- `updates/section-34-partially-reasoned-award-challenge.html`: two SEO/GEO warnings, **Title too long** and **Meta Description too long or too short**.
+
+Both screenshots also show JSON-LD and OpenGraph detected. This is evidence of Bing indexing and markup detection, **not** proof of ranking, traffic, AI citations, or complete schema validation. The metadata warnings prompted shorter descriptive HTML titles and a tighter description for the Section 34 guide; no article body, canonical URL, social-image asset or legal conclusions were altered. After deployment, inspect **Live URL** and wait for Bing's index to reflect the metadata change. Bing AI Performance remains separately pending.
+
 ## Priority 1 — Bing indexing and AI baseline (property and sitemap already connected)
 
 1. Open <https://www.bing.com/webmasters/>. In **Sitemaps**, verify processing / last read for `https://chambersofak.in/sitemap.xml` rather than submitting the same file again.
