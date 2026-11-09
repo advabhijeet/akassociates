@@ -3306,3 +3306,245 @@ body.insights-list-active .insights-category-section {
     display: none;
   }
 }
+
+/* SITEWIDE_INSIGHTS_EDITORIAL_V1
+   Central article design. All /updates/ pages share article.article-body.
+   Exclude the Udyam article, whose approved page-specific design remains intact.
+   No article HTML edits or capsule-style headings. */
+body:has(main article.article-body:not(.udyam-article)) .page-hero,
+body.has-citadel-article-thumb:has(main article.article-body:not(.udyam-article)) .page-hero {
+  min-height: 0;
+  padding: clamp(2.8rem, 5vw, 4.6rem) clamp(1.3rem, 5vw, 4.6rem);
+  text-align: left;
+}
+body:has(main article.article-body:not(.udyam-article)) .page-hero > *,
+body.has-citadel-article-thumb:has(main article.article-body:not(.udyam-article)) .page-hero > * {
+  max-width: 960px;
+  margin-inline: 0;
+}
+body:has(main article.article-body:not(.udyam-article)) .page-hero h1 {
+  max-width: 920px;
+  font-size: clamp(2.25rem, 4.8vw, 3.9rem);
+  line-height: 1.12;
+  text-wrap: balance;
+}
+body:has(main article.article-body:not(.udyam-article)) .page-hero p {
+  max-width: 760px;
+  margin: 1.2rem 0 0;
+  font-size: clamp(.99rem, 1.35vw, 1.16rem);
+  line-height: 1.65;
+}
+main article.article-body:not(.udyam-article) {
+  --ak-ed-ink: #292a2b;
+  --ak-ed-muted: #555657;
+  --ak-ed-line: #ded7ca;
+  --ak-ed-accent: #795a24;
+  --ak-ed-surface: #fcfaf5;
+  --ak-ed-surface-alt: #f5efe5;
+  --ak-ed-table-head: #292a2b;
+  --ak-ed-table-head-text: #fff7e9;
+  color: var(--ak-ed-ink);
+  font-size: clamp(15.5px, 1.05vw, 16.5px);
+  line-height: 1.83;
+}
+main article.article-body:not(.udyam-article) p {
+  text-align: left;
+  text-wrap: pretty;
+}
+main article.article-body:not(.udyam-article) > p:not(.article-summary) {
+  margin-block: 0 1.15rem;
+}
+main article.article-body:not(.udyam-article) strong {
+  color: var(--ak-ed-ink);
+}
+main article.article-body:not(.udyam-article) a:not(.article-nav-button) {
+  color: var(--ak-ed-accent);
+  text-decoration-color: currentColor;
+  text-underline-offset: 3px;
+  overflow-wrap: break-word;
+}
+main article.article-body:not(.udyam-article) a:focus-visible {
+  outline: 2px solid var(--ak-ed-accent);
+  outline-offset: 3px;
+}
+/* Serif heading hierarchy: fine rules, generous whitespace, no boxes. */
+main article.article-body:not(.udyam-article) > h2 {
+  margin: 2.8rem 0 1.05rem;
+  padding: 1.25rem 0 0;
+  border-top: 1px solid var(--ak-ed-line);
+  color: var(--ak-ed-ink);
+  font: 500 clamp(1.67rem, 2.6vw, 2.13rem)/1.25 var(--font-display, Georgia, serif);
+  text-wrap: balance;
+}
+main article.article-body:not(.udyam-article) > h3 {
+  margin: 2rem 0 .85rem;
+  padding: 0 0 .62rem;
+  border: 0;
+  border-bottom: 1px solid var(--ak-ed-line);
+  background: transparent;
+  color: var(--ak-ed-ink);
+  font: 500 clamp(1.3rem, 1.75vw, 1.53rem)/1.33 var(--font-display, Georgia, serif);
+  text-wrap: pretty;
+}
+main article.article-body:not(.udyam-article) > h4 {
+  margin: 1.65rem 0 .65rem;
+  color: var(--ak-ed-ink);
+  font: 600 1.03rem/1.45 var(--font-body, Arial, sans-serif);
+}
+main article.article-body:not(.udyam-article) > :is(h2, h3)[id] {
+  scroll-margin-top: calc(var(--nav-space, 88px) + 70px);
+}
+/* Summary, short answer, notes and extracts. */
+main article.article-body:not(.udyam-article) > .article-summary {
+  margin: 0 0 1.65rem;
+  padding: 1.05rem 1.3rem;
+  border: 1px solid var(--ak-ed-line);
+  border-left: 3px solid var(--ak-ed-accent);
+  background: var(--ak-ed-surface);
+  color: var(--ak-ed-muted);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+main article.article-body:not(.udyam-article) > :is(.content-panel, .article-note, blockquote) {
+  max-width: 100%;
+  margin: 1.5rem 0 1.85rem;
+  padding: 1.1rem 1.35rem;
+  border: 1px solid var(--ak-ed-line);
+  border-left: 3px solid var(--ak-ed-accent);
+  background: var(--ak-ed-surface);
+  color: var(--ak-ed-ink);
+  font-size: .97rem;
+  line-height: 1.8;
+}
+main article.article-body:not(.udyam-article) > :is(.content-panel, .article-note) p:last-child {
+  margin-bottom: 0;
+}
+main article.article-body:not(.udyam-article) > .article-featured-figure {
+  margin-bottom: 2.05rem;
+}
+/* List items remain normal text flow; never grid-split inline words. */
+main article.article-body:not(.udyam-article) > :is(ul, ol) {
+  display: block;
+  margin: .8rem 0 1.7rem;
+  padding-left: 1.55rem;
+  list-style-position: outside;
+}
+main article.article-body:not(.udyam-article) :is(ul, ol) li {
+  margin: .48rem 0;
+  padding-left: .22rem;
+  line-height: 1.75;
+  overflow-wrap: break-word;
+}
+main article.article-body:not(.udyam-article) :is(ul, ol) li::marker {
+  color: var(--ak-ed-accent);
+  font-weight: 700;
+}
+main article.article-body:not(.udyam-article) :is(ul, ol) :is(ul, ol) {
+  margin: .55rem 0 .8rem;
+  padding-left: 1.45rem;
+}
+/* Responsive legal tables with readable column widths. */
+main article.article-body:not(.udyam-article) table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 1.55rem 0 2rem;
+  overflow-x: auto;
+  border: 1px solid var(--ak-ed-line);
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--ak-ed-surface);
+  font-size: .88rem;
+  line-height: 1.6;
+  -webkit-overflow-scrolling: touch;
+}
+main article.article-body:not(.udyam-article) table :is(th, td) {
+  min-width: 125px;
+  padding: .8rem .9rem;
+  border-right: 1px solid var(--ak-ed-line);
+  border-bottom: 1px solid var(--ak-ed-line);
+  vertical-align: top;
+  text-align: left;
+  overflow-wrap: break-word;
+}
+main article.article-body:not(.udyam-article) table th {
+  background: var(--ak-ed-table-head);
+  color: var(--ak-ed-table-head-text);
+  font-weight: 700;
+}
+main article.article-body:not(.udyam-article) table tbody tr:nth-child(even) {
+  background: var(--ak-ed-surface-alt);
+}
+main article.article-body:not(.udyam-article) table tbody td:first-child {
+  font-weight: 600;
+}
+main article.article-body:not(.udyam-article) table caption {
+  color: var(--ak-ed-muted);
+  font: 600 .9rem/1.5 var(--font-body, Arial, sans-serif);
+  text-align: left;
+  padding: .6rem 0;
+}
+/* Legacy articles have FAQ heading-and-answer pairs; no JS needed. */
+main article.article-body:not(.udyam-article) .faq-list {
+  margin: 1.4rem 0 2rem;
+}
+main article.article-body:not(.udyam-article) .faq-list > h3 {
+  margin: 1.4rem 0 .45rem;
+  padding: 1rem 0 0;
+  border-top: 1px solid var(--ak-ed-line);
+  color: var(--ak-ed-ink);
+  font: 500 clamp(1.18rem, 1.65vw, 1.35rem)/1.34 var(--font-display, Georgia, serif);
+}
+main article.article-body:not(.udyam-article) .faq-list > p {
+  margin: 0 0 1.15rem;
+  color: var(--ak-ed-muted);
+  line-height: 1.75;
+}
+main article.article-body:not(.udyam-article) :is(.references-list, .source-list) {
+  margin-block: 1rem 1.7rem;
+  padding-left: 1.5rem;
+}
+main article.article-body:not(.udyam-article) :is(.references-list, .source-list) a {
+  overflow-wrap: anywhere;
+}
+/* Match the existing light/dark theme toggle. */
+:is([data-theme="dark"], [data-theme="citadel-of-ak-dark"], [data-theme^="citadel-of-kang-dark"])
+main article.article-body:not(.udyam-article) {
+  --ak-ed-ink: #f3eee2;
+  --ak-ed-muted: #d8d0c1;
+  --ak-ed-line: #514b40;
+  --ak-ed-accent: #e5c57e;
+  --ak-ed-surface: #2f2e2c;
+  --ak-ed-surface-alt: #37342f;
+  --ak-ed-table-head: #454034;
+  --ak-ed-table-head-text: #fff2d6;
+}
+@media (max-width: 760px) {
+  body:has(main article.article-body:not(.udyam-article)) .page-hero,
+  body.has-citadel-article-thumb:has(main article.article-body:not(.udyam-article)) .page-hero {
+    padding: 2.7rem 1.35rem;
+  }
+  body:has(main article.article-body:not(.udyam-article)) .page-hero h1 {
+    font-size: clamp(2.05rem, 7.4vw, 2.8rem);
+  }
+  main article.article-body:not(.udyam-article) {
+    font-size: 15.5px;
+    line-height: 1.77;
+  }
+  main article.article-body:not(.udyam-article) > h2 {
+    margin-top: 2.2rem;
+    font-size: 1.63rem;
+  }
+  main article.article-body:not(.udyam-article) > h3 {
+    font-size: 1.28rem;
+  }
+  main article.article-body:not(.udyam-article) > .article-summary {
+    padding: .9rem 1rem;
+  }
+  main article.article-body:not(.udyam-article) > :is(.content-panel, .article-note) {
+    padding: .9rem 1rem;
+  }
+  main article.article-body:not(.udyam-article) table :is(th, td) {
+    min-width: 145px;
+  }
+}
