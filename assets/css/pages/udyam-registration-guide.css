@@ -210,3 +210,46 @@
 :is([data-theme="dark"], [data-theme="citadel-of-ak-dark"], [data-theme^="citadel-of-kang-dark"]) .udyam-editorial .udyam-article table.legal-data tbody tr:nth-child(even) { background: #34312c; }
 :is([data-theme="dark"], [data-theme="citadel-of-ak-dark"], [data-theme^="citadel-of-kang-dark"]) .udyam-editorial .udyam-article table.legal-data td { border-color: #554e41; }
 :is([data-theme="dark"], [data-theme="citadel-of-ak-dark"], [data-theme^="citadel-of-kang-dark"]) .udyam-editorial .udyam-article table.legal-data tbody td:first-child { color: #efd19b; }
+
+/* The shared Insights runtime adds has-citadel-article-thumb to article pages.
+   The legacy Citadel hero selectors are stronger than this guide's normal styles.
+   Override them only on this page so the registry thumbnail remains available
+   to social sharing and listing cards, not as the guide's hero background. */
+body.has-citadel-article-thumb .udyam-editorial .page-hero.udyam-hero {
+  display: block;
+  min-height: 0;
+  padding: clamp(48px, 6vw, 92px) clamp(20px, 6vw, 92px);
+  text-align: left;
+  background:
+    radial-gradient(circle at 87% 16%, rgba(163, 121, 53, .17), transparent 30%),
+    linear-gradient(112deg, #fdfbf6 7%, #eee6d9 100%);
+}
+body.has-citadel-article-thumb .udyam-editorial .page-hero.udyam-hero > .udyam-hero-layout {
+  width: min(100%, 1220px);
+  max-width: 1220px;
+  margin-inline: auto;
+  text-align: left;
+}
+body.has-citadel-article-thumb .udyam-editorial .page-hero.udyam-hero p.udyam-hero-panel-label {
+  max-width: none;
+  margin: 0 0 15px;
+  color: #d8bc80;
+  font: 700 10px/1.4 var(--font-body, sans-serif);
+}
+body.has-citadel-article-thumb .udyam-editorial .page-hero.udyam-hero p.udyam-hero-panel-footer {
+  max-width: none;
+  margin: 14px 0 0;
+  color: rgba(255, 255, 255, .62);
+  font: 400 11px/1.5 var(--font-body, sans-serif);
+}
+@media (max-width: 640px) {
+  body.has-citadel-article-thumb .udyam-editorial .page-hero.udyam-hero {
+    padding: 43px 19px;
+  }
+}
+:is([data-theme="dark"], [data-theme="citadel-of-ak-dark"], [data-theme^="citadel-of-kang-dark"])
+body.has-citadel-article-thumb .udyam-editorial .page-hero.udyam-hero {
+  background:
+    radial-gradient(circle at 85% 10%, rgba(153, 114, 48, .21), transparent 35%),
+    linear-gradient(112deg, #202124, #302d28);
+}
