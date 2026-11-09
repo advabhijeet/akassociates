@@ -3348,7 +3348,9 @@ main article.article-body:not(.udyam-article) {
   line-height: 1.83;
 }
 main article.article-body:not(.udyam-article) p {
-  text-align: left;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
   text-wrap: pretty;
 }
 main article.article-body:not(.udyam-article) > p:not(.article-summary) {

@@ -96,7 +96,12 @@
   border-left: 3px solid var(--ue-gold);
   box-shadow: var(--ue-shadow);
 }
-.udyam-editorial .udyam-article p,
+.udyam-editorial .udyam-article p:not(.article-summary) {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  overflow-wrap: anywhere;
+}
 .udyam-editorial .udyam-article li,
 .udyam-editorial .udyam-article .article-summary { text-align: left !important; overflow-wrap: anywhere; }
 .udyam-editorial .udyam-article p + p { margin-top: 1.15rem; }
