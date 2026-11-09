@@ -1,0 +1,212 @@
+/* Chambers of AK: scoped editorial system for the Udyam registration guide. */
+.udyam-editorial {
+  --ue-ink: #1e2022;
+  --ue-muted: #565b61;
+  --ue-gold: #9b742e;
+  --ue-line: #dfd6c6;
+  --ue-surface: #fffefa;
+  --ue-soft: #f7f3eb;
+  --ue-shadow: 0 18px 50px rgba(42, 36, 24, .07);
+}
+.udyam-editorial .page-hero.udyam-hero {
+  display: block;
+  min-height: 0;
+  padding: clamp(48px, 6vw, 92px) clamp(20px, 6vw, 92px);
+  text-align: left;
+  border-bottom: 1px solid var(--ue-line);
+  background: radial-gradient(circle at 87% 16%, rgba(163, 121, 53, .17), transparent 30%), linear-gradient(112deg, #fdfbf6 7%, #eee6d9 100%);
+}
+.udyam-editorial .udyam-hero::after { content: none; }
+.udyam-editorial .udyam-hero-layout {
+  width: min(100%, 1220px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.22fr) minmax(270px, .72fr);
+  gap: clamp(34px, 6vw, 92px);
+  align-items: center;
+  text-align: left;
+}
+.udyam-editorial .udyam-hero-main { min-width: 0; }
+.udyam-editorial .udyam-overline {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 24px;
+  color: #816329;
+  font: 700 10px/1.4 var(--font-body, sans-serif);
+  text-transform: uppercase;
+  letter-spacing: .16em;
+}
+.udyam-editorial .udyam-overline::before { content: ''; width: 34px; height: 2px; background: var(--ue-gold); flex: none; }
+.udyam-editorial .page-hero.udyam-hero h1 {
+  width: auto;
+  max-width: 800px;
+  margin: 0;
+  color: var(--ue-ink);
+  font: 500 clamp(42px, 4.75vw, 73px)/1.07 var(--font-display, Georgia, serif);
+  letter-spacing: -.022em;
+  text-align: left;
+  text-wrap: balance;
+}
+.udyam-editorial .page-hero.udyam-hero h1 span { display: block; color: var(--ue-gold); font-style: italic; font-weight: 400; }
+.udyam-editorial .page-hero.udyam-hero p.udyam-hero-description {
+  max-width: 590px;
+  margin: 25px 0 0;
+  color: var(--ue-muted);
+  font: 400 clamp(15px, 1.3vw, 17px)/1.7 var(--font-body, sans-serif);
+  text-align: left;
+}
+.udyam-editorial .udyam-hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 29px; }
+.udyam-editorial .udyam-hero-actions a {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: 11px 19px;
+  border: 1px solid #b49a65;
+  color: var(--ue-ink);
+  font: 700 11px/1.3 var(--font-body, sans-serif);
+  letter-spacing: .045em; text-decoration: none;
+  transition: background .16s ease, color .16s ease;
+}
+.udyam-editorial .udyam-hero-actions a:first-child { color: #fffaf0; background: #242629; border-color: #242629; }
+.udyam-editorial .udyam-hero-actions a:hover, .udyam-editorial .udyam-hero-actions a:focus-visible { background: #97702a; border-color: #97702a; color: #fff; }
+.udyam-editorial .udyam-hero-panel {
+  position: relative;
+  padding: clamp(23px, 3vw, 38px);
+  color: #f7f4ed;
+  background: #252727;
+  border: 1px solid #a58b56;
+  box-shadow: 14px 16px 0 rgba(135, 110, 69, .13);
+  text-align: left;
+}
+.udyam-editorial .udyam-hero-panel::before { position: absolute; content: ''; inset: 7px; pointer-events: none; border: 1px solid rgba(214, 182, 110, .17); }
+.udyam-editorial .udyam-hero-panel-label { margin: 0 0 15px; font: 700 10px/1.4 var(--font-body, sans-serif); letter-spacing: .19em; color: #d8bc80; text-transform: uppercase; }
+.udyam-editorial .udyam-hero-fact { padding: 16px 0; border-top: 1px solid rgba(255,255,255,.17); display: grid; grid-template-columns: minmax(120px, .55fr) 1fr; gap: 15px; align-items: center; }
+.udyam-editorial .udyam-hero-fact strong { color: #e0c58d; font: 500 clamp(27px, 2.7vw, 42px)/1.05 var(--font-display, Georgia, serif); white-space: nowrap; }
+.udyam-editorial .udyam-hero-fact strong.udyam-case-fact { font-size: clamp(21px, 2.1vw, 28px); line-height: 1.09; }
+.udyam-editorial .udyam-hero-fact span { color: rgba(255,255,255,.82); font: 400 13px/1.52 var(--font-body, sans-serif); }
+.udyam-editorial .udyam-hero-panel-footer { margin: 14px 0 0; color: rgba(255,255,255,.62); font: 400 11px/1.5 var(--font-body, sans-serif); }
+.udyam-editorial .sec.udyam-content-section { padding: clamp(24px, 3vw, 46px) clamp(12px, 3vw, 45px) 90px; }
+.udyam-editorial .udyam-content-section > .sec-label { max-width: 1220px; margin: 0 auto 26px; }
+.udyam-editorial .article-body.udyam-article {
+  max-width: 920px;
+  font: 400 16px/1.83 var(--font-body, sans-serif);
+  color: var(--ue-ink);
+  padding: clamp(24px, 4.4vw, 52px);
+  background: var(--ue-surface);
+  border: 1px solid var(--ue-line);
+  border-left: 3px solid var(--ue-gold);
+  box-shadow: var(--ue-shadow);
+}
+.udyam-editorial .udyam-article p,
+.udyam-editorial .udyam-article li,
+.udyam-editorial .udyam-article .article-summary { text-align: left !important; overflow-wrap: anywhere; }
+.udyam-editorial .udyam-article p + p { margin-top: 1.15rem; }
+.udyam-editorial .udyam-article a { color: #76551d; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.udyam-editorial .udyam-article a:hover { color: #3b321f; }
+.udyam-editorial .udyam-article .article-meta { margin-bottom: 18px; }
+.udyam-editorial .udyam-article .article-meta span { border-color: #dfd3be; background: #fcf7ed; color: #786344; }
+.udyam-editorial .udyam-article .article-summary {
+  padding: 16px 20px;
+  margin: 0 0 24px;
+  background: #f6f0e4;
+  color: #333331;
+  border-left: 4px solid #b08945;
+  line-height: 1.7;
+  font-weight: 500;
+}
+.udyam-editorial .udyam-key-note { margin: 28px 0 35px; padding: 24px 27px; border: 1px solid #d9c39d; background: linear-gradient(120deg,#fbf8f0,#f4ead7); }
+.udyam-editorial .udyam-key-note .udyam-note-label { margin: 0 0 7px; color: #806020; font-size: 10px; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+.udyam-editorial .udyam-key-note p:last-child { margin: 0; font: 500 clamp(17px, 2vw, 22px)/1.5 var(--font-display, Georgia, serif); color: #28292a; }
+.udyam-editorial .udyam-article { counter-reset: ue-section; }
+.udyam-editorial .udyam-article > h2 { counter-increment: ue-section; }
+.udyam-editorial .udyam-article > h2::before { display: block; margin-bottom: 5px; content: counter(ue-section, decimal-leading-zero); color: var(--ue-gold); font: 700 11px/1.4 var(--font-body, sans-serif); letter-spacing: .13em; }
+.udyam-editorial .udyam-article > h2 {
+  padding-top: 22px;
+  margin: 51px 0 17px;
+  border-top: 1px solid var(--ue-line);
+  color: var(--ue-ink);
+  font: 500 clamp(26px, 2.7vw, 34px)/1.23 var(--font-display, Georgia, serif);
+  text-wrap: balance;
+  scroll-margin-top: 130px;
+}
+.udyam-editorial .udyam-article > h2:first-of-type { margin-top: 30px; }
+.udyam-editorial .udyam-article > h3 { margin: 31px 0 12px; padding-left: 15px; border-left: 3px solid #bd9b5c; font: 700 17px/1.45 var(--font-body, sans-serif); color: #35363a; }
+.udyam-editorial .udyam-article > ul,
+.udyam-editorial .udyam-article > ol { padding-left: 0; list-style: none; margin: 18px 0 30px; }
+.udyam-editorial .udyam-article > ul:not(.udyam-myth-list) li { position: relative; padding-left: 21px; margin: 10px 0; }
+.udyam-editorial .udyam-article > ul:not(.udyam-myth-list) li::before { content: ''; position: absolute; left: 3px; top: .7em; width: 7px; height: 7px; background: #b38b41; border-radius: 50%; }
+.udyam-editorial .udyam-table-wrap { max-width: 100%; overflow-x: auto; margin: 22px 0 25px; border: 1px solid var(--ue-line); box-shadow: 0 8px 24px rgba(28,29,30,.035); border-radius: 4px; }
+.udyam-editorial .udyam-article table.legal-data { width: 100%; min-width: 530px; border-collapse: collapse; margin: 0; font: 400 13.5px/1.55 var(--font-body, sans-serif); color: #303236; background: #fff; }
+.udyam-editorial .udyam-article table.legal-data th { padding: 17px 18px; background: #262728; color: #f3ecdc; font-weight: 700; text-align: left; vertical-align: bottom; border-right: 1px solid rgba(255,255,255,.13); }
+.udyam-editorial .udyam-article table.legal-data td { padding: 16px 18px; vertical-align: top; border-top: 1px solid #e9e2d6; text-align: left; }
+.udyam-editorial .udyam-article table.legal-data tbody tr:nth-child(even) { background: #faf7f1; }
+.udyam-editorial .udyam-article table.legal-data tbody td:first-child { font-weight: 700; color: #76541e; }
+.udyam-editorial .udyam-article table.legal-data.udyam-limits-table td:nth-child(n+2) { text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.udyam-editorial .udyam-article table.legal-data.udyam-limits-table th:nth-child(n+2) { text-align: right; }
+.udyam-editorial .udyam-table-caption { margin: -13px 0 24px; color: var(--ue-muted); font-size: 12px; line-height: 1.55; }
+.udyam-editorial .udyam-steps { counter-reset: ue-step; display: grid; gap: 12px; }
+.udyam-editorial .udyam-steps li { counter-increment: ue-step; display: grid; grid-template-columns: 44px 1fr; gap: 16px; padding: 18px 18px 18px 16px; border: 1px solid var(--ue-line); background: #fcfaf5; align-items: baseline; }
+.udyam-editorial .udyam-steps li::before { content: counter(ue-step, decimal-leading-zero); display: inline-flex; height: 42px; width: 42px; align-items: center; justify-content: center; background: #28292b; color: #ead3a2; font: 700 13px/1 var(--font-body, sans-serif); }
+.udyam-editorial .udyam-myth-list { display: grid; gap: 12px; }
+.udyam-editorial .udyam-myth-list li { position: relative; padding: 15px 16px 15px 43px; border: 1px solid #e3d6bc; background: #fcf8f0; list-style: none; }
+.udyam-editorial .udyam-myth-list li::before { content: '×'; position: absolute; left: 16px; top: 10px; color: #956e30; font: 500 27px/1.2 var(--font-display, Georgia, serif); }
+.udyam-editorial .udyam-faq-list { display: grid; gap: 10px; margin: 21px 0 30px; }
+.udyam-editorial .udyam-faq { border: 1px solid var(--ue-line); background: #fff; }
+.udyam-editorial .udyam-faq[open] { background: #fdfaf4; border-color: #cdb780; }
+.udyam-editorial .udyam-faq summary { position: relative; list-style: none; cursor: pointer; padding: 17px 49px 17px 19px; color: #282a2e; font: 700 14px/1.55 var(--font-body, sans-serif); }
+.udyam-editorial .udyam-faq summary::-webkit-details-marker { display: none; }
+.udyam-editorial .udyam-faq summary::after { content: '+'; position: absolute; right: 18px; top: 14px; font: 500 24px/1 var(--font-display, Georgia, serif); color: #96713a; }
+.udyam-editorial .udyam-faq[open] summary::after { content: '−'; }
+.udyam-editorial .udyam-faq summary:focus-visible { outline: 2px solid #b3914c; outline-offset: 2px; }
+.udyam-editorial .udyam-faq-answer { border-top: 1px solid var(--ue-line); padding: 12px 19px 18px; color: #44484b; }
+.udyam-editorial .udyam-faq-answer p { margin: 0; font-size: 14px; line-height: 1.76; }
+.udyam-editorial .udyam-source-list { display: grid; gap: 8px; counter-reset: ue-source; }
+.udyam-editorial .udyam-source-list li { counter-increment: ue-source; position: relative; padding: 11px 12px 11px 42px; border-bottom: 1px solid var(--ue-line); font-size: 13px; line-height: 1.65; }
+.udyam-editorial .udyam-source-list li::before { content: counter(ue-source, decimal-leading-zero); position: absolute; left: 0; color: #9c7d40; font: 700 11px/2 var(--font-body, sans-serif); }
+.udyam-editorial .udyam-disclaimer { margin-top: 28px; padding: 16px 20px; border: 1px solid var(--ue-line); background: var(--ue-soft); color: var(--ue-muted); font: 400 12px/1.7 var(--font-body, sans-serif); }
+.udyam-editorial .udyam-disclaimer strong { color: #664b21; }
+@media (max-width: 900px) {
+  .udyam-editorial .udyam-hero-layout { grid-template-columns: 1fr; gap: 34px; }
+  .udyam-editorial .page-hero.udyam-hero h1 { font-size: clamp(41px, 7vw, 65px); }
+  .udyam-editorial .udyam-hero-panel { max-width: 650px; }
+  .udyam-editorial .sec.udyam-content-section { padding: 28px 12px 70px; }
+}
+@media (max-width: 640px) {
+  .udyam-editorial .page-hero.udyam-hero { padding: 43px 19px; }
+  .udyam-editorial .page-hero.udyam-hero h1 { font-size: clamp(37px, 10.3vw, 51px); }
+  .udyam-editorial .udyam-hero-panel { padding: 24px; box-shadow: 7px 8px 0 rgba(135,110,69,.13); }
+  .udyam-editorial .udyam-hero-fact { grid-template-columns: 105px 1fr; gap: 10px; }
+  .udyam-editorial .udyam-overline { font-size: 9px; }
+  .udyam-editorial .article-body.udyam-article { padding: 22px 18px; font-size: 15px; line-height: 1.78; }
+  .udyam-editorial .udyam-article > h2 { font-size: 27px; margin-top: 38px; }
+  .udyam-editorial .udyam-article > h3 { font-size: 16px; }
+  .udyam-editorial .udyam-key-note { padding: 20px; }
+  .udyam-editorial .udyam-steps li { grid-template-columns: 36px 1fr; gap: 12px; padding: 14px; }
+  .udyam-editorial .udyam-steps li::before { height: 36px; width: 36px; }
+  .udyam-editorial .udyam-faq summary { font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .udyam-editorial .udyam-hero-actions a { transition: none; }
+}
+/* Dark theme compatibility for users who switch the site appearance. */
+:is([data-theme="dark"], [data-theme="citadel-of-ak-dark"], [data-theme^="citadel-of-kang-dark"]) .udyam-editorial {
+  --ue-ink: #eee9dc; --ue-muted: #cec5b5; --ue-line: #575044; --ue-surface: #252527; --ue-soft: #302e29; --ue-gold: #ddbd79; --ue-shadow: none;
+}
+:is([data-theme="dark"], [data-theme="citadel-of-ak-dark"], [data-theme^="citadel-of-kang-dark"]) .udyam-editorial .page-hero.udyam-hero { background: radial-gradient(circle at 85% 10%, rgba(153,114,48,.21),transparent 35%),linear-gradient(112deg,#202124,#302d28); }
+:is([data-theme="dark"], [data-theme="citadel-of-ak-dark"], [data-theme^="citadel-of-kang-dark"]) .udyam-editorial .udyam-overline { color: #e6c782; }
+:is([data-theme="dark"], [data-theme="citadel-of-ak-dark"], [data-theme^="citadel-of-kang-dark"]) .udyam-editorial .udyam-hero-actions a { color: #f5e7cd; }
+:is([data-theme="dark"], [data-theme="citadel-of-ak-dark"], [data-theme^="citadel-of-kang-dark"]) .udyam-editorial .udyam-hero-actions a:first-child { background: #d2b270; border-color: #d2b270; color: #232426; }
+:is([data-theme="dark"], [data-theme="citadel-of-ak-dark"], [data-theme^="citadel-of-kang-dark"]) .udyam-editorial .udyam-article .article-summary,
+:is([data-theme="dark"], [data-theme="citadel-of-ak-dark"], [data-theme^="citadel-of-kang-dark"]) .udyam-editorial .udyam-key-note,
+:is([data-theme="dark"], [data-theme="citadel-of-ak-dark"], [data-theme^="citadel-of-kang-dark"]) .udyam-editorial .udyam-steps li,
+:is([data-theme="dark"], [data-theme="citadel-of-ak-dark"], [data-theme^="citadel-of-kang-dark"]) .udyam-editorial .udyam-myth-list li,
+:is([data-theme="dark"], [data-theme="citadel-of-ak-dark"], [data-theme^="citadel-of-kang-dark"]) .udyam-editorial .udyam-faq,
+:is([data-theme="dark"], [data-theme="citadel-of-ak-dark"], [data-theme^="citadel-of-kang-dark"]) .udyam-editorial .udyam-disclaimer { background: #302e2b; color: #efe8dc; border-color: #5a503d; }
+:is([data-theme="dark"], [data-theme="citadel-of-ak-dark"], [data-theme^="citadel-of-kang-dark"]) .udyam-editorial .udyam-key-note p:last-child,
+:is([data-theme="dark"], [data-theme="citadel-of-ak-dark"], [data-theme^="citadel-of-kang-dark"]) .udyam-editorial .udyam-article > h3,
+:is([data-theme="dark"], [data-theme="citadel-of-ak-dark"], [data-theme^="citadel-of-kang-dark"]) .udyam-editorial .udyam-faq summary { color: #f5eee3; }
+:is([data-theme="dark"], [data-theme="citadel-of-ak-dark"], [data-theme^="citadel-of-kang-dark"]) .udyam-editorial .udyam-faq-answer,
+:is([data-theme="dark"], [data-theme="citadel-of-ak-dark"], [data-theme^="citadel-of-kang-dark"]) .udyam-editorial .udyam-article a { color: #ebce92; }
+:is([data-theme="dark"], [data-theme="citadel-of-ak-dark"], [data-theme^="citadel-of-kang-dark"]) .udyam-editorial .udyam-article table.legal-data { background: #29292b; color: #f1ede4; }
+:is([data-theme="dark"], [data-theme="citadel-of-ak-dark"], [data-theme^="citadel-of-kang-dark"]) .udyam-editorial .udyam-article table.legal-data tbody tr:nth-child(even) { background: #34312c; }
+:is([data-theme="dark"], [data-theme="citadel-of-ak-dark"], [data-theme^="citadel-of-kang-dark"]) .udyam-editorial .udyam-article table.legal-data td { border-color: #554e41; }
+:is([data-theme="dark"], [data-theme="citadel-of-ak-dark"], [data-theme^="citadel-of-kang-dark"]) .udyam-editorial .udyam-article table.legal-data tbody td:first-child { color: #efd19b; }
