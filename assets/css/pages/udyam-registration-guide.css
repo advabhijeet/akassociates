@@ -129,7 +129,21 @@
   scroll-margin-top: 130px;
 }
 .udyam-editorial .udyam-article > h2:first-of-type { margin-top: 30px; }
-.udyam-editorial .udyam-article > h3 { margin: 31px 0 12px; padding-left: 15px; border-left: 3px solid #bd9b5c; font: 700 17px/1.45 var(--font-body, sans-serif); color: #35363a; }
+/* Minimal editorial subheadings: serif type and a fine rule, no box or capsule. */
+.udyam-editorial .udyam-article > h3 {
+  margin: 2.1rem 0 0.9rem;
+  padding: 0 0 0.6rem;
+  border: 0;
+  border-bottom: 1px solid var(--ue-line);
+  background: transparent;
+  color: var(--ue-ink);
+  font-family: var(--font-display, Georgia, serif);
+  font-size: clamp(21px, 2.1vw, 25px);
+  font-weight: 500;
+  line-height: 1.28;
+  letter-spacing: 0;
+  text-wrap: pretty;
+}
 .udyam-editorial .udyam-article > ul,
 .udyam-editorial .udyam-article > ol { padding-left: 0; list-style: none; margin: 18px 0 30px; }
 .udyam-editorial .udyam-article > ul:not(.udyam-myth-list) li { position: relative; padding-left: 21px; margin: 10px 0; }
@@ -180,7 +194,7 @@
   .udyam-editorial .udyam-overline { font-size: 9px; }
   .udyam-editorial .article-body.udyam-article { padding: 22px 18px; font-size: 15px; line-height: 1.78; }
   .udyam-editorial .udyam-article > h2 { font-size: 27px; margin-top: 38px; }
-  .udyam-editorial .udyam-article > h3 { font-size: 16px; }
+  .udyam-editorial .udyam-article > h3 { font-size: 21px; }
   .udyam-editorial .udyam-key-note { padding: 20px; }
   .udyam-editorial .udyam-steps li { grid-template-columns: 36px 1fr; gap: 12px; padding: 14px; }
   .udyam-editorial .udyam-steps li::before { height: 36px; width: 36px; }
