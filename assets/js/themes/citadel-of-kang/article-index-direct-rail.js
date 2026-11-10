@@ -47,6 +47,10 @@
   };
 
   headings.forEach(function (heading) {
+    // Preserve existing numbered headings without an extra decorative number.
+    if (/^\s*\d{1,2}[.)]\s+/.test(heading.textContent || '')) {
+      heading.classList.add('ak-ed-existing-number');
+    }
     var existingId = (heading.id || '').trim();
     if (!existingId || !/^[A-Za-z_][A-Za-z0-9_-]*$/.test(existingId)) {
       heading.id = uniqueId(slugify(heading.textContent), existingId);

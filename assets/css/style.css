@@ -3308,62 +3308,162 @@ body.insights-list-active .insights-category-section {
 }
 
 /* SITEWIDE_INSIGHTS_EDITORIAL_V1
-   Single source of truth for standard Legal Insights editorial presentation.
-   All present and future /updates/ articles use article.article-body and inherit
-   this shared stylesheet: never copy typography/layout CSS into article HTML.
-   The Udyam guide retains its existing approved specialist presentation.
-   Legacy inline article styles were consolidated; per-article CSS is forbidden. */
-body:has(main article.article-body:not(.udyam-article)) .page-hero,
-body.has-citadel-article-thumb:has(main article.article-body:not(.udyam-article)) .page-hero {
+   Udyam-inspired editorial design v2: one shared source for all standard
+   Legal Insights articles. The Udyam specialist guide is deliberately excluded. */
+body:has(main article.article-body:not(.udyam-article)) {
+  --ak-ed-ink: #1e2022;
+  --ak-ed-muted: #565b61;
+  --ak-ed-line: #dfd6c6;
+  --ak-ed-accent: #9b742e;
+  --ak-ed-surface: #fffefa;
+  --ak-ed-soft: #f7f3eb;
+  --ak-ed-surface-alt: #faf7f1;
+  --ak-ed-summary: #f6f0e4;
+  --ak-ed-table-head: #262728;
+  --ak-ed-table-head-text: #f3ecdc;
+  --ak-ed-shadow: 0 18px 50px rgba(42, 36, 24, .07);
+  --ak-ed-hero-bg:
+    radial-gradient(circle at 87% 16%, rgba(163, 121, 53, .17), transparent 30%),
+    linear-gradient(112deg, #fdfbf6 7%, #eee6d9 100%);
+}
+
+/* Reuse the existing eyebrow, heading and description as a Udyam-style hero.
+   The description becomes the dark right-hand information panel. */
+body:has(main article.article-body:not(.udyam-article)) .page-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.22fr) minmax(270px, .72fr);
+  grid-template-rows: auto auto;
+  gap: 1.15rem clamp(2rem, 5vw, 5.7rem);
+  align-items: center;
+  align-content: center;
   min-height: 0;
-  padding: clamp(2.8rem, 5vw, 4.6rem) clamp(1.3rem, 5vw, 4.6rem);
+  padding: clamp(48px, 6vw, 92px) clamp(20px, 6vw, 92px);
+  border-bottom: 1px solid var(--ak-ed-line);
+  background: var(--ak-ed-hero-bg);
   text-align: left;
 }
-body:has(main article.article-body:not(.udyam-article)) .page-hero > *,
-body.has-citadel-article-thumb:has(main article.article-body:not(.udyam-article)) .page-hero > * {
-  max-width: 960px;
-  margin-inline: 0;
+body:has(main article.article-body:not(.udyam-article)) .page-hero::before,
+body:has(main article.article-body:not(.udyam-article)) .page-hero::after {
+  display: none;
+  content: none;
 }
-body:has(main article.article-body:not(.udyam-article)) .page-hero h1 {
-  max-width: 920px;
-  font-size: clamp(2.25rem, 4.8vw, 3.9rem);
-  line-height: 1.12;
+body:has(main article.article-body:not(.udyam-article)) .page-hero > .hero-eyebrow {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: none;
+  margin: 0 0 .2rem;
+  color: var(--ak-ed-accent);
+  font: 700 10px/1.4 var(--font-body, sans-serif);
+  letter-spacing: .16em;
+  text-align: left;
+  text-transform: uppercase;
+}
+body:has(main article.article-body:not(.udyam-article)) .page-hero > .hero-eyebrow::before {
+  content: "";
+  display: block;
+  width: 34px;
+  height: 2px;
+  background: var(--ak-ed-accent);
+  flex: none;
+}
+body:has(main article.article-body:not(.udyam-article)) .page-hero > h1 {
+  grid-column: 1;
+  grid-row: 2;
+  width: auto;
+  max-width: 800px;
+  margin: 0;
+  color: var(--ak-ed-ink);
+  font: 500 clamp(42px, 4.75vw, 73px)/1.07 var(--font-display, Georgia, serif);
+  letter-spacing: -.022em;
+  text-align: left;
   text-wrap: balance;
 }
-body:has(main article.article-body:not(.udyam-article)) .page-hero p {
-  max-width: 760px;
-  margin: 1.2rem 0 0;
-  font-size: clamp(.99rem, 1.35vw, 1.16rem);
-  line-height: 1.65;
+body:has(main article.article-body:not(.udyam-article)) .page-hero > p {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  position: relative;
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  margin: 0;
+  padding: clamp(23px, 3vw, 38px);
+  box-sizing: border-box;
+  border: 1px solid #a58b56;
+  background: #252727;
+  box-shadow: 14px 16px 0 rgba(135, 110, 69, .13);
+  color: #f7f4ed;
+  font: 400 clamp(14px, 1.15vw, 16px)/1.7 var(--font-body, sans-serif);
+  text-align: left;
+  overflow-wrap: break-word;
+}
+body:has(main article.article-body:not(.udyam-article)) .page-hero > p::before {
+  content: "IN BRIEF";
+  display: block;
+  margin: 0 0 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,.17);
+  color: #d8bc80;
+  font: 700 10px/1.4 var(--font-body, sans-serif);
+  letter-spacing: .19em;
+}
+body:has(main article.article-body:not(.udyam-article)) .page-hero > p::after {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid rgba(214,182,110,.17);
+  pointer-events: none;
+}
+body:has(main article.article-body:not(.udyam-article)) .page-hero:not(:has(> .hero-eyebrow)) > :is(h1, p) {
+  grid-row: 1;
+}
+body:has(main article.article-body:not(.udyam-article)) .page-hero:not(:has(> p)) > h1 {
+  grid-column: 1 / -1;
+}
+
+/* Warm paper, understated gold spine, and a readable editorial measure. */
+body:has(main article.article-body:not(.udyam-article)) .sec:has(> article.article-body) {
+  padding: clamp(24px, 3vw, 46px) clamp(12px, 3vw, 45px) 90px;
+}
+body:has(main article.article-body:not(.udyam-article)) .sec:has(> article.article-body) > .sec-label {
+  max-width: 1220px;
+  margin: 0 auto 26px;
 }
 main article.article-body:not(.udyam-article) {
-  --ak-ed-ink: #292a2b;
-  --ak-ed-muted: #555657;
-  --ak-ed-line: #ded7ca;
-  --ak-ed-accent: #795a24;
-  --ak-ed-surface: #fcfaf5;
-  --ak-ed-surface-alt: #f5efe5;
-  --ak-ed-table-head: #292a2b;
-  --ak-ed-table-head-text: #fff7e9;
+  width: 100%;
+  max-width: 920px;
+  box-sizing: border-box;
+  margin-inline: auto;
+  padding: clamp(24px, 4.4vw, 52px);
+  border: 1px solid var(--ak-ed-line);
+  border-left: 3px solid var(--ak-ed-accent);
+  border-radius: 0;
+  background: var(--ak-ed-surface);
+  box-shadow: var(--ak-ed-shadow);
+  backdrop-filter: none;
   color: var(--ak-ed-ink);
-  font-size: clamp(15.5px, 1.05vw, 16.5px);
-  line-height: 1.83;
+  font: 400 16px/1.83 var(--font-body, sans-serif);
+  counter-reset: ak-ed-section;
 }
 main article.article-body:not(.udyam-article) p {
   text-align: justify;
   text-justify: inter-word;
   hyphens: auto;
   text-wrap: pretty;
+  overflow-wrap: break-word;
 }
 main article.article-body:not(.udyam-article) > p:not(.article-summary) {
   margin-block: 0 1.15rem;
 }
-main article.article-body:not(.udyam-article) strong {
-  color: var(--ak-ed-ink);
+main article.article-body:not(.udyam-article) p + p {
+  margin-top: 1.15rem;
 }
+main article.article-body:not(.udyam-article) strong { color: var(--ak-ed-ink); }
 main article.article-body:not(.udyam-article) a:not(.article-nav-button) {
   color: var(--ak-ed-accent);
-  text-decoration-color: currentColor;
+  text-decoration-thickness: 1px;
   text-underline-offset: 3px;
   overflow-wrap: break-word;
 }
@@ -3371,78 +3471,125 @@ main article.article-body:not(.udyam-article) a:focus-visible {
   outline: 2px solid var(--ak-ed-accent);
   outline-offset: 3px;
 }
-/* Serif heading hierarchy: fine rules, generous whitespace, no boxes. */
+main article.article-body:not(.udyam-article) .article-meta { margin-bottom: 18px; }
+main article.article-body:not(.udyam-article) .article-meta span {
+  border-color: var(--ak-ed-line);
+  background: var(--ak-ed-soft);
+  color: var(--ak-ed-muted);
+}
+main article.article-body:not(.udyam-article) > .article-summary {
+  margin: 0 0 24px;
+  padding: 16px 20px;
+  border: 0;
+  border-left: 4px solid var(--ak-ed-accent);
+  background: var(--ak-ed-summary);
+  color: var(--ak-ed-ink);
+  font-size: 1rem;
+  line-height: 1.7;
+  font-weight: 500;
+  text-align: left;
+}
+
+/* Udyam-style numbered chapters and minimalist serif headings.
+   The Article Index adds ak-ed-existing-number for headings already numbered. */
 main article.article-body:not(.udyam-article) > h2 {
-  margin: 2.8rem 0 1.05rem;
-  padding: 1.25rem 0 0;
+  counter-increment: ak-ed-section;
+  margin: 51px 0 17px;
+  padding: 22px 0 0;
   border-top: 1px solid var(--ak-ed-line);
   color: var(--ak-ed-ink);
-  font: 500 clamp(1.67rem, 2.6vw, 2.13rem)/1.25 var(--font-display, Georgia, serif);
+  font: 500 clamp(26px, 2.7vw, 34px)/1.23 var(--font-display, Georgia, serif);
   text-wrap: balance;
+  scroll-margin-top: calc(var(--nav-space, 88px) + 70px);
+}
+main article.article-body:not(.udyam-article) > h2:first-of-type { margin-top: 30px; }
+main article.article-body:not(.udyam-article) > h2::before {
+  content: counter(ak-ed-section, decimal-leading-zero);
+  display: block;
+  margin-bottom: 5px;
+  color: var(--ak-ed-accent);
+  font: 700 11px/1.4 var(--font-body, sans-serif);
+  letter-spacing: .13em;
+}
+main article.article-body:not(.udyam-article) > h2.ak-ed-existing-number::before {
+  display: none;
+  content: none;
 }
 main article.article-body:not(.udyam-article) > h3 {
-  margin: 2rem 0 .85rem;
-  padding: 0 0 .62rem;
+  margin: 2.1rem 0 .9rem;
+  padding: 0 0 .6rem;
   border: 0;
   border-bottom: 1px solid var(--ak-ed-line);
   background: transparent;
   color: var(--ak-ed-ink);
-  font: 500 clamp(1.3rem, 1.75vw, 1.53rem)/1.33 var(--font-display, Georgia, serif);
+  font: 500 clamp(21px, 2.1vw, 25px)/1.28 var(--font-display, Georgia, serif);
   text-wrap: pretty;
 }
 main article.article-body:not(.udyam-article) > h4 {
   margin: 1.65rem 0 .65rem;
   color: var(--ak-ed-ink);
-  font: 600 1.03rem/1.45 var(--font-body, Arial, sans-serif);
-}
-main article.article-body:not(.udyam-article) > :is(h2, h3)[id] {
-  scroll-margin-top: calc(var(--nav-space, 88px) + 70px);
-}
-/* Summary, short answer, notes and extracts. */
-main article.article-body:not(.udyam-article) > .article-summary {
-  margin: 0 0 1.65rem;
-  padding: 1.05rem 1.3rem;
-  border: 1px solid var(--ak-ed-line);
-  border-left: 3px solid var(--ak-ed-accent);
-  background: var(--ak-ed-surface);
-  color: var(--ak-ed-muted);
-  font-size: 1rem;
-  line-height: 1.75;
+  font: 600 1.03rem/1.45 var(--font-body, sans-serif);
 }
 main article.article-body:not(.udyam-article) > :is(.content-panel, .article-note, blockquote) {
   max-width: 100%;
   margin: 1.5rem 0 1.85rem;
-  padding: 1.1rem 1.35rem;
+  padding: clamp(20px, 2.5vw, 27px);
   border: 1px solid var(--ak-ed-line);
   border-left: 3px solid var(--ak-ed-accent);
-  background: var(--ak-ed-surface);
+  border-radius: 0;
+  background: var(--ak-ed-soft);
+  box-shadow: none;
   color: var(--ak-ed-ink);
   font-size: .97rem;
   line-height: 1.8;
 }
+main article.article-body:not(.udyam-article) .content-panel > :is(h2, h3) {
+  margin: 0 0 .9rem;
+  padding: 0 0 .55rem;
+  border: 0;
+  border-bottom: 1px solid var(--ak-ed-line);
+  color: var(--ak-ed-ink);
+  font: 500 clamp(1.3rem, 2vw, 1.6rem)/1.3 var(--font-display, Georgia, serif);
+}
 main article.article-body:not(.udyam-article) > :is(.content-panel, .article-note) p:last-child {
   margin-bottom: 0;
 }
-main article.article-body:not(.udyam-article) > .article-featured-figure {
-  margin-bottom: 2.05rem;
-}
-/* Publication metadata inherits the same editorial rules on every article. */
+main article.article-body:not(.udyam-article) > .article-featured-figure { margin-bottom: 2.05rem; }
 main article.article-body:not(.udyam-article) .article-last-updated {
   margin: 1.4rem 0;
   color: var(--ak-ed-muted);
   font-size: .95rem;
   line-height: 1.65;
 }
-/* List items remain normal text flow; never grid-split inline words. */
+
+/* Udyam-like gold list markers without disturbing nested or ordered lists. */
 main article.article-body:not(.udyam-article) > :is(ul, ol) {
   display: block;
-  margin: .8rem 0 1.7rem;
-  padding-left: 1.55rem;
+  margin: 18px 0 30px;
+  padding-left: 1.5rem;
   list-style-position: outside;
+}
+main article.article-body:not(.udyam-article) > ul:not(.references-list):not(.source-list):not(.article-links) {
+  padding-left: 0;
+  list-style: none;
+}
+main article.article-body:not(.udyam-article) > ul:not(.references-list):not(.source-list):not(.article-links) > li {
+  position: relative;
+  margin: 10px 0;
+  padding-left: 21px;
+}
+main article.article-body:not(.udyam-article) > ul:not(.references-list):not(.source-list):not(.article-links) > li::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: .7em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ak-ed-accent);
 }
 main article.article-body:not(.udyam-article) :is(ul, ol) li {
   margin: .48rem 0;
-  padding-left: .22rem;
   line-height: 1.75;
   overflow-wrap: break-word;
 }
@@ -3454,24 +3601,26 @@ main article.article-body:not(.udyam-article) :is(ul, ol) :is(ul, ol) {
   margin: .55rem 0 .8rem;
   padding-left: 1.45rem;
 }
-/* Responsive legal tables with readable column widths. */
+
+/* Legal tables inherit the Udyam dark headers and ruled paper rows. */
 main article.article-body:not(.udyam-article) table {
   display: block;
   width: 100%;
   max-width: 100%;
-  margin: 1.55rem 0 2rem;
+  margin: 22px 0 25px;
   overflow-x: auto;
   border: 1px solid var(--ak-ed-line);
   border-collapse: separate;
   border-spacing: 0;
+  border-radius: 4px;
   background: var(--ak-ed-surface);
-  font-size: .88rem;
-  line-height: 1.6;
+  box-shadow: 0 8px 24px rgba(28,29,30,.035);
+  font: 400 13.5px/1.55 var(--font-body, sans-serif);
   -webkit-overflow-scrolling: touch;
 }
 main article.article-body:not(.udyam-article) table :is(th, td) {
-  min-width: 125px;
-  padding: .8rem .9rem;
+  min-width: 130px;
+  padding: 16px 18px;
   border-right: 1px solid var(--ak-ed-line);
   border-bottom: 1px solid var(--ak-ed-line);
   vertical-align: top;
@@ -3487,83 +3636,143 @@ main article.article-body:not(.udyam-article) table tbody tr:nth-child(even) {
   background: var(--ak-ed-surface-alt);
 }
 main article.article-body:not(.udyam-article) table tbody td:first-child {
-  font-weight: 600;
+  color: var(--ak-ed-accent);
+  font-weight: 700;
 }
 main article.article-body:not(.udyam-article) table caption {
-  color: var(--ak-ed-muted);
-  font: 600 .9rem/1.5 var(--font-body, Arial, sans-serif);
-  text-align: left;
   padding: .6rem 0;
+  color: var(--ak-ed-muted);
+  font: 600 .9rem/1.5 var(--font-body, sans-serif);
+  text-align: left;
 }
-/* Legacy articles have FAQ heading-and-answer pairs; no JS needed. */
+
+/* Static question-and-answer pairs receive the Udyam card visual, not a fake accordion. */
 main article.article-body:not(.udyam-article) .faq-list {
-  margin: 1.4rem 0 2rem;
+  display: block;
+  margin: 21px 0 30px;
 }
 main article.article-body:not(.udyam-article) .faq-list > h3 {
-  margin: 1.4rem 0 .45rem;
-  padding: 1rem 0 0;
-  border-top: 1px solid var(--ak-ed-line);
+  margin: 12px 0 0;
+  padding: 17px 19px;
+  border: 1px solid var(--ak-ed-line);
+  border-bottom: 0;
+  background: var(--ak-ed-surface);
   color: var(--ak-ed-ink);
-  font: 500 clamp(1.18rem, 1.65vw, 1.35rem)/1.34 var(--font-display, Georgia, serif);
+  font: 700 14px/1.55 var(--font-body, sans-serif);
 }
 main article.article-body:not(.udyam-article) .faq-list > p {
-  margin: 0 0 1.15rem;
+  margin: 0 0 12px;
+  padding: 12px 19px 18px;
+  border: 1px solid var(--ak-ed-line);
+  border-top: 0;
+  background: var(--ak-ed-soft);
   color: var(--ak-ed-muted);
-  line-height: 1.75;
+  line-height: 1.76;
+  text-align: left;
 }
 main article.article-body:not(.udyam-article) :is(.references-list, .source-list) {
-  margin-block: 1rem 1.7rem;
-  padding-left: 1.5rem;
+  display: grid;
+  gap: 8px;
+  margin: 1rem 0 1.7rem;
+  padding-left: 0;
+  list-style: none;
+  counter-reset: ak-ed-source;
 }
-main article.article-body:not(.udyam-article) :is(.references-list, .source-list) li {
-  margin-bottom: .75rem;
+main article.article-body:not(.udyam-article) :is(.references-list, .source-list) > li {
+  position: relative;
+  counter-increment: ak-ed-source;
+  margin: 0;
+  padding: 11px 12px 11px 42px;
+  border-bottom: 1px solid var(--ak-ed-line);
+  font-size: .86rem;
   line-height: 1.65;
+}
+main article.article-body:not(.udyam-article) :is(.references-list, .source-list) > li::before {
+  content: counter(ak-ed-source, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 11px;
+  color: var(--ak-ed-accent);
+  font: 700 11px/1.8 var(--font-body, sans-serif);
 }
 main article.article-body:not(.udyam-article) :is(.references-list, .source-list) a {
   overflow-wrap: anywhere;
 }
-/* Match the existing light/dark theme toggle. */
+
+/* Palette parity for dark mode, as in the approved Udyam guide. */
 :is([data-theme="dark"], [data-theme="citadel-of-ak-dark"], [data-theme^="citadel-of-kang-dark"])
-main article.article-body:not(.udyam-article) {
-  --ak-ed-ink: #f3eee2;
-  --ak-ed-muted: #d8d0c1;
-  --ak-ed-line: #514b40;
-  --ak-ed-accent: #e5c57e;
-  --ak-ed-surface: #2f2e2c;
-  --ak-ed-surface-alt: #37342f;
-  --ak-ed-table-head: #454034;
-  --ak-ed-table-head-text: #fff2d6;
+body:has(main article.article-body:not(.udyam-article)) {
+  --ak-ed-ink: #eee9dc;
+  --ak-ed-muted: #cec5b5;
+  --ak-ed-line: #575044;
+  --ak-ed-accent: #ddbd79;
+  --ak-ed-surface: #252527;
+  --ak-ed-soft: #302e29;
+  --ak-ed-surface-alt: #34312c;
+  --ak-ed-summary: #302e2b;
+  --ak-ed-table-head: #262728;
+  --ak-ed-table-head-text: #f3ecdc;
+  --ak-ed-shadow: none;
+  --ak-ed-hero-bg:
+    radial-gradient(circle at 85% 10%, rgba(153,114,48,.21), transparent 35%),
+    linear-gradient(112deg, #202124, #302d28);
 }
-@media (max-width: 760px) {
-  body:has(main article.article-body:not(.udyam-article)) .page-hero,
-  body.has-citadel-article-thumb:has(main article.article-body:not(.udyam-article)) .page-hero {
-    padding: 2.7rem 1.35rem;
+@media (max-width: 900px) {
+  body:has(main article.article-body:not(.udyam-article)) .page-hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 1.4rem;
   }
-  body:has(main article.article-body:not(.udyam-article)) .page-hero h1 {
-    font-size: clamp(2.05rem, 7.4vw, 2.8rem);
+  body:has(main article.article-body:not(.udyam-article)) .page-hero > :is(.hero-eyebrow, h1, p) {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  body:has(main article.article-body:not(.udyam-article)) .page-hero > p { max-width: 650px; }
+  body:has(main article.article-body:not(.udyam-article)) .sec:has(> article.article-body) {
+    padding: 28px 12px 70px;
+  }
+}
+@media (max-width: 640px) {
+  body:has(main article.article-body:not(.udyam-article)) .page-hero { padding: 43px 19px; }
+  body:has(main article.article-body:not(.udyam-article)) .page-hero > h1 {
+    font-size: clamp(37px, 10.3vw, 51px);
+  }
+  body:has(main article.article-body:not(.udyam-article)) .page-hero > .hero-eyebrow { font-size: 9px; }
+  body:has(main article.article-body:not(.udyam-article)) .page-hero > p {
+    padding: 24px;
+    box-shadow: 7px 8px 0 rgba(135,110,69,.13);
   }
   main article.article-body:not(.udyam-article) {
-    font-size: 15.5px;
-    line-height: 1.77;
+    padding: 22px 18px;
+    font-size: 15px;
+    line-height: 1.78;
   }
-  main article.article-body:not(.udyam-article) > h2 {
-    margin-top: 2.2rem;
-    font-size: 1.63rem;
-  }
-  main article.article-body:not(.udyam-article) > h3 {
-    font-size: 1.28rem;
-  }
-  main article.article-body:not(.udyam-article) > .article-summary {
-    padding: .9rem 1rem;
-  }
-  main article.article-body:not(.udyam-article) > :is(.content-panel, .article-note) {
-    padding: .9rem 1rem;
-  }
+  main article.article-body:not(.udyam-article) > h2 { font-size: 27px; margin-top: 38px; }
+  main article.article-body:not(.udyam-article) > h3 { font-size: 21px; }
   main article.article-body:not(.udyam-article) table :is(th, td) {
-    min-width: 145px;
+    min-width: 135px;
+    padding: 13px;
+  }
+  main article.article-body:not(.udyam-article) .faq-list > :is(h3, p) {
+    padding-inline: 14px;
   }
 }
-
+@media print {
+  body:has(main article.article-body:not(.udyam-article)) .page-hero {
+    display: block;
+    background: #fff;
+  }
+  body:has(main article.article-body:not(.udyam-article)) .page-hero > p {
+    border-color: #aaa;
+    background: #fff;
+    color: #222;
+    box-shadow: none;
+  }
+  main article.article-body:not(.udyam-article) {
+    background: #fff;
+    box-shadow: none;
+  }
+}
 
 /* COMMERCIAL_SUIT_GUIDE_EDITORIAL_V1
    Scoped readability and permanent, HTML-native chapter navigation.
@@ -3573,12 +3782,6 @@ main article.article-body.commercial-suit-guide {
   max-width: 940px;
   margin-inline: auto;
   --csg-gold: var(--ak-ed-accent, #795a24);
-}
-
-main article.article-body.commercial-suit-guide p {
-  text-align: left;
-  text-justify: auto;
-  hyphens: none;
 }
 
 main article.article-body.commercial-suit-guide .commercial-guide-index {

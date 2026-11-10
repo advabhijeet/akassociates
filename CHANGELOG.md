@@ -1,3 +1,9 @@
+## 2026-11-10 IST - Udyam-inspired shared Legal Insights design
+- Reworked the single sitewide article CSS block to match the approved Udyam design's hero, article paper, gold spine, numbered headings, legal tables, FAQs, sources, mobile and dark variants.
+- Switched standard article heroes to the warm editorial gradient in the shared thumbnail-frame module; kept source images and social cards unchanged.
+- Prevented duplicate heading numbers via the shared Article Index; incremented the centrally managed module version.
+- No updates/*.html article content or special Udyam stylesheet changed.
+
 ## 2026-11-10 IST - Unify and modernize all Services page designs
 - Introduced one shared, responsive Services visual system in `assets/css/style.css` scoped strictly to `main[data-citadel-service-page]`.
 - Upgraded all 16 indexable Services pages consistently: charcoal-and-gold hero headers, refined section numbering, editorial typography, accessible contrast, aligned content panels, responsive document cards, tables, related links, and enquiry actions.

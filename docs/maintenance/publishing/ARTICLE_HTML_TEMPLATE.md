@@ -27,6 +27,9 @@ Do not add new article metadata to `assets/js/script.js`.
 
 ### Shared editorial theme contract
 
+The default article design follows the approved Udyam Registration visual reference: two-column warm gradient hero with existing description as a dark summary panel, ivory/gold article card, chapter numbering, serif headings, dark-headed tables, FAQ pairs, source lists, justified paragraphs, and responsive dark/light styling. All of this is implemented centrally, without article-specific CSS or generated article content. When a heading already has a written number, the Article Index suppresses its decorative counter. The approved Udyam guide keeps its specialist stylesheet.
+
+
 Every new article must load `../assets/css/style.css` and use `<article class="article-body">`. Typography, justified paragraphs, headings, lists, citations, tables, notes, mobile spacing, and light/dark colour treatment are owned by the shared editorial block `SITEWIDE_INSIGHTS_EDITORIAL_V1` in `assets/css/style.css`. **Never create per-article `<style>` blocks, article-only CSS files, or paragraph/heading layout overrides.** When the editorial design changes, change the shared stylesheet once; new and existing articles inherit it automatically.
 
 The currently approved Udyam Registration guide is a documented specialist exception; do not copy its page stylesheet into other articles. The legacy embedded `<style>` blocks were removed during the one-time migration. All existing and future standard articles now use the shared stylesheet; any new embedded `<style>` block fails CI.
