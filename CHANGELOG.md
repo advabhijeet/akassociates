@@ -1,3 +1,9 @@
+## 2026-11-10 IST - Reduce Services page whitespace after divider removal
+- Reduced vertical padding between Services sections on desktop and mobile while retaining the short gold accent, numbering and translucent marble panels.
+- Tightened section-label bottom spacing without compressing document-card content, legal tables, enquiry actions or hero sections.
+- Applied the same refreshed stylesheet version to all 16 active Services pages and extended the design validation contract.
+- Left legal content, structured data, canonical URLs, sitemap lastmod and redirect-only pages unchanged.
+
 ## 2026-11-10 IST - Short accent dividers throughout Services
 - Removed full-width horizontal rules between sections across the shared Services design.
 - Limited the decorative gold line beside each section label to 48px, retaining section numbering, marble transparency, dark-mode contrast and document cards.
