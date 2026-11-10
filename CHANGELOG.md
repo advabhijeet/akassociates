@@ -1,3 +1,10 @@
+## 2026-11-10 IST - Refine Delhi NCR cheque-bounce jurisdiction guide
+- Retained the service page URL, Section 142(2)/142A legal analysis, existing FAQs and clear Patna-based practice disclosure.
+- Tightened SEO title; added HTML-native 10-part section index, comparison matrix and official Delhi District Courts reference.
+- Added the RBI's three-month cheque-validity direction and precise notice-writing language; included concise Section 143A/148 procedural context with Supreme Court sources.
+- Added factual author attribution, scoped responsive editorial CSS, and updated sitemap lastmod to reflect substantive revision.
+- No new office address, fabricated service location or redirection was introduced.
+
 ## 2026-11-10 IST - Improve commercial suit guide reading layout and index
 - Added a permanent, HTML-native 14-section table of contents with direct anchor links and accessible navigation.
 - Corrected the nested-section typography, excessive section padding, list readability, cards, filing matrix and mobile presentation using strictly scoped shared editorial CSS.

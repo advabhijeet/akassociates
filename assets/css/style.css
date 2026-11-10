@@ -3842,3 +3842,42 @@ main article.article-body.commercial-suit-guide .references-list li {
     transition: none;
   }
 }
+
+
+/* NI_ACT_DELHI_NCR_EDITORIAL_V1 — Scoped, native in-page navigation and comparison matrix. */
+main.cheque-ncr-guide > .ncr-page-toc {
+  max-width: 1180px;
+  margin: clamp(1.4rem, 3vw, 2.3rem) auto;
+  padding: clamp(1.1rem, 2.5vw, 1.7rem);
+  border: 1px solid rgba(var(--rgb-gold), .36);
+  border-radius: 16px;
+  background: var(--color-white);
+  box-shadow: 0 12px 32px rgba(var(--rgb-ink), .06);
+}
+main.cheque-ncr-guide .ncr-page-toc-heading {display: flex; flex-wrap: wrap; align-items: baseline; gap: .8rem 1.1rem; margin-bottom: 1rem}
+main.cheque-ncr-guide .ncr-page-toc-heading span {font: 700 .72rem/1.5 var(--font-body); color: var(--gold); letter-spacing: .13em}
+main.cheque-ncr-guide .ncr-page-toc-heading strong {font: 500 clamp(1.32rem, 2vw, 1.75rem)/1.25 var(--font-display); color: var(--color-ink)}
+main.cheque-ncr-guide .ncr-page-toc ol {list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .55rem .8rem}
+main.cheque-ncr-guide .ncr-page-toc li {min-width: 0; margin: 0; padding: 0}
+main.cheque-ncr-guide .ncr-page-toc a,
+main.cheque-ncr-guide .ncr-page-toc a:visited {display: flex; align-items: start; gap: .72rem; min-height: 45px; padding: .64rem .8rem; border: 1px solid rgba(var(--rgb-ink), .14); border-radius: 10px; background: rgba(var(--rgb-white), .7); color: var(--color-ink); font-size: .91rem; line-height: 1.5; font-weight: 550; text-decoration: none; overflow-wrap: anywhere; transition: border-color 160ms ease, background-color 160ms ease}
+main.cheque-ncr-guide .ncr-page-toc a span {min-width: 1.65rem; font-size: .75rem; color: var(--gold); font-weight: 800; font-variant-numeric: tabular-nums}
+main.cheque-ncr-guide .ncr-page-toc a:hover,
+main.cheque-ncr-guide .ncr-page-toc a:focus-visible {border-color: var(--gold); background: var(--color-white)}
+main.cheque-ncr-guide > section.sec {max-width: 1180px; margin-inline: auto}
+main.cheque-ncr-guide > section.sec > h2[id] {scroll-margin-top: calc(var(--nav-space, 108px) + 32px)}
+main.cheque-ncr-guide > section.sec > p {max-width: 83ch; line-height: 1.78}
+main.cheque-ncr-guide .ncr-author-line {padding: .85rem 1rem; border-left: 3px solid var(--gold); background: rgba(var(--rgb-gold), .065); font-size: .91rem}
+main.cheque-ncr-guide .ncr-table-scroll {max-width: 100%; margin: 1.1rem 0 1.45rem; overflow-x: auto; border: 1px solid rgba(var(--rgb-ink), .18); border-radius: 10px; -webkit-overflow-scrolling: touch}
+main.cheque-ncr-guide .ncr-jurisdiction-table {width: 100%; min-width: 610px; border-collapse: collapse; background: var(--color-white); color: var(--color-ink); font-size: .9rem; line-height: 1.65}
+main.cheque-ncr-guide .ncr-jurisdiction-table caption {padding: .75rem .95rem; font-weight: 700; text-align: left; background: rgba(var(--rgb-gold), .1)}
+main.cheque-ncr-guide .ncr-jurisdiction-table th,
+main.cheque-ncr-guide .ncr-jurisdiction-table td {padding: .85rem .9rem; text-align: left; vertical-align: top; border-top: 1px solid rgba(var(--rgb-ink), .12)}
+main.cheque-ncr-guide .ncr-jurisdiction-table th {font-weight: 700; background: rgba(var(--rgb-ink), .055)}
+main.cheque-ncr-guide .ncr-jurisdiction-table tbody tr:nth-child(even) {background: rgba(var(--rgb-gold), .04)}
+@media (max-width: 680px) {
+  main.cheque-ncr-guide > .ncr-page-toc {margin: 1rem .85rem; padding: 1rem}
+  main.cheque-ncr-guide .ncr-page-toc ol {grid-template-columns: minmax(0, 1fr)}
+  main.cheque-ncr-guide .ncr-jurisdiction-table {min-width: 560px}
+}
+@media (prefers-reduced-motion: reduce) {main.cheque-ncr-guide .ncr-page-toc a {transition: none}}
