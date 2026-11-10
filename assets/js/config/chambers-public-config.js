@@ -124,9 +124,9 @@
             "activation": "[data-citadel-blog-page]"
       },
       "articleIndex": {
-            "id": "citadel-article-index-v25",
+            "id": "citadel-article-index-v26",
             "path": "assets/js/themes/citadel-of-kang/article-index-direct-rail.js",
-            "version": "article-index-v25",
+            "version": "article-index-v26",
             "guard": "",
             "owner": "Article index rail and reading progress",
             "activation": "Article with at least three direct H2 headings"

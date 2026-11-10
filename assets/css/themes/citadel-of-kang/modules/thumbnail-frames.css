@@ -12,24 +12,16 @@
   --citadel-thumbnail-border: rgba(var(--rgb-gold), 0.42);
 }
 
-[data-theme^="citadel-of-ak"] body:has(article.article-body) .page-hero,
-[data-theme^="citadel-of-ak"] body.has-citadel-article-thumb .page-hero {
-  background:
-    linear-gradient(90deg, rgba(var(--rgb-white), 0.94) 0%, rgba(var(--rgb-white), 0.78) 48%, rgba(var(--rgb-white), 0.22) 100%),
-    var(--citadel-page-hero-image, var(--citadel-marble-bg)) center top / cover fixed no-repeat !important;
+/* Standard Insights heroes use the approved Udyam-inspired gradient
+   rather than an enlarged registry thumbnail. Social/featured images remain. */
+[data-theme^="citadel-of-ak"] body:has(main article.article-body:not(.udyam-article)) .page-hero,
+[data-theme="dark"] body:has(main article.article-body:not(.udyam-article)) .page-hero {
+  background: var(--ak-ed-hero-bg) !important;
 }
 
-[data-theme^="citadel-of-ak-dark"] body:has(article.article-body) .page-hero,
-[data-theme="dark"] body:has(article.article-body) .page-hero,
-[data-theme^="citadel-of-ak-dark"] body.has-citadel-article-thumb .page-hero,
-[data-theme="dark"] body.has-citadel-article-thumb .page-hero {
-  background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.96) 0%, rgba(0, 0, 0, 0.9) 46%, rgba(0, 0, 0, 0.54) 100%),
-    var(--citadel-page-hero-image, var(--citadel-marble-bg)) center top / cover fixed no-repeat !important;
-}
-
-[data-theme^="citadel-of-ak"] body:has(article.article-body) .page-hero p,
-[data-theme^="citadel-of-ak"] body.has-citadel-article-thumb .page-hero p {
+/* Retain the existing specialist Udyam paragraph handling. */
+[data-theme^="citadel-of-ak"] body:has(article.article-body.udyam-article) .page-hero p,
+[data-theme^="citadel-of-ak"] body.has-citadel-article-thumb:has(article.article-body.udyam-article) .page-hero p {
   margin-inline: auto !important;
 }
 
