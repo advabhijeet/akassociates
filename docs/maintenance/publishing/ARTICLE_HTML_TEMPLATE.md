@@ -25,6 +25,14 @@ Do not add manual Article Index script tags.
 Do not add manual Article Footer HTML.
 Do not add new article metadata to `assets/js/script.js`.
 
+### Shared editorial theme contract
+
+Every new article must load `../assets/css/style.css` and use `<article class="article-body">`. Typography, justified paragraphs, headings, lists, citations, tables, notes, mobile spacing, and light/dark colour treatment are owned by the shared editorial block `SITEWIDE_INSIGHTS_EDITORIAL_V1` in `assets/css/style.css`. **Never create per-article `<style>` blocks, article-only CSS files, or paragraph/heading layout overrides.** When the editorial design changes, change the shared stylesheet once; new and existing articles inherit it automatically.
+
+The currently approved Udyam Registration guide is a documented specialist exception; do not copy its page stylesheet into other articles. Existing legacy embedded `<style>` blocks are grandfathered only for migration and must not be carried into newly published articles.
+
+Run `node tools/validate-article-theme-contract.js` before publishing.
+
 ## Non-Negotiable Social Preview Rule
 
 Every article must include Open Graph and X/Twitter Card metadata with a direct public raster image URL.
