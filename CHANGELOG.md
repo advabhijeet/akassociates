@@ -1,3 +1,8 @@
+## 2026-11-10 IST - Sync generated cards and RSS after guide expansion
+- Refreshed the Legal Insights static article card from the edited registry and restored the registry date to the original May 2026 publication month.
+- Synchronized the RSS item with the registry title, excerpt and actual JSON-LD modification date; unchanged publication date retained.
+- Updated metadata remains in the revised article; no unrelated article or design components were modified.
+
 ## 2026-11-10 IST - Expand commercial-suit documents filing guide
 - Substantially expanded `updates/commercial-suit-documents-checklist.html` with Sections 2, 12 and 12A of the Commercial Courts Act, Order XI disclosure, Statement of Truth, electronic evidence, interest, limitation and a practical filing worksheet.
 - Added primary statutes and named Supreme Court authority links; improved semantic headings, author attribution, title, description and modification metadata.
