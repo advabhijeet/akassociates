@@ -3308,9 +3308,11 @@ body.insights-list-active .insights-category-section {
 }
 
 /* SITEWIDE_INSIGHTS_EDITORIAL_V1
-   Central article design. All /updates/ pages share article.article-body.
-   Exclude the Udyam article, whose approved page-specific design remains intact.
-   No article HTML edits or capsule-style headings. */
+   Single source of truth for standard Legal Insights editorial presentation.
+   All present and future /updates/ articles use article.article-body and inherit
+   this shared stylesheet: never copy typography/layout CSS into article HTML.
+   The Udyam guide retains its existing approved specialist presentation.
+   Legacy inline article styles are tracked by the article-theme contract check. */
 body:has(main article.article-body:not(.udyam-article)) .page-hero,
 body.has-citadel-article-thumb:has(main article.article-body:not(.udyam-article)) .page-hero {
   min-height: 0;
