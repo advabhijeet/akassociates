@@ -1,3 +1,8 @@
+## 2026-11-10 IST - Improve commercial suit guide reading layout and index
+- Added a permanent, HTML-native 14-section table of contents with direct anchor links and accessible navigation.
+- Corrected the nested-section typography, excessive section padding, list readability, cards, filing matrix and mobile presentation using strictly scoped shared editorial CSS.
+- Retained the established Citadel visual identity, article content, canonical URL, and publication data; avoided JS-only navigation and inline article styles.
+
 ## 2026-11-10 IST - Sync generated cards and RSS after guide expansion
 - Refreshed the Legal Insights static article card from the edited registry and restored the registry date to the original May 2026 publication month.
 - Synchronized the RSS item with the registry title, excerpt and actual JSON-LD modification date; unchanged publication date retained.
