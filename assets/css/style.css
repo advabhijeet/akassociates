@@ -3312,7 +3312,7 @@ body.insights-list-active .insights-category-section {
    All present and future /updates/ articles use article.article-body and inherit
    this shared stylesheet: never copy typography/layout CSS into article HTML.
    The Udyam guide retains its existing approved specialist presentation.
-   Legacy inline article styles are tracked by the article-theme contract check. */
+   Legacy inline article styles were consolidated; per-article CSS is forbidden. */
 body:has(main article.article-body:not(.udyam-article)) .page-hero,
 body.has-citadel-article-thumb:has(main article.article-body:not(.udyam-article)) .page-hero {
   min-height: 0;
@@ -3426,6 +3426,13 @@ main article.article-body:not(.udyam-article) > :is(.content-panel, .article-not
 main article.article-body:not(.udyam-article) > .article-featured-figure {
   margin-bottom: 2.05rem;
 }
+/* Publication metadata inherits the same editorial rules on every article. */
+main article.article-body:not(.udyam-article) .article-last-updated {
+  margin: 1.4rem 0;
+  color: var(--ak-ed-muted);
+  font-size: .95rem;
+  line-height: 1.65;
+}
 /* List items remain normal text flow; never grid-split inline words. */
 main article.article-body:not(.udyam-article) > :is(ul, ol) {
   display: block;
@@ -3507,6 +3514,10 @@ main article.article-body:not(.udyam-article) .faq-list > p {
 main article.article-body:not(.udyam-article) :is(.references-list, .source-list) {
   margin-block: 1rem 1.7rem;
   padding-left: 1.5rem;
+}
+main article.article-body:not(.udyam-article) :is(.references-list, .source-list) li {
+  margin-bottom: .75rem;
+  line-height: 1.65;
 }
 main article.article-body:not(.udyam-article) :is(.references-list, .source-list) a {
   overflow-wrap: anywhere;
