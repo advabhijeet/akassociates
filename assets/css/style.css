@@ -4049,7 +4049,8 @@ main article.article-body.commercial-suit-guide .references-list li {
 /* CITADEL_SERVICES_EDITORIAL_V1
    One shared design for every indexable /services/ page.
    Never place custom design blocks or an article-style index in a service page.
-   Service-specific legal content and site-wide headers/footers remain unchanged. */
+   Service-specific legal content and site-wide headers/footers remain unchanged.
+   TRANSLUCENCY_V2: Original marble shows through the page, cards and hero. */
 
 main[data-citadel-service-page] {
   --svc-ink: #292722;
@@ -4057,13 +4058,13 @@ main[data-citadel-service-page] {
   --svc-muted: #686459;
   --svc-line: rgba(62, 52, 37, 0.16);
   --svc-line-strong: rgba(137, 106, 56, 0.32);
-  --svc-card: #fffefa;
-  --svc-wash: #f6f3eb;
+  --svc-card: rgba(255, 255, 251, 0.76);
+  --svc-wash: rgba(247, 243, 235, 0.62);
   --svc-accent: #886528;
   --svc-shadow: 0 14px 36px rgba(31, 26, 17, 0.065);
   counter-reset: svc-section;
   color: var(--svc-ink);
-  background: linear-gradient(180deg, #faf9f6 0%, #f6f4ee 42%, #fbfaf7 100%);
+  background: transparent; /* Show the original Citadel marble behind the Services layout. */
 }
 
 :is(:root[data-theme="dark"], :root[data-theme="citadel-of-ak-dark"], :root[data-theme^="citadel-of-kang-dark"],
@@ -4074,11 +4075,11 @@ main[data-citadel-service-page] {
   --svc-muted: #bcb29e;
   --svc-line: rgba(235, 215, 174, 0.2);
   --svc-line-strong: rgba(222, 183, 104, 0.39);
-  --svc-card: #1b1b1a;
-  --svc-wash: #242320;
+  --svc-card: rgba(27, 27, 26, 0.76);
+  --svc-wash: rgba(36, 35, 32, 0.63);
   --svc-accent: #e4c47e;
   --svc-shadow: 0 16px 40px rgba(0, 0, 0, 0.21);
-  background: linear-gradient(180deg, #111110 0%, #161615 48%, #121211 100%);
+  background: transparent; /* Preserve the dark marble background texture. */
 }
 
 main[data-citadel-service-page] > .page-hero {
@@ -4092,7 +4093,7 @@ main[data-citadel-service-page] > .page-hero {
   border-bottom: 1px solid rgba(209, 170, 100, 0.55);
   background:
     radial-gradient(ellipse at 92% 9%, rgba(194, 149, 74, 0.2), transparent 35%),
-    linear-gradient(115deg, #131516 0%, #1a1b1b 62%, #252522 100%);
+    linear-gradient(115deg, rgba(19, 21, 22, 0.89) 0%, rgba(26, 27, 27, 0.84) 62%, rgba(37, 37, 34, 0.78) 100%);
   color: #f8f4e9;
   text-align: left;
 }
@@ -4218,6 +4219,8 @@ main[data-citadel-service-page] > section.sec > .content-panel {
   border: 1px solid var(--svc-line);
   border-radius: 15px;
   background: var(--svc-card);
+  backdrop-filter: blur(7px) saturate(1.04);
+  -webkit-backdrop-filter: blur(7px) saturate(1.04);
   box-shadow: var(--svc-shadow);
   color: var(--svc-copy);
   font-size: clamp(0.96rem, 1.08vw, 1.03rem);
@@ -4310,6 +4313,8 @@ main[data-citadel-service-page] .info-grid .info-item {
   border: 1px solid var(--svc-line);
   border-radius: 14px;
   background: var(--svc-card);
+  backdrop-filter: blur(7px) saturate(1.04);
+  -webkit-backdrop-filter: blur(7px) saturate(1.04);
   box-shadow: var(--svc-shadow);
 }
 
@@ -4379,7 +4384,7 @@ main[data-citadel-service-page] .content-panel .article-table :is(th, td) {
 }
 
 main[data-citadel-service-page] .content-panel .article-table th {
-  background: #242522;
+  background: rgba(36, 37, 34, 0.91);
   color: #fff4dd;
   font-weight: 700;
 }
