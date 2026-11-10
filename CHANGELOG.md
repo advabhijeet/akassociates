@@ -1,3 +1,10 @@
+## 2026-11-10 IST - Restore marble transparency in shared Services design
+- Corrected the all-opaque surfaces introduced by the 16-page Services redesign. The original site marble texture is visible again through the transparent main content wrapper.
+- Retained the refined typography, numbered sections, responsive cards and charcoal-gold headers; made headers, document panels, cards, related-link surfaces and table elements semi-transparent with a restrained glass effect.
+- Adjusted both light and dark palettes to preserve readability without masking the existing theme background.
+- Refreshed the shared CSS cache version on all 16 active Services pages and extended the template validator to protect the translucency contract.
+- No text, legal content, redirects, canonicals, SEO metadata or sitemap modification dates changed.
+
 ## 2026-11-10 IST - Udyam-inspired shared Legal Insights design
 - Reworked the single sitewide article CSS block to match the approved Udyam design's hero, article paper, gold spine, numbered headings, legal tables, FAQs, sources, mobile and dark variants.
 - Switched standard article heroes to the warm editorial gradient in the shared thumbnail-frame module; kept source images and social cards unchanged.

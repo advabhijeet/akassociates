@@ -210,8 +210,11 @@ for (const relPath of publicHtmlFiles()) {
 
 /* A single shared design contract for all indexable Services pages. */
 const serviceThemeMarker = "CITADEL_SERVICES_EDITORIAL_V1";
-const serviceThemeHref = 'href="../assets/css/style.css?v=site-20260726-article-index-v25-1&amp;services=20261110-v1"';
+const serviceThemeHref = 'href="../assets/css/style.css?v=site-20260726-article-index-v25-1&amp;services=20261110-v2"';
 const serviceCss = read("assets/css/style.css");
+if (!serviceCss.includes("TRANSLUCENCY_V2")) {
+  errors.push("Shared Services design lost its translucent marble surfaces.");
+}
 if (!serviceCss.includes(serviceThemeMarker)) {
   errors.push("Shared Services editorial stylesheet is missing.");
 }
