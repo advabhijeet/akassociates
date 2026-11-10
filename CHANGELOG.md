@@ -1,3 +1,10 @@
+## 2026-11-10 IST - Unify and modernize all Services page designs
+- Introduced one shared, responsive Services visual system in `assets/css/style.css` scoped strictly to `main[data-citadel-service-page]`.
+- Upgraded all 16 indexable Services pages consistently: charcoal-and-gold hero headers, refined section numbering, editorial typography, accessible contrast, aligned content panels, responsive document cards, tables, related links, and enquiry actions.
+- Added a uniform stylesheet cache-refresh suffix on all active Services pages so browsers request the updated design; no per-page CSS or duplicate style rules.
+- Expanded service-consolidation validation to guard the common template and styling contract for current and future indexable Services pages.
+- Preserved service content, headings, legal authorities, internal links, metadata, canonicals, robots directives and all four redirect-only service URLs. No sitemap lastmod changes for a visual-only update.
+
 ## 2026-11-10 IST - Restore shared Services template to Delhi NCR cheque-bounce page
 - Restored the standard `<main data-citadel-service-page>` markup and Services section structure used by the other practice-area service pages.
 - Removed the one-off 10-link navigation index and custom NCR page stylesheet. All ten substantive sections now use the existing Services `sec-label`, `content-panel`, `info-grid` and `article-table` components.

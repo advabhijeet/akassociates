@@ -207,8 +207,41 @@ for (const relPath of publicHtmlFiles()) {
   }
 }
 
+
+/* A single shared design contract for all indexable Services pages. */
+const serviceThemeMarker = "CITADEL_SERVICES_EDITORIAL_V1";
+const serviceThemeHref = 'href="../assets/css/style.css?v=site-20260726-article-index-v25-1&amp;services=20261110-v1"';
+const serviceCss = read("assets/css/style.css");
+if (!serviceCss.includes(serviceThemeMarker)) {
+  errors.push("Shared Services editorial stylesheet is missing.");
+}
+let activeServicePages = 0;
+for (const name of fs.readdirSync(fullPath("services")).filter((x) => x.endsWith(".html"))) {
+  const file = "services/" + name;
+  const page = read(file);
+  if (isNoindex(page)) continue;
+  activeServicePages++;
+  if (!page.includes("<main data-citadel-service-page>")) {
+    errors.push(file + ": must use the standard shared Services main element.");
+  }
+  if (page.split(serviceThemeHref).length !== 2) {
+    errors.push(file + ": missing or duplicate shared Services CSS cache key.");
+  }
+  if ((page.match(/<link\b[^>]*rel=["']stylesheet["'][^>]*>/gi) || []).length !== 1) {
+    errors.push(file + ": do not use page-specific stylesheets.");
+  }
+  if (/<style\b/i.test(page)) {
+    errors.push(file + ": embedded page-specific CSS is prohibited.");
+  }
+  if (!/<section\b[^>]*class=["']page-hero["']/i.test(page)
+      || !/<section\b[^>]*class=["']sec["']/i.test(page)) {
+    errors.push(file + ": expected standard Services hero and section components.");
+  }
+}
+
 console.log("Service-page consolidation validation summary:");
 console.log(`- Redirect stubs checked: ${redirects.size}`);
+console.log(`- Indexable Services pages with shared layout: ${activeServicePages}`);
 console.log(`- Retained differentiated pages checked: ${retained.size}`);
 console.log(`- Public HTML files checked: ${publicHtmlFiles().length}`);
 console.log(`- Errors: ${errors.length}`);
