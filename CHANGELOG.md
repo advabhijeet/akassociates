@@ -1,3 +1,9 @@
+## 2026-11-10 IST - Short accent dividers throughout Services
+- Removed full-width horizontal rules between sections across the shared Services design.
+- Limited the decorative gold line beside each section label to 48px, retaining section numbering, marble transparency, dark-mode contrast and document cards.
+- Updated the shared stylesheet cache version on all 16 active service pages and added an integrity marker to the Services validation rule.
+- No legal content, SEO metadata, canonical URLs, redirect behavior, sitemap dates or page hierarchy changed.
+
 ## 2026-11-10 IST - Restore marble transparency in shared Services design
 - Corrected the all-opaque surfaces introduced by the 16-page Services redesign. The original site marble texture is visible again through the transparent main content wrapper.
 - Retained the refined typography, numbered sections, responsive cards and charcoal-gold headers; made headers, document panels, cards, related-link surfaces and table elements semi-transparent with a restrained glass effect.
