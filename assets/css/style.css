@@ -3842,3 +3842,550 @@ main article.article-body.commercial-suit-guide .references-list li {
     transition: none;
   }
 }
+
+/* CITADEL_SERVICES_EDITORIAL_V1
+   One shared design for every indexable /services/ page.
+   Never place custom design blocks or an article-style index in a service page.
+   Service-specific legal content and site-wide headers/footers remain unchanged. */
+
+main[data-citadel-service-page] {
+  --svc-ink: #292722;
+  --svc-copy: #49463f;
+  --svc-muted: #686459;
+  --svc-line: rgba(62, 52, 37, 0.16);
+  --svc-line-strong: rgba(137, 106, 56, 0.32);
+  --svc-card: #fffefa;
+  --svc-wash: #f6f3eb;
+  --svc-accent: #886528;
+  --svc-shadow: 0 14px 36px rgba(31, 26, 17, 0.065);
+  counter-reset: svc-section;
+  color: var(--svc-ink);
+  background: linear-gradient(180deg, #faf9f6 0%, #f6f4ee 42%, #fbfaf7 100%);
+}
+
+:is(:root[data-theme="dark"], :root[data-theme="citadel-of-ak-dark"], :root[data-theme^="citadel-of-kang-dark"],
+  [data-theme="dark"], [data-theme="citadel-of-ak-dark"], [data-theme^="citadel-of-kang-dark"])
+main[data-citadel-service-page] {
+  --svc-ink: #f3eee3;
+  --svc-copy: #ded7ca;
+  --svc-muted: #bcb29e;
+  --svc-line: rgba(235, 215, 174, 0.2);
+  --svc-line-strong: rgba(222, 183, 104, 0.39);
+  --svc-card: #1b1b1a;
+  --svc-wash: #242320;
+  --svc-accent: #e4c47e;
+  --svc-shadow: 0 16px 40px rgba(0, 0, 0, 0.21);
+  background: linear-gradient(180deg, #111110 0%, #161615 48%, #121211 100%);
+}
+
+main[data-citadel-service-page] > .page-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 0;
+  overflow: hidden;
+  padding: clamp(3.25rem, 6vw, 5.65rem) clamp(1.35rem, 5.6vw, 5.65rem);
+  border: 0;
+  border-top: 3px solid #ba9556;
+  border-bottom: 1px solid rgba(209, 170, 100, 0.55);
+  background:
+    radial-gradient(ellipse at 92% 9%, rgba(194, 149, 74, 0.2), transparent 35%),
+    linear-gradient(115deg, #131516 0%, #1a1b1b 62%, #252522 100%);
+  color: #f8f4e9;
+  text-align: left;
+}
+
+main[data-citadel-service-page] > .page-hero::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  width: min(62vw, 720px);
+  aspect-ratio: 1;
+  top: -70%;
+  right: -15%;
+  border: 1px solid rgba(212, 175, 97, 0.17);
+  border-radius: 50%;
+  box-shadow: 0 0 0 85px rgba(210, 168, 93, 0.03), 0 0 0 175px rgba(210, 168, 93, 0.022);
+  pointer-events: none;
+}
+
+main[data-citadel-service-page] > .page-hero::after {
+  right: clamp(0.25rem, 5vw, 4.5rem);
+  color: rgba(236, 195, 117, 0.075);
+  font-size: clamp(8rem, 17vw, 15.5rem);
+  transform: translateY(-50%);
+}
+
+main[data-citadel-service-page] > .page-hero > * {
+  position: relative;
+  z-index: 1;
+  margin-inline: 0;
+}
+
+main[data-citadel-service-page] > .page-hero .hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  max-width: 100%;
+  margin: 0 0 1.2rem;
+  color: #e2bc78;
+  font-size: 0.77rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+main[data-citadel-service-page] > .page-hero h1 {
+  width: 100%;
+  max-width: 980px;
+  margin: 0;
+  color: #fffaf1;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: clamp(2.55rem, 5.1vw, 4.7rem);
+  font-weight: 550;
+  letter-spacing: -0.025em;
+  line-height: 1.11;
+  text-wrap: balance;
+}
+
+main[data-citadel-service-page] > .page-hero p {
+  max-width: 800px;
+  margin: 1.45rem 0 0;
+  color: #e1dacc;
+  font-size: clamp(1rem, 1.35vw, 1.12rem);
+  font-weight: 400;
+  line-height: 1.75;
+  text-wrap: pretty;
+}
+
+main[data-citadel-service-page] > section.sec {
+  width: 100%;
+  max-width: 1250px;
+  margin-inline: auto;
+  padding: clamp(2.15rem, 4.25vw, 3.6rem) clamp(1.25rem, 4.35vw, 4rem);
+  border-bottom: 1px solid var(--svc-line);
+  background: transparent;
+  color: var(--svc-copy);
+  counter-increment: svc-section;
+}
+
+main[data-citadel-service-page] > section.sec > .sec-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 1.45rem;
+  color: var(--svc-accent);
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+main[data-citadel-service-page] > section.sec > .sec-label::before {
+  content: counter(svc-section, decimal-leading-zero);
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1px solid var(--svc-line-strong);
+  border-radius: 50%;
+  background: var(--svc-card);
+  color: var(--svc-accent);
+  font-size: 0.78rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+}
+
+main[data-citadel-service-page] > section.sec > .sec-label::after {
+  flex: 1;
+  min-width: 10px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--svc-line-strong), transparent);
+}
+
+main[data-citadel-service-page] > section.sec > .content-panel {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: clamp(1.35rem, 2.5vw, 2.1rem);
+  border: 1px solid var(--svc-line);
+  border-radius: 15px;
+  background: var(--svc-card);
+  box-shadow: var(--svc-shadow);
+  color: var(--svc-copy);
+  font-size: clamp(0.96rem, 1.08vw, 1.03rem);
+  line-height: 1.79;
+}
+
+main[data-citadel-service-page] > section.sec > .content-panel + .content-panel,
+main[data-citadel-service-page] > section.sec > .info-grid + .content-panel,
+main[data-citadel-service-page] > section.sec > .content-panel + .info-grid {
+  margin-top: 1rem;
+}
+
+main[data-citadel-service-page] .content-panel :is(h2, h3) {
+  max-width: 900px;
+  margin: 1.65rem 0 0.78rem;
+  color: var(--svc-ink);
+  font-family: var(--font-display, Georgia, serif);
+  font-weight: 550;
+  line-height: 1.26;
+  text-wrap: balance;
+}
+
+main[data-citadel-service-page] .content-panel h2 {
+  font-size: clamp(1.55rem, 2.3vw, 2rem);
+}
+
+main[data-citadel-service-page] .content-panel h3 {
+  font-size: clamp(1.23rem, 1.7vw, 1.47rem);
+}
+
+main[data-citadel-service-page] .content-panel :is(h2, h3):first-child {
+  margin-top: 0;
+}
+
+main[data-citadel-service-page] .content-panel p {
+  max-width: 92ch;
+  margin-block: 0 1rem;
+  color: var(--svc-copy);
+  font-size: inherit;
+  line-height: inherit;
+  text-align: left;
+}
+
+main[data-citadel-service-page] .content-panel p:last-child {
+  margin-bottom: 0;
+}
+
+main[data-citadel-service-page] .content-panel :is(ul, ol),
+main[data-citadel-service-page] .references-list {
+  margin: 0.9rem 0 1.15rem;
+  padding-left: 1.5rem;
+  list-style-position: outside;
+}
+
+main[data-citadel-service-page] :is(.content-panel, .info-item, section.sec) li {
+  margin-block: 0.45rem;
+  padding-left: 0.12rem;
+  line-height: 1.7;
+}
+
+main[data-citadel-service-page] :is(.content-panel, .info-item, section.sec) li::marker {
+  color: var(--svc-accent);
+  font-weight: 750;
+}
+
+main[data-citadel-service-page] :is(.content-panel, section.sec) a:not(.btn-gold):not(.btn-outline),
+main[data-citadel-service-page] .info-item a {
+  color: var(--svc-accent);
+  text-decoration-color: color-mix(in srgb, var(--svc-accent), transparent 35%);
+  text-underline-offset: 3px;
+}
+
+main[data-citadel-service-page] :is(.content-panel, section.sec) a:not(.btn-gold):not(.btn-outline):hover {
+  text-decoration-thickness: 2px;
+}
+
+main[data-citadel-service-page] > section.sec > .info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 255px), 1fr));
+  gap: 1rem;
+  min-width: 0;
+  background: transparent;
+}
+
+main[data-citadel-service-page] .info-grid .info-item {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  padding: clamp(1.35rem, 2.2vw, 1.85rem);
+  border: 1px solid var(--svc-line);
+  border-radius: 14px;
+  background: var(--svc-card);
+  box-shadow: var(--svc-shadow);
+}
+
+main[data-citadel-service-page] .info-grid .info-item::before {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  margin: 0 0 1.1rem;
+  border-radius: 999px;
+  background: #b89860;
+}
+
+main[data-citadel-service-page] .info-grid .info-item :is(h2, h3) {
+  margin: 0 0 0.85rem;
+  color: var(--svc-ink);
+  font-family: var(--font-display, Georgia, serif);
+  font-size: clamp(1.24rem, 1.7vw, 1.49rem);
+  font-weight: 550;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+main[data-citadel-service-page] .info-grid .info-item :is(p, li) {
+  color: var(--svc-copy);
+  font-size: 0.96rem;
+  font-weight: 400;
+  line-height: 1.72;
+}
+
+main[data-citadel-service-page] .info-grid .info-item ul {
+  display: block;
+  margin: 0;
+  padding-left: 1.35rem;
+  list-style-position: outside;
+}
+
+main[data-citadel-service-page] .info-grid .info-item li {
+  margin: 0.52rem 0;
+}
+
+main[data-citadel-service-page] .content-panel .article-table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 1.2rem 0 1.4rem;
+  overflow-x: auto;
+  border: 1px solid var(--svc-line);
+  border-radius: 10px;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--svc-card);
+  color: var(--svc-copy);
+  font-size: 0.91rem;
+  line-height: 1.58;
+  -webkit-overflow-scrolling: touch;
+}
+
+main[data-citadel-service-page] .content-panel .article-table :is(th, td) {
+  min-width: 142px;
+  padding: 0.88rem 0.95rem;
+  border-right: 1px solid var(--svc-line);
+  border-bottom: 1px solid var(--svc-line);
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: break-word;
+}
+
+main[data-citadel-service-page] .content-panel .article-table th {
+  background: #242522;
+  color: #fff4dd;
+  font-weight: 700;
+}
+
+main[data-citadel-service-page] .content-panel .article-table tbody tr:nth-child(even) {
+  background: var(--svc-wash);
+}
+
+main[data-citadel-service-page] .content-panel .article-table caption {
+  padding: 0.7rem 0.2rem;
+  color: var(--svc-muted);
+  font-weight: 700;
+  text-align: left;
+}
+
+main[data-citadel-service-page] .content-panel .article-note,
+main[data-citadel-service-page] section.sec > .article-note,
+main[data-citadel-service-page] .content-panel .article-last-updated {
+  max-width: 100%;
+  margin: 1.1rem 0;
+  padding: 0.8rem 1rem;
+  border-left: 3px solid #b89860;
+  background: var(--svc-wash);
+  color: var(--svc-muted);
+  font-size: 0.91rem;
+  line-height: 1.65;
+}
+
+main[data-citadel-service-page] .article-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.58rem;
+  margin-top: 1.15rem;
+}
+
+main[data-citadel-service-page] .article-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0.52rem 0.8rem;
+  border: 1px solid var(--svc-line-strong);
+  border-radius: 8px;
+  background: var(--svc-wash);
+  color: var(--svc-ink);
+  font-size: 0.84rem;
+  font-weight: 650;
+  line-height: 1.45;
+  text-decoration: none;
+  transition: background-color 170ms ease, border-color 170ms ease;
+}
+
+main[data-citadel-service-page] .article-links a:hover {
+  border-color: var(--svc-accent);
+  background: var(--svc-card);
+}
+
+main[data-citadel-service-page] .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.7rem 0 0;
+}
+
+main[data-citadel-service-page] .hero-actions :is(.btn-gold, .btn-outline) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 158px;
+  padding: 0.8rem 1.15rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 170ms ease, border-color 170ms ease, color 170ms ease;
+}
+
+main[data-citadel-service-page] .hero-actions .btn-gold,
+.s main[data-citadel-service-page] .hero-actions .btn-gold {
+  border: 1px solid #c2a06b;
+  background: #c5a36e;
+  color: #191612;
+}
+
+main[data-citadel-service-page] .hero-actions .btn-gold:hover,
+.s main[data-citadel-service-page] .hero-actions .btn-gold:hover {
+  border-color: #dbbc8b;
+  background: #dbbc8b;
+  color: #15120d;
+}
+
+main[data-citadel-service-page] .hero-actions .btn-outline,
+.s main[data-citadel-service-page] .hero-actions .btn-outline {
+  border: 1px solid var(--svc-line-strong);
+  background: var(--svc-card);
+  color: var(--svc-ink);
+}
+
+main[data-citadel-service-page] .hero-actions .btn-outline:hover,
+.s main[data-citadel-service-page] .hero-actions .btn-outline:hover {
+  border-color: var(--svc-accent);
+  background: var(--svc-wash);
+  color: var(--svc-ink);
+}
+
+main[data-citadel-service-page] :is(a, button):focus-visible,
+main[data-citadel-service-page] .content-panel .article-table:focus-visible {
+  outline: 3px solid var(--svc-accent);
+  outline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  main[data-citadel-service-page] > .page-hero {
+    padding: 3rem 1.35rem 3.2rem;
+  }
+
+  main[data-citadel-service-page] > .page-hero::before {
+    width: 360px;
+    top: -32%;
+    right: -220px;
+  }
+
+  main[data-citadel-service-page] > .page-hero::after {
+    right: -0.35rem;
+    font-size: 8rem;
+  }
+
+  main[data-citadel-service-page] > .page-hero h1 {
+    font-size: clamp(2.15rem, 7.8vw, 3.25rem);
+    line-height: 1.13;
+  }
+
+  main[data-citadel-service-page] > .page-hero p {
+    font-size: 0.98rem;
+  }
+
+  main[data-citadel-service-page] > section.sec {
+    padding: 2.2rem 1.25rem;
+  }
+
+  main[data-citadel-service-page] > section.sec > .content-panel {
+    padding: 1.2rem;
+  }
+
+  main[data-citadel-service-page] > section.sec > .info-grid {
+    gap: 0.85rem;
+    grid-template-columns: 1fr;
+  }
+
+  main[data-citadel-service-page] .info-grid .info-item {
+    padding: 1.25rem;
+  }
+
+  main[data-citadel-service-page] .hero-actions :is(.btn-gold, .btn-outline) {
+    flex: 1 1 140px;
+  }
+}
+
+@media (max-width: 420px) {
+  main[data-citadel-service-page] > section.sec {
+    padding-inline: 1rem;
+  }
+  main[data-citadel-service-page] > section.sec > .content-panel {
+    padding: 1.05rem;
+  }
+  main[data-citadel-service-page] .hero-actions :is(.btn-gold, .btn-outline) {
+    flex: 1 1 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main[data-citadel-service-page] .hero-actions :is(.btn-gold, .btn-outline),
+  main[data-citadel-service-page] .article-links a {
+    transition: none;
+  }
+}
+
+@media print {
+  main[data-citadel-service-page],
+  main[data-citadel-service-page] > .page-hero,
+  main[data-citadel-service-page] > section.sec,
+  main[data-citadel-service-page] > section.sec > .content-panel,
+  main[data-citadel-service-page] .info-grid .info-item {
+    color: #111 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+    border-color: #ccc !important;
+  }
+
+  main[data-citadel-service-page] > .page-hero h1,
+  main[data-citadel-service-page] > .page-hero p,
+  main[data-citadel-service-page] > .page-hero .hero-eyebrow {
+    color: #111 !important;
+  }
+
+  main[data-citadel-service-page] > .page-hero::before,
+  main[data-citadel-service-page] > .page-hero::after {
+    display: none !important;
+  }
+
+  main[data-citadel-service-page] .hero-actions {
+    display: none !important;
+  }
+
+  main[data-citadel-service-page] .content-panel .article-table th {
+    color: #111 !important;
+    background: #eee !important;
+  }
+}
