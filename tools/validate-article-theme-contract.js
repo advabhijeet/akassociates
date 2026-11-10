@@ -2,7 +2,7 @@
 /*
   Enforce the centralized Legal Insights editorial theme.
   New articles inherit assets/css/style.css via article.article-body.
-  Legacy embedded styles are grandfathered temporarily; do not copy them.
+  All embedded article CSS has been migrated into the shared theme.
 */
 'use strict';
 const fs = require('fs');
@@ -11,37 +11,6 @@ const ROOT = path.resolve(__dirname, '..');
 const UPDATES = path.join(ROOT, 'updates');
 const MAIN_CSS = path.join(ROOT, 'assets', 'css', 'style.css');
 const UDYAM = 'updates/msme-registration-benefits-eligibility.html';
-
-// Pre-existing inline CSS debt. Do not add files to this list for new content.
-const LEGACY_INLINE_STYLES = new Set([
-  'updates/cheque-bounce-30-days.html',
-  'updates/arbitration-clause-checklist.html',
-  'updates/msme-45-days-payment-rule.html',
-  'updates/commercial-recovery-before-suit.html',
-  'updates/cheque-bounce-notice-limitation.html',
-  'updates/msme-samadhaan-filing-checklist.html',
-  'updates/cheque-bounce-defence-after-summons.html',
-  'updates/sabarimala-case-9-judge-bench-2026.html',
-  'updates/prepare-msme-delayed-payment-claim.html',
-  'updates/rera-execution-enforcement-after-order.html',
-  'updates/rera-homebuyer-documents-before-complaint.html',
-  'updates/uapa-bail-section-43d5-supreme-court-2026.html',
-  'updates/pmla-complaint-pre-cognizance-hearing-bnss.html',
-  'updates/rera-refund-vs-possession-document-review.html',
-  'updates/property-title-search-before-purchase-india.html',
-  'updates/section-19-msmed-act-75-percent-pre-deposit.html',
-  'updates/rera-delayed-possession-complaint-checklist.html',
-  'updates/msefc-notice-buyer-reply-defences-documents.html',
-  'updates/msme-delayed-payment-vs-civil-suit-vs-arbitration.html',
-  'updates/bihar-msefc-filing-procedure-msme-delayed-payment.html',
-  'updates/delhi-msefc-filing-procedure-msme-delayed-payment.html',
-  'updates/section-34-arbitration-limitation-3-months-30-days.html',
-  'updates/msefc-jurisdiction-supplier-buyer-different-states.html',
-  'updates/msme-interest-calculation-documents-caution-points.html',
-  'updates/after-msefc-award-challenge-deposit-stay-enforcement.html',
-  'updates/builder-buyer-agreement-clauses-before-rera-complaint.html',
-  'updates/msme-limitation-period-section-18-conciliation-arbitration.html',
-]);
 
 const errors = [];
 const attr = (tag, name) => {
@@ -64,7 +33,6 @@ if (!sharedCss.includes('SITEWIDE_INSIGHTS_EDITORIAL_V1')
   errors.push('Shared editorial CSS contract is missing or article paragraphs are not justified.');
 }
 
-let legacyCount = 0;
 for (const name of articleFiles) {
   const file = 'updates/' + name;
   const html = fs.readFileSync(path.join(UPDATES, name), 'utf8');
@@ -88,11 +56,7 @@ for (const name of articleFiles) {
   }
   const embeddedStyleCount = (html.match(/<style\b[^>]*>/gi) || []).length;
   if (embeddedStyleCount) {
-    if (!LEGACY_INLINE_STYLES.has(file) || embeddedStyleCount !== 1) {
-      errors.push(file + ': do not add inline <style> blocks; move presentation to the shared theme.');
-    } else {
-      legacyCount += 1;
-    }
+    errors.push(file + ': inline <style> blocks are forbidden; use the shared article theme.');
   }
 }
 if (errors.length) {
@@ -100,6 +64,5 @@ if (errors.length) {
   process.exitCode = 1;
 } else {
   console.log('Shared article theme contract passed: ' + articleFiles.length
-    + ' articles inherit the shared stylesheet; ' + legacyCount
-    + ' grandfathered inline style blocks; one approved Udyam specialist stylesheet.');
+    + ' articles inherit the shared stylesheet, with zero embedded article style blocks; one approved Udyam specialist stylesheet.');
 }

@@ -19,7 +19,7 @@ Do not add article metadata to `assets/js/script.js`.
 Do not manually add Article Index script tags to new article pages.
 Do not manually copy Article Footer HTML into articles.
 Do not hard-code Chambers-only article rules outside the reusable Citadel article template structure.
-Do not add page-specific presentation CSS to new articles. Shared editorial formatting lives in `assets/css/style.css` under `SITEWIDE_INSIGHTS_EDITORIAL_V1`, and is applied automatically through `article.article-body`. Preserve the approved Udyam-specific stylesheet as the documented exception. Run `node tools/validate-article-theme-contract.js` to enforce this contract.
+Do not add page-specific presentation CSS to new articles. Shared editorial formatting lives in `assets/css/style.css` under `SITEWIDE_INSIGHTS_EDITORIAL_V1`, and is applied automatically through `article.article-body`. Preserve the approved Udyam-specific stylesheet as the documented exception. Run `node tools/validate-article-theme-contract.js` to enforce this contract, including its zero-inline-CSS rule.
 
 ## Core Principles
 

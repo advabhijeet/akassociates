@@ -29,7 +29,7 @@ Do not add new article metadata to `assets/js/script.js`.
 
 Every new article must load `../assets/css/style.css` and use `<article class="article-body">`. Typography, justified paragraphs, headings, lists, citations, tables, notes, mobile spacing, and light/dark colour treatment are owned by the shared editorial block `SITEWIDE_INSIGHTS_EDITORIAL_V1` in `assets/css/style.css`. **Never create per-article `<style>` blocks, article-only CSS files, or paragraph/heading layout overrides.** When the editorial design changes, change the shared stylesheet once; new and existing articles inherit it automatically.
 
-The currently approved Udyam Registration guide is a documented specialist exception; do not copy its page stylesheet into other articles. Existing legacy embedded `<style>` blocks are grandfathered only for migration and must not be carried into newly published articles.
+The currently approved Udyam Registration guide is a documented specialist exception; do not copy its page stylesheet into other articles. The legacy embedded `<style>` blocks were removed during the one-time migration. All existing and future standard articles now use the shared stylesheet; any new embedded `<style>` block fails CI.
 
 Run `node tools/validate-article-theme-contract.js` before publishing.
 

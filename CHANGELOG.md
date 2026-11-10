@@ -1,3 +1,9 @@
+## 2026-11-10 IST - Consolidate legacy Legal Insights article styles
+- Migrated 27 duplicated embedded `<style>` blocks out of legacy article HTML; no article text, metadata, references, thumbnails, or Udyam specialist design changed.
+- Shared editorial CSS now owns last-updated and reference-list spacing alongside existing common featured image, table, FAQ and responsive layouts.
+- Removed the temporary 27-page exception list from `validate-article-theme-contract.js`. CI now rejects any embedded article `<style>` blocks.
+- Preserved automatic styling via `article.article-body`, documented the centralized ownership contract, and retained the approved Udyam specialist exception.
+
 ## 2026-10-22 IST - Resolve Bing URL Inspection metadata warnings on two new articles
 - Owner-supplied Bing Webmaster Tools screenshots confirmed both October guides indexed successfully. The MSEFC defective-goods article had a long-title warning; the partly reasoned Section 34 award article had title-length and description-length warnings.
 - Shortened HTML, Open Graph and Twitter titles while preserving the published article headings, actual legal content, canonical URLs and existing approved image assets.
