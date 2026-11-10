@@ -4050,7 +4050,8 @@ main article.article-body.commercial-suit-guide .references-list li {
    One shared design for every indexable /services/ page.
    Never place custom design blocks or an article-style index in a service page.
    Service-specific legal content and site-wide headers/footers remain unchanged.
-   TRANSLUCENCY_V2: Original marble shows through the page, cards and hero. */
+   TRANSLUCENCY_V2: Original marble shows through the page, cards and hero.
+   SHORT_DIVIDERS_V3: No full-width rules; section labels retain a 48px gold accent. */
 
 main[data-citadel-service-page] {
   --svc-ink: #292722;
@@ -4167,7 +4168,7 @@ main[data-citadel-service-page] > section.sec {
   max-width: 1250px;
   margin-inline: auto;
   padding: clamp(2.15rem, 4.25vw, 3.6rem) clamp(1.25rem, 4.35vw, 4rem);
-  border-bottom: 1px solid var(--svc-line);
+  border-bottom: 0; /* Full-width section separator removed. */
   background: transparent;
   color: var(--svc-copy);
   counter-increment: svc-section;
@@ -4205,10 +4206,13 @@ main[data-citadel-service-page] > section.sec > .sec-label::before {
 }
 
 main[data-citadel-service-page] > section.sec > .sec-label::after {
-  flex: 1;
-  min-width: 10px;
-  height: 1px;
-  background: linear-gradient(90deg, var(--svc-line-strong), transparent);
+  flex: 0 0 48px; /* Keep a small accent only; never stretch across the section. */
+  width: 48px;
+  min-width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--svc-accent);
+  opacity: 0.65;
 }
 
 main[data-citadel-service-page] > section.sec > .content-panel {
