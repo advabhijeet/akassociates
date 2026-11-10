@@ -1,3 +1,9 @@
+## 2026-11-10 IST - Restore shared Services template to Delhi NCR cheque-bounce page
+- Restored the standard `<main data-citadel-service-page>` markup and Services section structure used by the other practice-area service pages.
+- Removed the one-off 10-link navigation index and custom NCR page stylesheet. All ten substantive sections now use the existing Services `sec-label`, `content-panel`, `info-grid` and `article-table` components.
+- Kept all legal text, tables, citations, byline, SEO metadata, self-canonical and URL unchanged; the common service theme determines typography, padding and responsive behavior.
+- Future Services pages should use existing Services components rather than creating page-specific layouts.
+
 ## 2026-11-10 IST - Refine Delhi NCR cheque-bounce jurisdiction guide
 - Retained the service page URL, Section 142(2)/142A legal analysis, existing FAQs and clear Patna-based practice disclosure.
 - Tightened SEO title; added HTML-native 10-part section index, comparison matrix and official Delhi District Courts reference.
