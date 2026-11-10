@@ -3424,10 +3424,10 @@ body:has(main article.article-body:not(.udyam-article)) .page-hero:not(:has(> p)
 }
 
 /* Warm paper, understated gold spine, and a readable editorial measure. */
-body:has(main article.article-body:not(.udyam-article)) .sec:has(> article.article-body) {
+body:has(main article.article-body:not(.udyam-article)) .sec:has(> article.article-body:not(.udyam-article), > .article-index-layout > article.article-body:not(.udyam-article)) {
   padding: clamp(24px, 3vw, 46px) clamp(12px, 3vw, 45px) 90px;
 }
-body:has(main article.article-body:not(.udyam-article)) .sec:has(> article.article-body) > .sec-label {
+body:has(main article.article-body:not(.udyam-article)) .sec:has(> article.article-body:not(.udyam-article), > .article-index-layout > article.article-body:not(.udyam-article)) > .sec-label {
   max-width: 1220px;
   margin: 0 auto 26px;
 }
@@ -3728,7 +3728,7 @@ body:has(main article.article-body:not(.udyam-article)) {
     grid-row: auto;
   }
   body:has(main article.article-body:not(.udyam-article)) .page-hero > p { max-width: 650px; }
-  body:has(main article.article-body:not(.udyam-article)) .sec:has(> article.article-body) {
+  body:has(main article.article-body:not(.udyam-article)) .sec:has(> article.article-body:not(.udyam-article), > .article-index-layout > article.article-body:not(.udyam-article)) {
     padding: 28px 12px 70px;
   }
 }
