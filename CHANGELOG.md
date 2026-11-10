@@ -1,3 +1,9 @@
+## 2026-11-10 IST - Expand commercial-suit documents filing guide
+- Substantially expanded `updates/commercial-suit-documents-checklist.html` with Sections 2, 12 and 12A of the Commercial Courts Act, Order XI disclosure, Statement of Truth, electronic evidence, interest, limitation and a practical filing worksheet.
+- Added primary statutes and named Supreme Court authority links; improved semantic headings, author attribution, title, description and modification metadata.
+- Synchronized the article registry, sitemap lastmod and RSS entry; preserved URL, self-canonical, visual theme and existing image asset.
+- Featured artwork remains the shared existing commercial-recovery image, pending separate approved art asset. No image file was fabricated.
+
 ## 2026-11-10 IST - Consolidate legacy Legal Insights article styles
 - Migrated 27 duplicated embedded `<style>` blocks out of legacy article HTML; no article text, metadata, references, thumbnails, or Udyam specialist design changed.
 - Shared editorial CSS now owns last-updated and reference-list spacing alongside existing common featured image, table, FAQ and responsive layouts.
