@@ -22,7 +22,7 @@ Pill styling: assets/css/themes/citadel-of-kang/modules/pills.css
 ```
 
 Do not add manual Article Index script tags.
-Do not add manual Article Footer HTML.
+Do not add manual Article Footer HTML. The shared Article Footer v4 generates exactly one standardized article disclaimer before tags/navigation/recommendations. Do not embed a page-specific Disclaimer heading or notice. Place only genuinely topic-specific cautions in a `<aside class="article-legal-context"><strong>Article-specific considerations</strong><p>...</p></aside>` when necessary.
 Do not add new article metadata to `assets/js/script.js`.
 
 ### Shared editorial theme contract
@@ -109,7 +109,7 @@ Replace:
 {{ARTICLE_BODY}}
 {{RELATED_LINKS}}
 {{REFERENCES}}
-{{DISCLAIMER}}
+{{TOPIC_SPECIFIC_LEGAL_CONTEXT}}
 ```
 
 ## Registry JSON Entry Template
@@ -247,7 +247,7 @@ Arbitration
 
         <h2>Useful Internal Pages</h2><div class="article-links">{{RELATED_LINKS}}</div>
         <h2>References / Sources</h2>{{REFERENCES}}
-        <h2>Disclaimer</h2><div class="article-note">{{DISCLAIMER}}</div>
+        {{TOPIC_SPECIFIC_LEGAL_CONTEXT}}
       </article></section>
     </main>
     <footer class="foot"><div class="foot-copy">&copy; 2026 Chambers of AK - Advocates &amp; Legal Consultants</div><div class="foot-disc">For informational purposes only. Does not constitute legal advice or solicitation. Bar Council of India. Initial communication does not create an advocate-client relationship.</div></footer>

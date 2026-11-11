@@ -94,6 +94,9 @@ jobs:
       - name: Shared article theme contract validation
         run: node tools/validate-article-theme-contract.js
 
+      - name: Shared article ending validation
+        run: node tools/validate-article-ending-contract.js
+
       - name: Phase 3 article structure audit
         run: node tools/audit-articles-structure.js --strict
 

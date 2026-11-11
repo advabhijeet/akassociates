@@ -76,7 +76,7 @@ Each article under `updates/` should include:
 - internal links to relevant practice/service pages only where genuinely useful;
 - official reference links where needed;
 - a visible last-updated line after the conclusion in this exact format: `Last updated on: DD/MM/YYYY at HH:MM`;
-- article disclaimer block where appropriate.
+- topic-specific legal considerations only where necessary; the central Article Footer renders the standard disclaimer once.
 
 ## Mandatory Social Metadata Block
 
@@ -270,7 +270,7 @@ Link from the article to:
 - document checklist page, if useful;
 - disclaimer page, if appropriate.
 
-Do not over-link. Links should be useful and natural. Do not add enquiry/CTA blocks inside article pages.
+Do not over-link. Links should be useful and natural. Do not add enquiry/CTA blocks inside article pages. Use the shared Article Footer's standard disclaimer; any unique case-specific caveat belongs in the article-legal-context note and must not repeat generic legal advice/solicitation boilerplate.
 
 ## Legal Language Rules
 
@@ -351,7 +351,7 @@ Newsletter / Email
 Each draft must include the informational disclaimer:
 
 ```text
-For general information only. Not legal advice or solicitation.
+The shared Article Footer automatically provides the general-information, no-legal-advice and non-solicitation notice.
 ```
 
 ## Manual Patch Rule

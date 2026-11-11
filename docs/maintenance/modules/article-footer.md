@@ -1,19 +1,19 @@
 # Module Contract: Citadel Article Footer
 
-Last reconciled: 2026-05-26
+Last reconciled: 2026-11-11
 
 ## Summary
 
 - Module ID: `article-footer`
 - Module Name: `Citadel Article Footer`
-- Version: `1.0.0-production`
+- Version: `4.0.0-production`
 - Status: `production`
 - Owner Product: `Citadel of Kang theme pack with Chambers implementation data`
-- Chambers Cache Key: `article-footer-v2-1`
+- Chambers Cache Key: `article-footer-v4`
 
 ## Purpose
 
-The Citadel Article Footer module standardizes the lower section of long-form article pages. It renders article tags, previous/next article navigation and recommended reads using the central article registry first, with metadata fallback when a registry match is unavailable.
+The Citadel Article Footer module standardizes the lower section of long-form article pages. It renders exactly one standardized non-solicitation/legal-information disclaimer followed by article tags, previous/next article navigation and recommended reads using the central article registry first, with metadata fallback when a registry match is unavailable. Optional topic-specific cautions remain as article-legal-context notes in editorial content.
 
 The module reduces manual footer maintenance across `updates/*.html` pages and keeps article navigation aligned with `assets/data/insights-registry.json`.
 
