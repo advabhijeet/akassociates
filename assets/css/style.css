@@ -4048,11 +4048,12 @@ main article.article-body.commercial-suit-guide .references-list li {
 
 /* CITADEL_SERVICES_EDITORIAL_V1
    One shared design for every indexable /services/ page.
-   Never place custom design blocks or an article-style index in a service page.
+   Use one common HTML-native Service index and no per-page hero styling.
    Service-specific legal content and site-wide headers/footers remain unchanged.
    TRANSLUCENCY_V2: Original marble shows through the page, cards and hero.
    SHORT_DIVIDERS_V3: No full-width rules; section labels retain a 48px gold accent.
-   COMPACT_SERVICES_V4: Reduced vertical whitespace now that separators are gone. */
+   COMPACT_SERVICES_V4: Reduced vertical whitespace now that separators are gone.
+   SERVICE_INDEX_V5: Compact page intro plus accessible static section index. */
 
 main[data-citadel-service-page] {
   --svc-ink: #292722;
@@ -4084,84 +4085,147 @@ main[data-citadel-service-page] {
   background: transparent; /* Preserve the dark marble background texture. */
 }
 
-main[data-citadel-service-page] > .page-hero {
-  position: relative;
-  isolation: isolate;
-  min-height: 0;
-  overflow: hidden;
-  padding: clamp(3.25rem, 6vw, 5.65rem) clamp(1.35rem, 5.6vw, 5.65rem);
-  border: 0;
-  border-top: 3px solid #ba9556;
-  border-bottom: 1px solid rgba(209, 170, 100, 0.55);
-  background:
-    radial-gradient(ellipse at 92% 9%, rgba(194, 149, 74, 0.2), transparent 35%),
-    linear-gradient(115deg, rgba(19, 21, 22, 0.89) 0%, rgba(26, 27, 27, 0.84) 62%, rgba(37, 37, 34, 0.78) 100%);
-  color: #f8f4e9;
-  text-align: left;
+/* Compact, unboxed title and introduction: service pages no longer have a hero banner. */
+main[data-citadel-service-page] > .service-intro {
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: clamp(1.85rem, 3.1vw, 2.8rem) clamp(1.25rem, 4.35vw, 4rem) 0.8rem;
+  color: var(--svc-ink);
 }
 
-main[data-citadel-service-page] > .page-hero::before {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  width: min(62vw, 720px);
-  aspect-ratio: 1;
-  top: -70%;
-  right: -15%;
-  border: 1px solid rgba(212, 175, 97, 0.17);
-  border-radius: 50%;
-  box-shadow: 0 0 0 85px rgba(210, 168, 93, 0.03), 0 0 0 175px rgba(210, 168, 93, 0.022);
-  pointer-events: none;
-}
-
-main[data-citadel-service-page] > .page-hero::after {
-  right: clamp(0.25rem, 5vw, 4.5rem);
-  color: rgba(236, 195, 117, 0.075);
-  font-size: clamp(8rem, 17vw, 15.5rem);
-  transform: translateY(-50%);
-}
-
-main[data-citadel-service-page] > .page-hero > * {
-  position: relative;
-  z-index: 1;
-  margin-inline: 0;
-}
-
-main[data-citadel-service-page] > .page-hero .hero-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  max-width: 100%;
-  margin: 0 0 1.2rem;
-  color: #e2bc78;
-  font-size: 0.77rem;
-  font-weight: 700;
-  letter-spacing: 0.17em;
+main[data-citadel-service-page] > .service-intro .hero-eyebrow {
+  margin: 0 0 0.7rem;
+  color: var(--svc-accent);
+  font-size: 0.72rem;
+  font-weight: 750;
   line-height: 1.5;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
 }
 
-main[data-citadel-service-page] > .page-hero h1 {
+main[data-citadel-service-page] > .service-intro h1 {
   width: 100%;
-  max-width: 980px;
+  max-width: 1050px;
   margin: 0;
-  color: #fffaf1;
-  font-family: var(--font-display, Georgia, serif);
-  font-size: clamp(2.55rem, 5.1vw, 4.7rem);
-  font-weight: 550;
-  letter-spacing: -0.025em;
-  line-height: 1.11;
+  color: var(--svc-ink);
+  font: 550 clamp(2.05rem, 3.75vw, 3.35rem)/1.16 var(--font-display, Georgia, serif);
+  letter-spacing: -0.018em;
   text-wrap: balance;
 }
 
-main[data-citadel-service-page] > .page-hero p {
-  max-width: 800px;
-  margin: 1.45rem 0 0;
-  color: #e1dacc;
-  font-size: clamp(1rem, 1.35vw, 1.12rem);
+main[data-citadel-service-page] > .service-intro p {
+  max-width: 87ch;
+  margin: 0.85rem 0 0;
+  color: var(--svc-copy);
+  font-size: clamp(0.97rem, 1.1vw, 1.05rem);
   font-weight: 400;
-  line-height: 1.75;
+  line-height: 1.7;
+  text-align: left;
   text-wrap: pretty;
+}
+
+/* HTML-native index shared by all Services pages; no JavaScript required. */
+main[data-citadel-service-page] > .service-index {
+  width: calc(100% - clamp(2.5rem, 8.7vw, 8rem));
+  max-width: 1120px;
+  margin: 0.75rem auto 0.45rem;
+  padding: clamp(1rem, 1.75vw, 1.4rem) clamp(1rem, 2vw, 1.65rem);
+  border: 1px solid var(--svc-line-strong);
+  border-radius: 13px;
+  background: var(--svc-card);
+  box-shadow: var(--svc-shadow);
+  backdrop-filter: blur(7px) saturate(1.04);
+  -webkit-backdrop-filter: blur(7px) saturate(1.04);
+  color: var(--svc-ink);
+}
+
+main[data-citadel-service-page] .service-index__intro {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.8rem;
+  margin: 0 0 0.8rem;
+}
+
+main[data-citadel-service-page] .service-index__eyebrow {
+  color: var(--svc-accent);
+  font-size: 0.69rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+main[data-citadel-service-page] .service-index__heading {
+  color: var(--svc-ink);
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 1.35rem;
+  font-weight: 550;
+  line-height: 1.3;
+}
+
+main[data-citadel-service-page] .service-index__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.18rem 0.8rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+main[data-citadel-service-page] .service-index__list li {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+main[data-citadel-service-page] .service-index__list a {
+  display: flex;
+  align-items: baseline;
+  gap: 0.58rem;
+  min-height: 36px;
+  padding: 0.4rem 0.38rem;
+  border-radius: 7px;
+  color: var(--svc-ink);
+  font-size: 0.88rem;
+  font-weight: 550;
+  line-height: 1.42;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+main[data-citadel-service-page] .service-index__list a:hover,
+main[data-citadel-service-page] .service-index__list a:focus-visible {
+  background: var(--svc-wash);
+  color: var(--svc-accent);
+}
+
+main[data-citadel-service-page] .service-index__num {
+  flex: 0 0 1.4rem;
+  color: var(--svc-accent);
+  font-size: 0.73rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+main[data-citadel-service-page] > section.sec[id^="service-section-"] {
+  scroll-margin-top: calc(var(--nav-space, 108px) + 18px);
+}
+
+@media (max-width: 980px) {
+  main[data-citadel-service-page] .service-index__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  main[data-citadel-service-page] > .service-index {
+    width: calc(100% - 2rem);
+    padding: 1rem;
+  }
+  main[data-citadel-service-page] .service-index__list {
+    grid-template-columns: 1fr;
+  }
 }
 
 main[data-citadel-service-page] > section.sec {
@@ -4505,28 +4569,16 @@ main[data-citadel-service-page] .content-panel .article-table:focus-visible {
 }
 
 @media (max-width: 760px) {
-  main[data-citadel-service-page] > .page-hero {
-    padding: 3rem 1.35rem 3.2rem;
+  main[data-citadel-service-page] > .service-intro {
+    padding: 1.55rem 1.25rem 0.55rem;
   }
 
-  main[data-citadel-service-page] > .page-hero::before {
-    width: 360px;
-    top: -32%;
-    right: -220px;
+  main[data-citadel-service-page] > .service-intro h1 {
+    font-size: clamp(1.9rem, 6.9vw, 2.55rem);
   }
 
-  main[data-citadel-service-page] > .page-hero::after {
-    right: -0.35rem;
-    font-size: 8rem;
-  }
-
-  main[data-citadel-service-page] > .page-hero h1 {
-    font-size: clamp(2.15rem, 7.8vw, 3.25rem);
-    line-height: 1.13;
-  }
-
-  main[data-citadel-service-page] > .page-hero p {
-    font-size: 0.98rem;
+  main[data-citadel-service-page] > .service-intro p {
+    font-size: 0.96rem;
   }
 
   main[data-citadel-service-page] > section.sec {
@@ -4572,7 +4624,7 @@ main[data-citadel-service-page] .content-panel .article-table:focus-visible {
 
 @media print {
   main[data-citadel-service-page],
-  main[data-citadel-service-page] > .page-hero,
+  main[data-citadel-service-page] > .service-intro,
   main[data-citadel-service-page] > section.sec,
   main[data-citadel-service-page] > section.sec > .content-panel,
   main[data-citadel-service-page] .info-grid .info-item {
@@ -4582,17 +4634,13 @@ main[data-citadel-service-page] .content-panel .article-table:focus-visible {
     border-color: #ccc !important;
   }
 
-  main[data-citadel-service-page] > .page-hero h1,
-  main[data-citadel-service-page] > .page-hero p,
-  main[data-citadel-service-page] > .page-hero .hero-eyebrow {
+  main[data-citadel-service-page] > .service-intro h1,
+  main[data-citadel-service-page] > .service-intro p,
+  main[data-citadel-service-page] > .service-intro .hero-eyebrow {
     color: #111 !important;
   }
 
-  main[data-citadel-service-page] > .page-hero::before,
-  main[data-citadel-service-page] > .page-hero::after {
-    display: none !important;
-  }
-
+  main[data-citadel-service-page] .service-index,
   main[data-citadel-service-page] .hero-actions {
     display: none !important;
   }
