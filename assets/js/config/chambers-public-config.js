@@ -132,9 +132,9 @@
             "activation": "Article with at least three direct H2 headings"
       },
       "articleFooter": {
-            "id": "citadel-article-footer-v3",
+            "id": "citadel-article-footer-v4",
             "path": "assets/js/themes/citadel-of-kang/article-footer.js",
-            "version": "article-footer-v3",
+            "version": "article-footer-v4",
             "guard": "CitadelArticleFooter",
             "owner": "Article tags, navigation and recommendations",
             "activation": "article.article-body"

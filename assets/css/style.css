@@ -4602,3 +4602,57 @@ main[data-citadel-service-page] .content-panel .article-table:focus-visible {
     background: #eee !important;
   }
 }
+
+/* ARTICLE_ENDING_CONTRACT_V1
+   One readable legal notice from the shared Article Footer module; article-specific
+   legal context is content, not a second boilerplate disclaimer. */
+article.article-body .article-legal-context {
+  margin: 1.75rem 0;
+  padding: 18px 22px;
+  border: 1px solid var(--ak-ed-line, var(--ue-line, rgba(var(--rgb-ink), .18)));
+  border-left: 3px solid var(--ak-ed-accent, var(--ue-gold, #9b742e));
+  background: var(--ak-ed-soft, var(--ue-soft, #f7f3eb));
+  color: var(--ak-ed-ink, var(--ue-ink, var(--color-ink)));
+  font: 400 .91rem/1.7 var(--font-body, sans-serif);
+  overflow-wrap: break-word;
+}
+article.article-body .article-legal-context strong {
+  display: block;
+  margin-bottom: .5rem;
+  color: var(--ak-ed-accent, var(--ue-gold, #9b742e));
+  font-size: .73rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+article.article-body .article-legal-context p { margin: 0; text-align: left; }
+article.article-body .article-standard-footer .article-standard-disclaimer {
+  margin: 0 0 2.2rem;
+  padding: 18px 22px;
+  border: 1px solid var(--ak-ed-line, var(--ue-line, rgba(var(--rgb-ink), .18)));
+  border-left: 3px solid var(--ak-ed-accent, var(--ue-gold, #9b742e));
+  background: var(--ak-ed-soft, var(--ue-soft, #f7f3eb));
+  color: var(--ak-ed-muted, var(--ue-muted, var(--color-ink)));
+  box-shadow: none;
+}
+article.article-body .article-standard-footer .article-standard-disclaimer h2 {
+  margin: 0 0 .7rem;
+  padding: 0;
+  border: 0;
+  color: var(--ak-ed-ink, var(--ue-ink, var(--color-ink)));
+  font: 500 clamp(1.25rem, 2vw, 1.5rem)/1.3 var(--font-display, Georgia, serif);
+}
+article.article-body .article-standard-footer .article-standard-disclaimer p {
+  margin: 0;
+  color: inherit;
+  font-size: .88rem;
+  line-height: 1.7;
+  text-align: left;
+  hyphens: none;
+}
+@media (max-width: 640px) {
+  article.article-body .article-legal-context,
+  article.article-body .article-standard-footer .article-standard-disclaimer { padding: 15px 17px; }
+}
+@media print {
+  article.article-body .article-standard-footer .article-standard-disclaimer { break-inside: avoid; }
+}

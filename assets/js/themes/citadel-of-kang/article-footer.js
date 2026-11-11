@@ -1,5 +1,5 @@
 /*
-  Citadel Article Footer v2.
+  Citadel Article Footer v4.
   Auto-applies to article.article-body pages and renders tags, previous/next links,
   and recommended reads using a registry-first, metadata-fallback approach.
 */
@@ -222,13 +222,30 @@
     return card;
   };
 
+  /* One standard legal disclaimer for every article. Avoid page-local copies. */
+  const buildDisclaimer = () => {
+    const notice = document.createElement('section');
+    notice.className = 'article-standard-disclaimer';
+    notice.setAttribute('aria-label', 'Article disclaimer');
+
+    const title = document.createElement('h2');
+    title.textContent = 'Disclaimer';
+
+    const statement = document.createElement('p');
+    statement.textContent = 'This article is provided for general legal information and educational purposes only. It does not constitute legal advice, advertising or solicitation. Laws, rules, judicial interpretations and procedures may change; the applicable position depends on the facts, documents and current law. Reading this article or making an initial enquiry does not create an advocate-client relationship.';
+
+    notice.append(title, statement);
+    return notice;
+  };
+
   const renderFooter = (article, current, previous, next, related) => {
     if (article.querySelector(FOOTER_SELECTOR)) return;
 
     const footer = document.createElement('section');
     footer.className = 'article-standard-footer';
-    footer.dataset.citadelArticleFooter = 'v2';
+    footer.dataset.citadelArticleFooter = 'v4';
 
+    footer.appendChild(buildDisclaimer());
     footer.appendChild(buildHeading('Tags'));
     footer.appendChild(buildTags(current.tags || ['Legal Insight']));
 

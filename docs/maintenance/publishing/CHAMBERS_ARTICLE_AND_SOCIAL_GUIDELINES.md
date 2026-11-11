@@ -43,7 +43,7 @@ Do not expose:
 - repository paths or patch instructions;
 - unsupported claims about outcomes.
 
-One restrained end-of-article informational enquiry block is permitted. Repeated, intrusive or promotional CTA blocks are not.
+No enquiry, WhatsApp solicitation or promotional CTA blocks are permitted inside Legal Insights articles. The site's standard navigation already provides Enquiry and Contact. Each article receives exactly one centrally generated informational disclaimer through Article Footer v4; optional topic-specific cautions remain separate, non-promotional editorial content.
 
 ## 3. Source and legal-accuracy rule
 
