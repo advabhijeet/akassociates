@@ -4084,6 +4084,16 @@ main[data-citadel-service-page] {
   background: transparent; /* Preserve the dark marble background texture. */
 }
 
+/* SERVICE_NO_ORNAMENT_V5
+   Hide the inherited Citadel centered gold divider and its 2rem margins.
+   Keep only the short 48px line attached to each section label. */
+main[data-citadel-service-page] > .page-hero::after,
+main[data-citadel-service-page] > section.sec::before {
+  content: none;
+  display: none;
+  margin: 0;
+}
+
 main[data-citadel-service-page] > .page-hero {
   position: relative;
   isolation: isolate;
