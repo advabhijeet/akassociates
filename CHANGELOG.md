@@ -1,3 +1,8 @@
+## 2026-11-11 IST - Restore original Services hero headers after clarification
+- Clarification: keep the original shared Services page hero banners; remove the large full-width section separator and retain reduced vertical whitespace. The earlier experiment removing headers and introducing section indices is reverted.
+- Restored the approved layout and stylesheet from commit `d9a132fa964c0091de86f945d1c06fea6b703326` on all 16 indexable Services pages; short 48px gold accents, compact section spacing, marble translucency and shared responsive styling are preserved.
+- Restored the pre-index service validation contract. No legal text, SEO metadata, canonical URLs, redirect-only pages or sitemap dates changed.
+
 ## 2026-11-11 IST - Replace Services hero banners with compact page introductions and indices
 - Removed oversized hero/banner blocks from all 16 active Services pages while retaining their exact H1 headings and introductory text in compact, unboxed title sections; shared site navigation is unchanged.
 - Added one consistent semantic, HTML-native section index at the top of each page, linked to stable, unique IDs on every Services section. No JavaScript is required to navigate.
