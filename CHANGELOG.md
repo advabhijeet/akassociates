@@ -1,3 +1,10 @@
+## 2026-11-11 IST - Replace Services hero banners with compact page introductions and indices
+- Removed oversized hero/banner blocks from all 16 active Services pages while retaining their exact H1 headings and introductory text in compact, unboxed title sections; shared site navigation is unchanged.
+- Added one consistent semantic, HTML-native section index at the top of each page, linked to stable, unique IDs on every Services section. No JavaScript is required to navigate.
+- Added responsive three-column/two-column/single-column index layouts, accessible focus states and scroll offsets for the fixed site navigation, with light/dark marble transparency retained.
+- Updated the shared Services stylesheet and cache key, print styling, and validation to require one H1 and complete, matching index anchors on all active Services pages.
+- Preserved legal content, structured data, canonical URLs, redirect-only pages and sitemap dates.
+
 ## 2026-11-10 IST - Reduce Services page whitespace after divider removal
 - Reduced vertical padding between Services sections on desktop and mobile while retaining the short gold accent, numbering and translucent marble panels.
 - Tightened section-label bottom spacing without compressing document-card content, legal tables, enquiry actions or hero sections.

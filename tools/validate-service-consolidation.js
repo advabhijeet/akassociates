@@ -210,8 +210,11 @@ for (const relPath of publicHtmlFiles()) {
 
 /* A single shared design contract for all indexable Services pages. */
 const serviceThemeMarker = "CITADEL_SERVICES_EDITORIAL_V1";
-const serviceThemeHref = 'href="../assets/css/style.css?v=site-20260726-article-index-v25-1&amp;services=20261110-v4"';
+const serviceThemeHref = 'href="../assets/css/style.css?v=site-20260726-article-index-v25-1&amp;services=20261111-v5"';
 const serviceCss = read("assets/css/style.css");
+if (!serviceCss.includes("SERVICE_INDEX_V5")) {
+  errors.push("Shared Services CSS is missing the compact index design.");
+}
 if (!serviceCss.includes("COMPACT_SERVICES_V4")) {
   errors.push("Shared Services design is missing the compact section spacing rules.");
 }
@@ -242,9 +245,20 @@ for (const name of fs.readdirSync(fullPath("services")).filter((x) => x.endsWith
   if (/<style\b/i.test(page)) {
     errors.push(file + ": embedded page-specific CSS is prohibited.");
   }
-  if (!/<section\b[^>]*class=["']page-hero["']/i.test(page)
-      || !/<section\b[^>]*class=["']sec["']/i.test(page)) {
-    errors.push(file + ": expected standard Services hero and section components.");
+  const intro = page.match(/<div class="service-intro">([\s\S]*?)<\/div>\s*<nav class="service-index"/);
+  const index = page.match(/<nav class="service-index" aria-label="Sections on this page">([\s\S]*?)<\/nav>/);
+  const sectionIds = [...page.matchAll(/<section class="sec" id="(service-section-[^"]+)"/g)].map((match) => match[1]);
+  const indexIds = index
+    ? [...index[1].matchAll(/<a href="#(service-section-[^"]+)"/g)].map((match) => match[1])
+    : [];
+  if (!intro || (intro[1].match(/<h1\b/g) || []).length !== 1) {
+    errors.push(file + ": missing compact intro with one H1.");
+  }
+  if (/<section\b[^>]*class=["']page-hero["']/i.test(page)) {
+    errors.push(file + ": old full-width service hero is not permitted.");
+  }
+  if (!index || sectionIds.length < 5 || JSON.stringify(indexIds) !== JSON.stringify(sectionIds)) {
+    errors.push(file + ": section index links must match every service section in order.");
   }
 }
 
