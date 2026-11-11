@@ -210,8 +210,11 @@ for (const relPath of publicHtmlFiles()) {
 
 /* A single shared design contract for all indexable Services pages. */
 const serviceThemeMarker = "CITADEL_SERVICES_EDITORIAL_V1";
-const serviceThemeHref = 'href="../assets/css/style.css?v=site-20260726-article-index-v25-1&amp;services=20261110-v4"';
+const serviceThemeHref = 'href="../assets/css/style.css?v=site-20260726-article-index-v25-1&amp;services=20261111-v5"';
 const serviceCss = read("assets/css/style.css");
+if (!serviceCss.includes("SERVICE_NO_ORNAMENT_V5")) {
+  errors.push("Shared Services style is missing the inherited ornament suppression.");
+}
 if (!serviceCss.includes("COMPACT_SERVICES_V4")) {
   errors.push("Shared Services design is missing the compact section spacing rules.");
 }

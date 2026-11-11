@@ -1,3 +1,9 @@
+## 2026-11-11 IST - Remove unused centered gold separator on Services pages
+- Removed the inherited Citadel theme pseudo-elements that drew a centered 16rem gold rule and introduced 2rem vertical margins before each service section and after the hero.
+- Changes are scoped to the active Services pages only. Site-wide styling and other page types keep their existing decorative separators.
+- Retained the original header banners, 48px gold section-label accents, compact section padding, translucent marble, legal content, canonical URLs, structured data and all redirect-only pages.
+- Refreshed the shared CSS cache across all 16 active Services pages and added a Services validation guard to preserve the change.
+
 ## 2026-11-11 IST - Centralize Legal Insights disclaimer and remove article enquiry CTAs
 - Article Footer v4 now owns a single consistent, non-solicitation disclaimer, followed by tags, previous/next, and recommended reads. Existing general site-footer notice remains as a static fallback.
 - One-time article cleanup replaces inconsistent legal disclaimers with distinct topic-specific cautions and removes embedded promotional enquiry/WhatsApp CTAs; reader-useful source downloads stay intact.
