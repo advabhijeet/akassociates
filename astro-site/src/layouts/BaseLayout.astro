@@ -1,0 +1,24 @@
+---
+import '../styles/global.css';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+interface Props { title: string; description: string; }
+const { title, description } = Astro.props;
+---
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="robots" content="noindex,nofollow" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<SiteHeader />
+<main id="main"><slot /></main>
+<SiteFooter />
+</body>
+</html>
+<style>.skip { position:absolute; left:1rem; top:-5rem; background:white; padding:.5rem; } .skip:focus { top:0; } main { min-height:70vh; }</style>

@@ -1,0 +1,23 @@
+name: AK-001 Astro preview build
+on:
+  push:
+    branches: [astro-migration]
+    paths:
+      - 'astro-site/**'
+      - '.github/workflows/astro-migration.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: astro-site
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.4'
+      - run: npm install --no-audit --no-fund
+      - run: npm run build
