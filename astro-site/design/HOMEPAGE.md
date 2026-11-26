@@ -1,0 +1,2 @@
+# AK-004 homepage
+Official logo assets and existing artwork copied by Git blob SHA. Three latest articles are a snapshot of the current registry; replace with content collection in AK-006. Unmigrated pages intentionally link to production; preview has no tracking or enquiry submission form. Disclaimer is a session-dismissible informational notice, not a mandatory access gate. Confirm professional compliance and final disclaimer behaviour before production. Mobile navigation wraps without requiring JavaScript. Browser and accessibility review pending. Main remains untouched.
