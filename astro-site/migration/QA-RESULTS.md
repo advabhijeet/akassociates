@@ -1,0 +1,3 @@
+# QA run 45797349361
+
+87 canonical documents audited; all exercised browser interactions passed. Two metadata errors traced to homepageMeta.listingTitle and meta.listingTitle (undefined); fixed to title. Repeated production homepage links originated from intentional footer link, now removed. Remote Pages audit: 95 requests, 90 redirects, zero network/server errors; Pages strips .html. Separate Worker staging config prepared, deployment requires account action. The next CI run must verify fixes and restored original enquiry fields. Mock EmailJS adapter is not wired to live delivery. Main and DNS unchanged.

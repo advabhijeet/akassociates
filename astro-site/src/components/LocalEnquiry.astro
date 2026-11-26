@@ -1,8 +1,36 @@
-<section class="detail-section" id="preview-message"><p class="eyebrow">Local message preparation</p><h2>Prepare an enquiry</h2><p>Preview only. No information is transmitted or stored. Do not enter confidential or privileged material.</p><noscript><p>JavaScript is required to prepare a local message.</p></noscript><form data-local-enquiry class="panel stack" method="post"><fieldset disabled class="stack"><label class="field">Matter type<select name="type" required><option value="">Choose matter type</option>{['MSME','Arbitration','RERA','Cheque bounce','Commercial recovery','Property / Civil','Other'].map(x=><option>{x}</option>)}</select></label><label class="field">City / forum<input name="forum"/></label><label class="field">Relevant dates and stage<textarea name="dates" rows="3"/></label><label class="field">Brief non-confidential summary<textarea name="summary" rows="4" required/></label><label><input type="checkbox" required/> I understand this is a local preparation tool, not legal advice or engagement.</label><button type="submit">Prepare message</button><label class="field">Prepared message<textarea data-enquiry-text readonly rows="8"/></label><button type="button" data-enquiry-copy disabled>Copy message</button><p role="status" data-enquiry-status></p></fieldset></form></section>
+---
+import {readFileSync} from 'node:fs';
+import {resolve} from 'node:path';
+// Retain original structured form fields; the staging branch never enables external delivery.
+const original=readFileSync(resolve(process.cwd(),'../contact.html'),'utf8');
+const raw=original.match(/<form class="dynamic-contact-form"[\s\S]*?<\/form>/)?.[0];
+if(!raw)throw Error('Original enquiry form not found');
+const markup=raw.replace('<form class="dynamic-contact-form" data-contact-dynamic-form>','<form class="dynamic-contact-form" data-contact-dynamic-form method="post"><fieldset disabled class="stack">').replace('</form>','</fieldset></form>').replace('You may send this enquiry directly through the website. WhatsApp, Gmail and copy options remain available as fallback.','Review your prepared message. Preview mode disables direct email delivery and external compose links.').replace(/<a class="btn-outline"[^>]*data-whatsapp-compose>[\s\S]*?<\/a>/,'<a class="btn-outline" data-whatsapp-compose hidden>Open WhatsApp</a>').replace(/<a class="btn-outline"[^>]*data-gmail-compose>[\s\S]*?<\/a>/,'<a class="btn-outline" data-gmail-compose hidden>Choose Gmail Account</a>').replace(/data-emailjs-status hidden/g,'data-emailjs-status role="status" hidden');
+---
+<section class="detail-section" id="preview-message"><p class="eyebrow">Structured enquiry</p><h2>Prepare an enquiry</h2><p>Preview only. Information remains local. Do not enter confidential or privileged material. Direct delivery is disabled.</p><noscript><p>JavaScript is required for local preparation.</p></noscript><div class="structured" set:html={markup}/></section>
 <script>
-const form=document.querySelector<HTMLFormElement>('[data-local-enquiry]');const output=form?.querySelector<HTMLTextAreaElement>('[data-enquiry-text]');const copy=form?.querySelector<HTMLButtonElement>('[data-enquiry-copy]');const status=form?.querySelector<HTMLElement>('[data-enquiry-status]');
-form?.addEventListener('submit',e=>{e.preventDefault();if(!form||!output||!copy)return;const d=new FormData(form);output.value=['Matter type: '+d.get('type'),'City / forum: '+d.get('forum'),'Dates / stage: '+d.get('dates'),'Summary: '+d.get('summary')].join('\n\n');copy.disabled=false;if(status)status.textContent='Message prepared locally. Nothing has been sent.';});
-form?.addEventListener('input',e=>{if(e.target!==output&&output&&copy){output.value='';copy.disabled=true;if(status)status.textContent='';}});
-form?.querySelector('fieldset')?.removeAttribute('disabled');
-copy?.addEventListener('click',async()=>{if(!output||!status)return;try{await navigator.clipboard.writeText(output.value);status.textContent='Copied.';}catch{output.select();status.textContent='Select and copy manually.';}});
-</script><style>fieldset{border:0;margin:0;padding:0;min-width:0}button{min-height:44px;background:var(--surface);color:var(--ink);border:1px solid var(--gold-line);padding:.5rem 1rem;justify-self:start}</style>
+import {prepareMessage} from '../data/enquiry-message.mjs';
+const form=document.querySelector<HTMLFormElement>('[data-contact-dynamic-form]');
+if(form){
+ const groups=[...form.querySelectorAll<HTMLElement>('[data-matter-fields]')];
+ const matter=form.querySelector<HTMLSelectElement>('[data-matter-type]')!;
+ const consent=form.querySelector<HTMLInputElement>('[data-form-consent]')!;
+ const output=form.querySelector<HTMLTextAreaElement>('[data-enquiry-output]')!;
+ const wrapper=form.querySelector<HTMLElement>('[data-form-result]')!;
+ const generate=form.querySelector<HTMLButtonElement>('[data-generate-enquiry]')!;
+ const copy=form.querySelector<HTMLButtonElement>('[data-copy-enquiry]')!;
+ const send=form.querySelector<HTMLButtonElement>('[data-emailjs-send]')!;
+ const statuses=[...form.querySelectorAll<HTMLElement>('[data-emailjs-status]')];
+ function status(message:string){statuses.forEach(s=>{s.textContent='';s.hidden=true;});const s=wrapper.hidden?statuses[0]:statuses[statuses.length-1];if(s){s.textContent=message;s.hidden=!message;}}
+ function refresh(){groups.forEach(g=>{g.hidden=g.dataset.matterFields!==matter.value;g.querySelectorAll<HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement>('input,select,textarea').forEach(f=>f.disabled=g.hidden);});generate.disabled=!matter.value||!consent.checked;output.value='';wrapper.hidden=true;copy.disabled=true;send.disabled=true;status('');}
+ form.addEventListener('submit',e=>e.preventDefault());
+ form.addEventListener('input',e=>{if(e.target!==output)refresh();});
+ form.addEventListener('change',e=>{if(e.target!==output)refresh();});
+ generate.addEventListener('click',()=>{if(!consent.checked||!form.reportValidity())return;const fields=[...form.querySelectorAll<HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement>('input,select,textarea')].filter(f=>f.name&&!f.disabled&&f.type!=='checkbox'&&f!==output&&!f.closest('[hidden]')).map(f=>({name:f.name,label:f.closest('label')?.querySelector('span')?.textContent?.trim()||f.name,value:f instanceof HTMLSelectElement?f.selectedOptions[0]?.textContent||'':f.value}));output.value=prepareMessage(fields);wrapper.hidden=false;copy.disabled=false;send.disabled=true;status('Prepared locally. Nothing has been sent.');output.focus();});
+ copy.addEventListener('click',async()=>{if(!output.value)return;try{await navigator.clipboard.writeText(output.value);status('Copied.');}catch{output.select();status('Select and copy manually.');}});
+ form.querySelector('fieldset')?.removeAttribute('disabled');refresh();
+}
+</script>
+<style>
+.structured :global(fieldset){border:0;margin:0;padding:0;min-width:0}.structured :global(.form-grid){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.structured :global(.form-field){display:grid;gap:.4rem;font-size:.85rem;min-width:0}.structured :global(.form-field-full){grid-column:1/-1}.structured :global(input:not([type=checkbox])),.structured :global(select),.structured :global(textarea){width:100%;min-height:44px;padding:.65rem;color:var(--ink);background:var(--paper);border:1px solid var(--line)}.structured :global(.form-consent){display:flex;gap:.6rem;align-items:start;font-size:.84rem}.structured :global(.form-consent input){margin-top:.35rem}.structured :global(.form-actions){display:flex;gap:.65rem;flex-wrap:wrap}.structured :global(button){min-height:44px;background:var(--surface);color:var(--ink);border:1px solid var(--gold-line);padding:.5rem 1rem}.structured :global(button:disabled){opacity:.5;cursor:not-allowed}.structured :global([hidden]){display:none!important}.structured :global(.form-note){font-size:.8rem;color:var(--muted)}@media(max-width:600px){.structured :global(.form-grid){grid-template-columns:1fr}}
+</style>

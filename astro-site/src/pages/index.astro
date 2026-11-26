@@ -11,7 +11,7 @@ const resources=[['Legal calculators','legal-tools.html','Calculate indicative p
 const approach=[['01','Documents','Indexed papers, pleadings, agreements and evidence.'],['02','Procedure','Chronology, limitation, jurisdiction and forum assessment.'],['03','Relief','Legal issues and remedies relevant to the facts.']];
 const featured=latest[0];
 ---
-<BaseLayout title={homepageMeta.listingTitle} description={homepageMeta.description}>
+<BaseLayout title={homepageMeta.title} description={homepageMeta.description}>
 <Fragment slot="head"><link rel="canonical" href={homepageMeta.canonical}/>{homepageMeta.meta.map(m=>m.property?<meta property={m.key} content={m.content}/>:<meta name={m.key} content={m.content}/>)}{homepageMeta.schemas.map(s=><script type="application/ld+json" set:html={s}/>)}</Fragment>
 <DisclaimerNotice/>
 <section class="hero" aria-labelledby="hero-title">

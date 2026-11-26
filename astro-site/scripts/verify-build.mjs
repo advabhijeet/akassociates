@@ -86,3 +86,6 @@ await import('./test-calculations.mjs');
 console.log('AK-008: core pages, complete legacy sitemap coverage and tools verified.');
 
 await import('./test-url-adapter.mjs');
+
+await import('./test-emailjs.mjs');
+for(const f of ['google3164979181871a1d.html','5c688070aeba92b5256f3a4590fd4c6e.txt','site.webmanifest','favicon.ico'])await readFile(new URL(f,root));

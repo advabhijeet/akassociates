@@ -7,7 +7,7 @@ const meta=loadInsightsHead();
 const articles=await getPublishedArticles();
 const categories=[...new Set(articles.map(a=>a.category))].sort();
 ---
-<BaseLayout title={meta.listingTitle} description={meta.description}>
+<BaseLayout title={meta.title} description={meta.description}>
  <Fragment slot="head"><link rel="canonical" href={meta.canonical}/>{meta.meta.map(m=>m.property?<meta property={m.key} content={m.content}/>:<meta name={m.key} content={m.content}/>)}{meta.schemas.map(s=><script type="application/ld+json" set:html={s}/>)}</Fragment>
  <section class="archive-mast"><div class="wrap"><nav class="insight-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">Legal Insights</span></nav><p class="eyebrow">Chambers of AK / Knowledge centre</p><h1>Legal <em>Insights</em></h1><p>Articles on procedure, remedies and timelines. Explore legal updates, practical guides, case notes and document checklists.</p><div class="archive-stats"><span>{articles.length} articles</span><span>{categories.length} categories</span><span>General legal information</span></div></div></section>
  <section class="wrap archive-section"><div class="archive-filters" data-archive-controls hidden><label class="field">Search legal insights<input type="search" data-search placeholder="Search MSME, arbitration, RERA…"/></label><label class="field">Category<select data-category><option value="">All categories</option>{categories.map(c=><option value={c}>{c}</option>)}</select></label><button type="button" data-clear>Clear filters</button></div><div class="archive-heading"><h2>Article directory</h2><p data-results aria-live="polite">{articles.length} articles</p></div>
