@@ -2,3 +2,7 @@ node_modules/
 dist/
 .astro/
 .env*
+
+dist-production/
+qa-lighthouse/
+qa-output/

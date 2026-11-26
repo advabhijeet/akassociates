@@ -7,6 +7,7 @@ on:
       - 'astro-site/deployment/**'
       - 'astro-site/scripts/prepare-production.mjs'
       - 'astro-site/scripts/test-production.mjs'
+      - 'astro-site/scripts/test-production-browser.mjs'
       - 'astro-site/src/components/AnalyticsConsent.astro'
       - 'astro-site/src/components/LocalEnquiry.astro'
   workflow_dispatch:
@@ -26,6 +27,9 @@ jobs:
       - run: npm ci --no-audit --no-fund
       - run: npm run build:production
       - run: node scripts/test-production.mjs
+      - run: npm install --no-save --package-lock=false playwright
+      - run: npx playwright install --with-deps chromium
+      - run: node scripts/test-production-browser.mjs
       - run: node scripts/indexnow-production.mjs --initial
       - uses: actions/upload-artifact@v4
         with:
