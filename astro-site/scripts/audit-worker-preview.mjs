@@ -1,0 +1,14 @@
+import {readFile} from 'node:fs/promises';
+import assert from 'node:assert/strict';
+const base=new URL(process.argv[2]||'');
+assert.equal(base.protocol,'https:');
+assert.match(base.hostname,/^chambers-of-ak-url-preview\.[a-z0-9-]+\.workers\.dev$/);
+assert.equal(base.pathname,'/');assert.ok(!base.search&&!base.hash&&!base.username&&!base.password);
+const origin='https://chambersofak.in';
+const inv=JSON.parse(await readFile(new URL('../migration/legacy-inventory.json',import.meta.url),'utf8'));
+const paths=[...inv.sitemap.map(u=>new URL(u).pathname),'/legal-tools.html'];
+const alias={'/services/cheque-bounce-lawyer-bihar.html':'/services/cheque-bounce-lawyer-patna.html','/services/civil-litigation-lawyer-bihar.html':'/services/civil-litigation-lawyer-patna.html','/services/msme-recovery-lawyer-delhi.html':'/services/msme-recovery-lawyer-delhi-ncr.html','/services/property-dispute-lawyer-bihar.html':'/services/property-dispute-lawyer-patna.html'};
+const checks=[...paths.map(p=>({p,status:200,canonical:origin+p})),...Object.entries(alias).map(([p,to])=>({p,status:301,to})),{p:'/practice',status:301,to:'/practice.html'},{p:'/index.html',status:301,to:'/'},{p:'/qa-route-does-not-exist',status:404},{p:'/robots.txt',status:200,body:'Disallow: /'},{p:'/feed.xml',status:200,body:'<rss'},{p:'/sitemap.xml',status:200,body:'<urlset'},{p:'/google3164979181871a1d.html',status:200,body:'google-site-verification:'},{p:'/5c688070aeba92b5256f3a4590fd4c6e.txt',status:200,body:'5c688070aeba92b5256f3a4590fd4c6e'}];
+const failures=[];let passed=0;
+for(let i=0;i<checks.length;i+=8)await Promise.all(checks.slice(i,i+8).map(async c=>{try{const r=await fetch(new URL(c.p,base),{redirect:'manual',signal:AbortSignal.timeout(20000)});assert.equal(r.status,c.status);assert.match(r.headers.get('x-robots-tag')||'',/noindex/i);if(c.to)assert.equal(new URL(r.headers.get('location'),base).href,new URL(c.to,base).href);const body=await r.text();if(c.canonical){assert.ok(body.includes('href="'+c.canonical+'"'),'canonical missing');assert.match(body,/name="robots" content="noindex,nofollow"/);}if(c.body)assert.ok(body.includes(c.body),'body marker missing');passed++;}catch(e){failures.push({path:c.p,error:String(e.message||e)});}}));
+console.log(JSON.stringify({origin:base.origin,passed,total:checks.length,failures},null,2));assert.equal(failures.length,0,'Worker staging audit failed. Do not cut over.');

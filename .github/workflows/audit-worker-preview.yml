@@ -1,0 +1,23 @@
+name: Audit exact-URL Worker staging
+on:
+  workflow_dispatch:
+    inputs:
+      staging_url:
+        description: 'Exact workers.dev staging origin (no path)'
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  audit:
+    if: github.ref == 'refs/heads/astro-migration'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.4'
+      - name: Verify live staging URLs (read-only)
+        env:
+          STAGING_URL: ${{ inputs.staging_url }}
+        run: node astro-site/scripts/audit-worker-preview.mjs "$STAGING_URL"
