@@ -34,3 +34,11 @@ small,.muted { color:var(--muted); }
 .skip { position:absolute; z-index:10; left:1rem; top:-8rem; background:var(--surface); padding:.6rem; }
 .skip:focus { top:1rem; }
 @media(prefers-reduced-motion:reduce){ *,*::before,*::after { scroll-behavior:auto!important; animation-duration:.01ms!important; transition-duration:.01ms!important; } }
+
+/* AK-004R: editorial rhythm and visual hierarchy */
+:root{--paper:#f7f4ee;--surface:#fffefa;--ink:#1b1d1c;--gold:#805c29;--gold-line:#bda06e;--line:#d9d3c7;--space:clamp(3.5rem,8vw,7rem);--radius:2px}
+:root[data-theme="dark"]{--paper:#151716;--surface:#1e211f;--ink:#f1eee6;--gold:#dabb83;--gold-line:#9f865a;--line:#41443f}
+.wrap{width:min(100% - clamp(2rem,8vw,7rem),80rem)}
+section[id]{scroll-margin-top:7rem}
+h1,h2{letter-spacing:-.035em}
+::selection{background:#d7b477;color:#171716}

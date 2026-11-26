@@ -1,0 +1,2 @@
+# AK-004R — Editorial redesign
+User feedback: starter design looked too simple and ordinary. Replaced repeated uniform panels with cinematic image-led masthead, indexed practice grid, split jurisdiction section, editorial featured article and supporting list, and resource rows. Preserved official brand assets, existing content scope, noindex, existing production links and disclaimer. Uses existing repository artwork, not new photographs or court claims. Desktop and mobile browser review remains required. Theme support retained. No changes to main or DNS.

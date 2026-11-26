@@ -19,3 +19,7 @@ const home=await readFile(new URL('index.html',root),'utf8');
 for(const term of ['Chambers of AK','Areas of practice','Courts &amp; forums','Recent articles','Professional notice','MSME Recovery','Property &amp; Civil Suits'])assert.ok(home.includes(term),term);
 for(const path of ["assets/img/performance/logo-navbar-480.jpg","assets/img/performance/logo-navbar-dark-480.jpg","assets/img/performance/primary-logo-720.jpg","assets/img/performance/primary-logo-dark-720.jpg","assets/img/citadel/citadel-hero-hall.webp","favicon-48.png","assets/img/citadel/cards/citadel-thumb-msme-documents-checklist-approved-style-640.jpg","assets/img/citadel/cards/citadel-thumb-msme-facilitation-council-process-batch6-v2-640.jpg","assets/img/citadel/cards/citadel-thumb-section34-limitation-640.jpg"]) await readFile(new URL(path,root));
 console.log('AK-004 homepage content and local assets verified.');
+
+for(const path of ["assets/img/citadel/citadel-tribunal-room.webp","assets/img/citadel/citadel-legal-documents-card.webp","assets/img/citadel/cards/citadel-thumb-rera-complaint-drafting-documents-reliefs-640.jpg","assets/img/citadel/cards/citadel-thumb-rera-refund-interest-delayed-possession-batch6-v2-640.jpg"]) await readFile(new URL(path,root));
+for(const term of ['hero-image','practice-tile','journal-list','jurisdiction-art','resource-list']) assert.ok(home.includes(term),term);
+console.log('AK-004R editorial redesign structure and assets verified.');
