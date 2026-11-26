@@ -12,6 +12,7 @@ on:
       - 'astro-site/src/components/LocalEnquiry.astro'
       - 'astro-site/src/components/DisclaimerNotice.astro'
       - 'astro-site/src/pages/**'
+      - 'astro-site/src/components/**'
       - 'astro-site/src/styles/**'
       - 'astro-site/scripts/lighthouse-staging.mjs'
   workflow_dispatch:
@@ -32,7 +33,14 @@ jobs:
       - run: npm run build:production
       - run: node scripts/test-production.mjs
       - run: npm install --no-save --package-lock=false playwright
-      - run: npx playwright install --with-deps chromium
+      - name: Install Chromium using runner libraries
+        run: |
+          npx playwright install chromium
+          if ! node --input-type=module -e "import { chromium } from 'playwright'; const b=await chromium.launch(); await b.close();"; then
+            sudo apt-get update -o Acquire::Retries=3
+            npx playwright install-deps chromium
+            node --input-type=module -e "import { chromium } from 'playwright'; const b=await chromium.launch(); await b.close();"
+          fi
       - run: node scripts/test-production-browser.mjs
       - run: node scripts/indexnow-production.mjs --initial
       - uses: actions/upload-artifact@v4
