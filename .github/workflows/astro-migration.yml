@@ -27,7 +27,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22.23.4'
-      - run: npm install --no-audit --no-fund
+      - name: Install dependencies reproducibly when lockfile exists
+        run: |
+          if test -f package-lock.json; then npm ci --no-audit --no-fund; else npm install --no-audit --no-fund; fi
       - name: Retain generated dependency lockfile for review
         uses: actions/upload-artifact@v4
         with:

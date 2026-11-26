@@ -1,0 +1,46 @@
+name: AK-009C import verified dependency lockfile
+on:
+  push:
+    branches: [astro-migration]
+    paths:
+      - '.github/workflows/import-astro-lockfile.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+jobs:
+  import:
+    if: github.ref == 'refs/heads/astro-migration'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: astro-migration
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.4'
+      - uses: actions/download-artifact@v4
+        with:
+          name: astro-dependency-lockfile
+          run-id: 45806628923
+          github-token: ${{ github.token }}
+          path: /tmp/ak-verified-lock
+      - name: Verify and import only the reviewed artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo 'decb3a473d1f7adbb6bdbf808136469191a64e9bfed52aa4e70d8587f4d3d5b8  /tmp/ak-verified-lock/package-lock.json' | sha256sum -c -
+          if test -f astro-site/package-lock.json; then
+            cmp /tmp/ak-verified-lock/package-lock.json astro-site/package-lock.json
+            echo 'Already imported; no changes.'
+            exit 0
+          fi
+          cp /tmp/ak-verified-lock/package-lock.json astro-site/package-lock.json
+          cd astro-site
+          npm ci --no-audit --no-fund
+          npm run build
+          cd ..
+          git add -- astro-site/package-lock.json
+          test "$(git diff --cached --name-only)" = astro-site/package-lock.json
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'AK-009C: lock verified Astro dependencies'
+          git push origin HEAD:refs/heads/astro-migration
