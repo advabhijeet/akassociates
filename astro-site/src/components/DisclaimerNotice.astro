@@ -1,11 +1,12 @@
 ---
 import {legacy} from '../data/site';
 ---
-<aside class="notice" aria-label="Professional notice" data-notice><div class="wrap notice-row"><p><strong>Professional notice.</strong> This website provides general information only. It is not legal advice, advertisement or solicitation, and access does not create an advocate-client relationship. <a href={legacy('disclaimer.html')}>Full disclaimer</a>.</p><button type="button" data-ack hidden>I acknowledge</button></div></aside>
-<script>
-const notice=document.querySelector<HTMLElement>('[data-notice]');
-const button=document.querySelector<HTMLButtonElement>('[data-ack]');
-if(notice&&button){try{if(sessionStorage.getItem('ak-notice')==='1')notice.hidden=true}catch{}button.hidden=false;button.addEventListener('click',()=>{try{sessionStorage.setItem('ak-notice','1')}catch{}notice.hidden=true;document.querySelector<HTMLElement>('#main')?.focus({preventScroll:true})})}
+<aside class="notice" aria-label="Professional notice" data-notice><div class="wrap notice-row"><p><strong>Professional notice.</strong> This website provides general information only. It is not legal advice, advertisement or solicitation, and access does not create an advocate-client relationship. <a href={legacy('disclaimer.html')}>Full disclaimer</a>.</p><button type="button" data-ack disabled>I acknowledge</button></div></aside>
+<script is:inline>
+(()=>{const notice=document.querySelector('[data-notice]');
+const button=document.querySelector('[data-ack]');
+if(notice&&button){try{if(sessionStorage.getItem('ak-notice')==='1')notice.hidden=true}catch{}button.disabled=false;button.addEventListener('click',()=>{try{sessionStorage.setItem('ak-notice','1')}catch{}notice.hidden=true;document.querySelector('#main')?.focus({preventScroll:true})})}
+})();
 </script>
 <style>.notice{background:var(--surface);border-bottom:1px solid var(--line);border-left:3px solid var(--gold-line)}.notice-row{display:flex;align-items:center;gap:1rem;padding-block:.8rem}.notice p{font-size:.8rem;margin:0;color:var(--muted);flex:1}.notice button{min-height:44px;padding:.4rem .8rem;background:transparent;border:1px solid var(--gold-line);color:var(--ink);border-radius:var(--radius);font-size:.8rem;white-space:nowrap}@media(max-width:600px){.notice-row{flex-wrap:wrap}}
 .notice{background:var(--paper);border-left:0;border-top:0;border-bottom:1px solid var(--brand-border)}

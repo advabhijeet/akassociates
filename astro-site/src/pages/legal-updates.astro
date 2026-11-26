@@ -10,19 +10,21 @@ const categories=[...new Set(articles.map(a=>a.category))].sort();
 <BaseLayout title={meta.title} description={meta.description}>
  <Fragment slot="head"><link rel="canonical" href={meta.canonical}/>{meta.meta.map(m=>m.property?<meta property={m.key} content={m.content}/>:<meta name={m.key} content={m.content}/>)}{meta.schemas.map(s=><script type="application/ld+json" set:html={s}/>)}</Fragment>
  <section class="archive-mast"><div class="wrap"><nav class="insight-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">Legal Insights</span></nav><p class="eyebrow">Chambers of AK / Knowledge centre</p><h1>Legal <em>Insights</em></h1><p>Articles on procedure, remedies and timelines. Explore legal updates, practical guides, case notes and document checklists.</p><div class="archive-stats"><span>{articles.length} articles</span><span>{categories.length} categories</span><span>General legal information</span></div></div></section>
- <section class="wrap archive-section"><div class="archive-filters" data-archive-controls hidden><label class="field">Search legal insights<input type="search" data-search placeholder="Search MSME, arbitration, RERA…"/></label><label class="field">Category<select data-category><option value="">All categories</option>{categories.map(c=><option value={c}>{c}</option>)}</select></label><button type="button" data-clear>Clear filters</button></div><div class="archive-heading"><h2>Article directory</h2><p data-results aria-live="polite">{articles.length} articles</p></div>
+ <section class="wrap archive-section"><div class="archive-filters" data-archive-controls><label class="field">Search legal insights<input type="search" data-search disabled placeholder="Search MSME, arbitration, RERA…"/></label><label class="field">Category<select data-category disabled><option value="">All categories</option>{categories.map(c=><option value={c}>{c}</option>)}</select></label><button type="button" data-clear disabled>Clear filters</button></div><div class="archive-heading"><h2>Article directory</h2><p data-results aria-live="polite">{articles.length} articles</p></div>
  <div class="insights-grid" data-insights-grid>{articles.map(a=><article class="insight-card" data-insight data-category-value={a.category} data-keywords={[a.listingTitle,a.excerpt,a.category,...a.tags].join(' ').toLowerCase()}><a class="insight-image" href={articleUrl(a.href)} aria-label={a.listingTitle}><img src={'/'+a.cardThumbnail} alt="" width="640" height="360" loading="lazy" decoding="async"/></a><div class="insight-card-copy"><div class="insight-card-meta"><span class="eyebrow">{a.category}</span><span>{a.date}</span></div><h3><a href={articleUrl(a.href)}>{a.listingTitle}</a></h3><p>{a.excerpt}</p><div class="mini-tags">{a.tags.slice(0,3).map(t=><a href={'/legal-updates.html?q='+encodeURIComponent(t)}>{t}</a>)}</div></div></article>)}</div>
  <p class="no-results" data-empty hidden>No articles match your search. Try a different term or clear the filters.</p><button class="load-more" type="button" data-more hidden>Show more articles</button><noscript><p>All articles are shown. Enable JavaScript to search or filter the directory.</p></noscript></section>
-</BaseLayout>
-<script>
-const controls=document.querySelector<HTMLElement>('[data-archive-controls]');
-const search=document.querySelector<HTMLInputElement>('[data-search]');
-const category=document.querySelector<HTMLSelectElement>('[data-category]');
-const results=document.querySelector<HTMLElement>('[data-results]');
-const empty=document.querySelector<HTMLElement>('[data-empty]');
-const more=document.querySelector<HTMLButtonElement>('[data-more]');
-const cards=[...document.querySelectorAll<HTMLElement>('[data-insight]')];
+<script is:inline>
+(()=>{
+const controls=document.querySelector('[data-archive-controls]');
+const search=document.querySelector('[data-search]');
+const category=document.querySelector('[data-category]');
+const results=document.querySelector('[data-results]');
+const empty=document.querySelector('[data-empty]');
+const more=document.querySelector('[data-more]');
+const cards=[...document.querySelectorAll('[data-insight]')];
 let limit=12;
 function render(reset=false){if(reset)limit=12;const words=(search?.value||'').toLowerCase().trim().split(/\s+/).filter(Boolean);const cat=category?.value||'';const matches=cards.filter(c=>(!cat||c.dataset.categoryValue===cat)&&words.every(w=>(c.dataset.keywords||'').includes(w)));const visible=new Set(matches.slice(0,limit));cards.forEach(c=>c.hidden=!visible.has(c));if(results)results.textContent='Showing '+visible.size+' of '+matches.length+' articles';if(empty)empty.hidden=matches.length!==0;if(more)more.hidden=matches.length<=limit;}
-if(controls&&search&&category){controls.hidden=false;const q=new URLSearchParams(location.search);search.value=q.get('q')||'';const cat=q.get('category')||'';if([...category.options].some(o=>o.value===cat))category.value=cat;search.addEventListener('input',()=>render(true));category.addEventListener('change',()=>render(true));document.querySelector('[data-clear]')?.addEventListener('click',()=>{search.value='';category.value='';render(true);search.focus();});more?.addEventListener('click',()=>{const previous=limit;limit+=12;render();const visible=cards.filter(c=>!c.hidden);visible[previous]?.querySelector('a')?.focus();});render();}
+if(controls&&search&&category){search.disabled=false;category.disabled=false;document.querySelector('[data-clear]').disabled=false;const q=new URLSearchParams(location.search);search.value=q.get('q')||'';const cat=q.get('category')||'';if([...category.options].some(o=>o.value===cat))category.value=cat;search.addEventListener('input',()=>render(true));category.addEventListener('change',()=>render(true));document.querySelector('[data-clear]')?.addEventListener('click',()=>{search.value='';category.value='';render(true);search.focus();});more?.addEventListener('click',()=>{const previous=limit;limit+=12;render();const visible=cards.filter(c=>!c.hidden);visible[previous]?.querySelector('a')?.focus();});render();}
+})();
 </script>
+</BaseLayout>
