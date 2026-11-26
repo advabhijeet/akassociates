@@ -1,15 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import {articles,categories,articleUrl} from '../data/insights';
+import {getPublishedArticles,articleUrl} from '../data/publishing';
 import {loadInsightsHead} from '../data/article-source';
 import '../styles/insights.css';
 const meta=loadInsightsHead();
+const articles=await getPublishedArticles();
+const categories=[...new Set(articles.map(a=>a.category))].sort();
 ---
-<BaseLayout title={meta.title} description={meta.description}>
+<BaseLayout title={meta.listingTitle} description={meta.description}>
  <Fragment slot="head"><link rel="canonical" href={meta.canonical}/>{meta.meta.map(m=>m.property?<meta property={m.key} content={m.content}/>:<meta name={m.key} content={m.content}/>)}{meta.schemas.map(s=><script type="application/ld+json" set:html={s}/>)}</Fragment>
  <section class="archive-mast"><div class="wrap"><nav class="insight-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">Legal Insights</span></nav><p class="eyebrow">Chambers of AK / Knowledge centre</p><h1>Legal <em>Insights</em></h1><p>Articles on procedure, remedies and timelines. Explore legal updates, practical guides, case notes and document checklists.</p><div class="archive-stats"><span>{articles.length} articles</span><span>{categories.length} categories</span><span>General legal information</span></div></div></section>
  <section class="wrap archive-section"><div class="archive-filters" data-archive-controls hidden><label class="field">Search legal insights<input type="search" data-search placeholder="Search MSME, arbitration, RERA…"/></label><label class="field">Category<select data-category><option value="">All categories</option>{categories.map(c=><option value={c}>{c}</option>)}</select></label><button type="button" data-clear>Clear filters</button></div><div class="archive-heading"><h2>Article directory</h2><p data-results aria-live="polite">{articles.length} articles</p></div>
- <div class="insights-grid" data-insights-grid>{articles.map(a=><article class="insight-card" data-insight data-category-value={a.category} data-keywords={[a.title,a.excerpt,a.category,...a.tags].join(' ').toLowerCase()}><a class="insight-image" href={articleUrl(a.href)} aria-label={a.title}><img src={'/'+a.cardThumbnail} alt="" width="640" height="360" loading="lazy" decoding="async"/></a><div class="insight-card-copy"><div class="insight-card-meta"><span class="eyebrow">{a.category}</span><span>{a.date}</span></div><h3><a href={articleUrl(a.href)}>{a.title}</a></h3><p>{a.excerpt}</p><div class="mini-tags">{a.tags.slice(0,3).map(t=><a href={'/legal-updates.html?q='+encodeURIComponent(t)}>{t}</a>)}</div></div></article>)}</div>
+ <div class="insights-grid" data-insights-grid>{articles.map(a=><article class="insight-card" data-insight data-category-value={a.category} data-keywords={[a.listingTitle,a.excerpt,a.category,...a.tags].join(' ').toLowerCase()}><a class="insight-image" href={articleUrl(a.href)} aria-label={a.listingTitle}><img src={'/'+a.cardThumbnail} alt="" width="640" height="360" loading="lazy" decoding="async"/></a><div class="insight-card-copy"><div class="insight-card-meta"><span class="eyebrow">{a.category}</span><span>{a.date}</span></div><h3><a href={articleUrl(a.href)}>{a.listingTitle}</a></h3><p>{a.excerpt}</p><div class="mini-tags">{a.tags.slice(0,3).map(t=><a href={'/legal-updates.html?q='+encodeURIComponent(t)}>{t}</a>)}</div></div></article>)}</div>
  <p class="no-results" data-empty hidden>No articles match your search. Try a different term or clear the filters.</p><button class="load-more" type="button" data-more hidden>Show more articles</button><noscript><p>All articles are shown. Enable JavaScript to search or filter the directory.</p></noscript></section>
 </BaseLayout>
 <script>

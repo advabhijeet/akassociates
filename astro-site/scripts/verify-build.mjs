@@ -45,7 +45,8 @@ console.log('AK-005: 23 content pages and four consolidated routes verified.');
 const registry=JSON.parse(await readFile(new URL('../../assets/data/insights-registry.json',import.meta.url),'utf8'));
 const archive=await readFile(new URL('legal-updates.html',root),'utf8');
 assert.match(archive,/data-archive-controls/);
-assert.equal((archive.match(/data-insight(?=[\s=>])/g)||[]).length,registry.length);
+const archiveCount=(archive.match(/data-insight(?=[\s=>])/g)||[]).length;
+assert.ok(archiveCount>=registry.length);
 for(const a of registry){
  const page=await readFile(new URL(a.href,root),'utf8');
  assert.match(page,/name="robots" content="noindex,nofollow"/);
@@ -56,3 +57,24 @@ for(const a of registry){
 }
 for(const asset of ["assets/judgments/2017-gujhc-1698-non-reportable-judgments-online-publication.pdf","assets/judgments/2026-insc-303-sarfaesi-auction-sale.pdf"])await readFile(new URL(asset,root));
 console.log('AK-006: '+registry.length+' article routes, archive links, metadata and assets verified.');
+
+const sitemap=await readFile(new URL('sitemap.xml',root),'utf8');
+const feed=await readFile(new URL('feed.xml',root),'utf8');
+const locs=[...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>m[1]);
+const guids=[...feed.matchAll(/<guid[^>]*>(.*?)<\/guid>/g)].map(m=>m[1]);
+assert.equal(new Set(locs).size,locs.length);assert.equal(new Set(guids).size,guids.length);
+assert.equal(guids.length,archiveCount);
+for(const url of locs){assert.ok(url.startsWith(inventory.origin+'/'));const path=url.slice(inventory.origin.length+1)||'index.html';await readFile(new URL(path,root),'utf8');}
+for(const a of registry)assert.ok(guids.includes(inventory.origin+'/'+a.href),'missing legacy feed GUID '+a.href);
+for(const url of guids){
+ assert.ok(locs.includes(url),'missing sitemap article '+url);
+ const path=url.slice(inventory.origin.length+1);const page=await readFile(new URL(path,root),'utf8');
+ assert.ok(archive.includes('href="/'+path+'"'),'missing archive entry '+path);
+ assert.match(page,/name="robots" content="noindex,nofollow"/);assert.ok(page.includes('href="'+url+'"'),'canonical '+url);
+ assert.match(page,/data-reading-body/);assert.match(page,/application\/ld\+json/);
+ assert.ok(!page.includes('\uFFFD'),'replacement character '+path);
+}
+assert.ok(!guids.some(u=>u.includes('publishing-example')));assert.ok(!locs.some(u=>u.includes('design-system')||u.includes('publishing-example')));
+for(const r of practiceRoutes.filter(r=>!r.inSitemap))assert.ok(!locs.includes(inventory.origin+r.path));
+assert.ok(home.includes('href="'+inventory.origin+'/"'),'homepage canonical');
+console.log('AK-007: '+guids.length+' RSS entries and '+locs.length+' sitemap routes verified.');

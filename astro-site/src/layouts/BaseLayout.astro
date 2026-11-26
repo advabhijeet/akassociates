@@ -14,6 +14,7 @@ const {title,description}=Astro.props;
 <meta name="description" content={description} />
 <meta name="robots" content="noindex,nofollow" />
 <link rel="icon" href="/favicon-48.png" sizes="48x48" type="image/png" />
+<link rel="alternate" type="application/rss+xml" title="Chambers of AK Legal Updates" href="/feed.xml" />
 <slot name="head" />
 <script is:inline>
 (()=>{let mode;try{mode=localStorage.getItem('ak-theme')}catch{}document.documentElement.dataset.theme=mode==='dark'||mode==='light'?mode:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'})();

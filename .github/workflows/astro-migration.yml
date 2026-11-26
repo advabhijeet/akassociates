@@ -4,6 +4,14 @@ on:
     branches: [astro-migration]
     paths:
       - 'astro-site/**'
+      - 'updates/**'
+      - 'assets/**'
+      - 'practice/**'
+      - 'services/**'
+      - '*.html'
+      - 'feed.xml'
+      - 'sitemap.xml'
+      - 'tools/**'
       - '.github/workflows/astro-migration.yml'
   workflow_dispatch:
 permissions:
@@ -21,4 +29,8 @@ jobs:
           node-version: '22.23.4'
       - run: npm install --no-audit --no-fund
       - run: node scripts/verify-legacy-inventory.mjs
+      - run: node tools/validate-article-encoding.js
+        working-directory: .
+      - run: node tools/validate-insights-registry.js --strict
+        working-directory: .
       - run: npm run build

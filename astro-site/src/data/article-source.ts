@@ -47,3 +47,5 @@ export function loadArticlePages(){return articles.map(entry=>{
  return {...entry,...metadata,path,slug:entry.href.replace(/^updates\//,'').replace(/\.html$/,''),hero:localize(hero[0],path),body:localize(body.replace(article[0],numbered),path),toc};
 });}
 export function loadInsightsHead(){return head(read('legal-updates.html'));}
+
+export function loadHomepageHead(){return head(read('index.html'));}
