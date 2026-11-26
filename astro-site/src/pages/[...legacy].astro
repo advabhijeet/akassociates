@@ -2,9 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import {loadPracticePages} from '../data/practice-source';
 import {practices} from '../data/site';
+import LocalEnquiry from '../components/LocalEnquiry.astro';
 import '../styles/practice.css';
 export function getStaticPaths(){return loadPracticePages().map(page=>({params:{legacy:page.slug},props:{page}}));}
 const {page}=Astro.props;
+const isCore=!page.slug.includes('/')&&page.slug!=='practice';
 ---
 <BaseLayout title={page.title} description={page.description}>
  <Fragment slot="head">
@@ -23,13 +25,19 @@ const {page}=Astro.props;
   </>}
  </Fragment>
  {page.redirect ? <section class="wrap section"><h1>Page moved</h1><p>This information is now available on the consolidated page.</p><a href={page.redirect}>Continue to the current page →</a></section> : <>
- <section class="practice-hero"><div class="wrap"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a>{page.slug!=='practice'&&<><span aria-hidden="true">/</span><a href="/practice.html">Practice areas</a></>}<span aria-hidden="true">/</span><span aria-current="page">{page.eyebrow}</span></nav><p class="eyebrow">{page.eyebrow}</p><h1>{page.heading}</h1><div class="practice-intro" set:html={page.intro}/></div></section>
+ <section class="practice-hero"><div class="wrap"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a>{!isCore&&page.slug!=='practice'&&<><span aria-hidden="true">/</span><a href="/practice.html">Practice areas</a></>}<span aria-hidden="true">/</span><span aria-current="page">{page.eyebrow}</span></nav><p class="eyebrow">{page.eyebrow}</p><h1>{page.heading}</h1><div class="practice-intro" set:html={page.intro}/></div></section>
  <div class="wrap practice-reading">
   <aside class="practice-toc"><details open><summary>On this page</summary><nav aria-label="Page contents">{page.sections.map((s,i)=><a href={'#'+s.id}><span>{String(i+1).padStart(2,'0')}</span>{s.label}</a>)}</nav></details></aside>
   <div class="practice-content">{page.sections.map((s,i)=><section id={s.id} class="detail-section"><p class="section-number" aria-hidden="true">{String(i+1).padStart(2,'0')} /</p><h2>{s.label}</h2><div class="legacy-content" set:html={s.html}/></section>)}
    {page.slug==='practice'&&<section class="detail-section"><p class="section-number">Practice directory</p><h2>All six practice areas</h2><div class="practice-directory">{practices.map(p=><a href={p.href}><span>{p.number}</span>{p.title}<span aria-hidden="true">↗</span></a>)}</div></section>}
-   <p class="professional-note">General information only. Not legal advice or solicitation. Access does not create an advocate-client relationship. <a href="https://chambersofak.in/disclaimer.html">Full disclaimer</a>.</p>
+   {page.slug==='contact'&&<LocalEnquiry/>}
+   {page.slug==='document-checklists'&&<p><a href="/legal-tools.html#checklists">Open interactive document checklists →</a></p>}
+   <p class="professional-note">General information only. Not legal advice or solicitation. Access does not create an advocate-client relationship. <a href="/disclaimer.html">Full disclaimer</a>.</p>
   </div>
  </div>
  </>}
 </BaseLayout>
+
+<script>
+document.querySelectorAll<HTMLButtonElement>('[data-copy-target]').forEach(button=>button.addEventListener('click',async()=>{const target=document.getElementById(button.dataset.copyTarget||'');if(!target)return;const text=target.innerText;try{await navigator.clipboard.writeText(text);button.textContent='Copied';}catch{const selection=window.getSelection();const range=document.createRange();range.selectNodeContents(target);selection?.removeAllRanges();selection?.addRange(range);button.textContent='Selected — copy manually';}}));
+</script>

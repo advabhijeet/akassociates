@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import {msmeDue,section34,chequeTimeline,interest,deposit,addMonths,date,iso} from '../src/data/legal-calculations.mjs';
+assert.deepEqual(msmeDue('2026-01-01'),{due:'2026-01-16',interestStart:'2026-01-17',ceiling:'2026-02-15',appointed:'2026-01-17'});
+assert.equal(msmeDue('2026-01-01','2026-03-01').due,'2026-02-15');
+assert.equal(msmeDue('2026-01-01','2026-01-10').due,'2026-01-10');
+assert.deepEqual(section34('2026-01-31'),{normal:'2026-04-30',outer:'2026-05-30'});
+assert.equal(iso(addMonths(date('2024-01-31'),1)),'2024-02-29');
+assert.deepEqual(chequeTimeline('2026-01-01','2026-01-10','2026-01-12'),{notice:'2026-01-31',sentLate:false,pay:'2026-01-27',cause:'2026-01-28',complaint:'2026-02-28'});
+assert.equal(deposit('100000').required,'₹75,000.00');
+assert.equal(deposit('100000','10000').balance,'₹65,000.00');
+assert.equal(interest('100000','18','2026-01-01','2026-02-01',true).interest,'₹1,500.00');
+assert.equal(interest('100000','10','2025-01-01','2026-01-01',false).interest,'₹10,000.00');
+assert.throws(()=>date('2026-02-30'));assert.throws(()=>chequeTimeline('2026-01-01','','2026-01-10'));assert.throws(()=>interest('100','5','2026-02-01','2026-01-01',true));
+console.log('Legal calculator boundary and arithmetic tests passed.');

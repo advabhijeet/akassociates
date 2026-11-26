@@ -2,7 +2,8 @@ import {readFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 import inventory from '../../migration/legacy-inventory.json';
 const origin='https://chambersofak.in';
-const routes=inventory.routes.filter(r=>r.source==='practice.html'||/^(practice|services)\/.+\.html$/.test(r.source));
+const core=["about.html","case-enquiry.html","contact.html","courts.html","disclaimer.html","document-checklists.html","faq.html","privacy-policy.html","process.html","terms.html"];
+const routes=inventory.routes.filter(r=>core.includes(r.source)||r.source==='practice.html'||/^(practice|services)\/.+\.html$/.test(r.source));
 const localPaths=new Set(['/', '/legal-updates.html', ...routes.map(r=>r.path), ...inventory.routes.filter(r=>r.source.startsWith('updates/')).map(r=>r.path)]);
 const root=resolve(process.cwd(),'..');
 const read=(file:string)=>readFileSync(resolve(root,file),'utf8');
@@ -10,11 +11,11 @@ function decode(s:string){return s.replace(/&(?:amp|quot|apos|lt|gt|nbsp|#\d+|#x
 function attr(tag:string,name:string){return tag.match(new RegExp('(?:^|\\s)'+name+'\\s*=\\s*(["\x27])(.*?)\\1','i'))?.[2]||'';}
 function metadata(source:string,key:string,property='name'){const tag=[...source.matchAll(/<meta\b[^>]*>/gi)].map(m=>m[0]).find(t=>attr(t,property)===key);return tag?decode(attr(tag,'content')):'';}
 function escapeAttr(s:string){return s.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');}
-function localize(body:string,path:string){return body.replace(/\bhref\s*=\s*(["'])(.*?)\1/gi,(whole,q,href)=>{
+function localize(body:string,path:string){return body.replace(/\b(href|src)\s*=\s*(["'])(.*?)\2/gi,(whole,key,q,href)=>{
  const decoded=decode(href);if(decoded.startsWith('#')||/^(mailto:|tel:)/i.test(decoded))return whole;
  const u=new URL(decoded,origin+path);if(!['http:','https:'].includes(u.protocol))throw Error('Unexpected link protocol: '+path);
  if(u.origin!==origin)return whole;
- return 'href="'+escapeAttr((localPaths.has(u.pathname)?u.pathname:origin+u.pathname)+u.search+u.hash)+'"';
+ return key+'="'+escapeAttr((localPaths.has(u.pathname)||u.pathname.startsWith('/assets/img/')?u.pathname:origin+u.pathname)+u.search+u.hash)+'"';
 });}
 export function loadPracticePages(){return routes.map(r=>{
  const source=read(r.source);
@@ -27,7 +28,8 @@ export function loadPracticePages(){return routes.map(r=>{
    if(dest.origin!==origin||!localPaths.has(dest.pathname)||!metadata(source,'robots').includes('noindex'))throw Error('Unexpected canonical exception: '+r.source);
    return {slug:r.source.replace(/\.html$/,''),path:r.path,title,canonical,description:'This page has moved.',redirect:dest.pathname,heading:'Page moved',eyebrow:'Practice information',intro:'',sections:[],schemas:[],ogTitle:'',ogDescription:'',ogImage:'',ogType:'',twitterTitle:'',twitterDescription:'',twitterImage:''};
  }
- const main=source.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)?.[1];
+ let main=source.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)?.[1];
+ if(r.source==='contact.html'&&main)main=main.replace(/<form\b[\s\S]*?<\/form>/i,'<div class="preview-enquiry"><p><strong>Preview mode:</strong> online enquiry delivery is disabled. Use the local message builder below to prepare a message without sending it.</p><p><a href="#preview-message">Prepare a message</a></p></div>');
  if(!main||/<(?:script|iframe|object|embed|form|style)\b|\son\w+\s*=/i.test(main))throw Error('Missing or unsupported legacy main: '+r.source);
  const hero=main.match(/<section\b[^>]*class="page-hero"[^>]*>([\s\S]*?)<\/section>/i);
  if(!hero)throw Error('Missing hero: '+r.source);

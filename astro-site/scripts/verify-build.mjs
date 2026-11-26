@@ -78,3 +78,9 @@ assert.ok(!guids.some(u=>u.includes('publishing-example')));assert.ok(!locs.some
 for(const r of practiceRoutes.filter(r=>!r.inSitemap))assert.ok(!locs.includes(inventory.origin+r.path));
 assert.ok(home.includes('href="'+inventory.origin+'/"'),'homepage canonical');
 console.log('AK-007: '+guids.length+' RSS entries and '+locs.length+' sitemap routes verified.');
+
+for(const p of ["about.html","case-enquiry.html","contact.html","courts.html","disclaimer.html","document-checklists.html","faq.html","privacy-policy.html","process.html","terms.html"]){const html=await readFile(new URL(p,root),'utf8');assert.match(html,/name="robots" content="noindex,nofollow"/);assert.ok(html.includes('href="'+inventory.origin+'/'+p+'"'));assert.ok(locs.includes(inventory.origin+'/'+p));}
+const tools=await readFile(new URL('legal-tools.html',root),'utf8');for(const id of ['msme-due','msme-interest','section34','cheque','deposit','rera'])assert.ok(tools.includes('data-tool="'+id+'"'));assert.ok(locs.includes(inventory.origin+'/legal-tools.html'));
+for(const url of inventory.sitemap)assert.ok(locs.includes(url),'Missing original sitemap route '+url);
+await import('./test-calculations.mjs');
+console.log('AK-008: core pages, complete legacy sitemap coverage and tools verified.');

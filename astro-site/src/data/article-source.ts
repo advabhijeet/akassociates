@@ -4,7 +4,7 @@ import {articles} from './insights';
 import inventory from '../../migration/legacy-inventory.json';
 const origin='https://chambersofak.in';
 const root=resolve(process.cwd(),'..');
-const localPaths=new Set(['/', '/legal-updates.html', ...inventory.routes.filter(r=>/^(practice|services|updates)\//.test(r.source)||r.source==='practice.html').map(r=>r.path),...articles.map(a=>'/'+a.href)]);
+const localPaths=new Set(['/', '/legal-updates.html', ...["about.html","case-enquiry.html","contact.html","courts.html","disclaimer.html","document-checklists.html","faq.html","privacy-policy.html","process.html","terms.html"].map(p=>'/'+p), ...inventory.routes.filter(r=>/^(practice|services|updates)\//.test(r.source)||r.source==='practice.html').map(r=>r.path),...articles.map(a=>'/'+a.href)]);
 const read=(file:string)=>readFileSync(resolve(root,file),'utf8');
 function decode(s:string){return s.replace(/&(?:amp|quot|apos|lt|gt|nbsp|ndash|mdash|rsquo|lsquo|rdquo|ldquo|#\d+|#x[0-9a-f]+);/gi,e=>{const m:Record<string,string>={'&amp;':'&','&quot;':'"','&apos;':"'",'&lt;':'<','&gt;':'>','&nbsp;':' ','&ndash;':'–','&mdash;':'—','&rsquo;':'’','&lsquo;':'‘','&rdquo;':'”','&ldquo;':'“'};if(e in m)return m[e];const n=e.toLowerCase().startsWith('&#x')?parseInt(e.slice(3,-1),16):parseInt(e.slice(2,-1),10);return Number.isFinite(n)?String.fromCodePoint(n):e;});}
 const plain=(s:string)=>decode(s.replace(/<[^>]*>/g,'')).replace(/\s+/g,' ').trim();
