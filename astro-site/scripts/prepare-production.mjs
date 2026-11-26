@@ -11,8 +11,8 @@ await rm(out,{recursive:true,force:true});await cp(src,out,{recursive:true});awa
 await rm(resolve(out,'design-system.html'),{force:true});
 const hashes={};
 for(const url of urls){const u=new URL(url);assert.equal(u.origin,origin);assert.ok(!u.search&&!u.hash);const f=resolve(out,'.'+(u.pathname==='/'?'/index.html':u.pathname));assert.ok(f.startsWith(out+'/')||f.startsWith(out+'\\'));let html=await readFile(f,'utf8');assert.ok(html.includes('href="'+url+'"'));assert.ok(html.includes('name="robots" content="noindex,nofollow"'));
- html=html.replace('name="robots" content="noindex,nofollow"','name="robots" content="index,follow"').replace('<html lang="en-IN">','<html lang="en-IN" data-ak-release="production">');
- assert.ok(html.includes('data-ak-release="production"'));
+ html=html.replace('name="robots" content="noindex,nofollow"','name="robots" content="index,follow"').replace(/<html\b/i,'<html data-ak-release="production"');
+ assert.ok(html.includes('data-ak-release="production"'),'Missing release marker for '+url);
  if(u.pathname==='/contact.html'){
  html=html.replace('Prepare and copy a structured first-contact message locally. Direct website delivery is disabled in this preview.','Prepare a structured first-contact message, review it, and send it through EmailJS only if you choose.').replace('<strong>Preview mode:</strong> online enquiry delivery is disabled. Use the local message builder below to prepare a message without sending it.','<strong>Structured enquiry:</strong> prepare the message below. It is not transmitted until you explicitly select Send Enquiry.').replace('Preview only. Information remains local. Do not enter confidential or privileged material. Direct delivery is disabled.','Your message stays in your browser until you choose Send Enquiry. Sending uses EmailJS. Do not enter confidential or privileged material.').replace('Review your prepared message. Preview mode disables direct email delivery and external compose links.','Review the prepared message before sending via EmailJS, or copy it and use the listed contact channels.');
  assert.ok(!html.includes('Preview only. Information remains local.'));
