@@ -1,5 +1,9 @@
 name: Audit exact-URL Worker staging
 on:
+  push:
+    branches: [astro-migration]
+    paths:
+      - '.github/workflows/audit-worker-preview.yml'
   workflow_dispatch:
     inputs:
       staging_url:
@@ -19,5 +23,5 @@ jobs:
           node-version: '22.23.4'
       - name: Verify live staging URLs (read-only)
         env:
-          STAGING_URL: ${{ inputs.staging_url }}
+          STAGING_URL: ${{ inputs.staging_url || 'https://chambers-of-ak-url-preview.abhikr917.workers.dev' }}
         run: node astro-site/scripts/audit-worker-preview.mjs "$STAGING_URL"
