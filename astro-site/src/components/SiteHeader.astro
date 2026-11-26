@@ -4,7 +4,7 @@ import {navigation} from '../data/site';
 const links=navigation.filter(([label])=>label!=='Home');
 ---
 <header class="site-header">
-<div class="mast"><div class="wrap mast-row"><span>Independent legal chambers · Patna, Bihar</span><span>Advocates &amp; Legal Consultants</span></div></div>
+<div class="mast"><div class="wrap mast-row"><span>Independent legal chambers · Patna, Bihar</span><span>Patna High Court · Bihar courts &amp; forums</span></div></div>
 <div class="wrap header-row"><a class="wordmark" href="/" aria-label="Chambers of AK home"><img class="light-logo" src="/assets/img/performance/logo-navbar-480.jpg" alt="Chambers of AK" width="480" height="89"/><img class="dark-logo" src="/assets/img/performance/logo-navbar-dark-480.jpg" alt="Chambers of AK" width="480" height="89"/></a>
 <nav class="desktop-nav" aria-label="Main navigation">{links.map(([label,href])=><a href={href.startsWith('#')?'/'+href:href}>{label}</a>)}</nav>
 <div class="header-tools"><ThemeToggle/><details class="mobile-nav"><summary>Menu <span aria-hidden="true">☰</span></summary><nav aria-label="Mobile navigation">{navigation.map(([label,href])=><a href={href.startsWith('#')?'/'+href:href}>{label}</a>)}</nav></details></div></div>
@@ -20,4 +20,16 @@ document.querySelectorAll('.mobile-nav nav a').forEach(a=>a.addEventListener('cl
 .desktop-nav,.header-tools{display:flex;align-items:center;gap:clamp(.6rem,1.4vw,1.3rem)}nav a{text-decoration:none;font-size:.84rem;min-height:44px;display:flex;align-items:center}nav a:hover{color:var(--gold);text-decoration:underline;text-underline-offset:.5rem}
 .mobile-nav{display:none;position:relative}.mobile-nav summary{list-style:none;cursor:pointer;min-height:44px;display:flex;align-items:center;gap:.5rem;font-size:.8rem;border:1px solid var(--line);padding:.5rem .75rem}.mobile-nav summary::-webkit-details-marker{display:none}.mobile-nav nav{position:absolute;right:0;top:calc(100% + .7rem);min-width:220px;background:var(--surface);border:1px solid var(--line);padding:.75rem 1.1rem;box-shadow:var(--shadow)}.mobile-nav nav a{border-bottom:1px solid var(--line)}
 @media(max-width:1050px){.desktop-nav{display:none}.mobile-nav{display:block}}@media(max-width:560px){.mast-row span:last-child{display:none}.mast-row{justify-content:center}.header-row{min-height:70px;gap:.5rem}.header-tools{gap:.35rem}.wordmark{width:min(43vw,200px)}.mobile-nav summary{padding:.4rem .5rem}}
+
+.site-header{background:var(--brand-header);border-bottom:1px solid var(--brand-border)}
+.mast{background:#080808;color:#d8c5a5;border-bottom:1px solid #3d3021;font-size:.64rem;letter-spacing:.1em}
+.mast-row{padding-block:.28rem}
+.header-row{min-height:68px;gap:1.1rem}
+.wordmark{width:clamp(195px,22vw,275px)}
+.light-logo{mix-blend-mode:multiply}
+:global([data-theme="dark"]) .dark-logo{mix-blend-mode:screen}
+.desktop-nav{gap:clamp(.85rem,1.9vw,1.7rem)}
+.desktop-nav a{font-size:.9rem;font-weight:500}
+.mobile-nav nav{background:var(--brand-header);border-color:var(--brand-border)}
+@media(max-width:560px){.header-row{min-height:62px;gap:.4rem}.wordmark{width:min(47vw,210px)}.header-tools{gap:.35rem}.mast-row{padding-block:.3rem}.mobile-nav nav{max-width:calc(100vw - 2rem)}}
 </style>

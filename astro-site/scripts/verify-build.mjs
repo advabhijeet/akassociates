@@ -23,3 +23,5 @@ console.log('AK-004 homepage content and local assets verified.');
 for(const path of ["assets/img/citadel/citadel-tribunal-room.webp","assets/img/citadel/citadel-legal-documents-card.webp","assets/img/citadel/cards/citadel-thumb-rera-complaint-drafting-documents-reliefs-640.jpg","assets/img/citadel/cards/citadel-thumb-rera-refund-interest-delayed-possession-batch6-v2-640.jpg"]) await readFile(new URL(path,root));
 for(const term of ['hero-image','practice-tile','journal-list','jurisdiction-art','resource-list']) assert.ok(home.includes(term),term);
 console.log('AK-004R editorial redesign structure and assets verified.');
+
+assert.match(home,/id="hero-title"/);assert.match(home,/footer-brand/);assert.match(home,/data-ack/);console.log('AK-004R2 brand and hero markup verified.');

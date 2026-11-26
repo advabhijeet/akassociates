@@ -1,0 +1,3 @@
+# AK-004R2 — Brand integration and visual refinement
+
+User review confirmed the structure but identified a grey/green cast, logo background mismatch and need for finer details. Dark header and footer now use pure black; remaining surfaces use neutral charcoal, with warm gold accents. Light header uses white. Official logo files are unchanged, with blend modes to integrate their backgrounds. Hero typography reduced, italic and trailing period removed, vertical spacing and disclaimer compacted. Theme switch shows target mode, footer uses official wordmark, article image links have accessible names. Existing content, preview protections and URLs retained. Browser visual and mobile testing pending; this is not design sign-off.

@@ -5,6 +5,15 @@ import {legacy} from '../data/site';
 <script>
 const notice=document.querySelector<HTMLElement>('[data-notice]');
 const button=document.querySelector<HTMLButtonElement>('[data-ack]');
-if(notice&&button){try{if(sessionStorage.getItem('ak-notice')==='1')notice.hidden=true}catch{}button.hidden=false;button.addEventListener('click',()=>{try{sessionStorage.setItem('ak-notice','1')}catch{}notice.hidden=true;document.querySelector<HTMLElement>('.skip')?.focus()})}
+if(notice&&button){try{if(sessionStorage.getItem('ak-notice')==='1')notice.hidden=true}catch{}button.hidden=false;button.addEventListener('click',()=>{try{sessionStorage.setItem('ak-notice','1')}catch{}notice.hidden=true;document.querySelector<HTMLElement>('#main')?.focus({preventScroll:true})})}
 </script>
-<style>.notice{background:var(--surface);border-bottom:1px solid var(--line);border-left:3px solid var(--gold-line)}.notice-row{display:flex;align-items:center;gap:1rem;padding-block:.8rem}.notice p{font-size:.8rem;margin:0;color:var(--muted);flex:1}.notice button{min-height:44px;padding:.4rem .8rem;background:transparent;border:1px solid var(--gold-line);color:var(--ink);border-radius:var(--radius);font-size:.8rem;white-space:nowrap}@media(max-width:600px){.notice-row{flex-wrap:wrap}}</style>
+<style>.notice{background:var(--surface);border-bottom:1px solid var(--line);border-left:3px solid var(--gold-line)}.notice-row{display:flex;align-items:center;gap:1rem;padding-block:.8rem}.notice p{font-size:.8rem;margin:0;color:var(--muted);flex:1}.notice button{min-height:44px;padding:.4rem .8rem;background:transparent;border:1px solid var(--gold-line);color:var(--ink);border-radius:var(--radius);font-size:.8rem;white-space:nowrap}@media(max-width:600px){.notice-row{flex-wrap:wrap}}
+.notice{background:var(--paper);border-left:0;border-top:0;border-bottom:1px solid var(--brand-border)}
+.notice-row{padding-block:.45rem;gap:1rem}
+.notice p{font-size:.76rem;line-height:1.55}
+.notice strong{color:var(--gold)}
+.notice button{font-size:.75rem;min-height:36px;padding:.35rem .8rem}
+.notice button:hover{background:var(--surface)}
+.notice[hidden],.notice button[hidden]{display:none}
+@media(max-width:600px){.notice-row{gap:.4rem;padding-block:.65rem}.notice button{min-height:44px}}
+</style>
