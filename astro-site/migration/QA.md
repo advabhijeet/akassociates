@@ -1,0 +1,3 @@
+# AK-009 quality assurance
+
+Static and browser CI checks metadata, canonical pages, local links/assets, representative mobile and desktop interaction, no-JS form safety and exact URL adapter. Fragment and overflow warnings require review. Remote Pages HTTP probe is read-only and may observe an earlier deployment. No production domain or main changes. Release gates: actual deployed URL parity, external citations/legal review, WCAG and real-device checks, Lighthouse metrics, EmailJS/GTM/IndexNow, verification files, dependency lockfile, policy parity, and rollback plan. No deployment authorized yet.

@@ -1,0 +1,3 @@
+# Exact-URL Worker preview (not deployed)
+
+Alternative to Pages HTML normalization: Workers Static Assets html_handling none. Build from astro-site with npm run build, remove dist/_redirects (Pages-specific rules, not repository source), then deploy only after authorization: npx wrangler deploy --config deployment/wrangler.preview.json. Separate workers.dev preview only. Verify all canonical URLs return 200 without redirect, aliases 301 to final .html, root 200, missing routes 404, and preview noindex headers. No production domain configured. Worker tests mock the binding; real Cloudflare behavior remains unverified. Production requires separate release configuration, indexability gate and rollback plan.

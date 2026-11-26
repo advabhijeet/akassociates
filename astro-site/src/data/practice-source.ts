@@ -29,7 +29,7 @@ export function loadPracticePages(){return routes.map(r=>{
    return {slug:r.source.replace(/\.html$/,''),path:r.path,title,canonical,description:'This page has moved.',redirect:dest.pathname,heading:'Page moved',eyebrow:'Practice information',intro:'',sections:[],schemas:[],ogTitle:'',ogDescription:'',ogImage:'',ogType:'',twitterTitle:'',twitterDescription:'',twitterImage:''};
  }
  let main=source.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)?.[1];
- if(r.source==='contact.html'&&main)main=main.replace(/<form\b[\s\S]*?<\/form>/i,'<div class="preview-enquiry"><p><strong>Preview mode:</strong> online enquiry delivery is disabled. Use the local message builder below to prepare a message without sending it.</p><p><a href="#preview-message">Prepare a message</a></p></div>');
+ if(r.source==='contact.html'&&main)main=main.replace('Use this form to prepare a structured first-contact enquiry, review the message, and send it directly through the website if you choose. WhatsApp, Gmail and copy options remain available as fallback routes.','Prepare and copy a structured first-contact message locally. Direct website delivery is disabled in this preview.').replace(/<form\b[\s\S]*?<\/form>/i,'<div class="preview-enquiry"><p><strong>Preview mode:</strong> online enquiry delivery is disabled. Use the local message builder below to prepare a message without sending it.</p><p><a href="#preview-message">Prepare a message</a></p></div>');
  if(!main||/<(?:script|iframe|object|embed|form|style)\b|\son\w+\s*=/i.test(main))throw Error('Missing or unsupported legacy main: '+r.source);
  const hero=main.match(/<section\b[^>]*class="page-hero"[^>]*>([\s\S]*?)<\/section>/i);
  if(!hero)throw Error('Missing hero: '+r.source);

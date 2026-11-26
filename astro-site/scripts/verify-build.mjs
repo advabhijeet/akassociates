@@ -84,3 +84,5 @@ const tools=await readFile(new URL('legal-tools.html',root),'utf8');for(const id
 for(const url of inventory.sitemap)assert.ok(locs.includes(url),'Missing original sitemap route '+url);
 await import('./test-calculations.mjs');
 console.log('AK-008: core pages, complete legacy sitemap coverage and tools verified.');
+
+await import('./test-url-adapter.mjs');

@@ -35,5 +35,19 @@ jobs:
         working-directory: .
       - run: npm run build
 
+      - name: Install browser test tooling
+        run: npm install --no-save --package-lock=false playwright
+      - run: npx playwright install --with-deps chromium
+      - name: Browser and static HTML checks
+        run: node scripts/test-browser.mjs
+      - name: Read-only deployed Pages HTTP audit
+        if: always()
+        continue-on-error: true
+        run: node scripts/audit-pages-http.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ak-009-qa
+          path: astro-site/qa-output/
       - name: Test new Markdown publication in disposable CI build
         run: node scripts/test-publishing.mjs
