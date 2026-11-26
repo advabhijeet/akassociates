@@ -25,3 +25,5 @@ for(const term of ['hero-image','practice-tile','journal-list','jurisdiction-art
 console.log('AK-004R editorial redesign structure and assets verified.');
 
 assert.match(home,/id="hero-title"/);assert.match(home,/footer-brand/);assert.match(home,/data-ack/);console.log('AK-004R2 brand and hero markup verified.');
+
+assert.match(home,/<dialog[^>]*id="mobile-drawer"/);assert.match(home,/aria-controls="mobile-drawer"/);assert.match(home,/data-drawer-close/);assert.match(home,/aria-label="Mobile navigation"/);assert.doesNotMatch(home,/<details[^>]*class="mobile-nav"/);console.log('Mobile slide-out navigation markup verified.');

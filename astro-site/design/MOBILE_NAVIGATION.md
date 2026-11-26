@@ -1,0 +1,2 @@
+# Mobile navigation refinement
+Replaces the mobile dropdown with a right-edge modal drawer using native dialog, animated backdrop, scroll locking, Escape and close controls, link dismissal, resize handling and reduced-motion support. Existing navigation targets and desktop styling are preserved. Menu follows current theme and uses official logo variants. Actual mobile-browser interactions and accessibility require manual verification after deployment.
