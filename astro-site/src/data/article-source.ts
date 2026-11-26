@@ -40,7 +40,7 @@ export function loadArticlePages(){return articles.map(entry=>{
  const toc:{id:string;label:string;level:number}[]=[];
  const numbered=article[0].replace(/<h([23])\b([^>]*)>([\s\S]*?)<\/h\1>/gi,(whole,level,attrs,content)=>{
   const label=plain(content);let id=attr(' '+attrs,'id');
-  if(!id){const base=label.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,70)||'section';id=base;let n=2;while(ids.has(id))id=base+'-'+n++;ids.add(id);}
+  if(!id){const slug=label.toLowerCase().replace(/&/g,' and ').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,80)||'article-section';const base=/^[a-z_]/.test(slug)?slug:'section-'+slug;id=base;let n=2;while(ids.has(id))id=base+'-'+n++;ids.add(id);}
   toc.push({id,label,level:Number(level)});
   return attr(' '+attrs,'id')?whole:'<h'+level+attrs+' id="'+esc(id)+'">'+content+'</h'+level+'>';
  });

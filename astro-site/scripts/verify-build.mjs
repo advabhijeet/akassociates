@@ -45,7 +45,7 @@ console.log('AK-005: 23 content pages and four consolidated routes verified.');
 const registry=JSON.parse(await readFile(new URL('../../assets/data/insights-registry.json',import.meta.url),'utf8'));
 const archive=await readFile(new URL('legal-updates.html',root),'utf8');
 assert.match(archive,/data-archive-controls/);
-assert.equal((archive.match(/data-insight(?:\s|>)/g)||[]).length,registry.length);
+assert.equal((archive.match(/data-insight(?=[\s=>])/g)||[]).length,registry.length);
 for(const a of registry){
  const page=await readFile(new URL(a.href,root),'utf8');
  assert.match(page,/name="robots" content="noindex,nofollow"/);
