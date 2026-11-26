@@ -1,0 +1,8 @@
+import {spawnSync} from 'node:child_process';
+import {mkdir,readFile,writeFile} from 'node:fs/promises';
+const origin='https://chambers-of-ak-url-preview.abhikr917.workers.dev';const pages={'home':'/','practice':'/practice/msme-disputes.html','archive':'/legal-updates.html','article':'/updates/msme-registration-benefits-eligibility.html','tools':'/legal-tools.html','contact':'/contact.html'};
+await mkdir('qa-lighthouse',{recursive:true});const results=[];
+for(const [name,path] of Object.entries(pages)){for(const mode of ['mobile','desktop']){
+ const output='qa-lighthouse/'+name+'-'+mode+'.json';const args=['--yes','lighthouse@13.6.0',origin+path,'--quiet','--chrome-flags=--headless --no-sandbox --disable-dev-shm-usage','--only-categories=performance,accessibility,best-practices','--output=json','--output-path='+output];if(mode==='desktop')args.push('--preset=desktop');const r=spawnSync('npx',args,{stdio:'inherit',timeout:180000});if(r.status!==0){results.push({name,mode,error:'Lighthouse exit '+r.status});continue;}const j=JSON.parse(await readFile(output,'utf8'));const scores=Object.fromEntries(Object.entries(j.categories).map(([k,v])=>[k,Math.round(v.score*100)]));const audits=Object.values(j.audits).filter(a=>a.score!==null&&a.score<1).map(a=>({id:a.id,title:a.title,score:a.score,displayValue:a.displayValue}));results.push({name,mode,scores,LCP:j.audits['largest-contentful-paint']?.numericValue,CLS:j.audits['cumulative-layout-shift']?.numericValue,TBT:j.audits['total-blocking-time']?.numericValue,audits});
+}}
+await writeFile('qa-lighthouse/summary.json',JSON.stringify(results,null,2));console.log(JSON.stringify(results.map(({audits,...r})=>r),null,2));if(results.some(r=>r.error))process.exitCode=1;

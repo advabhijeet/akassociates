@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import AnalyticsConsent from '../components/AnalyticsConsent.astro';
 interface Props { title:string; description:string; }
 const {title,description}=Astro.props;
 ---
@@ -23,6 +24,6 @@ const {title,description}=Astro.props;
 (()=>{let mode;try{mode=localStorage.getItem('ak-theme')}catch{}document.documentElement.dataset.theme=mode==='dark'||mode==='light'?mode:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'})();
 </script>
 </head>
-<body><a class="skip" href="#main">Skip to content</a><SiteHeader /><main id="main" tabindex="-1"><slot /></main><SiteFooter /></body>
+<body><a class="skip" href="#main">Skip to content</a><SiteHeader /><main id="main" tabindex="-1"><slot /></main><SiteFooter /><AnalyticsConsent /></body>
 </html>
 <style>main{min-height:70vh}</style>

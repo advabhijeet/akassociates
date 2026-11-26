@@ -1,0 +1,14 @@
+{
+  "name": "chambers-of-ak-production",
+  "main": "deployment/production-worker.mjs",
+  "compatibility_date": "2026-11-26",
+  "workers_dev": false,
+  "assets": {
+    "directory": "dist-production",
+    "binding": "ASSETS",
+    "html_handling": "none",
+    "not_found_handling": "none",
+    "run_worker_first": true
+  },
+  "preview_urls": false
+}

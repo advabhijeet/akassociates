@@ -1,0 +1,50 @@
+name: AK-009D production candidate and Lighthouse
+on:
+  push:
+    branches: [astro-migration]
+    paths:
+      - '.github/workflows/production-candidate.yml'
+      - 'astro-site/deployment/**'
+      - 'astro-site/scripts/prepare-production.mjs'
+      - 'astro-site/scripts/test-production.mjs'
+      - 'astro-site/src/components/AnalyticsConsent.astro'
+      - 'astro-site/src/components/LocalEnquiry.astro'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  candidate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: astro-site
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.4'
+      - run: npm ci --no-audit --no-fund
+      - run: npm run build:production
+      - run: node scripts/test-production.mjs
+      - run: node scripts/indexnow-production.mjs --initial
+      - uses: actions/upload-artifact@v4
+        with:
+          name: production-candidate-manifest
+          path: astro-site/dist-production/release-manifest.json
+  lighthouse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    defaults:
+      run:
+        working-directory: astro-site
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.4'
+      - run: node scripts/lighthouse-staging.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lighthouse-staging
+          path: astro-site/qa-lighthouse/

@@ -1,0 +1,29 @@
+<div data-analytics-choice hidden class="analytics-choice" role="region" aria-label="Analytics preferences"><p>Optional website analytics help us understand site usage. No analytics tags load before your choice. <a href="/privacy-policy.html">Privacy policy</a>.</p><div><button type="button" data-analytics-allow>Allow analytics</button><button type="button" data-analytics-deny>Decline</button></div></div>
+<button type="button" data-analytics-settings hidden class="analytics-settings">Analytics preferences</button>
+<script>
+const root=document.documentElement;
+if(root.dataset.akRelease==='production'&&location.origin==='https://chambersofak.in'){
+ const panel=document.querySelector<HTMLElement>('[data-analytics-choice]')!;
+ const settings=document.querySelector<HTMLButtonElement>('[data-analytics-settings]')!;
+ let choice='';try{choice=localStorage.getItem('ak-analytics-choice-v1')||''}catch{}
+ const w=window as Window&{dataLayer?:unknown[];akTrack?:(event:string)=>void};
+ const allowed=new Set(['whatsapp_click','phone_click','email_click','case_enquiry_click','contact_click','enquiry_submit']);
+ let loaded=false;
+ function activate(){
+  if(loaded)return;loaded=true;const dl=w.dataLayer=w.dataLayer||[];
+  function gtag(..._args:unknown[]){dl.push(arguments)}
+  gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
+  gtag('consent','update',{analytics_storage:'granted',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
+  dl.push({'gtm.start':Date.now(),event:'gtm.js'});const s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtm.js?id=GTM-5GMHQTJJ';document.head.append(s);
+  w.akTrack=event=>{if(choice==='allow'&&allowed.has(event))dl.push({event,page_path:location.pathname});};
+ }
+ function store(value:string){choice=value;try{localStorage.setItem('ak-analytics-choice-v1',value)}catch{}}
+ panel.hidden=choice==='allow'||choice==='deny';settings.hidden=false;
+ if(choice==='allow')activate();
+ panel.querySelector('[data-analytics-allow]')?.addEventListener('click',()=>{store('allow');panel.hidden=true;activate();});
+ panel.querySelector('[data-analytics-deny]')?.addEventListener('click',()=>{const was=loaded;store('deny');panel.hidden=true;if(was){const dl=w.dataLayer||[];function gtag(..._args:unknown[]){dl.push(arguments)}gtag('consent','update',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});w.akTrack=()=>{};location.reload();}});
+ settings.addEventListener('click',()=>{panel.hidden=!panel.hidden;});
+ document.addEventListener('click',e=>{const a=(e.target as Element)?.closest('a[href]') as HTMLAnchorElement|null;if(!a||choice!=='allow')return;const u=new URL(a.href);const event=u.protocol==='tel:'?'phone_click':u.protocol==='mailto:'?'email_click':u.hostname==='wa.me'||u.hostname==='api.whatsapp.com'?'whatsapp_click':u.origin===location.origin&&u.pathname==='/case-enquiry.html'?'case_enquiry_click':u.origin===location.origin&&u.pathname==='/contact.html'?'contact_click':'';if(event)w.akTrack?.(event);});
+}
+</script>
+<style>.analytics-choice[hidden],.analytics-settings[hidden]{display:none!important}.analytics-choice{position:fixed;bottom:1rem;left:1rem;right:1rem;max-width:38rem;z-index:80;padding:1rem;border:1px solid var(--gold-line);background:var(--surface);color:var(--ink);box-shadow:0 3px 20px #0005;font-size:.85rem}.analytics-choice p{margin:0 0 .65rem}.analytics-choice div{display:flex;gap:.6rem;flex-wrap:wrap}.analytics-choice button,.analytics-settings{background:var(--surface);color:var(--ink);border:1px solid var(--gold-line);padding:.55rem .8rem;min-height:44px}.analytics-settings{display:block;margin:1rem auto;font-size:.78rem}</style>

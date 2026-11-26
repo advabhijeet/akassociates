@@ -10,7 +10,8 @@
     "dev": "astro dev",
     "build": "astro build && node scripts/verify-build.mjs",
     "preview": "astro preview",
-    "build:worker-preview": "npm run build && node scripts/prepare-worker-preview.mjs"
+    "build:worker-preview": "npm run build && node scripts/prepare-worker-preview.mjs",
+    "build:production": "npm run build && node scripts/prepare-production.mjs"
   },
   "dependencies": {
     "astro": "7.4.11"

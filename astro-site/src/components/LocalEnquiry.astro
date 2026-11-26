@@ -10,6 +10,7 @@ const markup=raw.replace('<form class="dynamic-contact-form" data-contact-dynami
 <section class="detail-section" id="preview-message"><p class="eyebrow">Structured enquiry</p><h2>Prepare an enquiry</h2><p>Preview only. Information remains local. Do not enter confidential or privileged material. Direct delivery is disabled.</p><noscript><p>JavaScript is required for local preparation.</p></noscript><div class="structured" set:html={markup}/></section>
 <script>
 import {prepareMessage} from '../data/enquiry-message.mjs';
+import {sendEnquiry} from '../../deployment/emailjs-release.mjs';
 const form=document.querySelector<HTMLFormElement>('[data-contact-dynamic-form]');
 if(form){
  const groups=[...form.querySelectorAll<HTMLElement>('[data-matter-fields]')];
@@ -20,14 +21,23 @@ if(form){
  const generate=form.querySelector<HTMLButtonElement>('[data-generate-enquiry]')!;
  const copy=form.querySelector<HTMLButtonElement>('[data-copy-enquiry]')!;
  const send=form.querySelector<HTMLButtonElement>('[data-emailjs-send]')!;
+ const live=document.documentElement.dataset.akRelease==='production'&&location.origin==='https://chambersofak.in';
+ let prepared:Record<string,string>={};let sending=false;let sent=false;
  const statuses=[...form.querySelectorAll<HTMLElement>('[data-emailjs-status]')];
  function status(message:string){statuses.forEach(s=>{s.textContent='';s.hidden=true;});const s=wrapper.hidden?statuses[0]:statuses[statuses.length-1];if(s){s.textContent=message;s.hidden=!message;}}
- function refresh(){groups.forEach(g=>{g.hidden=g.dataset.matterFields!==matter.value;g.querySelectorAll<HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement>('input,select,textarea').forEach(f=>f.disabled=g.hidden);});generate.disabled=!matter.value||!consent.checked;output.value='';wrapper.hidden=true;copy.disabled=true;send.disabled=true;status('');}
+ function refresh(){if(sending)return;prepared={};sent=false;groups.forEach(g=>{g.hidden=g.dataset.matterFields!==matter.value;g.querySelectorAll<HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement>('input,select,textarea').forEach(f=>f.disabled=g.hidden);});generate.disabled=!matter.value||!consent.checked;output.value='';wrapper.hidden=true;copy.disabled=true;send.disabled=true;status('');}
  form.addEventListener('submit',e=>e.preventDefault());
  form.addEventListener('input',e=>{if(e.target!==output)refresh();});
  form.addEventListener('change',e=>{if(e.target!==output)refresh();});
- generate.addEventListener('click',()=>{if(!consent.checked||!form.reportValidity())return;const fields=[...form.querySelectorAll<HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement>('input,select,textarea')].filter(f=>f.name&&!f.disabled&&f.type!=='checkbox'&&f!==output&&!f.closest('[hidden]')).map(f=>({name:f.name,label:f.closest('label')?.querySelector('span')?.textContent?.trim()||f.name,value:f instanceof HTMLSelectElement?f.selectedOptions[0]?.textContent||'':f.value}));output.value=prepareMessage(fields);wrapper.hidden=false;copy.disabled=false;send.disabled=true;status('Prepared locally. Nothing has been sent.');output.focus();});
+ generate.addEventListener('click',()=>{if(!consent.checked||!form.reportValidity())return;const fields=[...form.querySelectorAll<HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement>('input,select,textarea')].filter(f=>f.name&&!f.disabled&&f.type!=='checkbox'&&f!==output&&!f.closest('[hidden]')).map(f=>({name:f.name,label:f.closest('label')?.querySelector('span')?.textContent?.trim()||f.name,value:f instanceof HTMLSelectElement?f.selectedOptions[0]?.textContent||'':f.value}));prepared=Object.fromEntries(fields.map(f=>[f.name,f.value]));output.value=prepareMessage(fields);wrapper.hidden=false;copy.disabled=false;send.disabled=!live;status('Prepared locally. Nothing has been sent.');output.focus();});
  copy.addEventListener('click',async()=>{if(!output.value)return;try{await navigator.clipboard.writeText(output.value);status('Copied.');}catch{output.select();status('Select and copy manually.');}});
+ send.addEventListener('click',async()=>{
+  if(!live||sending||sent||!consent.checked||!output.value.trim()||!form.reportValidity())return;
+  const email=form.querySelector<HTMLInputElement>('[name=email]');if(!email?.value.trim()||!email.checkValidity()){status('Enter a valid email address before sending.');email?.focus();return;}
+  prepared.email=email.value.trim();sending=true;send.disabled=true;const fieldset=form.querySelector('fieldset');fieldset?.setAttribute('disabled','');status('Sending enquiry via EmailJS…');
+  const sdk={send:async(service_id:string,template_id:string,template_params:unknown,options:{publicKey:string})=>{const r=await fetch('https://api.emailjs.com/api/v1.0/email/send',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({service_id,template_id,template_params,user_id:options.publicKey}),signal:AbortSignal.timeout(20000)});if(!r.ok)throw Error('Email service rejected request');return r.status;}};
+  try{await sendEnquiry({sdk,fields:prepared,message:output.value,pageUrl:location.href,consent:consent.checked,approved:live});sent=true;status('Enquiry sent successfully.');(window as Window&{akTrack?:(event:string)=>void}).akTrack?.('enquiry_submit');}catch{status('Delivery could not be confirmed. Copy the message and use the listed contact channels, or try again.');}finally{sending=false;fieldset?.removeAttribute('disabled');send.disabled=sent||!live;}
+ });
  form.querySelector('fieldset')?.removeAttribute('disabled');refresh();
 }
 </script>
