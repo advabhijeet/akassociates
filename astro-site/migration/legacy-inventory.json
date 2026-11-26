@@ -1,0 +1,1590 @@
+{
+  "sourceCommit": "95d4b51bdc3cf429ae46aa8abe22db531bb7a7d3",
+  "origin": "https://chambersofak.in",
+  "counts": {
+    "sitemap": 86,
+    "articles": 51,
+    "feedItems": 51,
+    "publicHtml": 92,
+    "services": 20,
+    "practice": 6
+  },
+  "routes": [
+    {
+      "source": "404.html",
+      "path": "/404.html",
+      "inSitemap": false
+    },
+    {
+      "source": "about.html",
+      "path": "/about.html",
+      "inSitemap": true
+    },
+    {
+      "source": "case-enquiry.html",
+      "path": "/case-enquiry.html",
+      "inSitemap": true
+    },
+    {
+      "source": "contact.html",
+      "path": "/contact.html",
+      "inSitemap": true
+    },
+    {
+      "source": "courts.html",
+      "path": "/courts.html",
+      "inSitemap": true
+    },
+    {
+      "source": "disclaimer.html",
+      "path": "/disclaimer.html",
+      "inSitemap": true
+    },
+    {
+      "source": "document-checklists.html",
+      "path": "/document-checklists.html",
+      "inSitemap": true
+    },
+    {
+      "source": "faq.html",
+      "path": "/faq.html",
+      "inSitemap": true
+    },
+    {
+      "source": "google3164979181871a1d.html",
+      "path": "/google3164979181871a1d.html",
+      "inSitemap": false
+    },
+    {
+      "source": "index.html",
+      "path": "/",
+      "inSitemap": true
+    },
+    {
+      "source": "legal-updates.html",
+      "path": "/legal-updates.html",
+      "inSitemap": true
+    },
+    {
+      "source": "practice.html",
+      "path": "/practice.html",
+      "inSitemap": true
+    },
+    {
+      "source": "practice/arbitration.html",
+      "path": "/practice/arbitration.html",
+      "inSitemap": true
+    },
+    {
+      "source": "practice/cheque-bounce.html",
+      "path": "/practice/cheque-bounce.html",
+      "inSitemap": true
+    },
+    {
+      "source": "practice/commercial-recovery.html",
+      "path": "/practice/commercial-recovery.html",
+      "inSitemap": true
+    },
+    {
+      "source": "practice/msme-disputes.html",
+      "path": "/practice/msme-disputes.html",
+      "inSitemap": true
+    },
+    {
+      "source": "practice/property-civil-suits.html",
+      "path": "/practice/property-civil-suits.html",
+      "inSitemap": true
+    },
+    {
+      "source": "practice/rera-property.html",
+      "path": "/practice/rera-property.html",
+      "inSitemap": true
+    },
+    {
+      "source": "privacy-policy.html",
+      "path": "/privacy-policy.html",
+      "inSitemap": true
+    },
+    {
+      "source": "process.html",
+      "path": "/process.html",
+      "inSitemap": true
+    },
+    {
+      "source": "services/arbitration-lawyer-bihar.html",
+      "path": "/services/arbitration-lawyer-bihar.html",
+      "inSitemap": true
+    },
+    {
+      "source": "services/cheque-bounce-lawyer-bihar.html",
+      "path": "/services/cheque-bounce-lawyer-bihar.html",
+      "inSitemap": false
+    },
+    {
+      "source": "services/cheque-bounce-lawyer-delhi-ncr.html",
+      "path": "/services/cheque-bounce-lawyer-delhi-ncr.html",
+      "inSitemap": true
+    },
+    {
+      "source": "services/cheque-bounce-lawyer-patna.html",
+      "path": "/services/cheque-bounce-lawyer-patna.html",
+      "inSitemap": true
+    },
+    {
+      "source": "services/civil-litigation-lawyer-bihar.html",
+      "path": "/services/civil-litigation-lawyer-bihar.html",
+      "inSitemap": false
+    },
+    {
+      "source": "services/civil-litigation-lawyer-patna.html",
+      "path": "/services/civil-litigation-lawyer-patna.html",
+      "inSitemap": true
+    },
+    {
+      "source": "services/commercial-recovery-lawyer-bihar.html",
+      "path": "/services/commercial-recovery-lawyer-bihar.html",
+      "inSitemap": true
+    },
+    {
+      "source": "services/commercial-recovery-lawyer-patna.html",
+      "path": "/services/commercial-recovery-lawyer-patna.html",
+      "inSitemap": true
+    },
+    {
+      "source": "services/msme-recovery-lawyer-bihar.html",
+      "path": "/services/msme-recovery-lawyer-bihar.html",
+      "inSitemap": true
+    },
+    {
+      "source": "services/msme-recovery-lawyer-delhi-ncr.html",
+      "path": "/services/msme-recovery-lawyer-delhi-ncr.html",
+      "inSitemap": true
+    },
+    {
+      "source": "services/msme-recovery-lawyer-delhi.html",
+      "path": "/services/msme-recovery-lawyer-delhi.html",
+      "inSitemap": false
+    },
+    {
+      "source": "services/msme-recovery-lawyer-patna.html",
+      "path": "/services/msme-recovery-lawyer-patna.html",
+      "inSitemap": true
+    },
+    {
+      "source": "services/property-dispute-lawyer-bihar.html",
+      "path": "/services/property-dispute-lawyer-bihar.html",
+      "inSitemap": false
+    },
+    {
+      "source": "services/property-dispute-lawyer-patna.html",
+      "path": "/services/property-dispute-lawyer-patna.html",
+      "inSitemap": true
+    },
+    {
+      "source": "services/rera-delayed-possession-lawyer.html",
+      "path": "/services/rera-delayed-possession-lawyer.html",
+      "inSitemap": true
+    },
+    {
+      "source": "services/rera-lawyer-bihar-up-delhi-ncr.html",
+      "path": "/services/rera-lawyer-bihar-up-delhi-ncr.html",
+      "inSitemap": true
+    },
+    {
+      "source": "services/rera-lawyer-gurugram.html",
+      "path": "/services/rera-lawyer-gurugram.html",
+      "inSitemap": true
+    },
+    {
+      "source": "services/rera-lawyer-noida.html",
+      "path": "/services/rera-lawyer-noida.html",
+      "inSitemap": true
+    },
+    {
+      "source": "services/rera-lawyer-patna.html",
+      "path": "/services/rera-lawyer-patna.html",
+      "inSitemap": true
+    },
+    {
+      "source": "services/rera-refund-interest-lawyer.html",
+      "path": "/services/rera-refund-interest-lawyer.html",
+      "inSitemap": true
+    },
+    {
+      "source": "terms.html",
+      "path": "/terms.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/after-msefc-award-challenge-deposit-stay-enforcement.html",
+      "path": "/updates/after-msefc-award-challenge-deposit-stay-enforcement.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/arbitration-clause-checklist.html",
+      "path": "/updates/arbitration-clause-checklist.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/arbitration-notice-before-claim.html",
+      "path": "/updates/arbitration-notice-before-claim.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/bihar-msefc-filing-procedure-msme-delayed-payment.html",
+      "path": "/updates/bihar-msefc-filing-procedure-msme-delayed-payment.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/bihar-rera-complaint.html",
+      "path": "/updates/bihar-rera-complaint.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/builder-buyer-agreement-clauses-before-rera-complaint.html",
+      "path": "/updates/builder-buyer-agreement-clauses-before-rera-complaint.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/cheque-bounce-30-days.html",
+      "path": "/updates/cheque-bounce-30-days.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/cheque-bounce-defence-after-summons.html",
+      "path": "/updates/cheque-bounce-defence-after-summons.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/cheque-bounce-notice-limitation.html",
+      "path": "/updates/cheque-bounce-notice-limitation.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/commercial-contract-review-checklist.html",
+      "path": "/updates/commercial-contract-review-checklist.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/commercial-recovery-before-suit.html",
+      "path": "/updates/commercial-recovery-before-suit.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/commercial-suit-documents-checklist.html",
+      "path": "/updates/commercial-suit-documents-checklist.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/delhi-msefc-filing-procedure-msme-delayed-payment.html",
+      "path": "/updates/delhi-msefc-filing-procedure-msme-delayed-payment.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/msefc-defective-goods-set-off-counterclaim.html",
+      "path": "/updates/msefc-defective-goods-set-off-counterclaim.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/msefc-jurisdiction-supplier-buyer-different-states.html",
+      "path": "/updates/msefc-jurisdiction-supplier-buyer-different-states.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/msefc-notice-buyer-reply-defences-documents.html",
+      "path": "/updates/msefc-notice-buyer-reply-defences-documents.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/msme-45-days-payment-rule.html",
+      "path": "/updates/msme-45-days-payment-rule.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/msme-delayed-payment-vs-civil-suit-vs-arbitration.html",
+      "path": "/updates/msme-delayed-payment-vs-civil-suit-vs-arbitration.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/msme-delayed-payment.html",
+      "path": "/updates/msme-delayed-payment.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/msme-documents-checklist.html",
+      "path": "/updates/msme-documents-checklist.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/msme-facilitation-council-process.html",
+      "path": "/updates/msme-facilitation-council-process.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/msme-interest-calculation-documents-caution-points.html",
+      "path": "/updates/msme-interest-calculation-documents-caution-points.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/msme-limitation-period-section-18-conciliation-arbitration.html",
+      "path": "/updates/msme-limitation-period-section-18-conciliation-arbitration.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/msme-registration-benefits-eligibility.html",
+      "path": "/updates/msme-registration-benefits-eligibility.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/msme-samadhaan-filing-checklist.html",
+      "path": "/updates/msme-samadhaan-filing-checklist.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/non-reportable-judgments-online-publication-case-brief.html",
+      "path": "/updates/non-reportable-judgments-online-publication-case-brief.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/pmla-complaint-pre-cognizance-hearing-bnss.html",
+      "path": "/updates/pmla-complaint-pre-cognizance-hearing-bnss.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/prepare-msme-delayed-payment-claim.html",
+      "path": "/updates/prepare-msme-delayed-payment-claim.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/property-injunction-suit-documents.html",
+      "path": "/updates/property-injunction-suit-documents.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/property-title-search-before-purchase-india.html",
+      "path": "/updates/property-title-search-before-purchase-india.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/reply-to-rera-complaint-builder-promoter.html",
+      "path": "/updates/reply-to-rera-complaint-builder-promoter.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/rera-complaint-drafting-documents-reliefs.html",
+      "path": "/updates/rera-complaint-drafting-documents-reliefs.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/rera-delayed-possession-bihar.html",
+      "path": "/updates/rera-delayed-possession-bihar.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/rera-delayed-possession-complaint-checklist.html",
+      "path": "/updates/rera-delayed-possession-complaint-checklist.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/rera-execution-enforcement-after-order.html",
+      "path": "/updates/rera-execution-enforcement-after-order.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/rera-homebuyer-documents-before-complaint.html",
+      "path": "/updates/rera-homebuyer-documents-before-complaint.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/rera-refund-interest-delayed-possession.html",
+      "path": "/updates/rera-refund-interest-delayed-possession.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/rera-refund-vs-possession-document-review.html",
+      "path": "/updates/rera-refund-vs-possession-document-review.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/sabarimala-case-9-judge-bench-2026.html",
+      "path": "/updates/sabarimala-case-9-judge-bench-2026.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/sarfaesi-auction-sale-challenge-documents.html",
+      "path": "/updates/sarfaesi-auction-sale-challenge-documents.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/sarfaesi-notice-reply-documents.html",
+      "path": "/updates/sarfaesi-notice-reply-documents.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/section-12a-commercial-courts-pre-institution-mediation.html",
+      "path": "/updates/section-12a-commercial-courts-pre-institution-mediation.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/section-138-cheque-bounce-limitation.html",
+      "path": "/updates/section-138-cheque-bounce-limitation.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/section-16-msmed-act-compound-interest.html",
+      "path": "/updates/section-16-msmed-act-compound-interest.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/section-19-msmed-act-75-percent-pre-deposit.html",
+      "path": "/updates/section-19-msmed-act-75-percent-pre-deposit.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/section-34-arbitration-award-challenge.html",
+      "path": "/updates/section-34-arbitration-award-challenge.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/section-34-arbitration-limitation-3-months-30-days.html",
+      "path": "/updates/section-34-arbitration-limitation-3-months-30-days.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/section-34-partially-reasoned-award-challenge.html",
+      "path": "/updates/section-34-partially-reasoned-award-challenge.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/section-9-arbitration-interim-relief.html",
+      "path": "/updates/section-9-arbitration-interim-relief.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/summary-judgment-commercial-suits-order-xiii-a.html",
+      "path": "/updates/summary-judgment-commercial-suits-order-xiii-a.html",
+      "inSitemap": true
+    },
+    {
+      "source": "updates/uapa-bail-section-43d5-supreme-court-2026.html",
+      "path": "/updates/uapa-bail-section-43d5-supreme-court-2026.html",
+      "inSitemap": true
+    }
+  ],
+  "sitemap": [
+    "https://chambersofak.in/",
+    "https://chambersofak.in/about.html",
+    "https://chambersofak.in/practice.html",
+    "https://chambersofak.in/courts.html",
+    "https://chambersofak.in/legal-updates.html",
+    "https://chambersofak.in/contact.html",
+    "https://chambersofak.in/case-enquiry.html",
+    "https://chambersofak.in/document-checklists.html",
+    "https://chambersofak.in/faq.html",
+    "https://chambersofak.in/process.html",
+    "https://chambersofak.in/disclaimer.html",
+    "https://chambersofak.in/privacy-policy.html",
+    "https://chambersofak.in/terms.html",
+    "https://chambersofak.in/practice/cheque-bounce.html",
+    "https://chambersofak.in/practice/msme-disputes.html",
+    "https://chambersofak.in/practice/rera-property.html",
+    "https://chambersofak.in/practice/arbitration.html",
+    "https://chambersofak.in/practice/commercial-recovery.html",
+    "https://chambersofak.in/services/cheque-bounce-lawyer-delhi-ncr.html",
+    "https://chambersofak.in/services/cheque-bounce-lawyer-patna.html",
+    "https://chambersofak.in/services/msme-recovery-lawyer-bihar.html",
+    "https://chambersofak.in/services/msme-recovery-lawyer-patna.html",
+    "https://chambersofak.in/services/msme-recovery-lawyer-delhi-ncr.html",
+    "https://chambersofak.in/services/rera-lawyer-noida.html",
+    "https://chambersofak.in/services/rera-lawyer-patna.html",
+    "https://chambersofak.in/services/commercial-recovery-lawyer-patna.html",
+    "https://chambersofak.in/services/commercial-recovery-lawyer-bihar.html",
+    "https://chambersofak.in/services/arbitration-lawyer-bihar.html",
+    "https://chambersofak.in/updates/cheque-bounce-30-days.html",
+    "https://chambersofak.in/updates/msme-delayed-payment.html",
+    "https://chambersofak.in/updates/msme-45-days-payment-rule.html",
+    "https://chambersofak.in/updates/bihar-rera-complaint.html",
+    "https://chambersofak.in/updates/rera-delayed-possession-bihar.html",
+    "https://chambersofak.in/updates/section-138-cheque-bounce-limitation.html",
+    "https://chambersofak.in/updates/cheque-bounce-notice-limitation.html",
+    "https://chambersofak.in/updates/msme-documents-checklist.html",
+    "https://chambersofak.in/updates/commercial-suit-documents-checklist.html",
+    "https://chambersofak.in/updates/arbitration-notice-before-claim.html",
+    "https://chambersofak.in/updates/section-34-arbitration-award-challenge.html",
+    "https://chambersofak.in/updates/property-injunction-suit-documents.html",
+    "https://chambersofak.in/updates/rera-refund-interest-delayed-possession.html",
+    "https://chambersofak.in/updates/commercial-recovery-before-suit.html",
+    "https://chambersofak.in/updates/arbitration-clause-checklist.html",
+    "https://chambersofak.in/updates/cheque-bounce-defence-after-summons.html",
+    "https://chambersofak.in/updates/msme-facilitation-council-process.html",
+    "https://chambersofak.in/updates/summary-judgment-commercial-suits-order-xiii-a.html",
+    "https://chambersofak.in/updates/sarfaesi-auction-sale-challenge-documents.html",
+    "https://chambersofak.in/updates/non-reportable-judgments-online-publication-case-brief.html",
+    "https://chambersofak.in/updates/property-title-search-before-purchase-india.html",
+    "https://chambersofak.in/updates/sabarimala-case-9-judge-bench-2026.html",
+    "https://chambersofak.in/updates/uapa-bail-section-43d5-supreme-court-2026.html",
+    "https://chambersofak.in/updates/section-34-arbitration-limitation-3-months-30-days.html",
+    "https://chambersofak.in/updates/pmla-complaint-pre-cognizance-hearing-bnss.html",
+    "https://chambersofak.in/practice/property-civil-suits.html",
+    "https://chambersofak.in/services/property-dispute-lawyer-patna.html",
+    "https://chambersofak.in/services/civil-litigation-lawyer-patna.html",
+    "https://chambersofak.in/services/rera-lawyer-gurugram.html",
+    "https://chambersofak.in/services/rera-lawyer-bihar-up-delhi-ncr.html",
+    "https://chambersofak.in/services/rera-refund-interest-lawyer.html",
+    "https://chambersofak.in/services/rera-delayed-possession-lawyer.html",
+    "https://chambersofak.in/updates/reply-to-rera-complaint-builder-promoter.html",
+    "https://chambersofak.in/updates/rera-complaint-drafting-documents-reliefs.html",
+    "https://chambersofak.in/updates/sarfaesi-notice-reply-documents.html",
+    "https://chambersofak.in/updates/section-9-arbitration-interim-relief.html",
+    "https://chambersofak.in/updates/commercial-contract-review-checklist.html",
+    "https://chambersofak.in/updates/section-12a-commercial-courts-pre-institution-mediation.html",
+    "https://chambersofak.in/updates/section-16-msmed-act-compound-interest.html",
+    "https://chambersofak.in/updates/section-19-msmed-act-75-percent-pre-deposit.html",
+    "https://chambersofak.in/updates/msme-limitation-period-section-18-conciliation-arbitration.html",
+    "https://chambersofak.in/updates/msefc-jurisdiction-supplier-buyer-different-states.html",
+    "https://chambersofak.in/updates/msefc-notice-buyer-reply-defences-documents.html",
+    "https://chambersofak.in/updates/after-msefc-award-challenge-deposit-stay-enforcement.html",
+    "https://chambersofak.in/updates/bihar-msefc-filing-procedure-msme-delayed-payment.html",
+    "https://chambersofak.in/updates/delhi-msefc-filing-procedure-msme-delayed-payment.html",
+    "https://chambersofak.in/updates/prepare-msme-delayed-payment-claim.html",
+    "https://chambersofak.in/updates/msme-interest-calculation-documents-caution-points.html",
+    "https://chambersofak.in/updates/msme-samadhaan-filing-checklist.html",
+    "https://chambersofak.in/updates/msme-delayed-payment-vs-civil-suit-vs-arbitration.html",
+    "https://chambersofak.in/updates/rera-delayed-possession-complaint-checklist.html",
+    "https://chambersofak.in/updates/rera-refund-vs-possession-document-review.html",
+    "https://chambersofak.in/updates/builder-buyer-agreement-clauses-before-rera-complaint.html",
+    "https://chambersofak.in/updates/rera-execution-enforcement-after-order.html",
+    "https://chambersofak.in/updates/rera-homebuyer-documents-before-complaint.html",
+    "https://chambersofak.in/updates/msefc-defective-goods-set-off-counterclaim.html",
+    "https://chambersofak.in/updates/section-34-partially-reasoned-award-challenge.html",
+    "https://chambersofak.in/updates/msme-registration-benefits-eligibility.html"
+  ],
+  "nonSitemapServiceAudit": [
+    {
+      "path": "services/cheque-bounce-lawyer-bihar.html",
+      "canonical": "https://chambersofak.in/services/cheque-bounce-lawyer-patna.html",
+      "robots": "noindex, follow",
+      "refresh": "0; url=https://chambersofak.in/services/cheque-bounce-lawyer-patna.html"
+    },
+    {
+      "path": "services/civil-litigation-lawyer-bihar.html",
+      "canonical": "https://chambersofak.in/services/civil-litigation-lawyer-patna.html",
+      "robots": "noindex, follow",
+      "refresh": "0; url=https://chambersofak.in/services/civil-litigation-lawyer-patna.html"
+    },
+    {
+      "path": "services/msme-recovery-lawyer-delhi.html",
+      "canonical": "https://chambersofak.in/services/msme-recovery-lawyer-delhi-ncr.html",
+      "robots": "noindex, follow",
+      "refresh": "0; url=https://chambersofak.in/services/msme-recovery-lawyer-delhi-ncr.html"
+    },
+    {
+      "path": "services/property-dispute-lawyer-bihar.html",
+      "canonical": "https://chambersofak.in/services/property-dispute-lawyer-patna.html",
+      "robots": "noindex, follow",
+      "refresh": "0; url=https://chambersofak.in/services/property-dispute-lawyer-patna.html"
+    }
+  ],
+  "articles": [
+    {
+      "href": "updates/msme-registration-benefits-eligibility.html",
+      "title": "MSME (Udyam) Registration in India: Benefits, Eligibility and Legal Rights (2026)",
+      "category": "Practical Guide",
+      "date": "November 2026",
+      "tags": [
+        "MSME",
+        "Udyam Registration",
+        "MSME Registration Benefits",
+        "Eligibility",
+        "MSMED Act 2026",
+        "Traders",
+        "MSEFC"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-msme-documents-checklist-approved-style.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-msme-documents-checklist-approved-style-640.jpg"
+    },
+    {
+      "href": "updates/msefc-defective-goods-set-off-counterclaim.html",
+      "title": "Defective goods in an MSME claim: MSEFC buyer defence, set-off and counterclaim",
+      "category": "Practical Guide",
+      "date": "October 2026",
+      "tags": [
+        "MSME",
+        "MSEFC",
+        "Defective Goods",
+        "Buyer Defence",
+        "Set-Off",
+        "Counterclaim",
+        "Sale of Goods Act",
+        "Silpi Industries"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-msme-facilitation-council-process-batch6-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-msme-facilitation-council-process-batch6-v2-640.jpg"
+    },
+    {
+      "href": "updates/section-34-partially-reasoned-award-challenge.html",
+      "title": "Partly reasoned arbitral award: Section 34 grounds and remedies",
+      "category": "Procedure Note",
+      "date": "October 2026",
+      "tags": [
+        "Arbitration",
+        "Section 34",
+        "Section 31(3)",
+        "Reasoned Award",
+        "Patent Illegality",
+        "Dyna Technologies",
+        "Gayatri Balasamy",
+        "Severability"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-section34-limitation.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-section34-limitation-640.jpg"
+    },
+    {
+      "href": "updates/rera-homebuyer-documents-before-complaint.html",
+      "title": "Homebuyer documents before a RERA complaint: evidence checklist",
+      "category": "Checklist",
+      "date": "October 2026",
+      "tags": [
+        "RERA",
+        "Homebuyer",
+        "Documents",
+        "Evidence",
+        "Payment Receipts",
+        "Complaint Preparation",
+        "Bihar RERA",
+        "Section 31"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-rera-complaint-drafting-documents-reliefs.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-rera-complaint-drafting-documents-reliefs-640.jpg"
+    },
+    {
+      "href": "updates/rera-execution-enforcement-after-order.html",
+      "title": "RERA execution and enforcement after an order: Section 40 guide",
+      "category": "Practical Guide",
+      "date": "October 2026",
+      "tags": [
+        "RERA",
+        "Section 40",
+        "Execution",
+        "Enforcement",
+        "Recovery Certificate",
+        "Refund",
+        "Interest",
+        "Bihar RERA",
+        "Appeal"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-rera-refund-interest-delayed-possession-batch6-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-rera-refund-interest-delayed-possession-batch6-v2-640.jpg"
+    },
+    {
+      "href": "updates/builder-buyer-agreement-clauses-before-rera-complaint.html",
+      "title": "Builder-buyer agreement: clauses to check before a RERA complaint",
+      "category": "Practical Guide",
+      "date": "October 2026",
+      "tags": [
+        "RERA",
+        "Builder-Buyer Agreement",
+        "Section 13",
+        "Section 14",
+        "Section 18",
+        "Cancellation",
+        "Forfeiture",
+        "Possession",
+        "Documents"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-rera-refund-interest-delayed-possession-batch6-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-rera-refund-interest-delayed-possession-batch6-v2-640.jpg"
+    },
+    {
+      "href": "updates/rera-refund-vs-possession-document-review.html",
+      "title": "RERA refund vs possession: documents to review before choosing relief",
+      "category": "Practical Guide",
+      "date": "October 2026",
+      "tags": [
+        "RERA",
+        "Section 18",
+        "Refund",
+        "Possession",
+        "Delay Interest",
+        "Occupancy Certificate",
+        "Home Loan",
+        "Documents"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-rera-refund-interest-delayed-possession-batch6-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-rera-refund-interest-delayed-possession-batch6-v2-640.jpg"
+    },
+    {
+      "href": "updates/rera-delayed-possession-complaint-checklist.html",
+      "title": "RERA delayed possession complaint checklist",
+      "category": "Checklist",
+      "date": "October 2026",
+      "tags": [
+        "RERA",
+        "Delayed Possession",
+        "Section 18",
+        "Refund",
+        "Interest",
+        "Compensation",
+        "Occupancy Certificate",
+        "Documents"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-rera-refund-interest-delayed-possession-batch6-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-rera-refund-interest-delayed-possession-batch6-v2-640.jpg"
+    },
+    {
+      "href": "updates/msme-delayed-payment-vs-civil-suit-vs-arbitration.html",
+      "title": "MSME delayed payment: MSEFC vs civil suit vs arbitration",
+      "category": "Practical Guide",
+      "date": "October 2026",
+      "tags": [
+        "MSME",
+        "MSEFC",
+        "MSMED Act",
+        "Civil Suit",
+        "Commercial Court",
+        "Arbitration",
+        "Section 18",
+        "Recovery Strategy"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-commercial-recovery-before-suit-batch6-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-commercial-recovery-before-suit-batch6-v2-640.jpg"
+    },
+    {
+      "href": "updates/msme-samadhaan-filing-checklist.html",
+      "title": "MSME Samadhaan filing checklist: before and after submission",
+      "category": "Checklist",
+      "date": "October 2026",
+      "tags": [
+        "MSME",
+        "Samadhaan",
+        "MSEFC",
+        "MSMED Act",
+        "Udyam",
+        "Filing Checklist",
+        "Delayed Payment",
+        "Documents"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-msme-documents-checklist-approved-style.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-msme-documents-checklist-approved-style-640.jpg"
+    },
+    {
+      "href": "updates/msme-interest-calculation-documents-caution-points.html",
+      "title": "MSME interest calculation: documents and caution points",
+      "category": "Practical Guide",
+      "date": "October 2026",
+      "tags": [
+        "MSME",
+        "MSMED Act",
+        "Section 16",
+        "Interest Calculation",
+        "RBI Bank Rate",
+        "Monthly Rests",
+        "Delayed Payment",
+        "Documents"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-msme-45-days-payment-rule-batch6-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-msme-45-days-payment-rule-batch6-v2-640.jpg"
+    },
+    {
+      "href": "updates/prepare-msme-delayed-payment-claim.html",
+      "title": "How to prepare an MSME delayed-payment claim",
+      "category": "Practical Guide",
+      "date": "October 2026",
+      "tags": [
+        "MSME",
+        "MSEFC",
+        "MSMED Act",
+        "Claim Preparation",
+        "Section 15",
+        "Section 16",
+        "Limitation",
+        "Documents",
+        "Samadhaan"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-msme-documents-checklist-approved-style.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-msme-documents-checklist-approved-style-640.jpg"
+    },
+    {
+      "href": "updates/delhi-msefc-filing-procedure-msme-delayed-payment.html",
+      "title": "Delhi MSEFC filing and procedure: MSME delayed payment guide",
+      "category": "Practical Guide",
+      "date": "October 2026",
+      "tags": [
+        "Delhi",
+        "MSME",
+        "MSEFC",
+        "MSMED Act",
+        "MSME Samadhaan",
+        "Section 18",
+        "Delayed Payment",
+        "Filing",
+        "Procedure"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-msme-facilitation-council-process-batch6-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-msme-facilitation-council-process-batch6-v2-640.jpg"
+    },
+    {
+      "href": "updates/bihar-msefc-filing-procedure-msme-delayed-payment.html",
+      "title": "Bihar MSEFC filing and procedure: MSME delayed payment guide",
+      "category": "Practical Guide",
+      "date": "October 2026",
+      "tags": [
+        "Bihar",
+        "MSME",
+        "MSEFC",
+        "MSMED Act",
+        "MSME Samadhaan",
+        "Section 18",
+        "Delayed Payment",
+        "Filing",
+        "Procedure"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-msme-facilitation-council-process-batch6-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-msme-facilitation-council-process-batch6-v2-640.jpg"
+    },
+    {
+      "href": "updates/after-msefc-award-challenge-deposit-stay-enforcement.html",
+      "title": "After an MSEFC award: challenge, deposit, stay and enforcement",
+      "category": "Practical Guide",
+      "date": "October 2026",
+      "tags": [
+        "MSME",
+        "MSEFC",
+        "MSMED Act",
+        "Section 34",
+        "Section 19",
+        "Pre-Deposit",
+        "Stay",
+        "Enforcement",
+        "Execution",
+        "Arbitration"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-msme-facilitation-council-process-batch6-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-msme-facilitation-council-process-batch6-v2-640.jpg"
+    },
+    {
+      "href": "updates/msefc-notice-buyer-reply-defences-documents.html",
+      "title": "MSEFC notice: buyer reply, defences and documents",
+      "category": "Practical Guide",
+      "date": "October 2026",
+      "tags": [
+        "MSME",
+        "MSEFC",
+        "Buyer Defence",
+        "MSMED Act",
+        "Section 18",
+        "Counterclaim",
+        "Limitation",
+        "Arbitration",
+        "Documents"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-msme-facilitation-council-process-batch6-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-msme-facilitation-council-process-batch6-v2-640.jpg"
+    },
+    {
+      "href": "updates/msefc-jurisdiction-supplier-buyer-different-states.html",
+      "title": "MSEFC jurisdiction when supplier and buyer are in different States",
+      "category": "Practical Guide",
+      "date": "October 2026",
+      "tags": [
+        "MSME",
+        "MSEFC",
+        "MSMED Act",
+        "Section 18",
+        "Jurisdiction",
+        "Arbitration",
+        "Supplier",
+        "Buyer"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-msme-facilitation-council-process-batch6-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-msme-facilitation-council-process-batch6-v2-640.jpg"
+    },
+    {
+      "href": "updates/msme-limitation-period-section-18-conciliation-arbitration.html",
+      "title": "MSME limitation period: Section 18 conciliation vs arbitration",
+      "category": "Practical Guide",
+      "date": "October 2026",
+      "tags": [
+        "MSME",
+        "MSEFC",
+        "MSMED Act",
+        "Limitation",
+        "Section 18",
+        "Conciliation",
+        "Arbitration",
+        "Sonali Power"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-msme-facilitation-council-process-batch6-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-msme-facilitation-council-process-batch6-v2-640.jpg"
+    },
+    {
+      "href": "updates/section-19-msmed-act-75-percent-pre-deposit.html",
+      "title": "Section 19 MSMED Act: 75% pre-deposit for MSEFC award challenge",
+      "category": "Practical Guide",
+      "date": "October 2026",
+      "tags": [
+        "MSME",
+        "MSEFC",
+        "MSMED Act",
+        "Section 19",
+        "Pre-Deposit",
+        "Arbitration",
+        "Award Challenge"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-msme-facilitation-council-process-batch6-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-msme-facilitation-council-process-batch6-v2-640.jpg"
+    },
+    {
+      "href": "updates/section-16-msmed-act-compound-interest.html",
+      "title": "Section 16 MSMED Act: compound interest on delayed payments",
+      "category": "Legal Update",
+      "date": "August 2026",
+      "tags": [
+        "MSME",
+        "MSMED Act",
+        "Section 16",
+        "Compound Interest",
+        "Monthly Rests",
+        "Bank Rate",
+        "Delayed Payment"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-msme-45-days-payment-rule-batch6-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-msme-45-days-payment-rule-batch6-v2-640.jpg"
+    },
+    {
+      "href": "updates/section-12a-commercial-courts-pre-institution-mediation.html",
+      "title": "Section 12A Commercial Courts Act: pre-institution mediation",
+      "category": "Procedure Note",
+      "date": "July 2026",
+      "tags": [
+        "Commercial Courts",
+        "Section 12A",
+        "Pre-Institution Mediation",
+        "Commercial Suit",
+        "Urgent Interim Relief",
+        "Limitation"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-commercial-recovery-before-suit-batch6-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-commercial-recovery-before-suit-batch6-v2-640.jpg"
+    },
+    {
+      "href": "updates/commercial-contract-review-checklist.html",
+      "title": "Commercial contract review checklist: clauses, risks and documents",
+      "category": "Checklist",
+      "date": "July 2026",
+      "tags": [
+        "Commercial Contracts",
+        "Contract Review",
+        "Payment Terms",
+        "Indemnity",
+        "Limitation of Liability",
+        "Termination",
+        "Dispute Resolution",
+        "Documents"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-commercial-contract-review-checklist.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-commercial-contract-review-checklist-640.jpg"
+    },
+    {
+      "href": "updates/section-9-arbitration-interim-relief.html",
+      "title": "Section 9 arbitration interim relief: documents, urgency and court strategy",
+      "category": "Procedure Note",
+      "date": "July 2026",
+      "tags": [
+        "Arbitration",
+        "Section 9",
+        "Interim Relief",
+        "Court Jurisdiction",
+        "Urgency",
+        "Section 17",
+        "Documents"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-section-9-arbitration-interim-relief.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-section-9-arbitration-interim-relief-640.jpg"
+    },
+    {
+      "href": "updates/sarfaesi-notice-reply-documents.html",
+      "title": "SARFAESI notice reply: documents, objections and borrower strategy",
+      "category": "Practical Guide",
+      "date": "July 2026",
+      "tags": [
+        "SARFAESI",
+        "Banking Recovery",
+        "Demand Notice",
+        "Borrower Defence",
+        "DRT",
+        "Documents"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-sarfaesi-notice-reply-documents.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-sarfaesi-notice-reply-documents-640.jpg"
+    },
+    {
+      "href": "updates/rera-complaint-drafting-documents-reliefs.html",
+      "title": "RERA complaint drafting: documents, reliefs and legal strategy",
+      "category": "Practical Guide",
+      "date": "July 2026",
+      "tags": [
+        "RERA",
+        "Complaint Drafting",
+        "Documents",
+        "Reliefs",
+        "Builder Dispute"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-rera-complaint-drafting-documents-reliefs.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-rera-complaint-drafting-documents-reliefs-640.jpg"
+    },
+    {
+      "href": "updates/reply-to-rera-complaint-builder-promoter.html",
+      "title": "Reply to RERA complaint by builder or promoter",
+      "category": "Practical Guide",
+      "date": "July 2026",
+      "tags": [
+        "RERA",
+        "Builder Defence",
+        "Promoter",
+        "Delayed Possession",
+        "Refund"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-rera-promoter-reply-v3.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-rera-promoter-reply-v3-640.jpg"
+    },
+    {
+      "href": "updates/pmla-complaint-pre-cognizance-hearing-bnss.html",
+      "title": "PMLA Cognizance After BNSS: Pre-Hearing Rule",
+      "category": "Criminal Law",
+      "date": "May 2026",
+      "tags": [
+        "PMLA",
+        "BNSS",
+        "Section 223 BNSS",
+        "Pre-Cognizance Hearing",
+        "Special Court",
+        "Enforcement Directorate",
+        "Supreme Court"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-pmla-bnss-cognizance-bw.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-pmla-bnss-cognizance-bw-640.jpg"
+    },
+    {
+      "href": "updates/section-34-arbitration-limitation-3-months-30-days.html",
+      "title": "Section 34 Arbitration Limitation: 3 Months + 30 Days Rule",
+      "category": "Arbitration",
+      "date": "May 2026",
+      "tags": [
+        "Section 34",
+        "Arbitration Limitation",
+        "Delay Condonation",
+        "Arbitral Award",
+        "Limitation Act",
+        "Supreme Court",
+        "3 Months + 30 Days"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-section34-limitation.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-section34-limitation-640.jpg"
+    },
+    {
+      "href": "updates/uapa-bail-section-43d5-supreme-court-2026.html",
+      "title": "UAPA Bail, Section 43D(5) and Article 21",
+      "category": "Criminal Law",
+      "date": "May 2026",
+      "tags": [
+        "UAPA",
+        "Bail",
+        "Section 43D(5)",
+        "Supreme Court",
+        "Article 21",
+        "Speedy Trial",
+        "Criminal Law",
+        "Constitutional Law",
+        "K.A. Najeeb",
+        "Watali"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-uapa-bail-2026-standard-v1.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-uapa-bail-2026-standard-v1-640.jpg"
+    },
+    {
+      "href": "updates/sabarimala-case-9-judge-bench-2026.html",
+      "title": "Sabarimala nine-judge Bench: 2018 ruling and 2026 case status",
+      "category": "Constitutional Law",
+      "date": "Updated October 2026",
+      "tags": [
+        "Sabarimala",
+        "Supreme Court",
+        "Constitution Bench",
+        "Religious Freedom",
+        "2018 Judgment",
+        "2026 Reference",
+        "Articles 25 and 26"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-sabarimala-2026-painted-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-sabarimala-2026-painted-v2-640.jpg"
+    },
+    {
+      "href": "updates/arbitration-notice-before-claim.html",
+      "title": "Section 21 Arbitration Act: notice, receipt and commencement",
+      "category": "Procedure Note",
+      "date": "Updated October 2026",
+      "tags": [
+        "Arbitration",
+        "Section 21",
+        "Invocation Notice",
+        "Commencement",
+        "Limitation",
+        "Section 11",
+        "Section 23"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-arbitration-notice-before-claim-painted-bw-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-arbitration-notice-before-claim-painted-bw-v2-640.jpg"
+    },
+    {
+      "href": "updates/property-title-search-before-purchase-india.html",
+      "title": "Property title search before purchase in India",
+      "category": "Checklist",
+      "date": "May 2026",
+      "tags": [
+        "Property",
+        "Due Diligence",
+        "Title Search",
+        "Checklist",
+        "Transfer of Property Act",
+        "Registration Act"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-property-title-search-painted-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-property-title-search-painted-v2-640.jpg"
+    },
+    {
+      "href": "updates/non-reportable-judgments-online-publication-case-brief.html",
+      "title": "Can non-reportable judgments be published online?",
+      "category": "Case Brief",
+      "date": "May 2026",
+      "tags": [
+        "High Court",
+        "Gujarat High Court",
+        "Online Publication",
+        "Judgment Reporting",
+        "Court Records",
+        "Article 226"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-non-reportable-judgments-third-style.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-non-reportable-judgments-third-style-640.jpg"
+    },
+    {
+      "href": "updates/sarfaesi-auction-sale-challenge-documents.html",
+      "title": "SARFAESI auction sale challenge: documents and Rule 9(4) timeline",
+      "category": "Case Brief",
+      "date": "May 2026",
+      "tags": [
+        "SARFAESI",
+        "DRT",
+        "Banking Recovery",
+        "Auction Sale",
+        "Supreme Court",
+        "Rule 9(4)"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-sarfaesi-auction-sale-third-style.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-sarfaesi-auction-sale-third-style-640.jpg"
+    },
+    {
+      "href": "updates/summary-judgment-commercial-suits-order-xiii-a.html",
+      "title": "Summary judgment in commercial suits under Order XIII-A CPC",
+      "category": "Case Brief",
+      "date": "May 2026",
+      "tags": [
+        "Commercial Courts",
+        "CPC",
+        "Order XIII-A",
+        "Summary Judgment",
+        "Supreme Court",
+        "Commercial Recovery"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-summary-judgment-commercial-suits-third-style.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-summary-judgment-commercial-suits-third-style-640.jpg"
+    },
+    {
+      "href": "updates/msme-facilitation-council-process.html",
+      "title": "MSME Facilitation Council process for delayed payments",
+      "category": "Procedure Note",
+      "date": "May 2026",
+      "tags": [
+        "MSME",
+        "MSEFC",
+        "Delayed Payment",
+        "Conciliation",
+        "Arbitration"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-msme-facilitation-council-process-batch6-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-msme-facilitation-council-process-batch6-v2-640.jpg"
+    },
+    {
+      "href": "updates/cheque-bounce-defence-after-summons.html",
+      "title": "Cheque bounce case after summons: defence preparation",
+      "category": "Practical Guide",
+      "date": "May 2026",
+      "tags": [
+        "NI Act",
+        "Cheque Bounce",
+        "Summons",
+        "Defence Preparation",
+        "Section 138"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-cheque-bounce-defence-after-summons-batch6-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-cheque-bounce-defence-after-summons-batch6-v2-640.jpg"
+    },
+    {
+      "href": "updates/msme-documents-checklist.html",
+      "title": "MSME delayed payment documents checklist",
+      "category": "Checklist",
+      "date": "May 2026",
+      "tags": [
+        "MSME",
+        "MSEFC",
+        "Documents",
+        "Delayed Payment",
+        "Udyam"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-msme-documents-checklist-approved-style.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-msme-documents-checklist-approved-style-640.jpg"
+    },
+    {
+      "href": "updates/commercial-recovery-before-suit.html",
+      "title": "Before filing a commercial recovery suit",
+      "category": "Practical Guide",
+      "date": "May 2026",
+      "tags": [
+        "Commercial Recovery",
+        "Contracts",
+        "Invoices",
+        "Limitation",
+        "Commercial Courts"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-commercial-recovery-before-suit-batch6-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-commercial-recovery-before-suit-batch6-v2-640.jpg"
+    },
+    {
+      "href": "updates/rera-refund-interest-delayed-possession.html",
+      "title": "Section 18 RERA Act: refund, interest and delayed possession",
+      "category": "Practical Guide",
+      "date": "May 2026",
+      "tags": [
+        "RERA",
+        "Section 18",
+        "Delayed Possession",
+        "Refund",
+        "Interest",
+        "Compensation",
+        "Occupancy Certificate"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-rera-refund-interest-delayed-possession-batch6-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-rera-refund-interest-delayed-possession-batch6-v2-640.jpg"
+    },
+    {
+      "href": "updates/arbitration-clause-checklist.html",
+      "title": "Arbitration clause checklist before a dispute",
+      "category": "Checklist",
+      "date": "May 2026",
+      "tags": [
+        "Arbitration",
+        "Contract",
+        "Seat",
+        "Venue",
+        "Interim Relief"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-arbitration-clause-checklist-batch6-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-arbitration-clause-checklist-batch6-v2-640.jpg"
+    },
+    {
+      "href": "updates/cheque-bounce-30-days.html",
+      "title": "Cheque bounce: 30-day notice timeline",
+      "category": "Practical Guide",
+      "date": "May 2026",
+      "tags": [
+        "NI Act",
+        "Cheque Bounce",
+        "Demand Notice",
+        "Limitation",
+        "Section 138"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-cheque-bounce-30-days-batch6-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-cheque-bounce-30-days-batch6-v2-640.jpg"
+    },
+    {
+      "href": "updates/msme-delayed-payment.html",
+      "title": "MSME payment delayed? First steps for unpaid suppliers",
+      "category": "Practical Guide",
+      "date": "Updated October 2026",
+      "tags": [
+        "MSME",
+        "Delayed Payment",
+        "First Steps",
+        "Invoice Recovery",
+        "MSEFC",
+        "Udyam",
+        "Supplier Eligibility"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-msme-delayed-payment-approved-style.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-msme-delayed-payment-approved-style-640.jpg"
+    },
+    {
+      "href": "updates/bihar-rera-complaint.html",
+      "title": "Bihar RERA complaint: Form M, Form N and filing procedure",
+      "category": "Practical Guide",
+      "date": "Updated October 2026",
+      "tags": [
+        "Bihar RERA",
+        "Form M",
+        "Form N",
+        "Section 31",
+        "Complaint Filing",
+        "Refund",
+        "Compensation"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-bihar-rera-complaint-approved-style.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-bihar-rera-complaint-approved-style-640.jpg"
+    },
+    {
+      "href": "updates/cheque-bounce-notice-limitation.html",
+      "title": "Cheque bounce legal notice: drafting, service and limitation",
+      "category": "Procedure Note",
+      "date": "Updated October 2026",
+      "tags": [
+        "NI Act",
+        "Section 138",
+        "Demand Notice",
+        "Service of Notice",
+        "Limitation",
+        "Section 142",
+        "Cheque Bounce"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-cheque-bounce-notice-limitation-batch6-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-cheque-bounce-notice-limitation-batch6-v2-640.jpg"
+    },
+    {
+      "href": "updates/msme-45-days-payment-rule.html",
+      "title": "Section 15 MSMED Act: 15-day and 45-day payment rules",
+      "category": "Legal Update",
+      "date": "Updated October 2026",
+      "tags": [
+        "MSME",
+        "MSMED Act",
+        "Section 15",
+        "Delayed Payment",
+        "45-Day Rule",
+        "MSEFC"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-msme-45-days-payment-rule-batch6-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-msme-45-days-payment-rule-batch6-v2-640.jpg"
+    },
+    {
+      "href": "updates/section-138-cheque-bounce-limitation.html",
+      "title": "Section 138 NI Act: cheque bounce ingredients and procedure",
+      "category": "Procedure Note",
+      "date": "Updated October 2026",
+      "tags": [
+        "NI Act",
+        "Section 138",
+        "Cheque Bounce",
+        "Legally Enforceable Debt",
+        "Section 139",
+        "Part Payment",
+        "Jurisdiction",
+        "Trial"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-cheque-bounce-notice-limitation-batch6-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-cheque-bounce-notice-limitation-batch6-v2-640.jpg"
+    },
+    {
+      "href": "updates/rera-delayed-possession-bihar.html",
+      "title": "RERA delayed possession in Bihar",
+      "category": "Practical Guide",
+      "date": "May 2026",
+      "tags": [
+        "RERA",
+        "Bihar",
+        "Delayed Possession",
+        "Refund",
+        "Interest"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-rera-refund-interest-delayed-possession-batch6-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-rera-refund-interest-delayed-possession-batch6-v2-640.jpg"
+    },
+    {
+      "href": "updates/commercial-suit-documents-checklist.html",
+      "title": "Commercial suit filing documents checklist",
+      "category": "Checklist",
+      "date": "May 2026",
+      "tags": [
+        "Commercial Recovery",
+        "Commercial Courts",
+        "Documents",
+        "Order XI",
+        "Section 12A",
+        "Statement of Truth",
+        "Limitation"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-commercial-recovery-before-suit-batch6-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-commercial-recovery-before-suit-batch6-v2-640.jpg"
+    },
+    {
+      "href": "updates/property-injunction-suit-documents.html",
+      "title": "Property injunction suit documents",
+      "category": "Checklist",
+      "date": "May 2026",
+      "tags": [
+        "Property",
+        "Injunction",
+        "Civil Suit",
+        "Documents",
+        "Possession"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-property-title-search-painted-v2.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-property-title-search-painted-v2-640.jpg"
+    },
+    {
+      "href": "updates/section-34-arbitration-award-challenge.html",
+      "title": "Section 34 arbitration award challenge",
+      "category": "Procedure Note",
+      "date": "May 2026",
+      "tags": [
+        "Arbitration",
+        "Section 34",
+        "Award Challenge",
+        "Limitation"
+      ],
+      "thumbnail": "assets/img/citadel/citadel-thumb-section34-limitation.jpg",
+      "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-section34-limitation-640.jpg"
+    }
+  ],
+  "assetPaths": [
+    "assets/config/citadel-kang.sample.config.json",
+    "assets/css/pages/udyam-registration-guide.css",
+    "assets/css/style.css",
+    "assets/css/themes/chambers-ak.css",
+    "assets/css/themes/citadel-of-ak.css",
+    "assets/css/themes/citadel-of-kang/README.md",
+    "assets/css/themes/citadel-of-kang/modules/article-index.css",
+    "assets/css/themes/citadel-of-kang/modules/pills.css",
+    "assets/css/themes/citadel-of-kang/modules/thumbnail-frames.css",
+    "assets/data/citadel-module-manifest.json",
+    "assets/data/insights-registry.json",
+    "assets/data/performance-image-manifest.json",
+    "assets/docs/judgments/reliance-eminent-trading-v-dda-2026-insc-436.pdf",
+    "assets/img/abhijeet-kumar-profile-540.jpg",
+    "assets/img/abhijeet-kumar-profile-900.jpg",
+    "assets/img/apple-touch-icon.png",
+    "assets/img/citadel/cards/citadel-thumb-arbitration-clause-checklist-batch6-v2-640.jpg",
+    "assets/img/citadel/cards/citadel-thumb-arbitration-notice-before-claim-painted-bw-v2-640.jpg",
+    "assets/img/citadel/cards/citadel-thumb-bihar-rera-complaint-approved-style-640.jpg",
+    "assets/img/citadel/cards/citadel-thumb-cheque-bounce-30-days-batch6-v2-640.jpg",
+    "assets/img/citadel/cards/citadel-thumb-cheque-bounce-defence-after-summons-batch6-v2-640.jpg",
+    "assets/img/citadel/cards/citadel-thumb-cheque-bounce-notice-limitation-batch6-v2-640.jpg",
+    "assets/img/citadel/cards/citadel-thumb-commercial-contract-review-checklist-640.jpg",
+    "assets/img/citadel/cards/citadel-thumb-commercial-recovery-before-suit-batch6-v2-640.jpg",
+    "assets/img/citadel/cards/citadel-thumb-msme-45-days-payment-rule-batch6-v2-640.jpg",
+    "assets/img/citadel/cards/citadel-thumb-msme-delayed-payment-approved-style-640.jpg",
+    "assets/img/citadel/cards/citadel-thumb-msme-documents-checklist-approved-style-640.jpg",
+    "assets/img/citadel/cards/citadel-thumb-msme-facilitation-council-process-batch6-v2-640.jpg",
+    "assets/img/citadel/cards/citadel-thumb-non-reportable-judgments-third-style-640.jpg",
+    "assets/img/citadel/cards/citadel-thumb-pmla-bnss-cognizance-bw-640.jpg",
+    "assets/img/citadel/cards/citadel-thumb-property-title-search-painted-v2-640.jpg",
+    "assets/img/citadel/cards/citadel-thumb-rera-complaint-drafting-documents-reliefs-640.jpg",
+    "assets/img/citadel/cards/citadel-thumb-rera-promoter-reply-v3-640.jpg",
+    "assets/img/citadel/cards/citadel-thumb-rera-refund-interest-delayed-possession-batch6-v2-640.jpg",
+    "assets/img/citadel/cards/citadel-thumb-sabarimala-2026-painted-v2-640.jpg",
+    "assets/img/citadel/cards/citadel-thumb-sarfaesi-auction-sale-third-style-640.jpg",
+    "assets/img/citadel/cards/citadel-thumb-sarfaesi-notice-reply-documents-640.jpg",
+    "assets/img/citadel/cards/citadel-thumb-section-9-arbitration-interim-relief-640.jpg",
+    "assets/img/citadel/cards/citadel-thumb-section34-limitation-640.jpg",
+    "assets/img/citadel/cards/citadel-thumb-summary-judgment-commercial-suits-third-style-640.jpg",
+    "assets/img/citadel/cards/citadel-thumb-uapa-bail-2026-standard-v1-640.jpg",
+    "assets/img/citadel/citadel-hero-hall.webp",
+    "assets/img/citadel/citadel-legal-documents-card.webp",
+    "assets/img/citadel/citadel-marble-dark.webp",
+    "assets/img/citadel/citadel-marble-light.webp",
+    "assets/img/citadel/citadel-thumb-arbitration-clause-checklist-batch6-v2.jpg",
+    "assets/img/citadel/citadel-thumb-arbitration-notice-before-claim-painted-bw-v2.jpg",
+    "assets/img/citadel/citadel-thumb-arbitration.webp",
+    "assets/img/citadel/citadel-thumb-bihar-rera-complaint-approved-style.jpg",
+    "assets/img/citadel/citadel-thumb-cheque-bounce-30-days-batch6-v2.jpg",
+    "assets/img/citadel/citadel-thumb-cheque-bounce-defence-after-summons-batch6-v2.jpg",
+    "assets/img/citadel/citadel-thumb-cheque-bounce-notice-limitation-batch6-v2.jpg",
+    "assets/img/citadel/citadel-thumb-cheque-ni-act.webp",
+    "assets/img/citadel/citadel-thumb-commercial-contract-review-checklist.jpg",
+    "assets/img/citadel/citadel-thumb-commercial-recovery-before-suit-batch6-v2.jpg",
+    "assets/img/citadel/citadel-thumb-commercial-recovery.webp",
+    "assets/img/citadel/citadel-thumb-msme-45-days-payment-rule-batch6-v2.jpg",
+    "assets/img/citadel/citadel-thumb-msme-delayed-payment-approved-style.jpg",
+    "assets/img/citadel/citadel-thumb-msme-documents-checklist-approved-style.jpg",
+    "assets/img/citadel/citadel-thumb-msme-facilitation-council-process-batch6-v2.jpg",
+    "assets/img/citadel/citadel-thumb-msme-invoices.webp",
+    "assets/img/citadel/citadel-thumb-non-reportable-judgments-third-style.jpg",
+    "assets/img/citadel/citadel-thumb-pmla-bnss-cognizance-bw.jpg",
+    "assets/img/citadel/citadel-thumb-property-title-search-painted-v2.jpg",
+    "assets/img/citadel/citadel-thumb-rera-complaint-drafting-documents-reliefs.jpg",
+    "assets/img/citadel/citadel-thumb-rera-promoter-reply-v3.jpg",
+    "assets/img/citadel/citadel-thumb-rera-property.webp",
+    "assets/img/citadel/citadel-thumb-rera-refund-interest-delayed-possession-batch6-v2.jpg",
+    "assets/img/citadel/citadel-thumb-sabarimala-2026-painted-v2.jpg",
+    "assets/img/citadel/citadel-thumb-sarfaesi-auction-sale-third-style.jpg",
+    "assets/img/citadel/citadel-thumb-sarfaesi-notice-reply-documents.jpg",
+    "assets/img/citadel/citadel-thumb-section-9-arbitration-interim-relief.jpg",
+    "assets/img/citadel/citadel-thumb-section34-limitation.jpg",
+    "assets/img/citadel/citadel-thumb-summary-judgment-commercial-suits-third-style.jpg",
+    "assets/img/citadel/citadel-thumb-uapa-bail-2026-standard-v1.jpg",
+    "assets/img/citadel/citadel-tribunal-room-card.webp",
+    "assets/img/citadel/citadel-tribunal-room.webp",
+    "assets/img/favicon-32.png",
+    "assets/img/logo-navbar-dark.png",
+    "assets/img/logo-navbar.png",
+    "assets/img/performance/logo-navbar-480.jpg",
+    "assets/img/performance/logo-navbar-dark-480.jpg",
+    "assets/img/performance/primary-logo-720.jpg",
+    "assets/img/performance/primary-logo-dark-720.jpg",
+    "assets/img/primary-logo-dark.png",
+    "assets/img/primary-logo.png",
+    "assets/img/social-preview.png",
+    "assets/js/article-index.js",
+    "assets/js/config/chambers-public-config.js",
+    "assets/js/runtime/core-runtime.js",
+    "assets/js/runtime/insights-runtime.js",
+    "assets/js/runtime/module-loader.js",
+    "assets/js/script.js",
+    "assets/js/themes/citadel-of-kang/README.md",
+    "assets/js/themes/citadel-of-kang/article-footer.js",
+    "assets/js/themes/citadel-of-kang/article-index-direct-rail.js",
+    "assets/js/themes/citadel-of-kang/modules/articles/article-featured-image.js",
+    "assets/js/themes/citadel-of-kang/modules/blog/blog-page.js",
+    "assets/js/themes/citadel-of-kang/modules/forms/enquiry-form.js",
+    "assets/js/themes/citadel-of-kang/modules/pages/contact-page.js",
+    "assets/js/themes/citadel-of-kang/modules/pages/enquiry-page.js",
+    "assets/js/themes/citadel-of-kang/modules/pages/general-content-page.js",
+    "assets/js/themes/citadel-of-kang/modules/pages/home-page.js",
+    "assets/js/themes/citadel-of-kang/modules/pages/practice-page.js",
+    "assets/js/themes/citadel-of-kang/modules/sections/insights-directory-section.js",
+    "assets/js/themes/citadel-of-kang/modules/sections/latest-insights-section.js",
+    "assets/js/themes/citadel-of-kang/modules/shell/global-shell.js",
+    "assets/judgments/2017-gujhc-1698-non-reportable-judgments-online-publication.pdf",
+    "assets/judgments/2026-insc-303-sarfaesi-auction-sale.pdf"
+  ],
+  "discoveryFiles": [
+    "5c688070aeba92b5256f3a4590fd4c6e.txt",
+    "ads.txt",
+    "favicon-16.png",
+    "favicon-192.png",
+    "favicon-32.png",
+    "favicon-48.png",
+    "favicon-512.png",
+    "favicon-96.png",
+    "favicon.ico",
+    "feed.xml",
+    "google3164979181871a1d.html",
+    "robots.txt",
+    "site.webmanifest",
+    "sitemap.xml"
+  ],
+  "checks": {
+    "missingSitemapFiles": [],
+    "missingArticleFiles": [],
+    "missingThumbnailFiles": [],
+    "registryNotInSitemap": []
+  }
+}
