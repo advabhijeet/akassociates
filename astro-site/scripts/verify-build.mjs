@@ -27,3 +27,17 @@ console.log('AK-004R editorial redesign structure and assets verified.');
 assert.match(home,/id="hero-title"/);assert.match(home,/footer-brand/);assert.match(home,/data-ack/);console.log('AK-004R2 brand and hero markup verified.');
 
 assert.match(home,/<dialog[^>]*id="mobile-drawer"/);assert.match(home,/aria-controls="mobile-drawer"/);assert.match(home,/data-drawer-close/);assert.match(home,/aria-label="Mobile navigation"/);assert.doesNotMatch(home,/<details[^>]*class="mobile-nav"/);console.log('Mobile slide-out navigation markup verified.');
+
+const inventory=JSON.parse(await readFile(new URL('../migration/legacy-inventory.json',import.meta.url),'utf8'));
+const practiceRoutes=inventory.routes.filter(r=>r.source==='practice.html'||/^(practice|services)\/.+\.html$/.test(r.source));
+assert.equal(practiceRoutes.length,27);
+for(const r of practiceRoutes){
+ const page=await readFile(new URL(r.source,root),'utf8');
+ assert.match(page,/name="robots" content="noindex,nofollow"/);
+ assert.match(page,/id="mobile-drawer"/);
+ if(r.inSitemap){assert.ok(page.includes('href="'+inventory.origin+r.path+'"'),'canonical '+r.path);assert.match(page,/Page contents/);assert.match(page,/detail-section/);}
+ else {assert.match(page,/http-equiv="refresh"/);assert.match(page,/Page moved/);}
+}
+const redirects=await readFile(new URL('_redirects',root),'utf8');
+assert.equal(redirects.trim().split('\n').length,8);
+console.log('AK-005: 23 content pages and four consolidated routes verified.');

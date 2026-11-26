@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import {loadPracticePages} from '../data/practice-source';
+import {practices} from '../data/site';
+import '../styles/practice.css';
+export function getStaticPaths(){return loadPracticePages().map(page=>({params:{legacy:page.slug},props:{page}}));}
+const {page}=Astro.props;
+---
+<BaseLayout title={page.title} description={page.description}>
+ <Fragment slot="head">
+  <link rel="canonical" href={page.canonical}/>
+  {page.redirect ? <meta http-equiv="refresh" content={'0; url='+page.redirect}/> : <>
+   <meta property="og:title" content={page.ogTitle||page.title}/>
+   <meta property="og:description" content={page.ogDescription||page.description}/>
+   <meta property="og:url" content={page.canonical}/>
+   <meta property="og:type" content={page.ogType||'website'}/>
+   {page.ogImage&&<meta property="og:image" content={page.ogImage}/>}
+   <meta name="twitter:card" content="summary_large_image"/>
+   <meta name="twitter:title" content={page.twitterTitle||page.title}/>
+   <meta name="twitter:description" content={page.twitterDescription||page.description}/>
+   {page.twitterImage&&<meta name="twitter:image" content={page.twitterImage}/>}
+   {page.schemas.map(s=><script type="application/ld+json" set:html={s}/>)}
+  </>}
+ </Fragment>
+ {page.redirect ? <section class="wrap section"><h1>Page moved</h1><p>This information is now available on the consolidated page.</p><a href={page.redirect}>Continue to the current page →</a></section> : <>
+ <section class="practice-hero"><div class="wrap"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a>{page.slug!=='practice'&&<><span aria-hidden="true">/</span><a href="/practice.html">Practice areas</a></>}<span aria-hidden="true">/</span><span aria-current="page">{page.eyebrow}</span></nav><p class="eyebrow">{page.eyebrow}</p><h1>{page.heading}</h1><div class="practice-intro" set:html={page.intro}/></div></section>
+ <div class="wrap practice-reading">
+  <aside class="practice-toc"><details open><summary>On this page</summary><nav aria-label="Page contents">{page.sections.map((s,i)=><a href={'#'+s.id}><span>{String(i+1).padStart(2,'0')}</span>{s.label}</a>)}</nav></details></aside>
+  <div class="practice-content">{page.sections.map((s,i)=><section id={s.id} class="detail-section"><p class="section-number" aria-hidden="true">{String(i+1).padStart(2,'0')} /</p><h2>{s.label}</h2><div class="legacy-content" set:html={s.html}/></section>)}
+   {page.slug==='practice'&&<section class="detail-section"><p class="section-number">Practice directory</p><h2>All six practice areas</h2><div class="practice-directory">{practices.map(p=><a href={p.href}><span>{p.number}</span>{p.title}<span aria-hidden="true">↗</span></a>)}</div></section>}
+   <p class="professional-note">General information only. Not legal advice or solicitation. Access does not create an advocate-client relationship. <a href="https://chambersofak.in/disclaimer.html">Full disclaimer</a>.</p>
+  </div>
+ </div>
+ </>}
+</BaseLayout>
