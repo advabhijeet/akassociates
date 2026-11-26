@@ -41,3 +41,18 @@ for(const r of practiceRoutes){
 const redirects=await readFile(new URL('_redirects',root),'utf8');
 assert.equal(redirects.trim().split('\n').length,8);
 console.log('AK-005: 23 content pages and four consolidated routes verified.');
+
+const registry=JSON.parse(await readFile(new URL('../../assets/data/insights-registry.json',import.meta.url),'utf8'));
+const archive=await readFile(new URL('legal-updates.html',root),'utf8');
+assert.match(archive,/data-archive-controls/);
+assert.equal((archive.match(/data-insight(?:\s|>)/g)||[]).length,registry.length);
+for(const a of registry){
+ const page=await readFile(new URL(a.href,root),'utf8');
+ assert.match(page,/name="robots" content="noindex,nofollow"/);
+ assert.ok(page.includes('href="'+inventory.origin+'/'+a.href+'"'),'canonical '+a.href);
+ assert.match(page,/data-reading-body/);assert.match(page,/Article contents/);assert.match(page,/application\/ld\+json/);
+ assert.ok(archive.includes('href="/'+a.href+'"'),'archive link '+a.href);
+ for(const asset of [a.thumbnail,a.cardThumbnail])await readFile(new URL(asset,root));
+}
+for(const asset of ["assets/judgments/2017-gujhc-1698-non-reportable-judgments-online-publication.pdf","assets/judgments/2026-insc-303-sarfaesi-auction-sale.pdf"])await readFile(new URL(asset,root));
+console.log('AK-006: '+registry.length+' article routes, archive links, metadata and assets verified.');

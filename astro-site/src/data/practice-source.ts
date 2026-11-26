@@ -3,7 +3,7 @@ import {resolve} from 'node:path';
 import inventory from '../../migration/legacy-inventory.json';
 const origin='https://chambersofak.in';
 const routes=inventory.routes.filter(r=>r.source==='practice.html'||/^(practice|services)\/.+\.html$/.test(r.source));
-const localPaths=new Set(['/',...routes.map(r=>r.path)]);
+const localPaths=new Set(['/', '/legal-updates.html', ...routes.map(r=>r.path), ...inventory.routes.filter(r=>r.source.startsWith('updates/')).map(r=>r.path)]);
 const root=resolve(process.cwd(),'..');
 const read=(file:string)=>readFileSync(resolve(root,file),'utf8');
 function decode(s:string){return s.replace(/&(?:amp|quot|apos|lt|gt|nbsp|#\d+|#x[0-9a-f]+);/gi,e=>{const m:Record<string,string>={'&amp;':'&','&quot;':'"','&apos;':"'",'&lt;':'<','&gt;':'>','&nbsp;':' '};if(e in m)return m[e];const n=e.startsWith('&#x')?parseInt(e.slice(3,-1),16):parseInt(e.slice(2,-1),10);return Number.isFinite(n)?String.fromCodePoint(n):e;});}

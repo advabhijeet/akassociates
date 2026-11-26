@@ -8,5 +8,5 @@ export const practices=[
  ['Cheque Bounce','Section 138 notices, complaints, defence, settlement and limitation.','cheque-bounce'],
  ['Property & Civil Suits','Property disputes, title records, injunctions and civil proceedings.','property-civil-suits']
 ].map(([title,description,slug],i)=>({title,description,number:String(i+1).padStart(2,'0'),href:'/practice/'+slug+'.html'}));
-export const navigation=[['Home','/'],['About',legacy('about.html')],['Practice','/practice.html'],['Courts','#courts'],['Insights','#insights'],['Resources','#resources'],['Contact','#contact']];
+export const navigation=[['Home','/'],['About',legacy('about.html')],['Practice','/practice.html'],['Courts','#courts'],['Insights','/legal-updates.html'],['Resources','#resources'],['Contact','#contact']];
 export const contact={phone:'+91 94712 14118',tel:'+919471214118',email:'chambersofakadmin@gmail.com'};

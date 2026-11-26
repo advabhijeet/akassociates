@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import {loadArticlePages} from '../../data/article-source';
+import {relatedArticles,articleUrl} from '../../data/insights';
+import '../../styles/insights.css';
+export function getStaticPaths(){return loadArticlePages().map(page=>({params:{slug:page.slug},props:{page}}));}
+const {page}=Astro.props;
+const related=relatedArticles(page.href,page.tags,page.category);
+---
+<BaseLayout title={page.title} description={page.description}>
+ <Fragment slot="head"><link rel="canonical" href={page.canonical}/>{page.meta.map(m=>m.property?<meta property={m.key} content={m.content}/>:<meta name={m.key} content={m.content}/>)}{page.schemas.map(s=><script type="application/ld+json" set:html={s}/>)}</Fragment>
+ <div class="reading-progress" aria-hidden="true" data-reading-progress></div>
+ <div class="article-mast"><div class="wrap"><nav class="insight-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/legal-updates.html">Legal Insights</a><span aria-hidden="true">/</span><span aria-current="page">{page.category}</span></nav><div class="article-hero-content" set:html={page.hero}/><div class="byline">{page.author&&<span>By {page.author}</span>}{page.published&&<span>Published <time datetime={page.published}>{new Date(page.published).toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric',timeZone:'Asia/Kolkata'})}</time></span>}{page.modified&&page.modified!==page.published&&<span>Updated <time datetime={page.modified}>{new Date(page.modified).toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric',timeZone:'Asia/Kolkata'})}</time></span>}</div></div></div>
+ <div class="wrap article-reading">
+  <aside class="reading-toc"><details open><summary>On this page</summary><nav aria-label="Article contents">{page.toc.filter(t=>t.level===2).map((t,i)=><a href={'#'+t.id}><span>{String(i+1).padStart(2,'0')}</span>{t.label}</a>)}</nav></details></aside>
+  <div class="reading-content"><div class="source-article" data-reading-body set:html={page.body}/><div class="reader-tags"><span>Topics</span>{page.tags.map(t=><a href={'/legal-updates.html?q='+encodeURIComponent(t)}>{t}</a>)}</div><p class="reader-notice">General information only; not legal advice or solicitation. <a href="https://chambersofak.in/disclaimer.html">Full disclaimer</a>.</p></div>
+ </div>
+ {related.length>0&&<section class="wrap related-section"><p class="eyebrow">Continue reading</p><h2>Related legal insights</h2><div class="insights-grid">{related.map(a=><article class="insight-card"><a class="insight-image" href={articleUrl(a.href)} aria-label={a.title}><img src={'/'+a.cardThumbnail} alt="" width="640" height="360" loading="lazy" decoding="async"/></a><div class="insight-card-copy"><span class="eyebrow">{a.category}</span><h3><a href={articleUrl(a.href)}>{a.title}</a></h3><p>{a.excerpt}</p></div></article>)}</div><a href="/legal-updates.html" class="archive-link">All legal insights →</a></section>}
+</BaseLayout>
+<script>
+const progress=document.querySelector<HTMLElement>('[data-reading-progress]');
+const body=document.querySelector<HTMLElement>('[data-reading-body]');
+if(progress&&body){let pending=false;function update(){pending=false;if(!body||!progress)return;const r=body.getBoundingClientRect();const length=Math.max(1,r.height-window.innerHeight*.65);const pct=Math.max(0,Math.min(1,(window.innerHeight*.2-r.top)/length));progress.style.transform='scaleX('+pct+')';}function queue(){if(!pending){pending=true;requestAnimationFrame(update);}}window.addEventListener('scroll',queue,{passive:true});window.addEventListener('resize',queue);queue();}
+</script>
