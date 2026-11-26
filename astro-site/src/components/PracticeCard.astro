@@ -1,0 +1,6 @@
+---
+interface Props { number:string; title:string; description:string; href?:string; }
+const {number,title,description,href}=Astro.props;
+---
+<article class="panel practice"><span class="eyebrow">{number}</span><h3>{title}</h3><p class="muted">{description}</p>{href&&<a href={href}>Read overview <span aria-hidden="true">→</span></a>}</article>
+<style>.practice{display:flex;flex-direction:column;gap:.7rem;border-top:2px solid var(--gold-line)}h3,p{margin:0}a{margin-top:auto;color:var(--gold);font-size:.85rem;font-weight:600;min-height:44px;display:flex;align-items:center;gap:.4rem}</style>

@@ -1,0 +1,11 @@
+<button type="button" class="theme" data-theme-toggle aria-label="Switch colour theme" aria-pressed="false"><span aria-hidden="true" data-theme-label>◐</span><span class="label">Theme</span></button>
+<script>
+ const root=document.documentElement;
+ const button=document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
+ const media=window.matchMedia('(prefers-color-scheme: dark)');
+ function sync(){const dark=root.dataset.theme==='dark';button?.setAttribute('aria-pressed',String(dark));button?.setAttribute('aria-label',dark?'Switch to light theme':'Switch to dark theme');}
+ button?.addEventListener('click',()=>{const next=root.dataset.theme==='dark'?'light':'dark';root.dataset.theme=next;try{localStorage.setItem('ak-theme',next)}catch{}sync()});
+ media.addEventListener('change',()=>{try{if(localStorage.getItem('ak-theme'))return}catch{}root.dataset.theme=media.matches?'dark':'light';sync()});
+ sync();
+</script>
+<style>.theme{display:inline-flex;align-items:center;gap:.45rem;min-height:44px;padding:.35rem .75rem;background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:var(--radius);font-size:.8rem}.theme span:first-child{font-size:1.1rem}</style>

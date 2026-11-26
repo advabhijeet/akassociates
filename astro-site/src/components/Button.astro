@@ -1,0 +1,6 @@
+---
+interface Props { href?:string; variant?:'primary'|'outline'|'text'; type?:'button'|'submit'|'reset'; }
+const {href,variant='primary',type='button'}=Astro.props;
+---
+{href ? <a href={href} class:list={['btn',variant]}><slot /></a> : <button type={type} class:list={['btn',variant]}><slot /></button>}
+<style>.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:.65rem 1.1rem;border:1px solid transparent;border-radius:var(--radius);font-size:.88rem;font-weight:600;text-decoration:none;gap:.5rem}.primary{background:var(--strong);color:var(--on-strong)}.outline{background:transparent;color:var(--ink);border-color:var(--gold-line)}.text{background:transparent;color:var(--gold);text-decoration:underline;padding-inline:0}.btn:hover{filter:brightness(.94)}:global([data-theme="dark"]) .btn:hover{filter:brightness(1.1)}</style>

@@ -2,8 +2,8 @@
 import '../styles/global.css';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
-interface Props { title: string; description: string; }
-const { title, description } = Astro.props;
+interface Props { title:string; description:string; }
+const {title,description}=Astro.props;
 ---
 <!doctype html>
 <html lang="en-IN">
@@ -13,12 +13,10 @@ const { title, description } = Astro.props;
 <title>{title}</title>
 <meta name="description" content={description} />
 <meta name="robots" content="noindex,nofollow" />
+<script is:inline>
+(()=>{let mode;try{mode=localStorage.getItem('ak-theme')}catch{}document.documentElement.dataset.theme=mode==='dark'||mode==='light'?mode:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'})();
+</script>
 </head>
-<body>
-<a class="skip" href="#main">Skip to content</a>
-<SiteHeader />
-<main id="main"><slot /></main>
-<SiteFooter />
-</body>
+<body><a class="skip" href="#main">Skip to content</a><SiteHeader /><main id="main"><slot /></main><SiteFooter /></body>
 </html>
-<style>.skip { position:absolute; left:1rem; top:-5rem; background:white; padding:.5rem; } .skip:focus { top:0; } main { min-height:70vh; }</style>
+<style>main{min-height:70vh}</style>

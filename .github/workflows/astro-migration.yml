@@ -1,4 +1,4 @@
-name: AK-001 Astro preview build
+name: Astro migration preview build
 on:
   push:
     branches: [astro-migration]
@@ -20,4 +20,5 @@ jobs:
         with:
           node-version: '22.23.4'
       - run: npm install --no-audit --no-fund
+      - run: node scripts/verify-legacy-inventory.mjs
       - run: npm run build
