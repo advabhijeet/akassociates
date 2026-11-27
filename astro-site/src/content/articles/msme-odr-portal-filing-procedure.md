@@ -144,7 +144,7 @@ Do not duplicate a pending reference without first resolving its status. Retain 
 
 ## Current statutory transition
 
-The 2026 Amendment Act provides for phased commencement. The notification dated 12 October 2026 identifies different effective dates; the date of the portal change in October 2025 is a distinct administrative development. Before relying on any amended dispute-resolution provision, verify its actual commencement and the law applicable to the particular reference. Check current Gazette notifications and Council directions, particularly if the proceeding spans the transition.
+The MSMED (Amendment) Act, 2026 (Act No. 16 of 2026), section 1(2), permits phased commencement. S.O. 5575(E) dated 12 October 2026 expressly appoints 15 October 2026 for sections 2–7, 11 and 13–17, and 15 December 2026 for section 12 of the Amendment Act. It does not appoint commencement dates for sections 8, 9 or 10, which concern changes to section 18 (including online dispute resolution), proposed section 18A (enforcement) and substitution of section 19 (award challenges). The October 2025 portal transition is distinct from those statutory amendments. Do not apply the amended dispute-resolution timelines, land-revenue recovery provision or substituted pre-deposit provisions solely on the basis of the October 2026 notification. The principal Act and Mediation Act commencement position must be checked together with any later notifications and the Council's directions in the particular case.
 
 ## References / Sources
 
@@ -152,4 +152,5 @@ The 2026 Amendment Act provides for phased commencement. The notification dated 
 - [Ministry of MSME: Rajya Sabha Starred Question No. 96, 9 February 2026](https://sansad.in/getFile/annex/270/AS96_I2swCc.pdf?source=pqars), answer (c)(iv).
 - [Ministry of MSME: MSE Scheme on ODR for Delayed Payments Guidelines](https://odr.msme.gov.in/assets/pdf/MSE_Scheme_on_ODR_for_Delayed_Payment_Guidelines.pdf), clauses 12.1–12.5; see also the [RAMP scheme overview](https://ramp.msme.gov.in/ramp/index.php/RAMP-initiative/mse-odr/mse-odr-scheme).
 - [MSMED Act, 2006, India Code](https://www.indiacode.nic.in/bitstream/123456789/19412/1/msme_act_2006.pdf), Sections 2 and 15–19; read with applicable amendments and commencement notifications.
-- [MSMED Amendment Act, 2026, Gazette record](https://gazettetracker.com/g/CG-DL-E-13082026-275448) and [S.O. 5575(E), 12 October 2026, Gazette record](https://www.gazettetracker.com/g/CG-DL-E-12102026-277080) (secondary Gazette transcriptions; official PDFs to be reconfirmed before release).
+- [MSMED (Amendment) Act, 2026, official Gazette PDF](https://egazette.gov.in/WriteReadData/2026/275448.pdf), Act No. 16 of 2026, Gazette ID CG-DL-E-13082026-275448, pp. 1, 3–5 (official PDF supplied for editorial review).
+- [S.O. 5575(E), 12 October 2026, official Gazette PDF](https://egazette.gov.in/WriteReadData/2026/277080.pdf), Gazette ID CG-DL-E-12102026-277080, p. 2 (official PDF supplied for editorial review).
