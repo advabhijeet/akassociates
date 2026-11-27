@@ -1,18 +1,24 @@
-# AK-007 — Article Publisher for Astro
+# Article publishing — current production workflow (AK-017)
 
-## Existing articles
-The legacy registry and original HTML remain authoritative for the 51 existing articles. Astro loads them through a validated content collection without rewriting the legal text. Preserve approved illustrations, exact URLs, author/date metadata, citation text, and judgment downloads. Existing RSS GUIDs and publication dates are retained. Do not edit the obsolete homepage snapshot.
+## Editorial requirements
+Maintain Chambers of AK's existing legal editorial style. Verify statutes, judgments, dates, applicability, court/forum jurisdiction and primary links. No fabricated citations, outcome promises or solicitation. Obtain owner approval of legal content, author/date and illustrations before publication. Use original artwork or lawfully licensed assets; article-specific alt text. No client or privileged data in source.
 
-## New articles
-1. Copy src/content/articles/publishing-example.md to a unique filename. Set a unique slug, article title, SEO title, description, excerpt, category, tags, verified author, published and modified dates in quoted ISO format with timezone, image paths and article-specific alt text.
-2. Write the article in Markdown, starting with H2 headings. Include reviewed legal analysis, primary references, and appropriate internal links. Do not claim outcomes, solicit work or fabricate citations. Check the current statute and judgments before publication.
-3. Add approved artwork to public/assets/img/ (1200 × 675 full image; 640 × 360 card derivative, safe central composition). Use existing editorial style, no cropping of important text. Verify actual dimensions and social previews before sign-off.
-4. Leave draft: true until the article and artwork are approved. Set draft: false to include it in the build. Do not publish the sample.
-5. Commit only to astro-migration until cutover. Run npm run build from astro-site; confirm CI and Cloudflare deployment.
+## New Markdown articles
+- Branch from astro-migration into a distinct article candidate branch; do not edit legacy main.
+- Copy astro-site/src/content/articles/publishing-example.md to a unique filename. Set explicit slug, title, seoTitle, description, excerpt, category, tags, author, published/modified ISO timestamps with +05:30, thumbnail, cardThumbnail, imageAlt. Start article body with H2; include verified primary sources and relevant internal links. Preserve the draft example.
+- Add approved assets in astro-site/public/assets/img/ (full 1200x675, card 640x360, verify actual dimensions and social composition). Set draft: true until approved, then false for release.
+- Collection generates /updates/<slug>.html, homepage, archive, related reading, metadata, JSON-LD, RSS and sitemap; production build also generates Markdown automatically. Do not hand-edit generated output, legacy registry or legacy homepage to add a native Markdown article.
+- Run npm ci, npm run build:production, relevant tests in Operations. Run node scripts/test-publishing.mjs only separately (temporary non-legal fixture, deletes dist); rebuild cleanly before release. Run isolated candidate CI. Verify canonical, original dates, internal links, references, sitemap, RSS, archive, hero and card images, preview noindex. Check no fixture or draft is included.
+- Promote exact validated commit; wait for actual production release and independent audit. Do not publish directly from a draft or skip owner approval.
 
-The collection supplies article routes, homepage latest entries, static archive, tags, related reading, generated OG/Twitter metadata, BlogPosting and BreadcrumbList, RSS and sitemap. New Markdown entries use filename-based collection IDs and explicit public slugs. No manual registry, feed or sitemap changes are needed for new Markdown articles. Existing HTML article updates still use the legacy registry and source HTML, with original encoding and registry validation.
+## Existing legacy HTML articles
+51 migrated legacy articles are sourced from original updates/*.html and assets/data/insights-registry.json. Edit these sources for existing content; preserve canonical .html URLs, publication dates and RSS GUIDs, approved artwork, citations and judgment files. Align title/description, OG/Twitter and JSON-LD where relevant. Update modified date only for real editorial revisions. Native Markdown is preferred for new articles. Do not duplicate an existing slug in the new collection.
 
-## Preview and release safeguards
-Preview remains noindex, with robots and X-Robots-Tag unchanged. Generated sitemap contains only migrated canonical routes and is a release candidate, not the complete production sitemap until remaining core pages are migrated. RSS uses the production canonical URLs; do not submit preview files to search engines. Legacy IndexNow workflow is guarded against non-main runs; no new notification is sent. Before cutover, retain verification file and public key, extend the sitemap to remaining routes, resolve Pages .html normalization or switch hosting strategy, compare production URLs, and implement deployment-success-gated IndexNow for new Markdown changes. Current production workflow is not changed by this branch. Full metadata/asset dimension and fragment parity plus actual Markdown publication test remain pending. No DNS or main changes.
+## IndexNow
+Initial post-migration submission: 87 URLs accepted HTTP 200 on 27 Nov 2026 (run 45932646623). Never rerun that one-time initial job. Save old live release-manifest.json before release, and retain it outside dist-production.
+From astro-site after clean candidate build, run node scripts/indexnow-production.mjs <previous-manifest-path> for dry run. Review changed/removed URLs: build-wide shared layout changes can affect all hashes; do not treat them as substantive editorial changes. The existing script sends all detected changes and cannot filter approved subsets; if the list is broader than intended, stop and implement explicit scope support before sending. For approved exact diff, only after live audit, set AK_INDEXNOW_APPROVED=YES and pass --send; script checks live marker, sitemap, robots, key, hashes and removal status. Do not send from staging or before deployment. Automation not enabled; maintain an operator-approved log. IndexNow acceptance is not indexing or ranking confirmation.
 
-CI also creates a temporary non-legal fixture from the draft example, tests a full Markdown publication build and verifies homepage, archive, RSS, sitemap, heading links and draft exclusion. It removes the temporary source and output after testing. Cloudflare runs the normal build only and never creates the fixture.
+Google: sitemap is the canonical sitemap.xml. Use normal crawl and targeted URL Inspection for priority additions; do not repeatedly request indexing or resubmit unchanged URLs. Track actual indexing in Search Console. See Monitoring.
+
+## Release gate
+No actual new legal article has been published as part of this documentation work. CI fixture is not a live publication. The final live audit accepts new article paths after independent exact-release build; its pinned SHA must be updated per release.

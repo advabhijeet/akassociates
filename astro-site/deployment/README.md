@@ -1,3 +1,3 @@
-# Separate Workers staging (no live domain)
+# Workers deployment
 
-Create a Worker from GitHub repo advabhijeet/akassociates, branch astro-migration, name chambers-of-ak-url-preview. Root astro-site; build npm run build:worker-preview; deploy npx wrangler deploy; NODE_VERSION 22.23.4. Keep the existing Pages project and GitHub Pages production unchanged. Root wrangler.jsonc sets exact HTML handling, with no custom domains/routes. If the dashboard selects main, change branch before deploying. Verify actual Worker host and commit. Static assets keep noindex headers and robots disallow. No EmailJS or GTM live calls. Only after all canonical URLs return 200 and aliases return 301 should a separate production release be prepared.
+Current operating instructions: [OPERATIONS.md](OPERATIONS.md). Recovery: [RECOVERY.md](RECOVERY.md). The old Cloudflare Pages preview and GitHub Pages hosting are not the production architecture. Do not use the production configuration for staging. Earlier release checkpoints record historical steps only.
