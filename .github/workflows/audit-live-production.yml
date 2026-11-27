@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
-      AK_EXPECTED_RELEASE: '270c3085497973b482aa2fd6032b28ab0409ae6b'
+      AK_EXPECTED_RELEASE: '08c6a7d74de8755681ea85ed87514ca75ac2e008'
       AK_EXPECTED_MANIFEST: release-source/astro-site/dist-production/release-manifest.json
     steps:
       - uses: actions/checkout@v4
