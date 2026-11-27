@@ -3,7 +3,7 @@ import {createHash} from 'node:crypto';
 import {lookup} from 'node:dns/promises';
 import assert from 'node:assert/strict';
 const origin='https://chambersofak.in', www='https://www.chambersofak.in';
-const expectedRelease='308a0e2cbde7b8476a17dba71076c4292545b9f4';
+const expectedRelease='12a14aee8f0e55ec377ffdbf69f36e975043aee8';
 const inv=JSON.parse(await readFile(new URL('../migration/legacy-inventory.json',import.meta.url),'utf8'));
 const urls=[...inv.sitemap.map(u=>new URL(u,origin).href),origin+'/legal-tools.html'];
 assert.equal(urls.length,87);assert.equal(new Set(urls).size,87);
@@ -16,6 +16,11 @@ const robotsOK=r=>assert.doesNotMatch(r.headers.get('x-robots-tag')||'',/noindex
 const checks=[];let manifest;
 const add=(group,url,fn)=>checks.push({group,url,fn});
 const run=async ({group,url,fn})=>{try{const r=await get(url);const extra=await fn(r);report.results.push({group,url,status:r.status,server:r.headers.get('server'),pass:true,...extra});}catch(e){report.results.push({group,url,pass:false,error:String(e.message||e)});}};
+// Allow Cloudflare's Git-integrated deployment to finish before auditing.
+for(let attempt=0;attempt<24;attempt++){
+ try{const r=await get(origin+'/release-manifest.json');if(r.ok&&(await r.json()).release===expectedRelease)break;}catch{}
+ if(attempt<23)await new Promise(resolve=>setTimeout(resolve,10000));
+}
 await run({group:'release',url:origin+'/release-manifest.json',fn:async r=>{assert.equal(r.status,200);manifest=await r.json();assert.equal(manifest.release,expectedRelease);assert.deepEqual(Object.keys(manifest.urls).sort(),[...urls].sort());return {release:manifest.release};}});
 for(const u of urls)add('canonical',u,async r=>{
  assert.equal(r.status,200);robotsOK(r);assert.match(r.headers.get('content-type')||'',/text\/html/i);
