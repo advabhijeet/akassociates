@@ -31,13 +31,13 @@ A registration-timing objection can involve at least three questions:
 
 These questions overlap but are not identical. The expression concerning parties to a dispute in Section 18(1) must be read with the amount due under Section 17. An eligible reference does not establish every element of the underlying claim. The definition of supplier in Section 2(n) must be read in full, including its specific inclusive categories.
 
-A certificate issued today is not a substitute for historical evidence of the nature, classification and registration of the business. The date of commencement of business appearing on a certificate must not automatically be treated as the date of registration.
+The applicable registration regime must be identified separately from current classification thresholds. A certificate issued today is not a substitute for historical evidence of the nature, classification and registration of the business. The date of commencement of business appearing on a certificate must not automatically be treated as the date of registration.
 
 ## Silpi Industries: why the supply date matters
 
 In [Silpi Industries v. Kerala State Road Transport Corporation](https://indiankanoon.org/doc/134928159/), (2021) 18 SCC 790, decided on 29 June 2021, the Supreme Court dealt with limitation and counterclaims, as well as the facts of a connected appeal involving a supplier seeking statutory benefits. The latter supplier had completed supplies before registration and did not establish later performance.
 
-Paragraph 26 expressed a restrictive view of eligibility where the contract and supplies preceded registration. The Court distinguished the Delhi High Court decision in GE T&D India Ltd. v. Reliable Engineering Projects and Marketing, in which supplies continued after registration. This factual distinction matters when an ongoing project extends across the registration date.
+Paragraph 26 expressed a restrictive view of eligibility where the contract and supplies preceded registration. The Court distinguished the Delhi High Court decision in [GE T&D India Ltd. v. Reliable Engineering Projects and Marketing](https://indiankanoon.org/doc/77040817/) (15 February 2017, paragraphs 35–36 and 40), in which supplies continued after registration. The Delhi High Court was deciding applicability of the MSMED Act in connection with a pre-deposit application, rather than finally determining the underlying debt. This factual distinction matters when an ongoing project extends across the registration date.
 
 Do not infer from this distinction that every invoice dated after registration represents a new eligible supply. Evidence of actual performance is necessary.
 
@@ -45,15 +45,17 @@ Do not infer from this distinction that every invoice dated after registration r
 
 In [Gujarat State Civil Supplies Corporation Ltd. v. Mahakali Foods Pvt. Ltd. (Unit 2)](https://indiankanoon.org/doc/78592269/), (2023) 6 SCC 401, decided on 31 October 2022, the Court considered the relationship between the MSMED Act and the Arbitration and Conciliation Act, 1996.
 
-Paragraph 51 reiterated that a later registration does not retrospectively confer the special statutory benefits, while recognising prospective application to subsequent supplies or services. It also described the registration issue as one that could be decided by the Council or institution acting as an arbitral tribunal. Read this passage together with the actual issues in the judgment and the subsequent NBCC reference.
+Paragraphs 33 and 34(vi) reiterated that a later registration does not retrospectively confer the special statutory benefits, while recognising prospective application to subsequent supplies or services. It also described the registration issue as one that could be decided by the Council or institution acting as an arbitral tribunal. Read this passage together with the actual issues in the judgment and the subsequent NBCC reference.
 
 ## NBCC: the question referred to a larger Bench
 
 In [NBCC (India) Ltd. v. State of West Bengal](https://api.sci.gov.in/supremecourt/2022/24558/24558_2022_12_1501_58501_Judgement_10-Jan-2025.pdf), 2025 INSC 54, decided on 10 January 2025, the Court analysed Section 18 and the scope of earlier decisions.
 
-The Bench distinguished the right to seek a reference from the question of registration and considered whether the earlier cases had actually decided the precise maintainability issue. In paragraph 29 it referred the appeal to a three-judge Bench for certainty about the applicable precedents. The earlier decisions were not formally overruled by that reference.
+In paragraphs 1.2 and 29, the Bench expressed the view that access to Section 18 is not confined to a supplier that has filed a memorandum under Section 8. It distinguished the right to seek a reference from the question of entitlement to statutory payment benefits, and examined whether the earlier cases had actually decided the precise maintainability issue. In paragraph 29 it referred the appeal to a three-judge Bench for certainty about the applicable precedents. The earlier decisions were not formally overruled by that reference.
 
-A subsequent Delhi High Court order dated 13 April 2026 in [Larsen and Toubro Ltd. v. Navnirman Highway Projects Pvt. Ltd.](https://indiankanoon.org/doc/142415491/) illustrates the continuing controversy. The Court issued notice in an award challenge and granted conditional interim stay. It did not finally decide the registration issue in that order. Do not cite an interim stay as a binding final resolution of the merits.
+In [Sadbhav Infrastructure Project Ltd. v. VCS Enterprises Pvt. Ltd.](https://indiankanoon.org/doc/131396372/), order dated 18 March 2026, the Delhi High Court treated the prior-registration issue as covered by NBCC and disposed of the petition, leaving other legal issues open. This demonstrates subsequent reliance on NBCC but does not amount to a larger-Bench ruling. The status of the Supreme Court reference should still be verified before relying on a definitive proposition.
+
+A subsequent Delhi High Court order dated 13 April 2026 in [Larsen and Toubro Ltd. v. Navnirman Highway Projects Pvt. Ltd.](https://indiankanoon.org/doc/142415491/) illustrates the continuing controversy. The Court issued notice in an award challenge and granted conditional interim stay. It did not finally decide the registration issue in that order. Do not cite an interim stay as a binding final resolution of the merits. Later orders dated 6 August and 17 September 2026 are indexed, but their full text could not be retrieved during this review; the present stay and disposal status are not established.
 
 Check the current status of the Supreme Court reference, connected matters and later orders before relying on these authorities in a live case.
 
@@ -115,9 +117,11 @@ No express retrospective validation of every earlier transaction appears in the 
 ## References / Sources
 
 - [MSMED Act, 2006, India Code](https://www.indiacode.nic.in/handle/123456789/18632), Sections 2(n), 8, 15–18.
+- [GE T&D India Ltd. v. Reliable Engineering Projects and Marketing](https://indiankanoon.org/doc/77040817/), Delhi High Court, 15 February 2017, paragraphs 35–36 and 40.
 - [Silpi Industries v. Kerala State Road Transport Corporation](https://indiankanoon.org/doc/134928159/), (2021) 18 SCC 790, paragraph 26.
-- [Gujarat State Civil Supplies Corporation Ltd. v. Mahakali Foods Pvt. Ltd. (Unit 2)](https://indiankanoon.org/doc/78592269/), (2023) 6 SCC 401, paragraph 51.
+- [Gujarat State Civil Supplies Corporation Ltd. v. Mahakali Foods Pvt. Ltd. (Unit 2)](https://indiankanoon.org/doc/78592269/), (2023) 6 SCC 401, paragraphs 33 and 34(vi).
 - [NBCC (India) Ltd. v. State of West Bengal](https://api.sci.gov.in/supremecourt/2022/24558/24558_2022_12_1501_58501_Judgement_10-Jan-2025.pdf), 2025 INSC 54, especially discussion of earlier authorities and paragraph 29.
+- [Sadbhav Infrastructure Project Ltd. v. VCS Enterprises Pvt. Ltd.](https://indiankanoon.org/doc/131396372/), Delhi High Court, 18 March 2026, paragraphs 1–3.
 - [Larsen and Toubro Ltd. v. Navnirman Highway Projects Pvt. Ltd.](https://indiankanoon.org/doc/142415491/), Delhi High Court, order of 13 April 2026, paragraphs 19–27 (interim order only; later status requires verification).
 - [MSMED (Amendment) Act, 2026, Act No. 16 of 2026](https://egazette.gov.in/WriteReadData/2026/275448.pdf), Sections 2 and 5.
 - [S.O. 5575(E), 12 October 2026](https://egazette.gov.in/WriteReadData/2026/277080.pdf), commencement notification.
