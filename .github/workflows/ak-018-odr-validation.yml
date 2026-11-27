@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: '07e139f500a84c498db98cea81ce0ac31452a2d5'
+          ref: '18cedce6e30f7b2db7ed16cb0b47eef63efaea84'
           fetch-depth: 0
           persist-credentials: false
       - uses: actions/setup-node@v4
@@ -28,6 +28,8 @@ jobs:
           mkdir -p /tmp/ak-odr
           git grep -in -E 'Samadhaan|MSME ODR|odr\.msme\.gov\.in' -- '*.html' ':!astro-site/**' > /tmp/ak-odr/filing-references.txt || test "$?" -eq 1
           git grep -il -E 'Samadhaan' -- '*.html' ':!astro-site/**' || test "$?" -eq 1
+          git grep -in -E 'Samadhaan|MSME ODR|odr\.msme\.gov\.in' -- astro-site/src > /tmp/ak-odr/astro-references.txt || test "$?" -eq 1
+          git grep -il -E 'Samadhaan' -- astro-site/src || test "$?" -eq 1
       - name: Build exact correction candidate
         working-directory: astro-site
         run: |
@@ -50,7 +52,7 @@ jobs:
           const now=JSON.parse(readFileSync('../assets/data/insights-registry.json','utf8'));
           assert.deepEqual(old.map(a=>[a.href,a.date]),now.map(a=>[a.href,a.date]));
           const manifest=JSON.parse(readFileSync('dist-production/release-manifest.json','utf8'));
-          assert.equal(manifest.release,'07e139f500a84c498db98cea81ce0ac31452a2d5');
+          assert.equal(manifest.release,'18cedce6e30f7b2db7ed16cb0b47eef63efaea84');
           assert.equal(Object.keys(manifest.urls).length,87);
           const feed=readFileSync('dist-production/feed.xml','utf8');
           const sitemap=readFileSync('dist-production/sitemap.xml','utf8');
@@ -67,7 +69,13 @@ jobs:
             const entry=sitemap.match(/<url>[^]*?<\/url>/g).find(x=>x.includes('<loc>'+u+'</loc>'));
             assert.ok(entry.includes('<lastmod>2026-11-27</lastmod>'),slug+' sitemap lastmod');
           }
-          console.log('Five correction pages verified; all original registry dates preserved; 87 canonical URLs and 51 RSS entries; draft excluded.');
+          for(const p of ['practice/msme-disputes.html','services/msme-recovery-lawyer-bihar.html','services/msme-recovery-lawyer-delhi-ncr.html','services/msme-recovery-lawyer-patna.html','updates/msme-delayed-payment.html']){
+            const html=readFileSync('dist-production/'+p,'utf8');
+            assert.ok(html.includes('https://odr.msme.gov.in/'),p+' missing ODR link');
+            assert.ok(html.includes('AU2139_aA64vJ.pdf'),p+' missing parliamentary source');
+          }
+          assert.ok(readFileSync('dist-production/updates/msme-delayed-payment-vs-civil-suit-vs-arbitration.html','utf8').includes('initial ODR filing'));
+          console.log('Eleven corrected pages verified; all original registry dates preserved; 87 canonical URLs and 51 RSS entries; draft excluded.');
           NODE
       - uses: actions/upload-artifact@v4
         if: always()
@@ -75,4 +83,5 @@ jobs:
           name: odr-reference-scan-and-candidate-manifest
           path: |
             /tmp/ak-odr/filing-references.txt
+            /tmp/ak-odr/astro-references.txt
             astro-site/dist-production/release-manifest.json
