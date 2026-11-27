@@ -3,7 +3,7 @@ import {createHash} from 'node:crypto';
 import {lookup} from 'node:dns/promises';
 import assert from 'node:assert/strict';
 const origin='https://chambersofak.in', www='https://www.chambersofak.in';
-const expectedRelease='8b0016dd20e0cc87c601350d2238f0859e3d704c';
+const expectedRelease='ee9f1555fab790a194c2a0cb2aa171e1d116382f';
 const inv=JSON.parse(await readFile(new URL('../migration/legacy-inventory.json',import.meta.url),'utf8'));
 const urls=[...inv.sitemap.map(u=>new URL(u,origin).href),origin+'/legal-tools.html'];
 assert.equal(urls.length,87);assert.equal(new Set(urls).size,87);
@@ -13,9 +13,19 @@ for(const host of [new URL(origin).hostname,new URL(www).hostname]){
 }
 const get=async u=>fetch(new URL(u,origin),{redirect:'manual',signal:AbortSignal.timeout(25000),headers:{'User-Agent':'Chambers-of-AK-post-launch-audit/1.0'}});
 const robotsOK=r=>assert.doesNotMatch(r.headers.get('x-robots-tag')||'',/noindex|nofollow|\bnone\b/i);
+
+const securityHeaders={
+ 'X-Content-Type-Options':'nosniff',
+ 'Referrer-Policy':'strict-origin-when-cross-origin',
+ 'X-Frame-Options':'DENY',
+ 'Permissions-Policy':'camera=(), microphone=(), geolocation=(), payment=(), usb=()',
+ 'Content-Security-Policy':"frame-ancestors 'none'; object-src 'none'; base-uri 'self'"
+};
+const verifySecurity=r=>{for(const [name,value] of Object.entries(securityHeaders))assert.equal(r.headers.get(name),value,name);};
+
 const checks=[];let manifest;
 const add=(group,url,fn)=>checks.push({group,url,fn});
-const run=async ({group,url,fn})=>{try{const r=await get(url);const extra=await fn(r);report.results.push({group,url,status:r.status,server:r.headers.get('server'),pass:true,...extra});}catch(e){report.results.push({group,url,pass:false,error:String(e.message||e)});}};
+const run=async ({group,url,fn})=>{try{const r=await get(url);if(new URL(url).protocol==='https:')verifySecurity(r);const extra=await fn(r);report.results.push({group,url,status:r.status,server:r.headers.get('server'),pass:true,...extra});}catch(e){report.results.push({group,url,pass:false,error:String(e.message||e)});}};
 // Allow Cloudflare's Git-integrated deployment to finish before auditing.
 for(let attempt=0;attempt<24;attempt++){
  try{const r=await get(origin+'/release-manifest.json');if(r.ok&&(await r.json()).release===expectedRelease)break;}catch{}
@@ -53,16 +63,16 @@ const mdUrls=urls.filter(u=>mdEligible(new URL(u).pathname));
 const mdGet=(u,accept='text/markdown',method='GET')=>fetch(u,{method,redirect:'manual',signal:AbortSignal.timeout(25000),headers:{'User-Agent':'Chambers-of-AK-post-launch-audit/1.0',Accept:accept}});
 for(let i=0;i<mdUrls.length;i+=6)await Promise.all(mdUrls.slice(i,i+6).map(async url=>{
  try{
- const r=await mdGet(url);assert.equal(r.status,200);assert.match(r.headers.get('content-type')||'',/^text\/markdown/i);assert.match(r.headers.get('vary')||'',/Accept/i);assert.match(r.headers.get('cache-control')||'',/no-store/i);robotsOK(r);assert.equal(r.headers.get('link'),'<'+url+'>; rel="canonical"');
+ const r=await mdGet(url);verifySecurity(r);assert.equal(r.status,200);assert.match(r.headers.get('content-type')||'',/^text\/markdown/i);assert.match(r.headers.get('vary')||'',/Accept/i);assert.match(r.headers.get('cache-control')||'',/no-store/i);robotsOK(r);assert.equal(r.headers.get('link'),'<'+url+'>; rel="canonical"');
  const body=await r.text();assert.ok(body.startsWith('Source: '+url+'\n'));assert.ok(body.length>200);if(url.includes('/updates/'))assert.match(body,/General information only; not legal advice or solicitation/);
- const p=new URL(url).pathname,internal=origin+'/_ak-markdown'+(p==='/'?'/index.html':p)+'.md';assert.equal((await mdGet(internal)).status,404);
- const head=await mdGet(url,'text/markdown','HEAD');assert.equal(head.status,200);assert.match(head.headers.get('content-type')||'',/^text\/markdown/i);assert.equal(await head.text(),'');
- const html=await mdGet(url,'text/html');assert.equal(html.status,200);assert.match(html.headers.get('content-type')||'',/text\/html/i);assert.equal(createHash('sha256').update(await html.text()).digest('hex'),manifest.urls[url]);
+ const p=new URL(url).pathname,internal=origin+'/_ak-markdown'+(p==='/'?'/index.html':p)+'.md';const blocked=await mdGet(internal);verifySecurity(blocked);assert.equal(blocked.status,404);
+ const head=await mdGet(url,'text/markdown','HEAD');verifySecurity(head);assert.equal(head.status,200);assert.match(head.headers.get('content-type')||'',/^text\/markdown/i);assert.equal(await head.text(),'');
+ const html=await mdGet(url,'text/html');verifySecurity(html);assert.equal(html.status,200);assert.match(html.headers.get('content-type')||'',/text\/html/i);assert.equal(createHash('sha256').update(await html.text()).digest('hex'),manifest.urls[url]);
  report.results.push({group:'markdown',url,pass:true,status:r.status});
  }catch(e){report.results.push({group:'markdown',url,pass:false,error:String(e.message||e)});}
 }));
 for(const [path,accept,status,type] of [['/','text/markdown;q=0,text/html',200,'text/html'],['/','*/*',200,'text/html'],['/legal-tools.html','text/markdown',200,'text/html'],['/design-system.html','text/markdown',404,null],['/index.html','text/markdown',301,null]]){
- try{const r=await mdGet(origin+path,accept);assert.equal(r.status,status);if(type)assert.ok((r.headers.get('content-type')||'').includes(type));report.results.push({group:'negotiation',url:origin+path,pass:true,status:r.status});}catch(e){report.results.push({group:'negotiation',url:origin+path,pass:false,error:String(e.message||e)});}
+ try{const r=await mdGet(origin+path,accept);verifySecurity(r);assert.equal(r.status,status);if(type)assert.ok((r.headers.get('content-type')||'').includes(type));report.results.push({group:'negotiation',url:origin+path,pass:true,status:r.status});}catch(e){report.results.push({group:'negotiation',url:origin+path,pass:false,error:String(e.message||e)});}
 }
 
 const groups={};for(const r of report.results){const g=groups[r.group]??={passed:0,failed:0};g[r.pass?'passed':'failed']++;}
