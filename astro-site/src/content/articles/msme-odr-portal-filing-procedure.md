@@ -12,7 +12,7 @@ modified: "2026-11-27T00:00:00+05:30"
 thumbnail: "assets/img/citadel/citadel-thumb-msme-odr-portal-filing-procedure.jpg"
 cardThumbnail: "assets/img/citadel/cards/citadel-thumb-msme-odr-portal-filing-procedure-640.jpg"
 imageAlt: "Watercolour illustration of a laptop with a generic filing form, invoices and legal books beside the MSME ODR Portal headline"
-draft: true
+draft: false
 ---
 
 ## Answer in brief: where should a fresh MSME claim be filed?
@@ -114,7 +114,7 @@ A response submitted at the preliminary negotiation stage may not satisfy later 
 
 Keep a dated case log with the old application number, current reference or case number, assigned Council, date of notice, current stage, latest order, next date and required action. If an older case is not visible in the new account, check the previous acknowledgement and contact the concerned Council using its current official contact details. Do not assume that nonvisibility means dismissal or that refiling preserves the earlier filing date.
 
-If the portal and an official notice conflict, preserve both and seek clarification promptly. Follow the actual Council's directions regarding hearing mode, service, fees, affidavits or physical copies. National digital filing does not eliminate the need to comply with applicable State procedure.
+If the portal and an official notice conflict, preserve both and seek clarification promptly. Follow the actual Council's directions regarding hearing mode, service, fees, affidavits or physical copies. National digital filing does not eliminate the need to comply with applicable State procedure. For Bihar, the [29 October 2026 Rules](/updates/bihar-msefc-filing-procedure-msme-delayed-payment.html) supersede the 2007 Rules and describe district/State Council allocation and revised filing arrangements, subject to the applicable central law and actual Council constitution.
 
 ## After an award
 
