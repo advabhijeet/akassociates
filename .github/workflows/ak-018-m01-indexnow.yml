@@ -1,0 +1,68 @@
+name: AK-018 M01 scoped IndexNow submission
+on:
+  push:
+    branches: [ak-018-m01-indexnow]
+permissions:
+  contents: read
+jobs:
+  notify:
+    if: github.event.before == '08c6a7d74de8755681ea85ed87514ca75ac2e008' && github.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: '08c6a7d74de8755681ea85ed87514ca75ac2e008'
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.4'
+      - name: Rebuild exact verified releases
+        run: |
+          git worktree add --detach /tmp/ak-old 270c3085497973b482aa2fd6032b28ab0409ae6b
+          (cd /tmp/ak-old/astro-site && npm ci --no-audit --no-fund && npm run build:production)
+          (cd astro-site && npm ci --no-audit --no-fund && npm run build:production)
+      - name: Restrict to approved substantive URLs
+        working-directory: astro-site
+        run: |
+          node --input-type=module - <<'NODE'
+          import assert from 'node:assert/strict';
+          import {readFileSync,writeFileSync} from 'node:fs';
+          const prev='/tmp/ak-old/astro-site/dist-production/release-manifest.json';
+          const old=JSON.parse(readFileSync(prev)),cur=JSON.parse(readFileSync('dist-production/release-manifest.json'));
+          assert.equal(old.release,'270c3085497973b482aa2fd6032b28ab0409ae6b');
+          assert.equal(cur.release,'08c6a7d74de8755681ea85ed87514ca75ac2e008');
+          const origin='https://chambersofak.in';
+          const approved=['/practice/msme-disputes.html','/services/msme-recovery-lawyer-bihar.html','/services/msme-recovery-lawyer-patna.html','/services/msme-recovery-lawyer-delhi-ncr.html','/updates/msme-odr-portal-filing-procedure.html','/updates/msme-delayed-payment-vs-civil-suit-vs-arbitration.html','/updates/msme-samadhaan-filing-checklist.html','/updates/prepare-msme-delayed-payment-claim.html','/updates/delhi-msefc-filing-procedure-msme-delayed-payment.html','/updates/bihar-msefc-filing-procedure-msme-delayed-payment.html','/updates/msme-facilitation-council-process.html','/updates/msme-delayed-payment.html'].map(p=>origin+p);
+          const changed=Object.keys(cur.urls).filter(u=>cur.urls[u]!==old.urls[u]);
+          assert.equal(changed.length,25);
+          assert.deepEqual(Object.keys(old.urls).filter(u=>!cur.urls[u]),[]);
+          assert.equal(new Set(approved).size,12);
+          for(const u of approved)assert.ok(changed.includes(u),u);
+          const path='scripts/indexnow-production.mjs';
+          let script=readFileSync(path,'utf8');
+          const target='const changed=Object.keys(current.urls).filter(u=>current.urls[u]!==previous.urls[u]);';
+          assert.ok(script.includes(target));
+          script=script.replace(target,'const approved=new Set('+JSON.stringify(approved)+');const changed=Object.keys(current.urls).filter(u=>current.urls[u]!==previous.urls[u]&&approved.has(u));assert.equal(changed.length,approved.size);');
+          writeFileSync('scripts/indexnow-m01-scoped.local.mjs',script);
+          writeFileSync('/tmp/ak-scope.json',JSON.stringify({release:cur.release,approved,excluded:changed.filter(u=>!approved.includes(u)),removed:[]},null,2));
+          console.log(readFileSync('/tmp/ak-scope.json','utf8'));
+          NODE
+          node scripts/indexnow-m01-scoped.local.mjs /tmp/ak-old/astro-site/dist-production/release-manifest.json
+      - name: Live-gated one-time submission
+        working-directory: astro-site
+        env:
+          AK_INDEXNOW_APPROVED: 'YES'
+        run: |
+          set -o pipefail
+          node scripts/indexnow-m01-scoped.local.mjs /tmp/ak-old/astro-site/dist-production/release-manifest.json --send | tee /tmp/ak-indexnow-result.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m01-indexnow-scope-and-result
+          path: |
+            /tmp/ak-scope.json
+            /tmp/ak-indexnow-result.log
+            /tmp/ak-old/astro-site/dist-production/release-manifest.json
+            astro-site/dist-production/release-manifest.json
