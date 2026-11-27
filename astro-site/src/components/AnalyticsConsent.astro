@@ -1,11 +1,11 @@
-<div data-analytics-choice hidden class="analytics-choice" role="region" aria-label="Analytics preferences"><p>Optional website analytics help us understand site usage. No analytics tags load before your choice. <a href="/privacy-policy.html">Privacy policy</a>.</p><div><button type="button" data-analytics-allow>Allow analytics</button><button type="button" data-analytics-deny>Decline</button></div></div>
+<div data-analytics-choice hidden class="analytics-choice" role="region" aria-label="Analytics preferences"><p>Allow optional analytics? <a href="/privacy-policy.html">Privacy policy</a>.</p><div><button type="button" data-analytics-allow>Accept</button><button type="button" data-analytics-deny>Decline</button></div></div>
 <button type="button" data-analytics-settings hidden class="analytics-settings">Analytics preferences</button>
 <script>
 const root=document.documentElement;
 if(root.dataset.akRelease==='production'&&location.origin==='https://chambersofak.in'){
  const panel=document.querySelector<HTMLElement>('[data-analytics-choice]')!;
  const settings=document.querySelector<HTMLButtonElement>('[data-analytics-settings]')!;
- let choice='';try{choice=localStorage.getItem('ak-analytics-choice-v1')||''}catch{}
+ let choice='';const key='ak-analytics-choice-v1';try{choice=localStorage.getItem(key)||''}catch{}if(choice!=='allow'&&choice!=='deny'){try{choice=sessionStorage.getItem(key)||''}catch{}}
  const w=window as Window&{dataLayer?:unknown[];akTrack?:(event:string)=>void};
  const allowed=new Set(['whatsapp_click','phone_click','email_click','case_enquiry_click','contact_click','enquiry_submit']);
  let loaded=false;
@@ -17,7 +17,7 @@ if(root.dataset.akRelease==='production'&&location.origin==='https://chambersofa
   dl.push({'gtm.start':Date.now(),event:'gtm.js'});const s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtm.js?id=GTM-5GMHQTJJ';document.head.append(s);
   w.akTrack=event=>{if(choice==='allow'&&allowed.has(event))dl.push({event,page_path:location.pathname});};
  }
- function store(value:string){choice=value;try{localStorage.setItem('ak-analytics-choice-v1',value)}catch{}}
+ function store(value:string){choice=value;try{localStorage.setItem(key,value)}catch{}try{sessionStorage.setItem(key,value)}catch{}}
  panel.hidden=choice==='allow'||choice==='deny';settings.hidden=false;
  if(choice==='allow')activate();
  panel.querySelector('[data-analytics-allow]')?.addEventListener('click',()=>{store('allow');panel.hidden=true;activate();});
@@ -26,4 +26,9 @@ if(root.dataset.akRelease==='production'&&location.origin==='https://chambersofa
  document.addEventListener('click',e=>{const a=(e.target as Element)?.closest('a[href]') as HTMLAnchorElement|null;if(!a||choice!=='allow')return;const u=new URL(a.href);const event=u.protocol==='tel:'?'phone_click':u.protocol==='mailto:'?'email_click':u.hostname==='wa.me'||u.hostname==='api.whatsapp.com'?'whatsapp_click':u.origin===location.origin&&u.pathname==='/case-enquiry.html'?'case_enquiry_click':u.origin===location.origin&&u.pathname==='/contact.html'?'contact_click':'';if(event)w.akTrack?.(event);});
 }
 </script>
-<style>.analytics-choice[hidden],.analytics-settings[hidden]{display:none!important}.analytics-choice{position:fixed;bottom:1rem;left:1rem;right:1rem;max-width:38rem;z-index:80;padding:1rem;border:1px solid var(--gold-line);background:var(--surface);color:var(--ink);box-shadow:0 3px 20px #0005;font-size:.85rem}.analytics-choice p{margin:0 0 .65rem}.analytics-choice div{display:flex;gap:.6rem;flex-wrap:wrap}.analytics-choice button,.analytics-settings{background:var(--surface);color:var(--ink);border:1px solid var(--gold-line);padding:.55rem .8rem;min-height:44px}.analytics-settings{display:block;margin:1rem auto;font-size:.78rem}</style>
+<style>
+.analytics-choice[hidden],.analytics-settings[hidden]{display:none!important}
+.analytics-choice{position:fixed;bottom:.75rem;left:.75rem;right:auto;width:max-content;max-width:calc(100% - 1.5rem);box-sizing:border-box;z-index:80;padding:.55rem .65rem;border:1px solid var(--gold-line);background:var(--surface);color:var(--ink);box-shadow:0 3px 14px #0003;font-size:.8rem;display:flex;align-items:center;gap:.65rem;flex-wrap:wrap}
+.analytics-choice p{margin:0;line-height:1.45}.analytics-choice div{display:flex;gap:.4rem;align-items:center}.analytics-choice button,.analytics-settings{background:var(--surface);color:var(--ink);border:1px solid var(--gold-line);padding:.35rem .65rem;min-height:44px;font:inherit}.analytics-choice button{min-width:64px}.analytics-choice button:focus-visible,.analytics-settings:focus-visible{outline:2px solid var(--ink);outline-offset:2px}.analytics-settings{display:block;margin:1rem auto;font-size:.78rem}
+@media(max-width:420px){.analytics-choice{gap:.25rem .55rem}.analytics-choice div{margin-left:auto}}
+</style>

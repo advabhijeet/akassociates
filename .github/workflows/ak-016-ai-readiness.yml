@@ -1,7 +1,7 @@
 name: AK-016 AI readiness candidate
 on:
   push:
-    branches: [ak-016-ai-readiness, ak-016-security-headers, ak-016-captcha, astro-migration]
+    branches: [ak-016-ai-readiness, ak-016-security-headers, ak-016-captcha, ak-016-form-ux, astro-migration]
     paths:
       - 'robots.txt'
       - 'astro-site/**'
