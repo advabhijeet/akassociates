@@ -21,7 +21,7 @@ The Micro, Small and Medium Enterprises Development (Amendment) Act, 2026 (Act N
 
 The important distinction is between enactment, commencement and practical implementation. A provision may be enacted but not commenced; a commenced provision may still require rules, notifications or administrative arrangements for its operation.
 
-This article is reviewed as of 27 November 2026 against the Gazette text and the commencement notification. No subsequent notification commencing Amendment Act sections 8–10 has been verified in the sources reviewed. This is not a certification that no further notification exists. Check the latest Gazette before taking procedural action.
+This article is reviewed as of 28 November 2026 against the Gazette text and the commencement notification. No subsequent notification commencing Amendment Act sections 8–10 has been verified in the sources reviewed. This is not a certification that no further notification exists. Check the latest Gazette before taking procedural action.
 
 ## Commencement matrix
 
@@ -53,13 +53,15 @@ Registration being voluntary in general does not necessarily establish retrospec
 
 The new Section 15A is one of the provisions commenced on 15 October 2026. It requires Central Public Sector Enterprises procuring goods or services from micro, small and medium enterprises to route invoice settlement through a Trade Receivables Discounting System platform authorised by the Reserve Bank, in the form and manner prescribed by the Central Government.
 
+There is also an earlier, separate administrative mandate. S.O. 3507(E), dated 30 June 2026, issued under Sections 9 and 10 of the principal Act, requires operating CPSEs to route MSME invoice settlement through an RBI-authorised TReDS platform. The Ministry's [10 July 2026 PIB release](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2283195&lang=1&reg=6) confirms this requirement. The notification text reproduced in the Gazette index expressly distinguishes mandatory routing from compulsory discounting: the MSME supplier retains the choice whether to obtain receivables financing. It also requires prescribed disclosure and an auditor's compliance certificate for operating CPSEs. Thus 15 October is not the first date on which the CPSE routing obligation arose. Check the original June notification, its continued operation under the saving provision and subsequent instructions applicable to the buyer.
+
 The Central Government may notify other authorities, bodies or entities to come within the mechanism. State Governments have corresponding notification powers for State Public Sector Enterprises and other bodies or entities, with State-prescribed procedures.
 
 The distinction matters: the Act does not automatically place every private buyer under the same obligation merely because the buyer purchases from an MSME. Identify the buyer's legal status, any applicable notification and the operative rules governing routing and settlement. Check actual platform onboarding and payment arrangements.
 
 The new Section 22A complements Section 15A with disclosure obligations for the Central and State categories specified in the respective provisions. The reporting framework expressly refers to MSME invoices routed and settled through TReDS.
 
-TReDS facilitates trade receivable financing and discounting; it does not by itself determine the existence of a disputed debt or guarantee that every invoice will be financed. Nor does the amendment expressly replace the existing payment period under Section 15 or the interest formula under Section 16. See the [15-day and 45-day payment rules](/updates/msme-45-days-payment-rule.html) and [Section 16 compound interest guide](/updates/section-16-msmed-act-compound-interest.html).
+The [RBI Trade Receivables Discounting System Directions, 2026](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13526&Mode=0), dated 23 June 2026, provide the separate regulatory framework for platform operators and participants. TReDS facilitates trade receivable financing and discounting; it does not by itself determine the existence of a disputed debt or guarantee that every invoice will be financed. Nor does the amendment expressly replace the existing payment period under Section 15 or the interest formula under Section 16. See the [15-day and 45-day payment rules](/updates/msme-45-days-payment-rule.html) and [Section 16 compound interest guide](/updates/section-16-msmed-act-compound-interest.html).
 
 ## Changes to dispute resolution: read Section 18 with the Mediation Act
 
@@ -71,7 +73,7 @@ Amendment Act section 8 amends Section 18 as substituted by Section 62 read with
 - Territorial jurisdiction linked to the supplier's official address under Section 8 registration, with the buyer located anywhere in India.
 - An enabling provision for a notified online dispute-resolution mechanism and prescribed procedures, including electronic pleadings, evidence and audio-video proceedings.
 
-These are enacted changes, not deadlines demonstrated to be operative on the review date. S.O. 5575(E) does not commence Amendment Act section 8. In addition, the 9 October 2023 commencement notification S.O. 4384(E) under the Mediation Act did not include Section 62. The operation of the underlying substitution requires independent examination of later notifications.
+These are enacted changes, not deadlines demonstrated to be operative on the review date. S.O. 5575(E) does not commence Amendment Act section 8. In addition, the 9 October 2023 commencement notification S.O. 4384(E) under the Mediation Act did not include Section 62. The operation of the underlying substitution requires independent examination of later notifications. A further search on 28 November 2026 did not establish commencement of Section 62; the absence of a verified later instrument is not proof that none exists.
 
 The existing Council process should not be described as universally replaced merely because the amended language appears in a Gazette or State rules. Identify the law applicable to the date and stage of the particular reference. The actual MSME ODR filing portal is a separate administrative development: its use is not proof that every proposed amendment to Section 18 is in force. See our [MSME ODR portal guide](/updates/msme-odr-portal-filing-procedure.html) and [Council proceedings guide](/updates/msme-facilitation-council-process.html).
 
@@ -118,7 +120,7 @@ Amendment Act sections 15 and 16 expand Central and State rule-making powers und
 
 The Bihar Gazette dated 29 October 2026 (Extraordinary No. 1320) publishes revised MSEFC Rules that supersede the 2007 Rules and provide for District Councils and a State Apex Council. Rule 9 assigns intra-Bihar buyer disputes to the supplier's district and disputes involving buyers outside Bihar to the State Council. Rule 14 introduces a processing-fee reference to the Fourth Schedule of the Arbitration and Conciliation Act, 1996.
 
-The published Rules also reproduce several features of the enacted Central changes to mediation, arbitration, enforcement, challenge jurisdiction and Council composition. Their publication does not itself commence the corresponding Central provisions. Assess delegated legislative authority, compatibility with operative Central law, actual constitution of Councils and the applicable transition on a provision-by-provision basis. Do not assume either automatic validity of every procedure or invalidity of the whole instrument without legal analysis.
+The published Rules expressly state immediate effect from Gazette publication under Rule 1(ii). The State Council and District Council allocation is set out in Rule 9, and physical filing remains an option under Rule 10. Confirm actual constitution, filing arrangements and any case-specific directions before relying on the new allocation. The published Rules also reproduce several features of the enacted Central changes to mediation, arbitration, enforcement, challenge jurisdiction and Council composition. Their publication does not itself commence the corresponding Central provisions. Assess delegated legislative authority, compatibility with operative Central law, actual constitution of Councils and the applicable transition on a provision-by-provision basis. Do not assume either automatic validity of every procedure or invalidity of the whole instrument without legal analysis.
 
 Read our [Bihar MSEFC procedure update](/updates/bihar-msefc-filing-procedure-msme-delayed-payment.html).
 
@@ -150,6 +152,8 @@ The new proviso is part of substituted Section 19; Amendment Act section 10 was 
 
 - [Gazette of India, Extraordinary, Part II, Section 1, No. 32, 13 August 2026: Act 16 of 2026](https://egazette.gov.in/WriteReadData/2026/275448.pdf), sections 1–17.
 - [Gazette of India, Extraordinary, Part II, Section 3(ii), No. 5363, 12 October 2026: S.O. 5575(E)](https://egazette.gov.in/WriteReadData/2026/277080.pdf), commencement notification.
-- [Mediation Act, 2023, India Code](https://www.indiacode.nic.in/bitstream/123456789/19637/1/aA2023-32.pdf), Section 62, Seventh Schedule and commencement footnote for S.O. 4384(E).
+- [Mediation Act, 2023, India Code](https://www.indiacode.nic.in/indiacode/handle/123456789/19637?col=123456789%2F1362&view_type=search), Section 62 and Seventh Schedule; [S.O. 4384(E), 9 October 2023](https://www.legalaffairs.gov.in/static/uploads/2025/09/2381ae426c2e0b2ffe4663f813844594.pdf).
+- S.O. 3507(E), 30 June 2026, Gazette identifier CG-DL-E-02072026-273996 ([official PDF link](https://egazette.gov.in/WriteReadData/2026/273996.pdf), direct retrieval unavailable during review; [indexed notification text](https://gazettetracker.com/g/CG-DL-E-02072026-273996)); [Ministry of MSME/PIB release, 10 July 2026](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2283195&lang=1&reg=6).
+- [RBI TReDS Directions, 2026](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13526&Mode=0), 23 June 2026.
 - [Bihar Gazette Extraordinary No. 1320, 29 October 2026](https://egazette.bihar.gov.in/GazettePrinting/GazettePublished/1320_2_2026.pdf), authoritative English text, Rules 1, 3–4, 6, 9–11, 14 and 17.
-- [MSMED Act, 2006, India Code](https://www.indiacode.nic.in/handle/123456789/18632), read subject to subsequently commenced amendments.
+- [MSMED Act, 2006, India Code](https://www.indiacode.nic.in/bitstream/123456789/5872/1/a2006-27.pdf), read subject to subsequently commenced amendments.
