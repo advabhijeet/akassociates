@@ -1,0 +1,16 @@
+name: AK-016 Email DNS inventory
+on:
+  push:
+    branches: [ak-live-audit]
+    paths: ['astro-site/scripts/audit-email-dns.mjs', '.github/workflows/audit-email-dns.yml']
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.4'
+      - run: node astro-site/scripts/audit-email-dns.mjs
