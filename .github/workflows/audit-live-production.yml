@@ -27,10 +27,50 @@ jobs:
         run: |
           npm ci --no-audit --no-fund
           npm run build:production
+      - name: Diagnose live asset consistency (GET only)
+        run: |
+          git -C release-source fetch --no-tags origin 270c3085497973b482aa2fd6032b28ab0409ae6b
+          git -C release-source worktree add --detach /tmp/ak-old 270c3085497973b482aa2fd6032b28ab0409ae6b
+          (cd /tmp/ak-old/astro-site && npm ci --no-audit --no-fund && npm run build:production)
+          node --input-type=module - <<'NODE'
+          import {readFileSync,writeFileSync} from 'node:fs';
+          import {createHash} from 'node:crypto';
+          const cur=JSON.parse(readFileSync('release-source/astro-site/dist-production/release-manifest.json'));
+          const old=JSON.parse(readFileSync('/tmp/ak-old/astro-site/dist-production/release-manifest.json'));
+          const origin='https://chambersofak.in';
+          const changed=Object.keys(cur.urls).filter(u=>cur.urls[u]!==old.urls[u]);
+          const report=[];
+          for(const url of changed){
+            for(const mode of ['normal','revalidate','query']){
+              const u=new URL(url);
+              if(mode==='query')u.searchParams.set('ak_audit',cur.release.slice(0,12));
+              try {
+                const headers={'User-Agent':'Chambers-of-AK-post-launch-audit/1.0','Accept':'text/html'};
+                if(mode!=='normal')headers['Cache-Control']='no-cache';
+                const res=await fetch(u,{headers,redirect:'manual',signal:AbortSignal.timeout(20000)});
+                const body=await res.text();
+                const hash=createHash('sha256').update(body).digest('hex');
+                report.push({url,mode,status:res.status,match:hash===cur.urls[url]?'new':hash===old.urls[url]?'old':'other',cache:res.headers.get('cf-cache-status'),age:res.headers.get('age'),ray:res.headers.get('cf-ray'),etag:res.headers.get('etag'),cacheControl:res.headers.get('cache-control')});
+              }catch(e){report.push({url,mode,error:String(e)});}
+            }
+          }
+          const url=origin+'/updates/msme-odr-portal-filing-procedure.html';
+          for(const mode of ['normal','revalidate','query']){
+            const u=new URL(url);
+            if(mode==='query')u.searchParams.set('ak_audit',cur.release.slice(0,12));
+            const headers={'Accept':'text/markdown','User-Agent':'Chambers-of-AK-post-launch-audit/1.0'};
+            if(mode!=='normal')headers['Cache-Control']='no-cache';
+            try{const res=await fetch(u,{headers,redirect:'manual',signal:AbortSignal.timeout(20000)});const body=await res.text();report.push({url,mode:'markdown-'+mode,status:res.status,type:res.headers.get('content-type'),hasTitle:body.includes('MSME ODR Portal'),cache:res.headers.get('cf-cache-status'),ray:res.headers.get('cf-ray')});}catch(e){report.push({url,mode,error:String(e)});}
+          }
+          for(const row of report)console.log(JSON.stringify(row));
+          writeFileSync('live-consistency-diagnostic.json',JSON.stringify(report,null,2));
+          NODE
       - name: Audit live production (GET only)
         run: node astro-site/scripts/audit-live-production.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: live-production-audit
-          path: live-audit-report.json
+          path: |
+            live-audit-report.json
+            live-consistency-diagnostic.json
