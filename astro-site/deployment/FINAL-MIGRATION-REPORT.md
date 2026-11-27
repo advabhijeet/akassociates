@@ -14,5 +14,7 @@ Status: application migration and configured security verified; operations docum
 - 87 canonical routes, 51 original articles, 53 Markdown representations, Cloudflare Level 1 agent readiness 5/5. 6 calculators; all original URLs preserved or intended consolidated redirects. No ranking, indexing or AI citation guarantee.
 - Known non-critical JSON-LD warning on legal-tools.html. Strict CSP, longer HSTS, richer agent protocols deliberately deferred. See Monitoring for unresolved third-party verification and indexing. Audit/backup procedures do not imply completed disaster recovery drill or automatic monitoring.
 
+- Independently rebuilt exact-release audit, including HSTS: https://github.com/advabhijeet/akassociates/actions/runs/45966997152 (success).
+
 ## Documentation
 Use Operations, Recovery, Monitoring and migration/PUBLISHING.md. Previous checkpoint files are historical. Final owner review and publishing workflow validation remain required.

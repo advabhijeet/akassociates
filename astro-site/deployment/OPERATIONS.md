@@ -10,7 +10,7 @@ Repository advabhijeet/akassociates, branch astro-migration. Legacy main remains
 | Node | 22.23.4 | 22.23.4 |
 | Build | npm run build:production | npm run build:worker-preview |
 | Deploy | npx wrangler deploy --config wrangler.production.jsonc | npx wrangler deploy |
-| Assets | dist-production | dist-worker-preview (check current wrangler.jsonc) |
+| Assets | dist-production | dist |
 | Domain | chambersofak.in and www | chambers-of-ak-url-preview.abhikr917.workers.dev |
 | Indexing | canonical indexable HTML | noindex, robots disallow, no live enquiry or analytics |
 
