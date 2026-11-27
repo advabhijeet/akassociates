@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
-      AK_EXPECTED_RELEASE: '08c6a7d74de8755681ea85ed87514ca75ac2e008'
+      AK_EXPECTED_RELEASE: 'dcd48222df09dc1dffce1d9beb4eba49785328ae'
       AK_EXPECTED_MANIFEST: release-source/astro-site/dist-production/release-manifest.json
     steps:
       - uses: actions/checkout@v4
@@ -29,8 +29,8 @@ jobs:
           npm run build:production
       - name: Diagnose live asset consistency (GET only)
         run: |
-          git -C release-source fetch --no-tags origin 270c3085497973b482aa2fd6032b28ab0409ae6b
-          git -C release-source worktree add --detach /tmp/ak-old 270c3085497973b482aa2fd6032b28ab0409ae6b
+          git -C release-source fetch --no-tags origin 08c6a7d74de8755681ea85ed87514ca75ac2e008
+          git -C release-source worktree add --detach /tmp/ak-old 08c6a7d74de8755681ea85ed87514ca75ac2e008
           (cd /tmp/ak-old/astro-site && npm ci --no-audit --no-fund && npm run build:production)
           node --input-type=module - <<'NODE'
           import {readFileSync,writeFileSync} from 'node:fs';
@@ -54,13 +54,13 @@ jobs:
               }catch(e){report.push({url,mode,error:String(e)});}
             }
           }
-          const url=origin+'/updates/msme-odr-portal-filing-procedure.html';
+          const url=origin+'/updates/msme-registration-after-contract-supply.html';
           for(const mode of ['normal','revalidate','query']){
             const u=new URL(url);
             if(mode==='query')u.searchParams.set('ak_audit',cur.release.slice(0,12));
             const headers={'Accept':'text/markdown','User-Agent':'Chambers-of-AK-post-launch-audit/1.0'};
             if(mode!=='normal')headers['Cache-Control']='no-cache';
-            try{const res=await fetch(u,{headers,redirect:'manual',signal:AbortSignal.timeout(20000)});const body=await res.text();report.push({url,mode:'markdown-'+mode,status:res.status,type:res.headers.get('content-type'),hasTitle:body.includes('MSME ODR Portal'),cache:res.headers.get('cf-cache-status'),ray:res.headers.get('cf-ray')});}catch(e){report.push({url,mode,error:String(e)});}
+            try{const res=await fetch(u,{headers,redirect:'manual',signal:AbortSignal.timeout(20000)});const body=await res.text();report.push({url,mode:'markdown-'+mode,status:res.status,type:res.headers.get('content-type'),hasTitle:body.includes('MSME Registration After Contract or Supply'),cache:res.headers.get('cf-cache-status'),ray:res.headers.get('cf-ray')});}catch(e){report.push({url,mode,error:String(e)});}
           }
           for(const row of report)console.log(JSON.stringify(row));
           writeFileSync('live-consistency-diagnostic.json',JSON.stringify(report,null,2));
