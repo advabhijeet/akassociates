@@ -75,7 +75,10 @@ jobs:
           assert.ok(!sitemap.includes('publishing-example'));assert.ok(!feed.includes('publishing-example'));
           for(const p of ['msme-registration-benefits-eligibility','msefc-notice-buyer-reply-defences-documents','prepare-msme-delayed-payment-claim']){
             const f='updates/'+p+'.html',h=readFileSync(cur+f,'utf8');
-            assert.ok(h.includes('href="/'+path+'"'),p+' missing reciprocal link');
+            const links=[...h.matchAll(/<a\b[^>]*\bhref=["']([^"']+)["'][^>]*>([^]*?)<\/a>/gi)];
+            const target=links.find(m=>/MSME registration (?:after contract or supply|timing guide)/i.test(m[2])&&new URL(m[1],origin+'/'+f).href===url);
+            assert.ok(target,p+' missing contextual reciprocal link resolving to '+url);
+            console.log(p+' reciprocal href: '+target[1]);
             assert.ok(h.includes('2026-11-27'));
             const entry=sitemap.match(/<url>[^]*?<\/url>/g).find(x=>x.includes('<loc>'+origin+'/'+f+'</loc>'));
             assert.ok(entry.includes('<lastmod>2026-11-27</lastmod>'),p);
