@@ -1,0 +1,19 @@
+name: AK-016 one-time CAPTCHA rejection test
+on:
+  push:
+    branches: [ak-live-audit]
+    paths: ['.github/workflows/verify-captcha-rejection.yml','astro-site/scripts/verify-captcha-rejection.mjs']
+permissions:
+  contents: read
+jobs:
+  verify:
+    if: github.run_attempt == 1
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.4'
+      - run: node astro-site/scripts/verify-captcha-rejection.mjs
+        env:
+          AK_CAPTCHA_NEGATIVE_TEST: 'YES'
