@@ -12,7 +12,7 @@ modified: "2026-11-27T00:00:00+05:30"
 thumbnail: "assets/img/citadel/citadel-thumb-msme-registration-after-contract-supply.jpg"
 cardThumbnail: "assets/img/citadel/cards/citadel-thumb-msme-registration-after-contract-supply-640.jpg"
 imageAlt: "Watercolour editorial illustration of a contract, generic MSME registration document, timeline and legal books"
-draft: true
+draft: false
 ---
 
 ## Answer in brief

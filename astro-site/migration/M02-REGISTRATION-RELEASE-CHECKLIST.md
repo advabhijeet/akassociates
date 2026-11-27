@@ -5,3 +5,8 @@ Reviewed 27 November 2026. Baseline 08c6a7d74de8755681ea85ed87514ca75ac2e008, M0
 - Existing guide updates only if separately reviewed; retain URLs. Proposed contextual link from registration guide and buyer defence after M02 is published in candidate. No client-derived facts in examples.
 - Artwork: original Citadel landscape 16:9, ivory/navy/gold, readable serif heading "MSME REGISTRATION", subtitle "Before or After Contract?", illustrated contract, registration certificate, timeline and legal desk (generic documents, no fabricated official certificate). Require 1200x675 and 640x360 JPEG, verify actual dimensions, then update frontmatter paths and alt. Current art references provisional. Actual approved publication date at release.
 - Owner editorial approval, exact pinned candidate build, 53 RSS/89 sitemap/55 Markdown expected if baseline unchanged, no draft fixture leakage, preserve existing URLs/dates, verify new links, images and related/home/archive/metadata. Live audit, then approved scoped IndexNow. Do not promote just to test. 
+
+## Candidate preparation
+- Owner uploaded approved artwork in 3a073f5; both blob paths confirmed. Pixel validation remains a CI gate.
+- Recheck of NBCC and Sadbhav on 27 November 2026 found no verified final larger-Bench determination; retain qualifications. No assertion about current L&T interim stay.
+- Three reciprocal links added to registration overview, buyer defence and claim preparation; modification metadata and root sitemap updated; canonical URLs and publication dates preserved. Native draft false only on isolated candidate for real publication validation. Await owner editorial approval and exact CI before promotion.
