@@ -1,7 +1,7 @@
 name: AK-016 AI readiness candidate
 on:
   push:
-    branches: [ak-016-ai-readiness, ak-016-security-headers, astro-migration]
+    branches: [ak-016-ai-readiness, ak-016-security-headers, ak-016-captcha, astro-migration]
     paths:
       - 'robots.txt'
       - 'astro-site/**'
@@ -26,6 +26,7 @@ jobs:
       - run: node scripts/test-production.mjs
       - run: node scripts/test-markdown.mjs
       - run: node scripts/test-security-headers.mjs
+      - run: node scripts/test-emailjs.mjs
       - run: npm install --no-save --package-lock=false playwright
       - run: npx playwright install chromium
       - name: Verify browser compatibility with security headers

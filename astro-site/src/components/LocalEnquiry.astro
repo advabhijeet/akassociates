@@ -5,7 +5,7 @@ import {resolve} from 'node:path';
 const original=readFileSync(resolve(process.cwd(),'../contact.html'),'utf8');
 const raw=original.match(/<form class="dynamic-contact-form"[\s\S]*?<\/form>/)?.[0];
 if(!raw)throw Error('Original enquiry form not found');
-const markup=raw.replace('<form class="dynamic-contact-form" data-contact-dynamic-form>','<form class="dynamic-contact-form" data-contact-dynamic-form method="post"><fieldset disabled class="stack">').replace('</form>','</fieldset></form>').replace('You may send this enquiry directly through the website. WhatsApp, Gmail and copy options remain available as fallback.','Review your prepared message. Preview mode disables direct email delivery and external compose links.').replace(/<a class="btn-outline"[^>]*data-whatsapp-compose>[\s\S]*?<\/a>/,'<a class="btn-outline" data-whatsapp-compose hidden>Open WhatsApp</a>').replace(/<a class="btn-outline"[^>]*data-gmail-compose>[\s\S]*?<\/a>/,'<a class="btn-outline" data-gmail-compose hidden>Choose Gmail Account</a>').replace(/data-emailjs-status hidden/g,'data-emailjs-status role="status" hidden');
+const markup=raw.replace('<form class="dynamic-contact-form" data-contact-dynamic-form>','<form class="dynamic-contact-form" data-contact-dynamic-form method="post"><fieldset disabled class="stack">').replace('</form>','</fieldset></form>').replace('You may send this enquiry directly through the website. WhatsApp, Gmail and copy options remain available as fallback.','Review your prepared message. Preview mode disables direct email delivery and external compose links.').replace(/<a class="btn-outline"[^>]*data-whatsapp-compose>[\s\S]*?<\/a>/,'<a class="btn-outline" data-whatsapp-compose hidden>Open WhatsApp</a>').replace(/<a class="btn-outline"[^>]*data-gmail-compose>[\s\S]*?<\/a>/,'<a class="btn-outline" data-gmail-compose hidden>Choose Gmail Account</a>').replace('<button class="btn-gold" type="button" data-emailjs-send disabled>', '<div data-captcha-panel hidden><p class="form-note">To send directly, complete Google reCAPTCHA spam verification. Loading verification connects to Google and may process device and network information. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Terms</a>. You can still copy the prepared message without verification.</p><button type="button" data-captcha-load>Load spam verification</button><div data-captcha-widget></div><p data-captcha-status role="status" class="form-note"></p></div><button class="btn-gold" type="button" data-emailjs-send disabled>').replace(/data-emailjs-status hidden/g,'data-emailjs-status role="status" hidden');
 ---
 <section class="detail-section" id="preview-message"><p class="eyebrow">Structured enquiry</p><h2>Prepare an enquiry</h2><p>Preview only. Information remains local. Do not enter confidential or privileged material. Direct delivery is disabled.</p><noscript><p>JavaScript is required for local preparation.</p></noscript><div class="structured" set:html={markup}/></section>
 <script>
@@ -23,20 +23,58 @@ if(form){
  const send=form.querySelector<HTMLButtonElement>('[data-emailjs-send]')!;
  const live=document.documentElement.dataset.akRelease==='production'&&location.origin==='https://chambersofak.in';
  let prepared:Record<string,string>={};let sending=false;let sent=false;
+
+ const captchaPanel=form.querySelector<HTMLElement>('[data-captcha-panel]')!;
+ const captchaLoad=form.querySelector<HTMLButtonElement>('[data-captcha-load]')!;
+ const captchaWidget=form.querySelector<HTMLElement>('[data-captcha-widget]')!;
+ const captchaStatus=form.querySelector<HTMLElement>('[data-captcha-status]')!;
+ type CaptchaAPI={render:(el:HTMLElement,options:Record<string,unknown>)=>number;reset:(id:number)=>void;getResponse:(id:number)=>string};
+ const cw=window as Window&{grecaptcha?:CaptchaAPI;akCaptchaReady?:()=>void};
+ let captchaId:number|undefined;let captchaToken='';let loadingCaptcha=false;
+ function updateSend(){send.disabled=!live||sending||sent||wrapper.hidden||!captchaToken;}
+ function clearCaptcha(){captchaToken='';if(captchaId!==undefined){try{cw.grecaptcha?.reset(captchaId)}catch{}}updateSend();}
+ function resetCaptchaForEdit(){clearCaptcha();captchaStatus.textContent=captchaId===undefined?'':'Complete verification again before sending.';}
+ async function loadCaptcha(){
+  if(cw.grecaptcha?.render)return;
+  await new Promise<void>((resolve,reject)=>{
+   const script=document.createElement('script');
+   let timer:number;
+   const finish=(error?:Error)=>{window.clearTimeout(timer);delete cw.akCaptchaReady;if(error){script.remove();reject(error);}else resolve();};
+   cw.akCaptchaReady=()=>finish();
+   script.src='https://www.google.com/recaptcha/api.js?onload=akCaptchaReady&render=explicit';script.async=true;script.defer=true;
+   script.onerror=()=>finish(Error('Verification unavailable'));
+   timer=window.setTimeout(()=>finish(Error('Verification timed out')),15000);
+   document.head.append(script);
+  });
+ }
+ captchaLoad.addEventListener('click',async()=>{
+  if(!live||wrapper.hidden||loadingCaptcha||captchaId!==undefined)return;
+  loadingCaptcha=true;captchaLoad.disabled=true;captchaStatus.textContent='Loading verification…';
+  try{
+   await loadCaptcha();
+   if(!cw.grecaptcha?.render)throw Error('Verification unavailable');
+   captchaId=cw.grecaptcha.render(captchaWidget,{sitekey:'6LduzDQuAAAAALtanZT4xKZnzw7zHOJsj2wpsC8_',size:captchaWidget.clientWidth<304?'compact':'normal',theme:document.documentElement.dataset.theme==='dark'?'dark':'light',callback:(token:string)=>{captchaToken=wrapper.hidden?'':token;captchaStatus.textContent=captchaToken?'Verification complete. You may send your enquiry.':'';updateSend();},'expired-callback':()=>{captchaToken='';captchaStatus.textContent='Verification expired. Please complete it again.';updateSend();},'error-callback':()=>{captchaToken='';captchaStatus.textContent='Verification interrupted. Please retry the challenge or copy your message.';updateSend();}});
+   captchaLoad.hidden=true;captchaStatus.textContent='Complete the verification to send.';
+  }catch{captchaStatus.textContent='Verification could not load. Retry, or copy the prepared message and use the listed contact channels.';}
+  finally{loadingCaptcha=false;captchaLoad.disabled=false;}
+ });
+
  const statuses=[...form.querySelectorAll<HTMLElement>('[data-emailjs-status]')];
  function status(message:string){statuses.forEach(s=>{s.textContent='';s.hidden=true;});const s=wrapper.hidden?statuses[0]:statuses[statuses.length-1];if(s){s.textContent=message;s.hidden=!message;}}
- function refresh(){if(sending)return;prepared={};sent=false;groups.forEach(g=>{g.hidden=g.dataset.matterFields!==matter.value;g.querySelectorAll<HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement>('input,select,textarea').forEach(f=>f.disabled=g.hidden);});generate.disabled=!matter.value||!consent.checked;output.value='';wrapper.hidden=true;copy.disabled=true;send.disabled=true;status('');}
+ function refresh(){if(sending)return;prepared={};sent=false;resetCaptchaForEdit();groups.forEach(g=>{g.hidden=g.dataset.matterFields!==matter.value;g.querySelectorAll<HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement>('input,select,textarea').forEach(f=>f.disabled=g.hidden);});generate.disabled=!matter.value||!consent.checked;output.value='';wrapper.hidden=true;copy.disabled=true;send.disabled=true;status('');}
  form.addEventListener('submit',e=>e.preventDefault());
- form.addEventListener('input',e=>{if(e.target!==output)refresh();});
- form.addEventListener('change',e=>{if(e.target!==output)refresh();});
- generate.addEventListener('click',()=>{if(!consent.checked||!form.reportValidity())return;const fields=[...form.querySelectorAll<HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement>('input,select,textarea')].filter(f=>f.name&&!f.disabled&&f.type!=='checkbox'&&f!==output&&!f.closest('[hidden]')).map(f=>({name:f.name,label:f.closest('label')?.querySelector('span')?.textContent?.trim()||f.name,value:f instanceof HTMLSelectElement?f.selectedOptions[0]?.textContent||'':f.value}));prepared=Object.fromEntries(fields.map(f=>[f.name,f.value]));output.value=prepareMessage(fields);wrapper.hidden=false;copy.disabled=false;send.disabled=!live;status('Prepared locally. Nothing has been sent.');output.focus();});
+ form.addEventListener('input',e=>{if(e.target!==output&&!captchaPanel.contains(e.target as Node))refresh();});
+ form.addEventListener('change',e=>{if(e.target!==output&&!captchaPanel.contains(e.target as Node))refresh();});
+ generate.addEventListener('click',()=>{if(!consent.checked||!form.reportValidity())return;const fields=[...form.querySelectorAll<HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement>('input,select,textarea')].filter(f=>f.name&&!f.disabled&&f.type!=='checkbox'&&f!==output&&!captchaPanel.contains(f)&&!f.closest('[hidden]')).map(f=>({name:f.name,label:f.closest('label')?.querySelector('span')?.textContent?.trim()||f.name,value:f instanceof HTMLSelectElement?f.selectedOptions[0]?.textContent||'':f.value}));prepared=Object.fromEntries(fields.map(f=>[f.name,f.value]));output.value=prepareMessage(fields);wrapper.hidden=false;copy.disabled=false;captchaPanel.hidden=!live;resetCaptchaForEdit();status('Prepared locally. Nothing has been sent.');output.focus();});
  copy.addEventListener('click',async()=>{if(!output.value)return;try{await navigator.clipboard.writeText(output.value);status('Copied.');}catch{output.select();status('Select and copy manually.');}});
  send.addEventListener('click',async()=>{
   if(!live||sending||sent||!consent.checked||!output.value.trim()||!form.reportValidity())return;
   const email=form.querySelector<HTMLInputElement>('[name=email]');if(!email?.value.trim()||!email.checkValidity()){status('Enter a valid email address before sending.');email?.focus();return;}
+  if(!captchaToken||captchaId===undefined||cw.grecaptcha?.getResponse(captchaId)!==captchaToken){clearCaptcha();captchaStatus.textContent='Complete spam verification before sending.';return;}
+  const token=captchaToken;
   prepared.email=email.value.trim();sending=true;send.disabled=true;const fieldset=form.querySelector('fieldset');fieldset?.setAttribute('disabled','');status('Sending enquiry via EmailJS…');
   const sdk={send:async(service_id:string,template_id:string,template_params:unknown,options:{publicKey:string})=>{const r=await fetch('https://api.emailjs.com/api/v1.0/email/send',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({service_id,template_id,template_params,user_id:options.publicKey}),signal:AbortSignal.timeout(20000)});if(!r.ok)throw Error('Email service rejected request');return r.status;}};
-  try{await sendEnquiry({sdk,fields:prepared,message:output.value,pageUrl:location.href,consent:consent.checked,approved:live});sent=true;status('Enquiry sent successfully.');(window as Window&{akTrack?:(event:string)=>void}).akTrack?.('enquiry_submit');}catch{status('Delivery could not be confirmed. Copy the message and use the listed contact channels, or try again.');}finally{sending=false;fieldset?.removeAttribute('disabled');send.disabled=sent||!live;}
+  try{await sendEnquiry({sdk,fields:prepared,message:output.value,pageUrl:location.href,consent:consent.checked,approved:live,captchaToken:token});sent=true;status('Enquiry sent successfully.');(window as Window&{akTrack?:(event:string)=>void}).akTrack?.('enquiry_submit');}catch{status('Delivery could not be confirmed. Copy the message and use the listed contact channels, or try again.');}finally{sending=false;fieldset?.removeAttribute('disabled');clearCaptcha();captchaStatus.textContent=sent?'':'Complete verification again before retrying.';updateSend();}
  });
  form.querySelector('fieldset')?.removeAttribute('disabled');refresh();
 }
