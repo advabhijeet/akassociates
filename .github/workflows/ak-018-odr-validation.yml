@@ -123,6 +123,13 @@ jobs:
                   assert dims(p)==expected, (p,dims(p))
                   print(p,expected)
           PY
+      - name: Rebuild verified previous release and compare manifests (dry run only)
+        run: |
+          git worktree add --detach /tmp/ak-previous 270c3085497973b482aa2fd6032b28ab0409ae6b
+          (cd /tmp/ak-previous/astro-site && npm ci --no-audit --no-fund && npm run build:production)
+          cp /tmp/ak-previous/astro-site/dist-production/release-manifest.json /tmp/ak-odr/previous-manifest.json
+          cd astro-site
+          node scripts/indexnow-production.mjs /tmp/ak-odr/previous-manifest.json | tee /tmp/ak-odr/indexnow-dry-run.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -130,4 +137,6 @@ jobs:
           path: |
             /tmp/ak-odr/filing-references.txt
             /tmp/ak-odr/astro-references.txt
+            /tmp/ak-odr/previous-manifest.json
+            /tmp/ak-odr/indexnow-dry-run.json
             astro-site/dist-production/release-manifest.json
