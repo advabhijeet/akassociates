@@ -8,11 +8,25 @@ jobs:
   audit:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      AK_EXPECTED_RELEASE: '9e79bec8ecac701c59964ad0e5000dafed42fd5a'
+      AK_EXPECTED_MANIFEST: release-source/astro-site/dist-production/release-manifest.json
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22.23.4'
+      - name: Check out exact production source separately
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.AK_EXPECTED_RELEASE }}
+          path: release-source
+          persist-credentials: false
+      - name: Build independently expected release
+        working-directory: release-source/astro-site
+        run: |
+          npm ci --no-audit --no-fund
+          npm run build:production
       - name: Audit live production (GET only)
         run: node astro-site/scripts/audit-live-production.mjs
       - uses: actions/upload-artifact@v4

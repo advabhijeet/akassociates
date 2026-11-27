@@ -3,10 +3,17 @@ import {createHash} from 'node:crypto';
 import {lookup} from 'node:dns/promises';
 import assert from 'node:assert/strict';
 const origin='https://chambersofak.in', www='https://www.chambersofak.in';
-const expectedRelease='9e79bec8ecac701c59964ad0e5000dafed42fd5a';
+const expectedRelease=process.env.AK_EXPECTED_RELEASE;
+assert.match(expectedRelease||'',/^[a-f0-9]{40}$/,'Explicit release commit required');
+const expectedManifest=JSON.parse(await readFile(process.env.AK_EXPECTED_MANIFEST,'utf8'));
+assert.equal(expectedManifest.release,expectedRelease);
 const inv=JSON.parse(await readFile(new URL('../migration/legacy-inventory.json',import.meta.url),'utf8'));
-const urls=[...inv.sitemap.map(u=>new URL(u,origin).href),origin+'/legal-tools.html'];
-assert.equal(urls.length,87);assert.equal(new Set(urls).size,87);
+const baseline=[...inv.sitemap.map(u=>new URL(u,origin).href),origin+'/legal-tools.html'];
+assert.equal(new Set(baseline).size,87,'Migration baseline changed');
+const urls=Object.keys(expectedManifest.urls);
+for(const u of baseline)assert.ok(urls.includes(u),'Missing baseline canonical: '+u);
+for(const [u,hash] of Object.entries(expectedManifest.urls)){const p=new URL(u);assert.equal(p.origin,origin);assert.ok(!p.search&&!p.hash);assert.match(hash,/^[a-f0-9]{64}$/);if(!baseline.includes(u))assert.match(p.pathname,/^\/updates\/[a-z0-9-]+\.html$/,'New route needs explicit scope review');}
+
 const report={expectedRelease,dns:{},results:[],warnings:[]};
 for(const host of [new URL(origin).hostname,new URL(www).hostname]){
  try{report.dns[host]=await lookup(host,{all:true});}catch(e){report.dns[host]=String(e);}
@@ -21,7 +28,7 @@ const securityHeaders={
  'Permissions-Policy':'camera=(), microphone=(), geolocation=(), payment=(), usb=()',
  'Content-Security-Policy':"frame-ancestors 'none'; object-src 'none'; base-uri 'self'"
 };
-const verifySecurity=r=>{for(const [name,value] of Object.entries(securityHeaders))assert.equal(r.headers.get(name),value,name);};
+const verifySecurity=r=>{for(const [name,value] of Object.entries(securityHeaders))assert.equal(r.headers.get(name),value,name);const h=r.headers.get('strict-transport-security')||'';assert.match(h,/(?:^|;\s*)max-age\s*=\s*2592000(?:;|$)/i);assert.doesNotMatch(h,/includeSubDomains|preload/i);};
 
 const checks=[];let manifest;
 const add=(group,url,fn)=>checks.push({group,url,fn});
@@ -31,7 +38,7 @@ for(let attempt=0;attempt<24;attempt++){
  try{const r=await get(origin+'/release-manifest.json');if(r.ok&&(await r.json()).release===expectedRelease)break;}catch{}
  if(attempt<23)await new Promise(resolve=>setTimeout(resolve,10000));
 }
-await run({group:'release',url:origin+'/release-manifest.json',fn:async r=>{assert.equal(r.status,200);manifest=await r.json();assert.equal(manifest.release,expectedRelease);assert.deepEqual(Object.keys(manifest.urls).sort(),[...urls].sort());return {release:manifest.release};}});
+await run({group:'release',url:origin+'/release-manifest.json',fn:async r=>{assert.equal(r.status,200);manifest=await r.json();assert.equal(manifest.release,expectedRelease);assert.deepEqual(manifest,expectedManifest,'Live manifest differs from independently built exact release');return {release:manifest.release};}});
 for(const u of urls)add('canonical',u,async r=>{
  assert.equal(r.status,200);robotsOK(r);assert.match(r.headers.get('content-type')||'',/text\/html/i);
  const html=await r.text();assert.match(html,/data-ak-release="production"/);assert.match(html,/name="robots" content="index,follow"/);
