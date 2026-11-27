@@ -9,9 +9,9 @@ tags: ["MSME", "MSEFC", "MSME ODR", "Samadhaan", "Delayed Payment", "Section 18"
 author: "Chambers of AK"
 published: "2026-11-27T00:00:00+05:30"
 modified: "2026-11-27T00:00:00+05:30"
-thumbnail: "assets/img/citadel/citadel-thumb-msme-documents-checklist-approved-style.jpg"
-cardThumbnail: "assets/img/citadel/cards/citadel-thumb-msme-documents-checklist-approved-style-640.jpg"
-imageAlt: "Legal papers and documents for an MSME delayed-payment claim"
+thumbnail: "assets/img/citadel/citadel-thumb-msme-odr-portal-filing-procedure.jpg"
+cardThumbnail: "assets/img/citadel/cards/citadel-thumb-msme-odr-portal-filing-procedure-640.jpg"
+imageAlt: "Watercolour illustration of a laptop with a generic filing form, invoices and legal books beside the MSME ODR Portal headline"
 draft: true
 ---
 
