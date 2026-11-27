@@ -9,9 +9,9 @@ tags: ["MSME", "MSEFC", "Udyam Registration", "Supplier Eligibility", "Section 1
 author: "Chambers of AK"
 published: "2026-11-27T00:00:00+05:30"
 modified: "2026-11-27T00:00:00+05:30"
-thumbnail: "assets/img/citadel/citadel-thumb-msme-documents-checklist-approved-style.jpg"
-cardThumbnail: "assets/img/citadel/cards/citadel-thumb-msme-documents-checklist-approved-style-640.jpg"
-imageAlt: "Legal records for reviewing a supplier's MSME registration and claim"
+thumbnail: "assets/img/citadel/citadel-thumb-msme-registration-after-contract-supply.jpg"
+cardThumbnail: "assets/img/citadel/cards/citadel-thumb-msme-registration-after-contract-supply-640.jpg"
+imageAlt: "Watercolour editorial illustration of a contract, generic MSME registration document, timeline and legal books"
 draft: true
 ---
 
