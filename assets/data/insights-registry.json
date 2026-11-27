@@ -175,7 +175,7 @@
     "href": "updates/msme-samadhaan-filing-checklist.html",
     "category": "Checklist",
     "title": "MSME Samadhaan filing checklist: before and after submission",
-    "excerpt": "Document-first Samadhaan checklist covering Udyam eligibility, work order/oral-order affidavit, invoices, claim amount, acknowledgement, MSEFC routing and post-filing follow-up.",
+    "excerpt": "Preserve legacy Samadhaan filings and acknowledgements, prepare claim evidence, and use MSME ODR for fresh delayed-payment cases from 15 October 2025.",
     "date": "October 2026",
     "tags": [
       "MSME",
@@ -185,7 +185,8 @@
       "Udyam",
       "Filing Checklist",
       "Delayed Payment",
-      "Documents"
+      "Documents",
+      "MSME ODR"
     ],
     "thumbnail": "assets/img/citadel/citadel-thumb-msme-documents-checklist-approved-style.jpg",
     "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-msme-documents-checklist-approved-style-640.jpg"
@@ -213,7 +214,7 @@
     "href": "updates/prepare-msme-delayed-payment-claim.html",
     "category": "Practical Guide",
     "title": "How to prepare an MSME delayed-payment claim",
-    "excerpt": "Build a defensible MSEFC claim from supplier status, jurisdiction, invoice schedules, Section 15 due dates, payments, Section 16 interest, limitation and evidence.",
+    "excerpt": "Build a defensible MSEFC claim from eligibility, jurisdiction, invoice schedules, payments, interest, limitation and evidence before filing through MSME ODR.",
     "date": "October 2026",
     "tags": [
       "MSME",
@@ -224,7 +225,8 @@
       "Section 16",
       "Limitation",
       "Documents",
-      "Samadhaan"
+      "Samadhaan",
+      "MSME ODR"
     ],
     "thumbnail": "assets/img/citadel/citadel-thumb-msme-documents-checklist-approved-style.jpg",
     "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-msme-documents-checklist-approved-style-640.jpg"
@@ -233,7 +235,7 @@
     "href": "updates/delhi-msefc-filing-procedure-msme-delayed-payment.html",
     "category": "Practical Guide",
     "title": "Delhi MSEFC filing and procedure: MSME delayed payment guide",
-    "excerpt": "Delhi-specific MSEFC filing guide covering Samadhaan, the Delhi 2007 Rules, current Department contact, Council assignment, service, buyer reply, conciliation and arbitration.",
+    "excerpt": "Delhi-specific MSEFC filing guide covering MSME ODR, the 2007 Rules, Council assignment, service, buyer reply, conciliation and arbitration.",
     "date": "October 2026",
     "tags": [
       "Delhi",
@@ -244,7 +246,8 @@
       "Section 18",
       "Delayed Payment",
       "Filing",
-      "Procedure"
+      "Procedure",
+      "MSME ODR"
     ],
     "thumbnail": "assets/img/citadel/citadel-thumb-msme-facilitation-council-process-batch6-v2.jpg",
     "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-msme-facilitation-council-process-batch6-v2-640.jpg"
@@ -253,7 +256,7 @@
     "href": "updates/bihar-msefc-filing-procedure-msme-delayed-payment.html",
     "category": "Practical Guide",
     "title": "Bihar MSEFC filing and procedure: MSME delayed payment guide",
-    "excerpt": "Bihar-specific MSEFC filing guide covering Samadhaan, the 2007 State Rules, claim particulars, documents, fee, service, buyer response, conciliation and arbitration.",
+    "excerpt": "Bihar-specific MSEFC filing guide covering MSME ODR, State Rules, claim particulars, documents, fee, service, buyer response, conciliation and arbitration.",
     "date": "October 2026",
     "tags": [
       "Bihar",
@@ -264,7 +267,8 @@
       "Section 18",
       "Delayed Payment",
       "Filing",
-      "Procedure"
+      "Procedure",
+      "MSME ODR"
     ],
     "thumbnail": "assets/img/citadel/citadel-thumb-msme-facilitation-council-process-batch6-v2.jpg",
     "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-msme-facilitation-council-process-batch6-v2-640.jpg"
@@ -652,14 +656,15 @@
     "href": "updates/msme-facilitation-council-process.html",
     "category": "Procedure Note",
     "title": "MSME Facilitation Council process for delayed payments",
-    "excerpt": "Udyam records, invoices, 45-day issue, conciliation, arbitration, interest and enforcement preparation.",
+    "excerpt": "Udyam records, MSME ODR filing, invoices, payment deadlines, conciliation, arbitration, statutory interest and enforcement preparation.",
     "date": "May 2026",
     "tags": [
       "MSME",
       "MSEFC",
       "Delayed Payment",
       "Conciliation",
-      "Arbitration"
+      "Arbitration",
+      "MSME ODR"
     ],
     "thumbnail": "assets/img/citadel/citadel-thumb-msme-facilitation-council-process-batch6-v2.jpg",
     "cardThumbnail": "assets/img/citadel/cards/citadel-thumb-msme-facilitation-council-process-batch6-v2-640.jpg"
