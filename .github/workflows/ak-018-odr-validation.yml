@@ -1,0 +1,78 @@
+name: AK-018 ODR editorial candidate validation
+on:
+  push:
+    branches: [ak-018-odr-validation]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: '07e139f500a84c498db98cea81ce0ac31452a2d5'
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.4'
+      - name: Review exact scope and legacy records
+        run: |
+          git diff --check 270c3085497973b482aa2fd6032b28ab0409ae6b HEAD
+          git diff --stat 270c3085497973b482aa2fd6032b28ab0409ae6b HEAD
+          node tools/validate-article-encoding.js
+          node tools/validate-insights-registry.js --strict
+      - name: Scan all legacy public HTML for filing channel references
+        run: |
+          mkdir -p /tmp/ak-odr
+          git grep -in -E 'Samadhaan|MSME ODR|odr\.msme\.gov\.in' -- '*.html' ':!astro-site/**' > /tmp/ak-odr/filing-references.txt || test "$?" -eq 1
+          git grep -il -E 'Samadhaan' -- '*.html' ':!astro-site/**' || test "$?" -eq 1
+      - name: Build exact correction candidate
+        working-directory: astro-site
+        run: |
+          npm ci --no-audit --no-fund
+          node scripts/verify-legacy-inventory.mjs
+          npm run build:production
+          node scripts/test-production.mjs
+          node scripts/test-markdown.mjs
+          node scripts/test-security-headers.mjs
+          node scripts/test-emailjs.mjs
+      - name: Verify legacy revisions and draft exclusion
+        working-directory: astro-site
+        run: |
+          node --input-type=module - <<'NODE'
+          import assert from 'node:assert/strict';
+          import {readFileSync,existsSync} from 'node:fs';
+          import {execFileSync} from 'node:child_process';
+          const base='270c3085497973b482aa2fd6032b28ab0409ae6b';
+          const old=JSON.parse(execFileSync('git',['show',base+':assets/data/insights-registry.json'],{encoding:'utf8'}));
+          const now=JSON.parse(readFileSync('../assets/data/insights-registry.json','utf8'));
+          assert.deepEqual(old.map(a=>[a.href,a.date]),now.map(a=>[a.href,a.date]));
+          const manifest=JSON.parse(readFileSync('dist-production/release-manifest.json','utf8'));
+          assert.equal(manifest.release,'07e139f500a84c498db98cea81ce0ac31452a2d5');
+          assert.equal(Object.keys(manifest.urls).length,87);
+          const feed=readFileSync('dist-production/feed.xml','utf8');
+          const sitemap=readFileSync('dist-production/sitemap.xml','utf8');
+          assert.equal((feed.match(/<item>/g)||[]).length,51);
+          assert.ok(!existsSync('dist-production/updates/msme-odr-portal-filing-procedure.html'));
+          assert.ok(!feed.includes('msme-odr-portal-filing-procedure'));
+          assert.ok(!sitemap.includes('msme-odr-portal-filing-procedure'));
+          for(const slug of ['msme-samadhaan-filing-checklist','delhi-msefc-filing-procedure-msme-delayed-payment','bihar-msefc-filing-procedure-msme-delayed-payment','prepare-msme-delayed-payment-claim','msme-facilitation-council-process']){
+            const path='updates/'+slug+'.html', u='https://chambersofak.in/'+path;
+            const html=readFileSync('dist-production/'+path,'utf8');
+            assert.ok(html.includes('https://odr.msme.gov.in/'),slug+' missing ODR link');
+            assert.ok(html.includes('AU2139_aA64vJ.pdf'),slug+' missing parliamentary reference');
+            assert.ok(html.includes('2026-11-27'),slug+' missing modified date');
+            const entry=sitemap.match(/<url>[^]*?<\/url>/g).find(x=>x.includes('<loc>'+u+'</loc>'));
+            assert.ok(entry.includes('<lastmod>2026-11-27</lastmod>'),slug+' sitemap lastmod');
+          }
+          console.log('Five correction pages verified; all original registry dates preserved; 87 canonical URLs and 51 RSS entries; draft excluded.');
+          NODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: odr-reference-scan-and-candidate-manifest
+          path: |
+            /tmp/ak-odr/filing-references.txt
+            astro-site/dist-production/release-manifest.json
