@@ -1,0 +1,39 @@
+name: AK-015 approved initial IndexNow submission
+on:
+  push:
+    branches: [ak-015-indexnow-submit]
+permissions:
+  contents: read
+concurrency:
+  group: ak-015-initial-indexnow-submission
+  cancel-in-progress: false
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: astro-site
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 12a14aee8f0e55ec377ffdbf69f36e975043aee8
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.4'
+      - run: npm ci --no-audit --no-fund
+      - run: npm run build:production
+      - run: node scripts/test-seo-metadata.mjs
+      - name: Submit approved initial 87 canonical URLs after live checks
+        env:
+          AK_INDEXNOW_APPROVED: 'YES'
+        run: |
+          set -o pipefail
+          node scripts/indexnow-production.mjs --initial --send | tee indexnow-submission.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: indexnow-submission-response
+          path: |
+            astro-site/indexnow-submission.log
+            astro-site/dist-production/release-manifest.json
