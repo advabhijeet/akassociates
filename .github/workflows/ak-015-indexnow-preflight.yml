@@ -1,0 +1,45 @@
+name: AK-015 IndexNow preflight (no submission)
+on:
+  push:
+    branches: [ak-015-indexnow-preflight]
+permissions:
+  contents: read
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: astro-site
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 12a14aee8f0e55ec377ffdbf69f36e975043aee8
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.4'
+      - run: npm ci --no-audit --no-fund
+      - run: npm run build:production
+      - run: node scripts/test-seo-metadata.mjs
+      - name: IndexNow initial dry run
+        run: node scripts/indexnow-production.mjs --initial | tee indexnow-dry-run.json
+      - name: Verify exact live manifest before any future submission
+        run: |
+          node --input-type=module <<'JS'
+          import assert from 'node:assert/strict';
+          import {readFile} from 'node:fs/promises';
+          const local=JSON.parse(await readFile('dist-production/release-manifest.json','utf8'));
+          const r=await fetch('https://chambersofak.in/release-manifest.json',{redirect:'manual',signal:AbortSignal.timeout(20000)});
+          assert.equal(r.status,200);
+          const live=await r.json();
+          assert.equal(live.release,local.release);
+          assert.deepEqual(live,local,'Rebuilt candidate differs from live manifest');
+          console.log('Verified exact deployed release and all '+Object.keys(local.urls).length+' page hashes.');
+          JS
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: indexnow-preflight
+          path: |
+            astro-site/indexnow-dry-run.json
+            astro-site/dist-production/release-manifest.json
