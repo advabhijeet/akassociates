@@ -4,7 +4,7 @@ Reviewed 27 November 2026. Baseline 08c6a7d74de8755681ea85ed87514ca75ac2e008, M0
 - Owner-supplied Act 16/2026 section 5 (substituted principal section 8), commencement notification S.O. 5575(E); distinguish statutory registration from supplier definition and remedies. Verify actual registration regime for each transaction.
 - Existing guide updates only if separately reviewed; retain URLs. Proposed contextual link from registration guide and buyer defence after M02 is published in candidate. No client-derived facts in examples.
 - Artwork: original Citadel landscape 16:9, ivory/navy/gold, readable serif heading "MSME REGISTRATION", subtitle "Before or After Contract?", illustrated contract, registration certificate, timeline and legal desk (generic documents, no fabricated official certificate). Require 1200x675 and 640x360 JPEG, verify actual dimensions, then update frontmatter paths and alt. Current art references provisional. Actual approved publication date at release.
-- Owner editorial approval, exact pinned candidate build, 53 RSS/89 sitemap/55 Markdown expected if baseline unchanged, no draft fixture leakage, preserve existing URLs/dates, verify new links, images and related/home/archive/metadata. Live audit, then approved scoped IndexNow. Do not promote just to test. 
+- Owner editorial approval, exact pinned candidate build, 53 RSS/89 sitemap/55 Markdown expected if baseline unchanged, no draft fixture leakage, preserve existing URLs/dates, verify new links, images and related/home/archive/metadata. Live audit, then approved scoped IndexNow. Do not promote just to test.
 
 ## Candidate preparation
 - Owner uploaded approved artwork in 3a073f5; both blob paths confirmed. Pixel validation remains a CI gate.
