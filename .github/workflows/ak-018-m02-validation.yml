@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: 'a7d5617f63ef4d54478b5e370f1bc05554c9bfba'
+          ref: 'dcd48222df09dc1dffce1d9beb4eba49785328ae'
           fetch-depth: 0
           persist-credentials: false
       - uses: actions/setup-node@v4
@@ -51,7 +51,7 @@ jobs:
           const slug='msme-registration-after-contract-supply';
           const path='updates/'+slug+'.html',url=origin+'/'+path;
           assert.equal(before.release,'08c6a7d74de8755681ea85ed87514ca75ac2e008');
-          assert.equal(after.release,'a7d5617f63ef4d54478b5e370f1bc05554c9bfba');
+          assert.equal(after.release,'dcd48222df09dc1dffce1d9beb4eba49785328ae');
           assert.equal(Object.keys(before.urls).length,88);
           assert.equal(Object.keys(after.urls).length,89);
           assert.deepEqual(Object.keys(after.urls).filter(u=>!before.urls[u]),[url]);
