@@ -1,7 +1,7 @@
 name: AK-016 AI readiness candidate
 on:
   push:
-    branches: [ak-016-ai-readiness, astro-migration]
+    branches: [ak-016-ai-readiness, ak-016-security-headers, astro-migration]
     paths:
       - 'robots.txt'
       - 'astro-site/**'
@@ -25,3 +25,13 @@ jobs:
       - run: npm run build:production
       - run: node scripts/test-production.mjs
       - run: node scripts/test-markdown.mjs
+      - run: node scripts/test-security-headers.mjs
+      - run: npm install --no-save --package-lock=false playwright
+      - run: npx playwright install chromium
+      - name: Verify browser compatibility with security headers
+        run: |
+          if ! node --input-type=module -e "import { chromium } from 'playwright'; const b=await chromium.launch(); await b.close();"; then
+            sudo apt-get update -o Acquire::Retries=3
+            npx playwright install-deps chromium
+          fi
+          node scripts/test-production-browser.mjs

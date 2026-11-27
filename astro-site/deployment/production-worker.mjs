@@ -1,7 +1,8 @@
 import preview from './worker.mjs';
 import {eligible,markdownPath,wantsMarkdown} from './markdown-negotiation.mjs';
+import {secureResponse} from './security-headers.mjs';
 const origin='https://chambersofak.in';
-export default {async fetch(request,env){
+async function serve(request,env){
  const u=new URL(request.url);
  if(u.origin!==origin){
   if(u.origin==='https://www.chambersofak.in'&&['GET','HEAD'].includes(request.method)){u.hostname='chambersofak.in';return new Response(null,{status:301,headers:{Location:u.href}});}
@@ -24,4 +25,5 @@ export default {async fetch(request,env){
   }
  }
  return new Response(r.body,{status:r.status,headers});
-}};
+}
+export default {async fetch(request,env){return secureResponse(await serve(request,env));}};

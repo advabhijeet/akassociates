@@ -2,6 +2,7 @@ import {chromium} from 'playwright';
 import {readFile} from 'node:fs/promises';
 import {resolve,extname,sep} from 'node:path';
 import assert from 'node:assert/strict';
+import {securityHeaders} from '../deployment/security-headers.mjs';
 const root=resolve('dist-production'),origin='https://chambersofak.in';
 const types={'.html':'text/html; charset=utf-8','.css':'text/css','.js':'text/javascript','.mjs':'text/javascript','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.webp':'image/webp','.svg':'image/svg+xml','.woff2':'font/woff2','.ico':'image/x-icon','.json':'application/json'};
 const browser=await chromium.launch({headless:true});
@@ -14,9 +15,9 @@ await page.route('**/*',async route=>{const req=route.request(),u=new URL(req.ur
  if(u.origin!==origin)return route.abort();
  const f=resolve(root,'.'+(u.pathname==='/'?'/index.html':decodeURIComponent(u.pathname)));
  if(!f.startsWith(root+sep))return route.abort();
- try{return route.fulfill({status:200,contentType:types[extname(f)]||'application/octet-stream',body:await readFile(f)});}catch{return route.fulfill({status:404,body:'missing'});}
+ try{return route.fulfill({status:200,headers:securityHeaders,contentType:types[extname(f)]||'application/octet-stream',body:await readFile(f)});}catch{return route.fulfill({status:404,body:'missing'});}
 });
-await page.goto(origin+'/contact.html');const form=page.locator('[data-contact-dynamic-form]');
+const navigation=await page.goto(origin+'/contact.html');assert.equal(navigation.headers()['x-frame-options'],'DENY');assert.match(navigation.headers()['content-security-policy'],/frame-ancestors 'none'/);const form=page.locator('[data-contact-dynamic-form]');
 assert.equal(tags,0);await page.locator('[data-analytics-deny]').click();assert.equal(tags,0);
 await form.locator('[data-matter-type]').selectOption('msme');await form.locator('[name=email]').fill('mock@example.invalid');await form.locator('[name=summary]').fill('Synthetic test message, not a real enquiry');await form.locator('[data-form-consent]').check();
 await form.locator('[data-generate-enquiry]').click();assert.equal(submissions.length,0);assert.ok(await form.locator('[data-emailjs-send]').isEnabled());
