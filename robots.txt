@@ -3,6 +3,7 @@
 # Search and user-requested retrieval bots are distinct from model-training crawlers.
 
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 
 # Google Search and advertising crawler
@@ -37,7 +38,7 @@ User-agent: Claude-User
 Allow: /
 
 # Model-training crawlers are not separately configured here.
-# The wildcard Allow: / policy remains unchanged for those crawlers.
-# A training opt-out would be a separate publisher decision.
+# Fetch access remains open, but the Content-Signal above reserves AI training use.
+# Content Signals communicate usage preferences; they do not enforce access restrictions.
 
 Sitemap: https://chambersofak.in/sitemap.xml

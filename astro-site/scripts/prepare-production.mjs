@@ -3,6 +3,7 @@ import {resolve} from 'node:path';
 import {createHash} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
 import assert from 'node:assert/strict';
+import {generateMarkdown} from './generate-markdown.mjs';
 const src=resolve('dist'),out=resolve('dist-production'),origin='https://chambersofak.in';
 const release=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();assert.match(release,/^[a-f0-9]{40}$/);
 const sitemap=await readFile(resolve(src,'sitemap.xml'),'utf8');
@@ -20,6 +21,7 @@ for(const url of urls){const u=new URL(url);assert.equal(u.origin,origin);assert
  if(u.pathname==='/privacy-policy.html')html=html.replace('This website uses Google Tag Manager and Google Analytics 4 to understand basic website usage','Optional analytics use Google Tag Manager and Google Analytics 4 only after visitors allow analytics. Analytics preferences can be changed using the control below the footer. These tools help understand basic website usage');
  await writeFile(f,html);hashes[url]=createHash('sha256').update(html).digest('hex');
 }
+await generateMarkdown(out,urls);
 await writeFile(resolve(out,'robots.txt'),await readFile('../robots.txt','utf8'));
 await writeFile(resolve(out,'_headers'),'/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n');
 await writeFile(resolve(out,'release-manifest.json'),JSON.stringify({release,urls:hashes},null,2)+'\n');
