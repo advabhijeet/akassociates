@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: '18cedce6e30f7b2db7ed16cb0b47eef63efaea84'
+          ref: '08c6a7d74de8755681ea85ed87514ca75ac2e008'
           fetch-depth: 0
           persist-credentials: false
       - uses: actions/setup-node@v4
@@ -40,7 +40,7 @@ jobs:
           node scripts/test-markdown.mjs
           node scripts/test-security-headers.mjs
           node scripts/test-emailjs.mjs
-      - name: Verify legacy revisions and draft exclusion
+      - name: Verify legacy revisions and actual native publication
         working-directory: astro-site
         run: |
           node --input-type=module - <<'NODE'
@@ -52,14 +52,34 @@ jobs:
           const now=JSON.parse(readFileSync('../assets/data/insights-registry.json','utf8'));
           assert.deepEqual(old.map(a=>[a.href,a.date]),now.map(a=>[a.href,a.date]));
           const manifest=JSON.parse(readFileSync('dist-production/release-manifest.json','utf8'));
-          assert.equal(manifest.release,'18cedce6e30f7b2db7ed16cb0b47eef63efaea84');
-          assert.equal(Object.keys(manifest.urls).length,87);
+          assert.equal(manifest.release,'08c6a7d74de8755681ea85ed87514ca75ac2e008');
+          assert.equal(Object.keys(manifest.urls).length,88);
           const feed=readFileSync('dist-production/feed.xml','utf8');
           const sitemap=readFileSync('dist-production/sitemap.xml','utf8');
-          assert.equal((feed.match(/<item>/g)||[]).length,51);
-          assert.ok(!existsSync('dist-production/updates/msme-odr-portal-filing-procedure.html'));
-          assert.ok(!feed.includes('msme-odr-portal-filing-procedure'));
-          assert.ok(!sitemap.includes('msme-odr-portal-filing-procedure'));
+          assert.equal((feed.match(/<item>/g)||[]).length,52);
+          const slug='msme-odr-portal-filing-procedure';
+          const url='https://chambersofak.in/updates/'+slug+'.html';
+          const html=readFileSync('dist-production/updates/'+slug+'.html','utf8');
+          assert.ok(manifest.urls[url]);
+          assert.ok(html.includes(url));
+          assert.ok(html.includes('MSME ODR Portal: How to File a Delayed Payment Claim in 2026'));
+          assert.ok(html.includes('citadel-thumb-'+slug+'.jpg'));
+          assert.ok(html.includes('BlogPosting'));
+          assert.ok(html.includes('AU2139_aA64vJ.pdf'));
+          assert.ok(html.includes('277080.pdf'));
+          assert.ok(feed.includes(url));
+          assert.ok(sitemap.includes('<loc>'+url+'</loc>'));
+          assert.ok(readFileSync('dist-production/index.html','utf8').includes(slug));
+          assert.ok(readFileSync('dist-production/legal-updates.html','utf8').includes(slug));
+          assert.ok(existsSync('dist-production/_ak-markdown/updates/'+slug+'.html.md'));
+          assert.ok(!sitemap.includes('publishing-example'));
+          assert.ok(!feed.includes('publishing-example'));
+          const oldFeed=execFileSync('git',['show',base+':feed.xml'],{encoding:'utf8'});
+          const items=s=>new Map([...s.matchAll(/<item>([\s\S]*?)<\/item>/g)].map(m=>[m[1].match(/<guid[^>]*>(.*?)<\/guid>/)?.[1],m[1].match(/<pubDate>(.*?)<\/pubDate>/)?.[1]]));
+          const freshItems=items(feed);
+          for(const [guid,date] of items(oldFeed))assert.equal(Date.parse(freshItems.get(guid)),Date.parse(date),guid);
+          assert.ok(readFileSync('dist-production/updates/bihar-msefc-filing-procedure-msme-delayed-payment.html','utf8').includes('1320_2_2026.pdf'));
+          console.log('Native article present in HTML, archive, homepage, RSS, sitemap and Markdown; legacy GUIDs and dates retained.');
           for(const slug of ['msme-samadhaan-filing-checklist','delhi-msefc-filing-procedure-msme-delayed-payment','bihar-msefc-filing-procedure-msme-delayed-payment','prepare-msme-delayed-payment-claim','msme-facilitation-council-process']){
             const path='updates/'+slug+'.html', u='https://chambersofak.in/'+path;
             const html=readFileSync('dist-production/'+path,'utf8');
@@ -75,8 +95,34 @@ jobs:
             assert.ok(html.includes('AU2139_aA64vJ.pdf'),p+' missing parliamentary source');
           }
           assert.ok(readFileSync('dist-production/updates/msme-delayed-payment-vs-civil-suit-vs-arbitration.html','utf8').includes('initial ODR filing'));
-          console.log('Eleven corrected pages verified; all original registry dates preserved; 87 canonical URLs and 51 RSS entries; draft excluded.');
+          console.log('Eleven corrected pages verified; all original registry dates preserved; 88 canonical URLs and 52 RSS entries; native article included.');
           NODE
+      - name: Verify exact uploaded JPEG dimensions
+        working-directory: astro-site
+        run: |
+          python - <<'PY'
+          import struct
+          from pathlib import Path
+          def dims(p):
+              b=p.read_bytes()
+              assert b[:2]==b'\xff\xd8', p
+              i=2
+              while i<len(b)-4:
+                  if b[i]!=255: raise ValueError(p)
+                  while b[i]==255: i+=1
+                  marker=b[i]; i+=1
+                  if marker in (0xd8,0xd9): continue
+                  n=int.from_bytes(b[i:i+2],'big')
+                  if marker in (0xc0,0xc1,0xc2,0xc3):
+                      h,w=struct.unpack('>HH',b[i+3:i+7]); return w,h
+                  i+=n
+              raise ValueError(p)
+          for rel,expected in [('citadel-thumb-msme-odr-portal-filing-procedure.jpg',(1200,675)),('cards/citadel-thumb-msme-odr-portal-filing-procedure-640.jpg',(640,360))]:
+              for root in ('public','dist-production'):
+                  p=Path(root)/'assets/img/citadel'/rel
+                  assert dims(p)==expected, (p,dims(p))
+                  print(p,expected)
+          PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:
