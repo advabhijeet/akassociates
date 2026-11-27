@@ -1,0 +1,72 @@
+name: AK-017 isolated documentation release validation
+on:
+  push:
+    branches: [ak-017-closure-validation]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: '270c3085497973b482aa2fd6032b28ab0409ae6b'
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.4'
+      - name: Verify candidate contains documentation changes only
+        run: |
+          git diff --name-only 9e79bec8ecac701c59964ad0e5000dafed42fd5a HEAD > /tmp/ak-doc-diff.txt
+          cat /tmp/ak-doc-diff.txt
+          test "$(wc -l < /tmp/ak-doc-diff.txt)" -eq 7
+          if grep -vE '^astro-site/.*\.md$' /tmp/ak-doc-diff.txt; then exit 1; fi
+          git diff --check 9e79bec8ecac701c59964ad0e5000dafed42fd5a HEAD
+      - name: Build and test pinned candidate
+        working-directory: astro-site
+        run: |
+          npm ci --no-audit --no-fund
+          node scripts/verify-legacy-inventory.mjs
+          npm run build:production
+          node scripts/test-production.mjs
+          node scripts/test-markdown.mjs
+          node scripts/test-security-headers.mjs
+          node scripts/test-emailjs.mjs
+      - name: Compare candidate HTML hashes with exact previous release
+        run: |
+          git worktree add --detach /tmp/ak-baseline 9e79bec8ecac701c59964ad0e5000dafed42fd5a
+          (cd /tmp/ak-baseline/astro-site && npm ci --no-audit --no-fund && npm run build:production)
+          node --input-type=module - <<'NODE'
+          import assert from 'node:assert/strict';
+          import {readFileSync} from 'node:fs';
+          const a=JSON.parse(readFileSync('/tmp/ak-baseline/astro-site/dist-production/release-manifest.json','utf8'));
+          const b=JSON.parse(readFileSync('astro-site/dist-production/release-manifest.json','utf8'));
+          assert.equal(a.release,'9e79bec8ecac701c59964ad0e5000dafed42fd5a');
+          assert.equal(b.release,'270c3085497973b482aa2fd6032b28ab0409ae6b');
+          assert.deepEqual(b.urls,a.urls);
+          console.log('Identical canonical HTML hashes for '+Object.keys(b.urls).length+' URLs. Only release identifier differs in manifest.');
+          NODE
+      - name: Browser tests on pinned candidate
+        working-directory: astro-site
+        run: |
+          npm install --no-save --package-lock=false playwright
+          npx playwright install chromium
+          if ! node --input-type=module -e "import { chromium } from 'playwright'; const b=await chromium.launch(); await b.close();"; then
+            sudo apt-get update -o Acquire::Retries=3
+            npx playwright install-deps chromium
+          fi
+          node scripts/test-production-browser.mjs
+      - name: Disposable publishing smoke test
+        working-directory: astro-site
+        run: node scripts/test-publishing.mjs
+      - name: Preserve candidate and baseline manifests
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ak-017-closure-manifests
+          path: |
+            astro-site/dist-production/release-manifest.json
+            /tmp/ak-baseline/astro-site/dist-production/release-manifest.json
+          if-no-files-found: warn
