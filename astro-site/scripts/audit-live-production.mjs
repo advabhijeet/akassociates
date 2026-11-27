@@ -3,7 +3,7 @@ import {createHash} from 'node:crypto';
 import {lookup} from 'node:dns/promises';
 import assert from 'node:assert/strict';
 const origin='https://chambersofak.in', www='https://www.chambersofak.in';
-const expectedRelease='ee9f1555fab790a194c2a0cb2aa171e1d116382f';
+const expectedRelease='49163f9c381423fd7d63f5c43dee69a267e68020';
 const inv=JSON.parse(await readFile(new URL('../migration/legacy-inventory.json',import.meta.url),'utf8'));
 const urls=[...inv.sitemap.map(u=>new URL(u,origin).href),origin+'/legal-tools.html'];
 assert.equal(urls.length,87);assert.equal(new Set(urls).size,87);
@@ -43,6 +43,8 @@ for(const u of urls)add('canonical',u,async r=>{
  const ld=[...html.matchAll(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)];
  for(const l of ld)JSON.parse(l[1]);if(!ld.length)report.warnings.push({url:u,note:'No JSON-LD script present; assess applicability separately'});
  assert.ok(manifest?.urls?.[u],'missing manifest hash');assert.equal(createHash('sha256').update(html).digest('hex'),manifest.urls[u],'live HTML hash differs from manifest');
+ if(u===origin+'/contact.html'){assert.ok(html.includes('data-captcha-load'));assert.ok(html.includes('data-captcha-widget'));assert.ok(html.includes('g-recaptcha-response'));assert.ok(html.includes('6LduzDQuAAAAALtanZT4xKZnzw7zHOJsj2wpsC8_'));assert.ok(!/<script[^>]+src=["']https:\/\/www\.google\.com\/recaptcha\/api\.js/i.test(html),'CAPTCHA loaded before explicit action');}
+ if(u===origin+'/privacy-policy.html')assert.ok(html.includes('Google reCAPTCHA'));
  return {title,jsonLd:ld.length};
 });
 const aliases={'/services/cheque-bounce-lawyer-bihar.html':'/services/cheque-bounce-lawyer-patna.html','/services/civil-litigation-lawyer-bihar.html':'/services/civil-litigation-lawyer-patna.html','/services/msme-recovery-lawyer-delhi.html':'/services/msme-recovery-lawyer-delhi-ncr.html','/services/property-dispute-lawyer-bihar.html':'/services/property-dispute-lawyer-patna.html','/practice':'/practice.html','/index.html':'/'};
