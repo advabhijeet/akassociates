@@ -3,7 +3,7 @@ import {createHash} from 'node:crypto';
 import {lookup} from 'node:dns/promises';
 import assert from 'node:assert/strict';
 const origin='https://chambersofak.in', www='https://www.chambersofak.in';
-const expectedRelease='12a14aee8f0e55ec377ffdbf69f36e975043aee8';
+const expectedRelease='8b0016dd20e0cc87c601350d2238f0859e3d704c';
 const inv=JSON.parse(await readFile(new URL('../migration/legacy-inventory.json',import.meta.url),'utf8'));
 const urls=[...inv.sitemap.map(u=>new URL(u,origin).href),origin+'/legal-tools.html'];
 assert.equal(urls.length,87);assert.equal(new Set(urls).size,87);
@@ -47,6 +47,24 @@ add('verification',origin+'/google3164979181871a1d.html',async r=>{assert.equal(
 const key='5c688070aeba92b5256f3a4590fd4c6e.txt';
 add('verification',origin+'/'+key,async r=>{assert.equal(r.status,200);assert.equal((await r.text()).trim(),key.replace('.txt',''));});
 for(let i=0;i<checks.length;i+=6)await Promise.all(checks.slice(i,i+6).map(run));
+
+const mdEligible=p=>p==='/'||p==='/legal-updates.html'||/^\/updates\/[a-z0-9-]+\.html$/.test(p);
+const mdUrls=urls.filter(u=>mdEligible(new URL(u).pathname));
+const mdGet=(u,accept='text/markdown',method='GET')=>fetch(u,{method,redirect:'manual',signal:AbortSignal.timeout(25000),headers:{'User-Agent':'Chambers-of-AK-post-launch-audit/1.0',Accept:accept}});
+for(let i=0;i<mdUrls.length;i+=6)await Promise.all(mdUrls.slice(i,i+6).map(async url=>{
+ try{
+ const r=await mdGet(url);assert.equal(r.status,200);assert.match(r.headers.get('content-type')||'',/^text\/markdown/i);assert.match(r.headers.get('vary')||'',/Accept/i);assert.match(r.headers.get('cache-control')||'',/no-store/i);robotsOK(r);assert.equal(r.headers.get('link'),'<'+url+'>; rel="canonical"');
+ const body=await r.text();assert.ok(body.startsWith('Source: '+url+'\n'));assert.ok(body.length>200);if(url.includes('/updates/'))assert.match(body,/General information only; not legal advice or solicitation/);
+ const p=new URL(url).pathname,internal=origin+'/_ak-markdown'+(p==='/'?'/index.html':p)+'.md';assert.equal((await mdGet(internal)).status,404);
+ const head=await mdGet(url,'text/markdown','HEAD');assert.equal(head.status,200);assert.match(head.headers.get('content-type')||'',/^text\/markdown/i);assert.equal(await head.text(),'');
+ const html=await mdGet(url,'text/html');assert.equal(html.status,200);assert.match(html.headers.get('content-type')||'',/text\/html/i);assert.equal(createHash('sha256').update(await html.text()).digest('hex'),manifest.urls[url]);
+ report.results.push({group:'markdown',url,pass:true,status:r.status});
+ }catch(e){report.results.push({group:'markdown',url,pass:false,error:String(e.message||e)});}
+}));
+for(const [path,accept,status,type] of [['/','text/markdown;q=0,text/html',200,'text/html'],['/','*/*',200,'text/html'],['/legal-tools.html','text/markdown',200,'text/html'],['/design-system.html','text/markdown',404,null],['/index.html','text/markdown',301,null]]){
+ try{const r=await mdGet(origin+path,accept);assert.equal(r.status,status);if(type)assert.ok((r.headers.get('content-type')||'').includes(type));report.results.push({group:'negotiation',url:origin+path,pass:true,status:r.status});}catch(e){report.results.push({group:'negotiation',url:origin+path,pass:false,error:String(e.message||e)});}
+}
+
 const groups={};for(const r of report.results){const g=groups[r.group]??={passed:0,failed:0};g[r.pass?'passed':'failed']++;}
 report.groups=groups;report.failures=report.results.filter(r=>!r.pass);report.passed=report.results.length-report.failures.length;report.total=report.results.length;
 const titles=new Map();for(const r of report.results.filter(r=>r.title)){if(titles.has(r.title))report.warnings.push({url:r.url,note:'Duplicate title with '+titles.get(r.title)});else titles.set(r.title,r.url);}
