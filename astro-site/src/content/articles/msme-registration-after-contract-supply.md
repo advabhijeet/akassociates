@@ -8,7 +8,7 @@ category: "Practical Guide"
 tags: ["MSME", "MSEFC", "Udyam Registration", "Supplier Eligibility", "Section 18", "Jurisdiction", "Delayed Payment", "Case Law"]
 author: "Chambers of AK"
 published: "2026-11-27T00:00:00+05:30"
-modified: "2026-11-27T00:00:00+05:30"
+modified: "2026-11-28T00:00:00+05:30"
 thumbnail: "assets/img/citadel/citadel-thumb-msme-registration-after-contract-supply.jpg"
 cardThumbnail: "assets/img/citadel/cards/citadel-thumb-msme-registration-after-contract-supply-640.jpg"
 imageAlt: "Watercolour editorial illustration of a contract, generic MSME registration document, timeline and legal books"
@@ -64,6 +64,8 @@ Check the current status of the Supreme Court reference, connected matters and l
 Amendment Act No. 16 of 2026, section 5, substitutes Section 8 of the principal Act. The new text provides for free and voluntary registration through a notified national digital platform, with a corresponding provision for State platforms. Section 2 of the Amendment Act modifies several definitions but does not expressly substitute Section 2(n).
 
 S.O. 5575(E) dated 12 October 2026 commenced Amendment Act sections 2–7, 11 and 13–17 on 15 October 2026. That includes the new Section 8. Amendment Act sections 8–10, dealing with the dispute-resolution, enforcement and award-challenge provisions, were not assigned a commencement date by that notification.
+
+For the full effective-date matrix and statutory changes, see our [MSMED Amendment Act 2026 commencement guide](/updates/msmed-amendment-act-2026.html).
 
 The new registration wording must be analysed alongside the supplier definition and Chapter V. Voluntary registration as a general administrative matter does not necessarily answer the distinct legal question of special delayed-payment remedies. Nor does the amendment expressly declare all historical supplies eligible merely because registration was subsequently obtained. Check transitional provisions and subsequent notifications and case law.
 
