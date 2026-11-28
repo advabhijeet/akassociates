@@ -8,7 +8,7 @@ category: "Practical Guide"
 tags: ["MSME", "MSEFC", "MSME ODR", "Samadhaan", "Delayed Payment", "Section 18", "Filing", "Documents", "Buyer Defence"]
 author: "Chambers of AK"
 published: "2026-11-27T00:00:00+05:30"
-modified: "2026-11-27T00:00:00+05:30"
+modified: "2026-11-28T00:00:00+05:30"
 thumbnail: "assets/img/citadel/citadel-thumb-msme-odr-portal-filing-procedure.jpg"
 cardThumbnail: "assets/img/citadel/cards/citadel-thumb-msme-odr-portal-filing-procedure-640.jpg"
 imageAlt: "Watercolour illustration of a laptop with a generic filing form, invoices and legal books beside the MSME ODR Portal headline"
@@ -145,6 +145,8 @@ Do not duplicate a pending reference without first resolving its status. Retain 
 ## Current statutory transition
 
 The MSMED (Amendment) Act, 2026 (Act No. 16 of 2026), section 1(2), permits phased commencement. S.O. 5575(E) dated 12 October 2026 expressly appoints 15 October 2026 for sections 2–7, 11 and 13–17, and 15 December 2026 for section 12 of the Amendment Act. It does not appoint commencement dates for sections 8, 9 or 10, which concern changes to section 18 (including online dispute resolution), proposed section 18A (enforcement) and substitution of section 19 (award challenges). The October 2025 portal transition is distinct from those statutory amendments. Do not apply the amended dispute-resolution timelines, land-revenue recovery provision or substituted pre-deposit provisions solely on the basis of the October 2026 notification. The principal Act and Mediation Act commencement position must be checked together with any later notifications and the Council's directions in the particular case.
+
+For the full effective-date matrix and statutory changes, see our [MSMED Amendment Act 2026 commencement guide](/updates/msmed-amendment-act-2026.html).
 
 ## References / Sources
 

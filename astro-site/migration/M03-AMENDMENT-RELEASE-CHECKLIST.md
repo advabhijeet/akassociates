@@ -16,3 +16,8 @@ Baseline: dcd48222df09dc1dffce1d9beb4eba49785328ae (M02 live audit 167/167; Inde
 Original editorial watercolor in navy/ivory/gold; title MSMED AMENDMENT ACT 2026, subtitle Effective Dates & Key Changes; generic legal book, calendar and document, no simulated official government seal. Approve design; prepare 1200x675 and 640x360 JPEGs and verify dimensions. Temporary image paths remain until artwork uploaded.
 
 Final legal/editorial approval, pinned exact candidate build and legacy preservation checks. Expected 90 canonical URLs, 54 RSS articles, 56 Markdown routes if baseline unchanged. Resolve internal links by destination and anchor text, not spelling. Preserve existing canonical URLs and original publication dates. Retain previous manifest, guarded fast-forward, independent live audit and narrowly scoped IndexNow after audit. No production change before all gates pass.
+
+## Candidate preparation — 28 November 2026
+- Owner artwork commit 0703f00 verified: only two JPEG additions. Dimensions checked by CI.
+- Rechecked S.O. 5575(E) and S.O. 3507(E) against indexed notification texts; no later commencement for sections 8–10 verified. Earlier source-access limitations remain. Bihar Rule 9(iii) mixed-buyer rule and Rule 10(ii) physical filing verified from supplied English text p. 17.
+- Six contextual inbound links: four legacy pages plus M01 and M02; post-award guide updated from 5 October status to 28 November commencement review. Original publication dates and canonical URLs retained; relevant modification dates updated. Candidate native publication enabled only on isolated branch for validation. Await final editorial approval, exact CI and guarded promotion.

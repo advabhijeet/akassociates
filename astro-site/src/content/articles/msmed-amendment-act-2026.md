@@ -7,12 +7,12 @@ excerpt: "The 2026 amendment is being implemented in phases. Distinguish the pro
 category: "Legal Update"
 tags: ["MSME", "MSMED Amendment Act 2026", "MSEFC", "TReDS", "Section 18", "Section 19", "Gazette", "Commencement"]
 author: "Chambers of AK"
-published: "2026-11-27T00:00:00+05:30"
-modified: "2026-11-27T00:00:00+05:30"
+published: "2026-11-28T00:00:00+05:30"
+modified: "2026-11-28T00:00:00+05:30"
 thumbnail: "assets/img/citadel/citadel-thumb-msmed-amendment-act-2026.jpg"
 cardThumbnail: "assets/img/citadel/cards/citadel-thumb-msmed-amendment-act-2026-640.jpg"
 imageAlt: "Watercolour illustration of the MSMED Amendment Act, legal books, scales and a phased commencement calendar"
-draft: true
+draft: false
 ---
 
 ## The amendment is not a single-date change
@@ -118,7 +118,7 @@ Amendment Act sections 15 and 16 expand Central and State rule-making powers und
 
 ## Bihar's Rules, 2026: the commencement issue in practice
 
-The Bihar Gazette dated 29 October 2026 (Extraordinary No. 1320) publishes revised MSEFC Rules that supersede the 2007 Rules and provide for District Councils and a State Apex Council. Rule 9 assigns intra-Bihar buyer disputes to the supplier's district and disputes involving buyers outside Bihar to the State Council. Rule 14 introduces a processing-fee reference to the Fourth Schedule of the Arbitration and Conciliation Act, 1996.
+The Bihar Gazette dated 29 October 2026 (Extraordinary No. 1320) publishes revised MSEFC Rules that supersede the 2007 Rules and provide for District Councils and a State Apex Council. Rule 9 allocates references involving a supplier officially addressed in Bihar to the relevant District Council when the buyer is within Bihar, and to the State Council when any buyer is outside Bihar (including mixed-buyer references). Rule 14 introduces a processing-fee reference to the Fourth Schedule of the Arbitration and Conciliation Act, 1996.
 
 The published Rules expressly state immediate effect from Gazette publication under Rule 1(ii). The State Council and District Council allocation is set out in Rule 9, and physical filing remains an option under Rule 10. Confirm actual constitution, filing arrangements and any case-specific directions before relying on the new allocation. The published Rules also reproduce several features of the enacted Central changes to mediation, arbitration, enforcement, challenge jurisdiction and Council composition. Their publication does not itself commence the corresponding Central provisions. Assess delegated legislative authority, compatibility with operative Central law, actual constitution of Councils and the applicable transition on a provision-by-provision basis. Do not assume either automatic validity of every procedure or invalidity of the whole instrument without legal analysis.
 
