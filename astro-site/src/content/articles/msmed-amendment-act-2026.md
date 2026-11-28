@@ -9,9 +9,9 @@ tags: ["MSME", "MSMED Amendment Act 2026", "MSEFC", "TReDS", "Section 18", "Sect
 author: "Chambers of AK"
 published: "2026-11-27T00:00:00+05:30"
 modified: "2026-11-27T00:00:00+05:30"
-thumbnail: "assets/img/citadel/citadel-thumb-msme-facilitation-council-process-batch6-v2.jpg"
-cardThumbnail: "assets/img/citadel/cards/citadel-thumb-msme-facilitation-council-process-batch6-v2-640.jpg"
-imageAlt: "Editorial illustration of legal documents and Facilitation Council proceedings"
+thumbnail: "assets/img/citadel/citadel-thumb-msmed-amendment-act-2026.jpg"
+cardThumbnail: "assets/img/citadel/cards/citadel-thumb-msmed-amendment-act-2026-640.jpg"
+imageAlt: "Watercolour illustration of the MSMED Amendment Act, legal books, scales and a phased commencement calendar"
 draft: true
 ---
 
