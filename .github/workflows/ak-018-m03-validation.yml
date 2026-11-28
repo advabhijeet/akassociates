@@ -1,0 +1,128 @@
+name: AK-018 M03 exact publication candidate validation
+on:
+  push:
+    branches: [ak-018-m03-validation]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: '8223a6c75fd59b49c60802b4928f1c2c6aa3e5d4'
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.4'
+      - name: Verify scope and legacy sources
+        run: |
+          git diff --check dcd48222df09dc1dffce1d9beb4eba49785328ae HEAD
+          git diff --stat dcd48222df09dc1dffce1d9beb4eba49785328ae HEAD
+          node tools/validate-article-encoding.js
+          node tools/validate-insights-registry.js --strict
+      - name: Independently build previous release
+        run: |
+          git worktree add --detach /tmp/ak-previous dcd48222df09dc1dffce1d9beb4eba49785328ae
+          (cd /tmp/ak-previous/astro-site && npm ci --no-audit --no-fund && npm run build:production)
+      - name: Build and test exact candidate
+        working-directory: astro-site
+        run: |
+          npm ci --no-audit --no-fund
+          node scripts/verify-legacy-inventory.mjs
+          npm run build:production
+          node scripts/test-production.mjs
+          node scripts/test-markdown.mjs
+          node scripts/test-security-headers.mjs
+          node scripts/test-emailjs.mjs
+      - name: Verify native publication, legacy preservation and reciprocal links
+        working-directory: astro-site
+        run: |
+          node --input-type=module - <<'NODE'
+          import assert from 'node:assert/strict';
+          import {readFileSync,existsSync} from 'node:fs';
+          const old='/tmp/ak-previous/astro-site/dist-production/';
+          const cur='dist-production/';
+          const before=JSON.parse(readFileSync(old+'release-manifest.json','utf8'));
+          const after=JSON.parse(readFileSync(cur+'release-manifest.json','utf8'));
+          const origin='https://chambersofak.in';
+          const slug='msmed-amendment-act-2026';
+          const path='updates/'+slug+'.html',url=origin+'/'+path;
+          assert.equal(before.release,'dcd48222df09dc1dffce1d9beb4eba49785328ae');
+          assert.equal(after.release,'8223a6c75fd59b49c60802b4928f1c2c6aa3e5d4');
+          assert.equal(Object.keys(before.urls).length,89);
+          assert.equal(Object.keys(after.urls).length,90);
+          assert.deepEqual(Object.keys(after.urls).filter(u=>!before.urls[u]),[url]);
+          assert.deepEqual(Object.keys(before.urls).filter(u=>!after.urls[u]),[]);
+          const html=readFileSync(cur+path,'utf8');
+          assert.ok(html.includes('MSMED Amendment Act, 2026: What Is in Force and What Is Still Awaiting Commencement?'));
+          assert.ok(html.includes('href="'+url+'"'));
+          assert.ok(html.includes('citadel-thumb-'+slug+'.jpg'));
+          assert.ok(html.includes('BlogPosting'));
+          assert.ok(html.includes('273996.pdf'));assert.ok(html.includes('275448.pdf'));
+          assert.ok(html.includes('277080.pdf'));
+          for(const p of ['index.html','legal-updates.html'])assert.ok(readFileSync(cur+p,'utf8').includes(slug));
+          const feed=readFileSync(cur+'feed.xml','utf8'),sitemap=readFileSync(cur+'sitemap.xml','utf8');
+          const items=s=>new Map([...s.matchAll(/<item>([\s\S]*?)<\/item>/g)].map(m=>[m[1].match(/<guid[^>]*>(.*?)<\/guid>/)?.[1],m[1].match(/<pubDate>(.*?)<\/pubDate>/)?.[1]]));
+          const prevItems=items(readFileSync(old+'feed.xml','utf8')),nextItems=items(feed);
+          assert.equal(prevItems.size,53);assert.equal(nextItems.size,54);
+          for(const [guid,date] of prevItems)assert.equal(Date.parse(nextItems.get(guid)),Date.parse(date),guid);
+          assert.ok(nextItems.has(url));
+          assert.ok(sitemap.includes('<loc>'+url+'</loc>'));
+          assert.ok(existsSync(cur+'_ak-markdown/'+path+'.md'));
+          assert.ok(!sitemap.includes('publishing-example'));assert.ok(!feed.includes('publishing-example'));
+          for(const p of ['msme-registration-benefits-eligibility','msme-facilitation-council-process','bihar-msefc-filing-procedure-msme-delayed-payment','after-msefc-award-challenge-deposit-stay-enforcement','msme-odr-portal-filing-procedure','msme-registration-after-contract-supply']){
+            const f='updates/'+p+'.html',h=readFileSync(cur+f,'utf8');
+            const links=[...h.matchAll(/<a\b[^>]*\bhref=["']([^"']+)["'][^>]*>([^]*?)<\/a>/gi)];
+            const target=links.find(m=>/MSMED Amendment Act 2026 commencement guide/i.test(m[2])&&new URL(m[1],origin+'/'+f).href===url);
+            assert.ok(target,p+' missing contextual reciprocal link resolving to '+url);
+            console.log(p+' reciprocal href: '+target[1]);
+            assert.ok(h.includes('2026-11-28'));
+            const entry=sitemap.match(/<url>[^]*?<\/url>/g).find(x=>x.includes('<loc>'+origin+'/'+f+'</loc>'));
+            assert.ok(entry.includes('<lastmod>2026-11-28</lastmod>'),p);
+          }
+          const count=Object.keys(after.urls).filter(u=>u===origin+'/'||u===origin+'/legal-updates.html'||u.startsWith(origin+'/updates/')).length;
+          assert.equal(count,56);
+          console.log('M03 native publication verified: 90 canonicals, 54 RSS entries, 56 Markdown routes, six reciprocal links, all previous canonical URLs and RSS dates retained.');
+          NODE
+      - name: Verify JPEG dimensions
+        working-directory: astro-site
+        run: |
+          python - <<'PY'
+          import struct
+          from pathlib import Path
+          def dims(p):
+              b=p.read_bytes()
+              assert b[:2]==bytes([255,216])
+              i=2
+              while i<len(b)-4:
+                  if b[i]!=255: raise ValueError(p)
+                  while b[i]==255: i+=1
+                  marker=b[i]; i+=1
+                  if marker in (0xd8,0xd9): continue
+                  n=int.from_bytes(b[i:i+2],'big')
+                  if marker in (0xc0,0xc1,0xc2,0xc3):
+                      h,w=struct.unpack('>HH',b[i+3:i+7]); return w,h
+                  i+=n
+              raise ValueError(p)
+          for rel,expected in [('citadel-thumb-msmed-amendment-act-2026.jpg',(1200,675)),('cards/citadel-thumb-msmed-amendment-act-2026-640.jpg',(640,360))]:
+              for root in ('public','dist-production'):
+                  p=Path(root)/'assets/img/citadel'/rel
+                  assert dims(p)==expected,(p,dims(p))
+                  print(p,expected)
+          PY
+      - name: Dry-run changed URL comparison
+        working-directory: astro-site
+        run: |
+          mkdir -p /tmp/ak-m03
+          node scripts/indexnow-production.mjs /tmp/ak-previous/astro-site/dist-production/release-manifest.json | tee /tmp/ak-m03/indexnow-dry-run.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m03-publication-validation
+          path: |
+            /tmp/ak-m03/indexnow-dry-run.json
+            /tmp/ak-previous/astro-site/dist-production/release-manifest.json
+            astro-site/dist-production/release-manifest.json
